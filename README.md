@@ -1,4 +1,4 @@
 etc
 ===
 
-rc files and miscellaneous config
+nothing to see here
