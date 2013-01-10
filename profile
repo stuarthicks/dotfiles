@@ -5,6 +5,7 @@ alias lsa='ls -lah'
 alias ll='ls -lah'
 alias pp='ps aux | grep'
 alias orphans='sudo pacman -Rs $(pacman -Qtdq)'
+alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 alias psh='perl -d -e 1'
 
 export EDITOR=vim
