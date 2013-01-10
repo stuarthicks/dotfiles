@@ -1,8 +1,19 @@
+shopt -s histverify
+export TERM=screen-256color
 alias lsa='ls -lah'
 
 alias ll='ls -lah'
 alias pp='ps aux | grep'
 alias orphans='sudo pacman -Rs $(pacman -Qtdq)'
+alias psh='perl -d -e 1'
+
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=$(which vimpager)
+alias less=$PAGER
+
+export CLICOLOR=1
+export LSCOLORS=exfxcxdxbxexexabagacad
 
 red="\033[1;31m"
 norm="\033[0;39m"
@@ -27,24 +38,45 @@ settitle () {
     printf "\033k$1\033\\"
 }
 
+set_remote_panes() {
+    #tmux set-environment 's' "ssh '$@'"
+    tmux unbind-key \\
+    tmux unbind-key -
+    tmux bind-key \\ split-window -h "ssh '$@'"
+    tmux bind-key - split-window -v "ssh '$@'"
+}
+
+unset_remote_panes() {
+    tmux unbind-key \\
+    tmux unbind-key -
+    tmux bind-key \\ split-window -h
+    tmux bind-key - split-window -v
+}
+
 ssh () {
     settitle "$*"
+    set_remote_panes "$@"
     ssh "$@"
+    unset_remote_panes
 }
 
 path () {
     echo $PATH | tr : $'\n'
 }
 
+dep() {
+    find . -name 'pom.xml' | xargs ack -ai -B2 -A4 "$1"
+}
+
 notify () {
     echo "$2" | mailx -s "$1" 2838bb252088c632a8c3062c0ef958239b6993c7@api.prowlapp.com
 }
 
+alias indexing='sudo mdutil -a -v -i'
+
 wgetar () {
     wget -q0 - "$1" | tar xzvf -
 }
-
-shopt -s histverify
 
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
