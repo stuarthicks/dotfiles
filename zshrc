@@ -17,7 +17,8 @@ set -o extendedglob
 # Customize to your needs...
 export PATH=~/.gem/ruby/1.9.1/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
 
-freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 bindkey '^R' history-incremental-search-backward
 
 source ~/.profile
+zstyle ':completion::complete:cd::' tag-order '! users' - # do not auto complete user names
+zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
