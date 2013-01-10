@@ -10,6 +10,11 @@ filetype plugin on
 filetype indent on
 syntax on
 
+if &term == "screen"
+  set t_kN=^[[6;*~
+  set t_kP=^[[5;*~
+endif
+
 " Formatting/Editing
 set autoindent
 set shiftwidth=2
