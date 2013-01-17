@@ -9,9 +9,8 @@ DISABLE_AUTO_UPDATE="true"
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git gem github ruby vi-mode)
+plugins=(git gem github ruby)
 
-set -o vi
 set -o extendedglob
 
 # Customize to your needs...
