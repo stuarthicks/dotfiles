@@ -1,4 +1,4 @@
-shopt -s histverify
+#shopt -s histverify
 export TERM=screen-256color
 alias lsa='ls -lah'
 
@@ -27,15 +27,15 @@ solarized_red="\033[0;31m"
 solarized_blue="\033[0;34m"
 solarized_yellow="\033[0;33m"
 
-if [ "$PS1" ]; then
-    if [[ $UID -eq 0 ]]; then
-        PS1="\[$solarized_red\]\u@\h:\w\\[\033[0;39m\]\n# "
-    else
-        PS1="\[$solarized_green\]\u@\h:\w\\[\033[0;39m\]\n\$ "
-    fi
-    export PROMPT_COMMAND="echo -e \"$solarized_yellow\" && echo -n \[\$(date +%H:%M:%S)\]"
-    export PS1=" "$PS1"\[\e]30;\u@\h\a\]"
-fi
+#if [ "$PS1" ]; then
+#    if [[ $UID -eq 0 ]]; then
+#        PS1="\[$solarized_red\]\u@\h:\w\\[\033[0;39m\]\n# "
+#    else
+#        PS1="\[$solarized_green\]\u@\h:\w\\[\033[0;39m\]\n\$ "
+#    fi
+#    export PROMPT_COMMAND="echo -e \"$solarized_yellow\" && echo -n \[\$(date +%H:%M:%S)\]"
+#    export PS1=" "$PS1"\[\e]30;\u@\h\a\]"
+#fi
 
 settitle () {
     printf "\033k$1\033\\"
