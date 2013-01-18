@@ -1,0 +1,56 @@
+#!/bin/bash
+set -eu
+
+if [ ! -d "$HOME" ] ; then echo "Not found: $HOME" ; exit 1 ; fi
+ETC="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+link () {
+  FROM="$ETC/$1"
+  if [ ! -e "$FROM" ] ; then echo "Not found: $FROM" ; exit 1 ; fi
+  TO="$HOME/$1"
+  if [ ! -e "$TO" ] ; then
+    echo "Linking: $TO --> $FROM"
+    pushd "$(dirname "$TO")" > /dev/null
+    ln -s "$FROM"
+    popd > /dev/null
+  else
+    echo "Exists: $TO"
+  fi
+}
+
+link ".aliases"
+link ".SciTEUser.properties"
+link ".tmux.conf"
+link ".zprofile"
+link ".zshenv"
+link ".zshrc"
+link ".vimrc"
+
+mkdir -p "$HOME/bin"
+link "bin/tmux-irssi-act"
+link "bin/tmux-renum"
+link "bin/kindlify"
+link "bin/thumbs"
+link "bin/org-by-month"
+link "bin/pull-all"
+link "bin/listening"
+link "bin/list-git-branches"
+link "bin/gitbox"
+link "bin/fndi"
+link "bin/pi-setup"
+link "bin/shared-pacmd"
+link "bin/heroku-name-gen"
+link "bin/kana-name-gen"
+link "bin/install-ssh-key"
+link "bin/unlimited-cucumber-works"
+link "bin/aac-to-mp3"
+link "bin/extract-audio"
+link "bin/midentify"
+link "bin/extract"
+link "bin/sspurge"
+
+
+mkdir -p "$HOME/Library/Application Support/KeyRemap4MacBook"
+link "Library/Application Support/KeyRemap4MacBook/private.xml"
+
+mkdir -p "$HOME/.vimswp"
