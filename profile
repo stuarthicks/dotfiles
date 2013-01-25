@@ -56,12 +56,12 @@ unset_remote_panes() {
     tmux bind-key - split-window -v
 }
 
-ssh () {
-    settitle "$*"
-    set_remote_panes "$@"
-    ssh "$@"
-    unset_remote_panes
-}
+#ssh () {
+#    settitle "$*"
+#    set_remote_panes "$@"
+#    ssh "$@"
+#    unset_remote_panes
+#}
 
 path () {
     echo $PATH | tr : $'\n'
