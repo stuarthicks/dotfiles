@@ -4,6 +4,8 @@
 #source $ZSH/oh-my-zsh.sh
 #ZSH_THEME="flazz"
 
+PROMPT='%n :: %m <%3c> ' # TODO: COLORS
+
 DISABLE_AUTO_UPDATE="true"
 
 # DISABLE_AUTO_TITLE="true"
