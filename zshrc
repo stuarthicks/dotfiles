@@ -4,6 +4,8 @@
 #source $ZSH/oh-my-zsh.sh
 #ZSH_THEME="flazz"
 
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+
 PROMPT='%n :: %m <%3c> ' # TODO: COLORS
 RPS1='> %?'
 
