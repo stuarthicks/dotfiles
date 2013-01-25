@@ -1,7 +1,8 @@
-ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# Oh my zsh seems to be broken atm, DOING IT LIVE!
 
-ZSH_THEME="flazz"
+#ZSH=$HOME/.oh-my-zsh
+#source $ZSH/oh-my-zsh.sh
+#ZSH_THEME="flazz"
 
 DISABLE_AUTO_UPDATE="true"
 
@@ -19,6 +20,6 @@ export PATH=~/.gem/ruby/1.9.1/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:
 
 bindkey '^R' history-incremental-search-backward
 
-source ~/.profile
+#source ~/.profile
 zstyle ':completion::complete:cd::' tag-order '! users' - # do not auto complete user names
 zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
