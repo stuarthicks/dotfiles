@@ -5,6 +5,7 @@
 #ZSH_THEME="flazz"
 
 PROMPT='%n :: %m <%3c> ' # TODO: COLORS
+RPS1='> %?'
 
 DISABLE_AUTO_UPDATE="true"
 
