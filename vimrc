@@ -38,6 +38,8 @@ inoremap jj <Esc>
 map Q :<CR>
 nore ; :
 
+map q: :q
+
 " Remove trailing whitespace from all lines
 map <F5> :%s/\s\+$//
 
