@@ -1,4 +1,4 @@
-export TERM=screen-256color
+#export TERM=screen-256color
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
@@ -39,6 +39,15 @@ REPORTTIME=1
 
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
+red="\033[1;31m"
+norm="\033[0;39m"
+cyan="\033[1;36m"
+
+solarized_green="\033[0;32m"
+solarized_red="\033[0;31m"
+solarized_blue="\033[0;34m"
+solarized_yellow="\033[0;33m"
+
 PROMPT='%n :: %m <%3c> ' # TODO: COLORS
 RPS1='> %?'
 
@@ -57,15 +66,29 @@ unsetopt correct_all
 export PATH=~/.gem/ruby/1.9.1/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
 
 bindkey '^R' history-incremental-search-backward
+bindkey "\e[Z" reverse-menu-complete # Shift+Tab
+bindkey '^a' beginning-of-line # Home
+bindkey '^e' end-of-line # End
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
 
-#source ~/.profile
+zmodload zsh/complist
+autoload -Uz compinit
+compinit
+
+setopt COMPLETEALIASES
+
+zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*:descriptions' format '%U%d%u'
+zstyle ':completion:*:warnings' format 'No matches for: %B%d%b'
+zstyle ':completion:*' menu select=2 # show menu when at least 2 options.
 zstyle ':completion::complete:cd::' tag-order '! users' - # do not auto complete user names
 zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 
-alias quack=perl -lpe 's/(\w{5,})/"qu" . ("a" x (length($1)-4)) . "ck"/eg\'
-alias t='tmux'
+bindkey -M menuselect "=" accept-and-menu-complete
+
 alias v='vim'
-alias svd='svn diff -x -b | vim -'
+alias vd='svn diff -x -b | vim -'
 alias ll='ls -lah'
 alias pp='ps aux | grep'
 alias orphans='sudo pacman -Rs $(pacman -Qtdq)'
@@ -87,15 +110,6 @@ export VISUAL=vim
 
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxexexabagacad
-
-red="\033[1;31m"
-norm="\033[0;39m"
-cyan="\033[1;36m"
-
-solarized_green="\033[0;32m"
-solarized_red="\033[0;31m"
-solarized_blue="\033[0;34m"
-solarized_yellow="\033[0;33m"
 
 settitle () {
     printf "\033k$1\033\\"
