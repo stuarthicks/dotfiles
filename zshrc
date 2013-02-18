@@ -1,5 +1,7 @@
 #export TERM=screen-256color
 
+bindkey -e
+
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
