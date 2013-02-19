@@ -5,6 +5,8 @@ au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
 colorscheme solarized
 set background=dark
 
+set go-=T " Hide toolbar in gui vim
+
 filetype on
 filetype plugin on
 filetype indent on
