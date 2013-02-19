@@ -1,7 +1,7 @@
-#export TERM=screen-256color
-
+# Start with emacs keybindings
 bindkey -e
 
+# ALL the history options!
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
@@ -37,8 +37,20 @@ insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
 
+# Meta-u to chdir to the parent directory
+bindkey -s '\eu' '^Ucd ..; ls^M'
+
+# If AUTO_PUSHD is set, Meta-p pops the dir stack
+bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M'
+
+# # Pipe the current command through less
+bindkey -s "\el" " 2>&1|less^M"
+
+# Show how long a job takes
 REPORTTIME=1
 
+# Terminal colour magic that I don't understand
+export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 red="\033[1;31m"
@@ -110,9 +122,6 @@ alias tf='tail -f'
 export EDITOR=vim
 export VISUAL=vim
 
-export CLICOLOR=1
-export LSCOLORS=exfxcxdxbxexexabagacad
-
 settitle () {
     printf "\033k$1\033\\"
 }
@@ -132,12 +141,12 @@ unset_remote_panes() {
     tmux bind-key - split-window -v
 }
 
-#ssh () {
-#    settitle "$*"
+ssh () {
+    settitle "$*"
 #    set_remote_panes "$@"
-#    ssh "$@"
+    ssh "$@"
 #    unset_remote_panes
-#}
+}
 
 path () {
     echo $PATH | tr : $'\n'
