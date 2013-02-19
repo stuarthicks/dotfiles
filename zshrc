@@ -118,6 +118,7 @@ alias gitgrep="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -ty
 alias dus='du -sh *'
 alias t='tail'
 alias tf='tail -f'
+alias serve='python -m SimpleHTTPServer 8000'
 
 export EDITOR=vim
 export VISUAL=vim
