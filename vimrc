@@ -1,7 +1,3 @@
-" Make feature files look pretty
-au Bufread,BufNewFile *.feature set filetype=gherkin
-au! Syntax gherkin source ~/.vim/syntax/cucumber.vim
-
 colorscheme solarized
 set background=dark
 
