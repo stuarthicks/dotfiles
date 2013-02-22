@@ -102,19 +102,21 @@ zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 bindkey -M menuselect "=" accept-and-menu-complete
 
 alias v='vim'
+alias q='exit'
+alias :q='exit'
 alias vd='svn diff -x -b | vim -'
 alias ll='ls -lah'
 alias pp='ps aux | grep'
-alias orphans='sudo pacman -Rs $(pacman -Qtdq)'
+alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
 alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 alias psh='perl -d -e 1'
 alias g='grep'
-alias psg='ps aux | grep'
+alias a='ack -ai'
+alias pp='ps aux | grep'
 alias pstree='ps -AHwef'
-alias :q='exit'
 alias dc='cd'
-alias svngrep="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
-alias gitgrep="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
+alias sg="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
+alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias dus='du -sh *'
 alias t='tail'
 alias tf='tail -f'
@@ -125,28 +127,6 @@ export VISUAL=vim
 
 settitle () {
     printf "\033k$1\033\\"
-}
-
-set_remote_panes() {
-    #tmux set-environment 's' "ssh '$@'"
-    tmux unbind-key \\
-    tmux unbind-key -
-    tmux bind-key \\ split-window -h "ssh '$@'"
-    tmux bind-key - split-window -v "ssh '$@'"
-}
-
-unset_remote_panes() {
-    tmux unbind-key \\
-    tmux unbind-key -
-    tmux bind-key \\ split-window -h
-    tmux bind-key - split-window -v
-}
-
-ssh () {
-    settitle "$*"
-#    set_remote_panes "$@"
-    ssh "$@"
-#    unset_remote_panes
 }
 
 path () {
