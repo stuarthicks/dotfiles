@@ -118,8 +118,8 @@ alias dc='cd'
 alias sg="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias dus='du -sh *'
-alias t='tail'
-alias tf='tail -f'
+alias t='tmux'
+alias ta='tmux attach'
 alias serve='python -m SimpleHTTPServer 8000'
 
 export EDITOR=vim
