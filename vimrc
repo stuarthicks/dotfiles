@@ -29,6 +29,12 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
+" Alternative to nicer split-window navigation
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+
 " Double tap j in insert mode to return to normal mode
 inoremap jj <Esc>
 
@@ -40,6 +46,8 @@ map q: :q
 
 " Remove trailing whitespace from all lines
 map <F5> :%s/\s\+$//
+
+map <F3> :Explore<CR>
 
 " Fold blocks of code
 nnoremap <space> za
