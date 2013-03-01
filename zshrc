@@ -16,7 +16,6 @@ setopt HIST_VERIFY
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
-setopt NOBANGHIST
 
 setopt MULTIOS # pipe to multiple outputs.
 setopt EXTENDEDGLOB # e.g. cp ^*.(tar|bz2|gz)
