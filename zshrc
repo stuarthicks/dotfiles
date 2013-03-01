@@ -37,6 +37,12 @@ insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
 
+insert_alias () {
+  zle beginning-of-line; zle -U "alias ";
+}
+zle -N insert-alias insert_alias
+bindkey "^[a" insert-alias
+
 # Meta-u to chdir to the parent directory
 bindkey -s '\eu' '^Ucd ..; ls^M'
 
@@ -53,17 +59,8 @@ REPORTTIME=1
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-red="\033[1;31m"
-norm="\033[0;39m"
-cyan="\033[1;36m"
-
-solarized_green="\033[0;32m"
-solarized_red="\033[0;31m"
-solarized_blue="\033[0;34m"
-solarized_yellow="\033[0;33m"
-
-PROMPT='%n :: %m <%3c> ' # TODO: COLORS
-RPS1='> %?'
+autoload colors && colors
+PROMPT="$fg[red]*%? $fg[green]%m $fg[white]:: $fg[cyan]%h $fg[grey]<%3c> $reset_color"
 
 DISABLE_AUTO_UPDATE="true"
 
