@@ -82,6 +82,10 @@ bindkey '^e' end-of-line # End
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
+# esc-e to edit current command in $EDITOR
+autoload edit-command-line && zle -N edit-command-line
+bindkey '\ee' edit-command-line
+
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
