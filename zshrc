@@ -121,6 +121,7 @@ alias dus='du -sh *'
 alias t='tmux'
 alias ta='tmux attach'
 alias serve='python -m SimpleHTTPServer 8000'
+alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 
 export EDITOR=vim
 export VISUAL=vim
