@@ -102,6 +102,7 @@ zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 bindkey -M menuselect "=" accept-and-menu-complete
 
 alias v='vim'
+alias c='cat'
 alias q='exit'
 alias :q='exit'
 alias vd='svn diff -x -b | vim -'
@@ -122,6 +123,7 @@ alias t='tmux'
 alias ta='tmux attach'
 alias serve='python -m SimpleHTTPServer 8000'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
+alias ss='svn st'
 
 export EDITOR=vim
 export VISUAL=vim
