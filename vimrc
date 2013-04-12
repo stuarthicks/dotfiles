@@ -29,12 +29,6 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" Alternative to nicer split-window navigation
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
-
 " Double tap j in insert mode to return to normal mode
 inoremap jj <Esc>
 
@@ -52,11 +46,10 @@ map <F3> :Explore<CR>
 " Fold blocks of code
 nnoremap <space> za
 
-" I don't remember what this does...
-nnoremap <silent> <F7> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 " Don't clutter directories with .swp files
+silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
+set directory=~/.vim/backup
 
 " Misc settings/tweaks
 set cul
