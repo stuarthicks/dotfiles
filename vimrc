@@ -23,6 +23,9 @@ set expandtab
 set nowrapscan
 set number
 
+" Custom syntax files
+au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+
 " Nicer split-window navigation
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
@@ -31,6 +34,8 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 " Double tap j in insert mode to return to normal mode
 inoremap jj <Esc>
+
+inoremap <S-Tab> <c-x><c-f> 
 
 " More ways to enter commands
 map Q :<CR>
@@ -42,6 +47,14 @@ map q: :q
 map <F5> :%s/\s\+$//
 
 map <F3> :Explore<CR>
+
+" Refactor renaming
+
+" For local replace
+nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 
 " Fold blocks of code
 nnoremap <space> za
