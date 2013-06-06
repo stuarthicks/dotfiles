@@ -2,6 +2,7 @@ colorscheme solarized
 set background=dark
 
 set go-=T " Hide toolbar in gui vim
+set diffopt+=iwhite "ignore whitespace in diffs
 
 filetype on
 filetype plugin on
