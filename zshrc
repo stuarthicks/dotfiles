@@ -1,4 +1,5 @@
 # Start with emacs keybindings
+export TERM=screen-256color
 bindkey -e
 
 # ALL the history options!
@@ -106,6 +107,7 @@ alias c='cat'
 alias q='exit'
 alias :q='exit'
 alias vd='svn diff -x -b | vim -'
+alias gvd='svn diff -x -b | gvim -'
 alias ll='ls -laht'
 alias pp='ps aux | grep'
 alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
