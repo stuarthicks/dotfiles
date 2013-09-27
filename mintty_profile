@@ -13,11 +13,6 @@ settitle () {
     printf "\033k$1\033\\"
 }
 
-ssh () {
-    settitle "$*"
-    ssh "$@"
-}
-
 path () {
     echo $PATH | tr : $'\n'
 }
