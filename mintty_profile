@@ -1,4 +1,4 @@
-source sol.light
+source sol.dark
 
 red="\033[1;31m"
 norm="\033[0;39m"
