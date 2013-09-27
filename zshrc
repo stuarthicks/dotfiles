@@ -126,6 +126,7 @@ alias ta='tmux attach'
 alias serve='python -m SimpleHTTPServer 8000'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias ss='svn st'
+alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
 
 export EDITOR=vim
 export VISUAL=vim
