@@ -54,7 +54,7 @@ map <F5> :%s/\s\+$//
 map <F2> :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Refactor renaming
+map <F3> :%!python -mjson.tool
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
