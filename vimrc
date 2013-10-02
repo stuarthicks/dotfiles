@@ -36,7 +36,7 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
 " Double tap j in insert mode to return to normal mode
-inoremap jj <Esc>
+"inoremap jj <Esc>
 
 inoremap <S-Tab> <c-x><c-f> 
 
@@ -49,7 +49,10 @@ map q: :q
 " Remove trailing whitespace from all lines
 map <F5> :%s/\s\+$//
 
-map <F3> :Explore<CR>
+" Set F2 as Nerd Tree toggle and tell vim to exit if the only window open is
+" nerd tree
+map <F2> :NERDTreeToggle<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Refactor renaming
 
@@ -91,7 +94,7 @@ function! DoPrettyXML()
     exe "set ft=" . l:origft
     endfunction
     command! PrettyXML call DoPrettyXML()
-map <F6> :PrettyXML<CR>
+map <F4> :PrettyXML<CR>
 
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
