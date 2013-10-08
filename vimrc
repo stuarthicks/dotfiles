@@ -24,7 +24,6 @@ set listchars=tab:>-
 set expandtab
 set nowrapscan
 set number
-set relativenumber
 
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
