@@ -133,7 +133,7 @@ alias kk='kill -9 %1'
 export EDITOR=vim
 export VISUAL=vim
 
-settitle () {
+title () {
     printf "\033k$1\033\\"
 }
 
@@ -147,5 +147,7 @@ wgetar () {
 
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
+
+red
 
 source ~/.profile
