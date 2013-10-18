@@ -148,6 +148,4 @@ wgetar () {
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
-red
-
 source ~/.profile
