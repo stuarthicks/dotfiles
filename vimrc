@@ -46,14 +46,15 @@ nore ; :
 map q: :q
 
 " Remove trailing whitespace from all lines
-map <F5> :%s/\s\+$//
+map <F6> :%s/\s\+$//
 
 " Set F2 as Nerd Tree toggle and tell vim to exit if the only window open is
 " nerd tree
 map <F2> :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <F3> :TagbarToggle<cr>
 
-map <F3> :%!python -mjson.tool
+map <F4> :%!python -mjson.tool
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
@@ -93,7 +94,7 @@ function! DoPrettyXML()
     exe "set ft=" . l:origft
     endfunction
     command! PrettyXML call DoPrettyXML()
-map <F4> :PrettyXML<CR>
+map <F5> :PrettyXML<CR>
 
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
