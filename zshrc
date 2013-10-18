@@ -60,7 +60,8 @@ export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 autoload colors && colors
-PROMPT="%{$fg[red]%}*%? %{$fg[green]%}%m%{$fg[white]%}::%{$fg[cyan]%}%h %{$fg[grey]%}<%3c> %{$reset_color%}"
+PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
+%{$fg[red]%}$ %{$reset_color%}"
 
 DISABLE_AUTO_UPDATE="true"
 
