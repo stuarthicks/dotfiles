@@ -11,46 +11,20 @@ link () {
   if [ ! -e "$TO" ] ; then
     echo "Linking: $TO --> $FROM"
     pushd "$(dirname "$TO")" > /dev/null
-    ln -s "$FROM"
+    ln -s ".$1" "$FROM"
     popd > /dev/null
   else
     echo "Exists: $TO"
   fi
 }
 
-link ".aliases"
-link ".SciTEUser.properties"
-link ".tmux.conf"
-link ".zprofile"
-link ".zshenv"
-link ".zshrc"
-link ".vimrc"
+link "mailcap"
+link "mintty_profile"
+link "tmux.conf"
+link "vimrc"
+link "Xresources"
+link "zprofile"
+link "zshrc"
 
-mkdir -p "$HOME/bin"
-link "bin/tmux-irssi-act"
-link "bin/tmux-renum"
-link "bin/kindlify"
-link "bin/thumbs"
-link "bin/org-by-month"
-link "bin/pull-all"
-link "bin/listening"
-link "bin/list-git-branches"
-link "bin/gitbox"
-link "bin/fndi"
-link "bin/pi-setup"
-link "bin/shared-pacmd"
-link "bin/heroku-name-gen"
-link "bin/kana-name-gen"
-link "bin/install-ssh-key"
-link "bin/unlimited-cucumber-works"
-link "bin/aac-to-mp3"
-link "bin/extract-audio"
-link "bin/midentify"
-link "bin/extract"
-link "bin/sspurge"
-
-
-mkdir -p "$HOME/Library/Application Support/KeyRemap4MacBook"
-link "Library/Application Support/KeyRemap4MacBook/private.xml"
-
-mkdir -p "$HOME/.vimswp"
+link "pentadactylrc"
+ln -s $HOME/.pentadactyl pentadactyl
