@@ -37,6 +37,17 @@ insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    kill -9 %+
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 insert_alias () {
   zle beginning-of-line; zle -U "alias ";
 }
