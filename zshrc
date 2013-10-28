@@ -70,9 +70,20 @@ REPORTTIME=1
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*:*' get-revision true
+zstyle ':vcs_info:*' formats "%b:%12.7i"
+precmd() {
+    vcs_info
+}
+setopt prompt_subst
+
 autoload colors && colors
 PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
 %{$fg[red]%}$ %{$reset_color%}"
+RPROMPT='%{$fg[yellow]%}${vcs_info_msg_0_}%{$reset_color%}'
 
 DISABLE_AUTO_UPDATE="true"
 
