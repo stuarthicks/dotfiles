@@ -130,3 +130,5 @@ command! HL call g:HighlightLine()
 nnoremap <silent> <buffer> <leader>s ^:HL<cr>
 nnoremap <silent> <buffer> <leader>u ^:sign unplace<cr>
 nnoremap <silent> <buffer> <leader>a :sign unplace *<cr>
+
+let @m = '^iMEDIASERVICES-'
