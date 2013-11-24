@@ -75,3 +75,9 @@
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
+
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: 12
+
+URxvt.font: xft:DejaVuSansMono:size=12
+URxvt*loginShell: true
