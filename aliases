@@ -11,3 +11,4 @@ alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <(
 alias v='mvim -v'
 alias vv='reattach-to-user-namespace mvim -g'
 alias enable_ssh='sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist'
+alias tcopy='tmux saveb -| pbcopy && tmux deleteb'
