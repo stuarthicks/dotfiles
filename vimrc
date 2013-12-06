@@ -6,6 +6,7 @@ set go-=T " Hide toolbar in gui vim
 set guifont=Inconsolata:h14
 set guioptions=aem
 set diffopt+=iwhite "ignore whitespace in diffs
+set clipboard=unnamed
 
 filetype on
 filetype plugin on
