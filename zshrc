@@ -48,12 +48,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-insert_alias () {
-  zle beginning-of-line; zle -U "alias ";
-}
-zle -N insert-alias insert_alias
-bindkey "^[a" insert-alias
-
 # Meta-u to chdir to the parent directory
 bindkey -s '\eu' '^Ucd ..; ls^M'
 
