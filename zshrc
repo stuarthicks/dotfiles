@@ -110,34 +110,6 @@ zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-alias v='vim'
-alias c='cat'
-alias q='exit'
-alias :q='exit'
-alias vd='svn diff -x -b | vim -'
-alias gvd='svn diff -x -b | gvim -'
-alias gsd='git diff | v -'
-alias ll='ls -laht'
-alias pp='ps aux | grep'
-alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
-alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
-alias psh='perl -d -e 1'
-alias g='grep'
-alias a='ack -ai'
-alias pp='ps aux | grep'
-alias pstree='ps -AHwef'
-alias dc='cd'
-alias sg="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
-alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
-alias dus='du -sh *'
-alias t='tmux'
-alias ta='tmux attach'
-alias serve='python -m SimpleHTTPServer 8000'
-alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
-alias ss='svn st'
-alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
-alias kk='kill -9 %1'
-
 export EDITOR=vim
 export VISUAL=vim
 
