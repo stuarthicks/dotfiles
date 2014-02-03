@@ -1,3 +1,4 @@
+alias l='ls -ltrAhFT'
 alias bec='bundle exec cucumber'
 alias bes='bundle exec spork'
 alias bi='bundle install'
