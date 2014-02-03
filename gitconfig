@@ -1,0 +1,29 @@
+[core]
+  excludesFile = ~/.gitignore
+  pager = less
+[push]
+  default = tracking
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
+  ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short  # pretty one-line log with tags, branches and authors
+  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat    # a verbose ls, shows changed files too
+  st = status
+  s = status -sb
+  ci = commit
+  co = checkout
+  ds = diff --staged
+  fup = log --since '1 day ago' --oneline --author <EMAIL>
+  abandon-ship = reset HEAD^^ --hard
+  sl = stash list
+  sa = stash apply
+  ss = stash save
+  sd = stash drop
+  sp = stash pop
+[tig]
+  author-width = 60       # Set width of the author column
+  tab-size = 4            # Number of spaces per tab
+[help]
+  autocorrect = 1
+[branch]
+  autosetuprebase = always
