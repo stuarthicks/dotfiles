@@ -149,6 +149,11 @@ path () {
     echo $PATH | tr : $'\n'
 }
 
+lspath () {
+  (($#)) || set ''
+  print -lr -- $^path/*$^@*(N:t) | sort -u
+}
+
 wgetar () {
     wget -q0 - "$1" | tar xzvf -
 }
