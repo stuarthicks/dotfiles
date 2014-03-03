@@ -36,6 +36,7 @@ setopt LONG_LIST_JOBS
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo
+bindkey "^[s" 'source ~/.zshrc'
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -134,3 +135,5 @@ LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
 source ~/.profile
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
