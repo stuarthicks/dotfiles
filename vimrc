@@ -54,10 +54,11 @@ map <F6> :%s/\s\+$//
 " Set F2 as Nerd Tree toggle and tell vim to exit if the only window open is
 " nerd tree
 map <F2> :NERDTreeToggle<cr>
+let g:NERDTreeWinSize=26
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <F3> :TagbarToggle<cr>
 
-map <F4> :%!python -mjson.tool
+map <F4> :%!python -mjson.tool<cr>
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
