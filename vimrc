@@ -136,3 +136,9 @@ nnoremap <silent> <buffer> <leader>u ^:sign unplace<cr>
 nnoremap <silent> <buffer> <leader>a :sign unplace *<cr>
 
 let @m = '^iMEDIASERVICES-'
+
+nnoremap <F8> :Dispatch 
+nnoremap <F9> :Dispatch<CR>
+autocmd FileType java let b:dispatch = 'mvn clean install'
+autocmd FileType ruby let b:dispatch = 'bundle exec cucumber'
+autocmd FileType perl let b:dispatch = 'perl -wc %'
