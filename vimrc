@@ -142,3 +142,4 @@ nnoremap <F9> :Dispatch<CR>
 autocmd FileType java let b:dispatch = 'mvn clean install'
 autocmd FileType ruby let b:dispatch = 'bundle exec cucumber'
 autocmd FileType perl let b:dispatch = 'perl -wc %'
+autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
