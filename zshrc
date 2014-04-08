@@ -64,16 +64,31 @@ REPORTTIME=1
 # Terminal colour magic that I don't understand
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
-
-setopt prompt_subst
-
 autoload colors && colors
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' enable git svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+precmd() {
+    vcs_info
+}
+
+# Allow for functions in the prompt.
+setopt PROMPT_SUBST
+
 PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
 %{$fg[red]%}$ %{$reset_color%}"
-
-DISABLE_AUTO_UPDATE="true"
-
-# DISABLE_AUTO_TITLE="true"
+RPROMPT='$(vcs_info_wrapper)'
 
 COMPLETION_WAITING_DOTS="true"
 
@@ -134,18 +149,7 @@ wgetar () {
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
-alias hr='print ${(l:COLUMNS::─:)}'
-
 source ~/.profile
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-source ~/.zsh-autosuggestions/autosuggestions.zsh
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
-# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
-# zsh-autosuggestions is designed to be unobtrusive)
-bindkey '^T' autosuggest-toggle
