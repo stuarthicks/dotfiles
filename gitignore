@@ -21,3 +21,5 @@ screenshots/
 tags
 unlimited-cucumber-works
 tmp/
+
+*.log
