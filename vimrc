@@ -7,6 +7,7 @@ set guifont=Inconsolata:h14
 set guioptions=aem
 set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
+set cm=blowfish
 
 filetype on
 filetype plugin on
