@@ -1,4 +1,53 @@
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between here and filetype plugin indent on.
+" scripts on GitHub repos
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'Lokaltog/vim-easymotion'
+" scripts from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
+" scripts not on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" ...
+
+Plugin 'craigemery/vim-autotag'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'taglist-plus'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-dispatch'
+Plugin 'jayflo/vim-skip'
+Plugin 'msanders/snipmate.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-surround'
+
+filetype plugin indent on     " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Plugin commands are not allowed.
+" Put your stuff after this line
+
 colorscheme solarized
 set background=dark
 
@@ -9,9 +58,6 @@ set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
 
-filetype on
-filetype plugin on
-filetype indent on
 syntax on
 
 if &term == "screen"
