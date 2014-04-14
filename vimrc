@@ -18,6 +18,7 @@ Plugin 'gmarik/vundle'
 " Plugin 'git://git.wincent.com/command-t.git'
 
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'craigemery/vim-autotag'
 Plugin 'jayflo/vim-skip'
 Plugin 'jlanzarotta/bufexplorer'
