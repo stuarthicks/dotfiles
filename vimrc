@@ -12,26 +12,23 @@ Plugin 'gmarik/vundle'
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 " Plugin 'tpope/vim-fugitive'
-" Plugin 'Lokaltog/vim-easymotion'
 " scripts from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
 " Plugin 'FuzzyFinder'
 " scripts not on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
-" ...
 
+Plugin 'Lokaltog/vim-easymotion'
 Plugin 'craigemery/vim-autotag'
+Plugin 'jayflo/vim-skip'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'msanders/snipmate.vim'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'taglist-plus'
-Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-dispatch'
-Plugin 'jayflo/vim-skip'
-Plugin 'msanders/snipmate.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
 
 filetype plugin indent on     " required
