@@ -1,6 +1,11 @@
 # Start with emacs keybindings
 export TERM=screen-256color
-bindkey -e
+bindkey -v
+bindkey "^W" backward-kill-word    # vi-backward-kill-word
+bindkey "^H" backward-delete-char  # vi-backward-delete-char
+bindkey "^U" kill-line             # vi-kill-line
+bindkey "^?" backward-delete-char  # vi-backward-delete-char
+export KEYTIMEOUT=1
 
 # ALL the history options!
 export HISTFILE=~/.zsh_history
@@ -81,14 +86,22 @@ vcs_info_wrapper() {
 }
 precmd() {
     vcs_info
+    #'hr' -> print ${(l:COLUMNS::─:)}
 }
 
 # Allow for functions in the prompt.
 setopt PROMPT_SUBST
 
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
 %{$fg[red]%}$ %{$reset_color%}"
-RPROMPT='$(vcs_info_wrapper)'
+RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper)'
+
 
 COMPLETION_WAITING_DOTS="true"
 
