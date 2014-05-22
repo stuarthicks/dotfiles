@@ -8,15 +8,6 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between here and filetype plugin indent on.
-" scripts on GitHub repos
-" Plugin 'tpope/vim-fugitive'
-" scripts from http://vim-scripts.org/vim/scripts.html
-" Plugin 'FuzzyFinder'
-" scripts not on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'craigemery/vim-autotag'
@@ -31,20 +22,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'taglist-plus'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
+Plugin 'zirrostig/vim-schlepp'
 
-filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-" Put your stuff after this line
+filetype plugin indent on
+syntax on
 
 colorscheme solarized
 set background=dark
@@ -55,8 +36,6 @@ set guioptions=aem
 set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
-
-syntax on
 
 if &term == "screen"
   set t_kN=^[[6;*~
@@ -96,8 +75,8 @@ map q: :q
 " Remove trailing whitespace from all lines
 map <F6> :%s/\s\+$//
 
-" Set F2 as Nerd Tree toggle and tell vim to exit if the only window open is
-" nerd tree
+" Set F2 as Nerd Tree toggle and tell vim to exit 
+" if the only window open is nerd tree
 map <F2> :NERDTreeToggle<cr>
 let g:NERDTreeWinSize=26
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -128,6 +107,12 @@ set nocompatible
 set ofu=syntaxcomplete#Complete
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set wildmode=longest,list
+
+vmap <unique> <up>    <Plug>SchleppUp
+vmap <unique> <down>  <Plug>SchleppDown
+vmap <unique> <left>  <Plug>SchleppLeft
+vmap <unique> <right> <Plug>SchleppRight
+vmap <unique> i <Plug>SchleppToggleReindent
 
 function! DoPrettyXML()
     let l:origft = &ft
