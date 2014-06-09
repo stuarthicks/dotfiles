@@ -37,7 +37,7 @@ set background=dark
 
 if has("gui_running")
   set go-=T
-  set guifont=Monospace 13
+  set guifont=Monospace\ 13
   set guioptions=aem
   set t_Co=256
 endif
