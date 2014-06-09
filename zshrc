@@ -110,9 +110,6 @@ plugins=(git gem github ruby)
 set -o extendedglob
 unsetopt correct_all
 
-# Customize to your needs...
-export PATH=~/.gem/ruby/1.9.1/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
-
 bindkey '^R' history-incremental-search-backward
 bindkey "\e[Z" reverse-menu-complete # Shift+Tab
 bindkey '^a' beginning-of-line # Home
@@ -163,6 +160,7 @@ LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
 source ~/.profile
+source ~/gh/z/z.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
