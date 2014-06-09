@@ -1,4 +1,4 @@
-"hg6830
+"hg7092
 
 loadplugins '\.(js|penta)$'
 group user
@@ -6,26 +6,26 @@ highlight Addon:nth-child(2n+1) background: rgba(0, 43, 54, .04);
 highlight -link=s_red_back Bell
 highlight -link=s_cyan Boolean color: red;
 highlight -link=s_blue Button display: inline-block; font-weight: bold; cursor: pointer; color: black; text-decoration: none;
-highlight -link=s_base1,s_base00 Comment color: gray;
+highlight -link=s_base1,s_base0 Comment color: gray;
 highlight -link=s_base1 CompDesc color: gray; width: 62%; padding-left: 1em;
 highlight CompItem:nth-child(2n+1) background: rgba(0, 43, 54, .04);
-highlight -link=s_base3,s_magenta_back CompItem[selected]
-highlight -link=s_base3,s_comp_title CompTitle
+highlight -link=s_base03,s_magenta_back CompItem[selected]
+highlight -link=s_base03,s_comp_title CompTitle
 highlight -link=s_comp_sep CompTitleSep height: 2px;
 highlight -link=s_base01 Disabled color: gray    !important;
 highlight Download:nth-child(2n+1) background: rgba(0, 43, 54, .04);
-highlight -link=s_base3,s_orange_back EditorBlink1
+highlight -link=s_base03,s_orange_back EditorBlink1
 highlight -link=s_base01 EditorBlink2
-highlight -link=s_base2,s_base3_back EditorEditing
-highlight -link=s_base2,s_base3_back EditorEditing>*
-highlight -link=s_base3,s_red_back EditorError
+highlight -link=s_base2,s_base03_back EditorEditing
+highlight -link=s_base2,s_base03_back EditorEditing>*
+highlight -link=s_base03,s_red_back EditorError
 highlight -link=s_blue Enabled color: blue;
-highlight -link=s_base3,s_magenta_back ErrorMsg
+highlight -link=s_base03,s_magenta_back ErrorMsg
 highlight -link=s_green Filter font-weight: bold;
 highlight -link=s_blue_back FrameIndicator background-color: red; opacity: 0.5; z-index: 999999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 highlight -link=s_blue Function color: navy;
 highlight -link=FontCode,s_cyan HelpArg color: #6A97D4;
-highlight -link=s_base00,s_base3_back HelpBody display: block; margin: 1em auto; max-width: 100ex; padding-bottom: 1em; margin-bottom: 4em; border-bottom-width: 1px;
+highlight -link=s_base0,s_base03_back HelpBody display: block; margin: 1em auto; max-width: 100ex; padding-bottom: 1em; margin-bottom: 4em; border-bottom-width: 1px;
 highlight HelpBorder border-color: #93a1a1 !important; border-width: 0px; border-style: solid;
 highlight -link=FontCode,s_orange HelpEx display: inline-block; color: #527BBD;
 highlight -link=s_yellow HelpHead font-weight: bold; color: #527BBD; clear: both;
@@ -44,21 +44,22 @@ highlight -link=FontCode,s_blue HelpTopic color: #102663;
 highlight -link=s_blue HelpType margin-right: 2ex;
 highlight -link=s_magenta HelpWarning color: red; font-weight: bold;
 highlight -link=HelpXMLBase HelpXML display: inline-block; border: none;
-highlight -link=FontCode,s_base0,s_base03_back HelpXMLBase white-space: pre; color: #C5F779; background-color: #444444; font-family: Terminus, Fixed, monospace; padding: 7px;
+highlight -link=FontCode,s_base00,s_base3_back HelpXMLBase white-space: pre; color: #C5F779; background-color: #444444; font-family: Terminus, Fixed, monospace; padding: 7px;
 highlight -link=HelpXMLBase HelpXMLBlock display: block; margin-left: 2em; border: none;
 highlight -link=s_base03 Hint font: bold 10px "Droid Sans Mono", monospace !important; margin: -.2ex; padding: 0 0 0 1px; outline: 1px solid rgba(0, 43, 54, .5); background: rgba(253, 246, 227, .8); color: black;
-highlight -link=s_base3,s_magenta_back HintActive
-highlight -link=s_base3,s_blue_back HintElem
+highlight -link=s_base03,s_magenta_back HintActive
+highlight -link=s_base03,s_blue_back HintElem
 highlight -link=s_blue Indicator color: blue; width: 1.5em; text-align: center;
-highlight -link=s_base00 InfoMsg
+highlight -link=s_base0 InfoMsg
 highlight -link=s_yellow Keyword color: red;
-highlight -link=s_base3,s_base2_back LineNr
-highlight -link=s_base0,s_base03_back LinkInfo color: black; position: absolute; left: 100%; padding: 1ex; margin: -1ex -1em; background: rgba(255, 255, 255, .8); border-radius: 1ex;
-highlight -link=s_base00,s_base3_back Message
+highlight -link=s_base03,s_base2_back LineNr
+highlight -link=s_base0,s_base3_back LinkInfo color: black; position: absolute; left: 100%; padding: 1ex; margin: -1ex -1em; background: rgba(255, 255, 255, .8); border-radius: 1ex;
+highlight Logo display: inline-block; background: url(resource://dactyl-local-content/logo.png); width: 345px; height: 29px; border: 5px solid #fdf6e3 !important;
+highlight -link=s_base0,s_base03_back Message
 highlight -link=s_base01 ModeMsg
 highlight MoreMsg color: inherit !important; background: white       !important; background-color: inherit !important;
-highlight -link=s_blue,s_base3_back NonText color: blue; background: transparent !important; min-height: 16px; padding-left: 2px;
-highlight -link=s_base00,s_base3_back Normal
+highlight -link=s_blue,s_base03_back NonText color: blue; background: transparent !important; min-height: 16px; padding-left: 2px;
+highlight -link=s_base0,s_base03_back Normal
 highlight -link=s_blue Null color: blue;
 highlight -link=s_blue Number color: blue;
 highlight -link=s_green Object color: maroon;
@@ -82,8 +83,8 @@ highlight s_base3 color: #fdf6e3 !important;
 highlight s_base3_back background-color: #fdf6e3 !important;
 highlight s_blue color: #268bd2 !important;
 highlight s_blue_back background-color: #268bd2 !important;
-highlight s_comp_sep background: -moz-linear-gradient(60deg, #2aa198, #fdf6e3) !important;
-highlight s_comp_title background: -moz-linear-gradient(60deg, #839496, #fdf6e3) !important;
+highlight s_comp_sep background: -moz-linear-gradient(60deg, #2aa198, #002b36) !important;
+highlight s_comp_title background: -moz-linear-gradient(60deg, #839496, #002b36) !important;
 highlight s_cyan color: #2aa198 !important;
 highlight s_cyan_back background-color: #2aa198 !important;
 highlight s_green color: #859900 !important;
@@ -98,25 +99,24 @@ highlight s_violet color: #6c71c4 !important;
 highlight s_violet_back background-color: #6c71c4 !important;
 highlight s_yellow color: #b58900 !important;
 highlight s_yellow_back background-color: #b58900 !important;
-highlight -link=s_base3,s_orange_back StatusLineBroken
-highlight -link=s_base3,s_violet_back StatusLineExtended
-highlight -link=s_base00,s_base2_back StatusLineNormal
-highlight -link=s_base3,s_blue_back StatusLineSecure
+highlight -link=s_base03,s_orange_back StatusLineBroken
+highlight -link=s_base03,s_violet_back StatusLineExtended
+highlight -link=s_base0,s_base02_back StatusLineNormal
+highlight -link=s_base03,s_blue_back StatusLineSecure
 highlight StatusQuestion color: inherit !important; background: transparent !important; background-color: inherit !important;
-highlight -link=s_base3,s_magenta_back StatusWarningMsg
+highlight -link=s_base03,s_magenta_back StatusWarningMsg
 highlight -link=s_base3 TabIconNumber cursor: default; width: 16px; margin: 0 2px 0 -18px !important; font-weight: bold; color: white; text-align: center; text-shadow: #002b36 -1px 0 1px, #002b36 0 1px 1px, #002b36 1px 0 1px, #002b36 0 -1px 1px;
 highlight -link=s_blue Tag color: blue;
 highlight -link=s_red Title color: magenta; font-weight: bold;
 highlight -link=s_base1 URL
 highlight -link=s_base1 URLExtra
 highlight UsageItem:nth-of-type(2n) background: rgba(0, 43, 54, .04);
-highlight -link=s_base3,s_yellow_back WarningMsg
+highlight -link=s_base03,s_yellow_back WarningMsg
 map -count -modes=I <C-S-I> -builtin <C-i>
 map -count -modes=n,v ; <count>:
 map -count -modes=n,v j -builtin <count>5j
 map -count -modes=n,v k -builtin <count>5k
-set editor='/Applications/MacVim.app/Contents/MacOS/Vim -gf +<line> +"sil! call cursor(0, <column>)" <file>'
+set defsearch=duckduckgo
+set editor='gvim -gf +<line> +"sil! call cursor(0, <column>)" <file>'
 
-vim: set ft=pentadactyl:
-
-hi -a Hint font-size: 12pt !important
+" vim: set ft=pentadactyl:
