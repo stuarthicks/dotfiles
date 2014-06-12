@@ -27,6 +27,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-cucumber'
 Plugin 'confluencewiki.vim'
+Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 
