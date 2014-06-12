@@ -27,3 +27,8 @@
   autocorrect = 1
 [branch]
   autosetuprebase = always
+[user]
+	email = contact@stuarthicks.me
+	name = Stuart Hicks
+[color]
+	ui = auto
