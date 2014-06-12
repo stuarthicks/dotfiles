@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -25,6 +25,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'zirrostig/vim-schlepp'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-cucumber'
+Plugin 'confluencewiki.vim'
 
 call vundle#end()
 
@@ -34,9 +36,13 @@ syntax on
 colorscheme solarized
 set background=dark
 
-set go-=T " Hide toolbar in gui vim
-set guifont=Inconsolata:h14
-set guioptions=aem
+if has("gui_running")
+  set go-=T
+  set guifont=Monospace\ 13
+  set guioptions=aem
+  set t_Co=256
+endif
+
 set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
@@ -174,6 +180,8 @@ let @m = '^iMEDIASERVICES-'
 nnoremap <F8> :Dispatch 
 nnoremap <F9> :Dispatch<CR>
 autocmd FileType java let b:dispatch = 'mvn clean install'
-autocmd FileType ruby let b:dispatch = 'bundle exec cucumber'
+autocmd FileType ruby let b:dispatch = 'with-aws eng bundle exec cucumber'
+autocmd FileType gherkin let b:dispatch = 'with-aws eng bundle exec cucumber'
+autocmd FileType cucumber let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType perl let b:dispatch = 'perl -wc %'
 autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
