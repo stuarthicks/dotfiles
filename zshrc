@@ -163,6 +163,7 @@ LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
 source ~/.profile
+source ~/gh/z/z.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
