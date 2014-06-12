@@ -24,6 +24,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
 Plugin 'zirrostig/vim-schlepp'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 
