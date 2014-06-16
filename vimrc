@@ -28,6 +28,8 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-cucumber'
 Plugin 'confluencewiki.vim'
 Plugin 'mhinz/vim-startify'
+Plugin 'initrc/eclim-vundle'
+Plugin 'vim-scripts/camelcasemotion'
 
 call vundle#end()
 
@@ -47,6 +49,21 @@ endif
 set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
+
+let mapleader=","
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <CR> :nohlsearch<cr>
+
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 
 if &term == "screen"
   set t_kN=^[[6;*~
