@@ -30,6 +30,7 @@ Plugin 'confluencewiki.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'initrc/eclim-vundle'
 Plugin 'vim-scripts/camelcasemotion'
+Plugin 'danchoi/ri.vim'
 
 call vundle#end()
 
@@ -65,6 +66,10 @@ sunmap w
 sunmap b
 sunmap e
 
+nnoremap  <Leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split
+nnoremap  <Leader>R :call ri#OpenSearchPrompt(1)<cr> " vertical split
+nnoremap  <Leader>d :call ri#LookupNameUnderCursor()<cr> " keyword lookup
+
 if &term == "screen"
   set t_kN=^[[6;*~
   set t_kP=^[[5;*~
@@ -92,7 +97,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 " Double tap j in insert mode to return to normal mode
 "inoremap jj <Esc>
 
-inoremap <S-Tab> <c-x><c-f> 
+inoremap <S-Tab> <c-x><c-f>
 
 " More ways to enter commands
 map Q :<CR>
@@ -103,7 +108,7 @@ map q: :q
 " Remove trailing whitespace from all lines
 map <F6> :%s/\s\+$//
 
-" Set F2 as Nerd Tree toggle and tell vim to exit 
+" Set F2 as Nerd Tree toggle and tell vim to exit
 " if the only window open is nerd tree
 map <F2> :NERDTreeToggle<cr>
 let g:NERDTreeWinSize=26
@@ -195,7 +200,7 @@ nnoremap <silent> <buffer> <leader>a :sign unplace *<cr>
 
 let @m = '^iMEDIASERVICES-'
 
-nnoremap <F8> :Dispatch 
+nnoremap <F8> :Dispatch
 nnoremap <F9> :Dispatch<CR>
 autocmd FileType java let b:dispatch = 'mvn clean install'
 autocmd FileType ruby let b:dispatch = 'with-aws eng bundle exec cucumber'
