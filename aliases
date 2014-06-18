@@ -23,6 +23,7 @@ alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\bin
 alias l='ls -ltrAhF'
 alias mci='mvn clean install'
 alias new_iterm='open -n -a "iTerm"'
+alias n='notify-send'
 alias p='ps aux | grep'
 alias psh='perl -d -e 1'
 alias pstree='ps -AHwef'
