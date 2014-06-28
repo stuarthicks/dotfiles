@@ -23,25 +23,37 @@ Plugin 'taglist-plus'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
 Plugin 'zirrostig/vim-schlepp'
+Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-cucumber'
 Plugin 'confluencewiki.vim'
 Plugin 'mhinz/vim-startify'
+Plugin 'tpope/vim-endwise'
+Plugin 'ervandew/supertab'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
+
+set rtp+=~/gh/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+let g:Powerline_symbols = "fancy"
 
 filetype plugin indent on
 syntax on
 
 colorscheme solarized
+let g:rehash256 = 1
 set background=dark
 
+hi Normal ctermbg=none
+set t_Co=256
 if has("gui_running")
   set go-=T
   set guifont=Monospace\ 13
   set guioptions=aem
-  set t_Co=256
 endif
 
 set diffopt+=iwhite "ignore whitespace in diffs
@@ -177,6 +189,9 @@ nnoremap <silent> <buffer> <leader>u ^:sign unplace<cr>
 nnoremap <silent> <buffer> <leader>a :sign unplace *<cr>
 
 let @m = '^iMEDIASERVICES-'
+let @p = '^iPSI-'
+let @o = '^iOPS-'
+let @n = '^iNO-TICKET '
 
 nnoremap <F8> :Dispatch 
 nnoremap <F9> :Dispatch<CR>
