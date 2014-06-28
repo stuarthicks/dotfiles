@@ -32,6 +32,9 @@ Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-endwise'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
+Plugin 'initrc/eclim-vundle'
+Plugin 'vim-scripts/camelcasemotion'
+Plugin 'danchoi/ri.vim'
 
 call vundle#end()
 
@@ -60,6 +63,25 @@ set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
 
+let mapleader=","
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <CR> :nohlsearch<cr>
+
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+nnoremap  <Leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split
+nnoremap  <Leader>R :call ri#OpenSearchPrompt(1)<cr> " vertical split
+nnoremap  <Leader>d :call ri#LookupNameUnderCursor()<cr> " keyword lookup
+
 if &term == "screen"
   set t_kN=^[[6;*~
   set t_kP=^[[5;*~
@@ -87,7 +109,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 " Double tap j in insert mode to return to normal mode
 "inoremap jj <Esc>
 
-inoremap <S-Tab> <c-x><c-f> 
+inoremap <S-Tab> <c-x><c-f>
 
 " More ways to enter commands
 map Q :<CR>
@@ -98,7 +120,7 @@ map q: :q
 " Remove trailing whitespace from all lines
 map <F6> :%s/\s\+$//
 
-" Set F2 as Nerd Tree toggle and tell vim to exit 
+" Set F2 as Nerd Tree toggle and tell vim to exit
 " if the only window open is nerd tree
 map <F2> :NERDTreeToggle<cr>
 let g:NERDTreeWinSize=26
@@ -193,7 +215,7 @@ let @p = '^iPSI-'
 let @o = '^iOPS-'
 let @n = '^iNO-TICKET '
 
-nnoremap <F8> :Dispatch 
+nnoremap <F8> :Dispatch
 nnoremap <F9> :Dispatch<CR>
 autocmd FileType java let b:dispatch = 'mvn clean install'
 autocmd FileType ruby let b:dispatch = 'with-aws eng bundle exec cucumber'

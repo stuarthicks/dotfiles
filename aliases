@@ -8,12 +8,12 @@ alias bonsai='tree -F --filelimit 15'
 alias b='./build'
 alias br='./build && ./run'
 alias c='cat'
+alias curls='forge-curl'
 alias dc='cd'
 alias dus='du -sh *'
 alias enable_ssh='sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist'
 alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
 alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
-alias g='grep'
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias gsd='git diff | v -'
 alias gvd='svn diff -x -b | gvim -'
@@ -23,6 +23,7 @@ alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\bin
 alias l='ls -ltrAhF'
 alias mci='mvn clean install'
 alias new_iterm='open -n -a "iTerm"'
+alias n='notify-send'
 alias p='ps aux | grep'
 alias psh='perl -d -e 1'
 alias pstree='ps -AHwef'
@@ -50,3 +51,13 @@ alias very=git
 alias much=git
 alias wow=git commit
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
+
+#aliases as functions
+
+function g {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
