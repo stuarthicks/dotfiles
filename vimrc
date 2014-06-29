@@ -35,24 +35,24 @@ Plugin 'mileszs/ack.vim'
 Plugin 'initrc/eclim-vundle'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'danchoi/ri.vim'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
-
-set rtp+=~/gh/powerline/bindings/vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-let g:Powerline_symbols = "fancy"
 
 filetype plugin indent on
 syntax on
 
 colorscheme solarized
-let g:rehash256 = 1
 set background=dark
 
-hi Normal ctermbg=none
+" Statusbar/airline settings
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+
 set t_Co=256
+let g:rehash256 = 1
+hi Normal ctermbg=none
+
 if has("gui_running")
   set go-=T
   set guifont=Monospace\ 13

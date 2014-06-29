@@ -51,13 +51,3 @@ alias very=git
 alias much=git
 alias wow=git commit
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
-
-#aliases as functions
-
-function g {
-  if [[ $# > 0 ]]; then
-    git $@
-  else
-    git status
-  fi
-}
