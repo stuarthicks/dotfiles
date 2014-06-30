@@ -17,7 +17,7 @@ alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias gsd='git diff | v -'
 alias gvd='svn diff -x -b | gvim -'
-alias idea='JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8" open -a "IntelliJ IDEA 13 CE"'
+alias idea='JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8" /home/calamari/apps/idea-IC-135.690/bin/idea.sh & 2>&1'
 alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
 alias l='ls -ltrAhF'
