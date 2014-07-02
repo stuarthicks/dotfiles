@@ -30,15 +30,9 @@ Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'danchoi/ri.vim'
-Plugin 'bling/vim-airline'
 Plugin 'initrc/eclim-vundle'
 Plugin 'tpope/vim-fugitive'
-
-" I don't seem to use these much...
-"Plugin 'tpope/vim-cucumber'
-"Plugin 'jlanzarotta/bufexplorer'
-"Plugin 'msanders/snipmate.vim'
-"Plugin 'taglist-plus'
+Plugin 'Lokaltog/powerline'
 
 call vundle#end()
 
@@ -48,11 +42,11 @@ syntax on
 colorscheme solarized
 set background=dark
 
-" Statusbar/airline settings
+"Powerline settings
+set rtp+=~/powerline-bindings/vim
 set laststatus=2
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
 let g:bufferline_echo=0
+set noshowmode
 
 set t_Co=256
 let g:rehash256=1
@@ -68,7 +62,6 @@ set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
 set timeoutlen=50
-set noshowmode
 
 let mapleader=","
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
