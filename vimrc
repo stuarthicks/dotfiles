@@ -9,30 +9,30 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'confluencewiki.vim'
 Plugin 'craigemery/vim-autotag'
+Plugin 'danchoi/ri.vim'
+Plugin 'ervandew/supertab'
+Plugin 'initrc/eclim-vundle'
 Plugin 'jayflo/vim-skip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-startify'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-surround'
-Plugin 'zirrostig/vim-schlepp'
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'confluencewiki.vim'
-Plugin 'mhinz/vim-startify'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
-Plugin 'ervandew/supertab'
-Plugin 'mileszs/ack.vim'
-Plugin 'vim-scripts/camelcasemotion'
-Plugin 'danchoi/ri.vim'
-Plugin 'initrc/eclim-vundle'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/camelcasemotion'
+Plugin 'zirrostig/vim-schlepp'
 
 call vundle#end()
 
@@ -43,10 +43,10 @@ colorscheme solarized
 set background=dark
 
 "Powerline settings
-set rtp+=~/powerline-bindings/vim
 set laststatus=2
 let g:bufferline_echo=0
 set noshowmode
+let g:airline#extensions#tabline#enabled = 1
 
 set t_Co=256
 let g:rehash256=1
