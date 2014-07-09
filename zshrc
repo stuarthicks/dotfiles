@@ -102,8 +102,6 @@ PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
 %{$fg[red]%}$ %{$reset_color%}"
 RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper)'
 
-source ~/powerline-bindings/zsh/powerline.zsh
-
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git gem github ruby)
