@@ -33,6 +33,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'zirrostig/vim-schlepp'
+Plugin 'mattn/flappyvird-vim'
 
 call vundle#end()
 
