@@ -33,6 +33,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'zirrostig/vim-schlepp'
 Plugin 'mattn/flappyvird-vim'
+Plugin 'jaxbot/semantic-highlight.vim'
 
 call vundle#end()
 
