@@ -163,3 +163,7 @@ source ~/gh/z/z.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# Mon Jul 14 15:54:46 WAT 2014
+
+# for shits 'n giggles
+# export TZ=$( cd /usr/share/zoneinfo ; ruby -e 'puts ARGV.shuffle.first' $( find * -type f  ) ) ; date

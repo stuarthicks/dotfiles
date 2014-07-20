@@ -20,7 +20,6 @@ Plugin 'initrc/eclim-vundle'
 Plugin 'jayflo/vim-skip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'mhinz/vim-startify'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -34,6 +33,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'zirrostig/vim-schlepp'
 Plugin 'mattn/flappyvird-vim'
+Plugin 'jaxbot/semantic-highlight.vim'
 
 call vundle#end()
 
@@ -106,6 +106,15 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
+
+" CTRL-Tab is next tab
+noremap <C-Tab> :<C-U>tabnext<CR>
+inoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+cnoremap <C-Tab> <C-C>:tabnext<CR>
+" CTRL-SHIFT-Tab is previous tab
+noremap <C-S-Tab> :<C-U>tabprevious<CR>
+inoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
+cnoremap <C-S-Tab> <C-C>:tabprevious<CR>
 
 " Double tap j in insert mode to return to normal mode
 "inoremap jj <Esc>
