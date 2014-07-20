@@ -1,8 +1,9 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 import XMonad
 import XMonad.Layout.Spacing
+import XMonad.Hooks.DynamicLog
 
-main = xmonad defaultConfig
+main = xmonad =<< xmobar defaultConfig
   {
     terminal = "gnome-terminal",
     modMask = mod4Mask,

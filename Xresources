@@ -76,13 +76,7 @@
 *color7:                S_base2
 *color15:               S_base3
 
-XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 12
-
-!!URxvt.font: xft:Inconsolata\-dz for Powerline:style=dz:size=12
-URxvt*font:xft:Inconsolata\-dz:style=dzForPowerline\
- :size=12:antialias=true:hinting=slight
-URxvt*boldFont:xft:Inconsolata\-dz:style=bold:size=12\
- :antialias=true:hinting=slight
 URxvt*loginShell: true
 URxvt*scrollBar: false
+URxvt*.transparent: true
+URxvt*.shading: 30
