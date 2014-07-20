@@ -34,6 +34,7 @@ Plugin 'vim-scripts/camelcasemotion'
 Plugin 'zirrostig/vim-schlepp'
 Plugin 'mattn/flappyvird-vim'
 Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'syntaxhaskell.vim'
 
 call vundle#end()
 
