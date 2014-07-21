@@ -35,6 +35,8 @@ Plugin 'zirrostig/vim-schlepp'
 Plugin 'mattn/flappyvird-vim'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'syntaxhaskell.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -49,6 +51,10 @@ set laststatus=2
 let g:bufferline_echo=0
 set noshowmode
 let g:airline#extensions#tabline#enabled = 1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set t_Co=256
 let g:rehash256=1
