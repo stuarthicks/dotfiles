@@ -76,6 +76,8 @@
 *color7:                S_base2
 *color15:               S_base3
 
+URxvt*font: xft:M+ 1m Medium:size=12
+URxvt*boldFont: xft:M+ 1m Medium:size=12
 URxvt*loginShell: true
 URxvt*scrollBar: false
 URxvt*.transparent: true
