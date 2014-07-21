@@ -37,14 +37,16 @@ Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'syntaxhaskell.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
 filetype plugin indent on
 syntax on
 
-colorscheme solarized
+"let base16colorspace=256
 set background=dark
+colorscheme base16-default
 
 "Powerline settings
 set laststatus=2
@@ -103,7 +105,8 @@ set list
 set listchars=tab:>-
 set expandtab
 set nowrapscan
-set number
+set nonumber
+set nocursorline
 
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
