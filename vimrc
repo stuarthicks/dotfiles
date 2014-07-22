@@ -97,17 +97,6 @@ if &term == "screen"
   set t_kP=^[[5;*~
 endif
 
-" Formatting/Editing
-set autoindent
-set shiftwidth=2
-set tabstop=2
-set list
-set listchars=tab:>-
-set expandtab
-set nowrapscan
-set nonumber
-set nocursorline
-
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 
@@ -243,3 +232,15 @@ autocmd FileType gherkin let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType cucumber let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType perl let b:dispatch = 'perl -wc %'
 autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
+
+" Formatting/Editing
+set autoindent
+set shiftwidth=2
+set tabstop=2
+set list
+set listchars=tab:>-
+set expandtab
+set nowrapscan
+set nonumber
+set nocursorline
+
