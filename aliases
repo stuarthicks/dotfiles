@@ -51,5 +51,5 @@ compdef g=git
 compdef such=git
 compdef very=git
 compdef much=git
-alias wow='git commit'
+alias wow='git push origin master'
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
