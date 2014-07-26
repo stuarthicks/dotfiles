@@ -97,17 +97,6 @@ if &term == "screen"
   set t_kP=^[[5;*~
 endif
 
-" Formatting/Editing
-set autoindent
-set shiftwidth=2
-set tabstop=2
-set list
-set listchars=tab:>-
-set expandtab
-set nowrapscan
-set nonumber
-set nocursorline
-
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 
@@ -217,19 +206,6 @@ function! Smart_TabComplete()
 endfunction
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-" ctermbg=16 is black in solarized
-highlight HL ctermbg=16
-sign define hl linehl=HL
-let s:highlightLineSignId = 74000
-function! g:HighlightLine()
-  execute 'sign place' s:highlightLineSignId 'line='.line(".") 'name=hl' 'file='.expand("%")
-  let s:highlightLineSignId += 1
-endfunction
-command! HL call g:HighlightLine()
-nnoremap <silent> <buffer> <leader>s ^:HL<cr>
-nnoremap <silent> <buffer> <leader>u ^:sign unplace<cr>
-nnoremap <silent> <buffer> <leader>a :sign unplace *<cr>
-
 let @m = '^iMEDIASERVICES-'
 let @p = '^iPSI-'
 let @o = '^iOPS-'
@@ -243,3 +219,15 @@ autocmd FileType gherkin let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType cucumber let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType perl let b:dispatch = 'perl -wc %'
 autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
+
+" Formatting/Editing
+set autoindent
+set shiftwidth=2
+set tabstop=2
+set list
+set listchars=tab:>-
+set expandtab
+set nowrapscan
+set nonumber
+set nocursorline
+
