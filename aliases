@@ -45,12 +45,12 @@ alias tcopy='tmux saveb -| pbcopy && tmux deleteb'
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 compdef v='vim'
 alias gv='dbus-launch --exit-with-session $(which gvim)'
-alias vd='svn diff -x -b | vim -'
-alias vv='reattach-to-user-namespace mvim -g'
+alias sdiff='svn diff -x -b | vim -'
 alias vundle='vim +PluginInstall +qall'
 compdef g=git
 compdef such=git
 compdef very=git
 compdef much=git
+compdef many=git
 alias wow='git push origin master'
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
