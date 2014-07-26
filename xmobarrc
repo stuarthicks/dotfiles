@@ -1,0 +1,13 @@
+Config {
+       bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 96
+       , commands = [ Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","15","-H","50","--normal","green","--high","red"] 10
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %eth0% | %date%"
+       }
