@@ -35,7 +35,6 @@ Plugin 'zirrostig/vim-schlepp'
 Plugin 'mattn/flappyvird-vim'
 Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'syntaxhaskell.vim'
-Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'chriskempson/base16-vim'
 
