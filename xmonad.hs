@@ -14,7 +14,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- app launch hotkeys
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_n     ), spawn "nautilus --no-desktop")
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    , ((modm,               xK_p     ), spawn "dmenu_run")
     , ((modm .|. shiftMask, xK_l     ), spawn "gnome-screensaver-command -l")
     , ((modm .|. shiftMask, xK_s     ), spawn "gnome-screensaver-command -l && sudo pm-suspend")
  
