@@ -1,3 +1,4 @@
+autoload -U compinit && compinit
 alias :q='exit'
 alias a='ack -ai'
 alias bec='bundle exec cucumber'
