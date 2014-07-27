@@ -1,0 +1,5 @@
+xrdb ~/.Xresources
+xflux -l 51.5 -g -0.1277
+feh --bg-fill Pictures/transistor_game_wallpaper.jpg
+sxhkd &
+exec bspwm
