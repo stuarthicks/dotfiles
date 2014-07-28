@@ -1,4 +1,3 @@
-# Start with emacs keybindings
 export TERM=screen-256color
 bindkey -v
 bindkey "^W" backward-kill-word    # vi-backward-kill-word
@@ -11,7 +10,6 @@ export KEYTIMEOUT=1
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
-
 setopt APPENDHISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
@@ -37,12 +35,6 @@ setopt NOMATCH # If a pattern for filename has no matches = error.
 setopt PRINT_EXIT_VALUE
 setopt LONG_LIST_JOBS
 
-# Alt-S inserts "sudo " at the start of line.
-insert_sudo () { zle beginning-of-line; zle -U "sudo " }
-zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo
-bindkey "^[s" 'source ~/.zshrc'
-
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     kill -9 %+
@@ -66,7 +58,6 @@ bindkey -s "\el" " 2>&1|less^M"
 # Show how long a job takes
 REPORTTIME=1
 
-# Terminal colour magic that I don't understand
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 autoload colors && colors
@@ -77,16 +68,15 @@ zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git svn
 
-# or use pre_cmd, see man zshcontrib
 vcs_info_wrapper() {
   vcs_info
   if [ -n "$vcs_info_msg_0_" ]; then
     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
   fi
 }
+
 precmd() {
     vcs_info
-    #'hr' -> print ${(l:COLUMNS::─:)}
 }
 
 # Allow for functions in the prompt.
@@ -96,17 +86,17 @@ function zle-line-init zle-keymap-select {
   VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
   zle reset-prompt
 }
+
 zle -N zle-line-init
 zle -N zle-keymap-select
+
 PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
 %{$fg[red]%}$ %{$reset_color%}"
+
 RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper)'
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git gem github ruby)
-
-set -o extendedglob
 unsetopt correct_all
 
 bindkey '^R' history-incremental-search-backward
@@ -135,17 +125,20 @@ zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-export EDITOR=vim
 export VISUAL=vim
+export EDITOR=$VISUAL
 
+# Set title of window
 title () {
     printf "\033k$1\033\\"
 }
 
+# Echo path with newlines
 path () {
     echo $PATH | tr : $'\n'
 }
 
+# List all items on path
 lspath () {
   (($#)) || set ''
   print -lr -- $^path/*$^@*(N:t) | sort -u
@@ -159,11 +152,25 @@ LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
 source ~/.profile
-source ~/gh/z/z.sh
+alias m=mvn-color
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# Mon Jul 14 15:54:46 WAT 2014
+# cd gh; git clone git@github.com:zsh-users/antigen
+source ~/gh/antigen/antigen.zsh
+antigen bundles <<EOBUNDLES
+zsh-users/zsh-syntax-highlighting
+rupa/z
+bundler
+colored-man
+common-aliases
+cp
+extract
+mosh
+mvn
+rsync
+tmux
+vundle
+EOBUNDLES
+antigen apply
 
 # for shits 'n giggles
 # export TZ=$( cd /usr/share/zoneinfo ; ruby -e 'puts ARGV.shuffle.first' $( find * -type f  ) ) ; date
