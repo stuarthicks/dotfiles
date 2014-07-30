@@ -1,6 +1,9 @@
 super + alt + Escape
   bspc quit
 
+super + k
+  bspc window focused -k
+
 super + w
   bspc window -c
 
@@ -81,6 +84,9 @@ super + Return
 
 super + space
   dmenu_run
+
+super + n
+  thunar
 
 # make sxhkd reload its configuration files:
 super + Escape
