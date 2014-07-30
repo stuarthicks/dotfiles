@@ -1,7 +1,7 @@
 super + alt + Escape
   bspc quit
 
-super + k
+super + shift + c
   bspc window focused -k
 
 super + w
