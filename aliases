@@ -1,4 +1,5 @@
 autoload -U compinit && compinit
+autoload -U compdef
 alias :q='exit'
 alias a='ack -ai'
 alias bec='bundle exec cucumber'
@@ -40,10 +41,12 @@ alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
 alias ss='svn st'
 alias sup='svn up'
 compdef t='tmux'
+alias t='tmux'
 alias ta='tmux attach'
 alias tcopy='tmux saveb -| pbcopy && tmux deleteb'
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 compdef v='vim'
+alias v='vim'
 alias gv='dbus-launch --exit-with-session $(which gvim)'
 alias sdiff='svn diff -x -b | vim -'
 alias vundle='vim +PluginInstall +qall'
@@ -52,5 +55,10 @@ compdef such=git
 compdef very=git
 compdef much=git
 compdef many=git
+alias g=git
+alias such=git
+alias very=git
+alias much=git
+alias many=git
 alias wow='git push origin master'
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
