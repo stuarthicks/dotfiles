@@ -154,6 +154,24 @@ LANGUAGE=en_GB.UTF-8
 source ~/.profile
 alias m=mvn-color
 
+build-something () {
+  if [ -x "build" ]; then
+    ./build
+  elif [ -x "test" ]; then
+    with-aws eng ./test
+  elif [ -f "pom.xml" ]; then
+    m clean install
+  elif [ -x "configure" ]; then
+    ./configure && make
+  elif [ -f "Makefile" ]; then
+    make
+  elif [ -f "Gemfile" ]; then
+    bundle exec cucumber
+  fi
+}
+zle -N build-something
+bindkey '^G' build-something # Go!
+
 # cd gh; git clone git@github.com:zsh-users/antigen
 source ~/gh/antigen/antigen.zsh
 antigen bundles <<EOBUNDLES
