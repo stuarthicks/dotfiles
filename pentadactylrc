@@ -1,17 +1,25 @@
-"1.1
-"hg7092
+"hg7101
 
 loadplugins '\.(js|penta)$'
 group user
 highlight Addon:nth-child(2n+1) background: rgba(0, 43, 54, .04);
-highlight -link=s_red_back Bell
+highlight -link=s_red_back Bell border: 0 none; background: #161616;
 highlight -link=s_cyan Boolean color: red;
+highlight BufTab color: #af875f; background: #1c1c1c; font-weight: normal;
+highlight BufTabSelected color: #ff5f00; background: #1c1c1c; font-weight: bold;
 highlight -link=s_blue Button display: inline-block; font-weight: bold; cursor: pointer; color: black; text-decoration: none;
+highlight -link=FontFixed CmdLine color: #afd700; background: #161616; font-weight: normal;
 highlight -link=s_base1,s_base0 Comment color: gray;
-highlight -link=s_base1 CompDesc color: gray; width: 62%; padding-left: 1em;
+highlight -link=s_base1 CompDesc color: #af875f; background: #161616; font-weight: normal; font-size: 9pt; width: 75%;
+highlight CompIcon width: 16px; min-width: 16px; display: inline-block; margin-right: 0.5ex;
 highlight CompItem:nth-child(2n+1) background: rgba(0, 43, 54, .04);
-highlight -link=s_base03,s_magenta_back CompItem[selected]
-highlight -link=s_base03,s_comp_title CompTitle
+highlight -link=s_base03,s_magenta_back CompItem[selected] color: #ffff00; background: -moz-linear-gradient(top, #303030, #121212) !important; font-weight: bold;
+highlight CompLess text-align: center; height:    0; line-height: 0.5ex; padding-top: 1ex;
+highlight CompMore text-align: center; height: .5ex; line-height: 0.5ex; margin-bottom: -0.5ex;
+highlight CompMsg color: #af875f;
+highlight CompResult color: #af875f; background: #161616; font-weight: normal; font-size: 10pt; width: 45%; overflow: hidden;
+highlight -link=s_base03,s_comp_title CompTitle color: #af875f; background: #161616; font-weight: normal;
+highlight CompTitle>* padding: 0 0.5ex;
 highlight -link=s_comp_sep CompTitleSep height: 2px;
 highlight -link=s_base01 Disabled color: gray    !important;
 highlight Download:nth-child(2n+1) background: rgba(0, 43, 54, .04);
@@ -21,10 +29,11 @@ highlight -link=s_base2,s_base03_back EditorEditing
 highlight -link=s_base2,s_base03_back EditorEditing>*
 highlight -link=s_base03,s_red_back EditorError
 highlight -link=s_blue Enabled color: blue;
-highlight -link=s_base03,s_magenta_back ErrorMsg
-highlight -link=s_green Filter font-weight: bold;
-highlight -link=s_blue_back FrameIndicator background-color: red; opacity: 0.5; z-index: 999999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
-highlight -link=s_blue Function color: navy;
+highlight -link=s_base03,s_magenta_back ErrorMsg color: #ffffff; background: red; font-weight: bold;
+highlight -link=s_green Filter color: #af875f; background: #161616; font-weight: bold;
+highlight -link=s_blue_back FrameIndicator background: #161616; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+highlight -link=s_blue Function color: #afd700; background: #161616;
+highlight Gradient height: 1px; margin-bottom: -1px; margin-top: -1px;
 highlight -link=FontCode,s_cyan HelpArg color: #6A97D4;
 highlight -link=s_base0,s_base03_back HelpBody display: block; margin: 1em auto; max-width: 100ex; padding-bottom: 1em; margin-bottom: 4em; border-bottom-width: 1px;
 highlight HelpBorder border-color: #93a1a1 !important; border-width: 0px; border-style: solid;
@@ -47,26 +56,27 @@ highlight -link=s_magenta HelpWarning color: red; font-weight: bold;
 highlight -link=HelpXMLBase HelpXML display: inline-block; border: none;
 highlight -link=FontCode,s_base00,s_base3_back HelpXMLBase white-space: pre; color: #C5F779; background-color: #444444; font-family: Terminus, Fixed, monospace; padding: 7px;
 highlight -link=HelpXMLBase HelpXMLBlock display: block; margin-left: 2em; border: none;
-highlight -link=s_base03 Hint font: bold 10px "Droid Sans Mono", monospace !important; margin: -.2ex; padding: 0 0 0 1px; outline: 1px solid rgba(0, 43, 54, .5); background: rgba(253, 246, 227, .8); color: black;
-highlight -link=s_base03,s_magenta_back HintActive
-highlight -link=s_base03,s_blue_back HintElem
+highlight -link=s_base03 Hint color: #ff5f00; background: #161616; font-family: Terminus; font-weight: bold; font-size: 20px;
+highlight Hint::after content: attr(number);
+highlight -link=s_base03,s_magenta_back HintActive color: #333333; background: #F18C96;
+highlight -link=s_base03,s_blue_back HintElem color: #000D18;
+highlight HintImage opacity: .2;
 highlight -link=s_blue Indicator color: blue; width: 1.5em; text-align: center;
-highlight -link=s_base0 InfoMsg
+highlight -link=s_base0 InfoMsg color: #afafaf; background: #161616;
 highlight -link=s_yellow Keyword color: red;
-highlight -link=s_base03,s_base2_back LineNr
+highlight -link=s_base03,s_base2_back LineNr color: #626262; background: #161616;
 highlight -link=s_base0,s_base3_back LinkInfo color: black; position: absolute; left: 100%; padding: 1ex; margin: -1ex -1em; background: rgba(255, 255, 255, .8); border-radius: 1ex;
 highlight -link=s_base3_back Logo display: inline-block; background: url(resource://dactyl-local-content/logo.png); width: 345px; height: 29px; border: 5px solid #fdf6e3 !important;
-highlight Logo display: inline-block; background: url(resource://dactyl-local-content/logo.png); width: 345px; height: 29px; border: 5px solid #fdf6e3 !important;
-highlight -link=s_base0,s_base03_back Message
-highlight -link=s_base01 ModeMsg
-highlight MoreMsg color: inherit !important; background: white       !important; background-color: inherit !important;
-highlight -link=s_blue,s_base03_back NonText color: blue; background: transparent !important; min-height: 16px; padding-left: 2px;
-highlight -link=s_base0,s_base03_back Normal
+highlight -link=s_base0,s_base03_back Message white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
+highlight -link=s_base01 ModeMsg color: #afafaf; background: #161616;
+highlight MoreMsg color: #afafaf; background: #161616;
+highlight -link=s_blue,s_base03_back NonText color: #1c1c1c; min-height: 16px; padding-left: 2px;
+highlight -link=s_base0,s_base03_back Normal color: #afff00; background: #161616; font-weight: normal;
 highlight -link=s_blue Null color: blue;
-highlight -link=s_blue Number color: blue;
+highlight -link=s_blue Number color: #0087ff; background: #161616;
 highlight -link=s_green Object color: maroon;
 highlight -link=s_base1 Preview color: gray;
-highlight -link=s_cyan Question
+highlight -link=s_cyan Question color: #e5e5e5; background: #161616; font-weight: bold;
 highlight s_base0 color: #839496 !important;
 highlight s_base0_back background-color: #839496 !important;
 highlight s_base00 color: #657b83 !important;
@@ -101,25 +111,30 @@ highlight s_violet color: #6c71c4 !important;
 highlight s_violet_back background-color: #6c71c4 !important;
 highlight s_yellow color: #b58900 !important;
 highlight s_yellow_back background-color: #b58900 !important;
-highlight -link=s_base03,s_orange_back StatusLineBroken
+highlight -link=s_magenta_back Search color: #ffd700; background: #303030; font-weight:bold; font-size: inherit; padding: 0;
+highlight -link=FontFixed StatusLine color: #ff5f00 ; background: #161616; font-size: 9pt;
+highlight -link=s_base03,s_orange_back StatusLineBroken color: #e4e4e4 ; background: #161616; font-size: 9pt;
 highlight -link=s_base03,s_violet_back StatusLineExtended
 highlight -link=s_base0,s_base02_back StatusLineNormal
-highlight -link=s_base03,s_blue_back StatusLineSecure
+highlight -link=s_base03,s_blue_back StatusLineSecure color: #e4e4e4 ; background: #161616; font-size: 9pt;
 highlight StatusQuestion color: inherit !important; background: transparent !important; background-color: inherit !important;
 highlight -link=s_base03,s_magenta_back StatusWarningMsg
+highlight String color: #afaf5f; background: #161616;
 highlight -link=s_base3 TabIconNumber cursor: default; width: 16px; margin: 0 2px 0 -18px !important; font-weight: bold; color: white; text-align: center; text-shadow: #002b36 -1px 0 1px, #002b36 0 1px 1px, #002b36 1px 0 1px, #002b36 0 -1px 1px;
-highlight -link=s_blue Tag color: blue;
-highlight -link=s_red Title color: magenta; font-weight: bold;
-highlight -link=s_base1 URL
+highlight -link=s_blue Tag color: #afaf5f; background: #161616;
+highlight -link=s_red Title color: #afaf5f; background: #161616; font-weight: bold;
+highlight -link=s_base1 URL color: #0087ff; background: #161616; text-decoration: none;
 highlight -link=s_base1 URLExtra
 highlight UsageItem:nth-of-type(2n) background: rgba(0, 43, 54, .04);
-highlight -link=s_base03,s_yellow_back WarningMsg
+highlight -link=s_base03,s_yellow_back WarningMsg color: #ff0000; background: #161616;
 map -count -modes=I <C-S-I> -builtin <C-i>
 map -count -modes=n,v ; <count>:
 map -count -modes=n,v j -builtin <count>5j
 map -count -modes=n,v k -builtin <count>5k
 set defsearch=duckduckgo
-set editor='/Applications/MacVim.app/Contents/MacOS/Vim -gf +<line> +"sil! call cursor(0, <column>)" <file>'
 set editor='gvim -gf +<line> +"sil! call cursor(0, <column>)" <file>'
+set guioptions=''
+set hlfind
+set showtabline=never
 
 " vim: set ft=pentadactyl:
