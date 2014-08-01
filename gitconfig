@@ -28,7 +28,11 @@
 [branch]
   autosetuprebase = always
 [user]
-	email = contact@stuarthicks.me
-	name = Stuart Hicks
+  email = contact@stuarthicks.me
+  name = Stuart Hicks
 [color]
-	ui = auto
+  ui = auto
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
