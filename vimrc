@@ -109,6 +109,9 @@ noremap <C-S-Tab> :<C-U>tabprevious<CR>
 inoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
 cnoremap <C-S-Tab> <C-C>:tabprevious<CR>
 
+nnoremap <S-Right> :bnext<cr>
+nnoremap <S-Left> :bprev<cr>
+
 " Double tap j in insert mode to return to normal mode
 "inoremap jj <Esc>
 
