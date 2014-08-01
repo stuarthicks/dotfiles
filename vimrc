@@ -31,6 +31,7 @@ Plugin 'vim-scripts/camelcasemotion'
 Plugin 'zirrostig/vim-schlepp'
 Plugin 'honza/vim-snippets'
 Plugin 'chriskempson/base16-vim'
+Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()
 
@@ -39,7 +40,7 @@ syntax on
 
 "let base16colorspace=256
 set background=dark
-colorscheme base16-default
+colorscheme base16-eighties
 
 "Powerline settings
 set laststatus=2
@@ -57,7 +58,7 @@ hi Normal ctermbg=none
 
 if has("gui_running")
   set go-=T
-  set guifont=Monospace\ 13
+  set guifont=M+\ 1m\ Medium\ 11
   set guioptions=aem
 endif
 
@@ -212,6 +213,10 @@ autocmd FileType gherkin let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType cucumber let b:dispatch = 'with-aws eng bundle exec cucumber'
 autocmd FileType perl let b:dispatch = 'perl -wc %'
 autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
+
+let g:vimrubocop_config = '~/etc/rubocop.yml'
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
 
 " Formatting/Editing
 set autoindent

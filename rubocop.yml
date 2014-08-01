@@ -1,0 +1,15 @@
+LineLength:
+  Max: 150
+
+CyclomaticComplexity:
+  Max: 9
+
+MethodLength:
+  Max: 
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+
+Style/StringLiterals:
+  Enabled: false
+
