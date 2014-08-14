@@ -62,3 +62,4 @@ alias much=git
 alias many=git
 alias wow='git push origin master'
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
+alias ssh-gen-ecdsa='ssh-keygen -t ecdsa -b 521 -f "~/.ssh/$(whoami)@$(hostname)-$(date -I)"'
