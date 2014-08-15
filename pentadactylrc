@@ -1,4 +1,4 @@
-"1.1
+"hg7101
 
 loadplugins '\.(js|penta)$'
 group user
@@ -49,7 +49,7 @@ map -count -modes=n,v j -builtin <count>5j
 map -count -modes=n,v k -builtin <count>5k
 set defsearch=duckduckgo
 set editor='gvim -gf +<line> +"sil! call cursor(0, <column>)" <file>'
-set guioptions=''
+set guioptions=T
 set hlfind
 set showtabline=never
 
