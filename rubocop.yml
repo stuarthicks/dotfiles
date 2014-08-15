@@ -1,15 +1,18 @@
-LineLength:
-  Max: 150
+AllCops:
+  Exclude:
+    - bin/*
 
-CyclomaticComplexity:
-  Max: 9
-
-MethodLength:
-  Max: 
+Documentation:
+  Enabled: false
 
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
 
-Style/StringLiterals:
-  Enabled: false
+Style/LineLength:
+  Max: 280
 
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/MethodLength:
+  Max: 20
