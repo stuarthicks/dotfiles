@@ -56,18 +56,11 @@ set t_Co=256
 let g:rehash256=1
 hi Normal ctermbg=none
 
-if has("gui_running")
-  set go-=T
-  set guifont=M+\ 1m\ Medium\ 11
-  set guioptions=aem
-endif
-
 set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed
 set cm=blowfish
 set timeoutlen=50
 
-let mapleader=","
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
 
@@ -219,7 +212,6 @@ autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
 
 let g:vimrubocop_config = '~/etc/rubocop.yml'
 let g:vimrubocop_keymap = 0
-nmap <Leader>r :RuboCop<CR>
 
 " Formatting/Editing
 set autoindent
@@ -231,4 +223,11 @@ set expandtab
 set nowrapscan
 set nonumber
 set nocursorline
+
+if has("gui_running")
+  set go-=T
+  set guifont=M+\ 1m\ Medium\ 11
+  set guioptions=aem
+  set number
+endif
 
