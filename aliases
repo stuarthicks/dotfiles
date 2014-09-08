@@ -63,3 +63,6 @@ alias many=git
 alias wow='git push origin master'
 alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
 alias ssh-gen-ecdsa='ssh-keygen -t ecdsa -b 521 -f "~/.ssh/$(whoami)@$(hostname)-$(date -I)"'
+alias cosmossh='cosmos-ssh-to-any'
+alias dev='SERVER_ENV=dev'
+#alias does-anyone-else-have-my-ip='sudo arping -D -I eth0 -c 3 $(ifconfig eth0 | grep \'inet addr\' | awk -F: \'{print $2}\' | awk \'{print $1}\')'
