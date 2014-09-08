@@ -11,6 +11,7 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
 setopt APPENDHISTORY
+setopt SHAREHISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
@@ -22,7 +23,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 
 setopt MULTIOS # pipe to multiple outputs.
-setopt EXTENDEDGLOB # e.g. cp ^*.(tar|bz2|gz)
+#setopt EXTENDEDGLOB # e.g. cp ^*.(tar|bz2|gz)
 setopt RM_STAR_WAIT
 setopt AUTOPUSHD
 setopt PUSHDMINUS
@@ -160,7 +161,7 @@ build-something () {
   elif [ -x "test" ]; then
     with-aws eng ./test
   elif [ -f "pom.xml" ]; then
-    m clean install
+    dev m clean install -T 1C
   elif [ -x "configure" ]; then
     ./configure && make
   elif [ -f "Makefile" ]; then
@@ -171,6 +172,12 @@ build-something () {
 }
 zle -N build-something
 bindkey '^G' build-something # Go!
+
+start-jetty() {
+  with-aws eng ~/bin/mvn -f *war/*xml jetty:run
+}
+zle -N start-jetty
+bindkey '^V' start-jetty
 
 # cd gh; git clone git@github.com:zsh-users/antigen
 source ~/gh/antigen/antigen.zsh
