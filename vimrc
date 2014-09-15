@@ -1,46 +1,59 @@
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" mkdir -p ~/.vim/autoload
+" curl -fLo ~/.vim/autoload/plug.vim \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'bling/vim-airline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'confluencewiki.vim'
-Plugin 'craigemery/vim-autotag'
-Plugin 'danchoi/ri.vim'
-Plugin 'initrc/eclim-vundle'
-Plugin 'jayflo/vim-skip'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/camelcasemotion'
-Plugin 'zirrostig/vim-schlepp'
-Plugin 'honza/vim-snippets'
-Plugin 'chriskempson/base16-vim'
-Plugin 'ngmy/vim-rubocop'
+" Framework/UI
+Plug 'Shougo/unite.vim'
+Plug 'bling/vim-airline'
 
-call vundle#end()
+" Navigation
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'craigemery/vim-autotag'
+Plug 'majutsushi/tagbar', { 'on': 'TagBarToggle' }
+Plug 'jayflo/vim-skip'
+
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/syntastic'
+Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
+
+" Java
+Plug 'initrc/eclim-vundle', { 'for': 'java' }
+
+" Ruby
+Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
+Plug 'danchoi/ri.vim', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+
+" External tool integration
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+
+" Misc
+Plug 'kannokanno/unite-todo'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/camelcasemotion'
+Plug 'zirrostig/vim-schlepp'
+Plug 'honza/vim-snippets'
+
+" Colour themes
+Plug 'chriskempson/base16-vim'
+Plug 'junegunn/seoul256.vim'
+
+call plug#end()
 
 filetype plugin indent on
 syntax on
-
-"let base16colorspace=256
-set background=dark
-colorscheme base16-eighties
 
 "Powerline settings
 set laststatus=2
@@ -224,10 +237,15 @@ set nowrapscan
 set nonumber
 set nocursorline
 
+set background=dark
+colorscheme seoul256
+let base16colorspace=256
+
 if has("gui_running")
   set go-=T
   set guifont=M+\ 1m\ Medium\ 11
   set guioptions=aem
   set number
+  set lines=999
 endif
 
