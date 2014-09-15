@@ -237,9 +237,11 @@ set nowrapscan
 set nonumber
 set nocursorline
 
+let base16colorspace=256
+let g:seoul256_background = 236
+
 set background=dark
 colorscheme seoul256
-let base16colorspace=256
 
 if has("gui_running")
   set go-=T
