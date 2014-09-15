@@ -18,7 +18,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'craigemery/vim-autotag'
-Plug 'majutsushi/tagbar', { 'on': 'TagBarToggle' }
+Plug 'majutsushi/tagbar'
 Plug 'jayflo/vim-skip'
 
 " Syntax highlighting
