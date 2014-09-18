@@ -180,7 +180,7 @@ zle -N start-jetty
 bindkey '^V' start-jetty
 
 # cd gh; git clone git@github.com:zsh-users/antigen
-source ~/gh/antigen/antigen.zsh
+source ~/antigen.zsh
 antigen bundles <<EOBUNDLES
 zsh-users/zsh-syntax-highlighting
 rupa/z
