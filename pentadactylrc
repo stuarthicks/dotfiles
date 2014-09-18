@@ -1,4 +1,4 @@
-"hg7101
+"hg7121
 
 loadplugins '\.(js|penta)$'
 group user
@@ -48,7 +48,7 @@ map -count -modes=n,v ; <count>:
 map -count -modes=n,v j -builtin <count>5j
 map -count -modes=n,v k -builtin <count>5k
 set defsearch=duckduckgo
-set editor='gvim -gf +<line> +"sil! call cursor(0, <column>)" <file>'
+set editor='/home/calamari/bin/penta-vim -f +<line> +"sil! call cursor(0, <column>)" <file>'
 set hlfind
 
 " vim: set ft=pentadactyl:
