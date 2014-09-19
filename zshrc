@@ -179,23 +179,25 @@ start-jetty() {
 zle -N start-jetty
 bindkey '^V' start-jetty
 
-# cd gh; git clone git@github.com:zsh-users/antigen
-source ~/antigen.zsh
-antigen bundles <<EOBUNDLES
-zsh-users/zsh-syntax-highlighting
-rupa/z
-bundler
-colored-man
-common-aliases
-cp
-extract
-mosh
-mvn
-rsync
-tmux
-vundle
+# curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
+if ls ~/antigen.zsh &>/dev/null; then
+  source ~/antigen.zsh
+  antigen bundles <<EOBUNDLES
+  zsh-users/zsh-syntax-highlighting
+  rupa/z
+  bundler
+  colored-man
+  common-aliases
+  cp
+  extract
+  mosh
+  mvn
+  rsync
+  tmux
+  vundle
 EOBUNDLES
-antigen apply
+  antigen apply
+fi
 
 # for shits 'n giggles
-# export TZ=$( cd /usr/share/zoneinfo ; ruby -e 'puts ARGV.shuffle.first' $( find * -type f  ) ) ; date
+export TZ=$( cd /usr/share/zoneinfo ; ruby -e 'puts ARGV.shuffle.first' $( find * -type f  ) )
