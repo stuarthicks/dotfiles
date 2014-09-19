@@ -8,6 +8,9 @@ link () {
 
 cd
 
+mv .zshrc .zshrc.bak
+mv .vimrc .vimrc.bak
+
 link zshrc
 link zprofile
 link vimrc
