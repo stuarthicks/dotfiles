@@ -23,12 +23,15 @@ link mintty_profile
 touch .path
 touch .profile
 
-# For ZSH plugin loading
-curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
+if git --help &>/dev/null; then
+  # For ZSH plugin loading
+  curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
 
-# For VIM plugin loading
-mkdir -p ~/.vim/autoload
-curl -fsLo ~/.vim/autoload/plug.vim \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +"PlugInstall" +qall
+  # For VIM plugin loading
+  mkdir -p ~/.vim/autoload
+  curl -fsLo ~/.vim/autoload/plug.vim \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  vim +"PlugInstall" +qall
+fi
+
 
