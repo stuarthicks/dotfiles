@@ -1,63 +1,122 @@
 set nocompatible
-filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" mkdir -p ~/.vim/autoload
+" curl -fLo ~/.vim/autoload/plug.vim \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+function! InstallPlugins()
+  call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+  " Framework/UI
+  Plug 'Shougo/unite.vim'
+  Plug 'bling/vim-airline'
 
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'bling/vim-airline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'confluencewiki.vim'
-Plugin 'craigemery/vim-autotag'
-Plugin 'danchoi/ri.vim'
-Plugin 'initrc/eclim-vundle'
-Plugin 'jayflo/vim-skip'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/camelcasemotion'
-Plugin 'zirrostig/vim-schlepp'
-Plugin 'honza/vim-snippets'
-Plugin 'chriskempson/base16-vim'
-Plugin 'ngmy/vim-rubocop'
+  " Navigation
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'kien/ctrlp.vim'
+  Plug 'Lokaltog/vim-easymotion'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'craigemery/vim-autotag'
+  Plug 'majutsushi/tagbar'
+  Plug 'jayflo/vim-skip'
 
-call vundle#end()
+  " Syntax highlighting
+  Plug 'sheerun/vim-polyglot'
+  Plug 'scrooloose/syntastic'
+  Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
+
+  " Java
+  Plug 'initrc/eclim-vundle', { 'for': 'java' }
+
+  " Ruby
+  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
+  Plug 'danchoi/ri.vim', { 'for': 'ruby' }
+  Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+
+  " External tool integration
+  Plug 'mileszs/ack.vim'
+  Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-fugitive'
+
+  " Misc
+  Plug 'kannokanno/unite-todo'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-scripts/camelcasemotion'
+  Plug 'zirrostig/vim-schlepp'
+  Plug 'honza/vim-snippets'
+
+  " Colour themes
+  Plug 'chriskempson/base16-vim'
+  Plug 'junegunn/seoul256.vim'
+
+  call plug#end()
+endfunction
+
+function! ConfigurePlugins()
+  " Powerline/Airline
+  set laststatus=2
+  let g:bufferline_echo=0
+  set noshowmode
+  let g:airline#extensions#tabline#enabled = 1
+
+  " UtilSnips
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+  let g:rehash256=1
+
+  " CamelCaseMotion
+  map <silent> w <Plug>CamelCaseMotion_w
+  map <silent> b <Plug>CamelCaseMotion_b
+  map <silent> e <Plug>CamelCaseMotion_e
+  sunmap w
+  sunmap b
+  sunmap e
+
+  " Ri/Rdoc for Ruby
+  nnoremap  <Leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split
+  nnoremap  <Leader>R :call ri#OpenSearchPrompt(1)<cr> " vertical split
+  nnoremap  <Leader>d :call ri#LookupNameUnderCursor()<cr> " keyword lookup
+
+  " Rubocop for Ruby
+  let g:vimrubocop_config = '~/etc/rubocop.yml'
+  let g:vimrubocop_keymap = 0
+
+  " Set F2 as Nerd Tree toggle and tell vim to exit
+  " if the only window open is nerd tree
+  map <F2> :NERDTreeToggle<cr>
+  let g:NERDTreeWinSize=26
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  map <F3> :TagbarToggle<cr>
+
+  " Schlepp - move highlighted code around
+  vmap <unique> <up>    <Plug>SchleppUp
+  vmap <unique> <down>  <Plug>SchleppDown
+  vmap <unique> <left>  <Plug>SchleppLeft
+  vmap <unique> <right> <Plug>SchleppRight
+  vmap <unique> i <Plug>SchleppToggleReindent
+
+  " Launch external commands from vim
+  nnoremap <F8> :Dispatch
+  nnoremap <F9> :Dispatch<CR>
+
+  " Configure colourscheme stuff here
+  let base16colorspace=256
+  let g:seoul256_background = 236
+  colorscheme seoul256
+endfunction
+
+if !empty(glob("~/.vim/autoload/plug.vim"))
+  call InstallPlugins()
+  call ConfigurePlugins()
+endif
 
 filetype plugin indent on
 syntax on
 
-"let base16colorspace=256
-set background=dark
-colorscheme base16-eighties
-
-"Powerline settings
-set laststatus=2
-let g:bufferline_echo=0
-set noshowmode
-let g:airline#extensions#tabline#enabled = 1
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-set t_Co=256
-let g:rehash256=1
-hi Normal ctermbg=none
-
 set diffopt+=iwhite "ignore whitespace in diffs
-set clipboard=unnamed
+set clipboard=unnamed "use system clipboard as main register
 set cm=blowfish
 set timeoutlen=50
 
@@ -68,21 +127,13 @@ nnoremap <cr> :nohlsearch<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-
-nnoremap  <Leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split
-nnoremap  <Leader>R :call ri#OpenSearchPrompt(1)<cr> " vertical split
-nnoremap  <Leader>d :call ri#LookupNameUnderCursor()<cr> " keyword lookup
-
+set t_Co=256
 if &term == "screen"
   set t_kN=^[[6;*~
   set t_kP=^[[5;*~
 endif
+
+hi Normal ctermbg=none
 
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
@@ -93,39 +144,24 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" CTRL-Tab is next tab
-noremap <C-Tab> :<C-U>tabnext<CR>
-inoremap <C-Tab> <C-\><C-N>:tabnext<CR>
-cnoremap <C-Tab> <C-C>:tabnext<CR>
-" CTRL-SHIFT-Tab is previous tab
-noremap <C-S-Tab> :<C-U>tabprevious<CR>
-inoremap <C-S-Tab> <C-\><C-N>:tabprevious<CR>
-cnoremap <C-S-Tab> <C-C>:tabprevious<CR>
-
 nnoremap <S-Right> :bnext<cr>
 nnoremap <S-Left> :bprev<cr>
 
 " Double tap j in insert mode to return to normal mode
-"inoremap jj <Esc>
+inoremap jj <Esc>
 
+" Tab autocomplete
 inoremap <S-Tab> <c-x><c-f>
 
-" More ways to enter commands
+" Annoying typo fixes
 map Q :<CR>
 nore ; :
-
 map q: :q
 
 " Remove trailing whitespace from all lines
 map <F6> :%s/\s\+$//
 
-" Set F2 as Nerd Tree toggle and tell vim to exit
-" if the only window open is nerd tree
-map <F2> :NERDTreeToggle<cr>
-let g:NERDTreeWinSize=26
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <F3> :TagbarToggle<cr>
-
+" Format buffer as json
 map <F4> :%!python -mjson.tool<cr>
 
 " For local replace
@@ -152,34 +188,54 @@ set ofu=syntaxcomplete#Complete
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set wildmode=longest,list
 
-vmap <unique> <up>    <Plug>SchleppUp
-vmap <unique> <down>  <Plug>SchleppDown
-vmap <unique> <left>  <Plug>SchleppLeft
-vmap <unique> <right> <Plug>SchleppRight
-vmap <unique> i <Plug>SchleppToggleReindent
+" Useful to fill out commit messages
+let @m = '^iMEDIASERVICES-'
+let @p = '^iPSI-'
+let @o = '^iOPS-'
+let @n = '^iNO-TICKET '
+
+" Formatting/Editing
+set autoindent
+set shiftwidth=2
+set tabstop=2
+set list
+set listchars=tab:>-
+set expandtab
+set nowrapscan
+set nonumber
+set nocursorline
+set background=dark
+
+if has("gui_running")
+  set go-=T
+  set guifont=M+\ 1m\ Medium\ 11
+  set guioptions=aem
+  set number
+  set lines=999
+endif
 
 function! DoPrettyXML()
-    let l:origft = &ft
-    set ft=
-    1s/<?xml .*?>//e
-    0put ='<PrettyXML>'
-    $put ='</PrettyXML>'
-    silent %!xmllint --format -
-    2d
-    $d
-    silent %<
-    1
-    exe "set ft=" . l:origft
-    endfunction
-    command! PrettyXML call DoPrettyXML()
+  let l:origft = &ft
+  set ft=
+  1s/<?xml .*?>//e
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  2d
+  $d
+  silent %<
+  1
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
 map <F5> :PrettyXML<CR>
 
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
 
   let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-                                                  " line to one character right
-                                                  " of the cursor
+  " line to one character right
+  " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
@@ -195,39 +251,4 @@ function! Smart_TabComplete()
   endif
 endfunction
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-let @m = '^iMEDIASERVICES-'
-let @p = '^iPSI-'
-let @o = '^iOPS-'
-let @n = '^iNO-TICKET '
-
-nnoremap <F8> :Dispatch
-nnoremap <F9> :Dispatch<CR>
-autocmd FileType java let b:dispatch = 'mvn clean install'
-autocmd FileType ruby let b:dispatch = 'with-aws eng bundle exec cucumber'
-autocmd FileType gherkin let b:dispatch = 'with-aws eng bundle exec cucumber'
-autocmd FileType cucumber let b:dispatch = 'with-aws eng bundle exec cucumber'
-autocmd FileType perl let b:dispatch = 'perl -wc %'
-autocmd FileType json let b:dispatch = 'cat % | python -mjson.tool'
-
-let g:vimrubocop_config = '~/etc/rubocop.yml'
-let g:vimrubocop_keymap = 0
-
-" Formatting/Editing
-set autoindent
-set shiftwidth=2
-set tabstop=2
-set list
-set listchars=tab:>-
-set expandtab
-set nowrapscan
-set nonumber
-set nocursorline
-
-if has("gui_running")
-  set go-=T
-  set guifont=M+\ 1m\ Medium\ 11
-  set guioptions=aem
-  set number
-endif
 
