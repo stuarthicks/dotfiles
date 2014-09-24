@@ -1,15 +1,10 @@
-autoload -U compinit && compinit
-autoload -U compdef
 alias :q='exit'
-alias a='ack -ai'
+alias a='ack -ki'
 alias bec='bundle exec cucumber'
 alias bes='bundle exec spork'
 alias bi='bundle install'
 alias dbundle='ruby -I ~/gh/bundler/lib/ ~/gh/bundler/bin/bundle'
 alias bonsai='tree -F --filelimit 15'
-alias b='./build'
-alias br='./build && ./run'
-alias c='cd'
 alias curls='forge-curl'
 alias dc='cd'
 alias dus='du -sh *'
@@ -17,8 +12,9 @@ alias enable_ssh='sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
 alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
 alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
-alias gsd='git diff | v -'
-alias gvd='svn diff -x -b | gvim -'
+alias sg="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
+alias sdiff='svn diff -x -b | gvim -'
+alias gdiff='git diff | gvim -'
 alias idea='JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8" /home/calamari/apps/idea-IC-135.690/bin/idea.sh & 2>&1'
 alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
@@ -31,38 +27,31 @@ alias p='ps aux | grep -i'
 alias psh='perl -d -e 1'
 alias pstree='ps -AHwef'
 alias q='exit'
-alias r='./run'
 alias rp='source ~/.profile'
+alias rz='source ~/.zshrc'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias serve='python -m SimpleHTTPServer 8000'
 alias sc='svn ci'
-alias sg="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
 alias ss='svn st'
 alias sup='svn up'
-compdef t='tmux'
 alias t='tmux'
 alias ta='tmux attach'
-alias tcopy='tmux saveb -| pbcopy && tmux deleteb'
+alias tcopy='tmux saveb - | pbcopy && tmux deleteb'
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
-compdef v='vim'
 alias v='vim'
 alias gv='dbus-launch --exit-with-session $(which gvim)'
 alias sdiff='svn diff -x -b | vim -'
 alias vundle='vim +PluginInstall +qall'
-compdef g=git
-compdef such=git
-compdef very=git
-compdef much=git
-compdef many=git
+alias vim-plug='vim +PlugInstall +qall'
 alias g=git
 alias such=git
 alias very=git
 alias much=git
 alias many=git
 alias wow='git push origin master'
-alias jack="ack -v -g 'target|test|\\.settings|libraries|\\.idea' | ack -x --java"
-alias ssh-gen-ecdsa='ssh-keygen -t ecdsa -b 521 -f "~/.ssh/$(whoami)@$(hostname)-$(date -I)"'
+alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -f "~/.ssh/$(whoami)@$(hostname)-$(date -I)"'
 alias cosmossh='cosmos-ssh-to-any'
 alias dev='SERVER_ENV=dev'
+alias nostart='NO_START_UNDERTEST=1 BASE_URL=http://localhost:8080'
 #alias does-anyone-else-have-my-ip='sudo arping -D -I eth0 -c 3 $(ifconfig eth0 | grep \'inet addr\' | awk -F: \'{print $2}\' | awk \'{print $1}\')'

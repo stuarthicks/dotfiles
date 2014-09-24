@@ -112,6 +112,7 @@ autoload edit-command-line && zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
 zmodload zsh/complist
+autoload -U compdef
 autoload -Uz compinit
 compinit
 
@@ -157,11 +158,11 @@ alias m=mvn-color
 
 build-something () {
   if [ -x "build" ]; then
-    ./build
-  elif [ -x "test" ]; then
-    with-aws eng ./test
+    ./build -T 1C
   elif [ -f "pom.xml" ]; then
     dev m clean install -T 1C
+  elif [ -x "test" ]; then
+    with-aws eng ./test
   elif [ -x "configure" ]; then
     ./configure && make
   elif [ -f "Makefile" ]; then
