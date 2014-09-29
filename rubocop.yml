@@ -16,3 +16,6 @@ Style/StringLiterals:
 
 Style/MethodLength:
   Max: 20
+
+Style/ClassVars:
+  Enabled: false
