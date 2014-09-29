@@ -1,5 +1,5 @@
 export TERM=screen-256color
-bindkey -v
+bindkey -e
 bindkey "^W" backward-kill-word    # vi-backward-kill-word
 bindkey "^H" backward-delete-char  # vi-backward-delete-char
 bindkey "^U" kill-line             # vi-kill-line
@@ -64,8 +64,8 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 autoload colors && colors
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:*' actionformats '%F{5}- %f%s%F{5}%F{3}, %F{5}%F{2}%b%F{3}|%F{1}%a%F{5}%f '
+zstyle ':vcs_info:*' formats '%F{5}- %f%s%F{5}%F{3}, %F{5}%F{2}%b%F{5}%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git svn
 
@@ -91,10 +91,10 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}
+vim_mode='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
+PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}\$(vcs_info_wrapper)
 %{$fg[red]%}$ %{$reset_color%}"
 
-RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper)'
 
 COMPLETION_WAITING_DOTS="true"
 
@@ -153,7 +153,7 @@ wgetar () {
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
-source ~/.profile
+#source ~/.profile
 alias m=mvn-color
 
 build-something () {
@@ -199,6 +199,3 @@ if ls ~/antigen.zsh &>/dev/null; then
 EOBUNDLES
   antigen apply
 fi
-
-# for shits 'n giggles
-export TZ=$( cd /usr/share/zoneinfo ; ruby -e 'puts ARGV.shuffle.first' $( find * -type f  ) )
