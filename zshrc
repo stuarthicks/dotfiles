@@ -186,7 +186,6 @@ if ls ~/antigen.zsh &>/dev/null; then
   antigen bundles <<EOBUNDLES
   zsh-users/zsh-syntax-highlighting
   rupa/z
-  bundler
   colored-man
   common-aliases
   cp
@@ -195,7 +194,7 @@ if ls ~/antigen.zsh &>/dev/null; then
   mvn
   rsync
   tmux
-  vundle
 EOBUNDLES
   antigen apply
 fi
+
