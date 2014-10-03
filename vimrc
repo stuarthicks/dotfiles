@@ -83,6 +83,7 @@ function! ConfigurePlugins()
   " Rubocop for Ruby
   let g:vimrubocop_config = '~/etc/rubocop.yml'
   let g:vimrubocop_keymap = 0
+  nnoremap <Leader>l :RuboCop<cr>
 
   " Set F2 as Nerd Tree toggle and tell vim to exit
   " if the only window open is nerd tree
