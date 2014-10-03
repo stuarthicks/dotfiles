@@ -103,6 +103,19 @@ function! ConfigurePlugins()
   nnoremap <F8> :Dispatch
   nnoremap <F9> :Dispatch<CR>
 
+  " Auto align pipe-separated tables while editing, eg, cucumber feature files
+  function! s:align()
+    let p = '^\s*|\s.*\s|\s*$'
+    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+      let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+      let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+      Tabularize/|/l1
+      normal! 0
+      call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+    endif
+  endfunction
+  inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+
   " Configure colourscheme stuff here
   let base16colorspace=256
   let g:seoul256_background = 236
@@ -119,7 +132,6 @@ syntax on
 
 set diffopt+=iwhite "ignore whitespace in diffs
 set clipboard=unnamed "use system clipboard as main register
-set cm=blowfish
 set timeoutlen=50
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
@@ -253,15 +265,3 @@ function! Smart_TabComplete()
   endif
 endfunction
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
