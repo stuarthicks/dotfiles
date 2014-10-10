@@ -43,8 +43,10 @@ function! InstallPlugins()
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
+  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'godlygeek/tabular'
+  Plug 'airblade/vim-rooter'
 
   " Colour themes
   Plug 'chriskempson/base16-vim'
