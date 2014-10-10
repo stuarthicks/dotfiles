@@ -81,16 +81,6 @@ function! ConfigurePlugins()
   nnoremap <C-g> :CtrlPLine<cr>
   nnoremap <C-b> :CtrlPBuffer<cr>
 
-  " Rubocop for Ruby
-  let g:vimrubocop_config = '~/etc/rubocop.yml'
-  let g:vimrubocop_keymap = 0
-  nnoremap <C-x> :RuboCop<cr>
-
-  " Ri/Rdoc for Ruby
-  nnoremap  <C-r> :call ri#OpenSearchPrompt(0)<cr> " horizontal split
-  nnoremap  <C-R> :call ri#OpenSearchPrompt(1)<cr> " vertical split
-  nnoremap  <C-f> :call ri#LookupNameUnderCursor()<cr> " keyword lookup
-
   " Set F2 as Nerd Tree toggle and tell vim to exit
   " if the only window open is nerd tree
   map <F2> :NERDTreeToggle<cr>
@@ -157,6 +147,10 @@ hi Normal ctermbg=none
 
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+
+" Normal movement around long-wrapped lines
+nnoremap k gk
+nnoremap j gj
 
 " Nicer split-window navigation
 nmap <silent> <C-h> :wincmd h<CR>

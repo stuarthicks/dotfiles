@@ -1,9 +1,18 @@
-let mapleader=','
-nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
-nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-nnoremap <silent> <buffer> <leader>c :JavaSearchContext<cr>
-nnoremap <silent> <buffer> <C-x> :JUnitFindTest<cr>
-nnoremap <silent> <buffer> <C-r> :JUnit<cr>
-nnoremap <silent> <buffer> <C-1> :JavaCorrect<cr>
-nnoremap <silent> <buffer> <C-F6> :JavaRename<cr>
-let mapleader='\'
+set ts=4
+set sw=4
+
+" "Ctrl-1"
+nmap <silent> <buffer> <C-x> :JavaCorrect<cr>
+
+" Unit Tests
+nmap <silent> <buffer> <C-f> :JUnitFindTest<cr>
+nmap <silent> <buffer> <C-r> :JUnit<cr>
+nmap <silent> <buffer> <C-R> :JUnit<space>
+
+" Searching
+nmap <silent> <buffer> <C-D> :JavaDocSearch -x declarations<cr>
+nmap <silent> <buffer> <C-c> :JavaSearchContext<cr>
+
+" Refactoring/Misc
+nmap <silent> <buffer> <C-I> :JavaImport<cr>
+nmap <buffer> <C-T> :JavaRename<space>
