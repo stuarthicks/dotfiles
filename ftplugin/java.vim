@@ -7,7 +7,6 @@ nmap <silent> <buffer> <C-x> :JavaCorrect<cr>
 " Unit Tests
 nmap <silent> <buffer> <C-f> :JUnitFindTest<cr>
 nmap <silent> <buffer> <C-r> :JUnit<cr>
-nmap <silent> <buffer> <C-R> :JUnit<space>
 
 " Searching
 nmap <silent> <buffer> <C-D> :JavaDocSearch -x declarations<cr>
