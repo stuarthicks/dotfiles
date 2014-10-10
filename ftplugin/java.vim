@@ -9,7 +9,7 @@ nmap <silent> <buffer> <C-f> :JUnitFindTest<cr>
 nmap <silent> <buffer> <C-r> :JUnit<cr>
 
 " Searching
-nmap <silent> <buffer> <C-D> :JavaDocSearch -x declarations<cr>
+nmap <silent> <buffer> <C-w> :JavaDocSearch -x declarations<cr>
 nmap <silent> <buffer> <C-c> :JavaSearchContext<cr>
 
 " Refactoring/Misc
