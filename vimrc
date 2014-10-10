@@ -222,7 +222,7 @@ set list
 set listchars=tab:>-
 set expandtab
 set nowrapscan
-set nonumber
+set number
 set nocursorline
 set background=dark
 
@@ -230,7 +230,6 @@ if has("gui_running")
   set go-=T
   set guifont=M+\ 1m\ Medium\ 11
   set guioptions=aem
-  set number
   set lines=999
 endif
 
