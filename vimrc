@@ -96,8 +96,8 @@ function! ConfigurePlugins()
   vmap <unique> i <Plug>SchleppToggleReindent
 
   " Launch external commands from vim
-  nnoremap <buffer> <F8> :Dispatch<space>
-  nnoremap <silent> <buffer> <F9> :Dispatch<CR>
+  nnoremap <F8> :Dispatch<space>
+  nnoremap <silent> <F9> :Dispatch<CR>
 
   " Auto align pipe-separated tables while editing, eg, cucumber feature files
   function! s:align()
