@@ -77,15 +77,19 @@ function! ConfigurePlugins()
   sunmap b
   sunmap e
 
-  " Ri/Rdoc for Ruby
-  nnoremap  <Leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split
-  nnoremap  <Leader>R :call ri#OpenSearchPrompt(1)<cr> " vertical split
-  nnoremap  <Leader>d :call ri#LookupNameUnderCursor()<cr> " keyword lookup
+  " Additional Ctrl-P bindings
+  nnoremap <C-g> :CtrlPLine<cr>
+  nnoremap <C-b> :CtrlPBuffer<cr>
 
   " Rubocop for Ruby
   let g:vimrubocop_config = '~/etc/rubocop.yml'
   let g:vimrubocop_keymap = 0
-  nnoremap <C-r> :RuboCop<cr>
+  nnoremap <C-x> :RuboCop<cr>
+
+  " Ri/Rdoc for Ruby
+  nnoremap  <C-r> :call ri#OpenSearchPrompt(0)<cr> " horizontal split
+  nnoremap  <C-R> :call ri#OpenSearchPrompt(1)<cr> " vertical split
+  nnoremap  <C-f> :call ri#LookupNameUnderCursor()<cr> " keyword lookup
 
   " Set F2 as Nerd Tree toggle and tell vim to exit
   " if the only window open is nerd tree
