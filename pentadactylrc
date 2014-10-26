@@ -47,6 +47,7 @@ map -count -modes=I <C-S-I> -builtin <C-i>
 map -count -modes=n,v ; <count>:
 map -count -modes=n,v j -builtin <count>5j
 map -count -modes=n,v k -builtin <count>5k
+map -count -modes=n e <count>:emenu<Space>
 set defsearch=duckduckgo
 set editor='/home/calamari/bin/penta-vim -f +<line> +"sil! call cursor(0, <column>)" <file>'
 set hlfind
