@@ -43,8 +43,10 @@ function! InstallPlugins()
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
+  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'godlygeek/tabular'
+  Plug 'airblade/vim-rooter'
 
   " Colour themes
   Plug 'chriskempson/base16-vim'
@@ -62,8 +64,8 @@ function! ConfigurePlugins()
 
   " UtilSnips
   let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  let g:UltiSnipsJumpForwardTrigger="<c-f>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
   let g:rehash256=1
 
@@ -75,15 +77,9 @@ function! ConfigurePlugins()
   sunmap b
   sunmap e
 
-  " Ri/Rdoc for Ruby
-  nnoremap  <Leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split
-  nnoremap  <Leader>R :call ri#OpenSearchPrompt(1)<cr> " vertical split
-  nnoremap  <Leader>d :call ri#LookupNameUnderCursor()<cr> " keyword lookup
-
-  " Rubocop for Ruby
-  let g:vimrubocop_config = '~/etc/rubocop.yml'
-  let g:vimrubocop_keymap = 0
-  nnoremap <C-r> :RuboCop<cr>
+  " Additional Ctrl-P bindings
+  nnoremap <C-g> :CtrlPLine<cr>
+  nnoremap <C-b> :CtrlPBuffer<cr>
 
   " Set F2 as Nerd Tree toggle and tell vim to exit
   " if the only window open is nerd tree
@@ -100,8 +96,8 @@ function! ConfigurePlugins()
   vmap <unique> i <Plug>SchleppToggleReindent
 
   " Launch external commands from vim
-  nnoremap <F8> :Dispatch
-  nnoremap <F9> :Dispatch<CR>
+  nnoremap <F8> :Dispatch<space>
+  nnoremap <silent> <F9> :Dispatch<CR>
 
   " Auto align pipe-separated tables while editing, eg, cucumber feature files
   function! s:align()
@@ -151,6 +147,10 @@ hi Normal ctermbg=none
 
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+
+" Normal movement around long-wrapped lines
+nnoremap k gk
+nnoremap j gj
 
 " Nicer split-window navigation
 nmap <silent> <C-h> :wincmd h<CR>
@@ -216,7 +216,7 @@ set list
 set listchars=tab:>-
 set expandtab
 set nowrapscan
-set nonumber
+set number
 set nocursorline
 set background=dark
 
@@ -224,7 +224,6 @@ if has("gui_running")
   set go-=T
   set guifont=M+\ 1m\ Medium\ 11
   set guioptions=aem
-  set number
   set lines=999
 endif
 

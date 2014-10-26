@@ -35,6 +35,8 @@ if git --help &>/dev/null; then
   curl -fsLo ~/.vim/autoload/plug.vim \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +"PlugInstall" +qall
+
+  ln -s etc/ftplugin .vim/ftplugin
 fi
 
 
