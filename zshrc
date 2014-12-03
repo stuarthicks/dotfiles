@@ -36,6 +36,12 @@ setopt NOMATCH # If a pattern for filename has no matches = error.
 setopt PRINT_EXIT_VALUE
 setopt LONG_LIST_JOBS
 
+# Makes Arrow keys, Home/End, etc, work in more obscure terminals (eg, st)
+function zle-line-init () { echoti smkx }
+function zle-line-finish () { echoti rmkx }
+zle -N zle-line-init
+zle -N zle-line-finish
+
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     kill -9 %+
@@ -154,7 +160,6 @@ LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
 #source ~/.profile
-alias m=mvn-color
 
 build-something () {
   if [ -x "build" ]; then
@@ -197,4 +202,3 @@ if ls ~/antigen.zsh &>/dev/null; then
 EOBUNDLES
   antigen apply
 fi
-
