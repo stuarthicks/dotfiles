@@ -70,8 +70,8 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 autoload colors && colors
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{5}- %f%s%F{5}%F{3}, %F{5}%F{2}%b%F{3}|%F{1}%a%F{5}%f '
-zstyle ':vcs_info:*' formats '%F{5}- %f%s%F{5}%F{3}, %F{5}%F{2}%b%F{5}%f '
+zstyle ':vcs_info:*' actionformats "%{$fg_bold[black]using%} %{$reset_color%}%s% %{$fg_bold[black]on%} %F{2}%b%F{3}|%F{1}%a%F{5}%f"
+zstyle ':vcs_info:*' formats "%{$fg_bold[black]using%} %{$reset_color%}%s %{$fg_bold[black]on%} %F{5}%F{2}%b%F{5}%f"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git svn
 
@@ -97,8 +97,7 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-vim_mode='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
-PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}\$(vcs_info_wrapper)
+PROMPT="%F{cyan}%n%f %{$fg_bold[black]%}at %F{yellow}%m%f %{$fg_bold[black]%}in %F{white}%9c%f %{$reset_color%}\$(vcs_info_wrapper)
 %{$fg[red]%}$ %{$reset_color%}"
 
 
@@ -185,12 +184,14 @@ start-jetty() {
 zle -N start-jetty
 bindkey '^V' start-jetty
 
+export ZSH=$HOME
+
 # curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
 if ls ~/antigen.zsh &>/dev/null; then
   source ~/antigen.zsh
   antigen bundles <<EOBUNDLES
-  zsh-users/zsh-syntax-highlighting
-  rupa/z
+  adb
+  bundler
   colored-man
   common-aliases
   cp
@@ -198,7 +199,15 @@ if ls ~/antigen.zsh &>/dev/null; then
   mosh
   mvn
   rsync
+  rupa/z
+  safe-paste
   tmux
+  vi-mode
+  zsh-users/zsh-syntax-highlighting
+  zsh_reload
 EOBUNDLES
   antigen apply
 fi
+
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
