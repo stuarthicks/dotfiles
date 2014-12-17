@@ -42,10 +42,9 @@ function! InstallPlugins()
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
   Plug 'godlygeek/tabular'
   Plug 'ap/vim-buftabline'
+  Plug 'gorkunov/smartpairs.vim'
 
   " Colour themes
   Plug 'chriskempson/base16-vim'
@@ -233,9 +232,8 @@ colorscheme seoul256
 
 if has("gui_running")
   colorscheme base16-eighties
-  set go-=T
   set guifont=M+\ 1m\ Medium\ 11
-  set guioptions=m
+  set guioptions=
 endif
 
 function! DoPrettyXML()
