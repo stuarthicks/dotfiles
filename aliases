@@ -1,3 +1,4 @@
+alias r=rbenv
 alias :q='exit'
 alias a='ack -ki'
 alias bec='bundle exec cucumber'
@@ -55,3 +56,6 @@ alias cosmossh='cosmos-ssh-to-any'
 alias dev='SERVER_ENV=dev'
 alias nostart='NO_START_UNDERTEST=1 BASE_URL=http://localhost:8080'
 #alias does-anyone-else-have-my-ip='sudo arping -D -I eth0 -c 3 $(ifconfig eth0 | grep \'inet addr\' | awk -F: \'{print $2}\' | awk \'{print $1}\')'
+alias vissh='vim ~/.ssh/config'
+alias drop-caches="sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
+alias tail-cloudformation='ssh -T -o IdentitiesOnly=yes -l rachel -i $HOME/.ssh/reflecting-pool-log-tail reith.rve.org.uk'
