@@ -1,5 +1,5 @@
 export TERM=screen-256color
-bindkey -e
+bindkey -v
 bindkey "^W" backward-kill-word    # vi-backward-kill-word
 bindkey "^H" backward-delete-char  # vi-backward-delete-char
 bindkey "^U" kill-line             # vi-kill-line
@@ -78,7 +78,7 @@ zstyle ':vcs_info:*' enable git svn
 vcs_info_wrapper() {
   vcs_info
   if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+    echo "%{$reset_color%}%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del "
   fi
 }
 
@@ -89,17 +89,38 @@ precmd() {
 # Allow for functions in the prompt.
 setopt PROMPT_SUBST
 
+cosmos_info() {
+  COSMOS_INSTANCE=""
+  COSMOS_COLOUR=""
+  if [ -f "/etc/cosmos-info" ]; then
+    source "/etc/cosmos-info"
+    if [ "$COSMOS_ENV" != "int" ] && [ "$COSMOS_ENV" != "test" ] ; then
+      echo "%{$reset_color%}%F{red}%{$COSMOS_ENV%} %{$COSMOS_COMPONENT%}%f "
+    else
+      echo "%{$reset_color%}%F{green}%{$COSMOS_ENV%} %{$COSMOS_COMPONENT%}%f "
+    fi
+  fi
+}
+
+# $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
+PROMPT="%F{cyan}%n%f \
+%{$fg_bold[black]%}at \
+%F{yellow}%m%f \
+%{$fg_bold[black]%}in \
+%F{white}%9c%f \
+\$(vcs_info_wrapper)\$(cosmos_info)
+%{$fg[red]%}$%{$reset_color%} "
+
 function zle-line-init zle-keymap-select {
-  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% N]%  %{$reset_color%}"
   zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
-PROMPT="%F{cyan}%n%f %{$fg_bold[black]%}at %F{yellow}%m%f %{$fg_bold[black]%}in %F{white}%9c%f %{$reset_color%}\$(vcs_info_wrapper)
-%{$fg[red]%}$ %{$reset_color%}"
-
+RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
 
 COMPLETION_WAITING_DOTS="true"
 
@@ -112,7 +133,7 @@ bindkey '^e' end-of-line # End
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
-# esc-e to edit current command in $EDITOR
+# esc/meta-e to edit current command in $EDITOR
 autoload edit-command-line && zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
@@ -158,13 +179,11 @@ wgetar () {
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
-#source ~/.profile
-
 build-something () {
   if [ -x "build" ]; then
-    ./build -T 1C
+    dev ./build
   elif [ -f "pom.xml" ]; then
-    dev m clean install -T 1C
+    dev m clean install
   elif [ -x "test" ]; then
     with-aws eng ./test
   elif [ -x "configure" ]; then
@@ -191,23 +210,23 @@ if ls ~/antigen.zsh &>/dev/null; then
   source ~/antigen.zsh
   antigen bundles <<EOBUNDLES
   adb
-  bundler
   colored-man
   common-aliases
   cp
   extract
-  mosh
-  mvn
   rsync
   rupa/z
-  safe-paste
   tmux
-  vi-mode
-  zsh-users/zsh-syntax-highlighting
-  zsh_reload
 EOBUNDLES
+  # zsh-users/zsh-syntax-highlighting
+  # mosh
   antigen apply
 fi
 
 export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+if [ -f "$HOME/cloud_python/bin/activate" ]; then
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  source $HOME/cloud_python/bin/activate
+fi

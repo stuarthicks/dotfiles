@@ -1,4 +1,5 @@
 "hg7121
+" vim: set ft=pentadactyl:
 
 loadplugins '\.(js|penta)$'
 group user
@@ -52,4 +53,13 @@ set defsearch=duckduckgo
 set editor='/home/calamari/bin/penta-vim -f +<line> +"sil! call cursor(0, <column>)" <file>'
 set hlfind
 
-" vim: set ft=pentadactyl:
+set strictfocus=google.com:laissez-faire,'chrome:*':laissez-faire,*:despotic
+set passkeys+=mail.google.com:jksacrqG#<CR>,gi,gl,gp
+
+noremap <C-v> <C-v><C-v>
+inoremap <C-v> <C-v><C-v>
+cnoremap <C-v> <C-v><C-v>
+noremap <C-c> <C-v><C-c>
+inoremap <C-c> <C-v><C-c>
+cnoremap <C-c> <C-v><C-c>
+
