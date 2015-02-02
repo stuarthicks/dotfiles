@@ -6,6 +6,11 @@ bindkey "^U" kill-line             # vi-kill-line
 bindkey "^?" backward-delete-char  # vi-backward-delete-char
 export KEYTIMEOUT=1
 
+zmodload zsh/complist
+autoload -Uz compinit compdef && compinit
+setopt completealiases
+source ~/.aliases
+
 # ALL the history options!
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
@@ -137,13 +142,6 @@ bindkey "^[3;5~" delete-char
 autoload edit-command-line && zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
-zmodload zsh/complist
-autoload -U compdef
-autoload -Uz compinit
-compinit
-
-setopt COMPLETEALIASES
-
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:descriptions' format '%U%d%u'
 zstyle ':completion:*:warnings' format 'No matches for: %B%d%b'
@@ -230,3 +228,5 @@ if [ -f "$HOME/cloud_python/bin/activate" ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
   source $HOME/cloud_python/bin/activate
 fi
+
+alias -- -='vim -R -'
