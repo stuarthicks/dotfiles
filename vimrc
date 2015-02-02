@@ -201,7 +201,6 @@ set directory=~/.vim/backup
 set cul
 set hidden
 set hlsearch
-set mouse=a
 set nocompatible
 set ofu=syntaxcomplete#Complete
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
@@ -231,8 +230,9 @@ let g:seoul256_background = 236
 colorscheme seoul256
 
 if has("gui_running")
+  set mouse=a
   colorscheme base16-eighties
-  set guifont=M+\ 1m\ Medium\ 11
+  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
   set guioptions=
 endif
 
