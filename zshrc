@@ -92,8 +92,8 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 vim_mode='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
-PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$reset_color%}\$(vcs_info_wrapper)
-%{$fg[red]%}$ %{$reset_color%}"
+PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$fg[white]%}\$(vcs_info_wrapper)
+%{$fg[red]%}$ %{$fg[white]%}"
 
 
 COMPLETION_WAITING_DOTS="true"
@@ -184,7 +184,6 @@ bindkey '^V' start-jetty
 if ls ~/antigen.zsh &>/dev/null; then
   source ~/antigen.zsh
   antigen bundles <<EOBUNDLES
-  zsh-users/zsh-syntax-highlighting
   rupa/z
   colored-man
   common-aliases
@@ -196,5 +195,5 @@ if ls ~/antigen.zsh &>/dev/null; then
   tmux
 EOBUNDLES
   antigen apply
+  # zsh-users/zsh-syntax-highlighting
 fi
-
