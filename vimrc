@@ -11,14 +11,13 @@ function! InstallPlugins()
   Plug 'bling/vim-airline'
 
   " Navigation
-  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-  Plug 'scrooloose/nerdcommenter'
   Plug 'kien/ctrlp.vim'
   Plug 'Lokaltog/vim-easymotion'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
   Plug 'jayflo/vim-skip'
+  Plug 'tpope/vim-vinegar'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
@@ -43,11 +42,11 @@ function! InstallPlugins()
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
   Plug 'godlygeek/tabular'
   Plug 'airblade/vim-rooter'
   Plug 'ryanss/vim-hackernews'
+  Plug 'ap/vim-buftabline'
+  Plug 'gorkunov/smartpairs.vim'
 
   " Colour themes
   Plug 'chriskempson/base16-vim'
@@ -62,6 +61,13 @@ function! ConfigurePlugins()
   let g:bufferline_echo=0
   set noshowmode
   let g:airline#extensions#tabline#enabled = 1
+
+  " Buffers instead of tabs in tabbar
+  set hidden
+  nnoremap <C-]> :bnext<CR>
+  nnoremap <C-[> :bprev<CR>
+
+  let g:ctrlp_working_path_mode = 'ra'
 
   " UtilSnips
   let g:UltiSnipsExpandTrigger="<tab>"
@@ -80,11 +86,15 @@ function! ConfigurePlugins()
 
   " Additional Ctrl-P bindings
   nnoremap <C-g> :CtrlPLine<cr>
-  nnoremap <C-b> :CtrlPBuffer<cr>
+  nnoremap <C-b> :CtrlPBuffer<cr>o
+
+  nnoremap <C-t> :Unite todo<cr>
+  nnoremap <C-a> :UniteTodoAddSimple<cr>
 
   " Set F2 as Nerd Tree toggle and tell vim to exit
   " if the only window open is nerd tree
-  map <F2> :NERDTreeToggle<cr>
+  " map <F2> :NERDTreeToggle<cr>
+  map <silent> <F2> :Explore<cr>
   let g:NERDTreeWinSize=26
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
   map <F3> :TagbarToggle<cr>
@@ -113,10 +123,6 @@ function! ConfigurePlugins()
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
-  " Configure colourscheme stuff here
-  let base16colorspace=256
-  let g:seoul256_background = 236
-  colorscheme seoul256
 endfunction
 
 if !empty(glob("~/.vim/autoload/plug.vim"))
@@ -163,7 +169,7 @@ nnoremap <S-Right> :bnext<cr>
 nnoremap <S-Left> :bprev<cr>
 
 " Double tap j in insert mode to return to normal mode
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 " Tab autocomplete
 inoremap <S-Tab> <c-x><c-f>
@@ -197,7 +203,6 @@ set directory=~/.vim/backup
 set cul
 set hidden
 set hlsearch
-set mouse=a
 set nocompatible
 set ofu=syntaxcomplete#Complete
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
@@ -221,11 +226,16 @@ set number
 set nocursorline
 set background=dark
 
+" Configure colourscheme stuff here
+let base16colorspace=256
+let g:seoul256_background = 236
+colorscheme seoul256
+
 if has("gui_running")
-  set go-=T
-  set guifont=M+\ 1m\ Medium\ 11
-  set guioptions=aem
-  set lines=999
+  set mouse=a
+  colorscheme base16-eighties
+  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
+  set guioptions=
 endif
 
 function! DoPrettyXML()

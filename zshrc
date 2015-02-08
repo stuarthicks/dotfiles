@@ -1,10 +1,15 @@
 export TERM=screen-256color
-bindkey -e
+bindkey -v
 bindkey "^W" backward-kill-word    # vi-backward-kill-word
 bindkey "^H" backward-delete-char  # vi-backward-delete-char
 bindkey "^U" kill-line             # vi-kill-line
 bindkey "^?" backward-delete-char  # vi-backward-delete-char
 export KEYTIMEOUT=1
+
+zmodload zsh/complist
+autoload -Uz compinit compdef && compinit
+setopt completealiases
+source ~/.aliases
 
 # ALL the history options!
 export HISTFILE=~/.zsh_history
@@ -36,6 +41,12 @@ setopt NOMATCH # If a pattern for filename has no matches = error.
 setopt PRINT_EXIT_VALUE
 setopt LONG_LIST_JOBS
 
+# Makes Arrow keys, Home/End, etc, work in more obscure terminals (eg, st)
+function zle-line-init () { echoti smkx }
+function zle-line-finish () { echoti rmkx }
+zle -N zle-line-init
+zle -N zle-line-finish
+
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     kill -9 %+
@@ -64,15 +75,15 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 autoload colors && colors
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{5}- %f%s%F{5}%F{3}, %F{5}%F{2}%b%F{3}|%F{1}%a%F{5}%f '
-zstyle ':vcs_info:*' formats '%F{5}- %f%s%F{5}%F{3}, %F{5}%F{2}%b%F{5}%f '
+zstyle ':vcs_info:*' actionformats "%{$fg_bold[black]using%} %{$reset_color%}%s% %{$fg_bold[black]on%} %F{2}%b%F{3}|%F{1}%a%F{5}%f"
+zstyle ':vcs_info:*' formats "%{$fg_bold[black]using%} %{$reset_color%}%s %{$fg_bold[black]on%} %F{5}%F{2}%b%F{5}%f"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git svn
 
 vcs_info_wrapper() {
   vcs_info
   if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+    echo "%{$reset_color%}%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del "
   fi
 }
 
@@ -83,18 +94,38 @@ precmd() {
 # Allow for functions in the prompt.
 setopt PROMPT_SUBST
 
+cosmos_info() {
+  COSMOS_INSTANCE=""
+  COSMOS_COLOUR=""
+  if [ -f "/etc/cosmos-info" ]; then
+    source "/etc/cosmos-info"
+    if [ "$COSMOS_ENV" != "int" ] && [ "$COSMOS_ENV" != "test" ] ; then
+      echo "%{$reset_color%}%F{red}%{$COSMOS_ENV%} %{$COSMOS_COMPONENT%}%f "
+    else
+      echo "%{$reset_color%}%F{green}%{$COSMOS_ENV%} %{$COSMOS_COMPONENT%}%f "
+    fi
+  fi
+}
+
+# $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
+PROMPT="%F{cyan}%n%f \
+%{$fg_bold[black]%}at \
+%F{yellow}%m%f \
+%{$fg_bold[black]%}in \
+%F{white}%9c%f \
+\$(vcs_info_wrapper)\$(cosmos_info)
+%{$fg[red]%}$%{$reset_color%} "
+
 function zle-line-init zle-keymap-select {
-  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% N]%  %{$reset_color%}"
   zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
-vim_mode='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
-PROMPT="%{$fg[cyan]%}%n@%m %{$fg[white]%}<%5c> %{$fg[white]%}\$(vcs_info_wrapper)
-%{$fg[red]%}$ %{$fg[white]%}"
-
+RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
 
 COMPLETION_WAITING_DOTS="true"
 
@@ -107,16 +138,9 @@ bindkey '^e' end-of-line # End
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
-# esc-e to edit current command in $EDITOR
+# esc/meta-e to edit current command in $EDITOR
 autoload edit-command-line && zle -N edit-command-line
 bindkey '\ee' edit-command-line
-
-zmodload zsh/complist
-autoload -U compdef
-autoload -Uz compinit
-compinit
-
-setopt COMPLETEALIASES
 
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:descriptions' format '%U%d%u'
@@ -153,14 +177,11 @@ wgetar () {
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
-#source ~/.profile
-alias m=mvn-color
-
 build-something () {
   if [ -x "build" ]; then
-    ./build -T 1C
+    dev ./build
   elif [ -f "pom.xml" ]; then
-    dev m clean install -T 1C
+    dev m clean install
   elif [ -x "test" ]; then
     with-aws eng ./test
   elif [ -x "configure" ]; then
@@ -180,20 +201,34 @@ start-jetty() {
 zle -N start-jetty
 bindkey '^V' start-jetty
 
+export ZSH=$HOME
+
 # curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
 if ls ~/antigen.zsh &>/dev/null; then
   source ~/antigen.zsh
   antigen bundles <<EOBUNDLES
   rupa/z
+  adb
   colored-man
   common-aliases
   cp
   extract
-  mosh
-  mvn
   rsync
+  rupa/z
   tmux
 EOBUNDLES
   antigen apply
   # zsh-users/zsh-syntax-highlighting
+  # mosh
+  # zsh-users/zsh-syntax-highlighting
 fi
+
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+if [ -f "$HOME/cloud_python/bin/activate" ]; then
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  source $HOME/cloud_python/bin/activate
+fi
+
+alias -- -='vim -R -'
