@@ -18,7 +18,7 @@ alias gdiff='git diff | gvim -'
 alias idea='JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8" /home/calamari/apps/idea-IC-135.690/bin/idea.sh & 2>&1'
 alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
-alias l='ls --color -ltrAhF'
+alias l='ls --color -ltrAhFa'
 alias ls='ls --color'
 alias mci='mvn clean install'
 alias new_iterm='open -n -a "iTerm"'

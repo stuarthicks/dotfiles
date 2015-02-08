@@ -47,6 +47,7 @@ function! InstallPlugins()
   Plug 'honza/vim-snippets'
   Plug 'godlygeek/tabular'
   Plug 'airblade/vim-rooter'
+  Plug 'ryanss/vim-hackernews'
 
   " Colour themes
   Plug 'chriskempson/base16-vim'
