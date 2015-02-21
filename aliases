@@ -9,7 +9,6 @@ calias very git
 calias much git
 calias many git
 calias t tmux
-calias v vim
 calias rd 'rmdir'
 
 alias bec='bundle exec cucumber'
@@ -28,6 +27,7 @@ alias 8='cd -7'
 alias 9='cd -9'
 alias md 'mkdir -p'
 
+alias rustup='curl -s https://static.rust-lang.org/rustup.sh | sudo sh'
 alias a='ack -ki'
 alias bonsai='tree -F --filelimit 15'
 alias ccat='pygmentize -g'
@@ -43,7 +43,7 @@ alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
 alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 alias gdiff='git diff | gvim -'
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
-alias gv='dbus-launch --exit-with-session $(which gvim)'
+alias v='dbus-launch --exit-with-session $(which gvim) 2>&1 > /dev/null'
 alias idea='JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8" /home/calamari/apps/idea-IC-135.690/bin/idea.sh & 2>&1'
 alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
