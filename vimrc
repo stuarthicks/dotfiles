@@ -6,23 +6,23 @@ set nocompatible
 function! InstallPlugins()
   call plug#begin('~/.vim/plugged')
 
-  " Framework/UI
+  " Core/Framework
+  Plug 'tpope/vim-sensible'
+  Plug 'itchyny/lightline.vim'
   Plug 'Shougo/unite.vim'
-  Plug 'bling/vim-airline'
+  Plug 'Shougo/vimproc.vim'
 
   " Navigation
-  Plug 'kien/ctrlp.vim'
-  Plug 'Lokaltog/vim-easymotion'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'tpope/vim-vinegar'
+  Plug 'jayflo/vim-skip'
+  Plug 'Lokaltog/vim-easymotion'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
-  Plug 'jayflo/vim-skip'
-  Plug 'tpope/vim-vinegar'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/syntastic'
-  Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -32,10 +32,18 @@ function! InstallPlugins()
   Plug 'danchoi/ri.vim', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 
-  " External tool integration
-  Plug 'mileszs/ack.vim'
+  " Javascript/JSON
+  Plug 'elzr/vim-json', { 'for': 'json' }
+
+  " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
+  Plug 'gregsexton/gitv'
+
+  " Searching
+  Plug 'kien/ctrlp.vim'
+  Plug 'mileszs/ack.vim'
+  Plug 'rking/ag.vim'
 
   " Misc
   Plug 'kannokanno/unite-todo'
@@ -47,10 +55,14 @@ function! InstallPlugins()
   Plug 'ryanss/vim-hackernews'
   Plug 'ap/vim-buftabline'
   Plug 'gorkunov/smartpairs.vim'
+  Plug 'ervandew/supertab'
+  Plug 'Shougo/vimshell.vim'
 
   " Colour themes
   Plug 'chriskempson/base16-vim'
   Plug 'junegunn/seoul256.vim'
+  Plug 'andrwb/vim-lapis256'
+  Plug 'vim-scripts/vydark'
 
   call plug#end()
 endfunction
@@ -229,12 +241,12 @@ set background=dark
 " Configure colourscheme stuff here
 let base16colorspace=256
 let g:seoul256_background = 236
-colorscheme seoul256
+colorscheme lapis256
 
 if has("gui_running")
   set mouse=a
-  colorscheme base16-eighties
-  set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
+  colorscheme vydark
+  " set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
   set guioptions=
 endif
 
