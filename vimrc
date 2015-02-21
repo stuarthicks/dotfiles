@@ -162,8 +162,6 @@ if &term == "screen"
   set t_kP=^[[5;*~
 endif
 
-hi Normal ctermbg=none
-
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 
@@ -246,7 +244,6 @@ colorscheme lapis256
 if has("gui_running")
   set mouse=a
   colorscheme vydark
-  " set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
   set guioptions=
 endif
 
