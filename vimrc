@@ -98,7 +98,7 @@ function! ConfigurePlugins()
 
   " Additional Ctrl-P bindings
   nnoremap <C-g> :CtrlPLine<cr>
-  nnoremap <C-b> :CtrlPBuffer<cr>o
+  nnoremap <C-b> :CtrlPBuffer<cr>
 
   nnoremap <C-t> :Unite todo<cr>
   nnoremap <C-a> :UniteTodoAddSimple<cr>
