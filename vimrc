@@ -239,11 +239,7 @@ set background=dark
 " Configure colourscheme stuff here
 let base16colorspace=256
 let g:seoul256_background = 236
-<<<<<<< HEAD
 colorscheme lapis256
-=======
-colorscheme vydark
->>>>>>> correct vim maps to use noremap, update gvim settings
 
 if has("gui_running")
   set t_Co=256
