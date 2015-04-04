@@ -19,6 +19,7 @@ link aliases
 link mailcap
 link rubocop.yml
 link tmux.conf
+link compton.conf
 link pentadactylrc
 link pentadactyl
 link mintty_profile
