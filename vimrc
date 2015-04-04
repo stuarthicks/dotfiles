@@ -35,6 +35,10 @@ function! InstallPlugins()
   " Javascript/JSON
   Plug 'elzr/vim-json', { 'for': 'json' }
 
+  " Rust
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'phildawes/racer', { 'for': 'rust' }
+
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
@@ -117,6 +121,10 @@ function! ConfigurePlugins()
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
+
+  set hidden
+  let g:racer_cmd = "/home/calamari/gh/racer/target/release/racer"
+  let $RUST_SRC_PATH="/home/calamari/gh/rust/src/"
 
   " Launch external commands from vim
   nnoremap <F8> :Dispatch<space>
@@ -244,9 +252,10 @@ colorscheme lapis256
 if has("gui_running")
   set t_Co=256
   set mouse=a
-  colorscheme vydark
-  set guifont=M+\ 1mn\ Medium\ 11
+  set anti enc=utf-8
+  set guifont=Source\ Code\ Pro\ 13
   set guioptions=
+  colorscheme vydark
 endif
 
 function! DoPrettyXML()
