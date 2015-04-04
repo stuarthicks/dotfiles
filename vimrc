@@ -106,10 +106,10 @@ function! ConfigurePlugins()
   " Set F2 as Nerd Tree toggle and tell vim to exit
   " if the only window open is nerd tree
   " map <F2> :NERDTreeToggle<cr>
-  map <silent> <F2> :Explore<cr>
+  noremap <F2> :Explore<cr>
   let g:NERDTreeWinSize=26
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-  map <F3> :TagbarToggle<cr>
+  noremap <F3> :TagbarToggle<cr>
 
   " Schlepp - move highlighted code around
   vmap <unique> <up>    <Plug>SchleppUp
@@ -242,8 +242,10 @@ let g:seoul256_background = 236
 colorscheme lapis256
 
 if has("gui_running")
+  set t_Co=256
   set mouse=a
   colorscheme vydark
+  set guifont=M+\ 1mn\ Medium\ 11
   set guioptions=
 endif
 
