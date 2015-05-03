@@ -83,7 +83,7 @@ super + Return
   gnome-terminal
 
 super + space
-  dmenu_run
+  /usr/local/bin/j4-dmenu-desktop --dmenu="dmenu -nb '#2D2D2D' -nf '#888888' -sb '#D64937' -sf '#DEDEDE' -i"
 
 super + n
   thunar
