@@ -1,9 +1,11 @@
 #!/bin/bash
-set -u
+set -ux
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 link () {
   FILE=$1
-  ln -s etc/$FILE .$FILE
+  ln -s $DIR/$FILE $HOME/.$FILE
 }
 
 cd
@@ -24,12 +26,12 @@ link pentadactylrc
 link pentadactyl
 link mintty_profile
 
-touch .path
-touch .profile
+touch $HOME/.path
+touch $HOME/.profile
 
 if git --help &>/dev/null; then
   # For ZSH plugin loading
-  curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
+  curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/antigen.zsh
 
   # For VIM plugin loading
   mkdir -p ~/.vim/autoload
