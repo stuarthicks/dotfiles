@@ -9,8 +9,7 @@ function! InstallPlugins()
   " Core/Framework
   Plug 'tpope/vim-sensible'
   Plug 'itchyny/lightline.vim'
-  Plug 'Shougo/unite.vim'
-  Plug 'Shougo/vimproc.vim'
+  Plug 'tpope/vim-projectionist'
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
@@ -29,11 +28,15 @@ function! InstallPlugins()
 
   " Ruby
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  Plug 'danchoi/ri.vim', { 'for': 'ruby' }
+  Plug 'danchoi/ri_vim', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+  Plug 'tpope/vim-cucumber', { 'for': 'ruby' }
+
 
   " Javascript/JSON
   Plug 'elzr/vim-json', { 'for': 'json' }
+  Plug 'Shutnik/jshint2.vim', { 'for' : 'javascript' }
 
   " Rust
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -42,7 +45,6 @@ function! InstallPlugins()
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
-  Plug 'gregsexton/gitv'
 
   " Searching
   Plug 'kien/ctrlp.vim'
@@ -50,22 +52,21 @@ function! InstallPlugins()
   Plug 'rking/ag.vim'
 
   " Misc
-  Plug 'kannokanno/unite-todo'
-  Plug 'tpope/vim-surround'
   Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
   Plug 'godlygeek/tabular'
   Plug 'airblade/vim-rooter'
-  Plug 'ryanss/vim-hackernews'
+  Plug 'ryanss/vim-hackernews', { 'on' : 'HackerNews' }
   Plug 'ap/vim-buftabline'
   Plug 'gorkunov/smartpairs.vim'
   Plug 'ervandew/supertab'
-  Plug 'Shougo/vimshell.vim'
+  Plug 'Valloric/YouCompleteMe'
 
-  " Colour themes
-  Plug 'chriskempson/base16-vim'
-  Plug 'junegunn/seoul256.vim'
+  " Terminal Colour themes
   Plug 'andrwb/vim-lapis256'
+
+  " GUI Colour themes
+  Plug 'chriskempson/base16-vim'
   Plug 'vim-scripts/vydark'
 
   call plug#end()
@@ -80,8 +81,8 @@ function! ConfigurePlugins()
 
   " Buffers instead of tabs in tabbar
   set hidden
-  nnoremap <C-]> :bnext<CR>
-  nnoremap <C-[> :bprev<CR>
+  nnoremap <S-Right> :bnext<CR>
+  nnoremap <S-Left> :bprev<CR>
 
   let g:ctrlp_working_path_mode = 'ra'
 
@@ -91,6 +92,8 @@ function! ConfigurePlugins()
   let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
   let g:rehash256=1
+
+  let g:rooter_manual_only = 1
 
   " CamelCaseMotion
   map <silent> w <Plug>CamelCaseMotion_w
@@ -104,15 +107,7 @@ function! ConfigurePlugins()
   nnoremap <C-g> :CtrlPLine<cr>
   nnoremap <C-b> :CtrlPBuffer<cr>
 
-  nnoremap <C-t> :Unite todo<cr>
-  nnoremap <C-a> :UniteTodoAddSimple<cr>
-
-  " Set F2 as Nerd Tree toggle and tell vim to exit
-  " if the only window open is nerd tree
-  " map <F2> :NERDTreeToggle<cr>
   noremap <F2> :Explore<cr>
-  let g:NERDTreeWinSize=26
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
   noremap <F3> :TagbarToggle<cr>
 
   " Schlepp - move highlighted code around
@@ -255,7 +250,7 @@ if has("gui_running")
   set anti enc=utf-8
   set guifont=Source\ Code\ Pro\ 13
   set guioptions=
-  colorscheme vydark
+  colorscheme base16-eighties
 endif
 
 function! DoPrettyXML()
