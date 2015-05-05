@@ -179,24 +179,26 @@ LANGUAGE=en_GB.UTF-8
 
 build-something () {
   if [ -x "build" ]; then
-    dev ./build
+    BUFFER="dev ./build"
   elif [ -f "pom.xml" ]; then
-    dev m clean install
+    BUFFER="dev m clean install"
   elif [ -x "test" ]; then
-    with-aws eng ./test
+    BUFFER="with-aws tmp ./test"
   elif [ -x "configure" ]; then
-    ./configure && make
+    BUFFER="./configure && make"
   elif [ -f "Makefile" ]; then
-    make
+    BUFFER="make"
   elif [ -f "Gemfile" ]; then
-    bundle exec cucumber
+    BUFFER="bundle exec cucumber --strict --expand -t ~@browser-required"
   fi
+  zle end-of-line
 }
 zle -N build-something
 bindkey '^G' build-something # Go!
 
 start-jetty() {
-  with-aws eng ~/bin/mvn -f *war/*xml jetty:run
+  BUFFER="with-aws tmp m -f *war/*xml jetty:run"
+  zle end-of-line
 }
 zle -N start-jetty
 bindkey '^V' start-jetty
@@ -222,9 +224,6 @@ EOBUNDLES
   # mosh
   # zsh-users/zsh-syntax-highlighting
 fi
-
-export NVM_DIR="~/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 if [ -f "$HOME/cloud_python/bin/activate" ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
