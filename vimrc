@@ -238,15 +238,15 @@ set nowrapscan
 set number
 set nocursorline
 set background=dark
+set mouse=a
 
 " Configure colourscheme stuff here
 let base16colorspace=256
 let g:seoul256_background = 236
-colorscheme lapis256
+colorscheme default
 
 if has("gui_running")
   set t_Co=256
-  set mouse=a
   set anti enc=utf-8
   set guifont=Source\ Code\ Pro\ 13
   set guioptions=
