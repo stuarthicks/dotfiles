@@ -9,7 +9,6 @@ function! InstallPlugins()
   " Core/Framework
   Plug 'tpope/vim-sensible'
   Plug 'itchyny/lightline.vim'
-  Plug 'tpope/vim-projectionist'
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
@@ -22,6 +21,7 @@ function! InstallPlugins()
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/syntastic'
+  Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -48,7 +48,6 @@ function! InstallPlugins()
 
   " Searching
   Plug 'kien/ctrlp.vim'
-  Plug 'mileszs/ack.vim'
   Plug 'rking/ag.vim'
 
   " Misc
@@ -172,6 +171,17 @@ au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 nnoremap k gk
 nnoremap j gj
 
+" Inverse, so I can do the old behaviour if i want
+nnoremap gj j
+nnoremap gk k
+
+" zz some motions, to keep cursor in centre of screen
+nnoremap n nzz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap { {zz
+nnoremap } }zz
+
 " Nicer split-window navigation
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
@@ -188,7 +198,8 @@ nnoremap <S-Left> :bprev<cr>
 inoremap <S-Tab> <c-x><c-f>
 
 " Annoying typo fixes
-map Q :<CR>
+nnoremap <F1> <nop>
+nnoremap Q <nop>
 nore ; :
 map q: :q
 
@@ -212,14 +223,23 @@ silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-" Misc settings/tweaks
-set cul
-set hidden
-set hlsearch
-set nocompatible
-set ofu=syntaxcomplete#Complete
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
-set wildmode=longest,list
+" Save when losing focus
+au FocusLost * :silent! wall
+
+" Resize splits when window is resized
+au VimResized * :wincmd =
+
+" Open files to the same line as last time
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Useful to fill out commit messages
 let @m = '^iMEDIASERVICES-'
@@ -227,7 +247,13 @@ let @p = '^iPSI-'
 let @o = '^iOPS-'
 let @n = '^iNO-TICKET '
 
-" Formatting/Editing
+" General Options
+set cul
+set hidden
+set hlsearch
+set nocompatible
+set ofu=syntaxcomplete#Complete
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set autoindent
 set shiftwidth=2
 set tabstop=2
@@ -239,6 +265,15 @@ set number
 set nocursorline
 set background=dark
 set mouse=a
+set nowrap
+set linebreak
+set backspace=indent,eol,start
+set smartcase
+set gdefault
+set wildmode=longest,list
+set splitbelow
+set splitright
+set synmaxcol=800
 
 " Configure colourscheme stuff here
 let base16colorspace=256
@@ -248,9 +283,10 @@ colorscheme default
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
-  set guifont=Source\ Code\ Pro\ 13
+  set guifont=M+\ 1mn\ Regular\ 11
   set guioptions=
   colorscheme base16-eighties
+  set background=dark
 endif
 
 function! DoPrettyXML()
