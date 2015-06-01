@@ -56,6 +56,7 @@ map -count -modes=c <C-v> -builtin <C-v><C-v>
 map -count -modes=c <C-c> -builtin <C-v><C-c>
 set defsearch=duckduckgo
 set editor='/home/calamari/bin/penta-vim -f +<line> +"sil! call cursor(0, <column>)" <file>'
+set guioptions=T
 set hlfind
 set passkeys=mail.google.com:jksacrqG#<CR>,gi,gl,gp
 set strictfocus=google.com:laissez-faire,'chrome:*':laissez-faire,*:despotic
