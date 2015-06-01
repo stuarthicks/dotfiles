@@ -48,7 +48,7 @@ function! InstallPlugins()
 
   " Searching
   Plug 'kien/ctrlp.vim'
-  Plug 'rking/ag.vim'
+  Plug 'dyng/ctrlsf.vim'
 
   " Misc
   Plug 'vim-scripts/camelcasemotion'
@@ -115,6 +115,15 @@ function! ConfigurePlugins()
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
+
+  nmap <C-a> <Plug>CtrlSFPrompt
+  " vmap <C-r>f <Plug>CtrlSFVwordPath
+  " vmap <C-r>F <Plug>CtrlSFVwordExec
+  " nmap <C-r>n <Plug>CtrlSFCwordPath
+  " nmap <C-r>p <Plug>CtrlSFPwordPath
+  " nnoremap <C-r>o :CtrlSFOpen<CR>
+  " nnoremap <C-r>t :CtrlSFToggle<CR>
+  " inoremap <C-r>t <Esc>:CtrlSFToggle<CR>
 
   set hidden
   let g:racer_cmd = "/home/calamari/gh/racer/target/release/racer"
