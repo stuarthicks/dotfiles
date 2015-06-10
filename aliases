@@ -43,10 +43,9 @@ alias find-pacman-orphans='sudo pacman -Rs $(pacman -Qtdq)'
 alias freemem='sync; sudo echo 3 > /proc/sys/vm/drop_caches'
 alias gdiff='git diff | gvim -'
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
-alias idea='_JAVA_AWT_WM_NONREPARENTING=1 /home/calamari/apps/idea-IU-141.713.2/bin/idea.sh &!'
 alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
-alias l='ls --color -lah --group-directories-first'
+alias l='ls --color -lahtr --group-directories-first'
 alias ls='ls --color'
 alias mci='mvn clean install'
 alias new_iterm='open -n -a "iTerm"'
