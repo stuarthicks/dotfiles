@@ -182,7 +182,7 @@ LANGUAGE=en_GB.UTF-8
 
 build-something () {
   if [ -x "build" ]; then
-    BUFFER="dev ./build"
+    BUFFER="./build"
   elif [ -f "pom.xml" ]; then
     BUFFER="dev m clean install"
   elif [ -x "test" ]; then
