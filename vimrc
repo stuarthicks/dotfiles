@@ -9,12 +9,12 @@ function! InstallPlugins()
   " Core/Framework
   Plug 'tpope/vim-sensible'
   Plug 'itchyny/lightline.vim'
+  Plug 'ap/vim-buftabline'
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'tpope/vim-vinegar'
   Plug 'jayflo/vim-skip'
-  Plug 'Lokaltog/vim-easymotion'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
 
@@ -27,12 +27,9 @@ function! InstallPlugins()
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
 
   " Ruby
-  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  Plug 'danchoi/ri_vim', { 'for': 'ruby' }
+  Plug 'danchoi/ri.vim', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-  Plug 'tpope/vim-cucumber', { 'for': 'ruby' }
-
+  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 
   " Javascript/JSON
   Plug 'elzr/vim-json', { 'for': 'json' }
@@ -51,14 +48,10 @@ function! InstallPlugins()
   Plug 'dyng/ctrlsf.vim'
 
   " Misc
-  Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
   Plug 'godlygeek/tabular'
-  Plug 'airblade/vim-rooter'
   Plug 'ryanss/vim-hackernews', { 'on' : 'HackerNews' }
-  Plug 'ap/vim-buftabline'
   Plug 'gorkunov/smartpairs.vim'
-  Plug 'ervandew/supertab'
   Plug 'Valloric/YouCompleteMe'
 
   " Terminal Colour themes
@@ -72,41 +65,13 @@ function! InstallPlugins()
 endfunction
 
 function! ConfigurePlugins()
-  " Powerline/Airline
-  set laststatus=2
-  let g:bufferline_echo=0
-  set noshowmode
-  let g:airline#extensions#tabline#enabled = 1
+  set omnifunc=syntaxcomplete#Complete
 
-  " Buffers instead of tabs in tabbar
-  set hidden
-  nnoremap <S-Right> :bnext<CR>
-  nnoremap <S-Left> :bprev<CR>
-
+  " Ctrl-P
   let g:ctrlp_working_path_mode = 'ra'
-
-  " UtilSnips
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-f>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-  let g:rehash256=1
-
-  let g:rooter_manual_only = 1
-
-  " CamelCaseMotion
-  map <silent> w <Plug>CamelCaseMotion_w
-  map <silent> b <Plug>CamelCaseMotion_b
-  map <silent> e <Plug>CamelCaseMotion_e
-  sunmap w
-  sunmap b
-  sunmap e
-
-  " Additional Ctrl-P bindings
   nnoremap <C-g> :CtrlPLine<cr>
   nnoremap <C-b> :CtrlPBuffer<cr>
 
-  noremap <F2> :Explore<cr>
   noremap <F3> :TagbarToggle<cr>
 
   " Schlepp - move highlighted code around
@@ -124,10 +89,6 @@ function! ConfigurePlugins()
   " nnoremap <C-r>o :CtrlSFOpen<CR>
   " nnoremap <C-r>t :CtrlSFToggle<CR>
   " inoremap <C-r>t <Esc>:CtrlSFToggle<CR>
-
-  set hidden
-  let g:racer_cmd = "/home/calamari/gh/racer/target/release/racer"
-  let $RUST_SRC_PATH="/home/calamari/gh/rust/src/"
 
   " Launch external commands from vim
   nnoremap <F8> :Dispatch<space>
@@ -156,9 +117,7 @@ endif
 filetype plugin indent on
 syntax on
 
-set diffopt+=iwhite "ignore whitespace in diffs
-set clipboard=unnamed "use system clipboard as main register
-set timeoutlen=50
+let mapleader = ","
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
@@ -175,6 +134,9 @@ endif
 
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+
+" Ctrl-w, close buffer
+nnoremap <silent> <C-x> :bd<cr>
 
 " Normal movement around long-wrapped lines
 nnoremap k gk
@@ -197,20 +159,16 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-nnoremap <S-Right> :bnext<cr>
-nnoremap <S-Left> :bprev<cr>
-
-" Double tap j in insert mode to return to normal mode
-" inoremap jj <Esc>
-
 " Tab autocomplete
 inoremap <S-Tab> <c-x><c-f>
 
 " Annoying typo fixes
 nnoremap <F1> <nop>
 nnoremap Q <nop>
+map q: <nop>
 nore ; :
-map q: :q
+
+noremap <F2> :Explore<cr>
 
 " Remove trailing whitespace from all lines
 map <F6> :%s/\s\+$//
@@ -223,6 +181,9 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
+
+nnoremap <S-Right> :bnext<CR>
+nnoremap <S-Left> :bprev<CR>
 
 " Fold blocks of code
 nnoremap <space> za
@@ -256,37 +217,39 @@ let @p = '^iPSI-'
 let @o = '^iOPS-'
 let @n = '^iNO-TICKET '
 
-" General Options
-set cul
+" Misc Options
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set clipboard=unnamed "use system clipboard as main register
+set diffopt+=iwhite "ignore whitespace in diffs
+set expandtab
+set gdefault
 set hidden
 set hlsearch
-set nocompatible
-set ofu=syntaxcomplete#Complete
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
-set autoindent
-set shiftwidth=2
-set tabstop=2
+set laststatus=2
+set linebreak
 set list
 set listchars=tab:>-
-set expandtab
+set mouse=a
+set nocursorline
+set noshowmode
+set wrap
 set nowrapscan
 set number
-set nocursorline
-set background=dark
-set mouse=a
-set nowrap
-set linebreak
-set backspace=indent,eol,start
+set shiftwidth=2
+set showcmd
 set smartcase
-set gdefault
-set wildmode=longest,list
 set splitbelow
 set splitright
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set synmaxcol=800
+set tabstop=2
+set timeoutlen=50
+set wildmode=longest,list
 
 " Configure colourscheme stuff here
 let base16colorspace=256
-let g:seoul256_background = 236
 colorscheme default
 
 if has("gui_running")
