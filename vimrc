@@ -1,4 +1,8 @@
 set nocompatible
+filetype plugin indent on
+syntax on
+
+let mapleader = ","
 
 " mkdir -p ~/.vim/autoload
 " curl -fLo ~/.vim/autoload/plug.vim \
@@ -69,8 +73,8 @@ function! ConfigurePlugins()
 
   " Ctrl-P
   let g:ctrlp_working_path_mode = 'ra'
-  nnoremap <C-g> :CtrlPLine<cr>
-  nnoremap <C-b> :CtrlPBuffer<cr>
+  nnoremap <Leader>g :CtrlPLine<cr>
+  nnoremap <Leader>b :CtrlPBuffer<cr>
 
   noremap <F3> :TagbarToggle<cr>
 
@@ -93,6 +97,7 @@ function! ConfigurePlugins()
   " Launch external commands from vim
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
+  nmap <Leader>f :FocusDispatch<space>
 
   " Auto align pipe-separated tables while editing, eg, cucumber feature files
   function! s:align()
@@ -113,11 +118,6 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
   call InstallPlugins()
   call ConfigurePlugins()
 endif
-
-filetype plugin indent on
-syntax on
-
-let mapleader = ","
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
@@ -244,7 +244,7 @@ set splitright
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set synmaxcol=800
 set tabstop=2
-set timeoutlen=50
+set timeoutlen=500
 set wildmode=longest,list
 
 " Configure colourscheme stuff here
