@@ -53,6 +53,7 @@ function! InstallPlugins()
   " Searching
   Plug 'kien/ctrlp.vim'
   Plug 'dyng/ctrlsf.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
   " Misc
   Plug 'zirrostig/vim-schlepp'

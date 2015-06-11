@@ -229,3 +229,4 @@ if [ -f "$HOME/cloud_python/bin/activate" ]; then
 fi
 
 alias -- -='vim -R -'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
