@@ -25,6 +25,7 @@ function! InstallPlugins()
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/syntastic'
+  Plug 'kien/rainbow_parentheses.vim'
   Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
 
   " Java
@@ -46,6 +47,7 @@ function! InstallPlugins()
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
 
   " Searching
   Plug 'kien/ctrlp.vim'
@@ -75,6 +77,11 @@ function! ConfigurePlugins()
   let g:ctrlp_working_path_mode = 'ra'
   nnoremap <Leader>g :CtrlPLine<cr>
   nnoremap <Leader>b :CtrlPBuffer<cr>
+
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
 
   noremap <F3> :TagbarToggle<cr>
 
