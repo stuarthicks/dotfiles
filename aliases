@@ -10,12 +10,17 @@ calias much git
 calias many git
 calias t tmux
 calias rd 'rmdir'
+calias s svn
 
+# Ruby
 alias bec='bundle exec cucumber'
 alias bes='bundle exec spork'
 alias bi='bundle install'
 alias dbundle='ruby -I ~/gh/bundler/lib/ ~/gh/bundler/bin/bundle'
+alias rcop='rubocop'
+alias r=rbenv
 
+# Navigation
 alias d='dirs -v'
 alias 1='cd -'
 alias 2='cd -3'
@@ -25,15 +30,15 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -7'
 alias 9='cd -9'
+alias l='ls --color -lahtr --group-directories-first'
+alias ls='ls --color'
 alias md 'mkdir -p'
-
-alias rustup='curl -s https://static.rust-lang.org/rustup.sh | sudo sh && ( cd ~/gh/rust && git pull )'
-alias a='ack -ki'
+alias dc='cd'
 alias bonsai='tree -F --filelimit 15'
+
+alias rustup='curl -s https://static.rust-lang.org/rustup.sh | sh'
 alias ccat='pygmentize -g'
 alias cosmossh='cosmos-ssh-to-any'
-alias curls='forge-curl'
-alias dc='cd'
 alias dev='SERVER_ENV=dev'
 #alias does-anyone-else-have-my-ip='sudo arping -D -I eth0 -c 3 $(ifconfig eth0 | grep \'inet addr\' | awk -F: \'{print $2}\' | awk \'{print $1}\')'
 alias drop-caches="sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
@@ -45,8 +50,6 @@ alias gdiff='git diff | gvim -'
 alias gg="find . \( \( ! -name .git -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
-alias l='ls --color -lahtr --group-directories-first'
-alias ls='ls --color'
 alias mci='mvn clean install'
 alias new_iterm='open -n -a "iTerm"'
 alias n='notify-send'
@@ -58,26 +61,23 @@ alias :q='exit'
 alias q='exit'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias rp='source ~/.zprofile'
-alias r=rbenv
 alias rz='source ~/.zshrc'
 alias sc='svn ci'
 alias sdiff='svn diff -x -b | gvim -'
 alias sdiff='svn diff -x -b | vim -'
 alias serve='python -m SimpleHTTPServer 8000'
-alias sg="find . \( \( ! -name .svn -and ! -name target \) -o -prune \) -type f -print0 | xargs -0 grep --color"
 alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
 alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -f "~/.ssh/$(whoami)@$(hostname)-$(date -I)"'
 alias ss='svn st'
 alias sup='svn up'
 alias tail-cloudformation='ssh -T -o IdentitiesOnly=yes -l rachel -i $HOME/.ssh/reflecting-pool-log-tail reith.rve.org.uk'
-alias ta='tmux attach'
 alias tcopy='tmux saveb - | pbcopy && tmux deleteb'
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 alias vialias='vim ~/.aliases'
-alias vim-plug='vim +PlugInstall +qall'
+alias vim-plug='vim +PlugInstall'
+alias vim-plug-update='vim +PlugUpdate'
 alias viprofile='vim ~/.zprofile'
 alias vissh='vim ~/.ssh/config'
 alias vizshrc='vim ~/.zshrc'
-alias vundle='vim +PluginInstall +qall'
 alias wow='git svn dcommit'
 alias v='dbus-launch --exit-with-session $(which gvim) > /dev/null 2>&1'
