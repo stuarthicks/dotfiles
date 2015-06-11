@@ -48,6 +48,7 @@ function! InstallPlugins()
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
+  Plug 'gregsexton/gitv'
 
   " Searching
   Plug 'kien/ctrlp.vim'
