@@ -27,7 +27,7 @@ alias 8='cd -7'
 alias 9='cd -9'
 alias md 'mkdir -p'
 
-alias rustup='curl -s https://static.rust-lang.org/rustup.sh | sudo sh && ( cd ~/gh/rust && git pull )'
+alias rustup='curl -sf -L https://static.rust-lang.org/rustup.sh | sh'
 alias a='ack -ki'
 alias bonsai='tree -F --filelimit 15'
 alias ccat='pygmentize -g'
