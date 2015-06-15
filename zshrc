@@ -6,6 +6,9 @@ bindkey "^U" kill-line             # vi-kill-line
 bindkey "^?" backward-delete-char  # vi-backward-delete-char
 export KEYTIMEOUT=1
 
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 zmodload zsh/complist
 autoload -Uz compinit compdef && compinit
 setopt completealiases
@@ -179,7 +182,7 @@ LANGUAGE=en_GB.UTF-8
 
 build-something () {
   if [ -x "build" ]; then
-    BUFFER="dev ./build"
+    BUFFER="./build"
   elif [ -f "pom.xml" ]; then
     BUFFER="dev m clean install"
   elif [ -x "test" ]; then
@@ -210,19 +213,14 @@ if ls ~/antigen.zsh &>/dev/null; then
   source ~/antigen.zsh
   antigen bundles <<EOBUNDLES
   rupa/z
-  adb
   colored-man
-  common-aliases
-  cp
   extract
   rsync
-  rupa/z
   tmux
 EOBUNDLES
   antigen apply
   # zsh-users/zsh-syntax-highlighting
   # mosh
-  # zsh-users/zsh-syntax-highlighting
 fi
 
 if [ -f "$HOME/cloud_python/bin/activate" ]; then
@@ -231,3 +229,4 @@ if [ -f "$HOME/cloud_python/bin/activate" ]; then
 fi
 
 alias -- -='vim -R -'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

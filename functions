@@ -46,22 +46,6 @@ link-ssh() {
   popd
 }
 
-# Below is WIP, still need to figure out maven opts
-reith-on() {
-  export REITH='www-cache.reith.bbc.co.uk'
-  export REITHP='80'
-
-  export http_proxy=http://$REITH:$REITHP
-  export https_proxy=http://$REITH:$REITHP
-  export ftp_proxy=ftp-gw.reith.bbc.co.uk:21
-  export socks_proxy=socks-gw.reith.bbc.co.uk:1085
-  export no_proxy='127.0.0.1,localhost,*.national.core.bbc.co.uk'
-}
-
-reith-off() {
-  unset http_proxy https_proxy ftp_proxy socks_proxy no_proxy
-}
-
 jars-in-war() {
   unzip -l *-war/target/*-SNAPSHOT.war | grep jar | awk -F '/' '{print $3}' | sort -u
 }

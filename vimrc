@@ -1,4 +1,8 @@
 set nocompatible
+filetype plugin indent on
+syntax on
+
+let mapleader = ","
 
 " mkdir -p ~/.vim/autoload
 " curl -fLo ~/.vim/autoload/plug.vim \
@@ -9,30 +13,28 @@ function! InstallPlugins()
   " Core/Framework
   Plug 'tpope/vim-sensible'
   Plug 'itchyny/lightline.vim'
-  Plug 'tpope/vim-projectionist'
+  Plug 'ap/vim-buftabline'
 
   " Navigation
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'tpope/vim-vinegar'
   Plug 'jayflo/vim-skip'
-  Plug 'Lokaltog/vim-easymotion'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/syntastic'
+  Plug 'kien/rainbow_parentheses.vim'
+  Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
 
   " Ruby
-  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  Plug 'danchoi/ri_vim', { 'for': 'ruby' }
+  Plug 'danchoi/ri.vim', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-  Plug 'tpope/vim-cucumber', { 'for': 'ruby' }
-
+  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 
   " Javascript/JSON
   Plug 'elzr/vim-json', { 'for': 'json' }
@@ -45,21 +47,19 @@ function! InstallPlugins()
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'gregsexton/gitv'
 
   " Searching
   Plug 'kien/ctrlp.vim'
-  Plug 'mileszs/ack.vim'
-  Plug 'rking/ag.vim'
+  Plug 'dyng/ctrlsf.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
   " Misc
-  Plug 'vim-scripts/camelcasemotion'
   Plug 'zirrostig/vim-schlepp'
   Plug 'godlygeek/tabular'
-  Plug 'airblade/vim-rooter'
   Plug 'ryanss/vim-hackernews', { 'on' : 'HackerNews' }
-  Plug 'ap/vim-buftabline'
   Plug 'gorkunov/smartpairs.vim'
-  Plug 'ervandew/supertab'
   Plug 'Valloric/YouCompleteMe'
 
   " Terminal Colour themes
@@ -73,41 +73,18 @@ function! InstallPlugins()
 endfunction
 
 function! ConfigurePlugins()
-  " Powerline/Airline
-  set laststatus=2
-  let g:bufferline_echo=0
-  set noshowmode
-  let g:airline#extensions#tabline#enabled = 1
+  set omnifunc=syntaxcomplete#Complete
 
-  " Buffers instead of tabs in tabbar
-  set hidden
-  nnoremap <S-Right> :bnext<CR>
-  nnoremap <S-Left> :bprev<CR>
-
+  " Ctrl-P
   let g:ctrlp_working_path_mode = 'ra'
+  nnoremap <Leader>g :CtrlPLine<cr>
+  nnoremap <Leader>b :CtrlPBuffer<cr>
 
-  " UtilSnips
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-f>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
 
-  let g:rehash256=1
-
-  let g:rooter_manual_only = 1
-
-  " CamelCaseMotion
-  map <silent> w <Plug>CamelCaseMotion_w
-  map <silent> b <Plug>CamelCaseMotion_b
-  map <silent> e <Plug>CamelCaseMotion_e
-  sunmap w
-  sunmap b
-  sunmap e
-
-  " Additional Ctrl-P bindings
-  nnoremap <C-g> :CtrlPLine<cr>
-  nnoremap <C-b> :CtrlPBuffer<cr>
-
-  noremap <F2> :Explore<cr>
   noremap <F3> :TagbarToggle<cr>
 
   " Schlepp - move highlighted code around
@@ -117,9 +94,19 @@ function! ConfigurePlugins()
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
 
+  nmap <C-a> <Plug>CtrlSFPrompt
+  " vmap <C-r>f <Plug>CtrlSFVwordPath
+  " vmap <C-r>F <Plug>CtrlSFVwordExec
+  " nmap <C-r>n <Plug>CtrlSFCwordPath
+  " nmap <C-r>p <Plug>CtrlSFPwordPath
+  " nnoremap <C-r>o :CtrlSFOpen<CR>
+  " nnoremap <C-r>t :CtrlSFToggle<CR>
+  " inoremap <C-r>t <Esc>:CtrlSFToggle<CR>
+
   " Launch external commands from vim
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
+  nmap <Leader>f :FocusDispatch<space>
 
   " Auto align pipe-separated tables while editing, eg, cucumber feature files
   function! s:align()
@@ -141,13 +128,6 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
   call ConfigurePlugins()
 endif
 
-filetype plugin indent on
-syntax on
-
-set diffopt+=iwhite "ignore whitespace in diffs
-set clipboard=unnamed "use system clipboard as main register
-set timeoutlen=50
-
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
 
@@ -164,9 +144,23 @@ endif
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 
+" Ctrl-w, close buffer
+nnoremap <silent> <C-x> :bd<cr>
+
 " Normal movement around long-wrapped lines
 nnoremap k gk
 nnoremap j gj
+
+" Inverse, so I can do the old behaviour if i want
+nnoremap gj j
+nnoremap gk k
+
+" zz some motions, to keep cursor in centre of screen
+nnoremap n nzz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap { {zz
+nnoremap } }zz
 
 " Nicer split-window navigation
 nmap <silent> <C-h> :wincmd h<CR>
@@ -174,19 +168,16 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-nnoremap <S-Right> :bnext<cr>
-nnoremap <S-Left> :bprev<cr>
-
-" Double tap j in insert mode to return to normal mode
-" inoremap jj <Esc>
-
 " Tab autocomplete
 inoremap <S-Tab> <c-x><c-f>
 
 " Annoying typo fixes
-map Q :<CR>
+nnoremap <F1> <nop>
+nnoremap Q <nop>
+map q: <nop>
 nore ; :
-map q: :q
+
+noremap <F2> :Explore<cr>
 
 " Remove trailing whitespace from all lines
 map <F6> :%s/\s\+$//
@@ -200,6 +191,9 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 
+nnoremap <S-Right> :bnext<CR>
+nnoremap <S-Left> :bprev<CR>
+
 " Fold blocks of code
 nnoremap <space> za
 
@@ -208,45 +202,71 @@ silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-" Misc settings/tweaks
-set cul
-set hidden
-set hlsearch
-set nocompatible
-set ofu=syntaxcomplete#Complete
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
-set wildmode=longest,list
+" Save when losing focus
+au FocusLost * :silent! wall
+
+" Resize splits when window is resized
+au VimResized * :wincmd =
+
+" Open files to the same line as last time
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Useful to fill out commit messages
 let @m = '^iMEDIASERVICES-'
-let @p = '^iPSI-'
-let @o = '^iOPS-'
 let @n = '^iNO-TICKET '
+let @o = '^iOPS-'
 
-" Formatting/Editing
+" Misc Options
 set autoindent
-set shiftwidth=2
-set tabstop=2
+set background=dark
+set backspace=indent,eol,start
+set clipboard=unnamed "use system clipboard as main register
+set diffopt+=iwhite "ignore whitespace in diffs
+set expandtab
+set gdefault
+set hidden
+set hlsearch
+set laststatus=2
+set linebreak
 set list
 set listchars=tab:>-
-set expandtab
+set mouse=a
+set nocursorline
+set noshowmode
+set wrap
 set nowrapscan
 set number
-set nocursorline
-set background=dark
+set shiftwidth=2
+set showcmd
+set smartcase
+set splitbelow
+set splitright
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+set synmaxcol=800
+set tabstop=2
+set timeoutlen=500
+set wildmode=longest,list
 
 " Configure colourscheme stuff here
 let base16colorspace=256
-let g:seoul256_background = 236
-colorscheme lapis256
+colorscheme default
 
 if has("gui_running")
   set t_Co=256
-  set mouse=a
   set anti enc=utf-8
-  set guifont=Source\ Code\ Pro\ 13
+  set guifont=M+\ 1mn\ Regular\ 11
   set guioptions=
   colorscheme base16-eighties
+  set background=dark
 endif
 
 function! DoPrettyXML()
@@ -264,25 +284,3 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 map <F5> :PrettyXML<CR>
-
-function! Smart_TabComplete()
-  let line = getline('.')                         " current line
-
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-  " line to one character right
-  " of the cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
-    return "\<tab>"
-  endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-O>"                         " plugin matching
-  endif
-endfunction
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
