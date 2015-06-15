@@ -117,10 +117,6 @@ function! ConfigurePlugins()
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
 
-  set hidden
-  let g:racer_cmd = "/home/calamari/gh/racer/target/release/racer"
-  let $RUST_SRC_PATH="/home/calamari/gh/rust/src/"
-
   " Launch external commands from vim
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
