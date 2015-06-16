@@ -77,6 +77,7 @@ function! ConfigurePlugins()
 
   " Ctrl-P
   let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_cmd = 'FZF'
   nnoremap <Leader>g :CtrlPLine<cr>
   nnoremap <Leader>b :CtrlPBuffer<cr>
 
