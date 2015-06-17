@@ -53,6 +53,6 @@ jars-in-war() {
 stack-diff() {
   local STACK_TYPE=$1
   local ENVIRONMENT=$2
-  vimdiff -g tmp/templates/template-${STACK_TYPE}.${ENVIRONMENT}.*
-  vim -g tmp/templates/description-${STACK_TYPE}.${ENVIRONMENT}.next.json
+  dbus-launch --exit-with-session vimdiff -g tmp/templates/template-${STACK_TYPE}.${ENVIRONMENT}.*
+  dbus-launch --exit-with-session vim -g tmp/templates/description-${STACK_TYPE}.${ENVIRONMENT}.next.json
 }
