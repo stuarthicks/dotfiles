@@ -1,7 +1,7 @@
 " Rubocop for Ruby
 let g:vimrubocop_config = '~/etc/rubocop.yml'
 let g:vimrubocop_keymap = 0
-nmap <C-x> :RuboCop<cr>
+nmap <Leader>x :RuboCop<cr>
 
 " Ri/Rdoc for Ruby
 nmap  <C-r> :call ri#OpenSearchPrompt(0)<cr> " horizontal split
