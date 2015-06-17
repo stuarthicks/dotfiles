@@ -75,7 +75,8 @@ function! ConfigurePlugins()
   set omnifunc=syntaxcomplete#Complete
 
   " Search for files
-  nnoremap <silent> <C-p> :call fzf#run({'launcher': 'konsole -e zsh -ic %s'})<CR>
+  " nnoremap <silent> <C-p> :call fzf#run({'sink': 'e', 'launcher': 'konsole -e zsh -ic %s'})<CR>
+  nnoremap <silent> <C-p> :FZF<cr>
 
   au VimEnter * RainbowParenthesesToggle
   au Syntax * RainbowParenthesesLoadRound
