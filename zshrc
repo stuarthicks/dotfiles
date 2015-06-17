@@ -229,4 +229,14 @@ if [ -f "$HOME/cloud_python/bin/activate" ]; then
 fi
 
 alias -- -='vim -R -'
+
+# gpg-agent --daemon --enable-ssh-support --write-env-file "$HOME/.gpg-agent-info"
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPGKEY=B7CCA53C
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+  export GPG_TTY="$(tty)"
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
