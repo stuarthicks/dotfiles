@@ -51,7 +51,6 @@ function! InstallPlugins()
   Plug 'gregsexton/gitv'
 
   " Searching
-  Plug 'kien/ctrlp.vim'
   Plug 'dyng/ctrlsf.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
@@ -75,11 +74,8 @@ endfunction
 function! ConfigurePlugins()
   set omnifunc=syntaxcomplete#Complete
 
-  " Ctrl-P
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_cmd = 'FZF'
-  nnoremap <Leader>g :CtrlPLine<cr>
-  nnoremap <Leader>b :CtrlPBuffer<cr>
+  " Search for files
+  nnoremap <silent> <C-p> :call fzf#run({'launcher': 'konsole -e zsh -ic %s'})<CR>
 
   au VimEnter * RainbowParenthesesToggle
   au Syntax * RainbowParenthesesLoadRound
@@ -145,7 +141,7 @@ endif
 " Custom syntax files
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 
-" Ctrl-w, close buffer
+" Ctrl-x, close buffer
 nnoremap <silent> <C-x> :bd<cr>
 
 " Normal movement around long-wrapped lines
@@ -264,9 +260,9 @@ colorscheme default
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
-  set guifont=M+\ 1mn\ Regular\ 11
+  set guifont=Terminus\ 11
   set guioptions=
-  colorscheme base16-eighties
+  colorscheme vydark
   set background=dark
 endif
 
