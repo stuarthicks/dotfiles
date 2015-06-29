@@ -157,26 +157,6 @@ bindkey -M menuselect "=" accept-and-menu-complete
 export VISUAL=vim
 export EDITOR=$VISUAL
 
-# Set title of window
-title () {
-    printf "\033k$1\033\\"
-}
-
-# Echo path with newlines
-path () {
-    echo $PATH | tr : $'\n'
-}
-
-# List all items on path
-lspath () {
-  (($#)) || set ''
-  print -lr -- $^path/*$^@*(N:t) | sort -u
-}
-
-wgetar () {
-    wget -q0 - "$1" | tar xzvf -
-}
-
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
