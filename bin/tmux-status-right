@@ -1,0 +1,42 @@
+#!/bin/bash
+
+irssi_status() {
+  IRSSI=$(~/opt/tmux-irssi-act)
+  if [ -n "$IRSSI" ]; then
+    echo -e "$IRSSI#[fg=white]"
+  fi
+}
+
+temp_status() {
+  TEMP=$(cat /tmp/temp | cut -d "=" -f2)
+  if [ -n "$TEMP" ]; then
+    echo -e "#[fg=red]$TEMP#[fg=white] "
+  fi
+}
+
+load_status() {
+  LOAD=$(uptime | rev | cut -d":" -f1 | rev | sed -e 's/^[[:space:]]*//'| sed s/,//g)
+  if [ -n "$LOAD" ]; then
+    echo -e "#[fg=green]$LOAD#[fg=white] "
+  fi
+}
+
+jst_status() {
+  JST=$(~/opt/time-in-japan)
+  if [ -n "$JST" ]; then
+    echo -e "#[fg=blue]$JST JST#[fg=white] "
+  fi
+}
+
+host() {
+  echo -e "#[fg=magenta]#H"
+}
+
+echo -e \
+"#[fg=white] \
+$(irssi_status)\
+$(temp_status)\
+$(load_status)\
+$(jst_status)\
+$(host)\
+#[fg=white]"

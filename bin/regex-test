@@ -1,0 +1,15 @@
+#!/bin/bash
+set -eu
+
+if [[ $1 =~ $2 ]]; then
+  echo "matches"
+  i=1
+  n=${#BASH_REMATCH[*]}
+  while [[ $i -lt $n  ]]
+  do
+    echo "capture[$i]: ${BASH_REMATCH[$i]}"
+    let i++
+  done
+  exit
+fi
+echo "doesnt match"

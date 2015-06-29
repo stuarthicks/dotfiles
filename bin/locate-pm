@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+for my $module ( @ARGV ) {
+    my $package = $module;
+
+    # From This::That to This/That.pm
+    s/::/\//g, s/$/.pm/ for $module;
+
+    if ( require $module ) {
+        print $package . " => " . $INC{$module} . "\n";
+    }
+}

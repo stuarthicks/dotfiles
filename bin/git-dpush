@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eux
+
+log=$(git log --graph --pretty=format:'%h%d' --abbrev-commit --date=relative -n 30 | sed -e 's/^* //')
+head_line=$(echo "$log" | grep -n 'origin/HEAD' | cut -d ':' -f 1)
+diffs_to_push=$(echo "$log" | head -n $(($head_line-1)) | tail -r | cut -d ' ' -f 1)
+
+while read -r diff; do
+  $(git push origin $diff:master)
+done <<< "$diffs_to_push"
