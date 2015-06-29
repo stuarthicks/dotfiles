@@ -1,0 +1,3 @@
+#!/bin/bash
+set -eu
+with-aws int aws ec2 describe-instance-status --filters Name=event.code,Values=instance-stop,instance-retirement,instance-reboot,system-reboot,system-maintenance

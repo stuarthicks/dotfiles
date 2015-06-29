@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ "$*" == *confluence* ]]; then
+  exec gvim +"set ft=confluencewiki" "$@"
+else
+  exec gvim "$@"
+fi

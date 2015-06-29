@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eu
+
+MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+MAVEN_OPTS="${MAVEN_OPTS} ${MAVEN_DEBUG_OPTS}"
+
+export M2_HOME=$HOME/apps/apache-maven-3.3.3
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
+exec $M2/mvn -s $HOME/.m/settings3.xml "$@"

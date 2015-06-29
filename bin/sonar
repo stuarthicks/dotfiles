@@ -1,0 +1,3 @@
+#!/bin/bash
+set -eu
+exec $HOME/apps/sonarqube-5.1.1/bin/linux-x86-64/sonar.sh "$@"

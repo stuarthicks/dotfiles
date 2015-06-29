@@ -1,0 +1,47 @@
+#! /bin/bash
+
+[[ $(whoami) != root ]] && { echo 'Must be root' >&2; exit 1; }
+
+WINTERFACE="wlan0"
+
+stop_network_manager() {
+  service network-manager stop
+}
+start_network_manager() {
+  stop_wpa
+  service network-manager start
+}
+stop_wpa() {
+  wpa_cli -p /var/run/wpa_supplicant -i $WINTERFACE terminate
+}
+
+connect_to_corporate_wireless() {
+  stop_wpa
+  stop_network_manager
+  wpa_supplicant  -Dnl80211 -i $WINTERFACE -c /etc/wpa_supplicant_bbccorp.conf -B
+  get_ip
+}
+connect_to_staff_wireless() {
+  stop_wpa
+  stop_network_manager
+  wpa_supplicant  -Dnl80211 -i $WINTERFACE -c /etc/wpa_supplicant_bbcstaff.conf -B
+  get_ip
+}
+get_ip() {
+  dhclient -v $WINTERFACE
+}
+
+case "$1" in
+  corporate)
+    connect_to_corporate_wireless
+    ;;
+  staff)
+    connect_to_staff_wireless
+    ;;
+  manager)
+    start_network_manager
+    ;;
+  *)
+    echo "Usage: $(basename $0) {corporate|staff|manager}"
+    exit 1;
+esac
