@@ -209,8 +209,6 @@ if [ -f "$HOME/.local_python/bin/activate" ]; then
   source $HOME/.local_python/bin/activate
 fi
 
-alias -- -='vim -R -'
-
 # gpg-agent --daemon --enable-ssh-support --write-env-file "$HOME/.gpg-agent-info"
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"
