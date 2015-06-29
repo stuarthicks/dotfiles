@@ -199,12 +199,9 @@ if ls ~/antigen.zsh &>/dev/null; then
   rupa/z
   colored-man
   extract
-  rsync
   tmux
 EOBUNDLES
   antigen apply
-  # zsh-users/zsh-syntax-highlighting
-  # mosh
 fi
 
 if [ -f "$HOME/.local_python/bin/activate" ]; then
