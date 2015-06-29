@@ -111,7 +111,7 @@ cosmos_info() {
 }
 
 # $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
-PROMPT="%F{cyan}%n%f \
+PROMPT="\$(date '+%H:%M.%S') %F{cyan}%n%f \
 %{$fg_bold[black]%}at \
 %F{yellow}%m%f \
 %{$fg_bold[black]%}in \
@@ -191,6 +191,10 @@ build-something () {
     BUFFER="./configure && make"
   elif [ -f "Makefile" ]; then
     BUFFER="make"
+  elif [ -f ".url" ]; then
+    BUFFER="git-svn-clone-helper"
+  elif [ -f "Cargo.toml" ]; then
+    BUFFER="cargo build"
   elif [ -f "Gemfile" ]; then
     BUFFER="bundle exec cucumber --strict --expand -t ~@browser-required"
   fi
@@ -223,9 +227,9 @@ EOBUNDLES
   # mosh
 fi
 
-if [ -f "$HOME/cloud_python/bin/activate" ]; then
+if [ -f "$HOME/.local_python/bin/activate" ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
-  source $HOME/cloud_python/bin/activate
+  source $HOME/.local_python/bin/activate
 fi
 
 alias -- -='vim -R -'
