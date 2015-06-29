@@ -18,6 +18,7 @@ link zprofile
 link vimrc
 link ackrc
 link aliases
+link functions
 link mailcap
 link rubocop.yml
 link tmux.conf
