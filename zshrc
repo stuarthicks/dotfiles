@@ -110,7 +110,7 @@ cosmos_info() {
   fi
 }
 
-# $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
+# TIME $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
 PROMPT="\$(date '+%H:%M.%S') %F{cyan}%n%f \
 %{$fg_bold[black]%}at \
 %F{yellow}%m%f \
