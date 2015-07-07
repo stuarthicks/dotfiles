@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eux
+
+environment=$1
+
+curl -i \
+  -X PUT \
+  -d "{ \"secure\" : false, \"value\" : \"s3://livemodavsharedresources-privatenonmediabucket-194a8u3731eld/just-config\" }" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  https://api.live.bbc.co.uk/cosmos/env/$environment/component/mercury/configuration/just_config_base_uri
+
+curl -i -X GET https://api.live.bbc.co.uk/cosmos/env/$environment/component/mercury/configuration/just_config_base_uri

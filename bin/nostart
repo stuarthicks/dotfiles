@@ -1,0 +1,3 @@
+#!/bin/bash
+set -eu
+NO_START_UNDERTEST=1 BASE_URL=http://localhost:8080 exec "$@"

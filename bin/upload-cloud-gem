@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eu
+
+gem build $(ls *.gemspec)
+curl -ksi -F file=@$(ls *.gem) https://gems.cloud.bbc.co.uk/upload

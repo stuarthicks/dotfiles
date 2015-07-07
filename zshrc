@@ -110,8 +110,8 @@ cosmos_info() {
   fi
 }
 
-# $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
-PROMPT="%F{cyan}%n%f \
+# TIME $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
+PROMPT="\$(date '+%H:%M.%S') %F{cyan}%n%f \
 %{$fg_bold[black]%}at \
 %F{yellow}%m%f \
 %{$fg_bold[black]%}in \
@@ -157,26 +157,6 @@ bindkey -M menuselect "=" accept-and-menu-complete
 export VISUAL=vim
 export EDITOR=$VISUAL
 
-# Set title of window
-title () {
-    printf "\033k$1\033\\"
-}
-
-# Echo path with newlines
-path () {
-    echo $PATH | tr : $'\n'
-}
-
-# List all items on path
-lspath () {
-  (($#)) || set ''
-  print -lr -- $^path/*$^@*(N:t) | sort -u
-}
-
-wgetar () {
-    wget -q0 - "$1" | tar xzvf -
-}
-
 LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
@@ -191,6 +171,10 @@ build-something () {
     BUFFER="./configure && make"
   elif [ -f "Makefile" ]; then
     BUFFER="make"
+  elif [ -f ".url" ]; then
+    BUFFER="git-svn-clone-helper"
+  elif [ -f "Cargo.toml" ]; then
+    BUFFER="cargo build"
   elif [ -f "Gemfile" ]; then
     BUFFER="bundle exec cucumber --strict --expand -t ~@browser-required"
   fi
@@ -215,20 +199,15 @@ if ls ~/antigen.zsh &>/dev/null; then
   rupa/z
   colored-man
   extract
-  rsync
   tmux
 EOBUNDLES
   antigen apply
-  # zsh-users/zsh-syntax-highlighting
-  # mosh
 fi
 
-if [ -f "$HOME/cloud_python/bin/activate" ]; then
+if [ -f "$HOME/.local_python/bin/activate" ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
-  source $HOME/cloud_python/bin/activate
+  source $HOME/.local_python/bin/activate
 fi
-
-alias -- -='vim -R -'
 
 # gpg-agent --daemon --enable-ssh-support --write-env-file "$HOME/.gpg-agent-info"
 if [ -f "${HOME}/.gpg-agent-info" ]; then

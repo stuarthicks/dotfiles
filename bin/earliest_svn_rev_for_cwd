@@ -1,0 +1,3 @@
+#!/bin/bash
+set -eu
+svn log --stop-on-copy --limit 1 -q -r1:HEAD | tail -n2 | head -n1 | cut -d ' ' -f 1

@@ -1,0 +1,16 @@
+#!/bin/bash
+set -eux
+
+COMPONENT=$1
+ON_OR_OFF=$2
+
+curl -i \
+  -X PUT \
+  -d "{ \"value\" : \"${ON_OR_OFF}\" }" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  https://api.live.bbc.co.uk/cosmos/component/$1/automated_redeploy
+
+curl -i \
+  -X GET \
+  https://api.live.bbc.co.uk/cosmos/component/$1/automated_redeploy

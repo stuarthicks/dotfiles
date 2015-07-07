@@ -1,0 +1,51 @@
+#!/bin/bash
+
+irssi_status() {
+  IRSSI=$(tmux-irssi-act)
+  if [ -n "$IRSSI" ]; then
+    echo -e "$IRSSI#[fg=white]"
+  fi
+}
+
+temp_status() {
+  TEMP=$(cat /tmp/temp | cut -d "=" -f2)
+  if [ -n "$TEMP" ]; then
+    echo -e "#[fg=red]$TEMP#[fg=white] "
+  fi
+}
+
+load_status() {
+  LOAD=$(uptime | rev | cut -d":" -f1 | rev | sed -e 's/^[[:space:]]*//'| sed s/,//g)
+  if [ -n "$LOAD" ]; then
+    echo -e "#[fg=green]$LOAD#[fg=white] "
+  fi
+}
+
+jst_status() {
+  JST=$(time-in-japan)
+  if [ -n "$JST" ]; then
+    echo -e "#[fg=blue]$JST JST#[fg=white] "
+  fi
+}
+
+host() {
+  echo -e "#[fg=magenta]#H"
+}
+
+agenda() {
+  # pip install gcalcli && gcalcli agenda
+  if gcalcli list 2>&1 >/dev/null; then
+    AGENDA=$(gcalcli --nostarted --calendar "contact@stuarthicks.me" agenda --nocolor | cut -d " " -f 4- | head -2 | tail -1 | tr -s ' '| sed "s/^ *//g" | cut -c1-19)
+    echo -e "#[fg=yellow]$AGENDA#[fg=white] "
+  fi
+}
+
+echo -e \
+"#[fg=white] \
+$(irssi_status)\
+$(temp_status)\
+$(load_status)\
+$(agenda)\
+$(jst_status)\
+$(host)\
+#[fg=white]"

@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eux
+
+P12=~/.ssl/hickss04.p12
+FIFO=~/.ssl/hickss04.onecert.pem
+
+# if [[ -p $FIFO ]]; then
+openssl pkcs12 -nodes -clcerts -in $P12 >> $FIFO
+# else
+#   echo "$FIFO must exist and must be a fifo"
+#   exit 1
+# fi

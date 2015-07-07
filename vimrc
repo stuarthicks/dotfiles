@@ -261,7 +261,7 @@ colorscheme default
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
-  set guifont=Terminus\ 11
+  set guifont=M+\ 1mn\ 11
   set guioptions=
   colorscheme vydark
   set background=dark

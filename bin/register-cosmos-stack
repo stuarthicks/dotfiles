@@ -1,0 +1,22 @@
+#!/bin/bash
+set -eux
+
+COMPONENT=$1
+ENVIRONMENT=$2
+ACCOUNT_ALIAS=$3
+STACK_NAME=$4
+
+case "$ACCOUNT_ALIAS" in
+  "bbc-production") ID=240129357028
+    ;;
+  "modav-int") ID=516261934175
+    ;;
+esac
+
+curl -i \
+  -X POST \
+  -d "{ \"stack_name\" : \"${STACK_NAME}\", \"aws_account_id\" : \"${ID}\" }" \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  https://api.live.bbc.co.uk/cosmos/env/$ENVIRONMENT/component/$COMPONENT/stacks/register
+
