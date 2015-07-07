@@ -56,3 +56,8 @@ stack-diff() {
   dbus-launch --exit-with-session vimdiff -g tmp/templates/template-${STACK_TYPE}.${ENVIRONMENT}.*
   dbus-launch --exit-with-session vim -g tmp/templates/description-${STACK_TYPE}.${ENVIRONMENT}.next.json
 }
+
+go-here() {
+  export GOPATH="${pwd}"
+  export PATH="$GOPATH/bin:$PATH"
+}
