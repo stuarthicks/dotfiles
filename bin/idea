@@ -1,0 +1,2 @@
+#!/bin/zsh
+_JAVA_AWT_WM_NONREPARENTING=1 ./tools/ide/idea-ultimate/bin/idea.sh &!
