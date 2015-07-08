@@ -57,6 +57,11 @@ stack-diff() {
   dbus-launch --exit-with-session vim -g tmp/templates/description-${STACK_TYPE}.${ENVIRONMENT}.next.json
 }
 
+go-here() {
+  export GOPATH="${pwd}"
+  export PATH="$GOPATH/bin:$PATH"
+}
+
 # Set title of window
 title () {
     printf "\033k$1\033\\"
