@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+[ -f "$HOME/bspwm/.bsp" ] && source "$HOME/bspwm/.bsp"
+
 # 1. Fix monitor arrangement (manually)
 nvidia-settings
 
@@ -10,7 +12,8 @@ bspc monitor DP-1 -d 6 7 8 9 10
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
-eval $(cat $HOME/.fehbg)
+# Wallpaper
+eval "$(cat $HOME/.fehbg)"
 
 compton &!
 panel &!
