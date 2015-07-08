@@ -76,3 +76,7 @@ lspath () {
 wgetar () {
     wget -q0 - "$1" | tar xzvf -
 }
+
+do-it-live () {
+  cosmos-deploy -f $1 test && cosmos-deploy -f $1 live
+}
