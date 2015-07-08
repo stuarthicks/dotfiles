@@ -63,6 +63,7 @@ function! InstallPlugins()
 
   " Terminal Colour themes
   Plug 'andrwb/vim-lapis256'
+  Plug 'nanotech/jellybeans.vim'
 
   " GUI Colour themes
   Plug 'chriskempson/base16-vim'
@@ -256,14 +257,14 @@ set wildmode=longest,list
 
 " Configure colourscheme stuff here
 let base16colorspace=256
-colorscheme default
+colorscheme jellybeans
 
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
   set guifont=M+\ 1mn\ 11
   set guioptions=
-  colorscheme vydark
+  colorscheme jellybeans
   set background=dark
 endif
 
