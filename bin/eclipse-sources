@@ -1,0 +1,3 @@
+#!/bin/bash
+set -eu
+exec m eclipse:eclipse -DdownloadSources=true -DdownloadJavadoc=true -Declipse.workspace=$HOME/workspace
