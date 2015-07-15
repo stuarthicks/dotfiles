@@ -162,9 +162,9 @@ LANGUAGE=en_GB.UTF-8
 
 build-something () {
   if [ -x "build" ]; then
-    BUFFER="./build"
+    BUFFER="./build -T 1C"
   elif [ -f "pom.xml" ]; then
-    BUFFER="dev m clean install"
+    BUFFER="dev m clean install -T 1C"
   elif [ -x "test" ]; then
     BUFFER="with-aws tmp ./test"
   elif [ -x "configure" ]; then
@@ -176,7 +176,7 @@ build-something () {
   elif [ -f "Cargo.toml" ]; then
     BUFFER="cargo build"
   elif [ -f "Gemfile" ]; then
-    BUFFER="bundle exec cucumber --strict --expand -t ~@browser-required"
+    BUFFER="bundle install"
   fi
   zle end-of-line
 }

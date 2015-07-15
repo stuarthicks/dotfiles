@@ -27,8 +27,8 @@ export M2_HOME=$HOME/apps/apache-maven-3.3.3
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
-MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
-export MAVEN_OPTS="${MAVEN_OPTS} ${MAVEN_DEBUG_OPTS}"
+# MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+export MAVEN_OPTS="${MAVEN_OPTS}"
 
 if [[ "$@" =~ release || "$@" =~ exec:java || "$@" =~ jetty || "$@" =~ tree ]]; then
   exec "$M2/mvn" "$@"
