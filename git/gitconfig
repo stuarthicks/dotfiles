@@ -2,7 +2,7 @@
   excludesFile = ~/.gitignore
   pager = less
 [push]
-  default = tracking
+  default = current
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
@@ -20,19 +20,24 @@
   ss = stash save
   sd = stash drop
   sp = stash pop
+  br = branch
+  tg = tag
+  fe = fetch
 [tig]
-  author-width = 60       # Set width of the author column
-  tab-size = 4            # Number of spaces per tab
+  tab-size = 4
 [help]
   autocorrect = 1
 [branch]
   autosetuprebase = always
-[user]
-  email = contact@stuarthicks.me
-  name = Stuart Hicks
 [color]
   ui = auto
 [diff]
   tool = vimdiff
 [difftool]
   prompt = false
+[svn]
+  logwindowsize = 25000
+  authorsprog = ~/src/github/stuarthicks/etc/bin/git_svn_author_parse
+[rerere]
+  enabled = true
+  autoupdate = true
