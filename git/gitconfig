@@ -2,37 +2,43 @@
   excludesFile = ~/.gitignore
   pager = less
 [push]
-  default = tracking
-[alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
-  ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short  # pretty one-line log with tags, branches and authors
-  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat    # a verbose ls, shows changed files too
-  st = status
-  s = status -sb
-  ci = commit
-  co = checkout
-  ds = diff --staged
-  fup = log --since '1 day ago' --oneline --author <EMAIL>
-  abandon-ship = reset HEAD^^ --hard
-  sl = stash list
-  sa = stash apply
-  ss = stash save
-  sd = stash drop
-  sp = stash pop
-[tig]
-  author-width = 60       # Set width of the author column
-  tab-size = 4            # Number of spaces per tab
+  default = current
 [help]
   autocorrect = 1
 [branch]
   autosetuprebase = always
-[user]
-  email = contact@stuarthicks.me
-  name = Stuart Hicks
+[tig]
+  tab-size = 4
 [color]
   ui = auto
 [diff]
   tool = vimdiff
 [difftool]
   prompt = false
+[svn]
+  logwindowsize = 25000
+  authorsprog = ~/src/github/stuarthicks/etc/bin/git_svn_author_parse
+[rerere]
+  enabled = true
+  autoupdate = true
+[alias]
+  abandon-ship = reset HEAD^^ --hard
+  br = branch
+  ci = commit
+  co = checkout
+  d = diff
+  ds = diff --staged
+  fe = fetch
+  fup = log --since '1 day ago' --oneline --author <EMAIL>
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
+  ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short  # pretty one-line log with tags, branches and authors
+  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat    # a verbose ls, shows changed files too
+  s = status -sb
+  sa = stash apply
+  sd = stash drop
+  sl = stash list
+  sp = stash pop
+  ss = stash save
+  st = status
+  tg = tag

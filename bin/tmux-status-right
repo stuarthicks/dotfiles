@@ -45,7 +45,8 @@ echo -e \
 $(irssi_status)\
 $(temp_status)\
 $(load_status)\
-$(agenda)\
 $(jst_status)\
 $(host)\
 #[fg=white]"
+
+#$(agenda)\

@@ -64,6 +64,7 @@ function! InstallPlugins()
   " Terminal Colour themes
   Plug 'andrwb/vim-lapis256'
   Plug 'nanotech/jellybeans.vim'
+  Plug 'NLKNguyen/papercolor-theme'
 
   " GUI Colour themes
   Plug 'chriskempson/base16-vim'
@@ -257,14 +258,14 @@ set wildmode=longest,list
 
 " Configure colourscheme stuff here
 let base16colorspace=256
-colorscheme jellybeans
+colorscheme PaperColor-Dark
 
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
   set guifont=Source\ Code\ Pro\ 11
   set guioptions=
-  colorscheme jellybeans
+  colorscheme PaperColor-Dark
   set background=dark
 endif
 
