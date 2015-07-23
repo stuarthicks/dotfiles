@@ -258,14 +258,14 @@ set wildmode=longest,list
 
 " Configure colourscheme stuff here
 let base16colorspace=256
-colorscheme PaperColor-Dark
+colorscheme PaperColor
 
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
   set guifont=Source\ Code\ Pro\ 11
   set guioptions=
-  colorscheme PaperColor-Dark
+  colorscheme PaperColor
   set background=dark
 endif
 
