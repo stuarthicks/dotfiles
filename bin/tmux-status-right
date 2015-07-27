@@ -42,7 +42,6 @@ agenda() {
 
 echo -e \
 "#[fg=white] \
-$(irssi_status)\
 $(temp_status)\
 $(load_status)\
 $(jst_status)\
@@ -50,3 +49,4 @@ $(host)\
 #[fg=white]"
 
 #$(agenda)\
+#$(irssi_status)\
