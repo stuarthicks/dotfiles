@@ -184,7 +184,7 @@ zle -N build-something
 bindkey '^G' build-something # Go!
 
 start-jetty() {
-  BUFFER="with-aws tmp m -f *war/*xml jetty:run"
+  BUFFER="w modav-tmp m -f *war/*xml jetty:run"
   zle end-of-line
 }
 zle -N start-jetty
