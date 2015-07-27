@@ -51,7 +51,6 @@ alias indexing='sudo mdutil -a -v -i'
 alias ip="ifconfig | perl -lne '$if=$1 if /^(\w+)[: ]/; print "$if\t$1" if /\binet (?:addr:)?(\S+)\b/'"
 alias mci='mvn clean install'
 alias new_iterm='open -n -a "iTerm"'
-alias n='notify-send'
 alias nostart='NO_START_UNDERTEST=1 BASE_URL=http://localhost:8080'
 alias p='ps aux | grep -i'
 alias psh='perl -d -e 1'
