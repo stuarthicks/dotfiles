@@ -78,8 +78,8 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 autoload colors && colors
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats "%{$fg_bold[black]using%} %{$reset_color%}%s% %{$fg_bold[black]on%} %F{2}%b%F{3}|%F{1}%a%F{5}%f"
-zstyle ':vcs_info:*' formats "%{$fg_bold[black]using%} %{$reset_color%}%s %{$fg_bold[black]on%} %F{5}%F{2}%b%F{5}%f"
+zstyle ':vcs_info:*' actionformats "%{$fg_bold[black]±%} %{$reset_color%}%s% %{$fg_bold[black]@%} %F{2}%b%F{3}|%F{1}%a%F{5}%f"
+zstyle ':vcs_info:*' formats "%{$fg_bold[black]±%} %{$reset_color%}%s %{$fg_bold[black]@%} %F{5}%F{2}%b%F{5}%f"
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git svn
 
@@ -111,11 +111,10 @@ cosmos_info() {
 }
 
 # TIME $USER at $HOSTNAME in $CWD (vcs_info/cosmos_info)
-PROMPT="\$(date '+%H:%M.%S') %F{cyan}%n%f \
-%{$fg_bold[black]%}at \
+PROMPT="\
 %F{yellow}%m%f \
-%{$fg_bold[black]%}in \
-%F{white}%9c%f \
+%F{black]%}⤖ \
+%F{blue}%9c%f \
 \$(vcs_info_wrapper)\$(cosmos_info)
 %{$fg[red]%}$%{$reset_color%} "
 
