@@ -68,6 +68,7 @@ function! InstallPlugins()
   Plug 'chriskempson/base16-vim'
   Plug 'vim-scripts/vydark'
   Plug 'tomasr/molokai'
+  Plug 'altercation/vim-colors-solarized'
 
   call plug#end()
 endfunction
@@ -253,15 +254,13 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 let base16colorspace=256
 let g:rehash256=1
-colorscheme PaperColor
+colorscheme solarized
 
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
   set guifont=Source\ Code\ Pro\ 11
   set guioptions=
-  colorscheme molokai
-  set background=dark
 endif
 
 function! DoPrettyXML()
