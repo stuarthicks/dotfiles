@@ -21,11 +21,13 @@ function! InstallPlugins()
   Plug 'jayflo/vim-skip'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
+  Plug 'unblevable/quick-scope'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/syntastic'
   Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
+  Plug 'nathanaelkane/vim-indent-guides'
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -88,6 +90,8 @@ function! ConfigurePlugins()
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
+
+  map <F7> :FocusDispatch<space>
 
   nmap <C-a> <Plug>CtrlSFPrompt
   " vmap <C-r>f <Plug>CtrlSFVwordPath
@@ -254,7 +258,7 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 let base16colorspace=256
 let g:rehash256=1
-colorscheme solarized
+colorscheme PaperColor
 
 if has("gui_running")
   set t_Co=256
@@ -278,6 +282,12 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 map <F5> :PrettyXML<CR>
+
+:map <F10> :if exists("g:syntax_on") <Bar>
+      \   syntax off <Bar>
+      \ else <Bar>
+      \   syntax enable <Bar>
+      \ endif <CR>
 
 " Don't save backups of gpg asc files
 set backupskip+=*.asc
