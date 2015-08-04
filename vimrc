@@ -25,7 +25,6 @@ function! InstallPlugins()
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/syntastic'
-  Plug 'kien/rainbow_parentheses.vim'
   Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
 
   " Java
@@ -57,7 +56,6 @@ function! InstallPlugins()
   " Misc
   Plug 'zirrostig/vim-schlepp'
   Plug 'godlygeek/tabular'
-  Plug 'ryanss/vim-hackernews', { 'on' : 'HackerNews' }
   Plug 'gorkunov/smartpairs.vim'
   Plug 'Valloric/YouCompleteMe'
 
@@ -69,6 +67,7 @@ function! InstallPlugins()
   " GUI Colour themes
   Plug 'chriskempson/base16-vim'
   Plug 'vim-scripts/vydark'
+  Plug 'tomasr/molokai'
   Plug 'altercation/vim-colors-solarized'
 
   call plug#end()
@@ -80,11 +79,6 @@ function! ConfigurePlugins()
   " Search for files
   " nnoremap <silent> <C-p> :call fzf#run({'sink': 'e', 'launcher': 'konsole -e zsh -ic %s'})<CR>
   nnoremap <silent> <C-p> :FZF<cr>
-
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
 
   noremap <F3> :TagbarToggle<cr>
 
@@ -259,6 +253,7 @@ set wildmode=longest,list
 
 " Configure colourscheme stuff here
 let base16colorspace=256
+let g:rehash256=1
 colorscheme solarized
 
 if has("gui_running")
@@ -266,7 +261,6 @@ if has("gui_running")
   set anti enc=utf-8
   set guifont=Source\ Code\ Pro\ 11
   set guioptions=
-  colorscheme solarized
 endif
 
 function! DoPrettyXML()
