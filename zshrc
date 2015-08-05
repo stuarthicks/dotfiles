@@ -191,8 +191,8 @@ bindkey '^V' start-jetty
 export ZSH=$HOME
 
 # curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
-if ls ~/antigen.zsh &>/dev/null; then
-  source ~/antigen.zsh
+if ls ~/.antigen.zsh &>/dev/null; then
+  source ~/.antigen.zsh
   antigen bundles <<EOBUNDLES
   rupa/z
   colored-man

@@ -14,7 +14,6 @@ mv .zshrc .zshrc.bak
 mv .vimrc .vimrc.bak
 
 link zshrc
-link zprofile
 link vimrc
 link ackrc
 link aliases
@@ -32,7 +31,7 @@ touch $HOME/.profile
 
 if git --help &>/dev/null; then
   # For ZSH plugin loading
-  curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/antigen.zsh
+  curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.antigen.zsh
 
   # For VIM plugin loading
   mkdir -p ~/.vim/autoload
