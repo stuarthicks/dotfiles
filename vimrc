@@ -22,6 +22,7 @@ function! InstallPlugins()
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
   Plug 'unblevable/quick-scope'
+  Plug 'kien/ctrlp.vim'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
@@ -80,7 +81,8 @@ function! ConfigurePlugins()
 
   " Search for files
   " nnoremap <silent> <C-p> :call fzf#run({'sink': 'e', 'launcher': 'konsole -e zsh -ic %s'})<CR>
-  nnoremap <silent> <C-p> :FZF<cr>
+  nnoremap <silent> <C-b> :CtrlPBuffer<cr>
+  nnoremap <silent> <C-m> :CtrlPMixed<cr>
 
   noremap <F3> :TagbarToggle<cr>
 
@@ -263,7 +265,7 @@ colorscheme PaperColor
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
-  set guifont=Source\ Code\ Pro\ 11
+  set guifont=Source\ Code\ Pro\ Light:h16
   set guioptions=
 endif
 
