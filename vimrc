@@ -243,7 +243,7 @@ set listchars=tab:>-
 set mouse=a
 set nocursorline
 set noshowmode
-set wrap
+set nowrap
 set nowrapscan
 set number
 set shiftwidth=2
