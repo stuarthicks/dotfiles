@@ -4,9 +4,8 @@ syntax on
 
 let mapleader = ","
 
-" mkdir -p ~/.vim/autoload
-" curl -fLo ~/.vim/autoload/plug.vim \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 function! InstallPlugins()
   call plug#begin('~/.vim/plugged')
 
@@ -21,8 +20,6 @@ function! InstallPlugins()
   Plug 'jayflo/vim-skip'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
-  Plug 'unblevable/quick-scope'
-  Plug 'kien/ctrlp.vim'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
@@ -50,11 +47,11 @@ function! InstallPlugins()
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'gregsexton/gitv'
+  Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 
   " Searching
   Plug 'dyng/ctrlsf.vim'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 
   " Misc
   Plug 'zirrostig/vim-schlepp'
@@ -62,16 +59,8 @@ function! InstallPlugins()
   Plug 'gorkunov/smartpairs.vim'
   Plug 'Valloric/YouCompleteMe'
 
-  " Terminal Colour themes
-  Plug 'andrwb/vim-lapis256'
-  Plug 'nanotech/jellybeans.vim'
+  " Colour themes
   Plug 'NLKNguyen/papercolor-theme'
-
-  " GUI Colour themes
-  Plug 'chriskempson/base16-vim'
-  Plug 'vim-scripts/vydark'
-  Plug 'tomasr/molokai'
-  Plug 'altercation/vim-colors-solarized'
 
   call plug#end()
 endfunction
@@ -80,7 +69,6 @@ function! ConfigurePlugins()
   set omnifunc=syntaxcomplete#Complete
 
   " Search for files
-  " nnoremap <silent> <C-p> :call fzf#run({'sink': 'e', 'launcher': 'konsole -e zsh -ic %s'})<CR>
   nnoremap <silent> <C-b> :CtrlPBuffer<cr>
   nnoremap <silent> <C-m> :CtrlPMixed<cr>
 
@@ -93,23 +81,15 @@ function! ConfigurePlugins()
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
 
-  map <F7> :FocusDispatch<space>
 
   nmap <C-a> <Plug>CtrlSFPrompt
-  " vmap <C-r>f <Plug>CtrlSFVwordPath
-  " vmap <C-r>F <Plug>CtrlSFVwordExec
-  " nmap <C-r>n <Plug>CtrlSFCwordPath
-  " nmap <C-r>p <Plug>CtrlSFPwordPath
-  " nnoremap <C-r>o :CtrlSFOpen<CR>
-  " nnoremap <C-r>t :CtrlSFToggle<CR>
-  " inoremap <C-r>t <Esc>:CtrlSFToggle<CR>
 
   " Launch external commands from vim
+  nnoremap <F7> :FocusDispatch<space>
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
-  nmap <Leader>f :FocusDispatch<space>
 
-  " Auto align pipe-separated tables while editing, eg, cucumber feature files
+  " Auto align pipe-separated tables while editing, eg, gherkin feature files
   function! s:align()
     let p = '^\s*|\s.*\s|\s*$'
     if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -142,9 +122,6 @@ if &term == "screen"
   set t_kP=^[[5;*~
 endif
 
-" Custom syntax files
-au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
-
 " Ctrl-x, close buffer
 nnoremap <silent> <C-x> :bd<cr>
 
@@ -169,14 +146,12 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" Tab autocomplete
-inoremap <S-Tab> <c-x><c-f>
-
-" Annoying typo fixes
+" Annoying typo fixes / general usefulness
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 map q: <nop>
 nore ; :
+nnoremap <space> ;
 
 noremap <F2> :Explore<cr>
 
@@ -194,9 +169,6 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 
 nnoremap <S-Right> :bnext<CR>
 nnoremap <S-Left> :bprev<CR>
-
-" Fold blocks of code
-nnoremap <space> za
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1
@@ -258,7 +230,6 @@ set timeoutlen=500
 set wildmode=longest,list
 
 " Configure colourscheme stuff here
-let base16colorspace=256
 let g:rehash256=1
 colorscheme PaperColor
 
