@@ -51,7 +51,7 @@ function! InstallPlugins()
 
   " Searching
   Plug 'dyng/ctrlsf.vim'
-  Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
+  Plug 'kien/ctrlp.vim'
 
   " Misc
   Plug 'zirrostig/vim-schlepp'
@@ -80,7 +80,6 @@ function! ConfigurePlugins()
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
-
 
   nmap <C-a> <Plug>CtrlSFPrompt
 
