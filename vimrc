@@ -210,7 +210,7 @@ set hlsearch
 set laststatus=2
 set linebreak
 set list
-set listchars=tab:>-
+set listchars=tab:→\ ,trail:❐
 set mouse=a
 set nocursorline
 set noshowmode
