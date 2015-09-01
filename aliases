@@ -21,7 +21,6 @@ alias rcop='rubocop'
 alias r=rbenv
 
 # Navigation
-alias d='dirs -v'
 alias 1='cd -'
 alias 2='cd -3'
 alias 4='cd -4'
@@ -35,6 +34,7 @@ alias md 'mkdir -p'
 alias dc='cd'
 alias bonsai='tree -F --filelimit 15'
 
+alias d=docker
 alias rustup='curl -s https://static.rust-lang.org/rustup.sh | sh'
 alias ccat='pygmentize -g'
 alias cosmossh='cosmos-ssh-to-any'
@@ -82,3 +82,4 @@ alias gitv='v +Gitv $(find . -maxdepth 1 -type f | head -n1)'
 alias f='vim -g "$(fzf-tmux -x -i)"'
 alias -- -='vim -R -'
 alias w='wormhole.rb'
+alias path-here='export PATH=$(pwd):$PATH'
