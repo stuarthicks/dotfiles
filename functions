@@ -87,5 +87,5 @@ do-it-live () {
 }
 
 sans() {
-  openssl s_client -connect "$1:443" 2>/dev/null </dev/null | openssl x509 -noout -text | grep -A1 'Subject Alternative Name' | sed -e 's/DNS:/\n/g'
+  openssl s_client -connect "$1:443" 2>/dev/null </dev/null | openssl x509 -noout -text | grep -A1 'Subject Alternative Name'
 }

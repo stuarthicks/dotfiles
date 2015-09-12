@@ -1,3 +1,9 @@
+# echo $$
+# setopt prompt_subst
+# PS4=$'+ $(date "+%s.%N")\011 '
+# exec 3>&2 2>/tmp/zshstart.$$.log
+# set -x
+
 export TERM=screen-256color
 bindkey -v
 bindkey "^W" backward-kill-word    # vi-backward-kill-word
@@ -159,14 +165,16 @@ LANG=en_GB.UTF-8
 LANGUAGE=en_GB.UTF-8
 
 build-something () {
-  if [ -x "build" ]; then
+  if [ -f "build" ]; then
     BUFFER="./build -T 1C"
   elif [ -f "pom.xml" ]; then
     BUFFER="dev m clean install -T 1C"
-  elif [ -x "test" ]; then
-    BUFFER="w modav-tmp ./test"
-  elif [ -x "configure" ]; then
+  elif [ -f "test" ]; then
+    BUFFER="bundle && with-aws tmp ./test"
+  elif [ -f "configure" ]; then
     BUFFER="./configure && make"
+  elif [ -f "Makefile.PL" ]; then
+    BUFFER="carton exec perl Makefile.PL && make && carton exec 'prove -b -v'"
   elif [ -f "Makefile" ]; then
     BUFFER="make"
   elif [ -f ".url" ]; then
@@ -175,6 +183,10 @@ build-something () {
     BUFFER="cargo build"
   elif [ -f "Gemfile" ]; then
     BUFFER="bundle install"
+  elif [ -f "gradlew" ]; then
+    BUFFER="./gradlew "
+  elif [ -d "node_modules" ]; then
+    BUFFER="npm test"
   fi
   zle end-of-line
 }
@@ -221,3 +233,6 @@ if [ -f "${HOME}/.ssh-agent-info" ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set +x
+# exec 2>&3 3>&-
