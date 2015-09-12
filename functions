@@ -27,11 +27,11 @@ path_tidy() {
 }
 
 java-opt() {
-  export JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS"
+  JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS"
 }
 
 maven-opt() {
-  export MAVEN_OPTS="$1 $MAVEN_OPTS"
+  MAVEN_OPTS="$1 $MAVEN_OPTS"
 }
 
 just-configurate() {
