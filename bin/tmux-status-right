@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 irssi_status() {
   IRSSI=$(tmux-irssi-act)
@@ -11,42 +11,28 @@ temp_status() {
   TEMP=$(cat /tmp/temp | cut -d "=" -f2)
   if [ -n "$TEMP" ]; then
     echo -e "#[fg=red]$TEMP#[fg=white] "
+  else
+    echo -e "#[fg=red]$(osx-cpu-temp)#[fg=white]"
   fi
 }
 
 load_status() {
   LOAD=$(uptime | rev | cut -d":" -f1 | rev | sed -e 's/^[[:space:]]*//'| sed s/,//g)
   if [ -n "$LOAD" ]; then
-    echo -e "#[fg=green]$LOAD#[fg=white] "
-  fi
-}
-
-jst_status() {
-  JST=$(time-in-japan)
-  if [ -n "$JST" ]; then
-    echo -e "#[fg=blue]$JST JST#[fg=white] "
+    echo -e "#[fg=green]$LOAD#[fg=white]"
   fi
 }
 
 host() {
-  echo -e "#[fg=magenta]#H"
-}
-
-agenda() {
-  # pip install gcalcli && gcalcli agenda
-  if gcalcli list 2>&1 >/dev/null; then
-    AGENDA=$(gcalcli --nostarted --calendar "contact@stuarthicks.me" agenda --nocolor | cut -d " " -f 4- | head -2 | tail -1 | tr -s ' '| sed "s/^ *//g" | cut -c1-19)
-    echo -e "#[fg=yellow]$AGENDA#[fg=white] "
-  fi
+  local -r NAME="$(hostname | sed -e 's/\.local//')" # Eurgh, OSX.
+  echo -e "#[fg=magenta]$NAME"
 }
 
 echo -e \
 "#[fg=white] \
+$(temp_status) \
+$(load_status) \
 $(host)\
 #[fg=white]"
 
-# $(agenda)\
 # $(irssi_status)\
-# $(load_status)\
-# $(jst_status)\
-# $(temp_status)\
