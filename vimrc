@@ -137,10 +137,10 @@ nnoremap { {zz
 nnoremap } }zz
 
 " Nicer split-window navigation
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Annoying typo fixes / general usefulness
 nnoremap <F1> <nop>
@@ -181,8 +181,8 @@ au VimResized * :wincmd =
 
 " Open files to the same line as last time
 augroup line_return
-    au!
-    au BufReadPost *
+  au!
+  au BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g`"zvzz' |
         \ endif
@@ -276,5 +276,9 @@ augroup END
 " Neovim
 if has('nvim')
   tnoremap <Leader>e <C-\><C-n>
+  tnoremap <A-h> <C-\><C-n><C-w>h
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-l> <C-\><C-n><C-w>l
   autocmd WinEnter term://* startinsert
 endif
