@@ -30,6 +30,9 @@ function! InstallPlugins()
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
 
+  " Clojure
+  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
   " Ruby
   Plug 'danchoi/ri.vim', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
