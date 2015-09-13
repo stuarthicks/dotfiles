@@ -1,8 +1,8 @@
 bindkey -v
 bindkey -s '\eu' '^Ucd ..; ls^M' # Meta-u to chdir to the parent directory
 bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M' # If AUTO_PUSHD is set, Meta-p pops the dir stack
-bindkey "^W" backward-kill-word
-bindkey "^H" backward-delete-char
+# bindkey "^W" backward-kill-word
+# bindkey "^H" backward-delete-char
 bindkey "^U" kill-line
 bindkey "^?" backward-delete-char
 bindkey '^R' history-incremental-search-backward
@@ -170,3 +170,5 @@ EOBUNDLES
 fi
 
 source "$HOME/.aliases"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

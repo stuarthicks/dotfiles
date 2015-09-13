@@ -27,5 +27,3 @@ fi
 if [ -f "${HOME}/.ssh-agent-info" ]; then
   . "${HOME}/.ssh-agent-info" > /dev/null
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,4 +1,3 @@
-set nocompatible
 filetype plugin indent on
 syntax on
 
@@ -15,7 +14,6 @@ function! InstallPlugins()
   Plug 'ap/vim-buftabline'
 
   " Navigation
-  Plug 'christoomey/vim-tmux-navigator'
   Plug 'tpope/vim-vinegar'
   Plug 'jayflo/vim-skip'
   Plug 'craigemery/vim-autotag'
@@ -23,7 +21,7 @@ function! InstallPlugins()
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
-  Plug 'scrooloose/syntastic'
+  Plug 'benekastah/neomake'
   Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
   Plug 'nathanaelkane/vim-indent-guides'
 
@@ -55,12 +53,13 @@ function! InstallPlugins()
   " Searching
   Plug 'dyng/ctrlsf.vim'
   Plug 'kien/ctrlp.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
   " Misc
   Plug 'zirrostig/vim-schlepp'
   Plug 'godlygeek/tabular'
   Plug 'gorkunov/smartpairs.vim'
-  Plug 'Valloric/YouCompleteMe'
+  " Plug 'Valloric/YouCompleteMe'
 
   " Colour themes
   Plug 'NLKNguyen/papercolor-theme'
@@ -72,6 +71,7 @@ function! ConfigurePlugins()
   set omnifunc=syntaxcomplete#Complete
 
   " Search for files
+  nnoremap <silent> <C-f> :FZF<cr>
   nnoremap <silent> <C-b> :CtrlPBuffer<cr>
   nnoremap <silent> <C-m> :CtrlPMixed<cr>
 
@@ -117,12 +117,6 @@ nnoremap <cr> :nohlsearch<cr>
 " reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-set t_Co=256
-if &term == "screen"
-  set t_kN=^[[6;*~
-  set t_kP=^[[5;*~
-endif
 
 " Ctrl-x, close buffer
 nnoremap <silent> <C-x> :bd<cr>
@@ -171,6 +165,8 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 
 nnoremap <S-Right> :bnext<CR>
 nnoremap <S-Left> :bprev<CR>
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>p :bprev<CR>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1
@@ -232,11 +228,11 @@ set timeoutlen=500
 set wildmode=longest,list
 
 " Configure colourscheme stuff here
+set t_Co=256
 let g:rehash256=1
 colorscheme PaperColor
 
 if has("gui_running")
-  set t_Co=256
   set anti enc=utf-8
   set guifont=Hack:h18
   set guioptions=
@@ -276,3 +272,9 @@ augroup GPGASCII
   au BufWritePost *.asc u
   au VimLeave *.asc :!clear
 augroup END
+
+" Neovim
+if has('nvim')
+  tnoremap <Leader>e <C-\><C-n>
+  autocmd WinEnter term://* startinsert
+endif
