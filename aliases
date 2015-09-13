@@ -31,7 +31,7 @@ alias rust-stable='multirust run stable'
 alias rust-up='multirust update'
 
 # Go
-alias go-here='export GOPATH=$(pwd)'
+alias go-here='export GOPATH="$(pwd)" && export PATH="$GOPATH/bin:$PATH"'
 alias go-test-debug='go test -c -gcflags "-N -l" && gdb -tui -d $GOROOT *.test'
 
 # BBC hacks/convenience
