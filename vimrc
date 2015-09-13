@@ -238,7 +238,7 @@ colorscheme PaperColor
 if has("gui_running")
   set t_Co=256
   set anti enc=utf-8
-  set guifont=Source\ Code\ Pro\ Light:h16
+  set guifont=Hack:h18
   set guioptions=
 endif
 
