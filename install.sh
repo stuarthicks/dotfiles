@@ -14,6 +14,7 @@ mv .zshrc .zshrc.bak
 mv .vimrc .vimrc.bak
 
 link zshrc
+link zshenv
 link vimrc
 link ackrc
 link aliases
@@ -39,7 +40,7 @@ if git --help &>/dev/null; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +"PlugInstall" +qall
 
-  ln -s etc/ftplugin .vim/ftplugin
+  ln -s "$DIR/ftplugin" "$HOME/.vim/ftplugin"
 fi
 
 
