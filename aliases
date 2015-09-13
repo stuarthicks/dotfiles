@@ -1,6 +1,6 @@
 calias() {
-  alias $1=$2
-  compdef $1=$2
+  alias "$1"="$2"
+  compdef "$1"="$2"
 }
 
 calias g git
@@ -12,41 +12,45 @@ calias t tmux
 calias rd 'rmdir'
 calias s svn
 
-# Ruby
-alias bec='bundle exec cucumber'
-alias bes='bundle exec spork'
-alias bi='bundle install'
-alias dbundle='ruby -I ~/gh/bundler/lib/ ~/gh/bundler/bin/bundle'
-alias rcop='rubocop'
-alias r=rbenv
-
-# Rust
-alias rust-stable='multirust run stable'
-alias rust-beta='multirust run beta'
-alias rust-nightly='multirust run nightly'
-alias rustup='multirust update'
-
 # Navigation
 alias md 'mkdir -p'
 alias dc='cd'
 alias bonsai='tree -F --filelimit 15'
 
+# Ruby
+alias bec='bundle exec cucumber'
+alias bes='bundle exec spork'
+alias bi='bundle install'
+alias r=rbenv
+alias rc='rubocop'
+
+# Rust
+alias rust-beta='multirust run beta'
+alias rust-nightly='multirust run nightly'
+alias rust-stable='multirust run stable'
+alias rust-up='multirust update'
+
+# Go
+alias go-here='export GOPATH=$(pwd)'
+alias go-test-debug='go test -c -gcflags "-N -l" && gdb -tui -d $GOROOT *.test'
+
 # BBC hacks/convenience
 alias dev='SERVER_ENV=dev'
+alias enable-ssh='sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist'
 alias nostart='NO_START_UNDERTEST=1 BASE_URL=http://localhost:8080'
 alias tail-cloudformation='ssh -T -o IdentitiesOnly=yes -l rachel -i $HOME/.ssh/reflecting-pool-log-tail reith.rve.org.uk'
 
 # FIXME
 # alias does-anyone-else-have-my-ip='sudo arping -D -I eth0 -c 3 $(ifconfig eth0 | grep \'inet addr\' | awk -F: \'{print $2}\' | awk \'{print $1}\')'
 
-# NIX
-alias drop_caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
+# *NIX
+alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
 alias dus='du -sh *'
+alias l='ls -ltra'
 alias p='ps aux | grep -i'
 alias pstree='ps -AHwef'
 
 # OSX
-alias enable_ssh='sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist'
 alias indexing='sudo mdutil -a -v -i'
 alias new_iterm='open -n -a "iTerm"'
 alias tcopy='tmux saveb - | pbcopy && tmux deleteb'
@@ -56,12 +60,11 @@ alias sd='svn diff | v -'
 alias sup='svn up'
 alias wow='git svn dcommit'
 
-alias -- -='vim -R -'
-alias :q='exit'
+alias -g L='| less'
+alias -g V='| vim -R -'
 alias ccat='pygmentize -g'
 alias d=docker
 alias f='vim -g "$(fzf-tmux -x -i)"'
-alias go-here='export GOPATH=$(pwd)'
 alias path-here='export PATH=$(pwd):$PATH'
 alias psh='perl -d -e 1'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
