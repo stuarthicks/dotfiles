@@ -1,0 +1,8 @@
+#!/bin/bash
+PADDING=150
+bspc config -d focused top_padding $PADDING
+bspc config -d focused left_padding $PADDING
+bspc config -d focused bottom_padding $PADDING
+bspc config -d focused right_padding $PADDING
+bspc config -d focused window_gap 12
+bspc config -m $(bspc query -M | head -n 1) top_padding 24
