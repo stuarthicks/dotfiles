@@ -24,7 +24,7 @@ load_status() {
 }
 
 host() {
-  local -r NAME="$(hostname | sed -e 's/\.local//')" # Eurgh, OSX.
+  local -r NAME="$(hostname | sed -e 's/\.local$//')" # Eurgh, OSX.
   echo -e "#[fg=magenta]$NAME"
 }
 
