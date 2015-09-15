@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eu
 
+ME="$(basename "$0")"
+
 # Formatting constants/colours
 export BOLD=$(tput bold)
 export UNDERLINE_ON=$(tput smul)
@@ -27,8 +29,11 @@ export M2_HOME=$HOME/apps/apache-maven-3.3.3
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
-# MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
-export MAVEN_OPTS="${MAVEN_OPTS:-}"
+if [[ "$ME" =~ [dD] ]]; then
+  export MAVEN_OPTS="${MAVEN_OPTS:-} -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+else
+  export MAVEN_OPTS="${MAVEN_OPTS:-}"
+fi
 
 if [[ "$@" =~ release || "$@" =~ exec:java || "$@" =~ jetty || "$@" =~ tree ]]; then
   exec "$M2/mvn" "$@"
