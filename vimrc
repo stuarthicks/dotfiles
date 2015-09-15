@@ -60,6 +60,7 @@ function! InstallPlugins()
   Plug 'godlygeek/tabular'
   Plug 'gorkunov/smartpairs.vim'
   " Plug 'Valloric/YouCompleteMe'
+  Plug 'tmux-plugins/vim-tmux'
 
   " Colour themes
   Plug 'NLKNguyen/papercolor-theme'
@@ -145,8 +146,8 @@ nnoremap <A-l> <C-w>l
 " Annoying typo fixes / general usefulness
 nnoremap <F1> <nop>
 nnoremap Q <nop>
-map q: <nop>
-nore ; :
+nnoremap q: <nop>
+nnoremap ; :
 nnoremap <space> ;
 
 noremap <F2> :Explore<cr>
