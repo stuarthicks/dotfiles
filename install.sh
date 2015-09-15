@@ -40,6 +40,9 @@ if git --help &>/dev/null; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   vim +"PlugInstall" +qall
 
+  # Tmux Plugin Manager
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
   ln -s "$DIR/ftplugin" "$HOME/.vim/ftplugin"
 fi
 
