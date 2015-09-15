@@ -24,6 +24,13 @@ path_tidy() {
   PATH="$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')"
 }
 
+java-version() {
+  local -r VERSION="$1"; shift
+  export JAVA_HOME="$(/usr/libexec/java_home -v "1.${VERSION}")"
+  path_prepend "$JAVA_HOME/bin"
+  path_tidy
+}
+
 java-opt() {
   JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS"
 }
