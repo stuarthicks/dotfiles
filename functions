@@ -67,10 +67,20 @@ lspath () {
 }
 
 sans() {
-  openssl s_client -connect "$1:443" 2>/dev/null </dev/null | openssl x509 -noout -text | grep -A1 'Subject Alternative Name'
+  openssl s_client -connect "$1:443" 2>/dev/null </dev/null \
+    | openssl x509 -noout -text \
+    | grep -A1 'Subject Alternative Name' \
+    | sed -e 's/DNS:/\'$'\n/g' \
+    | sed '1,2d' \
+    | sed -e 's/,//g' \
+    | sort -u
 }
 
 docker-env() {
   local -r MACHINE="$1"; shift
   eval "$(docker-machine env "$MACHINE")"
+}
+
+http() {
+  ruby -run -e httpd . -p "${1:-1090}"
 }
