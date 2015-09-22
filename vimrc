@@ -44,6 +44,9 @@ function! InstallPlugins()
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'phildawes/racer', { 'for': 'rust' }
 
+  " Go
+  Plug 'fatih/vim-go'
+
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
