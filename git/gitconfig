@@ -1,3 +1,6 @@
+[user]
+  user = Stuart Hicks
+  email = stuarthicks@users.noreply.github.com
 [core]
   excludesFile = ~/.gitignore
   pager = less
@@ -9,18 +12,19 @@
   autosetuprebase = always
 [tig]
   tab-size = 4
+[svn]
+  logwindowsize = 25000
 [color]
   ui = auto
 [diff]
   tool = vimdiff
 [difftool]
   prompt = false
-[svn]
-  logwindowsize = 25000
-  authorsprog = ~/src/github/stuarthicks/etc/bin/git_svn_author_parse
 [rerere]
   enabled = true
   autoupdate = true
+[url "git@github.com:"]
+  insteadOf = https://github.com/
 [alias]
   abandon-ship = reset HEAD^^ --hard
   br = branch
@@ -29,16 +33,9 @@
   d = diff
   ds = diff --staged
   fe = fetch
-  fup = log --since '1 day ago' --oneline --author <EMAIL>
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 30
-  ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short  # pretty one-line log with tags, branches and authors
-  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat    # a verbose ls, shows changed files too
+  l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --date=relative -n 14
+  ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
+  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
   s = status -sb
-  sa = stash apply
-  sd = stash drop
-  sl = stash list
-  sp = stash pop
-  ss = stash save
   st = status
   tg = tag
