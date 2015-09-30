@@ -18,11 +18,11 @@ function! InstallPlugins()
   Plug 'jayflo/vim-skip'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
+  Plug 'rking/ag.vim'
 
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'benekastah/neomake'
-  Plug 'confluencewiki.vim', { 'for': 'confluencewiki' }
   Plug 'nathanaelkane/vim-indent-guides'
 
   " Java
@@ -45,13 +45,13 @@ function! InstallPlugins()
   Plug 'phildawes/racer', { 'for': 'rust' }
 
   " Go
-  Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'for': 'go'}
+  Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 
   " Searching
   Plug 'dyng/ctrlsf.vim'
@@ -62,19 +62,28 @@ function! InstallPlugins()
   Plug 'zirrostig/vim-schlepp'
   Plug 'godlygeek/tabular'
   Plug 'gorkunov/smartpairs.vim'
-  " Plug 'Valloric/YouCompleteMe'
   Plug 'tmux-plugins/vim-tmux'
+  Plug 'junegunn/vim-easy-align'
 
   " Colour themes
   Plug 'NLKNguyen/papercolor-theme'
+
+  if has('nvim')
+    Plug 'Shougo/neocomplete.vim'
+  else
+    Plug 'Valloric/YouCompleteMe'
+  endif
 
   call plug#end()
 endfunction
 
 function! ConfigurePlugins()
-  set omnifunc=syntaxcomplete#Complete
+  " set omnifunc=syntaxcomplete#Complete
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
 
   " Search for files
+  nnoremap <leader>h :Ag<space>
   nnoremap <silent> <C-f> :FZF<cr>
   nnoremap <silent> <C-b> :CtrlPBuffer<cr>
   nnoremap <silent> <C-m> :CtrlPMixed<cr>
@@ -95,6 +104,12 @@ function! ConfigurePlugins()
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
 
+  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+  vmap <Enter> <Plug>(EasyAlign)
+
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+
   " Auto align pipe-separated tables while editing, eg, gherkin feature files
   function! s:align()
     let p = '^\s*|\s.*\s|\s*$'
@@ -107,6 +122,19 @@ function! ConfigurePlugins()
     endif
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>s <Plug>(go-implements)
+  au FileType go nmap <Leader>i <Plug>(go-info)
+  au FileType go nmap <Leader>e <Plug>(go-rename)
+
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_fmt_command = "goimports"
 
 endfunction
 
@@ -132,6 +160,8 @@ nnoremap j gj
 " Inverse, so I can do the old behaviour if i want
 nnoremap gj j
 nnoremap gk k
+
+nnoremap <silent> <leader>j :jumps<cr>
 
 " zz some motions, to keep cursor in centre of screen
 nnoremap n nzz
