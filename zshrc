@@ -23,6 +23,8 @@ autoload -Uz \
 compinit
 colors
 
+ttyctl -f
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 
@@ -129,30 +131,19 @@ zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 bindkey -M menuselect "=" accept-and-menu-complete
 
 do-something () {
-  if [ -f "build" ]; then
-    BUFFER="./build -T 1C"
-  elif [ -f "pom.xml" ]; then
-    BUFFER="dev m clean install -T 1C"
-  elif [ -f "test" ]; then
-    BUFFER="bundle && with-aws tmp ./test"
-  elif [ -f "configure" ]; then
-    BUFFER="./configure && make"
-  elif [ -f "Makefile.PL" ]; then
-    BUFFER="carton exec perl Makefile.PL && make && carton exec 'prove -b -v'"
-  elif [ -f "Makefile" ]; then
-    BUFFER="make"
-  elif [ -f ".url" ]; then
-    BUFFER="git-svn-clone-helper"
-  elif [ -f "Cargo.toml" ]; then
-    BUFFER="cargo build"
-  elif [ -f "Gemfile" ]; then
-    BUFFER="bundle install"
-  elif [ -f "gradlew" ]; then
-    BUFFER="./gradlew "
-  elif [ -d "node_modules" ]; then
-    BUFFER="npm test"
+  if   [ -f "configure" ];    then BUFFER="./configure && make"
+  elif [ -f "Makefile" ];     then BUFFER="make"
+  elif [ -f "build" ];        then BUFFER="./build"
+  elif [ -f "test.sh" ];      then BUFFER="bundle && ./test.sh -p sane"
+  elif [ -f "pom.xml" ];      then BUFFER="mvn clean install"
+  elif [ -f "Gemfile" ];      then BUFFER="bundle install"
+  elif [ -f "Cargo.toml" ];   then BUFFER="cargo build"
+  elif [ -f "gradlew" ];      then BUFFER="./gradlew "
+  elif [ -d "node_modules" ]; then BUFFER="npm test"
+  elif [ -f "Makefile.PL" ];  then BUFFER="carton exec perl Makefile.PL && make && carton exec 'prove -b -v'"
   fi
   zle end-of-line
+  zle accept-line
 }
 zle -N do-something
 bindkey '^G' do-something # Go!
@@ -165,6 +156,7 @@ if ls $HOME/.antigen.zsh &>/dev/null; then
   colored-man
   extract
   tmux
+  github/hub
 EOBUNDLES
   antigen apply
 fi
