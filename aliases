@@ -33,16 +33,7 @@ alias rust-up='multirust update'
 # Go
 alias go-diff="g d -- . ':!Godeps' ':!mocks'"
 alias go-here='export GOPATH="$(pwd)" && export PATH="$GOPATH/bin:$PATH"'
-alias go-test-debug='godep go test -c -gcflags "-N -l" && gdb -tui -d "$GOROOT" *.test'
-
-# BBC hacks/convenience
-alias dev='SERVER_ENV=dev'
-alias enable-ssh='sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist'
-alias nostart='NO_START_UNDERTEST=1 BASE_URL=http://localhost:8080'
-alias tail-cloudformation='ssh -T -o IdentitiesOnly=yes -l rachel -i $HOME/.ssh/reflecting-pool-log-tail reith.rve.org.uk'
-
-# FIXME
-# alias does-anyone-else-have-my-ip='sudo arping -D -I eth0 -c 3 $(ifconfig eth0 | grep \'inet addr\' | awk -F: \'{print $2}\' | awk \'{print $1}\')'
+alias go-test-debug='godep go test -v -c -gcflags "-N -l" . && gdb -tui -d "$GOROOT" *.test'
 
 # *NIX
 alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
