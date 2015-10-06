@@ -64,6 +64,8 @@ function! InstallPlugins()
   Plug 'gorkunov/smartpairs.vim'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'junegunn/vim-easy-align'
+  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet-snippets'
 
   " Colour themes
   Plug 'NLKNguyen/papercolor-theme'
@@ -103,6 +105,11 @@ function! ConfigurePlugins()
   nnoremap <F7> :FocusDispatch<space>
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
+
+  " Plugin key-mappings.
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
 
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
