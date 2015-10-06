@@ -1,5 +1,5 @@
 [user]
-  user = Stuart Hicks
+  name = Stuart Hicks
   email = stuarthicks@users.noreply.github.com
 [core]
   excludesFile = ~/.gitignore
@@ -42,3 +42,7 @@
   s = status -sb
   st = status
   tg = tag
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
