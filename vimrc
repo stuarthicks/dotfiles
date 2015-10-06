@@ -134,6 +134,7 @@ function! ConfigurePlugins()
   let g:go_highlight_structs = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
+  let g:go_highlight_string_spellcheck = 1
   let g:go_fmt_command = "goimports"
 
 endfunction
@@ -260,6 +261,7 @@ set synmaxcol=800
 set tabstop=2
 set timeoutlen=500
 set wildmode=longest,list
+set spell
 
 " Configure colourscheme stuff here
 set t_Co=256
@@ -288,7 +290,7 @@ endfunction
 command! PrettyXML call DoPrettyXML()
 map <F5> :PrettyXML<CR>
 
-:map <F10> :if exists("g:syntax_on") <Bar>
+map <F10> :if exists("g:syntax_on") <Bar>
       \   syntax off <Bar>
       \ else <Bar>
       \   syntax enable <Bar>
