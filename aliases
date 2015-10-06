@@ -13,7 +13,7 @@ calias rd 'rmdir'
 calias s svn
 
 # Navigation
-alias md 'mkdir -p'
+alias md='mkdir -p'
 alias dc='cd'
 alias bonsai='tree -F --filelimit 15'
 
