@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eu
+
+exec env GOPATH="$(godep path):$GOPATH" \
+  dlv test -- --test.v --test.run "${1:-}"
