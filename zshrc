@@ -1,8 +1,6 @@
 bindkey -v
-bindkey -s '\eu' '^Ucd ..; ls^M' # Meta-u to chdir to the parent directory
-bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M' # If AUTO_PUSHD is set, Meta-p pops the dir stack
-# bindkey "^W" backward-kill-word
-# bindkey "^H" backward-delete-char
+bindkey -s '\eu' '^Ucd ..; ls^M'
+bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M'
 bindkey "^U" kill-line
 bindkey "^?" backward-delete-char
 bindkey '^R' history-incremental-search-backward
@@ -26,7 +24,6 @@ colors
 ttyctl -f
 
 zle -N zle-line-init
-zle -N zle-keymap-select
 
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
@@ -84,9 +81,9 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-zstyle ':vcs_info:*' actionformats "%F{grey}:%}%{$reset_color%}%s%%F{grey}, %F{2}%b%F{3}|%F{1}%a%F{5}%f"
-zstyle ':vcs_info:*' formats "%F{grey}:%}%{$reset_color%}%s%F{grey}, %F{5}%F{2}%b%F{5}%f"
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' actionformats "%F{blue}%s%%F{grey}:%F{2}%b%F{3}|%F{1}%a%F{5}%f"
+zstyle ':vcs_info:*' formats "%F{blue}%s%F{grey}:%F{5}%F{2}%b%F{5}%f"
+zstyle ':vcs_info:(sv[nk]|bzr)*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git svn
 
 vcs_info_wrapper() {
@@ -96,31 +93,10 @@ vcs_info_wrapper() {
 
 precmd() { vcs_info }
 
-cosmos_info() {
-  COSMOS_INSTANCE=""
-  COSMOS_COLOUR=""
-  if [ -f "/etc/cosmos-info" ]; then
-    source "/etc/cosmos-info"
-    if [ "$COSMOS_ENV" != "int" ] && [ "$COSMOS_ENV" != "test" ] ; then
-      echo "%{$reset_color%}%F{red}%{$COSMOS_ENV%} %{$COSMOS_COMPONENT%}%f "
-    else
-      echo "%{$reset_color%}%F{green}%{$COSMOS_ENV%} %{$COSMOS_COMPONENT%}%f "
-    fi
-  fi
-}
-
 PROMPT="\
-%F{blue}%m%f \
-%F{grey}%9c%f \
-\$(vcs_info_wrapper)\$(cosmos_info)
+\$(vcs_info_wrapper)\
+%F{grey}%9c%f
 %{$fg[red]%}$%{$reset_color%} "
-
-function zle-line-init zle-keymap-select {
-  VIM_PROMPT="%{$fg_bold[yellow]%} [% N]%  %{$reset_color%}"
-  zle reset-prompt
-}
-
-RPROMPT='${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}'
 
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:descriptions' format '%U%d%u'
