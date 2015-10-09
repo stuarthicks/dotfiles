@@ -106,8 +106,18 @@ zstyle ':completion::complete:cd::' tag-order '! users' - # do not auto complete
 zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 bindkey -M menuselect "=" accept-and-menu-complete
 
+focus-on-something () {
+  BUFFER='FOCUS="!!"'
+  zle expand-history
+  zle end-of-line
+  zle accept-line
+}
+zle -N focus-on-something
+bindkey '^F' focus-on-something
+
 do-something () {
-  if   [ -f "configure" ];    then BUFFER="./configure && make"
+  if   [ -n "$FOCUS" ];       then BUFFER="$FOCUS"
+  elif [ -f "configure" ];    then BUFFER="./configure && make"
   elif [ -f "Makefile" ];     then BUFFER="make"
   elif [ -f "build" ];        then BUFFER="./build"
   elif [ -f "test.sh" ];      then BUFFER="bundle && ./test.sh -p sane"
