@@ -253,7 +253,6 @@ set list
 set listchars=tab:→\ ,trail:❐
 set modelines=1
 set mouse=a
-set nocursorline
 set noshowmode
 set nowrap
 set nowrapscan
