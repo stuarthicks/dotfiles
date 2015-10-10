@@ -3,8 +3,7 @@ syntax on
 
 let mapleader = ","
 
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 function! InstallPlugins()
   call plug#begin('~/.vim/plugged')
 
@@ -23,7 +22,6 @@ function! InstallPlugins()
   " Syntax highlighting
   Plug 'sheerun/vim-polyglot'
   Plug 'benekastah/neomake'
-  Plug 'nathanaelkane/vim-indent-guides'
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -46,7 +44,7 @@ function! InstallPlugins()
 
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
-  Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+  Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go' }
 
   " Git
   Plug 'tpope/vim-dispatch'
@@ -66,6 +64,7 @@ function! InstallPlugins()
   Plug 'junegunn/vim-easy-align'
   Plug 'Shougo/neosnippet'
   Plug 'Shougo/neosnippet-snippets'
+  Plug 'shuber/vim-promiscuous'
 
   " Colour themes
   Plug 'NLKNguyen/papercolor-theme'
@@ -88,18 +87,18 @@ function! ConfigurePlugins()
   nnoremap <leader>h :Ag<space>
   nnoremap <silent> <C-f> :FZF<cr>
   nnoremap <silent> <C-b> :CtrlPBuffer<cr>
-  nnoremap <silent> <C-m> :CtrlPMixed<cr>
 
+  " Show symbols view on right
   noremap <F3> :TagbarToggle<cr>
 
-  " Schlepp - move highlighted code around
+  " Moves visually selected code
   vmap <unique> <up>    <Plug>SchleppUp
   vmap <unique> <down>  <Plug>SchleppDown
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
 
-  nmap <C-a> <Plug>CtrlSFPrompt
+  nnoremap <C-a> <Plug>CtrlSFPrompt
 
   " Launch external commands from vim
   nnoremap <F7> :FocusDispatch<space>
@@ -115,7 +114,10 @@ function! ConfigurePlugins()
   vmap <Enter> <Plug>(EasyAlign)
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
+  nnoremap ga <Plug>(EasyAlign)
+
+  " Switch branch, magically saving/restoring working tree and vim session
+  nnoremap <leader>gb :Promiscuous<cr>
 
   " Auto align pipe-separated tables while editing, eg, gherkin feature files
   function! s:align()
@@ -145,12 +147,14 @@ function! ConfigurePlugins()
 
 endfunction
 
+" If vim-plug is present, load plugins and plugin-related config
+" All config below this method should not require plugins
 if !empty(glob("~/.vim/autoload/plug.vim"))
   call InstallPlugins()
   call ConfigurePlugins()
 endif
 
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
 
 " reselect visual block after indent/outdent
@@ -190,14 +194,6 @@ nnoremap q: <nop>
 nnoremap ; :
 nnoremap <space> ;
 
-noremap <F2> :Explore<cr>
-
-" Remove trailing whitespace from all lines
-map <F6> :%s/\s\+$//
-
-" Format buffer as json
-map <F4> :%!python -mjson.tool<cr>
-
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 
@@ -233,24 +229,36 @@ augroup END
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Useful to fill out commit messages
-let @m = '^iMEDIASERVICES-'
-let @n = '^iNO-TICKET '
-let @o = '^iOPS-'
+let @m = '^CMEDIASERVICES-'
+let @n = '^CNO-TICKET '
+let @o = '^COPS-'
+
+" Indent Options
+set autoindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+
+" Folding
+set foldenable
+set foldlevelstart=99
+set foldmethod=syntax
 
 " Misc Options
-set autoindent
 set background=dark
 set backspace=indent,eol,start
-set clipboard=unnamed "use system clipboard as main register
-set diffopt+=iwhite "ignore whitespace in diffs
-set expandtab
+set clipboard=unnamed
+set cursorline
+set diffopt+=iwhite
 set gdefault
 set hidden
 set hlsearch
 set laststatus=2
+set lazyredraw
 set linebreak
 set list
 set listchars=tab:→\ ,trail:❐
+set modelines=1
 set mouse=a
 set nocursorline
 set noshowmode
@@ -259,13 +267,14 @@ set nowrapscan
 set number
 set shiftwidth=2
 set showcmd
+set showmatch
 set smartcase
 set splitbelow
 set splitright
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set synmaxcol=800
-set tabstop=2
 set timeoutlen=500
+set wildmenu
 set wildmode=longest,list
 
 " Configure colourscheme stuff here
@@ -293,13 +302,6 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
-map <F5> :PrettyXML<CR>
-
-map <F10> :if exists("g:syntax_on") <Bar>
-      \   syntax off <Bar>
-      \ else <Bar>
-      \   syntax enable <Bar>
-      \ endif <CR>
 
 " Don't save backups of gpg asc files
 set backupskip+=*.asc
@@ -313,6 +315,20 @@ augroup GPGASCII
   au BufWritePost *.asc u
   au VimLeave *.asc :!clear
 augroup END
+
+nnoremap <F2> :Explore<cr>
+" <F3> :TagBarToggle<cr>
+nnoremap <F4> :%!python -mjson.tool<cr>
+nnoremap <F5> :PrettyXML<CR>
+nnoremap <F6> :%s/\s\+$//
+" <F7> :FocusDispatch<space>
+" <F8> :Dispatch<space>
+" <F9> :Dispatch<cr>
+nnoremap <F10> :if exists("g:syntax_on") <Bar>
+      \   syntax off <Bar>
+      \ else <Bar>
+      \   syntax enable <Bar>
+      \ endif <CR>
 
 " Neovim
 if has('nvim')
