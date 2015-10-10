@@ -1,6 +1,6 @@
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal noexpandtab
 
 setlocal omnifunc=gocomplete#Complete
 
@@ -9,4 +9,4 @@ augroup GO
   au BufWritePre *.go :GoImports
 augroup END
 
-nmap <silent> <leader>b :GoDef<cr>
+nnoremap <silent> <leader>b :GoDef<cr>

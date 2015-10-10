@@ -1,12 +1,11 @@
-" Rubocop for Ruby
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
+setlocal expandtab
+
 let g:vimrubocop_config = '~/.rubocop.yml'
 let g:vimrubocop_keymap = 0
 nmap <Leader>x :RuboCop<cr>
-
-augroup RUBY
-  au!
-  au BufReadPost *.rb :set ts=2 sw=2 expandtab
-augroup END
 
 " Ri/Rdoc for Ruby
 nmap <silent> <leader>r :call ri#OpenSearchPrompt(0)<cr> " horizontal split

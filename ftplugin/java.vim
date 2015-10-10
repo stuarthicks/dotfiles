@@ -1,5 +1,7 @@
-set ts=4
-set sw=4
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
 
 " "Ctrl-1"
 nmap <silent> <buffer> <C-x> :JavaCorrect<cr>
