@@ -67,6 +67,8 @@ function! InstallPlugins()
   Plug 'shuber/vim-promiscuous'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
 
   call plug#end()
 endfunction
@@ -137,6 +139,10 @@ function! ConfigurePlugins()
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = "goimports"
+
+  nnoremap <leader>y :Goyo<cr>
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
 
 endfunction
 
