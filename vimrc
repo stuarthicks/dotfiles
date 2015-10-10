@@ -7,21 +7,19 @@ let mapleader = ","
 function! InstallPlugins()
   call plug#begin('~/.vim/plugged')
 
-  " Core/Framework
+  " Core
   Plug 'tpope/vim-sensible'
-  Plug 'itchyny/lightline.vim'
+  Plug 'tpope/vim-vinegar'
   Plug 'ap/vim-buftabline'
+  Plug 'itchyny/lightline.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'NLKNguyen/papercolor-theme'
 
   " Navigation
-  Plug 'tpope/vim-vinegar'
   Plug 'jayflo/vim-skip'
   Plug 'craigemery/vim-autotag'
   Plug 'majutsushi/tagbar'
   Plug 'rking/ag.vim'
-
-  " Syntax highlighting
-  Plug 'sheerun/vim-polyglot'
-  Plug 'benekastah/neomake'
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -56,24 +54,19 @@ function! InstallPlugins()
   Plug 'kien/ctrlp.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-  " Misc
-  Plug 'zirrostig/vim-schlepp'
-  Plug 'godlygeek/tabular'
-  Plug 'gorkunov/smartpairs.vim'
-  Plug 'tmux-plugins/vim-tmux'
-  Plug 'junegunn/vim-easy-align'
+  " Autocomplete
+  Plug 'Shougo/neocomplete.vim'
   Plug 'Shougo/neosnippet'
   Plug 'Shougo/neosnippet-snippets'
+
+  " Misc
+  Plug 'benekastah/neomake'
+  Plug 'godlygeek/tabular'
+  Plug 'gorkunov/smartpairs.vim'
+  Plug 'junegunn/vim-easy-align'
   Plug 'shuber/vim-promiscuous'
-
-  " Colour themes
-  Plug 'NLKNguyen/papercolor-theme'
-
-  if has('nvim')
-    Plug 'Shougo/neocomplete.vim'
-  else
-    Plug 'Valloric/YouCompleteMe'
-  endif
+  Plug 'tmux-plugins/vim-tmux'
+  Plug 'zirrostig/vim-schlepp'
 
   call plug#end()
 endfunction
