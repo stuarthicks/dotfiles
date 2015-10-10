@@ -252,6 +252,7 @@ set diffopt+=iwhite
 set gdefault
 set hidden
 set hlsearch
+set ignorecase
 set laststatus=2
 set lazyredraw
 set linebreak
