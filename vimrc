@@ -10,7 +10,7 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'altercation/vim-colors-solarized'
   Plug 'ap/vim-buftabline'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'itchyny/lightline.vim'
@@ -306,7 +306,7 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 set t_Co=256
 let g:rehash256=1
-colorscheme PaperColor
+colorscheme solarized
 
 if has('gui_running')
   set antialias enc=utf-8
