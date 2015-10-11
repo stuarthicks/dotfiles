@@ -3,24 +3,26 @@ filetype plugin indent on
 syntax on
 
 let g:mapleader = ','
+let g:maplocalleader = '\'
 
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-vinegar'
+  Plug 'NLKNguyen/papercolor-theme'
   Plug 'ap/vim-buftabline'
+  Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'itchyny/lightline.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-vinegar'
 
   " Navigation
-  Plug 'jayflo/vim-skip'
   Plug 'craigemery/vim-autotag'
-  Plug 'majutsushi/tagbar'
-  Plug 'rking/ag.vim'
+  Plug 'jayflo/vim-skip'
+  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+  Plug 'rking/ag.vim', { 'on': 'Ag' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -43,41 +45,47 @@ function! g:InstallPlugins()
 
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
-  Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go' }
+  Plug 'nsf/gocode', { 'rtp': 'vim', 'for': 'go' }
 
   " Git
   Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   Plug 'airblade/vim-gitgutter'
 
   " Searching
-  Plug 'dyng/ctrlsf.vim'
-  Plug 'kien/ctrlp.vim'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSFPrompt' }
+  Plug 'kien/ctrlp.vim', { 'on': 'CtrlPBuffer' }
+  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
   " Autocomplete
-  Plug 'Shougo/neocomplete.vim'
-  Plug 'Shougo/neosnippet'
-  Plug 'Shougo/neosnippet-snippets'
+  Plug 'Shougo/neocomplete.vim' | Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
 
   " Misc
-  Plug 'benekastah/neomake'
   Plug 'godlygeek/tabular'
   Plug 'gorkunov/smartpairs.vim'
+  Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+  Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
   Plug 'junegunn/vim-easy-align'
-  Plug 'shuber/vim-promiscuous'
+  Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
-  Plug 'junegunn/goyo.vim'
-  Plug 'junegunn/limelight.vim'
 
   call g:plug#end()
 endfunction
 
 function! g:ConfigurePlugins()
-  " set omnifunc=syntaxcomplete#Complete
+
+  set omnifunc=syntaxcomplete#Complete
   let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_auto_select = 1
   let g:neocomplete#enable_smart_case = 1
+
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileTYpe go setlocal omnifunc=gocomplete#Complete
 
   " Search for files
   nnoremap <leader>h :Ag<space>
@@ -101,10 +109,10 @@ function! g:ConfigurePlugins()
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
 
-  " Plugin key-mappings.
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
+  " Show snippets for current context
+  inoremap <C-k> <Plug>(neosnippet_expand_or_jump)
+  snoremap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xnoremap <C-k> <Plug>(neosnippet_expand_target)
 
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
@@ -309,10 +317,10 @@ endif
 function! g:DoPrettyXML()
   let l:origft = &filetype
   set filetype=
-  1s/<?xml .*?>//e
+  1substitute/<?xml .*?>//e
   0put ='<PrettyXML>'
   $put ='</PrettyXML>'
-  silent %!xmllint --format -
+  silent %!xmllint --encode UTF-8 --format -
   2d
   $d
   silent %<
