@@ -1,11 +1,12 @@
+scriptencoding utf-8
 filetype plugin indent on
 syntax on
 
-let mapleader = ","
+let g:mapleader = ','
 
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-function! InstallPlugins()
-  call plug#begin('~/.vim/plugged')
+function! g:InstallPlugins()
+  call g:plug#begin('~/.vim/plugged')
 
   " Core
   Plug 'tpope/vim-sensible'
@@ -70,10 +71,10 @@ function! InstallPlugins()
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
 
-  call plug#end()
+  call g:plug#end()
 endfunction
 
-function! ConfigurePlugins()
+function! g:ConfigurePlugins()
   " set omnifunc=syntaxcomplete#Complete
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#enable_smart_case = 1
@@ -116,41 +117,52 @@ function! ConfigurePlugins()
 
   " Auto align pipe-separated tables while editing, eg, gherkin feature files
   function! s:align()
-    let p = '^\s*|\s.*\s|\s*$'
-    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-      let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-      let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    let l:p = '^\s*|\s.*\s|\s*$'
+    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# l:p || getline(line('.')+1) =~# l:p)
+      let l:column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+      let l:position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
       Tabularize/|/l1
       normal! 0
-      call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+      call search(repeat('[^|]*|', l:column).'\s\{-\}'.repeat('.', l:position),'ce',line('.'))
     endif
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>s <Plug>(go-implements)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>e <Plug>(go-rename)
+  augroup GO
+    autocmd!
+    autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+    autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+    autocmd FileType go nmap <Leader>s <Plug>(go-implements)
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
+    autocmd FileType go nmap <Leader>e <Plug>(go-rename)
+  augroup END
 
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
   let g:go_highlight_structs = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
-  let g:go_fmt_command = "goimports"
+  let g:go_fmt_command = 'goimports'
 
   nnoremap <leader>y :Goyo<cr>
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
+  augroup Goyo
+    autocmd!
+    autocmd! User GoyoEnter Limelight
+    autocmd! User GoyoLeave Limelight!
+  augroup END
+
+  augroup NEO
+    autocmd!
+    autocmd BufWritePost * Neomake
+  augroup END
 
 endfunction
 
 " If vim-plug is present, load plugins and plugin-related config
 " All config below this method should not require plugins
-if !empty(glob("~/.vim/autoload/plug.vim"))
-  call InstallPlugins()
-  call ConfigurePlugins()
+if !empty(glob('~/.vim/autoload/plug.vim'))
+  call g:InstallPlugins()
+  call g:ConfigurePlugins()
 endif
 
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
@@ -210,10 +222,16 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 " Save when losing focus
-au FocusLost * :silent! wall
+augroup AUTOSAVE
+  autocmd!
+  autocmd FocusLost * :silent! wall
+augroup END
 
 " Resize splits when window is resized
-au VimResized * :wincmd =
+augroup AUTORESIZE
+  autocmd!
+  autocmd VimResized * :wincmd =
+augroup END
 
 " Open files to the same line as last time
 augroup line_return
@@ -282,15 +300,15 @@ set t_Co=256
 let g:rehash256=1
 colorscheme PaperColor
 
-if has("gui_running")
-  set anti enc=utf-8
+if has('gui_running')
+  set antialias enc=utf-8
   set guifont=Hack:h18
   set guioptions=
 endif
 
-function! DoPrettyXML()
-  let l:origft = &ft
-  set ft=
+function! g:DoPrettyXML()
+  let l:origft = &filetype
+  set filetype=
   1s/<?xml .*?>//e
   0put ='<PrettyXML>'
   $put ='</PrettyXML>'
@@ -299,7 +317,7 @@ function! DoPrettyXML()
   $d
   silent %<
   1
-  exe "set ft=" . l:origft
+  exe 'set ft=' . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
 
@@ -316,6 +334,7 @@ augroup GPGASCII
   au VimLeave *.asc :!clear
 augroup END
 
+nnoremap <F1> :Neomake<cr>
 nnoremap <F2> :Explore<cr>
 " <F3> :TagBarToggle<cr>
 nnoremap <F4> :%!python -mjson.tool<cr>
