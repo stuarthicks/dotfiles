@@ -49,7 +49,7 @@ function! g:InstallPlugins()
 
   " Git
   Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-fugitive', { 'on': 'Git' }
+  Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
   " Searching
@@ -310,8 +310,12 @@ colorscheme solarized
 
 if has('gui_running')
   set antialias enc=utf-8
-  set guifont=Hack:h18
+  set guifont=Hack\ 12
   set guioptions=
+endif
+
+if has('gui_macvim')
+  set guifont=Hack:h18
 endif
 
 function! g:DoPrettyXML()
