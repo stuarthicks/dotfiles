@@ -134,15 +134,14 @@ do-something () {
 zle -N do-something
 bindkey '^G' do-something # Go!
 
-# curl -sSL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
+# curl -sSL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > .antigen.zsh
 if ls $HOME/.antigen.zsh &>/dev/null; then
   . $HOME/.antigen.zsh
   antigen bundles <<EOBUNDLES
-  rupa/z
-  colored-man
+  colored-man-pages
   extract
+  rupa/z
   tmux
-  github/hub
 EOBUNDLES
   antigen apply
 fi
