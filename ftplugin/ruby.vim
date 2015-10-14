@@ -1,8 +1,3 @@
-setlocal tabstop=2
-setlocal softtabstop=2
-setlocal shiftwidth=2
-setlocal expandtab
-
 let g:vimrubocop_config = '~/.rubocop.yml'
 let g:vimrubocop_keymap = 0
 nmap <Leader>x :RuboCop<cr>

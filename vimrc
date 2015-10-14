@@ -17,6 +17,9 @@ function! g:InstallPlugins()
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-vinegar'
+  Plug 'tpope/vim-sleuth'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
 
   " Navigation
   Plug 'craigemery/vim-autotag'
@@ -32,6 +35,7 @@ function! g:InstallPlugins()
 
   " Ruby
   Plug 'danchoi/ri.vim', { 'for': 'ruby' }
+  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 
@@ -69,6 +73,7 @@ function! g:InstallPlugins()
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
+  Plug 'tpope/vim-projectionist'
 
   call g:plug#end()
 endfunction
@@ -260,9 +265,7 @@ let @o = '^COPS-'
 
 " Indent Options
 set autoindent
-set expandtab
 set tabstop=2
-set softtabstop=2
 
 " Folding
 set foldenable

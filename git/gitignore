@@ -24,3 +24,4 @@ tmp/
 
 *.log
 *.test
+.projections.json
