@@ -73,7 +73,7 @@ function! g:InstallPlugins()
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
-  Plug 'tpope/vim-projectionist'
+  Plug 'tpope/vim-projectionist', { 'on': 'A' }
 
   call g:plug#end()
 endfunction
