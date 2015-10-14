@@ -22,7 +22,6 @@ function! g:InstallPlugins()
   Plug 'tpope/vim-repeat'
 
   " Navigation
-  Plug 'craigemery/vim-autotag'
   Plug 'jayflo/vim-skip'
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim', { 'on': 'Ag' }
