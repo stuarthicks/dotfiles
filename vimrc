@@ -317,7 +317,7 @@ if has('gui_running')
 endif
 
 if has('gui_macvim')
-  set guifont=Hack:h18
+  set guifont=Hack:h14
 endif
 
 function! g:DoPrettyXML()
