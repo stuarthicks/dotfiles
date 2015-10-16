@@ -53,7 +53,7 @@ alias sd='svn diff | v -'
 alias sup='svn up'
 alias wow='git svn dcommit'
 
-alias -g L='| less'
+alias -g L='| less -r'
 alias -g V='| vim -R -'
 alias ccat='pygmentize -g'
 alias d=docker
