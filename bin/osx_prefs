@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+set -eux
+
+# FINDER
+defaults write com.apple.finder AppleShowAllFiles YES
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# INPUT
+defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# MISC
+defaults write com.apple.dock autohide -bool true
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+chflags nohidden $HOME/Library
