@@ -2,6 +2,7 @@
 set -eux
 
 # FINDER
+defaults write com.apple.finder QuitMenuItem -bool YES
 defaults write com.apple.finder AppleShowAllFiles YES
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
