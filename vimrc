@@ -10,21 +10,27 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
+  Plug 'Valloric/YouCompleteMe'
   Plug 'altercation/vim-colors-solarized'
   Plug 'ap/vim-buftabline'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'itchyny/lightline.vim'
   Plug 'sheerun/vim-polyglot'
+  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-vinegar'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-vinegar'
 
   " Navigation
   Plug 'jayflo/vim-skip'
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-  Plug 'rking/ag.vim', { 'on': 'Ag' }
+  Plug 'rking/ag.vim'
+
+  " Searching
+  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSFPrompt' }
+  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'kien/ctrlp.vim', { 'on': 'CtrlPBuffer' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -55,14 +61,6 @@ function! g:InstallPlugins()
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
-  " Searching
-  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSFPrompt' }
-  Plug 'kien/ctrlp.vim', { 'on': 'CtrlPBuffer' }
-  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-
-  " Autocomplete
-  Plug 'Shougo/neocomplete.vim' | Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
-
   " Misc
   Plug 'godlygeek/tabular'
   Plug 'gorkunov/smartpairs.vim'
@@ -78,18 +76,6 @@ function! g:InstallPlugins()
 endfunction
 
 function! g:ConfigurePlugins()
-
-  set omnifunc=syntaxcomplete#Complete
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_auto_select = 1
-  let g:neocomplete#enable_smart_case = 1
-
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileTYpe go setlocal omnifunc=gocomplete#Complete
 
   " Search for files
   nnoremap <leader>h :Ag<space>
@@ -112,11 +98,6 @@ function! g:ConfigurePlugins()
   nnoremap <F7> :FocusDispatch<space>
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
-
-  " Show snippets for current context
-  inoremap <C-k> <Plug>(neosnippet_expand_or_jump)
-  snoremap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xnoremap <C-k> <Plug>(neosnippet_expand_target)
 
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
