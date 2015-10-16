@@ -32,8 +32,8 @@ alias rust-up='multirust update'
 
 # Go
 alias go-atom='GOPATH="$(godep path):$GOPATH" atom .'
+alias go-nvim='GOPATH="$(godep path):$GOPATH" nvim'
 alias go-diff="g d -- . ':!Godeps' ':!mocks'"
-alias go-tag='gotags -tag-relative=true -R=true -sort=true -f="tags" -fields=+l .'
 alias go-test-debug='godep go test -v -c -gcflags "-N -l" . && dlv exec ./*.test'
 
 # *NIX
