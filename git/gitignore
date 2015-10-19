@@ -15,13 +15,16 @@
 log/
 target/
 
-# Other
+# Cucumber
 rest-assured.log
 screenshots/
 tags
 unlimited-cucumber-works
-tmp/
 
 *.log
 *.test
+*.swp
 .projections.json
+
+tmp/
+pentadactyl/info
