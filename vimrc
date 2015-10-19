@@ -28,7 +28,7 @@ function! g:InstallPlugins()
   Plug 'rking/ag.vim'
 
   " Searching
-  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSFPrompt' }
+  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'kien/ctrlp.vim', { 'on': 'CtrlPBuffer' }
 
@@ -93,7 +93,7 @@ function! g:ConfigurePlugins()
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
 
-  nnoremap <C-a> <Plug>CtrlSFPrompt
+  nnoremap <C-a> :CtrlSF<space>
 
   " Launch external commands from vim
   nnoremap <F7> :FocusDispatch<space>
