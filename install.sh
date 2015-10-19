@@ -4,8 +4,8 @@ set -u
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 link () {
-  FILE=$1
-  ln -s $DIR/$FILE $HOME/.$FILE
+  FILE="$1"
+  ln -s "$DIR/$FILE" "$HOME/.$FILE"
 }
 
 cd
@@ -13,22 +13,24 @@ cd
 mv .zshrc .zshrc.bak
 mv .vimrc .vimrc.bak
 
-link zshrc
-link zshenv
-link vimrc
-link ackrc
-link aliases
-link functions
-link mailcap
-link rubocop.yml
-link tmux.conf
-link compton.conf
-link pentadactylrc
-link pentadactyl
-link mintty_profile
+link "abcde.conf"
+link "ackrc"
+link "aliases"
+link "compton.conf"
+link "functions"
+link "pentadactyl"
+link "pentadactylrc"
+link "rubocop.yml"
+link "tmux.conf"
+link "vimrc"
+link "xinitrc"
+link "xmodmap"
+link "xresources"
+link "zshenv"
+link "zshrc"
 
 touch $HOME/.path
-touch $HOME/.profile
+touch $HOME/.zprofile
 
 if git --help &>/dev/null; then
   # For ZSH plugin loading
@@ -43,7 +45,10 @@ if git --help &>/dev/null; then
   # Tmux Plugin Manager
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+  ln -s "$DIR/bin" "$HOME/bin"
   ln -s "$DIR/ftplugin" "$HOME/.vim/ftplugin"
+  ln -s "$DIR/git/gitconfig" "$HOME/.gitconfig"
+  ln -s "$DIR/git/gitignore" "$HOME/.gitignore"
 fi
 
 

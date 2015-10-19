@@ -1,3 +1,3 @@
 xrdb ~/.Xresources
-setxkbmap -layout jp
-exec dwm
+xmodmap ~/.xmodmap
+exec 2bwm
