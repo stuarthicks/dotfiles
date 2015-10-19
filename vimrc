@@ -62,6 +62,7 @@ function! g:InstallPlugins()
   Plug 'airblade/vim-gitgutter'
 
   " Misc
+  Plug 'baskerville/vim-sxhkdrc', { 'for': 'sxhkdrc' }
   Plug 'godlygeek/tabular'
   Plug 'gorkunov/smartpairs.vim'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
