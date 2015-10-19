@@ -100,6 +100,8 @@ function! g:ConfigurePlugins()
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
 
+  nnoremap <M-g> :Git<space>
+
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
