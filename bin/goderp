@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 set -eu
-env GOPATH="$(godep gopath):$GOPATH" exec "$@"
+env GOPATH="$(godep path):$GOPATH" "$@"
