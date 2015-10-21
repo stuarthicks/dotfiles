@@ -140,6 +140,7 @@ if ls $HOME/.antigen.zsh &>/dev/null; then
   antigen bundles <<EOBUNDLES
   colored-man-pages
   extract
+  golang
   rupa/z
   tmux
 EOBUNDLES
