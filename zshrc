@@ -138,6 +138,7 @@ bindkey '^G' do-something # Go!
 if ls $HOME/.antigen.zsh &>/dev/null; then
   . $HOME/.antigen.zsh
   antigen bundles <<EOBUNDLES
+  aws
   colored-man-pages
   extract
   rupa/z

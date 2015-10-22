@@ -12,6 +12,10 @@ calias t tmux
 calias rd 'rmdir'
 calias s svn
 
+# AWS Command prefix
+alias fab='env -i PATH="$PATH" AWS_DEFAULT_PROFILE="fabric"'
+compdef _precommand fab
+
 # Navigation
 alias md='mkdir -p'
 alias dc='cd'
