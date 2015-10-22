@@ -8,9 +8,9 @@ irssi_status() {
 }
 
 temp_status() {
-  TEMP=$(cat /tmp/temp | cut -d "=" -f2)
+  TEMP=$(cat /tmp/temp | cut -d "=" -f2 | tr -d ' ')
   if [ -n "$TEMP" ]; then
-    echo -e "#[fg=red]$TEMP#[fg=white] "
+    echo -e "#[fg=red]$TEMP#[fg=white]"
   else
     echo -e "#[fg=red]$(osx-cpu-temp)#[fg=white]"
   fi

@@ -293,6 +293,7 @@ set wildmode=longest,list
 set t_Co=256
 let g:rehash256=1
 colorscheme solarized
+hi Normal ctermbg=none
 
 if has('gui_running')
   set antialias enc=utf-8

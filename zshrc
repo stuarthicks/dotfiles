@@ -141,6 +141,7 @@ if ls $HOME/.antigen.zsh &>/dev/null; then
   aws
   colored-man-pages
   extract
+  golang
   rupa/z
   tmux
 EOBUNDLES
