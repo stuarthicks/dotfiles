@@ -61,7 +61,7 @@ alias -g L='| less -r'
 alias -g V='| vim -R -'
 alias ccat='pygmentize -g'
 alias d=docker
-alias f='mvim "$(fzf-tmux -x -i)"'
+alias f='nvim "$(fzf-tmux -x -i)"'
 alias path-here='export PATH=$(pwd):$PATH'
 alias psh='perl -d -e 1'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
