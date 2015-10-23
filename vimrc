@@ -71,7 +71,6 @@ function! g:InstallPlugins()
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
-  Plug 'tpope/vim-projectionist'
 
   call g:plug#end()
 endfunction
@@ -292,6 +291,7 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 set t_Co=256
 let g:rehash256=1
+let g:limelight_conceal_ctermfg = '23'
 colorscheme solarized
 highlight Normal ctermbg=none
 highlight SpecialKey ctermbg=none ctermfg=23

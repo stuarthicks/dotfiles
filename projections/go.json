@@ -1,3 +1,0 @@
-{
-  "handlers/*.go": {"alternate": "handlers/{}_test.go"}
-}
