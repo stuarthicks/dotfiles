@@ -248,7 +248,7 @@ let @o = '^COPS-'
 
 " Indent Options
 set autoindent
-set tabstop=2
+set tabstop=8
 
 " Folding
 set foldenable
@@ -270,7 +270,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:→\ ,trail:❐
+set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
 set noshowmode
@@ -293,7 +293,8 @@ set wildmode=longest,list
 set t_Co=256
 let g:rehash256=1
 colorscheme solarized
-hi Normal ctermbg=none
+highlight Normal ctermbg=none
+highlight SpecialKey ctermbg=none ctermfg=23
 
 if has('gui_running')
   set antialias enc=utf-8
