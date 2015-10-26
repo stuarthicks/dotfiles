@@ -11,7 +11,7 @@ function! g:InstallPlugins()
 
   " Core
   Plug 'Valloric/YouCompleteMe'
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'tomasr/molokai'
   Plug 'ap/vim-buftabline'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'itchyny/lightline.vim'
@@ -291,8 +291,8 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 set t_Co=256
 let g:rehash256=1
-let g:limelight_conceal_ctermfg = '23'
-colorscheme solarized
+let g:molokai_original=1
+colorscheme molokai
 highlight Normal ctermbg=none
 highlight SpecialKey ctermbg=none ctermfg=23
 
