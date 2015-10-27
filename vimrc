@@ -70,6 +70,8 @@ function! g:InstallPlugins()
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 
   call g:plug#end()
 endfunction
@@ -155,6 +157,11 @@ function! g:ConfigurePlugins()
     autocmd!
     autocmd BufWritePost * Neomake
   augroup END
+
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<c-j>"
+  let g:UltiSnipsJumpForwardTrigger="<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 endfunction
 
