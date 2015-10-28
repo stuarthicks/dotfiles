@@ -192,6 +192,8 @@ nnoremap gk k
 
 nnoremap <silent> <leader>j :jumps<cr>
 
+inoremap <c-u> <c-r>=substitute(system('uuidgen'), '.$', '', 'g')<cr>
+
 " zz some motions, to keep cursor in centre of screen
 nnoremap n nzz
 nnoremap <C-d> <C-d>zz
