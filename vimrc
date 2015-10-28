@@ -11,11 +11,12 @@ function! g:InstallPlugins()
 
   " Core
   Plug 'Valloric/YouCompleteMe'
-  Plug 'tomasr/molokai'
-  Plug 'ap/vim-buftabline'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
-  Plug 'itchyny/lightline.vim'
+  Plug 'bling/vim-airline'
+  Plug 'edkolev/tmuxline.vim'
   Plug 'sheerun/vim-polyglot'
+  Plug 'sjl/gundo.vim'
+  Plug 'tomasr/molokai'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
@@ -54,12 +55,10 @@ function! g:InstallPlugins()
 
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
-  Plug 'nsf/gocode', { 'rtp': 'vim', 'for': 'go' }
 
   " Git
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
 
   " Misc
   Plug 'baskerville/vim-sxhkdrc', { 'for': 'sxhkdrc' }
@@ -71,11 +70,18 @@ function! g:InstallPlugins()
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'zirrostig/vim-schlepp'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 
   call g:plug#end()
 endfunction
 
 function! g:ConfigurePlugins()
+
+  let g:airline_theme = 'dark'
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tagbar#enabled = 0
+  let g:airline#extensions#tabline#enabled = 1
 
   " Search for files
   nnoremap <leader>h :Ag<space>
@@ -139,6 +145,7 @@ function! g:ConfigurePlugins()
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = 'goimports'
 
+  let g:limelight_conceal_ctermfg = 'gray'
   nnoremap <leader>y :Goyo<cr>
   augroup Goyo
     autocmd!
@@ -150,6 +157,11 @@ function! g:ConfigurePlugins()
     autocmd!
     autocmd BufWritePost * Neomake
   augroup END
+
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<c-j>"
+  let g:UltiSnipsJumpForwardTrigger="<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 endfunction
 
@@ -194,7 +206,6 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
 " Annoying typo fixes / general usefulness
-nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap q: <nop>
 nnoremap ; :
@@ -348,6 +359,7 @@ nnoremap <F10> :if exists("g:syntax_on") <Bar>
       \ else <Bar>
       \   syntax enable <Bar>
       \ endif <CR>
+nnoremap <F11> :GundoToggle<CR>
 
 " Neovim
 if has('nvim')
