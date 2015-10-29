@@ -15,23 +15,21 @@ function! g:InstallPlugins()
   Plug 'bling/vim-airline'
   Plug 'edkolev/tmuxline.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'sjl/gundo.vim'
   Plug 'tomasr/molokai'
+  Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
+  Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
 
-  " Navigation
+  " Navigation/Searching
+  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'jayflo/vim-skip'
+  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
-
-  " Searching
-  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
-  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-  Plug 'kien/ctrlp.vim', { 'on': 'CtrlPBuffer' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -56,22 +54,18 @@ function! g:InstallPlugins()
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
 
-  " Git
-  Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-fugitive'
-
   " Misc
+  Plug 'SirVer/ultisnips'
   Plug 'baskerville/vim-sxhkdrc', { 'for': 'sxhkdrc' }
-  Plug 'godlygeek/tabular'
+  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
+  Plug 'honza/vim-snippets'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
   Plug 'junegunn/vim-easy-align'
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
-  Plug 'zirrostig/vim-schlepp'
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+  Plug 'zirrostig/vim-schlepp', {'on': ['<Plug>SchleppUp', '<Plug>SchleppDown', '<Plug>SchleppLeft', '<Plug>SchleppRight'] }
 
   call g:plug#end()
 endfunction
@@ -84,9 +78,25 @@ function! g:ConfigurePlugins()
   let g:airline#extensions#tabline#enabled = 1
 
   " Search for files
+  function! s:buflist()
+    redir => ls
+    silent ls
+    redir END
+    return split(ls, '\n')
+  endfunction
+
+  function! s:bufopen(e)
+    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+  endfunction
+
   nnoremap <leader>h :Ag<space>
   nnoremap <silent> <C-f> :FZF<cr>
-  nnoremap <silent> <C-b> :CtrlPBuffer<cr>
+  nnoremap <silent> <C-b> :call fzf#run({
+        \   'source':  reverse(<sid>buflist()),
+        \   'sink':    function('<sid>bufopen'),
+        \   'options': '+m',
+        \   'down':    len(<sid>buflist()) + 2
+        \ })<CR>
 
   " Show symbols view on right
   noremap <F3> :TagbarToggle<cr>
