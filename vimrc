@@ -77,7 +77,6 @@ function! g:ConfigurePlugins()
   let g:airline#extensions#tagbar#enabled = 0
   let g:airline#extensions#tabline#enabled = 1
 
-  " Search for files
   function! s:buflist()
     redir => ls
     silent ls
@@ -89,7 +88,9 @@ function! g:ConfigurePlugins()
     execute 'buffer' matchstr(a:e, '^[ 0-9]*')
   endfunction
 
-  nnoremap <leader>h :Ag<space>
+  " Searching
+  nnoremap <C-a> :Ag<space>
+  nnoremap <leader>h :CtrlSF<space>
   nnoremap <silent> <C-f> :FZF<cr>
   nnoremap <silent> <C-b> :call fzf#run({
         \   'source':  reverse(<sid>buflist()),
@@ -107,8 +108,6 @@ function! g:ConfigurePlugins()
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
-
-  nnoremap <C-a> :CtrlSF<space>
 
   " Launch external commands from vim
   nnoremap <F7> :FocusDispatch<space>
@@ -202,6 +201,7 @@ nnoremap gk k
 
 nnoremap <silent> <leader>j :jumps<cr>
 
+" In insert mode, <C-u> to insert a new UUID
 inoremap <c-u> <c-r>=substitute(system('uuidgen'), '.$', '', 'g')<cr>
 
 " zz some motions, to keep cursor in centre of screen
@@ -221,7 +221,6 @@ nnoremap <A-l> <C-w>l
 nnoremap Q <nop>
 nnoremap q: <nop>
 nnoremap ; :
-nnoremap <space> ;
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
@@ -229,6 +228,7 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 
+" Buffer navigation
 nnoremap <S-Right> :bnext<CR>
 nnoremap <S-Left> :bprev<CR>
 nnoremap <Leader>n :bnext<CR>
@@ -239,7 +239,7 @@ silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-" Save when losing focus
+" Autosave when losing focus
 augroup AUTOSAVE
   autocmd!
   autocmd FocusLost * :silent! wall
@@ -262,11 +262,6 @@ augroup END
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" Useful to fill out commit messages
-let @m = '^CMEDIASERVICES-'
-let @n = '^CNO-TICKET '
-let @o = '^COPS-'
 
 " Indent Options
 set autoindent
@@ -316,19 +311,26 @@ set t_Co=256
 let g:rehash256=1
 let g:molokai_original=1
 colorscheme molokai
+
+" Don't override terminal-configured bg colour
 highlight Normal ctermbg=none
+
+" Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=23
 
+" Linux guivim settings
 if has('gui_running')
   set antialias enc=utf-8
   set guifont=Hack\ 12
   set guioptions=
 endif
 
+" OSX macvim settings override above guivim settings
 if has('gui_macvim')
   set guifont=Hack:h14
 endif
 
+" Format buffer as nicely indented xml
 function! g:DoPrettyXML()
   let l:origft = &filetype
   set filetype=
@@ -348,6 +350,7 @@ command! PrettyXML call DoPrettyXML()
 set backupskip+=*.asc
 set viminfo=
 
+" Convenient editing of ascii-armoured encrypted files
 augroup GPGASCII
   au!
   au BufReadPost *.asc :%!gpg -q -d
@@ -359,19 +362,9 @@ augroup END
 
 nnoremap <F1> :Neomake<cr>
 nnoremap <F2> :Explore<cr>
-" <F3> :TagBarToggle<cr>
 nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F5> :PrettyXML<CR>
 nnoremap <F6> :%s/\s\+$//
-" <F7> :FocusDispatch<space>
-" <F8> :Dispatch<space>
-" <F9> :Dispatch<cr>
-nnoremap <F10> :if exists("g:syntax_on") <Bar>
-      \   syntax off <Bar>
-      \ else <Bar>
-      \   syntax enable <Bar>
-      \ endif <CR>
-nnoremap <F11> :GundoToggle<CR>
 
 " Neovim
 if has('nvim')
