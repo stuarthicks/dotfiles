@@ -10,12 +10,11 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
+  Plug 'NLKNguyen/papercolor-theme'
   Plug 'Valloric/YouCompleteMe'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
-  Plug 'edkolev/tmuxline.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'tomasr/molokai'
   Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
   Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   Plug 'tpope/vim-repeat'
@@ -72,7 +71,7 @@ endfunction
 
 function! g:ConfigurePlugins()
 
-  let g:airline_theme = 'dark'
+  let g:airline_theme = 'light'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tagbar#enabled = 0
   let g:airline#extensions#tabline#enabled = 1
@@ -273,7 +272,7 @@ set foldlevelstart=99
 set foldmethod=syntax
 
 " Misc Options
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
@@ -309,8 +308,7 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 set t_Co=256
 let g:rehash256=1
-let g:molokai_original=1
-colorscheme molokai
+colorscheme PaperColor
 
 " Don't override terminal-configured bg colour
 highlight Normal ctermbg=none
