@@ -325,7 +325,7 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 set t_Co=256
 let g:rehash256=1
-colorscheme PaperColor
+colorscheme molokai
 
 " Don't override terminal-configured bg colour
 highlight Normal ctermbg=none
