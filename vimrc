@@ -5,16 +5,23 @@ syntax on
 let g:mapleader = ','
 let g:maplocalleader = '\'
 
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer --gocode-completer
+  endif
+endfunction
+
 function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'mhinz/vim-sayonara', { 'on': ['Sayonara', 'Sayonara!'] }
   Plug 'sheerun/vim-polyglot'
+  Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
   Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   Plug 'tpope/vim-repeat'
@@ -29,6 +36,7 @@ function! g:InstallPlugins()
   Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -71,10 +79,12 @@ endfunction
 
 function! g:ConfigurePlugins()
 
-  let g:airline_theme = 'light'
+  let g:airline_theme = 'dark'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tagbar#enabled = 0
   let g:airline#extensions#tabline#enabled = 1
+
+  nnoremap <F2> :NERDTreeToggle<cr>
 
   function! s:buflist()
     redir => ls
@@ -86,6 +96,12 @@ function! g:ConfigurePlugins()
   function! s:bufopen(e)
     execute 'buffer' matchstr(a:e, '^[ 0-9]*')
   endfunction
+
+  " Ctrl-x, close buffer
+  nnoremap <silent> <C-x> :Sayonara!<cr>
+
+  " Ctrl-q, close window
+  nnoremap <silent> <C-q> :Sayonara<cr>
 
   " Searching
   nnoremap <C-a> :Ag<space>
@@ -173,12 +189,16 @@ function! g:ConfigurePlugins()
 
 endfunction
 
-" If vim-plug is present, load plugins and plugin-related config
-" All config below this method should not require plugins
-if !empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+else
   call g:InstallPlugins()
   call g:ConfigurePlugins()
 endif
+
+" All config below this line here should not require plugins
 
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
@@ -186,12 +206,6 @@ nnoremap <cr> :nohlsearch<cr>
 " reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-" Ctrl-x, close buffer
-nnoremap <silent> <C-x> :bd<cr>
-
-" Ctrl-q, close window
-nnoremap <silent> <C-q> :q<cr>
 
 " Normal movement around long-wrapped lines
 nnoremap k gk
@@ -275,7 +289,7 @@ set foldlevelstart=99
 set foldmethod=syntax
 
 " Misc Options
-set background=light
+set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
@@ -317,7 +331,7 @@ colorscheme PaperColor
 highlight Normal ctermbg=none
 
 " Set colour of non-printing chars, eg tabs.
-highlight SpecialKey ctermbg=none ctermfg=23
+highlight SpecialKey ctermbg=none ctermfg=29
 
 " Linux guivim settings
 if has('gui_running')
@@ -362,7 +376,6 @@ augroup GPGASCII
 augroup END
 
 nnoremap <F1> :Neomake<cr>
-nnoremap <F2> :Explore<cr>
 nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F5> :PrettyXML<CR>
 nnoremap <F6> :%s/\s\+$//
