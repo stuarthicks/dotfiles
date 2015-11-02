@@ -182,6 +182,9 @@ vnoremap > >gv
 " Ctrl-x, close buffer
 nnoremap <silent> <C-x> :bd<cr>
 
+" Ctrl-q, close window
+nnoremap <silent> <C-q> :q<cr>
+
 " Normal movement around long-wrapped lines
 nnoremap k gk
 nnoremap j gj
