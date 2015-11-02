@@ -10,28 +10,25 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
+  Plug 'NLKNguyen/papercolor-theme'
   Plug 'Valloric/YouCompleteMe'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
-  Plug 'edkolev/tmuxline.vim'
   Plug 'sheerun/vim-polyglot'
-  Plug 'sjl/gundo.vim'
-  Plug 'tomasr/molokai'
+  Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
+  Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
 
-  " Navigation
+  " Navigation/Searching
+  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'jayflo/vim-skip'
+  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
-
-  " Searching
-  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
-  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-  Plug 'kien/ctrlp.vim', { 'on': 'CtrlPBuffer' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -56,37 +53,50 @@ function! g:InstallPlugins()
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
 
-  " Git
-  Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-fugitive'
-
   " Misc
+  Plug 'SirVer/ultisnips'
   Plug 'baskerville/vim-sxhkdrc', { 'for': 'sxhkdrc' }
-  Plug 'godlygeek/tabular'
+  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
+  Plug 'honza/vim-snippets'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
   Plug 'junegunn/vim-easy-align'
   Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
   Plug 'tmux-plugins/vim-tmux'
-  Plug 'zirrostig/vim-schlepp'
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+  Plug 'zirrostig/vim-schlepp', {'on': ['<Plug>SchleppUp', '<Plug>SchleppDown', '<Plug>SchleppLeft', '<Plug>SchleppRight'] }
 
   call g:plug#end()
 endfunction
 
 function! g:ConfigurePlugins()
 
-  let g:airline_theme = 'dark'
+  let g:airline_theme = 'light'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tagbar#enabled = 0
   let g:airline#extensions#tabline#enabled = 1
 
-  " Search for files
-  nnoremap <leader>h :Ag<space>
+  function! s:buflist()
+    redir => ls
+    silent ls
+    redir END
+    return split(ls, '\n')
+  endfunction
+
+  function! s:bufopen(e)
+    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+  endfunction
+
+  " Searching
+  nnoremap <C-a> :Ag<space>
+  nnoremap <leader>h :CtrlSF<space>
   nnoremap <silent> <C-f> :FZF<cr>
-  nnoremap <silent> <C-b> :CtrlPBuffer<cr>
+  nnoremap <silent> <C-b> :call fzf#run({
+        \   'source':  reverse(<sid>buflist()),
+        \   'sink':    function('<sid>bufopen'),
+        \   'options': '+m',
+        \   'down':    len(<sid>buflist()) + 2
+        \ })<CR>
 
   " Show symbols view on right
   noremap <F3> :TagbarToggle<cr>
@@ -97,8 +107,6 @@ function! g:ConfigurePlugins()
   vmap <unique> <left>  <Plug>SchleppLeft
   vmap <unique> <right> <Plug>SchleppRight
   vmap <unique> i <Plug>SchleppToggleReindent
-
-  nnoremap <C-a> :CtrlSF<space>
 
   " Launch external commands from vim
   nnoremap <F7> :FocusDispatch<space>
@@ -195,6 +203,7 @@ nnoremap gk k
 
 nnoremap <silent> <leader>j :jumps<cr>
 
+" In insert mode, <C-u> to insert a new UUID
 inoremap <c-u> <c-r>=substitute(system('uuidgen'), '.$', '', 'g')<cr>
 
 " zz some motions, to keep cursor in centre of screen
@@ -214,7 +223,6 @@ nnoremap <A-l> <C-w>l
 nnoremap Q <nop>
 nnoremap q: <nop>
 nnoremap ; :
-nnoremap <space> ;
 
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
@@ -222,6 +230,7 @@ nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 
+" Buffer navigation
 nnoremap <S-Right> :bnext<CR>
 nnoremap <S-Left> :bprev<CR>
 nnoremap <Leader>n :bnext<CR>
@@ -232,7 +241,7 @@ silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-" Save when losing focus
+" Autosave when losing focus
 augroup AUTOSAVE
   autocmd!
   autocmd FocusLost * :silent! wall
@@ -256,11 +265,6 @@ augroup END
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" Useful to fill out commit messages
-let @m = '^CMEDIASERVICES-'
-let @n = '^CNO-TICKET '
-let @o = '^COPS-'
-
 " Indent Options
 set autoindent
 set tabstop=8
@@ -271,7 +275,7 @@ set foldlevelstart=99
 set foldmethod=syntax
 
 " Misc Options
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
@@ -307,21 +311,27 @@ set wildmode=longest,list
 " Configure colourscheme stuff here
 set t_Co=256
 let g:rehash256=1
-let g:molokai_original=1
-colorscheme molokai
+colorscheme PaperColor
+
+" Don't override terminal-configured bg colour
 highlight Normal ctermbg=none
+
+" Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=23
 
+" Linux guivim settings
 if has('gui_running')
   set antialias enc=utf-8
   set guifont=Hack\ 12
   set guioptions=
 endif
 
+" OSX macvim settings override above guivim settings
 if has('gui_macvim')
   set guifont=Hack:h14
 endif
 
+" Format buffer as nicely indented xml
 function! g:DoPrettyXML()
   let l:origft = &filetype
   set filetype=
@@ -341,6 +351,7 @@ command! PrettyXML call DoPrettyXML()
 set backupskip+=*.asc
 set viminfo=
 
+" Convenient editing of ascii-armoured encrypted files
 augroup GPGASCII
   au!
   au BufReadPost *.asc :%!gpg -q -d
@@ -352,19 +363,9 @@ augroup END
 
 nnoremap <F1> :Neomake<cr>
 nnoremap <F2> :Explore<cr>
-" <F3> :TagBarToggle<cr>
 nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F5> :PrettyXML<CR>
 nnoremap <F6> :%s/\s\+$//
-" <F7> :FocusDispatch<space>
-" <F8> :Dispatch<space>
-" <F9> :Dispatch<cr>
-nnoremap <F10> :if exists("g:syntax_on") <Bar>
-      \   syntax off <Bar>
-      \ else <Bar>
-      \   syntax enable <Bar>
-      \ endif <CR>
-nnoremap <F11> :GundoToggle<CR>
 
 " Neovim
 if has('nvim')
