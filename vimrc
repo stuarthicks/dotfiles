@@ -193,12 +193,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
-else
-  call g:InstallPlugins()
-  call g:ConfigurePlugins()
 endif
 
-" All config below this line here should not require plugins
+call g:InstallPlugins()
+call g:ConfigurePlugins()
+
+" All config below this line should not require plugins
 
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap <cr> :nohlsearch<cr>
@@ -332,8 +332,9 @@ highlight Normal ctermbg=none
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=29
+	
 
-" Linux guivim settings
+" Generic guivim settings
 if has('gui_running')
   set antialias enc=utf-8
   set guifont=Hack\ 12
@@ -342,6 +343,7 @@ endif
 
 " OSX macvim settings override above guivim settings
 if has('gui_macvim')
+  " Seriously, why is this format different?
   set guifont=Hack:h14
 endif
 
