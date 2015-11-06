@@ -33,7 +33,7 @@ function! g:InstallPlugins()
   " Navigation/Searching
   Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'jayflo/vim-skip'
-  Plug 'junegunn/fzf', { 'on': 'FZF', 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'junegunn/fzf', { 'on': ['FZF', 'fzf#run'], 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -41,11 +41,7 @@ function! g:InstallPlugins()
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
 
-  " Clojure
-  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
   " Ruby
-  Plug 'danchoi/ri.vim', { 'for': 'ruby' }
   Plug 'tpope/vim-bundler', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
@@ -63,16 +59,12 @@ function! g:InstallPlugins()
 
   " Misc
   Plug 'SirVer/ultisnips'
-  Plug 'baskerville/vim-sxhkdrc', { 'for': 'sxhkdrc' }
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
   Plug 'honza/vim-snippets'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
   Plug 'junegunn/vim-easy-align'
-  Plug 'shuber/vim-promiscuous', { 'on': 'Promiscuous' }
-  Plug 'tmux-plugins/vim-tmux'
-  Plug 'zirrostig/vim-schlepp', {'on': ['<Plug>SchleppUp', '<Plug>SchleppDown', '<Plug>SchleppLeft', '<Plug>SchleppRight'] }
 
   call g:plug#end()
 endfunction
@@ -117,17 +109,12 @@ function! g:ConfigurePlugins()
   " Show symbols view on right
   noremap <F3> :TagbarToggle<cr>
 
-  " Moves visually selected code
-  vmap <unique> <up>    <Plug>SchleppUp
-  vmap <unique> <down>  <Plug>SchleppDown
-  vmap <unique> <left>  <Plug>SchleppLeft
-  vmap <unique> <right> <Plug>SchleppRight
-  vmap <unique> i <Plug>SchleppToggleReindent
-
   " Launch external commands from vim
+  nnoremap <F1> :Neomake!<cr>
   nnoremap <F7> :FocusDispatch<space>
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
+  nnoremap <F10> :Make<space>
 
   nnoremap <M-g> :Git<space>
 
@@ -136,9 +123,6 @@ function! g:ConfigurePlugins()
 
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nnoremap ga <Plug>(EasyAlign)
-
-  " Switch branch, magically saving/restoring working tree and vim session
-  nnoremap <leader>gb :Promiscuous<cr>
 
   " Auto align pipe-separated tables while editing, eg, gherkin feature files
   function! s:align()
@@ -215,8 +199,6 @@ nnoremap j gj
 nnoremap gj j
 nnoremap gk k
 
-nnoremap <silent> <leader>j :jumps<cr>
-
 " In insert mode, <C-u> to insert a new UUID
 inoremap <c-u> <c-r>=substitute(system('uuidgen'), '.$', '', 'g')<cr>
 
@@ -247,8 +229,6 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>"
 " Buffer navigation
 nnoremap <S-Right> :bnext<CR>
 nnoremap <S-Left> :bprev<CR>
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1
@@ -267,20 +247,12 @@ augroup AUTORESIZE
   autocmd VimResized * :wincmd =
 augroup END
 
-" Open files to the same line as last time
-augroup line_return
-  au!
-  au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Indent Options
 set autoindent
+set noexpandtab
 set tabstop=8
 
 " Folding
@@ -288,17 +260,18 @@ set foldenable
 set foldlevelstart=99
 set foldmethod=syntax
 
+" Searching
+set hlsearch
+set ignorecase
+set incsearch
+set showmatch
+set smartcase
+
 " Misc Options
-set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
 set diffopt+=iwhite
-set gdefault
-set hidden
-set hlsearch
-set incsearch
-set ignorecase
 set laststatus=2
 set lazyredraw
 set linebreak
@@ -306,14 +279,12 @@ set list
 set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
-set noshowmode
+set nohidden
 set nowrap
 set nowrapscan
 set number
-set shiftwidth=2
 set showcmd
-set showmatch
-set smartcase
+set showmode
 set splitbelow
 set splitright
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
@@ -322,9 +293,10 @@ set timeoutlen=500
 set wildmenu
 set wildmode=longest,list
 
-" Configure colourscheme stuff here
+" Theming!
 set t_Co=256
 let g:rehash256=1
+set background=dark
 colorscheme molokai
 
 " Don't override terminal-configured bg colour
@@ -377,7 +349,6 @@ augroup GPGASCII
   au VimLeave *.asc :!clear
 augroup END
 
-nnoremap <F1> :Neomake<cr>
 nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F5> :PrettyXML<CR>
 nnoremap <F6> :%s/\s\+$//
