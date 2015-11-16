@@ -32,7 +32,7 @@ function! g:InstallPlugins()
   " Navigation/Searching
   Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'jayflo/vim-skip'
-  Plug 'junegunn/fzf', { 'on': ['FZF'], 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -97,8 +97,8 @@ function! g:ConfigurePlugins()
   " Searching
   nnoremap <C-a> :Ag<space>
   nnoremap <leader>h :CtrlSF<space>
-  nnoremap <silent> <C-f> :FZF<cr>
-  nnoremap <silent> <C-b> :call fzf#run({
+  nnoremap <silent> <C-p> :FZF<cr>
+  nnoremap <silent> <C-f> :call fzf#run({
         \   'source':  reverse(<sid>buflist()),
         \   'sink':    function('<sid>bufopen'),
         \   'options': '+m',
