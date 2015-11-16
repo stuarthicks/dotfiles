@@ -19,7 +19,6 @@ function! g:InstallPlugins()
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
   Plug 'flazz/vim-colorschemes'
-  Plug 'mhinz/vim-sayonara', { 'on': ['Sayonara', 'Sayonara!'] }
   Plug 'sheerun/vim-polyglot'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
@@ -33,7 +32,7 @@ function! g:InstallPlugins()
   " Navigation/Searching
   Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'jayflo/vim-skip'
-  Plug 'junegunn/fzf', { 'on': ['FZF', 'fzf#run'], 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'junegunn/fzf', { 'on': ['FZF'], 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -90,10 +89,10 @@ function! g:ConfigurePlugins()
   endfunction
 
   " Ctrl-x, close buffer
-  nnoremap <silent> <C-x> :Sayonara!<cr>
+  nnoremap <silent> <C-x> :bd<cr>
 
   " Ctrl-q, close window
-  nnoremap <silent> <C-q> :Sayonara<cr>
+  nnoremap <silent> <C-q> :q<cr>
 
   " Searching
   nnoremap <C-a> :Ag<space>
