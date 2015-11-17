@@ -116,10 +116,12 @@ zle -N focus-on-something
 bindkey '^F' focus-on-something
 
 do-something () {
-  if   [ -n "$FOCUS" ];       then BUFFER="$FOCUS"
+   if  [ -n "$FOCUS" ];       then BUFFER="$FOCUS"
   elif [ -f "configure" ];    then BUFFER="./configure && make"
   elif [ -f "Makefile" ];     then BUFFER="make"
   elif [ -f "build" ];        then BUFFER="./build"
+  elif [ -f "build.sh" ];     then BUFFER="./build.sh"
+  elif [ -f "test" ];         then BUFFER="bundle && ./test -p sane"
   elif [ -f "test.sh" ];      then BUFFER="bundle && ./test.sh -p sane"
   elif [ -f "pom.xml" ];      then BUFFER="mvn clean install"
   elif [ -f "Gemfile" ];      then BUFFER="bundle install"

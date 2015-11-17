@@ -1,3 +1,5 @@
+# vi: ft=zsh
+
 calias() {
   alias "$1"="$2"
   compdef "$1"="$2"
@@ -22,10 +24,9 @@ alias dc='cd'
 alias bonsai='tree -F --filelimit 15'
 
 # Ruby
-alias bec='bundle exec cucumber'
-alias bes='bundle exec spork'
+alias be='bundle exec'
 alias bi='bundle install'
-alias r=rbenv
+alias r='rbenv'
 alias rc='rubocop'
 
 # Rust
@@ -41,7 +42,7 @@ alias go-diffs="g d --staged -- . ':!Godeps/_workspace/src' ':!mocks'"
 # *NIX
 alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
 alias dus='du -sh *'
-alias l='ls -ltrAp --group-directories-first'
+alias ll='ls -ltrAp --group-directories-first'
 alias p='ps aux | grep -i'
 alias pstree='ps -AHwef'
 
