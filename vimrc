@@ -15,7 +15,7 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+  Plug 'Valloric/YouCompleteMe', { 'on': 'unloaded', 'do': function('BuildYCM') }
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
   Plug 'flazz/vim-colorschemes'
@@ -55,6 +55,7 @@ function! g:InstallPlugins()
 
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
+  Plug 'garyburd/go-explorer', { 'for': 'go'}
 
   " Misc
   Plug 'SirVer/ultisnips'
@@ -135,15 +136,6 @@ function! g:ConfigurePlugins()
     endif
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
-
-  augroup GO
-    autocmd!
-    autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
-    autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-    autocmd FileType go nmap <Leader>s <Plug>(go-implements)
-    autocmd FileType go nmap <Leader>i <Plug>(go-info)
-    autocmd FileType go nmap <Leader>e <Plug>(go-rename)
-  augroup END
 
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
