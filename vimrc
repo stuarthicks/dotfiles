@@ -51,7 +51,7 @@ function! g:InstallPlugins()
 
   " Rust
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'phildawes/racer', { 'for': 'rust' }
+  Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
   " Go
   Plug 'fatih/vim-go', { 'for': 'go'}
@@ -278,7 +278,7 @@ set list
 set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
-set nohidden
+set hidden
 set nowrap
 set nowrapscan
 set number
