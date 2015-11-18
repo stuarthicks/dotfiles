@@ -1,20 +1,10 @@
 # vi: ft=zsh
 
-path_has() {
-  if echo "$PATH" | tr ':' '\n' | grep -x -q "$1" ; then
-    return 0
-  else
-    return 1
-  fi
-}
-
 path_append() {
-  if path_has "$1" ; then return; fi
   export PATH="$PATH:$1"
 }
 
 path_prepend() {
-  if path_has "$1" ; then return; fi
   export PATH="$1:$PATH"
 }
 
@@ -38,24 +28,17 @@ maven-opt() {
 }
 
 jars-in-war() {
-  unzip -l *-war/target/*-SNAPSHOT.war | grep jar | awk -F '/' '{print $3}' | sort -u
+  unzip -l ./*-war/target/*-SNAPSHOT.war | grep jar | awk -F '/' '{print $3}' | sort -u
 }
 
-stack-diff() {
-  local STACK_TYPE=$1; shift
-  local ENVIRONMENT=$1; shift
-  vimdiff "tmp/templates/template-${STACK_TYPE}.${ENVIRONMENT}.*"
-  vim "tmp/templates/description-${STACK_TYPE}.${ENVIRONMENT}.next.json"
-}
-
-# Set title of window
+# Set terminal title
 title () {
-  printf "\033k$1\033\\"
+  printf "\033k%s\033\\" "$1"
 }
 
 # Echo path with newlines
 path () {
-  echo $PATH | tr : $'\n'
+  echo "$PATH" | tr : $'\n'
 }
 
 # List all items on path
