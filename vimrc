@@ -15,7 +15,7 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'Valloric/YouCompleteMe', { 'on': 'Unloaded', 'do': function('BuildYCM') }
+  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
   Plug 'flazz/vim-colorschemes'
@@ -249,7 +249,7 @@ set tabstop=8
 " Folding
 set foldenable
 set foldlevelstart=99
-set foldmethod=syntax
+set foldmethod=manual
 
 " Searching
 set hlsearch
