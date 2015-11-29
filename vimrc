@@ -5,8 +5,8 @@ syntax on
 let g:mapleader = ','
 let g:maplocalleader = '\'
 
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
+function! g:BuildYCM(info)
+  if a:info.status ==? 'installed' || a:info.force
     !./install.py --clang-completer --gocode-completer
   endif
 endfunction
@@ -15,7 +15,7 @@ function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+  Plug 'Valloric/YouCompleteMe', { 'do': function('g:BuildYCM') }
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'bling/vim-airline'
   Plug 'flazz/vim-colorschemes'
@@ -79,10 +79,10 @@ function! g:ConfigurePlugins()
   nnoremap <F2> :NERDTreeToggle<cr>
 
   function! s:buflist()
-    redir => ls
+    redir => l:ls
     silent ls
     redir END
-    return split(ls, '\n')
+    return split(l:ls, '\n')
   endfunction
 
   function! s:bufopen(e)
@@ -142,7 +142,7 @@ function! g:ConfigurePlugins()
   let g:go_highlight_structs = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
-  let g:go_fmt_command = 'goimports'
+  let g:go_fmt_command = 'goreturns'
 
   let g:limelight_conceal_ctermfg = 'gray'
   nnoremap <leader>y :Goyo<cr>
@@ -158,16 +158,19 @@ function! g:ConfigurePlugins()
   augroup END
 
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<c-j>"
-  let g:UltiSnipsJumpForwardTrigger="<c-j>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  let g:UltiSnipsExpandTrigger='<c-j>'
+  let g:UltiSnipsJumpForwardTrigger='<c-j>'
+  let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 endfunction
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+  augroup VIMRC
+    autocmd!
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+  augroup END
 endif
 
 call g:InstallPlugins()
