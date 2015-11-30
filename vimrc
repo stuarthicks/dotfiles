@@ -253,11 +253,6 @@ set autoindent
 set noexpandtab
 set tabstop=4
 
-" Folding
-set foldenable
-set foldlevelstart=99
-set foldmethod=manual
-
 " Searching
 set hlsearch
 set ignorecase
@@ -278,9 +273,12 @@ set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
 set hidden
+set nofoldenable
 set nowrap
 set nowrapscan
 set number
+set scrolloff=10
+set sidescrolloff=10
 set showcmd
 set showmode
 set splitbelow
