@@ -36,6 +36,7 @@ function! g:InstallPlugins()
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'rizzatti/dash.vim'
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -142,7 +143,7 @@ function! g:ConfigurePlugins()
   let g:go_highlight_structs = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
-  let g:go_fmt_command = 'goreturns'
+  let g:go_fmt_command = 'goimports'
 
   let g:limelight_conceal_ctermfg = 'gray'
   nnoremap <leader>y :Goyo<cr>
@@ -161,6 +162,9 @@ function! g:ConfigurePlugins()
   let g:UltiSnipsExpandTrigger='<c-j>'
   let g:UltiSnipsJumpForwardTrigger='<c-j>'
   let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+
+  " OSX only
+  nmap <silent> <leader>da <Plug>DashSearch
 
 endfunction
 
@@ -247,7 +251,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Indent Options
 set autoindent
 set noexpandtab
-set tabstop=8
+set tabstop=4
 
 " Folding
 set foldenable
