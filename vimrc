@@ -301,7 +301,7 @@ colorscheme molokai
 highlight Normal ctermbg=none
 
 " Set colour of non-printing chars, eg tabs.
-highlight SpecialKey ctermbg=none ctermfg=29
+highlight SpecialKey ctermbg=none ctermfg=DarkGrey
 
 " Generic guivim settings
 if has('gui_running')
