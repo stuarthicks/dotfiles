@@ -21,6 +21,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # MISC
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock single-app -bool true
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
