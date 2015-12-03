@@ -7,8 +7,6 @@ calias() {
 
 calias d docker
 calias g git
-calias h hub
-calias k kubectl
 calias many git
 calias much git
 calias such git
@@ -60,8 +58,10 @@ alias -g V='| vim -R -'
 alias T='tail -F'
 alias ccat='pygmentize -g'
 alias f='nvim "$(fzf-tmux -x -i)"'
+alias h=hub
 alias hex='hexdump -C'
 alias http='ruby -run -ehttpd . -p 8000'
+alias k=kubectl
 alias psh='perl -d -e 1'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
