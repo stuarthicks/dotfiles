@@ -17,12 +17,10 @@ function! g:InstallPlugins()
   " Core
   Plug 'Valloric/YouCompleteMe', { 'do': function('g:BuildYCM') }
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
-  Plug 'bling/vim-airline'
   Plug 'flazz/vim-colorschemes'
   Plug 'sheerun/vim-polyglot'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
-  Plug 'tpope/vim-fugitive', { 'on': 'Git' }
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
@@ -36,7 +34,7 @@ function! g:InstallPlugins()
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-  Plug 'rizzatti/dash.vim'
+  Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
   " Java
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
@@ -71,11 +69,6 @@ function! g:InstallPlugins()
 endfunction
 
 function! g:ConfigurePlugins()
-
-  let g:airline_theme = 'dark'
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tagbar#enabled = 0
-  let g:airline#extensions#tabline#enabled = 1
 
   nnoremap <F2> :NERDTreeToggle<cr>
 
@@ -117,8 +110,6 @@ function! g:ConfigurePlugins()
   nnoremap <silent> <F9> :Dispatch<CR>
   nnoremap <F10> :Make<space>
 
-  nnoremap <M-g> :Git<space>
-
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
@@ -144,6 +135,7 @@ function! g:ConfigurePlugins()
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_command = 'goimports'
+  let g:go_fmt_fail_silently = 1
 
   let g:limelight_conceal_ctermfg = 'gray'
   nnoremap <leader>y :Goyo<cr>
@@ -283,7 +275,7 @@ set showcmd
 set showmode
 set splitbelow
 set splitright
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+set statusline=%F%m%r%h%w\ [%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set synmaxcol=800
 set timeoutlen=500
 set wildmenu
@@ -304,14 +296,14 @@ highlight SpecialKey ctermbg=none ctermfg=DarkGrey
 " Generic guivim settings
 if has('gui_running')
   set antialias enc=utf-8
-  set guifont=Hack\ 12
+  set guifont=Source\ Code\ Pro\ 12
   set guioptions=
 endif
 
 " OSX macvim settings override above guivim settings
 if has('gui_macvim')
   " Seriously, why is this format different?
-  set guifont=Hack:h14
+  set guifont=Source\ Code\ Pro:h14
 endif
 
 " Format buffer as nicely indented xml
