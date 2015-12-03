@@ -268,18 +268,27 @@ set hidden
 set nofoldenable
 set nowrap
 set nowrapscan
-set number
 set scrolloff=10
 set sidescrolloff=10
 set showcmd
 set showmode
 set splitbelow
 set splitright
-set statusline=%F%m%r%h%w\ [%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 set synmaxcol=800
 set timeoutlen=500
 set wildmenu
 set wildmode=longest,list
+
+" Statusline
+set statusline=
+set statusline +=%1*\ %n\ %*   "buffer number
+set statusline +=%3*%y%*       "file type
+set statusline +=%4*\ %<%F%*   "full path
+set statusline +=%2*%m%*       "modified flag
+set statusline +=%1*%=%5l%*    "current line
+set statusline +=%2*/%L%*      "total lines
+set statusline +=%1*%4v\ %*    "virtual column number
+set statusline +=%2*0x%04B\ %* "character under cursor
 
 " Theming!
 set t_Co=256
