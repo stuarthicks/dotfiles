@@ -266,7 +266,7 @@ set modelines=1
 set mouse=a
 set hidden
 set nofoldenable
-set nowrap
+set wrap
 set nowrapscan
 set scrolloff=10
 set sidescrolloff=10
