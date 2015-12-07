@@ -357,4 +357,8 @@ if has('nvim')
   tnoremap <A-k> <C-\><C-n><C-w>k
   tnoremap <A-l> <C-\><C-n><C-w>l
   autocmd WinEnter term://* startinsert
+
+  nnoremap <silent> <leader>t :vsplit +terminal<cr>
+  nnoremap <silent> <leader>s :split +terminal<cr>
+  nnoremap <silent> <leader>T :tabnew +terminal<cr>
 endif
