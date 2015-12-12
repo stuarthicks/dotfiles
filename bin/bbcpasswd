@@ -1,4 +1,0 @@
-#!/bin/bash
-set -eu
-readonly USERNAME=$1
-smbpasswd -U $USERNAME -r $(host -t srv _ldap._tcp.pdc._msdcs.national.core.bbc.co.uk | cut -d" " -f8 | head -c -2)

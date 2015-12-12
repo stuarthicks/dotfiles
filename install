@@ -1,0 +1,24 @@
+#!/bin/bash
+set -u
+
+stow abcde
+stow ack
+stow bspwm
+stow compton
+stow git
+stow nvim
+stow pentadactyl
+stow profile
+stow rubocop
+stow scripts
+stow sxkhd
+stow tmux
+stow vim
+stow vimperator
+stow xorg
+stow zsh
+
+curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.antigen.zsh
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
