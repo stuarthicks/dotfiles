@@ -1,5 +1,4 @@
 #!/bin/bash
-set -u
 
 stow abcde
 stow ack
@@ -11,14 +10,13 @@ stow pentadactyl
 stow profile
 stow rubocop
 stow scripts
-stow sxkhd
+stow sxhkd
 stow tmux
 stow vim
 stow vimperator
 stow xorg
 stow zsh
 
-curl -sL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.antigen.zsh
+curl -sSL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.antigen.zsh
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
