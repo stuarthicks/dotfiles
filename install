@@ -17,6 +17,6 @@ stow vimperator
 stow xorg
 stow zsh
 
-curl -sSL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.antigen.zsh
-
+mkdir ~/.zsh
+git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs > /dev/null 2>&1
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1

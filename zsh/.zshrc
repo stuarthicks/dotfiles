@@ -136,18 +136,7 @@ do-something () {
 zle -N do-something
 bindkey '^G' do-something # Go!
 
-# curl -sSL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > .antigen.zsh
-if ls $HOME/.antigen.zsh &>/dev/null; then
-  . $HOME/.antigen.zsh
-  antigen bundles <<EOBUNDLES
-  colored-man-pages
-  extract
-  golang
-  rupa/z
-  tmux
-EOBUNDLES
-  antigen apply
-fi
+[ -f "$HOME/.zsh/antigen-hs/init.zsh" ] && . "$HOME/.zsh/antigen-hs/init.zsh"
 
 source "$HOME/.aliases"
 
