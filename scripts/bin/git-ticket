@@ -1,9 +1,0 @@
-#!/bin/bash
-set -eu
-
-TICKET="$(git log --all --format='%H' --grep '^'"$1"'')"
-
-for hash in $TICKET; do
-  git log -n1 -C -l10 --summary --stat "$hash"; read
-  git show "$hash" | vim -
-done
