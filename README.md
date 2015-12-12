@@ -1,5 +1,5 @@
 # dotfiles
-Spellbook of random config that makes my machine mine.
+My personal spellbook of random config.
 
 Install script requirements:
 
