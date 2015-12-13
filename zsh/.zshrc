@@ -136,7 +136,8 @@ do-something () {
 zle -N do-something
 bindkey '^G' do-something # Go!
 
-[ -f "$HOME/.zsh/antigen-hs/init.zsh" ] && . "$HOME/.zsh/antigen-hs/init.zsh"
+# Haskell Stack; aptitide install stack / https://ghcformacosx.github.io/
+[ type stack >/dev/null 2>&1 ] && . "$HOME/.zsh/antigen-hs/init.zsh"
 
 source "$HOME/.aliases"
 
