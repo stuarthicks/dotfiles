@@ -52,17 +52,27 @@ alias sd='svn diff | v -'
 alias sup='svn up'
 alias wow='git push'
 
-alias -g L='| less -r'
+alias m=mosh
+compdef mosh=ssh
+
+# Globals, ie 'curl foo V'
+alias -g CA="2>&1 | cat -A"
+alias -g G='| grep'
+alias -g H='| head'
+alias -g L="| less -r"
+alias -g LL="2>&1 | less"
+alias -g M="| most"
+alias -g NE="2> /dev/null"
+alias -g NUL="> /dev/null 2>&1"
+alias -g P="2>&1| pygmentize -l pytb"
+alias -g T='| tail'
 alias -g V='| vim -R -'
-alias T='tail -F'
-alias ccat='pygmentize -g'
+
 alias d=docker
 alias f='nvim "$(fzf-tmux -x -i)"'
 alias h=hub
 alias hex='hexdump -C'
 alias http='ruby -run -ehttpd . -p 8000'
-alias k=kubectl
-alias m=mosh
 alias n=nvim
 alias psh='perl -d -e 1'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'

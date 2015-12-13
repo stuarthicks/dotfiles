@@ -2,7 +2,6 @@
 
 stow abcde
 stow ack
-stow bspwm
 stow compton
 stow git
 stow nvim
@@ -16,6 +15,9 @@ stow vim
 stow vimperator
 stow xorg
 stow zsh
+
+# Better to copy/paste and edit
+# stow bspwm
 
 mkdir ~/.zsh
 git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs > /dev/null 2>&1

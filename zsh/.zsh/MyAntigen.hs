@@ -2,33 +2,30 @@
 module MyAntigen where
 
 import Antigen (
-                -- Rudimentary imports
                 AntigenConfig (..)
               , defaultConfig
               , bundle
               , antigen
-                -- If you want to source a bit trickier plugins
               , ZshPlugin (..)
               , antigenSourcingStrategy
               , filePathsSourcingStrategy
               )
 
 bundles =
-  [
-  ( bundle "rupa/z" )
+  [ ( bundle "rimraf/k" )
+  , ( bundle "rupa/z" )
     { sourcingStrategy = filePathsSourcingStrategy
-      [ "z.sh" ]
-    },
-  ( bundle "robbyrussell/oh-my-zsh" )
+      [ "z.sh" ]}
+  , ( bundle "zsh-users/zsh-syntax-highlighting" )
     { sourcingStrategy = filePathsSourcingStrategy
-      [
-        "plugins/colored-man-pages/colored-man-pages.plugin.zsh",
-        "plugins/extract/extract.plugin.zsh",
-        "plugins/golang/golang.plugin.zsh",
-        "plugins/tmux/tmux.plugin.zsh"
-      ]
-    }
-  ]
+    [ "zsh-syntax-highlighting.zsh" ] }
+  , ( bundle "robbyrussell/oh-my-zsh" )
+    { sourcingStrategy = filePathsSourcingStrategy [
+        "plugins/colored-man-pages/colored-man-pages.plugin.zsh"
+        , "plugins/mosh/mosh.plugin.zsh"
+        , "plugins/extract/extract.plugin.zsh"
+        , "plugins/golang/golang.plugin.zsh"
+        , "plugins/tmux/tmux.plugin.zsh" ] } ]
 
 config = defaultConfig { plugins = bundles }
 
