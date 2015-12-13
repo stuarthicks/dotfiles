@@ -145,9 +145,10 @@ if [ -d "$HOME/.zgen" ]; then
     zgen load zsh-users/zsh-syntax-highlighting
 
     zgen oh-my-zsh plugins/colored-man-pages
-    zgen oh-my-zsh plugins/mosh
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/golang
+    zgen oh-my-zsh plugins/mosh
+    zgen oh-my-zsh plugins/rsync
     zgen oh-my-zsh plugins/tmux
 
     zgen save
