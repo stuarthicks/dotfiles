@@ -57,6 +57,13 @@ sans() {
     | sort -u
 }
 
+
+# Install aws-cli into virtualenv in ~/awscli
+awscli() {
+  source "$HOME/awscli/bin/activate"
+  source "$HOME/awscli/bin/aws_zsh_completer.sh"
+}
+
 docker-env() {
   local -r MACHINE="$1"; shift
   eval "$(docker-machine env "$MACHINE")"

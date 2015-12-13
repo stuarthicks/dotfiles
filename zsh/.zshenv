@@ -9,6 +9,9 @@ export LANG=en_GB.UTF-8
 export LANGUAGE=en_GB.UTF-8
 export CLICOLOR=1
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export TZ='Europe/London'
+
+export AWS_CONFIG_DIR="$HOME/.aws"
 
 # gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"
 if [ -f "${HOME}/.gpg-agent-info" ]; then
