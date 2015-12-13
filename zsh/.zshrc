@@ -157,5 +157,6 @@ if [ -d "$HOME/.zgen" ]; then
 fi
 
 source "$HOME/.aliases"
+source "$HOME/.functions"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
