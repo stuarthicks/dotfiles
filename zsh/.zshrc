@@ -136,8 +136,25 @@ do-something () {
 zle -N do-something
 bindkey '^G' do-something # Go!
 
-# Haskell Stack; aptitide install stack / https://ghcformacosx.github.io/
-type stack >/dev/null 2>&1 && . "$HOME/.zsh/antigen-hs/init.zsh"
+if [ -d "$HOME/.zgen" ]; then
+  source "${HOME}/.zgen/zgen.zsh"
+  if ! zgen saved; then
+
+    zgen load rimraf/k
+    zgen load rupa/z
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen oh-my-zsh plugins/colored-man-pages
+    zgen oh-my-zsh plugins/mosh
+    zgen oh-my-zsh plugins/extract
+    zgen oh-my-zsh plugins/golang
+    zgen oh-my-zsh plugins/tmux
+
+    zgen save
+  fi
+  . "$HOME/.zgen/init.zsh"
+  . "$HOME/.zgen/zcompdump"
+fi
 
 source "$HOME/.aliases"
 

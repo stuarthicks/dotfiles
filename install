@@ -19,6 +19,5 @@ stow zsh
 # Better to copy/paste and edit
 # stow bspwm
 
-mkdir ~/.zsh
-git clone https://github.com/Tarrasch/antigen-hs.git ~/.zsh/antigen-hs > /dev/null 2>&1
+git clone https://github.com/tarjoilija/zgen ~/.zgen > /dev/null 2>&1
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1

@@ -53,6 +53,7 @@ alias sup='svn up'
 alias wow='git push'
 
 alias m=mosh
+compdef m=ssh
 compdef mosh=ssh
 
 # Globals, ie 'curl foo V'
