@@ -206,3 +206,12 @@ z() {
     _z "$@"
   fi
 }
+
+zcompile-all() {
+  zcompile \
+    '.zshrc' \
+    '.zshenv' \
+    '.zprofile' \
+    '.functions' \
+    '.aliases'
+}
