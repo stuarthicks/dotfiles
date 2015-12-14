@@ -160,4 +160,8 @@ fi
 source "$HOME/.aliases"
 source "$HOME/.functions"
 
+# Select only path dirs that exist, then dedupe
+path=($^path(N))
+typeset -U PATH
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

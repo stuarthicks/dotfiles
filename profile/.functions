@@ -1,15 +1,11 @@
 # vi: ft=zsh
 
 path_append() {
-  export PATH="$PATH:$1"
+  path=($path "$1")
 }
 
 path_prepend() {
-  export PATH="$1:$PATH"
-}
-
-path_tidy() {
-  PATH="$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')"
+  path=("$1" $path)
 }
 
 java-version() {
@@ -39,6 +35,11 @@ title () {
 # Echo path with newlines
 path () {
   echo "$PATH" | tr : $'\n'
+}
+
+# Echo fpath with newlines
+fpath () {
+  echo $fpath | tr ' ' $'\n'
 }
 
 # List all items on path
