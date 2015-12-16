@@ -260,7 +260,7 @@ set diffopt+=iwhite
 set laststatus=2
 set lazyredraw
 set linebreak
-set list
+" set list
 set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
