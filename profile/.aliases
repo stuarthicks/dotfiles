@@ -5,14 +5,15 @@ calias() {
   compdef "$1"="$2"
 }
 
+calias t tmux
+
+# Git
 calias g git
 calias many git
 calias much git
 calias such git
 calias very git
-calias t tmux
-calias rd 'rmdir'
-calias s svn
+alias wow='git push'
 
 # AWS Command prefix
 alias fab='env -i PATH="$PATH" AWS_DEFAULT_PROFILE="fabric"'
@@ -20,37 +21,34 @@ compdef _precommand fab
 
 # Filesystem
 alias md='mkdir -p'
+alias rd=rmdir
 alias bonsai='tree -F --filelimit 15'
 
 # Ruby
-alias be='bundle exec'
-alias bi='bundle install'
+alias b='bundle exec'
 alias r='rbenv'
 
 # Rust
-alias rust-beta='multirust run beta'
-alias rust-nightly='multirust run nightly'
-alias rust-stable='multirust run stable'
-alias rust-up='multirust update'
+alias rs-beta='multirust run beta'
+alias rs-nightly='multirust run nightly'
+alias rs-stable='multirust run stable'
+alias rs-up='multirust update'
 
 # Go
-alias go-diff="g d -- . ':!Godeps/_workspace/src' ':!mocks'"
-alias go-diffs="g d --staged -- . ':!Godeps/_workspace/src' ':!mocks'"
+alias ago='ag --go --ignore Godeps'
+alias gdiff="g d -- . ':!Godeps/_workspace/src' ':!mocks'"
+alias gdiffs="g d --staged -- . ':!Godeps/_workspace/src' ':!mocks'"
 
 # *NIX
 alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
 alias dus='du -sh *'
+alias hex='hexdump -C'
 alias ll='ls -ltrAp --group-directories-first'
 alias p='ps aux | grep -i'
+alias psh='perl -d -e 1'
 
 # OSX
 alias indexing='sudo mdutil -a -v -i'
-alias new_iterm='open -n -a "iTerm"'
-
-# SCM
-alias sd='svn diff | v -'
-alias sup='svn up'
-alias wow='git push'
 
 alias m=mosh
 compdef m=ssh
@@ -69,13 +67,10 @@ alias -g P="2>&1| pygmentize -l pytb"
 alias -g T='| tail'
 alias -g V='| vim -R -'
 
-alias d=docker
 alias f='nvim "$(fzf-tmux -x -i)"'
 alias h=hub
-alias hex='hexdump -C'
 alias http='ruby -run -ehttpd . -p 8000'
 alias n=nvim
-alias psh='perl -d -e 1'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
 alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -C "$(hostname)-$(date -I)" -f "~/.ssh/$(hostname)-$(date -I)"'
