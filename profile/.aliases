@@ -43,7 +43,7 @@ alias gdiffs="g d --staged -- . ':!Godeps/_workspace/src' ':!mocks'"
 alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
 alias dus='du -sh *'
 alias hex='hexdump -C'
-alias ll='ls -ltrAp --group-directories-first'
+alias ll='ls --color --group-directories-first -halF'
 alias p='ps aux | grep -i'
 alias psh='perl -d -e 1'
 
