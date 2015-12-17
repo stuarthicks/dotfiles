@@ -149,7 +149,6 @@ if [ -d "$HOME/.zgen" ]; then
     zgen oh-my-zsh plugins/golang
     zgen oh-my-zsh plugins/mosh
     zgen oh-my-zsh plugins/rsync
-    zgen oh-my-zsh plugins/tmux
 
     zgen save
   fi
