@@ -1,6 +1,6 @@
 # vi: set ft=zsh
 
-[ -d "$HOME/completions" ] && fpath=("$HOME/completions" $fpath)
+[ -d "$HOME/.completions" ] && fpath=("$HOME/.completions" $fpath)
 [ -f "$HOME/.functions" ] && . "$HOME/.functions"
 [ -f "$HOME/.path" ] && . "$HOME/.path"
 [ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
