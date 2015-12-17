@@ -49,6 +49,7 @@ alias psh='perl -d -e 1'
 
 # OSX
 alias indexing='sudo mdutil -a -v -i'
+alias reset-launchpad='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 
 alias m=mosh
 compdef m=ssh
