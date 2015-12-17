@@ -1,8 +1,9 @@
+# vi: set ft=zsh
+
 bindkey -v
 bindkey -s '\eu' '^Ucd ..; ls^M'
 bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M'
 bindkey "^U" kill-line
-bindkey "^?" backward-delete-char
 bindkey '^R' history-incremental-search-backward
 bindkey "\e[Z" reverse-menu-complete # Shift+Tab
 bindkey '^a' beginning-of-line # Home
@@ -12,13 +13,10 @@ bindkey "^[3;5~" delete-char
 
 zmodload zsh/complist
 autoload -Uz \
-  compinit \
-  compdef \
   colors \
   vcs_info \
   edit-command-line
 
-compinit
 colors
 
 ttyctl -f
@@ -147,7 +145,6 @@ if [ -d "$HOME/.zgen" ]; then
     zgen oh-my-zsh plugins/colored-man-pages
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/golang
-    zgen oh-my-zsh plugins/mosh
     zgen oh-my-zsh plugins/rsync
 
     zgen save
@@ -156,10 +153,9 @@ if [ -d "$HOME/.zgen" ]; then
   . "$HOME/.zgen/zcompdump"
 fi
 
-source "$HOME/.aliases"
-source "$HOME/.functions"
+fpath=($^fpath(N))
+typeset -U FPATH
 
-# Select only path dirs that exist, then dedupe
 path=($^path(N))
 typeset -U PATH
 

@@ -1,4 +1,6 @@
 # vi: ft=zsh
+autoload -Uz compinit compdef
+compinit
 
 calias() {
   alias "$1"="$2"
