@@ -297,7 +297,7 @@ set background=dark
 colorscheme molokai
 
 " Don't override terminal-configured bg colour
-highlight Normal ctermbg=none
+" highlight Normal ctermbg=none
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
