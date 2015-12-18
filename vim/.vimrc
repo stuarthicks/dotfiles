@@ -189,9 +189,6 @@ nnoremap j gj
 nnoremap gj j
 nnoremap gk k
 
-" In insert mode, <C-u> to insert a new UUID
-inoremap <c-u> <c-r>=substitute(system('uuidgen'), '.$', '', 'g')<cr>
-
 " zz some motions, to keep cursor in centre of screen
 nnoremap n nzz
 nnoremap <C-d> <C-d>zz
