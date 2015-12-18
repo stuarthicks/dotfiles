@@ -8,17 +8,6 @@ path_prepend() {
   path=("$1" $path)
 }
 
-path_remove() {
-  path=("$1" ${(@)path:#$1})
-}
-
-java-version() {
-  local -r VERSION="$1"; shift
-  export JAVA_HOME="$(/usr/libexec/java_home -v "1.${VERSION}")"
-  path_prepend "$JAVA_HOME/bin"
-  path_tidy
-}
-
 java-opt() {
   JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS"
 }
