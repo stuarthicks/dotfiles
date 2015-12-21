@@ -145,7 +145,6 @@ if [ -d "$HOME/.zgen" ]; then
     zgen oh-my-zsh plugins/colored-man-pages
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/golang
-    zgen oh-my-zsh plugins/rsync
 
     zgen save
   fi
@@ -153,10 +152,12 @@ if [ -d "$HOME/.zgen" ]; then
   . "$HOME/.zgen/zcompdump"
 fi
 
+[ -f "$HOME/.path" ] && source "$HOME/.path"
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+type rbenv > /dev/null 2>&1 && eval "$(rbenv init - zsh)"
+
 fpath=($^fpath(N))
 typeset -U FPATH
 
 path=($^path(N))
 typeset -U PATH
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
