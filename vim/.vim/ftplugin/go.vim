@@ -9,7 +9,7 @@ nnoremap <buffer> <silent> <leader>b :GoDef<cr>
 nnoremap <buffer> <silent> <leader>r :GoRename<cr>
 nnoremap <buffer> <silent> <leader>c :GoCallers<cr>
 nnoremap <buffer> <silent> <leader>i :GoImport<space>
-nnoremap <buffer> <silent> <leader>l :GoMetaLinter<cr>
+nnoremap <buffer> <silent> <leader>g :GoMetaLinter<cr>
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
