@@ -95,7 +95,6 @@ function! g:ConfigurePlugins()
   nnoremap <silent> <leader>l :BLines<cr>
   nnoremap <silent> <leader>L :Lines<cr>
   nnoremap <silent> <leader>s :BTags<cr>
-  nnoremap <silent> <leader>S :Tags<cr>
   nnoremap <silent> <leader>m :Marks<cr>
   nnoremap <silent> <leader>h :Helptags<cr>
 
