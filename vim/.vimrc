@@ -28,11 +28,10 @@ function! g:InstallPlugins()
   Plug 'tpope/vim-vinegar'
 
   " Navigation/Searching
-  Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
   Plug 'jayflo/vim-skip'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug 'junegunn/fzf.vim'
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-  Plug 'rking/ag.vim'
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
@@ -90,15 +89,15 @@ function! g:ConfigurePlugins()
   nnoremap <silent> <C-q> :q<cr>
 
   " Searching
-  nnoremap <C-a> :Ag<space>
-  nnoremap <leader>h :CtrlSF<space>
-  nnoremap <silent> <C-p> :FZF<cr>
-  nnoremap <silent> <C-f> :call fzf#run({
-        \   'source':  reverse(<sid>buflist()),
-        \   'sink':    function('<sid>bufopen'),
-        \   'options': '+m',
-        \   'down':    len(<sid>buflist()) + 2
-        \ })<CR>
+  nnoremap <silent> <C-a> :Ag<cr>
+  nnoremap <silent> <C-p> :Files<cr>
+  nnoremap <silent> <C-f> :Buffers<cr>
+  nnoremap <silent> <leader>l :BLines<cr>
+  nnoremap <silent> <leader>L :Lines<cr>
+  nnoremap <silent> <leader>s :BTags<cr>
+  nnoremap <silent> <leader>S :Tags<cr>
+  nnoremap <silent> <leader>m :Marks<cr>
+  nnoremap <silent> <leader>h :Helptags<cr>
 
   " Show symbols view on right
   noremap <F3> :TagbarToggle<cr>
