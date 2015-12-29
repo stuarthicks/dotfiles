@@ -1,44 +1,16 @@
 # vi: ft=zsh
 
-path_append() {
-  path=($path "$1")
-}
-
-path_prepend() {
-  path=("$1" $path)
-}
-
-java-opt() {
-  JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS"
-}
-
-maven-opt() {
-  MAVEN_OPTS="$1 $MAVEN_OPTS"
-}
+title()           { printf "\033k%s\033\\" "$1" }
+path_prepend()    { path=("$1" $path) }
+manpath_prepend() { manpath=("$1" $manpath) }
+java-opt()        { JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS" }
+maven-opt()       { MAVEN_OPTS="$1 $MAVEN_OPTS" }
+path()            { echo "$PATH" | tr : $'\n' }
+fpath()           { echo $fpath | tr ' ' $'\n' }
+manpath()         { echo $manpath | tr ' ' $'\n' }
 
 jars-in-war() {
   unzip -l ./*-war/target/*-SNAPSHOT.war | grep jar | awk -F '/' '{print $3}' | sort -u
-}
-
-# Set terminal title
-title () {
-  printf "\033k%s\033\\" "$1"
-}
-
-# Echo path with newlines
-path () {
-  echo "$PATH" | tr : $'\n'
-}
-
-# Echo fpath with newlines
-fpath () {
-  echo $fpath | tr ' ' $'\n'
-}
-
-# List all items on path
-lspath () {
-  (($#)) || set ''
-  print -lr -- $^path/*$^@*(N:t) | sort -u
 }
 
 sans() {
@@ -51,8 +23,7 @@ sans() {
     | sort -u
 }
 
-
-# Install aws-cli into virtualenv in ~/awscli
+# Prereq: Install aws-cli into virtualenv in ~/awscli
 awscli() {
   source "$HOME/awscli/bin/activate"
   source "$HOME/awscli/bin/aws_zsh_completer.sh"
@@ -65,15 +36,6 @@ docker-env() {
 
 http() {
   ruby -run -e httpd . -p "${1:-1090}"
-}
-
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-fe() {
-  local file
-  file=$(fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
 
 # Modified version where you can press
@@ -214,5 +176,6 @@ zcompile-all() {
     '.zshenv' \
     '.zprofile' \
     '.functions' \
-    '.aliases'
+    '.aliases' \
+    '.path'
 }

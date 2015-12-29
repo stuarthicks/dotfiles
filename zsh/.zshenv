@@ -42,6 +42,4 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 # ssh-agent > "$HOME/.ssh-agent-info"
-if [ -f "${HOME}/.ssh-agent-info" ]; then
-  . "${HOME}/.ssh-agent-info" > /dev/null
-fi
+[ -f "${HOME}/.ssh-agent-info" ] && . "${HOME}/.ssh-agent-info" > /dev/null
