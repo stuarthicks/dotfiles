@@ -5,17 +5,11 @@ syntax on
 let g:mapleader = ','
 let g:maplocalleader = '\'
 
-function! g:BuildYCM(info)
-  if a:info.status ==? 'installed' || a:info.force
-    !./install.py --clang-completer --gocode-completer
-  endif
-endfunction
-
 function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
 
   " Core
-  Plug 'Valloric/YouCompleteMe', { 'do': function('g:BuildYCM') }
+  Plug 'Valloric/YouCompleteMe'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'flazz/vim-colorschemes'
   Plug 'sheerun/vim-polyglot'
