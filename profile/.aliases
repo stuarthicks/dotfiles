@@ -10,12 +10,12 @@ calias() {
 calias t tmux
 
 # Git
-calias g git
-calias many git
-calias much git
-calias such git
-calias very git
-alias wow='git push'
+calias g hub
+calias many hub
+calias much hub
+calias such hub
+calias very hub
+alias wow='hub push'
 
 # AWS Command prefix
 compdef _precommand fab
@@ -69,7 +69,6 @@ alias -g T='| tail'
 alias -g V='| vim -R -'
 
 alias f='nvim "$(fzf-tmux -x -i)"'
-alias h=hub
 alias http='ruby -run -ehttpd . -p 8000'
 alias n=nvim
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
