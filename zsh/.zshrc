@@ -94,7 +94,7 @@ precmd() { vcs_info }
 PROMPT="\
 \$(vcs_info_wrapper)\
 %F{grey}%9c%f
-%{$fg[red]%}$%{$reset_color%} "
+%{$fg[red]%}›%{$reset_color%} "
 
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:descriptions' format '%U%d%u'
