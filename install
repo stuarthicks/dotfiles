@@ -5,6 +5,7 @@ stow ack
 stow compton
 stow git
 stow nvim
+stow nyaovim
 stow pentadactyl
 stow profile
 stow rubocop

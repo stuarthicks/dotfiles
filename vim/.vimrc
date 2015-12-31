@@ -21,6 +21,11 @@ function! g:InstallPlugins()
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
 
+  " Neovim / Nyaovim
+  Plug 'rhysd/nyaovim-markdown-preview'
+  Plug 'rhysd/nyaovim-popup-tooltip'
+  Plug 'rhysd/nyaovim-mini-browser'
+
   " Navigation/Searching
   Plug 'jayflo/vim-skip'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -149,6 +154,10 @@ function! g:ConfigurePlugins()
 
   " OSX only
   nmap <silent> <leader>da <Plug>DashSearch
+
+  nnoremap <silent> <leader>md :StartMarkdownPreview<cr>
+  let g:markdown_preview_auto = 0
+  nnoremap <Leader>o :<C-u>MiniBrowser <C-r><C-p><CR><Paste>
 
 endfunction
 
