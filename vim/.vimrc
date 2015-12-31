@@ -12,6 +12,7 @@ function! g:InstallPlugins()
   Plug 'Valloric/YouCompleteMe'
   Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'flazz/vim-colorschemes'
+  Plug 'haya14busa/incsearch.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
@@ -23,8 +24,8 @@ function! g:InstallPlugins()
 
   " Neovim / Nyaovim
   Plug 'rhysd/nyaovim-markdown-preview'
-  Plug 'rhysd/nyaovim-popup-tooltip'
   Plug 'rhysd/nyaovim-mini-browser'
+  Plug 'rhysd/nyaovim-popup-tooltip'
 
   " Navigation/Searching
   Plug 'jayflo/vim-skip'
@@ -158,6 +159,10 @@ function! g:ConfigurePlugins()
   nnoremap <silent> <leader>md :StartMarkdownPreview<cr>
   let g:markdown_preview_auto = 0
   nnoremap <Leader>o :<C-u>MiniBrowser <C-r><C-p><CR><Paste>
+
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
 
 endfunction
 
