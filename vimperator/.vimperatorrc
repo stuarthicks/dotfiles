@@ -1,7 +1,5 @@
-"3.9 (created: 2015/02/15 15:49:05)
+"3.10.1 (created: 2015/08/25 00:41:59)
 
-cnoremap <Return> <Return>:js<Space>toggle_bottombar('off')<Return>
-cnoremap <Esc> <Esc>:js<Space>toggle_bottombar('off')<Return>
 highlight Boolean color: #f00;
 highlight CmdLine color: #aaa; background: #333; font-family: Inconsolata; font-size: 12px; padding: 0px; vertical-align: middle; border: none;
 highlight CompDesc color: #999; width: 50%;
@@ -35,13 +33,6 @@ highlight URL:hover color: #880; background-color: #222; -moz-border-radius: 5px
 nmap ; :
 nnoremap j 10j
 nnoremap k 10k
-noremap <silent> <F8> :js<Space>toggle_bottombar()<Return>
-noremap : :js<Space>toggle_bottombar('on')<Return>:
-noremap o :js<Space>toggle_bottombar('on')<Return>o
-noremap O :js<Space>toggle_bottombar('on')<Return>O
-noremap t :js<Space>toggle_bottombar('on')<Return>t
-noremap T :js<Space>toggle_bottombar('on')<Return>t
-noremap / :js<Space>toggle_bottombar('on')<Return>/
 set yankencodedurl
 style! -name=indigo-feed-button chrome://* <<EOF
 #feed-button {
@@ -66,6 +57,6 @@ style! -name=tab chrome://* <<EOF
     background                         : #002b36 !important;
   }
 EOF
-source! /home/calamari/.vimperatorrc.local
+source! /Users/calamari/.vimperatorrc.local
 
 " vim: set ft=vimperator:
