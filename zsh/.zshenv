@@ -30,6 +30,7 @@ export GO15VENDOREXPERIMENT=1
 
 export GRADLE_OPTS="-Xmx1G"
 
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 java-opt "-Dfile.encoding=UTF-8"
 maven-opt "-Xmx1G"
 
