@@ -20,12 +20,11 @@ function! g:InstallPlugins()
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-vinegar'
 
   " Neovim / Nyaovim
-  Plug 'rhysd/nyaovim-markdown-preview'
-  Plug 'rhysd/nyaovim-mini-browser'
-  Plug 'rhysd/nyaovim-popup-tooltip'
+  Plug 'rhysd/nyaovim-markdown-preview', { 'on': 'Nyaovim' }
+  Plug 'rhysd/nyaovim-mini-browser', { 'on': 'Nyaovim' }
+  Plug 'rhysd/nyaovim-popup-tooltip', { 'on': 'Nyaovim' }
 
   " Navigation/Searching
   Plug 'jayflo/vim-skip'
@@ -56,10 +55,8 @@ function! g:InstallPlugins()
   Plug 'garyburd/go-explorer', { 'for': 'go'}
 
   " Misc
-  Plug 'SirVer/ultisnips'
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
-  Plug 'honza/vim-snippets'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
   Plug 'junegunn/vim-easy-align'
