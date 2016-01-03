@@ -2,3 +2,6 @@ vim/.vim/plugged
 vim/.vim/autoload
 vim/.vim/backup
 vim/.vim/.netrwhist
+vimperator/.vimperator/info/default/history-command
+vimperator/.vimperator/info/default/history-search
+vimperator/.vimperator/info/default/macros
