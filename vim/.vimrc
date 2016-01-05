@@ -38,7 +38,6 @@ function! g:InstallPlugins()
   Plug 'initrc/eclim-vundle', { 'for': 'java' }
 
   " Ruby
-  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 
