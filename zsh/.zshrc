@@ -3,6 +3,7 @@
 bindkey -v
 bindkey -s '\eu' '^Ucd ..; ls^M'
 bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M'
+bindkey -s '^[3' \#
 bindkey "^U" kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey "\e[Z" reverse-menu-complete # Shift+Tab
