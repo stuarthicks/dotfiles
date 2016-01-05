@@ -34,7 +34,7 @@
   ci = commit
   co = checkout
   d = diff -w
-  ds = diff --staged
+  ds = diff --staged -w
   fe = fetch --prune
   l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --date=relative -n 14
   ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
