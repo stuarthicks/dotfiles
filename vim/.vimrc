@@ -21,11 +21,6 @@ function! g:InstallPlugins()
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
 
-  " Neovim / Nyaovim
-  Plug 'rhysd/nyaovim-markdown-preview', { 'on': 'Nyaovim' }
-  Plug 'rhysd/nyaovim-mini-browser', { 'on': 'Nyaovim' }
-  Plug 'rhysd/nyaovim-popup-tooltip', { 'on': 'Nyaovim' }
-
   " Navigation/Searching
   Plug 'jayflo/vim-skip'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
