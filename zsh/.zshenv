@@ -25,6 +25,10 @@ export AWS_CONFIG_DIR="$HOME/.aws"
 export AWS_ACCESS_KEY_ID=1
 export AWS_SECRET_ACCESS_KEY=1
 
+# Ruby 2.3 Experimental Bytecode Cache
+# export RUBYOPT='-ryomikomu'
+# export YOMIKOMU_AUTO_COMPILE='true'
+
 export GOROOT="/usr/local/go"
 export GO15VENDOREXPERIMENT=1
 
