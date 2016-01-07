@@ -10,12 +10,12 @@ calias() {
 calias t tmux
 
 # Git
-calias g hub
-calias many hub
-calias much hub
-calias such hub
-calias very hub
-alias wow='hub push'
+calias g git
+calias many git
+calias much git
+calias such git
+calias very git
+alias wow='git push'
 
 # AWS Command prefix
 compdef _precommand fab
