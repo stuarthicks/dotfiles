@@ -68,6 +68,7 @@ alias -g P="2>&1| pygmentize -l pytb"
 alias -g T='| tail'
 alias -g V='| vim -R -'
 
+alias e='extract'
 alias f='nvim "$(fzf-tmux -x -i)"'
 alias k='k --no-vcs'
 alias kk='\k'
