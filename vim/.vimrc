@@ -60,6 +60,8 @@ endfunction
 
 function! g:ConfigurePlugins()
 
+  let g:ycm_rust_src_path = '~/code/github/rust/src'
+
   nnoremap <F2> :NERDTreeToggle<cr>
 
   function! s:buflist()
