@@ -255,7 +255,7 @@ set diffopt+=iwhite
 set laststatus=2
 set lazyredraw
 set linebreak
-" set list
+set list
 set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
@@ -269,8 +269,9 @@ set showcmd
 set showmode
 set splitbelow
 set splitright
-set synmaxcol=800
+set synmaxcol=250
 set timeoutlen=500
+set ttyfast
 set wildmenu
 set wildmode=longest,list
 
