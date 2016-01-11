@@ -10,7 +10,6 @@ function! g:InstallPlugins()
 
   " Core
   Plug 'Valloric/YouCompleteMe'
-  Plug 'benekastah/neomake', { 'on': 'Neomake' }
   Plug 'flazz/vim-colorschemes'
   Plug 'haya14busa/incsearch.vim'
   Plug 'sheerun/vim-polyglot'
@@ -95,7 +94,6 @@ function! g:ConfigurePlugins()
   noremap <F3> :TagbarToggle<cr>
 
   " Launch external commands from vim
-  nnoremap <F1> :Neomake!<cr>
   nnoremap <F7> :FocusDispatch<space>
   nnoremap <F8> :Dispatch<space>
   nnoremap <silent> <F9> :Dispatch<CR>
@@ -120,13 +118,15 @@ function! g:ConfigurePlugins()
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_structs = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_build_constraints = 1
+  let g:go_dispatch_enabled = 1
   let g:go_fmt_command = 'goreturns'
   let g:go_fmt_fail_silently = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_string_spellcheck = 0
+  let g:go_highlight_structs = 1
+  let g:go_metalinter_autosave = 1
 
   let g:limelight_conceal_ctermfg = 'gray'
   nnoremap <leader>y :Goyo<cr>
@@ -134,11 +134,6 @@ function! g:ConfigurePlugins()
     autocmd!
     autocmd! User GoyoEnter Limelight
     autocmd! User GoyoLeave Limelight!
-  augroup END
-
-  augroup NEO
-    autocmd!
-    autocmd BufWritePost * Neomake
   augroup END
 
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -206,6 +201,10 @@ nnoremap Q <nop>
 nnoremap q: <nop>
 nnoremap ; :
 
+" Navigate vim location list
+nnoremap <C-m> :lne<CR>
+nnoremap <C-M> :lp<CR>
+
 " For local replace
 nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
 
@@ -262,7 +261,7 @@ set modelines=1
 set mouse=a
 set hidden
 set nofoldenable
-set wrap
+set nowrap
 set nowrapscan
 set scrolloff=10
 set sidescrolloff=10
