@@ -84,18 +84,19 @@ zle -N focus-on-something
 bindkey '^F' focus-on-something # Focus!
 
 do-something () {
-   if  [ -n "$FOCUS" ];       then BUFFER="$FOCUS"
-  elif [ -f "configure" ];    then BUFFER="./configure && make"
-  elif [ -f "Makefile" ];     then BUFFER="make"
-  elif [ -f "build" ];        then BUFFER="./build"
-  elif [ -f "build.sh" ];     then BUFFER="./build.sh"
-  elif [ -f "test" ];         then BUFFER="./test"
-  elif [ -f "test.sh" ];      then BUFFER="./test.sh"
-  elif [ -f "pom.xml" ];      then BUFFER="mvn clean install"
-  elif [ -f "Gemfile" ];      then BUFFER="bundle install"
-  elif [ -f "Cargo.toml" ];   then BUFFER="cargo build"
-  elif [ -f "gradlew" ];      then BUFFER="./gradlew"
-  elif [ -d "node_modules" ]; then BUFFER="npm test"
+   if  [ -n "$FOCUS" ];           then BUFFER="$FOCUS"
+  elif [ -f "configure" ];        then BUFFER="./configure && make"
+  elif [ -f "Makefile" ];         then BUFFER="make"
+  elif [ -f "build" ];            then BUFFER="./build"
+  elif [ -f "build.sh" ];         then BUFFER="./build.sh"
+  elif [ -f "test" ];             then BUFFER="./test"
+  elif [ -f "test_unsecure.sh" ]; then BUFFER="./test_unsecure.sh -p sane"
+  elif [ -f "test.sh" ];          then BUFFER="./test.sh -p sane"
+  elif [ -f "pom.xml" ];          then BUFFER="mvn clean install"
+  elif [ -f "Gemfile" ];          then BUFFER="bundle install"
+  elif [ -f "Cargo.toml" ];       then BUFFER="cargo build"
+  elif [ -f "gradlew" ];          then BUFFER="./gradlew"
+  elif [ -d "node_modules" ];     then BUFFER="npm test"
   fi
   zle end-of-line
   zle accept-line
