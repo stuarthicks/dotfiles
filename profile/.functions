@@ -38,6 +38,13 @@ http() {
   ruby -run -e httpd . -p "${1:-1090}"
 }
 
+apt-purge-old-kernels() {
+  echo 'Current: '$(uname -r) \
+    && dpkg -l 'linux-*' \
+    | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' \
+    | xargs sudo apt-get -y purge
+}
+
 # Modified version where you can press
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
