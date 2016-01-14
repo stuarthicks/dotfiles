@@ -220,12 +220,6 @@ silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-" Autosave when losing focus
-augroup AUTOSAVE
-  autocmd!
-  autocmd FocusLost * :silent! wall
-augroup END
-
 " Resize splits when window is resized
 augroup AUTORESIZE
   autocmd!
@@ -238,7 +232,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Indent Options
 set autoindent
 set noexpandtab
-set tabstop=4
+set tabstop=8
 
 " Searching
 set hlsearch
