@@ -1,9 +1,3 @@
-augroup GO
-  au!
-  au BufWritePre *.go :GoImports
-augroup END
-
-nnoremap <buffer> <leader>d :GeDoc<space>\
 nnoremap <buffer> <silent> <leader>D :GoDocBrowser<cr>
 nnoremap <buffer> <silent> <leader>b :GoDef<cr>
 nnoremap <buffer> <silent> <leader>r :GoRename<cr>
