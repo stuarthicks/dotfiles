@@ -77,12 +77,14 @@ function! g:ConfigurePlugins()
   let g:go_dispatch_enabled = 1
   let g:go_fmt_command = 'goreturns'
   let g:go_fmt_fail_silently = 1
+  let g:go_highlight_interfaces = 1
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_string_spellcheck = 0
   let g:go_highlight_structs = 1
   let g:go_metalinter_autosave = 1
+  let g:go_term_enabled = 1
 
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
@@ -201,14 +203,14 @@ set wildmode=longest,list
 
 " Statusline
 set statusline=
-set statusline +=%1*\ %n\ %*   "buffer number
-set statusline +=%3*%y%*       "file type
-set statusline +=%4*\ %<%F%*   "full path
-set statusline +=%2*%m%*       "modified flag
-set statusline +=%1*%=%5l%*    "current line
-set statusline +=%2*/%L%*      "total lines
-set statusline +=%1*%4v\ %*    "virtual column number
-set statusline +=%2*0x%04B\ %* "character under cursor
+set statusline+=%n       "buffer number
+set statusline+=\ %y     "file type
+set statusline+=\ %F     "full path
+" set statusline+=\ %{go#jobcontrol#Statusline()}
+set statusline+=%=       " |<-     ->|
+set statusline+=\ %5l/%L "current/total lines
+set statusline+=\ %4v    "virtual column number
+set statusline+=\ 0x%04B "character under cursor
 
 " Theming!
 set t_Co=256
@@ -236,7 +238,7 @@ function! g:DoPrettyXML()
   1
   exe 'set ft=' . l:origft
 endfunction
-command! PrettyXML call DoPrettyXML()
+command! PrettyXML call g:DoPrettyXML()
 
 " Don't save backups of gpg asc files
 set backupskip+=*.asc
