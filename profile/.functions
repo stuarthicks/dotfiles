@@ -34,7 +34,7 @@ docker-env() {
   eval "$(docker-machine env "$MACHINE")"
 }
 
-http() {
+httprb() {
   ruby -run -e httpd . -p "${1:-1090}"
 }
 
