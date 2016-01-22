@@ -175,6 +175,7 @@ set hidden
 set nofoldenable
 set nowrap
 set nowrapscan
+set number
 set scrolloff=10
 set sidescrolloff=10
 set showcmd
