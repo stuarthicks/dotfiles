@@ -31,6 +31,8 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 au FileType go nmap <Leader>s <Plug>(go-implements)
 
+au FileType go nmap gd gdzz
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
