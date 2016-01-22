@@ -18,7 +18,7 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 
 au FileType go nnoremap <leader>d :GoDef<cr>
 au FileType go nnoremap <leader>r :GoRename<cr>
-au FileType go nnoremap <buffer> <silent> <leader>i :GoImport<space>
+au FileType go nnoremap <leader>i :GoImport<space>
 au FileType go nnoremap <buffer> <silent> <leader>f :GoImports<cr>
 au FileType go nnoremap <buffer> <silent> <leader>l :GoMetaLinter<cr>
 
