@@ -42,8 +42,6 @@ function! g:ConfigurePlugins()
   nnoremap <silent> <C-a> :Ag<cr>
   nnoremap <silent> <C-p> :Files<cr>
   nnoremap <silent> <C-f> :Buffers<cr>
-  nnoremap <silent> <leader>l :BLines<cr>
-  nnoremap <silent> <leader>L :Lines<cr>
   nnoremap <silent> <leader>h :Helptags<cr>
 
   " Show symbols view on right
@@ -73,18 +71,6 @@ function! g:ConfigurePlugins()
     endif
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
-
-  let g:go_dispatch_enabled = 1
-  let g:go_fmt_command = 'goreturns'
-  let g:go_fmt_fail_silently = 1
-  let g:go_highlight_interfaces = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_string_spellcheck = 0
-  let g:go_highlight_structs = 1
-  let g:go_metalinter_autosave = 1
-  let g:go_term_enabled = 1
 
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
@@ -144,8 +130,8 @@ nnoremap q: <nop>
 nnoremap ; :
 
 " Navigate vim location list
-nnoremap <C-m> :lne<CR>
-nnoremap <C-M> :lp<CR>
+nnoremap <C-n> :lne<CR>
+nnoremap <C-m> :lp<CR>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1
