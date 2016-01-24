@@ -7,7 +7,7 @@ let g:maplocalleader = '\'
 
 function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'on': [] }
   Plug 'elzr/vim-json', { 'for': 'json' }
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'flazz/vim-colorschemes'
@@ -226,6 +226,13 @@ function! g:DoPrettyXML()
   exe 'set ft=' . l:origft
 endfunction
 command! PrettyXML call g:DoPrettyXML()
+
+" Loads YouCompleteMe and turns it on
+function! g:EnableYCM()
+  call plug#load('YouCompleteMe')
+  call youcompleteme#Enable()
+endfunction
+command! YCM call g:EnableYCM()
 
 " Don't save backups of gpg asc files
 set backupskip+=*.asc
