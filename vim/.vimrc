@@ -33,7 +33,6 @@ function! g:InstallPlugins()
 endfunction
 
 function! g:ConfigurePlugins()
-
   let g:ycm_rust_src_path = '~/code/github/rust/src'
 
   nnoremap <F2> :NERDTreeToggle<cr>
@@ -56,9 +55,6 @@ function! g:ConfigurePlugins()
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nnoremap ga <Plug>(EasyAlign)
-
   " Auto align pipe-separated tables while editing, eg, gherkin feature files
   function! s:align()
     let l:p = '^\s*|\s.*\s|\s*$'
@@ -71,6 +67,13 @@ function! g:ConfigurePlugins()
     endif
   endfunction
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+
+  " Loads YouCompleteMe and turns it on
+  function! g:EnableYCM()
+    call plug#load('YouCompleteMe')
+    call youcompleteme#Enable()
+  endfunction
+  command! YCM call g:EnableYCM()
 
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
@@ -193,7 +196,6 @@ set statusline=
 set statusline+=%n       "buffer number
 set statusline+=\ %y     "file type
 set statusline+=\ %F     "full path
-" set statusline+=\ %{go#jobcontrol#Statusline()}
 set statusline+=%=       " |<-     ->|
 set statusline+=\ %5l/%L "current/total lines
 set statusline+=\ %4v    "virtual column number
@@ -204,9 +206,6 @@ set t_Co=256
 let g:rehash256=1
 set background=dark
 colorscheme molokai
-
-" Don't override terminal-configured bg colour
-" highlight Normal ctermbg=none
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
@@ -226,13 +225,6 @@ function! g:DoPrettyXML()
   exe 'set ft=' . l:origft
 endfunction
 command! PrettyXML call g:DoPrettyXML()
-
-" Loads YouCompleteMe and turns it on
-function! g:EnableYCM()
-  call plug#load('YouCompleteMe')
-  call youcompleteme#Enable()
-endfunction
-command! YCM call g:EnableYCM()
 
 " Don't save backups of gpg asc files
 set backupskip+=*.asc
