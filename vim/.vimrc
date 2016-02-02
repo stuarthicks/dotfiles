@@ -8,6 +8,7 @@ let g:maplocalleader = '\'
 function! g:InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe', { 'on': [] }
+  Plug 'AlessandroYorba/Alduin'
   Plug 'elzr/vim-json', { 'for': 'json' }
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'flazz/vim-colorschemes'
@@ -204,8 +205,9 @@ set statusline+=\ 0x%04B "character under cursor
 " Theming!
 set t_Co=256
 let g:rehash256=1
+let g:alduin_Shout_Windhelm = 1
 set background=dark
-colorscheme molokai
+colorscheme alduin
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
