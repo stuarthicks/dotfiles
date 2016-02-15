@@ -86,6 +86,7 @@ bindkey '^F' focus-on-something # Focus!
 do-something () {
    if  [ -n "$FOCUS" ];           then BUFFER="$FOCUS"
   elif [ -f "configure" ];        then BUFFER="./configure && make"
+  elif [ -f "CMakeLists.txt" ];   then BUFFER="mkdir cmakebuild && cd cmakebuild && cmake .. && make"
   elif [ -f "Makefile" ];         then BUFFER="make"
   elif [ -f "build" ];            then BUFFER="./build"
   elif [ -f "build.sh" ];         then BUFFER="./build.sh"
