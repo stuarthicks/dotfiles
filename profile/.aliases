@@ -79,3 +79,7 @@ alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done &
 alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
 alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -C "$(hostname)-$(date -I)" -f "~/.ssh/$(hostname)-$(date -I)"'
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
+alias fk=fkill
+alias br=fbr
+alias co=fco
+alias coc=fcoc
