@@ -4,12 +4,9 @@
 [ -f "$HOME/.functions" ] && . "$HOME/.functions"
 [ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
 
-export ZSH=$HOME
-export TERM="screen-256color"
-
+export TERM='screen-256color'
 export TZ='Europe/London'
 export LANG=en_GB.UTF-8
-export LANGUAGE=en_GB.UTF-8
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -27,14 +24,7 @@ export AWS_CONFIG_DIR="$HOME/.aws"
 # export RUBYOPT='-ryomikomu'
 # export YOMIKOMU_AUTO_COMPILE='true'
 
-export GOROOT="/usr/local/go"
-export GO15VENDOREXPERIMENT=1
-
-export GRADLE_OPTS="-Xmx1G"
-
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
-java-opt "-Dfile.encoding=UTF-8"
-maven-opt "-Xmx1G"
 
 # gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"
 if [ -f "${HOME}/.gpg-agent-info" ]; then
