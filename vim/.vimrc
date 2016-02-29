@@ -21,6 +21,7 @@ function! g:InstallPlugins()
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'scrooloose/syntastic'
   Plug 'sheerun/vim-polyglot'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
@@ -78,6 +79,9 @@ function! g:ConfigurePlugins()
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
+
+  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 endfunction
 
