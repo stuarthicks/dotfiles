@@ -1,5 +1,6 @@
 vim/.vim/plugged
-vim/.vim/autoload
+vim/.vim/autoload/plug.vim
+vim/.vim/autoload/plug.vim.old
 vim/.vim/backup
 vim/.vim/.netrwhist
 vimperator/.vimperator/info/default/history-command
