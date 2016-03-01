@@ -2,7 +2,7 @@ scriptencoding utf-8
 filetype plugin indent on
 syntax on
 
-let g:mapleader = ','
+let g:mapleader = ' '
 let g:maplocalleader = '\'
 
 function! g:InstallPlugins()
@@ -100,7 +100,7 @@ call g:ConfigurePlugins()
 " All config below this line should not require plugins
 
 nnoremap <F1> :Explore<cr>
-nnoremap <space> :nohlsearch<cr>
+nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
@@ -137,8 +137,8 @@ nnoremap q: <nop>
 nnoremap ; :
 
 " Navigate vim location list
-nnoremap <C-n> :lne<CR>
-nnoremap <C-m> :lp<CR>
+nnoremap <C-n> :lne<cr>
+nnoremap <C-m> :lp<cr>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1
