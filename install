@@ -6,14 +6,12 @@ stow \
   compton \
   git \
   nvim \
-  pentadactyl \
   profile \
   rubocop \
   scripts \
   sxhkd \
   tmux \
   vim \
-  vimperator \
   xorg \
   zsh
 
