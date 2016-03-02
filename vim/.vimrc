@@ -112,16 +112,6 @@ set timeoutlen=300
 set ttyfast
 set wildmode=longest,list
 
-" Statusline
-set statusline=
-set statusline+=%n       "buffer number
-set statusline+=\ %y     "file type
-set statusline+=\ %F     "full path
-set statusline+=%=       " |<-     ->|
-set statusline+=\ %5l/%L "current/total lines
-set statusline+=\ %4v    "virtual column number
-set statusline+=\ 0x%04B "character under cursor
-
 " Theming!
 set t_Co=256
 set background=dark
