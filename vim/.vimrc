@@ -5,85 +5,10 @@ syntax on
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
-function! g:InstallPlugins()
-  call g:plug#begin('~/.vim/plugged')
-  Plug 'Valloric/YouCompleteMe', { 'on': [] }
-  Plug 'elzr/vim-json', { 'for': 'json' }
-  Plug 'fatih/vim-go', { 'for': 'go'}
-  Plug 'flazz/vim-colorschemes'
-  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-  Plug 'gorkunov/smartpairs.vim'
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-  Plug 'scrooloose/syntastic'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'tpope/vim-dispatch', { 'on': ['Dispatch', 'FocusDispatch', 'Make'] }
-  Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-sleuth'
-  Plug 'tpope/vim-surround'
-  call g:plug#end()
-endfunction
-
-function! g:ConfigurePlugins()
-  let g:ycm_rust_src_path = '~/code/github/rust/src'
-
-  nnoremap <F2> :NERDTreeToggle<cr>
-
-  " Searching
-  nnoremap <silent> <C-a> :Ag<cr>
-  nnoremap <silent> <C-p> :Files<cr>
-  nnoremap <silent> <C-f> :Buffers<cr>
-  nnoremap <silent> <leader>h :Helptags<cr>
-
-  " Show symbols view on right
-  noremap <F3> :TagbarToggle<cr>
-
-  " Launch external commands from vim
-  nnoremap <F7> :FocusDispatch<space>
-  nnoremap <F8> :Dispatch<space>
-  nnoremap <silent> <F9> :Dispatch<CR>
-  nnoremap <F10> :Make<space>
-
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  vmap <Enter> <Plug>(EasyAlign)
-
-  " Auto align pipe-separated tables while editing, eg, gherkin feature files
-  function! s:align()
-    let l:p = '^\s*|\s.*\s|\s*$'
-    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# l:p || getline(line('.')+1) =~# l:p)
-      let l:column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-      let l:position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-      Tabularize/|/l1
-      normal! 0
-      call search(repeat('[^|]*|', l:column).'\s\{-\}'.repeat('.', l:position),'ce',line('.'))
-    endif
-  endfunction
-  inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
-
-  " Loads YouCompleteMe and turns it on
-  function! g:EnableYCM()
-    call plug#load('YouCompleteMe')
-    call youcompleteme#Enable()
-  endfunction
-  command! YCM call g:EnableYCM()
-
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-
-  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
-endfunction
+let g:rehash256 = 1
+let g:ycm_rust_src_path = '~/code/rust/src'
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -94,17 +19,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   augroup END
 endif
 
-call g:InstallPlugins()
-call g:ConfigurePlugins()
-
-" All config below this line should not require plugins
+call g:plugins#InstallPlugins()
+call g:plugins#ConfigurePlugins()
 
 nnoremap <F1> :Explore<cr>
+nnoremap <F4> :%!python -mjson.tool<cr>
+nnoremap <F6> :%s/\s\+$//
+
 nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
-
-nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " reselect visual block after indent/outdent
 vnoremap < <gv
@@ -155,23 +81,17 @@ augroup END
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Indent Options
-set autoindent
-set noexpandtab
 set tabstop=8
 
 " Searching
-set hlsearch
 set ignorecase
-set incsearch
 set showmatch
 set smartcase
 
 " Misc Options
-set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
 set diffopt+=iwhite
-set laststatus=2
 set lazyredraw
 set linebreak
 set list
@@ -185,14 +105,11 @@ set nowrapscan
 set number
 set scrolloff=10
 set sidescrolloff=10
-set showcmd
-set showmode
 set splitbelow
 set splitright
 set synmaxcol=220
 set timeoutlen=300
 set ttyfast
-set wildmenu
 set wildmode=longest,list
 
 " Statusline
@@ -207,46 +124,11 @@ set statusline+=\ 0x%04B "character under cursor
 
 " Theming!
 set t_Co=256
-let g:rehash256=1
 set background=dark
 colorscheme molokai
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
-
-" Format buffer as nicely indented xml
-function! g:DoPrettyXML()
-  let l:origft = &filetype
-  set filetype=
-  1substitute/<?xml .*?>//e
-  0put ='<PrettyXML>'
-  $put ='</PrettyXML>'
-  silent %!xmllint --encode UTF-8 --format -
-  2d
-  $d
-  silent %<
-  1
-  exe 'set ft=' . l:origft
-endfunction
-command! PrettyXML call g:DoPrettyXML()
-
-" Don't save backups of gpg asc files
-set backupskip+=*.asc
-set viminfo=
-
-" Convenient editing of ascii-armoured encrypted files
-augroup GPGASCII
-  au!
-  au BufReadPost *.asc :%!gpg -q -d
-  au BufReadPost *.asc |redraw
-  au BufWritePre *.asc :%!gpg -q -e -a
-  au BufWritePost *.asc u
-  au VimLeave *.asc :!clear
-augroup END
-
-nnoremap <F4> :%!python -mjson.tool<cr>
-nnoremap <F5> :PrettyXML<CR>
-nnoremap <F6> :%s/\s\+$//
 
 " Neovim
 if has('nvim')
