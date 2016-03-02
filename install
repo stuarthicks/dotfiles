@@ -15,8 +15,5 @@ stow \
   xorg \
   zsh
 
-# Better to copy/paste and edit
-# stow bspwm
-
 git clone https://github.com/tarjoilija/zgen ~/.zgen > /dev/null 2>&1
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
