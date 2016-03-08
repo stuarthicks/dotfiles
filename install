@@ -1,19 +1,22 @@
 #!/bin/bash
 
-stow \
-  abcde \
-  ack \
+stow      \
+  abcde   \
+  ack     \
   compton \
-  git \
-  nvim \
+  git     \
+  nvim    \
   profile \
   rubocop \
   scripts \
-  sxhkd \
-  tmux \
-  vim \
-  xorg \
-  zsh
+  sxhkd   \
+  tmux    \
+  vim     \
+  xorg    \
+  zsh     \
 
-git clone https://github.com/tarjoilija/zgen ~/.zgen > /dev/null 2>&1
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
+git clone --single-branch --depth 1 \
+  https://github.com/tarjoilija/zgen ~/.zgen
+
+git clone --single-branch --depth 1 \
+  https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
