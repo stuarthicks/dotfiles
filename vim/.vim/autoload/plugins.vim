@@ -1,3 +1,14 @@
+function! g:plugins#InstallVimPlug()
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    augroup VIMRC
+      autocmd!
+      autocmd VimEnter * PlugInstall | source $MYVIMRC
+    augroup END
+  endif
+endfunction
+
 function! g:plugins#InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe', { 'on': [] }

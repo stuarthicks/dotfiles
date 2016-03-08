@@ -10,41 +10,68 @@ let g:ycm_rust_src_path = '~/code/rust/src'
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  augroup VIMRC
-    autocmd!
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
-  augroup END
-endif
-
+call g:plugins#InstallVimPlug()
 call g:plugins#InstallPlugins()
 call g:plugins#ConfigurePlugins()
 
-nnoremap <F1> :Explore<cr>
-nnoremap <F4> :%!python -mjson.tool<cr>
-nnoremap <F6> :%s/\s\+$//
+" Theming!
+set t_Co=256
+set background=dark
+colorscheme molokai
 
-nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+" Set colour of non-printing chars, eg tabs.
+highlight SpecialKey ctermbg=none ctermfg=DarkGrey
 
-nnoremap <silent> <C-x> :bd<cr>
-nnoremap <silent> <C-q> :q<cr>
+" Indent Options
+set tabstop=8
 
-" reselect visual block after indent/outdent
+" Searching
+set ignorecase
+set showmatch
+set smartcase
+
+" Set mainly to improve performance
+set lazyredraw
+set nofoldenable
+set synmaxcol=220
+set ttyfast
+
+" Misc Options
+set clipboard=unnamed
+set cursorline
+set diffopt+=iwhite
+set linebreak
+set list
+set listchars=tab:»—,trail:❐
+set modelines=1
+set mouse=a
+set hidden
+set nowrap
+set nowrapscan
+set number
+set scrolloff=10
+set sidescrolloff=10
+set splitbelow
+set splitright
+set timeoutlen=300
+set wildmode=longest,list
+
+" Annoying typo fixes
+nnoremap Q <nop>
+nnoremap q: <nop>
+nnoremap ; :
+
+" Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
 
 " Normal movement around long-wrapped lines
 nnoremap k gk
 nnoremap j gj
-
-" Inverse, so I can do the old behaviour if i want
 nnoremap gj j
 nnoremap gk k
 
-" zz some motions, to keep cursor in centre of screen
+" Keep cursor in centre of screen after motions
 nnoremap n nzz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
@@ -57,14 +84,23 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-" Annoying typo fixes / general usefulness
-nnoremap Q <nop>
-nnoremap q: <nop>
-nnoremap ; :
-
 " Navigate vim location list
 nnoremap <C-n> :lne<cr>
 nnoremap <C-m> :lp<cr>
+
+" Closing buffers/windows more conveniently
+nnoremap <silent> <C-x> :bd<cr>
+nnoremap <silent> <C-q> :q<cr>
+
+nnoremap <F1> :Explore<cr>
+nnoremap <F4> :%!python -mjson.tool<cr>
+nnoremap <F6> :%s/\s\+$//
+
+nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1
@@ -76,49 +112,6 @@ augroup AUTORESIZE
   autocmd!
   autocmd VimResized * :wincmd =
 augroup END
-
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" Indent Options
-set tabstop=8
-
-" Searching
-set ignorecase
-set showmatch
-set smartcase
-
-" Misc Options
-set clipboard=unnamed
-set cursorline
-set diffopt+=iwhite
-set lazyredraw
-set linebreak
-set list
-set listchars=tab:»—,trail:❐
-set modelines=1
-set mouse=a
-set hidden
-set nofoldenable
-set nowrap
-set nowrapscan
-set number
-set scrolloff=10
-set sidescrolloff=10
-set splitbelow
-set splitright
-set synmaxcol=220
-set timeoutlen=300
-set ttyfast
-set wildmode=longest,list
-
-" Theming!
-set t_Co=256
-set background=dark
-colorscheme molokai
-
-" Set colour of non-printing chars, eg tabs.
-highlight SpecialKey ctermbg=none ctermfg=DarkGrey
 
 " Neovim
 if has('nvim')
