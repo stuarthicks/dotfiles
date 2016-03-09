@@ -45,9 +45,9 @@ function! g:plugins#ConfigurePlugins()
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
-  nnoremap <F2> :NERDTreeToggle<cr>
-  nnoremap <F3> :TagbarToggle<cr>
-  nnoremap <F5> :call g:xml#DoPrettyXML()<cr>
+  nnoremap <leader>n :NERDTreeToggle<cr>
+  nnoremap <leader>o :TagbarToggle<cr>
+  nnoremap <leader>x :call g:xml#DoPrettyXML()<cr>
 
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
