@@ -34,5 +34,16 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export GPG_TTY="$(tty)"
 fi
 
-# ssh-agent > "$HOME/.ssh-agent-info"
-[ -f "${HOME}/.ssh-agent-info" ] && . "${HOME}/.ssh-agent-info" > /dev/null
+export SSH_ENV="$HOME/.ssh/environment"
+if [ -f "${SSH_ENV}" ]; then
+  source "${SSH_ENV}" \
+    > /dev/null
+  ps aux \
+    | grep "${SSH_AGENT_PID}" \
+    | grep 'ssh-agent$' \
+    > /dev/null || {
+  start-ssh-agent
+}
+else
+  start-ssh-agent
+fi
