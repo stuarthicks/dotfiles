@@ -74,37 +74,6 @@ zstyle ':completion::complete:cd::' tag-order '! users' - # do not auto complete
 zstyle ':completion:*' tag-order '! users' # listing all users takes ages.
 bindkey -M menuselect "=" accept-and-menu-complete
 
-focus-on-something () {
-  BUFFER='FOCUS="!!"'
-  zle expand-history
-  zle end-of-line
-  zle accept-line
-}
-zle -N focus-on-something
-bindkey '^F' focus-on-something # Focus!
-
-do-something () {
-   if  [ -n "$FOCUS" ];           then BUFFER="$FOCUS"
-  elif [ -f "configure" ];        then BUFFER="./configure && make"
-  elif [ -f "CMakeLists.txt" ];   then BUFFER="mkdir cmakebuild && cd cmakebuild && cmake .. && make"
-  elif [ -f "Makefile" ];         then BUFFER="make"
-  elif [ -f "build" ];            then BUFFER="./build"
-  elif [ -f "build.sh" ];         then BUFFER="./build.sh"
-  elif [ -f "test" ];             then BUFFER="./test"
-  elif [ -f "test_unsecure.sh" ]; then BUFFER="./test_unsecure.sh -p sane"
-  elif [ -f "test.sh" ];          then BUFFER="./test.sh -p sane"
-  elif [ -f "pom.xml" ];          then BUFFER="mvn clean install"
-  elif [ -f "Gemfile" ];          then BUFFER="bundle install"
-  elif [ -f "Cargo.toml" ];       then BUFFER="cargo build"
-  elif [ -f "gradlew" ];          then BUFFER="./gradlew"
-  elif [ -d "node_modules" ];     then BUFFER="npm test"
-  fi
-  zle end-of-line
-  zle accept-line
-}
-zle -N do-something
-bindkey '^G' do-something # Go!
-
 if [ -d "$HOME/.zgen" ]; then
   source "${HOME}/.zgen/zgen.zsh"
   if ! zgen saved; then
@@ -116,6 +85,8 @@ if [ -d "$HOME/.zgen" ]; then
     zgen oh-my-zsh plugins/colored-man-pages
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/golang
+
+    zgen load stuarthicks/zsh-go
 
     zgen save
   fi
