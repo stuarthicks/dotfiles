@@ -51,18 +51,6 @@ setopt PUSHD_SILENT
 setopt PUSHD_TO_HOME
 setopt RM_STAR_WAIT
 
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    kill -9 %+
-    zle redisplay
-  else
-    zle push-input
-  fi
-}
-
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 autoload -Uz colors && colors
 PROMPT="%F{red}›%f "
 
@@ -87,6 +75,7 @@ if [ -d "$HOME/.zgen" ]; then
     zgen oh-my-zsh plugins/golang
 
     zgen load stuarthicks/zsh-go
+    zgen load stuarthicks/zsh-fancy-ctrl-z
 
     zgen save
   fi
