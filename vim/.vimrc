@@ -17,7 +17,7 @@ call g:plugins#ConfigurePlugins()
 " Theming!
 set t_Co=256
 set background=dark
-colorscheme molokai
+colorscheme lapis256
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
@@ -57,9 +57,11 @@ set timeoutlen=300
 set wildmode=longest,list
 
 " Annoying typo fixes
-nnoremap Q <nop>
 nnoremap q: <nop>
 nnoremap ; :
+
+" Replay most recently used register
+nnoremap Q @@
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -92,12 +94,17 @@ nnoremap <C-m> :lp<cr>
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
-nnoremap <F1> :Explore<cr>
 nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F6> :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
+" Arrow keys to resize vim splits
+nnoremap <Left> :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'

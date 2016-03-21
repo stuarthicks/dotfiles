@@ -12,8 +12,8 @@ endfunction
 function! g:plugins#InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe'
+  Plug 'andrwb/vim-lapis256'
   Plug 'fatih/vim-go', { 'for': 'go'}
-  Plug 'flazz/vim-colorschemes'
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
   Plug 'haya14busa/incsearch.vim'
