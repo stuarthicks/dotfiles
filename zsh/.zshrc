@@ -79,8 +79,7 @@ if [ -d "$HOME/.zgen" ]; then
 
     zgen save
   fi
-  . "$HOME/.zgen/init.zsh"
-  . "$HOME/.zgen/zcompdump"
+  source "$HOME/.zgen/init.zsh"
 fi
 
 [ -f "$HOME/.path" ] && source "$HOME/.path"
