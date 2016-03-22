@@ -16,7 +16,7 @@ function! g:plugins#InstallPlugins()
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
   Plug 'haya14busa/incsearch.vim'
-  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'klen/python-mode', { 'for': 'python' }
