@@ -17,36 +17,17 @@ calias such git
 calias very git
 alias wow='git push'
 
-# AWS Command prefix
-compdef _precommand fab
-
 # Filesystem
 alias md='mkdir -p'
 alias rd=rmdir
 alias bonsai='tree -F --filelimit 15'
 
-# Ruby
-alias b='bundle exec'
-alias r='rbenv'
-
-# Rust
-alias rs-beta='multirust run beta'
-alias rs-nightly='multirust run nightly'
-alias rs-stable='multirust run stable'
-alias rs-up='multirust update'
-
-# Go
-alias ago='ag --go --ignore Godeps'
-alias gdiff="g d -- . ':!Godeps/_workspace/src' ':!mocks'"
-alias gdiffs="g d --staged -- . ':!Godeps/_workspace/src' ':!mocks'"
-
 # *NIX
 alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
-alias dus='du -sh *'
+alias duh='du -sh *'
 alias hex='hexdump -C'
 alias ll='ls --color --group-directories-first -halF'
 alias p='ps aux | grep -i'
-alias psh='perl -d -e 1'
 
 # OSX
 alias indexing='sudo mdutil -a -v -i'
@@ -56,31 +37,22 @@ alias m=mosh
 compdef mosh=ssh
 
 # Globals, ie 'curl foo V'
-alias -g CA="2>&1 | cat -A"
-alias -g G='| grep'
-alias -g H='| head'
-alias -g L="| less -r"
-alias -g LL="2>&1 | less"
-alias -g M="| most"
-alias -g NE="2> /dev/null"
+alias -g L="2>&1 | less"
 alias -g NUL="> /dev/null 2>&1"
-alias -g P="2>&1| pygmentize -l pytb"
-alias -g T='| tail'
 alias -g V='| vim -R -'
 
-alias e='extract'
-alias f='nvim "$(fzf-tmux -x -i)"'
-alias k='k --no-vcs'
-alias kk='\k'
-alias n=nvim
-alias pr='hub pull-request'
-alias prs='hub browse -- pulls'
-alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
-alias sign='gpg --clearsign --default-key "Stuart Macalpine Hicks"'
-alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -C "$(hostname)-$(date -I)" -f "~/.ssh/$(hostname)-$(date -I)"'
-alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
-alias fenv='env | fzf'
-alias fk=fkill
+alias ago='ag --go --ignore vendor'
 alias br=fbr
 alias co=fco
 alias coc=fcoc
+alias e='extract'
+alias f='nvim "$(fzf-tmux -x -i)"'
+alias fenv='env | fzf'
+alias fk=fkill
+alias k='k -h --no-vcs'
+alias kk='\k'
+alias n=nvim
+alias pr='hub pull-request'
+alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
+alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -C "$(hostname)-$(date -I)" -f "~/.ssh/$(hostname)-$(date -I)"'
+alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
