@@ -42,9 +42,6 @@ alias -g NUL="> /dev/null 2>&1"
 alias -g V='| vim -R -'
 
 alias ago='ag --go --ignore vendor'
-alias br=fbr
-alias co=fco
-alias coc=fcoc
 alias e='extract'
 alias f='nvim "$(fzf-tmux -x -i)"'
 alias fenv='env | fzf'

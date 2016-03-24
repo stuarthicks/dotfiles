@@ -20,10 +20,6 @@ export COMPLETION_WAITING_DOTS="true"
 
 export AWS_CONFIG_DIR="$HOME/.aws"
 
-# Ruby 2.3 Experimental Bytecode Cache
-# export RUBYOPT='-ryomikomu'
-# export YOMIKOMU_AUTO_COMPILE='true'
-
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 
 # gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"

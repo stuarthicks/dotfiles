@@ -1,9 +1,8 @@
 # vi: set ft=zsh
 
-bindkey -v
+bindkey -e
 bindkey -s '\eu' '^Ucd ..; ls^M'
 bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M'
-bindkey -s '^[3' \#
 bindkey "^U" kill-line
 bindkey '^R' history-incremental-search-backward
 bindkey "\e[Z" reverse-menu-complete # Shift+Tab
@@ -18,10 +17,9 @@ autoload -Uz edit-command-line
 ttyctl -f
 
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
 bindkey '\ee' edit-command-line
 
-export HISTFILE=~/.zsh_history
+export HISTFILE="~/.zsh_history"
 export HISTSIZE=50000
 export SAVEHIST=50000
 setopt APPENDHISTORY
@@ -36,13 +34,10 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 
-setopt AUTO_CD
 setopt AUTO_PUSHD
-setopt EXTENDED_GLOB
 setopt INTERACTIVE_COMMENTS
 setopt LONG_LIST_JOBS
 setopt MULTIOS
-setopt NOMATCH
 setopt NO_CLOBBER
 setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
@@ -50,6 +45,7 @@ setopt PUSHD_MINUS
 setopt PUSHD_SILENT
 setopt PUSHD_TO_HOME
 setopt RM_STAR_WAIT
+setopt TRANSIENT_RPROMPT
 
 autoload -Uz colors && colors
 PROMPT="%F{red}›%f "

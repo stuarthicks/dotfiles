@@ -11,7 +11,6 @@ manpath()         { echo $manpath | tr ' ' $'\n' }
 fakeaws()         { export AWS_ACCESS_KEY_ID=1; export AWS_SECRET_ACCESS_KEY=1 }
 jars-in-war()     { unzip -l ./*-war/target/*-SNAPSHOT.war | grep jar | awk -F '/' '{print $3}' | sort -u }
 httprb()          { ruby -run -e httpd . -p "${1:-1090}" }
-core()            { ssh core@$1 }
 
 sans() {
   openssl s_client -connect "$1:443" 2>/dev/null </dev/null \
@@ -23,8 +22,8 @@ sans() {
     | sort -u
 }
 
-docker-env() {
-  local -r MACHINE="$1"; shift
+denv() {
+  local -r MACHINE="${1:-default}"
   eval "$(docker-machine env "$MACHINE")"
 }
 
@@ -89,7 +88,7 @@ fkill() {
 }
 
 # fbr - checkout git branch (including remote branches)
-fbr() {
+br() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
@@ -98,7 +97,7 @@ fbr() {
 }
 
 # fco - checkout git branch/tag
-fco() {
+co() {
   local tags branches target
   tags=$(
     git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
@@ -113,7 +112,7 @@ fco() {
 }
 
 # fcoc - checkout git commit
-fcoc() {
+coc() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&
@@ -121,7 +120,7 @@ fcoc() {
 }
 
 # fshow - git commit browser
-fshow() {
+show() {
   local out sha q
   while out=$(
       git log --decorate=short --graph --oneline --color=always |
