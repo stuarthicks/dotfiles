@@ -1,21 +1,16 @@
 [user]
   name = Stuart Hicks
   email = stuarthicks@users.noreply.github.com
+  signingkey = B7CCA53C
+[commit]
+  gpgsign = true
 [core]
   excludesFile = ~/.gitignore
   pager = less
 [push]
   default = current
-[help]
-  autocorrect = 1
 [branch]
   autosetuprebase = always
-[tig]
-  tab-size = 4
-[svn]
-  logwindowsize = 25000
-[color]
-  ui = auto
 [diff]
   tool = vimdiff
 [difftool]
@@ -23,11 +18,23 @@
 [rerere]
   enabled = true
   autoupdate = true
+[color]
+  ui = auto
+[help]
+  autocorrect = 1
+[svn]
+  logwindowsize = 25000
+[tig]
+  tab-size = 8
 [url "git@github.com:"]
   insteadOf = http://github.com/
   insteadOf = https://github.com/
   insteadOf = git://github.com/
   insteadOf = git+ssh://github.com/
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [alias]
   abandon-ship = reset HEAD^^ --hard
   br = branch
@@ -42,7 +49,3 @@
   s = status -sb
   st = status
   tg = tag
-[filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
