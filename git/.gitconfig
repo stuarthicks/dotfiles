@@ -1,6 +1,6 @@
 [user]
   name = Stuart Hicks
-  email = stuarthicks@users.noreply.github.com
+  email = s@smhicks.uk
   signingkey = B7CCA53C
 [commit]
   gpgsign = true
