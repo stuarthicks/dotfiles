@@ -36,6 +36,9 @@ alias reset-launchpad='defaults write com.apple.dock ResetLaunchPad -bool true; 
 alias m=mosh
 compdef mosh=ssh
 
+alias ci=circleci
+alias ci-build="circleci trigger --filter='.build_url'"
+
 # Globals, ie 'curl foo V'
 alias -g L="2>&1 | less"
 alias -g NUL="> /dev/null 2>&1"
