@@ -115,6 +115,20 @@ silent !mkdir ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
+" Don't save backups of gpg asc files
+set backupskip+=*.asc
+set viminfo=
+
+" Convenient editing of ascii-armoured encrypted files
+augroup GPGASCII
+  au!
+  au BufReadPost *.asc :%!gpg -q -d
+  au BufReadPost *.asc |redraw
+  au BufWritePre *.asc :%!gpg -q -e -a
+  au BufWritePost *.asc u
+  au VimLeave *.asc :!clear
+augroup END
+
 " Resize splits when window is resized
 augroup AUTORESIZE
   autocmd!
