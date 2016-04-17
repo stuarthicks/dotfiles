@@ -81,6 +81,7 @@ fi
 [ -f "$HOME/.path" ] && source "$HOME/.path"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 type rbenv > /dev/null 2>&1 && eval "$(rbenv init - zsh)"
+type pyenv > /dev/null 2>&1 && eval "$(pyenv init - zsh)"
 
 fpath=($^fpath(N))
 typeset -U FPATH
