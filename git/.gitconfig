@@ -49,3 +49,6 @@
   s = status -sb
   st = status
   tg = tag
+[credential]
+  helper = !aws codecommit credential-helper $@
+  UseHttpPath = true
