@@ -28,7 +28,6 @@ function! g:plugins#InstallPlugins()
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
   Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
   call g:plug#end()
@@ -51,5 +50,5 @@ function! g:plugins#ConfigurePlugins()
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
-  inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+  inoremap <silent> <Bar> <Bar><Esc>:call g:align#align()<CR>a
 endfunction

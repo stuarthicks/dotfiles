@@ -1,5 +1,5 @@
 " Auto align pipe-separated tables while editing, eg, gherkin feature files
-function! s:align()
+function! g:align#align()
   let l:p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# l:p || getline(line('.')+1) =~# l:p)
     let l:column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
