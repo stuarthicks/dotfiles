@@ -1,0 +1,47 @@
+#!/bin/bash
+set -eu
+
+user="$USER"
+hostname="$(hostname -s)"
+date="$(date +'%Y%m%d')"
+name="$user@$hostname.$date"
+echo "name: $name"
+
+file="$HOME/.ssh/$name"
+file_pub="$file.pub"
+file_pkcs8="$file.pkcs8"
+
+if [ -e "$file"       ] ; then echo "Exists: $file"       ; exit 1 ; fi
+if [ -e "$file_pub"   ] ; then echo "Exists: $file_pub"   ; exit 1 ; fi
+if [ -e "$file_pkcs8" ] ; then echo "Exists: $file_pkcs8" ; exit 1 ; fi
+
+del=""
+if command -v "srm" ; then
+  del="srm"
+elif command -v "shred" ; then
+  del="shred -u"
+else
+  echo "No secure delete command found."
+  exit 1
+fi
+
+tmp_passwd="$(uuidgen) $(uuidgen)"
+if [ -z "$tmp_passwd" ] ; then echo "Failed to generate tmp passwd." ; exit 1 ; fi
+
+ssh-keygen -t rsa \
+  -b 8192 \
+  -N "$tmp_passwd" \
+  -C "$name" \
+  -f "$file"
+
+openssl pkcs8 -topk8 -v2 des3 \
+  -in "$file" \
+  -passin "pass:$tmp_passwd" \
+  -out "$file_pkcs8"
+
+$del "$file"
+
+chmod 400 "$file_pub"
+chmod 400 "$file_pkcs8"
+
+echo "For OSX: openssl pkcs8 -in '$file_pkcs8' | ssh-add -"
