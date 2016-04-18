@@ -18,7 +18,7 @@ calias very git
 alias wow='git push'
 
 # Filesystem
-alias md='mkdir -p'
+alias mkd='mkdir -p'
 alias rd=rmdir
 alias bonsai='tree -F --filelimit 15'
 
@@ -32,6 +32,7 @@ alias p='ps aux | grep -i'
 # OSX
 alias indexing='sudo mdutil -a -v -i'
 alias reset-launchpad='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+alias md='open -a macdown'
 
 alias m=mosh
 compdef mosh=ssh
