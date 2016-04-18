@@ -43,6 +43,15 @@ brews() {
   done
 }
 
+brews-used() {
+  brew list | while read cask; do \
+    echo -n $fg[blue] $cask $fg[white]
+    brew uses --installed $cask \
+      | awk '{printf(" %s ", $0)}'
+    echo ""
+  done
+}
+
 function start-ssh-agent {
   ssh-agent \
     | sed 's/^echo/#echo/' \
