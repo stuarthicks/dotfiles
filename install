@@ -9,6 +9,7 @@ stow      \
   profile \
   rubocop \
   scripts \
+  ssh     \
   sxhkd   \
   tmux    \
   vim     \
