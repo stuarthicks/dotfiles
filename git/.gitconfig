@@ -38,19 +38,21 @@
 [alias]
   abandon-ship = reset HEAD^^ --hard
   br = branch
+  brs = branch --all
   ci = commit
   cl = clone
   co = checkout
   d = diff --ignore-all-space
-  dt = difftool -d
   ds = diff --staged --ignore-all-space
-  dts = difftool --staged -d
+  dt = difftool --dir-diff
+  dts = difftool --staged --dir-diff
   fe = fetch --all --tags --prune
   l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --date=relative -n 14
   ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
   lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
-  rems = remote -v
-  s = status -sb
+  pull = pull --ff-only
+  rems = remote --verbose
+  s = status --short --branch
   st = status
   tg = tag
 [credential]
