@@ -19,6 +19,7 @@ function! g:plugins#InstallPlugins()
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
+  Plug 'kshenoy/vim-signature'
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
