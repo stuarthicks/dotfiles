@@ -93,3 +93,5 @@ typeset -U MANPATH
 
 path=($^path(N))
 typeset -U PATH
+
+compinit
