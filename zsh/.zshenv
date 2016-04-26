@@ -23,6 +23,8 @@ export AWS_CONFIG_DIR="$HOME/.aws"
 
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 
+export HOMEBREW_NO_ANALYTICS=1
+
 # gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"
