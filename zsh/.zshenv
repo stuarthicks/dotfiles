@@ -6,6 +6,7 @@
 
 export TERM='screen-256color'
 export TZ='Europe/London'
+export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 export PAGER=less
