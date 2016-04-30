@@ -11,8 +11,7 @@ endfunction
 
 function! g:plugins#InstallPlugins()
   call g:plug#begin('~/.vim/plugged')
-  " Plug 'altercation/vim-colors-solarized'
-  Plug 'frankier/neovim-colors-solarized-truecolor-only'
+  Plug 'altercation/vim-colors-solarized'
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'gorkunov/smartpairs.vim'
