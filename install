@@ -17,7 +17,7 @@ stow      \
   zsh     \
 
 git clone --single-branch --depth 1 \
-  https://github.com/tarjoilija/zgen ~/.zgen
+  https://github.com/tarjoilija/zgen ../.zgen
 
 git clone --single-branch --depth 1 \
-  https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  https://github.com/tmux-plugins/tpm ../.tmux/plugins/tpm
