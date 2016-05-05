@@ -1,7 +1,7 @@
 # vi: set ft=zsh
 
 bindkey -e
-bindkey -s '\eu' '^Ucd ..; ls^M'
+bindkey -s '\eu' '^Ucd ..; ls -a^M'
 bindkey -s '\ep' '^Upopd >/dev/null; dirs -v^M'
 bindkey "^U" kill-line
 bindkey '^R' history-incremental-search-backward
