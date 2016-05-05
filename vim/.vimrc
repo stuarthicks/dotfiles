@@ -1,6 +1,4 @@
 scriptencoding utf-8
-filetype plugin indent on
-syntax on
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
