@@ -1,6 +1,6 @@
 function! g:plugins#InstallVimPlug()
-  if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     augroup VIMRC
       autocmd!
@@ -10,7 +10,7 @@ function! g:plugins#InstallVimPlug()
 endfunction
 
 function! g:plugins#InstallPlugins()
-  call g:plug#begin('~/.vim/plugged')
+  call g:plug#begin('~/.config/nvim/plugged')
   Plug 'altercation/vim-colors-solarized'
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }

@@ -109,9 +109,9 @@ nnoremap <Down> :resize -2<CR>
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Don't clutter directories with .swp files
-silent !mkdir ~/.vim/backup > /dev/null 2>&1
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
+set backupdir=~/.config/nvim/backup
+set directory=~/.config/nvim/backup
 
 " Don't save backups of gpg asc files
 set backupskip+=*.asc
