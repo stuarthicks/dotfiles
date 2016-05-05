@@ -17,7 +17,7 @@ call g:plugins#ConfigurePlugins()
 
 " Theming!
 set t_Co=256
-set background=dark
+set background=light
 colorscheme solarized
 
 " Set colour of non-printing chars, eg tabs.
