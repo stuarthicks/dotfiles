@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$(uname)" == 'Darwin' ]; then
+  if ! type brew > /dev/null 2>&1; then
+    git clone 'https://github.com/Homebrew/brew' ../.brew
+    export PATH="../.homebrew/bin:$PATH"
+  fi
+  brew install stow git hub zsh tmux neovim/neovim/neovim
+fi
+
+git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
+git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
 
 stow      \
   abcde   \
@@ -6,7 +18,6 @@ stow      \
   compton \
   git     \
   nvim    \
-  profile \
   rubocop \
   scripts \
   ssh     \
@@ -14,9 +25,3 @@ stow      \
   tmux    \
   xorg    \
   zsh     \
-
-git clone --single-branch --depth 1 \
-  https://github.com/tarjoilija/zgen ../.zgen
-
-git clone --single-branch --depth 1 \
-  https://github.com/tmux-plugins/tpm ../.tmux/plugins/tpm
