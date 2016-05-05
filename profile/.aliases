@@ -47,7 +47,6 @@ alias -g V='| vim -R -'
 
 alias ago='ag --go --ignore vendor'
 alias e='extract'
-alias f='nvim "$(fzf-tmux -x -i)"'
 alias fenv='env | fzf'
 alias fk=fkill
 alias k='k -h --no-vcs'
