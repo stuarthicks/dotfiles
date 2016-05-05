@@ -81,7 +81,9 @@ fi
 
 [ -f "$HOME/.path" ] && source "$HOME/.path"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+
 type rbenv > /dev/null 2>&1 && eval "$(rbenv init - zsh)"
+type plenv > /dev/null 2>&1 && eval "$(plenv init - zsh)"
 type pyenv > /dev/null 2>&1 && eval "$(pyenv init - zsh)"
 type pyenv-virtualenv-init > /dev/null 2>&1 && eval "$(pyenv virtualenv-init - zsh)"
 
