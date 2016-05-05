@@ -12,7 +12,7 @@
 [branch]
   autosetuprebase = always
 [diff]
-  tool = vimdiff
+  tool = nvim -d
 [difftool]
   prompt = false
 [rerere]
@@ -34,6 +34,9 @@
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
+[credential]
+  helper = !aws codecommit credential-helper $@
+  UseHttpPath = true
   required = true
 [alias]
   abandon-ship = reset HEAD^^ --hard
@@ -51,10 +54,8 @@
   ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
   lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
   pull = pull --ff-only
+  rem = remote
   rems = remote --verbose
   s = status --short --branch
   st = status
   tg = tag
-[credential]
-  helper = !aws codecommit credential-helper $@
-  UseHttpPath = true
