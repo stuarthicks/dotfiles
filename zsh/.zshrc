@@ -11,6 +11,10 @@ bindkey '^e' end-of-line # End
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
+unalias run-help
+autoload run-help
+HELPDIR=/Users/calamari/.brew/share/zsh/help
+
 zmodload zsh/complist
 autoload -Uz edit-command-line
 
