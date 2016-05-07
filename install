@@ -6,7 +6,7 @@ if [ "$(uname)" == 'Darwin' ]; then
     git clone 'https://github.com/Homebrew/brew' ../.brew
     export PATH="../.homebrew/bin:$PATH"
   fi
-  brew install stow git hub zsh tmux neovim/neovim/neovim
+  brew install coreutils stow git hub zsh tmux fzf neovim/neovim/neovim
 fi
 
 git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
