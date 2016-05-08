@@ -1,10 +1,12 @@
 tap 'homebrew/dupes'
+tap 'homebrew/services'
 tap 'neovim/neovim'
 tap 'stuarthicks/brews'
 
 brew 'bash'
 brew 'cmake'
 brew 'coreutils'
+brew 'ctags'
 brew 'curl'
 brew 'ffmpeg'
 brew 'fzf'
