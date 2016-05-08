@@ -46,7 +46,6 @@ alias -g NUL="> /dev/null 2>&1"
 alias -g V='| vim -R -'
 
 alias ago='ag --go --ignore vendor'
-alias e='extract'
 alias fenv='env | fzf'
 alias fk=fkill
 alias k='k -h --no-vcs'
@@ -54,5 +53,4 @@ alias kk='\k'
 alias n=nvim
 alias pr='hub pull-request'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
-alias ssh-keygen-ecdsa='ssh-keygen -t ecdsa -b 521 -C "$(hostname)-$(date -I)" -f "~/.ssh/$(hostname)-$(date -I)"'
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''

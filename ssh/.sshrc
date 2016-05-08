@@ -1,0 +1,6 @@
+alias do=docker
+alias et=etcdctl
+alias fl=fleetctl
+alias jo=journalctl
+alias sy=systemctl
+alias l='ls --color --group-directories-first -halF'
