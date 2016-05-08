@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-set -eu
-
-ATTACHED_SESSION="$(tmux list-sessions | grep '(attached)$' | awk -F: '{print $1}')"
-ACTIVE_WINDOW="$(tmux list-windows -t "$ATTACHED_SESSION" | grep '(active)$' | awk -F: '{print $1}')"
-tmux rename-window -t "${ATTACHED_SESSION}:${ACTIVE_WINDOW}" "$*"

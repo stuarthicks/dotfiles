@@ -1,3 +1,0 @@
-#!/bin/bash
-set -eu
-echo "$(cat)" | sed -e 's/\\n//g' -e 's/\\//g'

@@ -1,2 +1,0 @@
-#!/bin/bash
-$EDITOR "$(git status --short | awk '$1 ~ /^M$/ {print $2}')"

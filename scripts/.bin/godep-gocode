@@ -1,4 +1,0 @@
-#!/bin/bash
-set -eu
-gocode close
-GOPATH="$(godep path):$GOPATH" gocode
