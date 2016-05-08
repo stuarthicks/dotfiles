@@ -1,8 +1,7 @@
 # vi: set ft=zsh
 
-[ -d "$HOME/.completions" ] && fpath=("$HOME/.completions" $fpath)
-[ -f "$HOME/.functions" ] && . "$HOME/.functions"
-[ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
+. "$HOME/.functions"
+. "$HOME/.aliases"
 
 export TERM='screen-256color'
 export TZ='Europe/London'

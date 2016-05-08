@@ -11,10 +11,6 @@ bindkey '^e' end-of-line # End
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
-unalias run-help
-autoload run-help
-HELPDIR=/Users/calamari/.brew/share/zsh/help
-
 zmodload zsh/complist
 autoload -Uz edit-command-line
 
@@ -72,8 +68,6 @@ if [ -d "$HOME/.zgen" ]; then
     zgen load zsh-users/zsh-syntax-highlighting
 
     zgen oh-my-zsh plugins/colored-man-pages
-    zgen oh-my-zsh plugins/extract
-    zgen oh-my-zsh plugins/golang
 
     zgen load stuarthicks/zsh-go
     zgen load stuarthicks/zsh-fancy-ctrl-z
@@ -86,10 +80,9 @@ fi
 [ -f "$HOME/.path" ] && source "$HOME/.path"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
-type rbenv > /dev/null 2>&1 && eval "$(rbenv init - zsh)"
-type plenv > /dev/null 2>&1 && eval "$(plenv init - zsh)"
-type pyenv > /dev/null 2>&1 && eval "$(pyenv init - zsh)"
-type pyenv-virtualenv-init > /dev/null 2>&1 && eval "$(pyenv virtualenv-init - zsh)"
+type rbenv > /dev/null 2>&1 && eval "$(rbenv init --no-rehash - zsh)"
+type pyenv > /dev/null 2>&1 && eval "$(pyenv init --no-rehash - zsh)"
+type pyenv-virtualenv-init > /dev/null 2>&1 && eval "$(pyenv virtualenv-init --no-rehash - zsh)"
 
 fpath=($^fpath(N))
 typeset -U FPATH
