@@ -25,10 +25,6 @@ export BACKGROUND_CYAN=$(tput setab 6)
 export BACKGROUND_WHITE=$(tput setab 7)
 export RESET_FORMATTING=$(tput sgr0)
 
-export M2_HOME="$HOME/homebrew/Cellar/maven/3.3.3/libexec"
-export M2="$M2_HOME/bin"
-export PATH="$M2:$PATH"
-
 if [[ "$ME" =~ [dD] ]]; then
   export MAVEN_OPTS="${MAVEN_OPTS:-} -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 else
@@ -36,9 +32,9 @@ else
 fi
 
 if [[ "$@" =~ release || "$@" =~ exec:java || "$@" =~ jetty || "$@" =~ tree ]]; then
-  exec "$M2/mvn" "$@"
+  exec mvn "$@"
 else
-  exec "$M2/mvn" "$@" | sed \
+  exec mvn "$@" | sed \
     -e "s/\(\[INFO\]\)\(.*\)/${TEXT_BLUE}${BOLD}\1${RESET_FORMATTING}\2/g" \
     -e "s/\(\[INFO\]\ BUILD SUCCESSFUL\)/${BOLD}${TEXT_GREEN}\1${RESET_FORMATTING}/g" \
     -e "s/\(\[WARNING\]\)\(.*\)/${BOLD}${TEXT_YELLOW}\1${RESET_FORMATTING}\2/g" \
