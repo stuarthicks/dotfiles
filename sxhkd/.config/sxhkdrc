@@ -89,10 +89,10 @@ super + space
   /usr/local/bin/j4-dmenu-desktop --dmenu="dmenu -nb '#2D2D2D' -nf '#888888' -sb '#D64937' -sf '#DEDEDE' -i"
 
 ctrl + space
-  /home/calamari/bin/bspwm_large-padding
+  /home/calamari/.bin/bspwm_large-padding
 
 ctrl + shift + space
-  /home/calamari/bin/bspwm_normal-padding
+  /home/calamari/.bin/bspwm_normal-padding
 
 super + n
   thunar
