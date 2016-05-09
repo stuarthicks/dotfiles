@@ -6,12 +6,9 @@ if [ "$(uname)" == 'Darwin' ]; then
     git clone 'https://github.com/Homebrew/brew' ../.brew
     export PATH="../.brew/bin:$PATH"
   fi
-  export PATH="../.brew/bin:$PATH"
   brew tap 'homebrew/bundle' && brew bundle
   brew link --force curl libressl
 fi
-
-exit 1
 
 git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
 git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
