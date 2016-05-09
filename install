@@ -4,11 +4,14 @@ set -euo pipefail
 if [ "$(uname)" == 'Darwin' ]; then
   if ! type brew > /dev/null 2>&1; then
     git clone 'https://github.com/Homebrew/brew' ../.brew
-    export PATH="../.homebrew/bin:$PATH"
+    export PATH="../.brew/bin:$PATH"
   fi
-  brew tap 'homebrew/bundle'
-  brew bundle
+  export PATH="../.brew/bin:$PATH"
+  brew tap 'homebrew/bundle' && brew bundle
+  brew link --force curl libressl
 fi
+
+exit 1
 
 git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
 git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
