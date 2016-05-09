@@ -36,11 +36,12 @@ brew 'keybase'
 brew 'libressl'
 brew 'macvim', args: [ 'with-lua' ]
 brew 'make'
+brew 'mas'
 brew 'maven'
 brew 'media-info'
 brew 'mercurial'
 brew 'mobile-shell'
-brew 'mpd'
+brew 'mpd', restart_service: :changed
 brew 'ncmpcpp'
 brew 'neovim'
 brew 'openssl'
@@ -55,6 +56,7 @@ brew 'rbenv-bundler-ruby-version'
 brew 'rbenv-ctags'
 brew 'rbenv-each', args: [ 'HEAD' ]
 brew 'rbenv-use'
+brew 'reattach-to-user-namespace'
 brew 'redsocks'
 brew 'ruby-build'
 brew 'ruby-install'
@@ -81,3 +83,13 @@ cask 'vlc'
 cask 'xquartz'
 cask 'yubikey-neo-manager'
 cask 'yubikey-personalization-gui'
+
+mas 'Amphetamine', id: 937984704
+mas 'DaisyDisk', id: 411643860
+mas 'Dash', id: 449589707
+mas 'Growl', id: 467939042
+mas 'HardwareGrowler', id: 475260933
+mas 'Helium', id: 1054607607
+mas 'Slack', id: 803453959
+mas 'Textual', id: 896450579
+mas 'Twitter', id: 409789998
