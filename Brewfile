@@ -9,7 +9,6 @@ tap 'rockymadden/rockymadden'
 tap 'stuarthicks/brews'
 tap 'zzrotdesign/tap'
 
-brew 'android-platform-tools'
 brew 'autoconf'
 brew 'automake'
 brew 'autossh'
