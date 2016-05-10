@@ -1,5 +1,13 @@
 # vi: set ft=zsh
 
+PROFILE_STARTUP=${PROFILE_STARTUP:-false}
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 . "$HOME/.functions"
 . "$HOME/.aliases"
 
@@ -34,15 +42,4 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 export SSH_ENV="$HOME/.ssh/environment"
-if [ -f "${SSH_ENV}" ]; then
-  source "${SSH_ENV}" \
-    > /dev/null
-  ps aux \
-    | grep "${SSH_AGENT_PID}" \
-    | grep 'ssh-agent$' \
-    > /dev/null || {
-  start-ssh-agent
-}
-else
-  start-ssh-agent
-fi
+if [ -f "${SSH_ENV}" ]; then source "${SSH_ENV}" > /dev/null 2>&1; fi

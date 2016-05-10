@@ -11,17 +11,15 @@ bindkey '^e' end-of-line # End
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
-zmodload zsh/complist
 autoload -Uz edit-command-line
-
-ttyctl -f
-
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
+ttyctl -f
+
 export HISTFILE="~/.zsh_history"
-export HISTSIZE=50000
-export SAVEHIST=50000
+export HISTSIZE=100
+export SAVEHIST=100
 setopt APPENDHISTORY
 setopt SHAREHISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -35,7 +33,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 
 setopt AUTO_PUSHD
-setopt INTERACTIVE_COMMENTS
 setopt LONG_LIST_JOBS
 setopt MULTIOS
 setopt NO_CLOBBER
@@ -51,6 +48,7 @@ setopt TRANSIENT_RPROMPT
 autoload -Uz colors && colors
 PROMPT="%F{red}›%f "
 
+zmodload zsh/complist
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:descriptions' format '%U%d%u'
 zstyle ':completion:*:warnings' format 'No matches for: %B%d%b'
@@ -67,6 +65,7 @@ if [ -d "$HOME/.zgen" ]; then
     zgen load rupa/z
     zgen load zsh-users/zsh-syntax-highlighting
 
+    zgen oh-my-zsh
     zgen oh-my-zsh plugins/colored-man-pages
 
     zgen load stuarthicks/zsh-go
@@ -80,10 +79,6 @@ fi
 [ -f "$HOME/.path" ] && source "$HOME/.path"
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
-type rbenv > /dev/null 2>&1 && eval "$(rbenv init --no-rehash - zsh)"
-type pyenv > /dev/null 2>&1 && eval "$(pyenv init --no-rehash - zsh)"
-type pyenv-virtualenv-init > /dev/null 2>&1 && eval "$(pyenv virtualenv-init --no-rehash - zsh)"
-
 fpath=($^fpath(N))
 typeset -U FPATH
 
@@ -94,3 +89,8 @@ path=($^path(N))
 typeset -U PATH
 
 compinit
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi

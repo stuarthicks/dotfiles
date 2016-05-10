@@ -1,29 +1,26 @@
 # vi: ft=zsh
 
-title()           { printf "\033k%s\033\\" "$1" }
 path_prepend()    { path=("$1" $path) }
 manpath_prepend() { manpath=("$1" $manpath) }
-java-opt()        { JAVA_TOOL_OPTIONS="$1 $JAVA_TOOL_OPTIONS" }
-maven-opt()       { MAVEN_OPTS="$1 $MAVEN_OPTS" }
 path()            { echo "$PATH" | tr : $'\n' }
 fpath()           { echo $fpath | tr ' ' $'\n' }
 manpath()         { echo $manpath | tr ' ' $'\n' }
-jars-in-war()     { unzip -l ./*-war/target/*-SNAPSHOT.war | grep jar | awk -F '/' '{print $3}' | sort -u }
 httprb()          { ruby -run -e httpd . -p "${1:-1090}" }
 
-sans() {
-  openssl s_client -connect "$1:443" 2>/dev/null </dev/null \
-    | openssl x509 -noout -text \
-    | grep -A1 'Subject Alternative Name' \
-    | sed -e 's/DNS:/\'$'\n/g' \
-    | sed '1,2d' \
-    | sed -e 's/,//g' \
-    | sort -u
+rbenv() {
+    eval "$(command rbenv init --no-rehash - zsh)"
+    rbenv "$@"
 }
 
-denv() {
-  local -r MACHINE="${1:-default}"
-  eval "$(docker-machine env "$MACHINE")"
+plenv() {
+    eval "$(command plenv init --no-rehash - zsh)"
+    plenv "$@"
+}
+
+pyenv() {
+    eval "$(command pyenv init --no-rehash - zsh)"
+    eval "$(command pyenv virtualenv-init --no-rehash - zsh)"
+    pyenv "$@"
 }
 
 apt-purge-old-kernels() {
@@ -52,12 +49,9 @@ brews-used() {
 }
 
 function start-ssh-agent {
-  ssh-agent \
-    | sed 's/^echo/#echo/' \
-    > "${SSH_ENV}"
+  ssh-agent > "${SSH_ENV}"
   chmod 600 "${SSH_ENV}"
-  source "${SSH_ENV}" \
-    > /dev/null
+  source "${SSH_ENV}" > /dev/null 2>&1
 }
 
 # CTRL-O to open with `open` command,
@@ -123,35 +117,6 @@ show() {
       [ -n "$sha" ] && git show --color=always $sha | less -R
     done < <(sed '1d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
   done
-}
-
-# fs [FUZZY PATTERN] - Select selected tmux session
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-fs() {
-  local session
-  session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf --query="$1" --select-1 --exit-0) &&
-  tmux switch-client -t "$session"
-}
-
-# ftpane - switch pane
-ftpane () {
-  local panes current_window target target_window target_pane
-  panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
-  current_window=$(tmux display-message  -p '#I')
-
-  target=$(echo "$panes" | fzf) || return
-
-  target_window=$(echo $target | awk 'BEGIN{FS=":|-"} {print$1}')
-  target_pane=$(echo $target | awk 'BEGIN{FS=":|-"} {print$2}' | cut -c 1)
-
-  if [[ $current_window -eq $target_window ]]; then
-    tmux select-pane -t ${target_window}.${target_pane}
-  else
-    tmux select-pane -t ${target_window}.${target_pane} &&
-    tmux select-window -t $target_window
-  fi
 }
 
 d() {

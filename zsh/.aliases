@@ -1,60 +1,41 @@
 # vi: ft=zsh
-autoload -Uz compinit compdef
-compinit
-
-calias() {
-  alias "$1"="$2"
-  compdef "$1"="$2"
-}
-
-calias t tmux
-
-# Git
-calias g git
-calias many git
-calias much git
-calias such git
-calias very git
-alias wow='git push'
-
-# Filesystem
-alias mkd='mkdir -p'
-alias rd=rmdir
-alias bonsai='tree -F --filelimit 15'
 
 # *NIX
-alias drop-caches="sync; sudo su -c 'echo 3 >> /proc/sys/vm/drop_caches'"
+alias ago='ag --go --ignore vendor'
+alias bonsai='tree -F --filelimit 15'
 alias duh='du -sh *'
+alias g=git
 alias hex='hexdump -C'
 alias ll='ls --color --group-directories-first -halF'
+alias m=mosh
+alias n=nvim
 alias p='ps aux | grep -i'
+alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
+alias t=tmux
 
 # OSX
 alias indexing='sudo mdutil -a -v -i'
-alias reset-launchpad='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias md='open -a macdown'
 
-alias m=mosh
-compdef mosh=ssh
-
-alias ci=circleci
-alias ci-build="circleci trigger --filter='.build_url'"
-
-# Globals, ie 'curl foo V'
+# ZSH globals, ie 'curl foo V'
 alias -g L="2>&1 | less"
 alias -g NUL="> /dev/null 2>&1"
-alias -g V='| vim -R -'
+alias -g V='| nvim -R -'
 
-alias rb=rbenv
-alias py=pyenv
-alias pl=plenv
-
-alias ago='ag --go --ignore vendor'
+alias ci-build="circleci trigger --filter='.build_url'"
+alias ci=circleci
 alias fenv='env | fzf'
 alias fk=fkill
-alias k='k -h --no-vcs'
+alias k='k --no-vcs'
 alias kk='\k'
-alias n=nvim
+alias pl=plenv
 alias pr='hub pull-request'
-alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
+alias py=pyenv
+alias rb=rbenv
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
+
+autoload -Uz compinit compdef
+compinit
+
+compdef mosh=ssh
