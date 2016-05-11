@@ -34,8 +34,3 @@ alias pr='hub pull-request'
 alias py=pyenv
 alias rb=rbenv
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
-
-autoload -Uz compinit compdef
-compinit
-
-compdef mosh=ssh

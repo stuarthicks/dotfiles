@@ -1,37 +1,22 @@
 # vi: set ft=zsh
 
-PROFILE_STARTUP=${PROFILE_STARTUP:-false}
-if [[ "$PROFILE_STARTUP" == true ]]; then
-    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-    PS4=$'%D{%M%S%.} %N:%i> '
-    exec 3>&2 2>$HOME/tmp/startlog.$$
-    setopt xtrace prompt_subst
-fi
-
 . "$HOME/.functions"
-. "$HOME/.aliases"
-
-export TERM='screen-256color'
-export TZ='Europe/London'
-export LC_ALL=en_GB.UTF-8
-export LANG=en_GB.UTF-8
-
-export PAGER=less
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
-export CLICOLOR=1
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-
-export REPORTTIME=1
-export KEYTIMEOUT=1
-export COMPLETION_WAITING_DOTS="true"
 
 export AWS_CONFIG_DIR="$HOME/.aws"
-
-export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
-
+export CLICOLOR=1
+export COMPLETION_WAITING_DOTS="true"
+export EDITOR=nvim
 export HOMEBREW_NO_ANALYTICS=1
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
+export KEYTIMEOUT=1
+export LANG=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export PAGER=less
+export REPORTTIME=1
+export TERM='screen-256color'
+export TZ='Europe/London'
+export VISUAL="$EDITOR"
 
 # gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"
 if [ -f "${HOME}/.gpg-agent-info" ]; then

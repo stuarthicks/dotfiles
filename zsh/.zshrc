@@ -46,7 +46,7 @@ setopt RM_STAR_WAIT
 setopt TRANSIENT_RPROMPT
 
 autoload -Uz colors && colors
-PROMPT="%F{red}›%f "
+export PROMPT="%F{red}›%f "
 
 zmodload zsh/complist
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
@@ -65,7 +65,6 @@ if [ -d "$HOME/.zgen" ]; then
     zgen load rupa/z
     zgen load zsh-users/zsh-syntax-highlighting
 
-    zgen oh-my-zsh
     zgen oh-my-zsh plugins/colored-man-pages
 
     zgen load stuarthicks/zsh-go
@@ -76,8 +75,8 @@ if [ -d "$HOME/.zgen" ]; then
   source "$HOME/.zgen/init.zsh"
 fi
 
-[ -f "$HOME/.path" ] && source "$HOME/.path"
-[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh" > /dev/null 2>&1
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases" > /dev/null 2>&1
 
 fpath=($^fpath(N))
 typeset -U FPATH
@@ -88,9 +87,7 @@ typeset -U MANPATH
 path=($^path(N))
 typeset -U PATH
 
+autoload -Uz compdef
+autoload -Uz compinit
+compdef mosh=ssh
 compinit
-
-if [[ "$PROFILE_STARTUP" == true ]]; then
-    unsetopt xtrace
-    exec 2>&3 3>&-
-fi

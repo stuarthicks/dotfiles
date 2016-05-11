@@ -129,11 +129,13 @@ d() {
 }
 
 zom() {
-  zcompile \
-    '.zshrc' \
-    '.zshenv' \
-    '.zprofile' \
-    '.functions' \
-    '.aliases' \
-    '.path'
+  (
+    cd && \
+    zcompile \
+      '.zshrc' \
+      '.zshenv' \
+      '.zprofile' \
+      '.functions' \
+      '.aliases'
+    )
 }
