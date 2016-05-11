@@ -1,36 +1,37 @@
 # vi: ft=zsh
 
-# *NIX
+# unix / general
 alias ago='ag --go --ignore vendor'
 alias bonsai='tree -F --filelimit 15'
-alias duh='du -sh *'
-alias g=git
-alias hex='hexdump -C'
-alias ll='ls --color --group-directories-first -halF'
-alias m=mosh
-alias n=nvim
-alias p='ps aux | grep -i'
-alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
-alias t=tmux
-
-# OSX
-alias indexing='sudo mdutil -a -v -i'
-alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
-alias md='open -a macdown'
-
-# ZSH globals, ie 'curl foo V'
-alias -g L="2>&1 | less"
-alias -g NUL="> /dev/null 2>&1"
-alias -g V='| nvim -R -'
-
 alias ci-build="circleci trigger --filter='.build_url'"
 alias ci=circleci
+alias duh='du -sh *'
 alias fenv='env | fzf'
 alias fk=fkill
+alias g=git
+alias git=hub
+alias hex='hexdump -C'
 alias k='k --no-vcs'
 alias kk='\k'
+alias ll='ls --color --group-directories-first -halF'
+alias m=mosh
+alias mp=ncmpcpp
+alias n=nvim
+alias p='ps aux | grep -i'
 alias pl=plenv
 alias pr='hub pull-request'
 alias py=pyenv
 alias rb=rbenv
+alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
+alias t=tmux
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
+
+# osx specific
+alias indexing='sudo mdutil -a -v -i'
+alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+alias md='open -a macdown'
+
+# zsh globals, ie 'curl foo V'
+alias -g L="2>&1 | less"
+alias -g NUL="> /dev/null 2>&1"
+alias -g V='| nvim -R -'
