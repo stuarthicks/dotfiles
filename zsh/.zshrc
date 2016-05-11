@@ -75,8 +75,9 @@ if [ -d "$HOME/.zgen" ]; then
   source "$HOME/.zgen/init.zsh"
 fi
 
-[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh" > /dev/null 2>&1
-[ -f "$HOME/.aliases" ] && source "$HOME/.aliases" > /dev/null 2>&1
+[ -f "$HOME/.fzf.zsh" ]   && source "$HOME/.fzf.zsh" > /dev/null 2>&1
+[ -f "$HOME/.aliases" ]   && source "$HOME/.aliases" > /dev/null 2>&1
+[ -f "$HOME/.functions" ] && source "$HOME/.functions" > /dev/null 2>&1
 
 fpath=($^fpath(N))
 typeset -U FPATH

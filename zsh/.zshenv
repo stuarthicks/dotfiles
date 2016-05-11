@@ -1,7 +1,5 @@
 # vi: set ft=zsh
 
-. "$HOME/.functions"
-
 export AWS_CONFIG_DIR="$HOME/.aws"
 export CLICOLOR=1
 export COMPLETION_WAITING_DOTS="true"
