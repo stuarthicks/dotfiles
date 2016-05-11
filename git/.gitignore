@@ -25,6 +25,7 @@ unlimited-cucumber-works
 *.test
 *.swp
 .projections.json
+.ropeproject/*
 
 tmp/
 pentadactyl/info

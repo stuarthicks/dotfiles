@@ -4,7 +4,9 @@ let g:mapleader = ' '
 let g:maplocalleader = '\'
 
 let g:rehash256 = 1
-let g:ycm_rust_src_path = '~/code/rust/src'
+let g:pymode_trim_whitespaces = 1
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_lint_ignore = "E501,E261"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let NERDTreeIgnore = ['\.pyc$']
