@@ -69,6 +69,9 @@ nnoremap Q @@
 vnoremap < <gv
 vnoremap > >gv
 
+" Opposite of J. Split line at current point.
+nmap K i<CR><Esc>d^==kg_lD
+
 " Normal movement around long-wrapped lines
 nnoremap k gk
 nnoremap j gj
