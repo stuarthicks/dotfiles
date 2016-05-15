@@ -88,7 +88,6 @@ typeset -U MANPATH
 path=($^path(N))
 typeset -U PATH
 
+autoload -Uz compinit && compinit
 autoload -Uz compdef
-autoload -Uz compinit
 compdef mosh=ssh
-compinit
