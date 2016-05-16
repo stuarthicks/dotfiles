@@ -46,6 +46,7 @@ brew 'mpd', restart_service: :changed
 brew 'ncmpcpp'
 brew 'neovim'
 brew 'nmap'
+brew 'openssh', args: [ 'with-libressl' ]
 brew 'openssl'
 brew 'p7zip'
 brew 'perl-build'
