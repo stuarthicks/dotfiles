@@ -1,28 +1,34 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
 
-if [ "$(uname)" == 'Darwin' ]; then
-  if ! type brew > /dev/null 2>&1; then
-    git clone 'https://github.com/Homebrew/brew' ../.brew
-    export PATH="../.brew/bin:$PATH"
-  fi
-  brew tap 'homebrew/bundle' && brew bundle
-  brew link --force curl libressl
-fi
+case "$(uname)" in
+  "Darwin")
+    if ! command -v brew; then
+      git clone 'https://github.com/Homebrew/brew' ../.brew
+      export PATH="../.brew/bin:$PATH"
+    fi
+    brew tap 'homebrew/bundle' && brew bundle install
+    brew link --force curl libressl
+    ;;
+  "Linux")
+    if ! command -v brew; then
+      git clone 'https://github.com/Linuxbrew/brew' ../.brew
+      export PATH="../.brew/bin:$PATH"
+    fi
+    ;;
+  *) ;;
+esac
 
 git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
 git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
 
-stow      \
+stow --stow --verbose \
   abcde   \
-  compton \
+  bspwm   \
   git     \
   mpd     \
   nvim    \
   rubocop \
   scripts \
   ssh     \
-  sxhkd   \
   tmux    \
-  xorg    \
   zsh     \
