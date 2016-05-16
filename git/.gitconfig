@@ -1,61 +1,62 @@
 [user]
-  name = Stuart Hicks
-  email = s@smhicks.uk
-  signingkey = B7CCA53C
+	name = Stuart Hicks
+	email = s@smhicks.uk
+	signingkey = B7CCA53C
 [commit]
-  gpgsign = true
+	gpgsign = true
 [core]
-  excludesFile = ~/.gitignore
-  pager = less
+	excludesFile = ~/.gitignore
+	pager = less
+	symlinks = true
 [push]
-  default = current
+	default = current
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 [diff]
-  tool = nvim -d
+	tool = nvim -d
 [difftool]
-  prompt = false
+	prompt = false
 [rerere]
-  enabled = true
-  autoupdate = true
+	enabled = true
+	autoupdate = true
 [color]
-  ui = auto
+	ui = auto
 [help]
-  autocorrect = 1
+	autocorrect = 1
 [svn]
-  logwindowsize = 25000
+	logwindowsize = 25000
 [tig]
-  tab-size = 8
+	tab-size = 8
 [url "git@github.com:"]
-  insteadOf = http://github.com/
-  insteadOf = https://github.com/
-  insteadOf = git://github.com/
-  insteadOf = git+ssh://github.com/
+	insteadOf = http://github.com/
+	insteadOf = https://github.com/
+	insteadOf = git://github.com/
+	insteadOf = git+ssh://github.com/
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
 [credential]
-  helper = !aws codecommit credential-helper $@
-  UseHttpPath = true
-  required = true
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
+	required = true
 [alias]
-  abandon-ship = reset HEAD^^ --hard
-  br = branch
-  brs = branch --all
-  ci = commit
-  cl = clone
-  co = checkout
-  d = diff --ignore-all-space
-  ds = diff --staged --ignore-all-space
-  dt = difftool --dir-diff
-  dts = difftool --staged --dir-diff
-  fe = fetch --all --tags --prune
-  l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --date=relative -n 14
-  ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
-  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
-  pull = pull --ff-only
-  rem = remote
-  rems = remote --verbose
-  s = status --short --branch
-  st = status
-  tg = tag
+	abandon-ship = reset HEAD^^ --hard
+	br = branch
+	brs = branch --all
+	ci = commit
+	cl = clone
+	co = checkout
+	d = diff --ignore-all-space
+	ds = diff --staged --ignore-all-space
+	dt = difftool --dir-diff
+	dts = difftool --staged --dir-diff
+	fe = fetch --all --tags --prune
+	l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --date=relative -n 14
+	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
+	lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
+	pull = pull --ff-only
+	rem = remote
+	rems = remote --verbose
+	s = status --short --branch
+	st = status
+	tg = tag
