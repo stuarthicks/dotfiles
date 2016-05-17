@@ -82,6 +82,7 @@ brew 'tree'
 brew 'tsocks', args: [ 'HEAD' ]
 brew 'tstools'
 brew 'urlview'
+brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'x264'
