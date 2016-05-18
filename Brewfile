@@ -15,6 +15,7 @@ brew 'autossh'
 brew 'bash'
 brew 'circleci-cli'
 brew 'cmake'
+brew 'colordiff'
 brew 'coreutils'
 brew 'ctags'
 brew 'curl', args: [ 'with-libressl' ]
