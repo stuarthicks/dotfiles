@@ -18,8 +18,9 @@ call g:plugins#ConfigurePlugins()
 
 " Theming!
 set t_Co=256
+set termguicolors
 set background=dark
-colorscheme solarized
+colorscheme onedark
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
