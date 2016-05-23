@@ -5,7 +5,7 @@ let g:maplocalleader = '\'
 
 let g:rehash256 = 1
 let g:pymode_lint = 1
-let g:pymode_lint_ignore = "E501,E261,E221"
+let g:pymode_lint_ignore = "E501,E261,E221,E302"
 let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pymode_trim_whitespaces = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
