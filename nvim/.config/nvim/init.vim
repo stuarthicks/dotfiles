@@ -63,8 +63,8 @@ set wildmode=longest,list
 nnoremap q: <nop>
 nnoremap ; :
 
-" Replay most recently used register
-nnoremap Q @@
+" Play q macro
+nnoremap Q @q
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -91,10 +91,6 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
-
-" Navigate vim location list
-nnoremap <C-n> :lne<cr>
-nnoremap <C-m> :lp<cr>
 
 " Closing buffers/windows more conveniently
 nnoremap <silent> <C-x> :bd<cr>
@@ -125,13 +121,13 @@ set backupskip+=*.asc
 set viminfo=
 
 " Convenient editing of ascii-armoured encrypted files
-augroup GPGASCII
-  au!
-  au BufReadPost *.asc :%!gpg -q -d
-  au BufReadPost *.asc |redraw
-  au BufWritePre *.asc :%!gpg -q -e -a
-  au BufWritePost *.asc u
-  au VimLeave *.asc :!clear
+augroup GPG
+  autocmd!
+  autocmd BufReadPost  *.asc :%!gpg -q -d
+  autocmd BufReadPost  *.asc |redraw
+  autocmd BufWritePre  *.asc :%!gpg -q -e -a
+  autocmd BufWritePost *.asc u
+  autocmd VimLeave     *.asc :!clear
 augroup END
 
 " Resize splits when window is resized
@@ -140,16 +136,14 @@ augroup AUTORESIZE
   autocmd VimResized * :wincmd =
 augroup END
 
-" Neovim
-if has('nvim')
-  tnoremap <leader><leader> <C-\><C-n>
-  tnoremap <A-h> <C-\><C-n><C-w>h
-  tnoremap <A-j> <C-\><C-n><C-w>j
-  tnoremap <A-k> <C-\><C-n><C-w>k
-  tnoremap <A-l> <C-\><C-n><C-w>l
-  autocmd WinEnter term://* startinsert
+" Mappings related to terminal buffers
+tnoremap <leader><leader> <C-\><C-n>
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+autocmd WinEnter term://* startinsert
 
-  nnoremap <silent> <leader>t :vsplit +terminal<cr>
-  nnoremap <silent> <leader>s :split +terminal<cr>
-  nnoremap <silent> <leader>T :tabnew +terminal<cr>
-endif
+nnoremap <silent> <leader>t :vsplit +terminal<cr>
+nnoremap <silent> <leader>s :split +terminal<cr>
+nnoremap <silent> <leader>T :tabnew +terminal<cr>

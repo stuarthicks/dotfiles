@@ -11,17 +11,14 @@ endfunction
 
 function! g:plugins#InstallPlugins()
   call g:plug#begin('~/.config/nvim/plugged')
-  Plug 'joshdick/onedark.vim'
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-  Plug 'gorkunov/smartpairs.vim'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'joshdick/onedark.vim'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'klen/python-mode', { 'for': 'python' }
-  Plug 'kshenoy/vim-signature'
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -41,12 +38,12 @@ function! g:plugins#ConfigurePlugins()
   nnoremap <silent> <C-p> :Files<cr>
   nnoremap <silent> <C-f> :Buffers<cr>
   nnoremap <silent> <leader>h :Helptags<cr>
+
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
   nnoremap <leader>n :NERDTreeToggle<cr>
-  nnoremap <leader>o :TagbarToggle<cr>
   nnoremap <leader>x :call g:xml#DoPrettyXML()<cr>
 
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
