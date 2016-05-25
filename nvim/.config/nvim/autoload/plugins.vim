@@ -21,7 +21,6 @@ function! g:plugins#InstallPlugins()
   Plug 'klen/python-mode', { 'for': 'python' }
   Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   Plug 'scrooloose/syntastic'
   Plug 'sheerun/vim-polyglot'
   Plug 'tomtom/tcomment_vim'
@@ -29,6 +28,7 @@ function! g:plugins#InstallPlugins()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-vinegar'
   call g:plug#end()
 endfunction
 
@@ -43,7 +43,6 @@ function! g:plugins#ConfigurePlugins()
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
-  nnoremap <leader>n :NERDTreeToggle<cr>
   nnoremap <leader>x :call g:xml#DoPrettyXML()<cr>
 
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)

@@ -100,6 +100,7 @@ nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F6> :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <leader>e :Explore<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
