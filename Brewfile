@@ -78,7 +78,6 @@ brew 'stow'
 brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux', args: [ 'HEAD' ]
-brew 'trash'
 brew 'tree'
 brew 'tsocks', args: [ 'HEAD' ]
 brew 'tstools'
