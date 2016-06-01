@@ -23,6 +23,7 @@ function! g:plugins#InstallPlugins()
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'scrooloose/syntastic'
   Plug 'sheerun/vim-polyglot'
+  Plug 'tmux-plugins/vim-tmux-focus-events'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
   Plug 'tpope/vim-repeat'
