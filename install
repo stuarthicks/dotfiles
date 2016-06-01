@@ -7,7 +7,7 @@ case "$(uname)" in
       export PATH="../.brew/bin:$PATH"
     fi
     brew tap 'homebrew/bundle' && brew bundle install
-    brew link --force curl libressl
+    brew link --force curl openssl
     ;;
   "Linux")
     if ! command -v brew; then
