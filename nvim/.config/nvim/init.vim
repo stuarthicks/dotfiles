@@ -10,6 +10,8 @@ let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pymode_trim_whitespaces = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 1
 let NERDTreeIgnore = ['\.pyc$']
 
 call g:plugins#InstallVimPlug()
@@ -85,12 +87,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap { {zz
 nnoremap } }zz
-
-" Nicer split-window navigation
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
 
 " Closing buffers/windows more conveniently
 nnoremap <silent> <C-x> :bd<cr>

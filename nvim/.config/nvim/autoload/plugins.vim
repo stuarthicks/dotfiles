@@ -11,6 +11,7 @@ endfunction
 
 function! g:plugins#InstallPlugins()
   call g:plug#begin('~/.config/nvim/plugged')
+  Plug 'christoomey/vim-tmux-navigator'
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'haya14busa/incsearch.vim'
@@ -50,4 +51,10 @@ function! g:plugins#ConfigurePlugins()
   vmap <Enter> <Plug>(EasyAlign)
 
   inoremap <silent> <Bar> <Bar><Esc>:call g:align#align()<CR>a
+
+  nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+
 endfunction
