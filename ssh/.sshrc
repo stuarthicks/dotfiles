@@ -1,15 +1,54 @@
-# vi: set ft=sh ts=2 sw=2 expandtab
+# vi: set filetype=sh tabstop=2 shiftwidth=2 expandtab :
+
+[ -f /etc/environment ] && . /etc/environment
+
+readonly red=$(tput setaf 1)
+readonly green=$(tput setaf 2)
+readonly blue=$(tput setaf 6)
+readonly reset=$(tput sgr0)
+
+if [ "${STACK_ENV%%-*}" = 'prod' ]; then
+  readonly env_col=$red
+else
+  readonly env_col=$blue
+fi
+
+export PS1="${env_col}${AWS_ZONE} ${STACK_ENV} ${STACK_GROUP} ${green}\h ${blue}\w
+\$${reset} "
 
 alias l='ls --color --group-directories-first -halF'
+alias k=l
 
-alias do=docker
-alias et=etcdctl
-alias fl=fleetctl
-alias jo=journalctl
-alias sy=systemctl
+alias d=docker
+alias e=etcdctl
+alias f=fleetctl
+alias s=systemctl
 
-alias un='fleetctl list-units'
-alias unf='fleetctl list-unit-files'
+j() {
+  if [ $# = 1 ] && [ "${1##*.}" = "service" ]; then
+    journalctl -u "$1" -n100 -f
+  else
+    journalctl "$@"
+  fi
+}
+
+u() {
+  if [ $# -eq 0 ]; then
+    fleetctl list-units
+  else
+    fleetctl list-units \
+      | grep "$@"
+  fi
+}
+
+uf() {
+  if [ $# -eq 0 ]; then
+    fleetctl list-unit-files
+  else
+    fleetctl list-unit-files \
+      | grep "$@"
+  fi
+}
 
 service() {
   fleetctl list-units \
