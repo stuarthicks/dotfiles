@@ -20,6 +20,7 @@ brew 'coreutils'
 brew 'ctags'
 brew 'curl', args: [ 'with-libressl' ]
 brew 'docker-clean'
+brew 'editorconfig'
 brew 'ffmpeg', args: [ 'with-fdk-aac' ]
 brew 'fleetctl'
 brew 'fzf'

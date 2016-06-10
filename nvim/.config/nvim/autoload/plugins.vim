@@ -12,6 +12,7 @@ endfunction
 function! g:plugins#InstallPlugins()
   call g:plug#begin('~/.config/nvim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'fatih/vim-go', { 'for': 'go'}
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
   Plug 'haya14busa/incsearch.vim'
