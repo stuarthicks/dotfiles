@@ -14,6 +14,7 @@
 	autosetuprebase = always
 [diff]
 	tool = nvim -d
+	compactionHeuristic = true
 [difftool]
 	prompt = false
 [rerere]
@@ -55,6 +56,7 @@
 	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
 	lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
 	pull = pull --ff-only
+	refs = for-each-ref --sort=committerdate --format='%(refname:short)	%(authorname)	%(committerdate:relative)' refs/remotes/
 	rem = remote
 	rems = remote --verbose
 	s = status --short --branch
