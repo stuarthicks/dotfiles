@@ -44,7 +44,7 @@
 	abandon-ship = reset HEAD^^ --hard
 	br = branch
 	brs = branch --all
-	ci = commit
+	ci = commit --verbose
 	cl = clone
 	co = checkout
 	d = diff --ignore-all-space
