@@ -1,7 +1,7 @@
 [user]
 	name = Stuart Hicks
 	email = s@smhicks.uk
-	signingkey = B7CCA53C
+	signingkey = AC065BDDB7CCA53C
 [commit]
 	gpgsign = true
 [core]
@@ -52,13 +52,10 @@
 	dt = difftool --dir-diff
 	dts = difftool --staged --dir-diff
 	fe = fetch --all --tags --prune
-	l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --date=relative -n 14
-	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 14
-	lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
+	l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
+	ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d %C(blue)%cr %C(green)[%an]%Creset %s %Creset' --abbrev-commit --date=relative -n 21
 	pull = pull --ff-only
+	r = remote --verbose
 	refs = for-each-ref --sort=committerdate --format='%(refname:short)	%(authorname)	%(committerdate:relative)' refs/remotes/
-	rem = remote
-	rems = remote --verbose
-	s = status --short --branch
-	st = status
-	tg = tag
+	s = status
+	t = tag
