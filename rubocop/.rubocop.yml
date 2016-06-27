@@ -12,13 +12,16 @@ Style/StringLiterals:
   EnforcedStyle: single_quotes
 
 Metrics/LineLength:
-  Max: 280
+  Enabled: false
 
 Metrics/MethodLength:
-  Max: 30
+  Enabled: false
 
 Metrics/CyclomaticComplexity:
-  Max: 15
+  Enabled: false
 
 Metrics/PerceivedComplexity:
-  Max: 15
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
