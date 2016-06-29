@@ -14,7 +14,7 @@ let g:go_term_enabled = 1
 
 au FileType go nmap <leader>B <Plug>(go-build)
 au FileType go nmap <leader>b <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>c :GoCoverageToggle<cr>
 
 au FileType go nnoremap <leader>d :GoDef<cr>
 au FileType go nnoremap <leader>r :GoRename<cr>
