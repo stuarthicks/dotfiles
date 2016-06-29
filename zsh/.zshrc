@@ -13,7 +13,7 @@ bindkey '\e[Z' reverse-menu-complete # Shift+Tab
 
 ttyctl -f # freeze tty
 
-export HISTFILE="$HOME/.zsh_history"
+export HISTFILE=~/.zsh_history
 export HISTSIZE=2000
 export SAVEHIST=2000
 
@@ -54,8 +54,8 @@ zstyle ':completion:*' menu select=2                            # show menu when
 zstyle ':completion:*' tag-order '! users'                      # listing all users takes ages.
 bindkey -M menuselect "=" accept-and-menu-complete
 
-if [ -d "$HOME/.zgen" ]; then
-  source "${HOME}/.zgen/zgen.zsh"
+if [ -d ~/.zgen ]; then
+  . ~/.zgen/zgen.zsh
   if ! zgen saved; then
     zgen load rimraf/k
     zgen load rupa/z
@@ -65,12 +65,14 @@ if [ -d "$HOME/.zgen" ]; then
     zgen oh-my-zsh plugins/colored-man-pages
     zgen save
   fi
-  source "$HOME/.zgen/init.zsh"
+  . ~/.zgen/init.zsh
 fi
 
-[ -f "$HOME/.fzf.zsh" ]   && source "$HOME/.fzf.zsh"   > /dev/null 2>&1
-[ -f "$HOME/.aliases" ]   && source "$HOME/.aliases"   > /dev/null 2>&1
-[ -f "$HOME/.functions" ] && source "$HOME/.functions" > /dev/null 2>&1
+. ~/.fzf.zsh                      > /dev/null 2>&1
+. ~/.iterm2_shell_integration.zsh > /dev/null 2>&1
+
+. ~/.aliases   > /dev/null 2>&1
+. ~/.functions > /dev/null 2>&1
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
