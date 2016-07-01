@@ -54,6 +54,7 @@ set hidden
 set nowrap
 set nowrapscan
 set number
+set relativenumber
 set scrolloff=10
 set sidescrolloff=10
 set splitbelow
