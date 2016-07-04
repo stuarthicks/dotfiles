@@ -62,7 +62,6 @@ if [ -d ~/.zgen ]; then
     zgen load stuarthicks/zsh-fancy-ctrl-z
     zgen load stuarthicks/zsh-go
     zgen load zsh-users/zsh-syntax-highlighting
-    zgen oh-my-zsh plugins/colored-man-pages
     zgen save
   fi
   . ~/.zgen/init.zsh
