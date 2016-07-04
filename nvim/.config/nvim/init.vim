@@ -28,7 +28,7 @@ colorscheme onedark
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
 
 " Indent Options
-set tabstop=8
+set tabstop=4
 
 " Searching
 set ignorecase
