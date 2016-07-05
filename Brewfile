@@ -4,6 +4,7 @@ tap 'homebrew/dupes'
 tap 'homebrew/services'
 
 tap 'caskroom/cask'
+tap 'go-delve/delve'
 tap 'neovim/neovim'
 tap 'rockymadden/rockymadden'
 tap 'stuarthicks/brews'
@@ -19,6 +20,7 @@ brew 'colordiff'
 brew 'coreutils'
 brew 'ctags'
 brew 'curl', args: [ 'with-libressl' ]
+brew 'delve'
 brew 'docker-clean'
 brew 'editorconfig'
 brew 'ffmpeg', args: [ 'with-fdk-aac' ]
