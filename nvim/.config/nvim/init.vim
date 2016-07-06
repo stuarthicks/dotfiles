@@ -46,7 +46,7 @@ set clipboard=unnamed
 set cursorline
 set diffopt+=iwhite
 set linebreak
-set list
+set nolist
 set listchars=tab:»—,trail:❐
 set modelines=1
 set mouse=a
