@@ -128,6 +128,10 @@ d() {
   pwd
 }
 
+_fzf_compgen_path() {
+  pt -g "" "$1"
+}
+
 man() {
     env \
     LESS_TERMCAP_mb=$'\e[01;31m' \

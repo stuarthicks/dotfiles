@@ -4,6 +4,8 @@ export AWS_CONFIG_DIR=~/.aws
 export CLICOLOR=1
 export COMPLETION_WAITING_DOTS="true"
 export EDITOR=nvim
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_DEFAULT_COMMAND='pt -g ""'
 export HOMEBREW_NO_ANALYTICS=1
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 export KEYTIMEOUT=1

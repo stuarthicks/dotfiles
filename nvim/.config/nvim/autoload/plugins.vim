@@ -36,7 +36,6 @@ function! g:plugins#InstallPlugins()
 endfunction
 
 function! g:plugins#ConfigurePlugins()
-  " Searching
   nnoremap <silent> <C-a> :Ag<cr>
   nnoremap <silent> <C-p> :Files<cr>
   nnoremap <silent> <C-f> :Buffers<cr>
@@ -48,14 +47,11 @@ function! g:plugins#ConfigurePlugins()
 
   nnoremap <leader>x :call g:xml#DoPrettyXML()<cr>
 
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
-
   inoremap <silent> <Bar> <Bar><Esc>:call g:align#align()<CR>a
 
   nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
   nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
   nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
   nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
-
 endfunction
