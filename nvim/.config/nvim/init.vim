@@ -109,6 +109,12 @@ nnoremap <Down> :resize -2<CR>
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+augroup VIEW
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent loadview
+augroup END
+
 " Don't clutter directories with .swp files
 silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
 set backupdir=~/.config/nvim/backup
