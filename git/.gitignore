@@ -29,3 +29,5 @@ unlimited-cucumber-works
 
 tmp/
 pentadactyl/info
+.vscode/
+debug
