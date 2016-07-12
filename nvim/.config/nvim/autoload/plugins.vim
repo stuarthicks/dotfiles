@@ -4,10 +4,6 @@ function! g:plugins#InstallDein()
   if empty(glob(l:dir))
     silent !mkdir -p l:dir
     exec "!git clone ".l:repo." ".l:dir
-    augroup VIMRC
-      autocmd!
-      autocmd VimEnter * PlugInstall | source $MYVIMRC
-    augroup END
   endif
   exec "set runtimepath+=".l:dir
 endfunction
