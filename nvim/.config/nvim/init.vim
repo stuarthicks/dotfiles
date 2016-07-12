@@ -14,8 +14,8 @@ let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 let NERDTreeIgnore = ['\.pyc$']
 
-call g:plugins#InstallVimPlug()
-call g:plugins#InstallPlugins()
+call g:plugins#InstallDein()
+call g:plugins#InstallDeinPlugins()
 call g:plugins#ConfigurePlugins()
 
 " Theming!

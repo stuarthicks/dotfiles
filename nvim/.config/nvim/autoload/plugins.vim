@@ -1,38 +1,48 @@
-function! g:plugins#InstallVimPlug()
-  if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+function! g:plugins#InstallDein()
+  let l:repo = 'https://github.com/Shougo/dein.vim.git'
+  let l:dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
+  if empty(glob(l:dir))
+    silent !mkdir -p l:dir
+    exec "!git clone ".l:repo." ".l:dir
     augroup VIMRC
       autocmd!
       autocmd VimEnter * PlugInstall | source $MYVIMRC
     augroup END
   endif
+  exec "set runtimepath+=".l:dir
 endfunction
 
-function! g:plugins#InstallPlugins()
-  call g:plug#begin('~/.config/nvim/plugged')
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'fatih/vim-go', { 'for': 'go'}
-  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'joshdick/onedark.vim'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'klen/python-mode', { 'for': 'python' }
-  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'scrooloose/syntastic'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'tmux-plugins/vim-tmux-focus-events'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-sleuth'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-vinegar'
-  call g:plug#end()
+function! g:plugins#InstallDeinPlugins()
+  let l:dir = '~/.config/nvim/dein'
+  call dein#begin(expand(l:dir))
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim', { 'on_i': 1 })
+  call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('fatih/vim-go', { 'on_ft': 'go' })
+  call dein#add('godlygeek/tabular', { 'on_cmd': 'Tabularize' })
+  call dein#add('haya14busa/incsearch.vim')
+  call dein#add('joshdick/onedark.vim')
+  call dein#add('junegunn/fzf', { 'build': './install --all --no-update-rc', 'merged': 0 } )
+  call dein#add('junegunn/fzf.vim', { 'depends': 'junegunn/fzf' })
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('klen/python-mode', { 'on_ft': 'python' })
+  call dein#add('ngmy/vim-rubocop', { 'on_ft': 'ruby' })
+  call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
+  call dein#add('scrooloose/syntastic')
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('tmux-plugins/vim-tmux-focus-events')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('tpope/vim-endwise', { 'on_ft': 'ruby' })
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-sleuth')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-vinegar', { 'on_cmd': 'Explore' })
+  call dein#end()
+  if dein#check_install()
+    call dein#install()
+  endif
+  set runtimepath+=~/.fzf
 endfunction
 
 function! g:plugins#ConfigurePlugins()

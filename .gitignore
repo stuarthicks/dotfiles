@@ -1,9 +1,3 @@
-nvim/.config/nvim/autoload/plug.vim
-nvim/.config/nvim/autoload/plug.vim.old
 nvim/.config/nvim/backup
-nvim/.config/nvim/plugged
+nvim/.config/nvim/dein/
 nvim/.config/nvim/.netrwhist
-
-vimperator/.vimperator/info/default/history-command
-vimperator/.vimperator/info/default/history-search
-vimperator/.vimperator/info/default/macros
