@@ -22,13 +22,14 @@ git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
 git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
 
 stow --stow --verbose \
-  abcde   \
-  bspwm   \
-  git     \
-  mpd     \
-  nvim    \
-  rubocop \
-  scripts \
-  ssh     \
-  tmux    \
-  zsh     \
+  abcde        \
+  bspwm        \
+  editorconfig \
+  git          \
+  mpd          \
+  nvim         \
+  rubocop      \
+  scripts      \
+  ssh          \
+  tmux         \
+  zsh          \
