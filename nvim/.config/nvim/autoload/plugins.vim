@@ -12,7 +12,7 @@ function! g:plugins#InstallDeinPlugins()
   let l:dir = '~/.config/nvim/dein'
   call dein#begin(expand(l:dir))
   call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim', { 'on_i': 1 })
+  call dein#add('Shougo/deoplete.nvim', { 'on_event': 'InsertEnter' })
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('fatih/vim-go', { 'on_ft': 'go' })

@@ -3,6 +3,7 @@ scriptencoding utf-8
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
+let g:deoplete#enable_at_startup = 1
 let g:rehash256 = 1
 let g:pymode_lint = 1
 let g:pymode_lint_ignore = "E501,E261,E221,E302"
@@ -43,11 +44,12 @@ set ttyfast
 
 " Misc Options
 set clipboard=unnamed
+set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
 set linebreak
 set nolist
-set listchars=tab:»—,trail:❐
+set listchars=tab:»—,trail:_
 set modelines=1
 set mouse=a
 set hidden
