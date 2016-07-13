@@ -27,7 +27,7 @@ stow --stow --verbose \
   editorconfig \
   git          \
   mpd          \
-  nvim         \
+  neovim       \
   rubocop      \
   scripts      \
   ssh          \
