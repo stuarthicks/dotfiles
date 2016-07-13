@@ -54,23 +54,14 @@ function start-ssh-agent {
   source "${SSH_ENV}" > /dev/null 2>&1
 }
 
-# CTRL-O to open with `open` command,
-# CTRL-E or Enter key to open with the $EDITOR
 f() {
-  local out file key
-  out=$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)
-  key=$(head -1 <<< "$out")
-  file=$(head -2 <<< "$out" | tail -1)
-  if [ -n "$file" ]; then
-    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-nvim} "$file"
-  fi
+  ${VISUAL:-nvim} "$(pt --nocolor -g "" | fzf)"
 }
 
 # fd - cd to selected directory
 fd() {
   local dir
-  dir=$(find ${1:-*} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+  dir=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
 
