@@ -13,6 +13,8 @@ function! g:plugins#InstallDeinPlugins()
   call dein#begin(expand(l:dir))
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/deoplete.nvim', { 'on_event': 'InsertEnter' })
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neosnippet.vim')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('fatih/vim-go', { 'on_ft': 'go' })
@@ -61,4 +63,8 @@ function! g:plugins#ConfigurePlugins()
   nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
   nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
   nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
 endfunction
