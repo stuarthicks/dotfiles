@@ -1,10 +1,10 @@
 #!/bin/bash
 set -eu
 
-exec 3<>/dev/tcp/canhazip.com/80
+exec 3<>/dev/tcp/whatismyip.akamai.com/80
 cat <<-EOF >&3
 	GET / HTTP/1.1
-	Host: canhazip.com
+	Host: whatismyip.akamai.com
 	User-Agent: bash
 	Connection: close
 
