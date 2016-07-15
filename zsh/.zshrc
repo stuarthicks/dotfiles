@@ -1,5 +1,5 @@
 # vi: set ft=zsh
-export PROMPT="🍹 "
+export PROMPT="$(tput setaf 1)\$$(tput sgr0) "
 
 autoload -Uz colors && colors
 autoload -Uz edit-command-line
