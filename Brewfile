@@ -2,6 +2,7 @@
 
 tap 'homebrew/dupes'
 tap 'homebrew/services'
+tap 'homebrew/versions'
 
 tap 'caskroom/cask'
 tap 'go-delve/delve'
@@ -94,6 +95,7 @@ brew 'x264'
 brew 'xvid'
 brew 'xz'
 brew 'yank'
+brew 'zeromq32'
 brew 'zsh'
 
 cask 'aerial'

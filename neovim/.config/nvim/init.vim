@@ -43,6 +43,7 @@ set synmaxcol=220
 set ttyfast
 
 " Misc Options
+set autowrite
 set clipboard=unnamed
 set completeopt=longest,menuone
 set cursorline
