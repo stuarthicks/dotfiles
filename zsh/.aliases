@@ -1,18 +1,14 @@
 # vi: ft=zsh
 
 # unix / general
-alias ago='ag --go --ignore vendor'
 alias bonsai='tree -F --filelimit 15'
-alias ci-build="circleci trigger --filter='.build_url'"
-alias ci=circleci
+alias circle-build="circleci trigger --filter='.build_url'"
 alias duh='du -sh *'
 alias fenv='env | fzf'
 alias fk=fkill
 alias g=git
 alias git=hub
 alias hex='hexdump -C'
-alias k='k --no-vcs'
-alias kk='\k'
 alias ll='ls --color --group-directories-first -halF'
 alias m=mosh
 alias mp=ncmpcpp
