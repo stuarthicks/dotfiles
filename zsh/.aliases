@@ -1,5 +1,10 @@
 # vi: ft=zsh
 
+alias cd=' cd'
+alias k=' k'
+alias ls=' ls'
+alias pwd=' pwd'
+
 # unix / general
 alias bonsai='tree -F --filelimit 15'
 alias circle-build="circleci trigger --filter='.build_url'"
