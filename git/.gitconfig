@@ -59,3 +59,5 @@
 	refs = for-each-ref --sort=committerdate --format='%(refname:short)	%(authorname)	%(committerdate:relative)' refs/remotes/
 	s = status
 	t = tag
+[hub]
+	host = bithub.brightcove.com

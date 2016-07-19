@@ -31,3 +31,4 @@ tmp/
 pentadactyl/info
 .vscode/
 debug
+*.patch
