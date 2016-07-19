@@ -45,6 +45,7 @@ function! g:plugins#InstallDeinPlugins()
 endfunction
 
 function! g:plugins#ConfigurePlugins()
+  let $FZF_DEFAULT_COMMAND = 'pt --nocolor -g ""'
   nnoremap <silent> <C-a> :Ag<cr>
   nnoremap <silent> <C-p> :Files<cr>
   nnoremap <silent> <C-f> :Buffers<cr>
