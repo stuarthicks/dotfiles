@@ -8,22 +8,18 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-[*.go]
-indent_style = tabs
-indent_size = 8
-
-[*.py]
+[*.{rb, json, js, feature, rs, toml}]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [Makefile]
 indent_style = tab
 indent_size = 8
 
-[*.rb]
-indent_style = space
-indent_size = 2
+[*.go]
+indent_style = tab
+indent_size = 8
 
-[*.feature]
+[*.py]
 indent_style = space
-indent_size = 2
+indent_size = 4
