@@ -5,7 +5,7 @@ function! g:plugins#InstallDein()
     silent !mkdir -p l:dir
     exec "!git clone ".l:repo." ".l:dir
   endif
-  exec "set runtimepath+=".l:dir
+  exec "set runtimepath^=".l:dir
 endfunction
 
 function! g:plugins#InstallDeinPlugins()

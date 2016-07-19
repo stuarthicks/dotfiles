@@ -19,6 +19,8 @@ call g:plugins#InstallDein()
 call g:plugins#InstallDeinPlugins()
 call g:plugins#ConfigurePlugins()
 
+filetype plugin indent on
+
 " Theming!
 set t_Co=256
 set termguicolors
