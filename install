@@ -18,7 +18,6 @@ case "$(uname)" in
   *) ;;
 esac
 
-git clone 'https://github.com/tarjoilija/zgen'  ../.zgen
 git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
 
 stow --stow --verbose \

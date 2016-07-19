@@ -6,7 +6,7 @@ export PROMPT="%{$fg[red]%}\$%{$reset_color%} "
 
 zle -N edit-command-line
 
-bindkey -e                           # default to readline emacs keybindings
+bindkey -e                           # default to emacs keybindings
 bindkey -s '\eu' '^Ucd ..; pwd^M'    # meta-u to go up a dir
 bindkey '\ee'  edit-command-line     # meta-e to edit current cmd in $EDITOR
 bindkey '\e[Z' reverse-menu-complete # Shift+Tab
@@ -63,24 +63,19 @@ zstyle ':completion:*' tag-order '! users'                      # listing all us
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-if [ -d ~/.zgen ]; then
-  . ~/.zgen/zgen.zsh
-  if ! zgen saved; then
-    zgen load rimraf/k
-    zgen load rupa/z
-    zgen load stuarthicks/zsh-fancy-ctrl-z
-    zgen load stuarthicks/zsh-go
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen save
-  fi
-  . ~/.zgen/init.zsh
-fi
+alias -g NULL='> /dev/null 2>&1'
 
-. ~/.fzf.zsh                      > /dev/null 2>&1
-. ~/.iterm2_shell_integration.zsh > /dev/null 2>&1
+. ~/.fzf.zsh                      NULL
+. ~/.zplugins/k.sh                NULL
+. ~/.zplugins/z.sh                NULL
+. ~/.iterm2_shell_integration.zsh NULL
 
-. ~/.aliases   > /dev/null 2>&1
-. ~/.functions > /dev/null 2>&1
+. ~/.aliases   NULL
+. ~/.functions NULL
+
+zle -N fancy-ctrl-z       && bindkey '^Z' fancy-ctrl-z
+zle -N focus-on-something && bindkey '^F' focus-on-something # Focus!
+zle -N do-something       && bindkey '^G' do-something       # Go!
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
