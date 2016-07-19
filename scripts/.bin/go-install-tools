@@ -1,22 +1,36 @@
 #!/bin/bash
 
-go get -u -v github.com/FiloSottile/gvt
-go get -u -v github.com/alecthomas/gometalinter
-go get -u -v github.com/constabulary/gb/...
-go get -u -v github.com/divan/depscheck
-go get -u -v github.com/godoctor/godoctor
-go get -u -v github.com/golang/lint/golint
-go get -u -v github.com/lukehoban/go-find-references
-go get -u -v github.com/lukehoban/go-outline
-go get -u -v github.com/maruel/panicparse/...
-go get -u -v github.com/newhook/go-symbols
-go get -u -v github.com/nsf/gocode
-go get -u -v github.com/otium/ytdl/...
-go get -u -v github.com/rogpeppe/godef
-go get -u -v github.com/sqs/goreturns
-go get -u -v github.com/tpng/gopkgs
+GO='go get -u'
 
-go get -u golang.org/x/tools/cmd/...
-go get -u honnef.co/go/unused/cmd/unused
+set -x
+
+$GO github.com/alecthomas/gometalinter
+$GO github.com/constabulary/gb/...
+$GO github.com/divan/depscheck
+$GO github.com/godoctor/godoctor
+$GO github.com/golang/lint/golint
+$GO github.com/lukehoban/go-outline
+$GO github.com/maruel/panicparse/...
+$GO github.com/newhook/go-symbols
+$GO github.com/nsf/gocode
+$GO github.com/otium/ytdl/...
+$GO github.com/rogpeppe/godef
+$GO github.com/sqs/goreturns
+$GO github.com/tpng/gopkgs
+
+$GO golang.org/x/tools/cmd/cover
+$GO golang.org/x/tools/cmd/godoc
+$GO golang.org/x/tools/cmd/goimports
+$GO golang.org/x/tools/cmd/gomvpkg
+$GO golang.org/x/tools/cmd/gorename
+$GO golang.org/x/tools/cmd/gotype
+$GO golang.org/x/tools/cmd/guru
+$GO golang.org/x/tools/cmd/oracle
+$GO golang.org/x/tools/cmd/stress
+$GO golang.org/x/tools/cmd/stringer
+
+$GO honnef.co/go/unused/cmd/unused
 
 gometalinter --install --update --force
+
+nvim a.go -c ':GoInstallBinaries' -c 'GoUpdateBinaries' +qall
