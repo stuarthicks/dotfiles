@@ -1,8 +1,8 @@
 # vi: set ft=zsh
-export PROMPT="$(tput setaf 1)\$$(tput sgr0) "
-
 autoload -Uz colors && colors
 autoload -Uz edit-command-line
+
+export PROMPT="%{$fg[red]%}\$%{$reset_color%} "
 
 zle -N edit-command-line
 
