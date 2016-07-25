@@ -20,7 +20,7 @@ brew 'cmake'
 brew 'colordiff'
 brew 'coreutils'
 brew 'ctags'
-brew 'curl', args: [ 'with-libressl' ]
+brew 'curl', args: [ 'with-openssl', 'with-libssh2', 'with-nghttp2', 'with-rtmpdump' ]
 brew 'delve'
 brew 'docker-clean'
 brew 'editorconfig'
