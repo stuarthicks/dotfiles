@@ -1,4 +1,5 @@
 let g:go_dispatch_enabled = 1
+let g:go_list_type = "quickfix"
 
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'
