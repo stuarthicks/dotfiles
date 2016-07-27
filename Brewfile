@@ -66,7 +66,8 @@ brew 'rbenv'
 brew 'rbenv-bundler'
 brew 'rbenv-bundler-ruby-version'
 brew 'rbenv-ctags'
-brew 'rbenv-each', args: [ 'HEAD' ]
+# brew install --HEAD https://gist.github.com/mitukiii/9029870/raw/rbenv-each.rb
+# brew 'rbenv-each', args: [ 'HEAD' ]
 brew 'rbenv-use'
 brew 'rbenv-whatis'
 brew 'readline'
