@@ -4,6 +4,7 @@ GO='go get -u -v'
 
 set -x
 
+$GO github.com/HewlettPackard/gas
 $GO github.com/alecthomas/gometalinter
 $GO github.com/constabulary/gb/...
 $GO github.com/divan/depscheck
