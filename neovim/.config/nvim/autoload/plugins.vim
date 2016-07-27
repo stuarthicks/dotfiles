@@ -71,4 +71,5 @@ function! g:plugins#ConfigurePlugins()
   xmap <C-k>     <Plug>(neosnippet_expand_target)
 
   nmap <silent> <leader>d <Plug>DashSearch
+  nmap <leader>D :Dash<space>
 endfunction
