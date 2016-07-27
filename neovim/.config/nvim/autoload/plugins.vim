@@ -23,11 +23,14 @@ function! g:plugins#InstallDeinPlugins()
   call dein#add('joshdick/onedark.vim')
   call dein#add('junegunn/fzf', { 'build': './install --all --no-update-rc', 'merged': 0 } )
   call dein#add('junegunn/fzf.vim', { 'depends': 'junegunn/fzf' })
+  call dein#add('junegunn/goyo.vim', { 'on_cmd': 'Goyo' })
+  call dein#add('junegunn/limelight.vim', { 'on_cmd': 'Limelight' })
   call dein#add('junegunn/vim-easy-align')
   call dein#add('klen/python-mode', { 'on_ft': 'python' })
   call dein#add('ngmy/vim-rubocop', { 'on_ft': 'ruby' })
   call dein#add('rizzatti/dash.vim')
   call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
+  call dein#add('samuelsimoes/vim-drawer')
   call dein#add('scrooloose/syntastic')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('tmux-plugins/vim-tmux-focus-events')
@@ -72,4 +75,11 @@ function! g:plugins#ConfigurePlugins()
 
   nmap <silent> <leader>d <Plug>DashSearch
   nmap <leader>D :Dash<space>
+
+  nnoremap <leader>v :VimDrawer<CR>
+
+  nnoremap <silent> <leader>y :Goyo<cr>
+
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
 endfunction
