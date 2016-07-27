@@ -26,6 +26,7 @@ function! g:plugins#InstallDeinPlugins()
   call dein#add('junegunn/vim-easy-align')
   call dein#add('klen/python-mode', { 'on_ft': 'python' })
   call dein#add('ngmy/vim-rubocop', { 'on_ft': 'ruby' })
+  call dein#add('rizzatti/dash.vim')
   call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
   call dein#add('scrooloose/syntastic')
   call dein#add('sheerun/vim-polyglot')
@@ -68,4 +69,6 @@ function! g:plugins#ConfigurePlugins()
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
   xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+  nmap <silent> <leader>d <Plug>DashSearch
 endfunction
