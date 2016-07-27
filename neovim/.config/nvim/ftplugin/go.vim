@@ -7,8 +7,8 @@ let g:go_fmt_fail_silently = 1
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-" let g:go_highlight_operators = 1
 let g:go_highlight_string_spellcheck = 0
+" let g:go_highlight_operators = 1
 " let g:go_highlight_structs = 1
 
 let g:go_term_enabled = 1
@@ -17,7 +17,6 @@ au FileType go nmap <leader>B <Plug>(go-build)
 au FileType go nmap <leader>b <Plug>(go-test)
 au FileType go nmap <leader>c :GoCoverageToggle<cr>
 
-au FileType go nnoremap <leader>d :GoDef<cr>
 au FileType go nnoremap <leader>r :GoRename<cr>
 au FileType go nnoremap <leader>i :GoImport<space>
 au FileType go nnoremap <leader>a :GoAlternate<cr>
