@@ -1,11 +1,9 @@
 # vi: ft=zsh
 
-path_prepend()    { path=("$1" $path) }
-manpath_prepend() { manpath=("$1" $manpath) }
-path()            { echo "$PATH" | tr : $'\n' }
-fpath()           { echo $fpath | tr ' ' $'\n' }
-manpath()         { echo $manpath | tr ' ' $'\n' }
-httprb()          { ruby -run -e httpd . -p "${1:-1090}" }
+path()    { echo $PATH    | tr : $'\n' }
+fpath()   { echo $FPATH   | tr : $'\n' }
+manpath() { echo $MANPATH | tr : $'\n' }
+gopath()  { echo $GOPATH  | tr : $'\n' }
 
 rbenv() {
     eval "$(command rbenv init --no-rehash - zsh)"
@@ -25,7 +23,7 @@ pyenv() {
 
 javav() {
   export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
-  path_prepend "$JAVA_HOME/bin"
+  path=("$JAVA_HOME/bin" $path)
   path=($^path(N)) && typeset -U PATH
   echo "JAVA_HOME is $JAVA_HOME"
 }
@@ -123,7 +121,7 @@ d() {
 }
 
 _fzf_compgen_path() {
-  pt --nocolor -g "" "$1"
+  pt --hidden --nocolor -g "" "$1"
 }
 
 fancy-ctrl-z () {

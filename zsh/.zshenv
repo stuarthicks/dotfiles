@@ -14,12 +14,15 @@ export LC_ALL=en_GB.UTF-8
 export LESS="-RSMsi"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export PAGER=less
+export PLENV_ROOT=~/.plenv
 export PYENV_ROOT=~/.pyenv
 export RBENV_ROOT=~/.rbenv
 export REPORTTIME=1
 export TERM='screen-256color'
 export TZ='Europe/London'
 export VISUAL="$EDITOR"
+
+alias -g NULL='> /dev/null 2>&1'
 
 # gpg-agent --daemon --write-env-file "$HOME/.gpg-agent-info"
 if [ -f ~/.gpg-agent-info ]; then
@@ -30,4 +33,4 @@ if [ -f ~/.gpg-agent-info ]; then
 fi
 
 export SSH_ENV=~/.ssh/environment
-. "${SSH_ENV}" > /dev/null 2>&1
+. "${SSH_ENV}" NULL

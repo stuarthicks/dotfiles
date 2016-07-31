@@ -63,8 +63,6 @@ zstyle ':completion:*' tag-order '! users'                      # listing all us
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-alias -g NULL='> /dev/null 2>&1'
-
 . ~/.fzf.zsh                      NULL
 . ~/.zplugins/k.sh                NULL
 . ~/.zplugins/z.sh                NULL
