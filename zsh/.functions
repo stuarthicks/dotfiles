@@ -23,6 +23,13 @@ pyenv() {
     pyenv "$@"
 }
 
+javav() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
+  path_prepend "$JAVA_HOME/bin"
+  path=($^path(N)) && typeset -U PATH
+  echo "JAVA_HOME is $JAVA_HOME"
+}
+
 apt-purge-old-kernels() {
   echo 'Current: '$(uname -r) \
     && dpkg -l 'linux-*' \
@@ -32,7 +39,11 @@ apt-purge-old-kernels() {
 
 brews() {
   brew list | while read cask; do \
-    echo -n $fg[blue] $cask $fg[white]
+    if [ -t 1 ]; then
+      echo -n $fg[blue] $cask $fg[white]
+    else
+      echo -n $cask
+    fi
     brew deps $cask \
       | awk '{printf(" %s ", $0)}'
     echo ""
@@ -41,7 +52,11 @@ brews() {
 
 brews-used() {
   brew list | while read cask; do \
-    echo -n $fg[blue] $cask $fg[white]
+    if [ -t 1 ]; then
+      echo -n $fg[blue] $cask $fg[white]
+    else
+      echo -n $cask
+    fi
     brew uses --installed $cask \
       | awk '{printf(" %s ", $0)}'
     echo ""
@@ -49,9 +64,10 @@ brews-used() {
 }
 
 function start-ssh-agent {
-  ssh-agent > "${SSH_ENV}"
-  chmod 600 "${SSH_ENV}"
-  source "${SSH_ENV}" > /dev/null 2>&1
+  rm -f "$SSH_ENV"
+  ssh-agent > "$SSH_ENV"
+  chmod 600 "$SSH_ENV"
+  source "$SSH_ENV" > /dev/null 2>&1
 }
 
 f() {
@@ -97,19 +113,6 @@ br() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# fshow - git commit browser
-show() {
-  local out sha q
-  while out=$(
-      git log --decorate=short --graph --oneline --color=always |
-      fzf --ansi --multi --no-sort --reverse --query="$q" --print-query); do
-    q=$(head -1 <<< "$out")
-    while read sha; do
-      [ -n "$sha" ] && git show --color=always $sha | less -R
-    done < <(sed '1d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
-  done
-}
-
 d() {
   if [[ -z "$*" ]]; then
     cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
@@ -120,7 +123,7 @@ d() {
 }
 
 _fzf_compgen_path() {
-  pt -g "" "$1"
+  pt --nocolor -g "" "$1"
 }
 
 fancy-ctrl-z () {
