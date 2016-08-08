@@ -98,6 +98,10 @@ nnoremap } }zz
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>C :cclose<CR>
+
 nnoremap <F4> :%!python -mjson.tool<cr>
 nnoremap <F6> :%s/\s\+$//
 
