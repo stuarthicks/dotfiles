@@ -15,6 +15,9 @@ let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 let NERDTreeIgnore = ['\.pyc$']
 
+let g:python_host_prog  = $HOME.'/.pyenv/shims/python2'
+let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
+
 call g:plugins#InstallDein()
 call g:plugins#InstallDeinPlugins()
 call g:plugins#ConfigurePlugins()
