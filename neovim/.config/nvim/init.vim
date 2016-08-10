@@ -27,8 +27,9 @@ filetype plugin indent on
 " Theming!
 set t_Co=256
 set termguicolors
-set background=dark
-colorscheme onedark
+set background=light
+let g:one_allow_italics = 1
+colorscheme one
 
 " Set colour of non-printing chars, eg tabs.
 highlight SpecialKey ctermbg=none ctermfg=DarkGrey
