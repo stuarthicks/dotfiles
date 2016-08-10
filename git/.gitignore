@@ -32,3 +32,4 @@ pentadactyl/info
 .vscode/
 debug
 *.patch
+vim-go-test-compile
