@@ -71,6 +71,11 @@ bindkey -M menuselect "=" accept-and-menu-complete
 . ~/.aliases   NULL
 . ~/.functions NULL
 
+eval "$(command rbenv init            --no-rehash - zsh)" NULL
+eval "$(command plenv init            --no-rehash - zsh)" NULL
+eval "$(command pyenv init            --no-rehash - zsh)" NULL
+eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
+
 zle -N fancy-ctrl-z       && bindkey '^Z' fancy-ctrl-z
 zle -N focus-on-something && bindkey '^F' focus-on-something # Focus!
 zle -N do-something       && bindkey '^G' do-something       # Go!

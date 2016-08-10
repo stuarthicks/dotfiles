@@ -5,22 +5,6 @@ fpath()   { echo $FPATH   | tr : $'\n' }
 manpath() { echo $MANPATH | tr : $'\n' }
 gopath()  { echo $GOPATH  | tr : $'\n' }
 
-rbenv() {
-    eval "$(command rbenv init --no-rehash - zsh)"
-    rbenv "$@"
-}
-
-plenv() {
-    eval "$(command plenv init --no-rehash - zsh)"
-    plenv "$@"
-}
-
-pyenv() {
-    eval "$(command pyenv init --no-rehash - zsh)"
-    eval "$(command pyenv virtualenv-init --no-rehash - zsh)"
-    pyenv "$@"
-}
-
 javav() {
   export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
   path=("$JAVA_HOME/bin" $path)
