@@ -19,6 +19,7 @@ case "$(uname)" in
 esac
 
 git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
+git clone 'https://github.com/syl20bnr/spacemacs' ../.emacs.d
 
 stow --stow --verbose \
   abcde        \
@@ -29,6 +30,7 @@ stow --stow --verbose \
   neovim       \
   rubocop      \
   scripts      \
+  spacemacs    \
   ssh          \
   tmux         \
   zsh          \

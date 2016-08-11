@@ -9,6 +9,7 @@ alias pwd=' pwd'
 alias bonsai='tree -F --filelimit 15'
 alias circle-build="circleci trigger --filter='.build_url'"
 alias duh='du -sh *'
+alias e=emacs
 alias fenv='env | fzf'
 alias fk=fkill
 alias g=git
