@@ -9,7 +9,6 @@ alias pwd=' pwd'
 alias bonsai='tree -F --filelimit 15'
 alias circle-build="circleci trigger --filter='.build_url'"
 alias duh='du -sh *'
-alias e=emacs
 alias fenv='env | fzf'
 alias fk=fkill
 alias g=git
@@ -29,6 +28,7 @@ alias t=tmux
 alias unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 
 # osx specific
+alias e='open -a Emacs'
 alias indexing='sudo mdutil -a -v -i'
 alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias md='open -a macdown'

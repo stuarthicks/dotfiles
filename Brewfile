@@ -24,7 +24,7 @@ brew 'curl', args: [ 'with-openssl', 'with-libssh2', 'with-nghttp2', 'with-rtmpd
 brew 'delve'
 brew 'docker-clean'
 brew 'editorconfig'
-brew 'emacs', restart_service: :changed
+brew 'emacs', args: [ 'with-cocoa', 'with-imagemagick' ], restart_service: :changed
 brew 'ffmpeg', args: [ 'with-fdk-aac' ]
 brew 'fleetctl'
 brew 'fzf'
