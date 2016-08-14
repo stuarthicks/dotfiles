@@ -63,11 +63,157 @@ zstyle ':completion:*' tag-order '! users'                      # listing all us
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
+# hide common commands from history
+alias cd=' cd'
+alias k=' k'
+alias ls=' ls'
+alias pwd=' pwd'
+
+# nonspecific
+alias bonsai='tree -F --filelimit 15'
+alias fenv='env | fzf'
+alias g=git
+alias git=hub
+alias hex='hexdump -C'
+alias ll='ls --color --group-directories-first -halF'
+alias m=mosh
+alias mp=ncmpcpp
+alias n=nvim
+alias p='ps aux | grep -i'
+alias pr='hub pull-request'
+alias py=pyenv
+alias rb=rbenv
+alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
+alias t=tmux
+alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
+
+# osx specific
+alias osx-indexing='sudo mdutil -a -v -i'
+alias osx-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+alias e='open -a Emacs'
+alias md='open -a macdown'
+
+# zsh globals, ie 'curl foo V'
+alias -g L="2>&1 | less"
+alias -g V='| nvim -R -'
+
+path()    { echo $PATH    | tr : $'\n' }
+fpath()   { echo $FPATH   | tr : $'\n' }
+manpath() { echo $MANPATH | tr : $'\n' }
+gopath()  { echo $GOPATH  | tr : $'\n' }
+
+javav() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
+  path=("$JAVA_HOME/bin" $path)
+  path=($^path(N)) && typeset -U PATH
+  echo "JAVA_HOME is $JAVA_HOME"
+}
+
+apt-purge-old-kernels() {
+  echo 'Current: '$(uname -r) \
+    && dpkg -l 'linux-*' \
+    | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' \
+    | xargs sudo apt-get -y purge
+}
+
+brews() {
+  brew list | while read cask; do \
+    if [ -t 1 ]; then
+      echo -n $fg[blue] $cask $fg[white]
+    else
+      echo -n $cask
+    fi
+    brew deps $cask \
+      | awk '{printf(" %s ", $0)}'
+    echo ""
+  done
+}
+
+brews-used() {
+  brew list | while read cask; do \
+    if [ -t 1 ]; then
+      echo -n $fg[blue] $cask $fg[white]
+    else
+      echo -n $cask
+    fi
+    brew uses --installed $cask \
+      | awk '{printf(" %s ", $0)}'
+    echo ""
+  done
+}
+
+function start-ssh-agent {
+  rm -f "$SSH_ENV"
+  ssh-agent > "$SSH_ENV"
+  chmod 600 "$SSH_ENV"
+  source "$SSH_ENV" > /dev/null 2>&1
+}
+
+# fbr - checkout git branch (including remote branches)
+br() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) && \
+    branch=$(
+      echo "$branches" \
+        | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) \
+        && git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##"
+    )
+}
+
+_fzf_compgen_path() { pt --hidden --nocolor -g "" "$1"; }
+
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    kill -9 %+
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+
+focus-on-something () {
+  if [ -n "$FOCUS" ]; then
+    unset FOCUS
+  else
+    BUFFER='FOCUS="!!"'
+    zle expand-history
+    zle end-of-line
+    zle accept-line
+  fi
+}
+
+do-something () {
+   if  [ -n "$FOCUS" ];     then BUFFER="$FOCUS"
+  elif [ -f "Makefile" ];   then BUFFER="make"
+  elif [ -x "test" ];       then BUFFER="./test"
+  elif [ -x "test.sh" ];    then BUFFER="./test.sh"
+  elif [ -x "build" ];      then BUFFER="./build"
+  elif [ -x "build.sh" ];   then BUFFER="./build.sh"
+  elif [ -f "pom.xml" ];    then BUFFER="mvn clean install"
+  elif [ -f "Gemfile" ];    then BUFFER="bundle install"
+  elif [ -f "Cargo.toml" ]; then BUFFER="cargo build"
+  elif [ -x "gradlew" ];    then BUFFER="./gradlew"
+  fi
+  zle end-of-line
+  zle accept-line
+}
+
+man() {
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    man "$@"
+}
+
+zom() { (cd && zcompile '.zshrc' '.zshenv' '.zprofile'); }
+
 . ~/.fzf.zsh       NULL
 . ~/.zplugins/k.sh NULL
-
-. ~/.aliases   NULL
-. ~/.functions NULL
 
 eval "$(command rbenv init            --no-rehash - zsh)" NULL
 eval "$(command pyenv init            --no-rehash - zsh)" NULL
