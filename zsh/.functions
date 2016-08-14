@@ -52,30 +52,6 @@ function start-ssh-agent {
   source "$SSH_ENV" > /dev/null 2>&1
 }
 
-f() {
-  ${VISUAL:-nvim} "$(pt --nocolor -g "" | fzf)"
-}
-
-# fd - cd to selected directory
-fd() {
-  local dir
-  dir=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-# fda - including hidden directories
-fda() {
-  local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
-
-# cdf - cd into the directory of the selected file
-cdf() {
-   local file
-   local dir
-   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-}
-
 # fkill - kill process
 fkill() {
   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
@@ -93,15 +69,6 @@ br() {
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-d() {
-  if [[ -z "$*" ]]; then
-    cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
-  else
-    _z "$@"
-  fi
-  pwd
 }
 
 _fzf_compgen_path() {
@@ -126,19 +93,15 @@ focus-on-something () {
 
 do-something () {
    if  [ -n "$FOCUS" ];           then BUFFER="$FOCUS"
-  elif [ -f "configure" ];        then BUFFER="./configure && make"
-  elif [ -f "CMakeLists.txt" ];   then BUFFER="mkdir cmakebuild && cd cmakebuild && cmake .. && make"
   elif [ -f "Makefile" ];         then BUFFER="make"
-  elif [ -f "build" ];            then BUFFER="./build"
-  elif [ -f "build.sh" ];         then BUFFER="./build.sh"
-  elif [ -f "test" ];             then BUFFER="./test"
-  elif [ -f "test.sh" ];          then BUFFER="./test.sh"
+  elif [ -x "test" ];             then BUFFER="./test"
+  elif [ -x "test.sh" ];          then BUFFER="./test.sh"
+  elif [ -x "build" ];            then BUFFER="./build"
+  elif [ -x "build.sh" ];         then BUFFER="./build.sh"
   elif [ -f "pom.xml" ];          then BUFFER="mvn clean install"
   elif [ -f "Gemfile" ];          then BUFFER="bundle install"
   elif [ -f "Cargo.toml" ];       then BUFFER="cargo build"
-  elif [ -f "gradlew" ];          then BUFFER="./gradlew"
-  elif [ -d "requirements.txt" ]; then BUFFER="pip install -r requirements.txt"
-  elif [ -d "node_modules" ];     then BUFFER="npm test"
+  elif [ -x "gradlew" ];          then BUFFER="./gradlew"
   fi
   zle end-of-line
   zle accept-line

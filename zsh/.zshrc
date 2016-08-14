@@ -63,16 +63,13 @@ zstyle ':completion:*' tag-order '! users'                      # listing all us
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-. ~/.fzf.zsh                      NULL
-. ~/.zplugins/k.sh                NULL
-. ~/.zplugins/z.sh                NULL
-. ~/.iterm2_shell_integration.zsh NULL
+. ~/.fzf.zsh       NULL
+. ~/.zplugins/k.sh NULL
 
 . ~/.aliases   NULL
 . ~/.functions NULL
 
 eval "$(command rbenv init            --no-rehash - zsh)" NULL
-eval "$(command plenv init            --no-rehash - zsh)" NULL
 eval "$(command pyenv init            --no-rehash - zsh)" NULL
 eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
 
