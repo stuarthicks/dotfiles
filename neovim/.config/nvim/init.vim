@@ -3,20 +3,19 @@ scriptencoding utf-8
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
+let NERDTreeIgnore = ['\.pyc$']
 let g:deoplete#enable_at_startup = 1
-let g:rehash256 = 1
 let g:pymode_lint = 1
 let g:pymode_lint_ignore = "E501,E261,E221,E302"
-let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_rope_goto_definition_bind = "<leader>gd"
 let g:pymode_trim_whitespaces = 1
+let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
+let g:python_host_prog  = $HOME.'/.pyenv/shims/python2'
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
+let g:tagbar_type_make = { 'kinds': ['m:macros', 't:targets'] }
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
-let NERDTreeIgnore = ['\.pyc$']
-
-let g:python_host_prog  = $HOME.'/.pyenv/shims/python2'
-let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
 call g:plugins#InstallDein()
 call g:plugins#InstallDeinPlugins()
@@ -25,10 +24,8 @@ call g:plugins#ConfigurePlugins()
 filetype plugin indent on
 
 " Theming!
-set t_Co=256
 set termguicolors
-let g:one_allow_italics = 1
-colorscheme one
+colorscheme molokai
 set background=dark
 
 " Set colour of non-printing chars, eg tabs.
@@ -46,11 +43,10 @@ set smartcase
 set lazyredraw
 set nofoldenable
 set synmaxcol=220
-set ttyfast
 
 " Misc Options
 set autowrite
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
@@ -83,13 +79,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Opposite of J. Split line at current point.
-nmap K i<CR><Esc>d^==kg_lD
-
-" Normal movement around long-wrapped lines
-nnoremap k gk
-nnoremap j gj
-nnoremap gj j
-nnoremap gk k
+nmap <M-j> i<CR><Esc>d^==kg_lD
 
 " Keep cursor in centre of screen after motions
 nnoremap n nzz
@@ -102,15 +92,15 @@ nnoremap } }zz
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>C :cclose<CR>
+map <leader>qn :cnext<CR>
+map <leader>qp :cprevious<CR>
+nnoremap <leader>qc :cclose<CR>
 
-nnoremap <F4> :%!python -mjson.tool<cr>
-nnoremap <F6> :%s/\s\+$//
+au Filetype json nnoremap <leader>mf :%!python -mjson.tool<cr>
+nnoremap <leader>mfw :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <leader>e :Explore<cr>
+nnoremap <leader>fe :Explore<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
@@ -135,7 +125,7 @@ set viminfo=
 augroup GPG
   autocmd!
   autocmd BufReadPost  *.asc :%!gpg -q -d
-  autocmd BufReadPost  *.asc |redraw
+  autocmd BufReadPost  *.asc |redraw!
   autocmd BufWritePre  *.asc :%!gpg -q -e -a
   autocmd BufWritePost *.asc u
   autocmd VimLeave     *.asc :!clear
@@ -155,6 +145,7 @@ tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 " autocmd WinEnter term://* startinsert
 
-nnoremap <silent> <leader>t :vsplit +terminal<cr>
-nnoremap <silent> <leader>s :split +terminal<cr>
-nnoremap <silent> <leader>T :tabnew +terminal<cr>
+nnoremap <silent> <leader>tv :vsplit +terminal<cr>
+nnoremap <silent> <leader>ts :split +terminal<cr>
+nnoremap <silent> <leader>tt :tabnew +terminal<cr>
+

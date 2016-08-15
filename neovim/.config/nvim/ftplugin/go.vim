@@ -23,23 +23,53 @@ function! s:build_go_files()
   endif
 endfunction
 
-au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <leader>B <Plug>(go-test)
-au FileType go nmap <leader>c :GoCoverageToggle<cr>
+au FileType go nmap <leader>mb :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <leader>mt <Plug>(go-test)
+au FileType go nmap <leader>mc :GoCoverageToggle<cr>
 
-au FileType go nnoremap <leader>r :GoRename<cr>
-au FileType go nnoremap <leader>i :GoImport<space>
-au FileType go nnoremap <leader>a :GoAlternate<cr>
-au FileType go nnoremap <buffer> <silent> <leader>f :GoImports<cr>
-au FileType go nnoremap <buffer> <silent> <leader>l :GoMetaLinter<cr>
+au FileType go nnoremap <leader>mr :GoRename<cr>
+au FileType go nnoremap <leader>mi :GoImport<space>
+au FileType go nnoremap <leader>ma :GoAlternate<cr>
+au FileType go nnoremap <buffer> <silent> <leader>mf :GoImports<cr>
+au FileType go nnoremap <buffer> <silent> <leader>ml :GoMetaLinter<cr>
 
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gds <Plug>(go-def-split)
+au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
 
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>ds <Plug>(go-doc)
+au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
-au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>gs <Plug>(go-implements)
 
 au FileType go nmap gd gdzz
+
+" go get -u github.com/jstemmer/gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }

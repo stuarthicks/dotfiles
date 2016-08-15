@@ -8,12 +8,11 @@
 *.iml
 *.iws
 
+# Visual Studio Code
+.vscode/
+
 # Mac
 .DS_Store
-
-# Maven
-log/
-target/
 
 # Cucumber
 rest-assured.log
@@ -21,15 +20,15 @@ screenshots/
 tags
 unlimited-cucumber-works
 
+# Generic
 *.log
-*.test
-*.swp
-.projections.json
-.ropeproject/*
-
-tmp/
-pentadactyl/info
-.vscode/
-debug
 *.patch
+*.swp
+*.test
+.ropeproject/*
+debug
+log/
+session.vim
+target/
+tmp/
 vim-go-test-compile
