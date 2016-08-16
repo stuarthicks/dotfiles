@@ -67,8 +67,7 @@ brew 'rbenv'
 brew 'rbenv-bundler'
 brew 'rbenv-bundler-ruby-version'
 brew 'rbenv-ctags'
-# brew install --HEAD https://gist.github.com/mitukiii/9029870/raw/rbenv-each.rb
-# brew 'rbenv-each', args: [ 'HEAD' ]
+brew 'https://gist.github.com/mitukiii/9029870/raw/rbenv-each.rb', args: [ 'HEAD' ]
 brew 'rbenv-use'
 brew 'rbenv-whatis'
 brew 'readline'
@@ -101,6 +100,7 @@ brew 'zeromq32'
 brew 'zsh'
 
 cask 'aerial'
+cask 'anatine'
 cask 'cool-retro-term'
 cask 'gpgtools'
 cask 'java'

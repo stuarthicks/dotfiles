@@ -10,6 +10,7 @@ $GO github.com/constabulary/gb/...
 $GO github.com/divan/depscheck
 $GO github.com/godoctor/godoctor
 $GO github.com/golang/lint/golint
+$GO github.com/jstemmer/gotags
 $GO github.com/lukehoban/go-outline
 $GO github.com/maruel/panicparse/...
 $GO github.com/newhook/go-symbols
@@ -18,9 +19,7 @@ $GO github.com/otium/ytdl/...
 $GO github.com/rogpeppe/godef
 $GO github.com/sqs/goreturns
 $GO github.com/tpng/gopkgs
-
 $GO golang.org/x/tools/cmd/...
-
 $GO honnef.co/go/unused/cmd/unused
 
 gometalinter --install --update --force
