@@ -199,14 +199,14 @@ do-something () {
 }
 
 man() {
-    env \
-    LESS_TERMCAP_mb=$'\e[01;31m' \
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
+  env \
+    LESS_TERMCAP_mb=$(printf "\x1b[38;2;255;200;200m") \
+    LESS_TERMCAP_md=$(printf "\x1b[38;2;255;100;200m") \
+    LESS_TERMCAP_me=$(printf "\x1b[0m") \
+    LESS_TERMCAP_so=$(printf "\x1b[38;2;60;90;90;48;2;40;40;40m") \
+    LESS_TERMCAP_se=$(printf "\x1b[0m") \
+    LESS_TERMCAP_us=$(printf "\x1b[38;2;150;100;200m") \
+    LESS_TERMCAP_ue=$(printf "\x1b[0m") \
     man "$@"
 }
 
