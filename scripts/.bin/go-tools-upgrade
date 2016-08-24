@@ -1,27 +1,29 @@
 #!/bin/bash
 
-GO='go get -u -v'
+GO='go get -u'
 
 set -x
 
 $GO github.com/HewlettPackard/gas
 $GO github.com/alecthomas/gometalinter
-$GO github.com/constabulary/gb/...
+$GO github.com/constabulary/gb
 $GO github.com/divan/depscheck
+$GO github.com/ernesto-jimenez/gogen
 $GO github.com/godoctor/godoctor
 $GO github.com/golang/lint/golint
 $GO github.com/jstemmer/gotags
 $GO github.com/lukehoban/go-outline
-$GO github.com/maruel/panicparse/...
+$GO github.com/maruel/panicparse
 $GO github.com/newhook/go-symbols
 $GO github.com/nsf/gocode
-$GO github.com/otium/ytdl/...
+$GO github.com/otium/ytdl
 $GO github.com/rogpeppe/godef
 $GO github.com/sqs/goreturns
 $GO github.com/tpng/gopkgs
-$GO golang.org/x/tools/cmd/...
+$GO github.com/vektra/mockery
+$GO golang.org/x/tools
 $GO honnef.co/go/unused/cmd/unused
 
-gometalinter --install --update --force
+gometalinter --install
 
 nvim a.go -c ':GoInstallBinaries' -c 'GoUpdateBinaries' +qall
