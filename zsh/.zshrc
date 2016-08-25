@@ -173,13 +173,13 @@ fancy-ctrl-z () {
 
 focus-on-something () {
   if [ -n "$FOCUS" ]; then
-    unset FOCUS
+    BUFFER='unset FOCUS'
   else
     BUFFER='FOCUS="!!"'
-    zle expand-history
-    zle end-of-line
-    zle accept-line
   fi
+  zle expand-history
+  zle end-of-line
+  zle accept-line
 }
 
 do-something () {
