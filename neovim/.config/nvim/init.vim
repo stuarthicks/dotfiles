@@ -28,16 +28,16 @@ set termguicolors
 colorscheme molokai
 set background=dark
 
-" Set colour of non-printing chars, eg tabs.
-highlight SpecialKey ctermbg=none ctermfg=DarkGrey
-
-" Indent Options
-set tabstop=4
-
 " Searching
 set ignorecase
 set showmatch
 set smartcase
+set wildmode=longest,list
+set wildignore+=*/.git/*
+set wildignore+=*/.svn/*
+set wildignore+=*/Godeps/*
+set wildignore+=*/vendor/*
+set wildignore+=*/node_modules/*
 
 " Set mainly to improve performance
 set lazyredraw
@@ -50,22 +50,30 @@ set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
+set hidden
 set linebreak
-set nolist
 set listchars=tab:»—,trail:_
 set modelines=1
 set mouse=a
-set hidden
+set nolist
 set nowrap
 set nowrapscan
 set number
+set path+=**
 set relativenumber
 set scrolloff=10
 set sidescrolloff=10
 set splitbelow
 set splitright
 set timeoutlen=300
-set wildmode=longest,list
+
+if executable('pt')
+  set grepprg=pt\ --nocolor\ --nogroup\ --column\ --context\ 0
+  set grepformat=%f:%l:%c:%m
+endif
+
+nnoremap <leader>f :find<space>
+nnoremap <leader>g :grep<space>
 
 " Annoying typo fixes
 nnoremap q: <nop>
@@ -100,7 +108,7 @@ au Filetype json nnoremap <leader>mf :%!python -mjson.tool<cr>
 nnoremap <leader>mfw :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <leader>fe :Explore<cr>
+nnoremap <leader>e :Explore<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
@@ -108,6 +116,12 @@ nnoremap <Left> :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
+
+" OSX-convenient buffer switching
+nnoremap § :ls<cr>:b
+
+" Return to previous edit point
+nnoremap <BS> <C-^>
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -143,7 +157,6 @@ tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
-" autocmd WinEnter term://* startinsert
 
 nnoremap <silent> <leader>tv :vsplit +terminal<cr>
 nnoremap <silent> <leader>ts :split +terminal<cr>
