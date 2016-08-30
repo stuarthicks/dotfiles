@@ -210,6 +210,14 @@ man() {
     man "$@"
 }
 
+title() {
+  if [ -n "$TMUX" ]; then
+    tmux rename-window "$*"
+  else
+    echo -ne "\033]0;"$*"\007"
+  fi
+}
+
 zom() { (cd && zcompile '.zshrc' '.zshenv' '.zprofile'); }
 
 . ~/.fzf.zsh       NULL
