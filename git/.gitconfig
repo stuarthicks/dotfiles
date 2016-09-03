@@ -22,6 +22,11 @@
 	autoupdate = true
 [color]
 	ui = auto
+[color "diff"]
+	old = red strike
+  new = green italic
+[log]
+  showSignature = true
 [help]
 	autocorrect = 1
 [svn]

@@ -90,6 +90,7 @@ alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:
 # osx specific
 alias osx-indexing='sudo mdutil -a -v -i'
 alias osx-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+alias osx-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias e='open -a Emacs'
 alias md='open -a macdown'
 
