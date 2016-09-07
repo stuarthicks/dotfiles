@@ -172,33 +172,6 @@ fancy-ctrl-z () {
   fi
 }
 
-focus-on-something () {
-  if [ -n "$FOCUS" ]; then
-    BUFFER='unset FOCUS'
-  else
-    BUFFER='FOCUS="!!"'
-  fi
-  zle expand-history
-  zle end-of-line
-  zle accept-line
-}
-
-do-something () {
-   if  [ -n "$FOCUS" ];     then BUFFER="$FOCUS"
-  elif [ -f "Makefile" ];   then BUFFER="make"
-  elif [ -x "test" ];       then BUFFER="./test"
-  elif [ -x "test.sh" ];    then BUFFER="./test.sh"
-  elif [ -x "build" ];      then BUFFER="./build"
-  elif [ -x "build.sh" ];   then BUFFER="./build.sh"
-  elif [ -f "pom.xml" ];    then BUFFER="mvn clean install"
-  elif [ -f "Gemfile" ];    then BUFFER="bundle install"
-  elif [ -f "Cargo.toml" ]; then BUFFER="cargo build"
-  elif [ -x "gradlew" ];    then BUFFER="./gradlew"
-  fi
-  zle end-of-line
-  zle accept-line
-}
-
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\x1b[38;2;255;200;200m") \
@@ -228,9 +201,7 @@ eval "$(command rbenv init            --no-rehash - zsh)" NULL
 eval "$(command pyenv init            --no-rehash - zsh)" NULL
 eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
 
-zle -N fancy-ctrl-z       && bindkey '^Z' fancy-ctrl-z
-zle -N focus-on-something && bindkey '^F' focus-on-something # Focus!
-zle -N do-something       && bindkey '^G' do-something       # Go!
+zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
