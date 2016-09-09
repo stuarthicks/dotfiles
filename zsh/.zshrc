@@ -88,15 +88,12 @@ alias t=tmux
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 
 # osx specific
-alias osx-indexing='sudo mdutil -a -v -i'
-alias osx-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
-alias osx-ports='sudo lsof -PiTCP -sTCP:LISTEN'
-alias e='open -a Emacs'
-alias md='open -a macdown'
+alias macos-indexing='sudo mdutil -a -v -i'
+alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 
 # zsh globals, ie 'curl foo V'
-alias -g L="2>&1 | less"
-alias -g V='| nvim -R -'
+alias -g L="|& less"
 
 path()    { echo $PATH    | tr : $'\n' }
 fpath()   { echo $FPATH   | tr : $'\n' }
@@ -190,6 +187,14 @@ title() {
   else
     echo -ne "\033]0;"$*"\007"
   fi
+}
+
+aws-region() {
+  export AWS_DEFAULT_REGION="$@"
+}
+
+aws-profile() {
+  export AWS_PROFILE="$@"
 }
 
 zom() { (cd && zcompile '.zshrc' '.zshenv' '.zprofile'); }

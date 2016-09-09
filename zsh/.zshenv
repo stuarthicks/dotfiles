@@ -33,7 +33,7 @@ if [ -f ~/.gpg-agent-info ]; then
   export GPG_AGENT_INFO
   export GPG_TTY="$(tty)"
 fi
-export GPGKEY=B7CCA53C
+export GPGKEY=AC065BDDB7CCA53C
 
 export SSH_ENV=~/.ssh/environment
 . "${SSH_ENV}" NULL
