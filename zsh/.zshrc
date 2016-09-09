@@ -16,8 +16,12 @@ ttyctl -f # freeze tty
 DIRSTACKSIZE=9
 DIRSTACKFILE=~/.zdirs
 
+export COMPLETION_WAITING_DOTS="true"
+export CLICOLOR=1
 export HISTFILE=~/.zsh_history
 export HISTSIZE=2000
+export KEYTIMEOUT=1
+export REPORTTIME=1
 export SAVEHIST=2000
 
 setopt ALIASES
@@ -92,8 +96,9 @@ alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 
-# zsh globals, ie 'curl foo V'
 alias -g L="|& less"
+
+export AWS_DEFAULT_REGION=us-east-1
 
 path()    { echo $PATH    | tr : $'\n' }
 fpath()   { echo $FPATH   | tr : $'\n' }
