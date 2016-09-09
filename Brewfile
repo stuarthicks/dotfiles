@@ -55,6 +55,7 @@ brew 'mobile-shell'
 brew 'mpd', restart_service: :changed
 brew 'ncmpcpp'
 brew 'neovim'
+brew 'ngrep'
 brew 'nmap'
 brew 'openssh', args: [ 'with-libressl' ]
 brew 'openssl'
