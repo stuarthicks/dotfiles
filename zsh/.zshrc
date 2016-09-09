@@ -105,44 +105,11 @@ fpath()   { echo $FPATH   | tr : $'\n' }
 manpath() { echo $MANPATH | tr : $'\n' }
 gopath()  { echo $GOPATH  | tr : $'\n' }
 
-javav() {
+function macos-java {
   export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
   path=("$JAVA_HOME/bin" $path)
   path=($^path(N)) && typeset -U PATH
   echo "JAVA_HOME is $JAVA_HOME"
-}
-
-apt-purge-old-kernels() {
-  echo 'Current: '$(uname -r) \
-    && dpkg -l 'linux-*' \
-    | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' \
-    | xargs sudo apt-get -y purge
-}
-
-brews() {
-  brew list | while read cask; do \
-    if [ -t 1 ]; then
-      echo -n $fg[blue] $cask $fg[white]
-    else
-      echo -n $cask
-    fi
-    brew deps $cask \
-      | awk '{printf(" %s ", $0)}'
-    echo ""
-  done
-}
-
-brews-used() {
-  brew list | while read cask; do \
-    if [ -t 1 ]; then
-      echo -n $fg[blue] $cask $fg[white]
-    else
-      echo -n $cask
-    fi
-    brew uses --installed $cask \
-      | awk '{printf(" %s ", $0)}'
-    echo ""
-  done
 }
 
 function start-ssh-agent {
@@ -150,17 +117,6 @@ function start-ssh-agent {
   ssh-agent > "$SSH_ENV"
   chmod 600 "$SSH_ENV"
   source "$SSH_ENV" > /dev/null 2>&1
-}
-
-# fbr - checkout git branch (including remote branches)
-br() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) && \
-    branch=$(
-      echo "$branches" \
-        | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) \
-        && git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##"
-    )
 }
 
 _fzf_compgen_path() { pt --hidden --nocolor -g "" "$1"; }
@@ -186,14 +142,6 @@ man() {
     man "$@"
 }
 
-title() {
-  if [ -n "$TMUX" ]; then
-    tmux rename-window "$*"
-  else
-    echo -ne "\033]0;"$*"\007"
-  fi
-}
-
 aws-region() {
   export AWS_DEFAULT_REGION="$@"
 }
@@ -202,14 +150,12 @@ aws-profile() {
   export AWS_PROFILE="$@"
 }
 
-zom() { (cd && zcompile '.zshrc' '.zshenv' '.zprofile'); }
+. ~/.fzf.zsh       > /dev/null 2>&1
+. ~/.zplugins/k.sh > /dev/null 2>&1
 
-. ~/.fzf.zsh       NULL
-. ~/.zplugins/k.sh NULL
-
-eval "$(command rbenv init            --no-rehash - zsh)" NULL
-eval "$(command pyenv init            --no-rehash - zsh)" NULL
-eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
+eval "$(command rbenv init            --no-rehash - zsh)" > /dev/null 2>&1
+eval "$(command pyenv init            --no-rehash - zsh)" > /dev/null 2>&1
+eval "$(command pyenv virtualenv-init --no-rehash - zsh)" > /dev/null 2>&1
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if [ -n "$TMUX" ]; then
+  tmux rename-window "$*"
+else
+  echo -ne "\033]0;"$*"\007"
+fi

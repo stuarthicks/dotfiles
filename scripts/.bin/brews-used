@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+brew list | while read cask; do \
+  if [ -t 1 ]; then
+    echo -n $fg[blue] $cask $fg[white]
+  else
+    echo -n $cask
+  fi
+  brew uses --installed $cask \
+    | awk '{printf(" %s ", $0)}'
+  echo ""
+done
