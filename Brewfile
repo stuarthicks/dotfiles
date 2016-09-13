@@ -46,7 +46,6 @@ brew 'keybase'
 brew 'ksh'
 brew 'lame'
 brew 'libressl'
-brew 'macvim', args: [ 'with-lua' ]
 brew 'make'
 brew 'maven'
 brew 'media-info'
