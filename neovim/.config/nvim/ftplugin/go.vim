@@ -5,11 +5,14 @@ let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'
 let g:go_fmt_fail_silently = 1
 
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
 let g:go_highlight_string_spellcheck = 0
-" let g:go_highlight_operators = 1
-" let g:go_highlight_structs = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
 let g:go_term_enabled = 1
 
@@ -33,17 +36,15 @@ au FileType go nnoremap <leader>ma :GoAlternate<cr>
 au FileType go nnoremap <buffer> <silent> <leader>mf :GoImports<cr>
 au FileType go nnoremap <buffer> <silent> <leader>ml :GoMetaLinter<cr>
 
-au FileType go nmap <Leader>gds <Plug>(go-def-split)
-au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gs <Plug>(go-def-split)
+au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>gt <Plug>(go-def-tab)
 
 au FileType go nmap <Leader>ds <Plug>(go-doc)
 au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
-au FileType go nmap <Leader>gs <Plug>(go-implements)
-
-au FileType go nmap gd gdzz
+au FileType go nmap <Leader>gi <Plug>(go-implements)
 
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {

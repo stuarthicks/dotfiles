@@ -70,7 +70,7 @@ function! g:plugins#ConfigurePlugins()
   xmap <C-k> <Plug>(neosnippet_expand_target)
 
   " rizzatti/dash.vim'
-  nmap <silent> <leader>ds <Plug>DashSearch
+  nmap <silent> <leader>d <Plug>DashSearch
   nmap <leader>dd :Dash<space>
 
   " junegunn/goyo.vim

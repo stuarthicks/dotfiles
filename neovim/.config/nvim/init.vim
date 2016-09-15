@@ -74,6 +74,7 @@ endif
 
 nnoremap <leader>f :find<space>
 nnoremap <leader>g :grep<space>
+nnoremap <leader>b :ls<cr>:b
 
 " Annoying typo fixes
 nnoremap q: <nop>
@@ -95,6 +96,7 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap { {zz
 nnoremap } }zz
+nnoremap gd gdzz
 
 " Closing buffers/windows more conveniently
 nnoremap <silent> <C-x> :bd<cr>
@@ -116,9 +118,6 @@ nnoremap <Left> :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
-
-" OSX-convenient buffer switching
-nnoremap § :ls<cr>:b
 
 " Return to previous edit point
 nnoremap <BS> <C-^>
