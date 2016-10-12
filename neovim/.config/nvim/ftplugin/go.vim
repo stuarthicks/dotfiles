@@ -46,6 +46,8 @@ au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
 au FileType go nmap <Leader>gi <Plug>(go-implements)
 
+au FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
+
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
