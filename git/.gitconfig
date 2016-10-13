@@ -37,8 +37,9 @@
 	insteadOf = git://github.com/
 	insteadOf = git+ssh://github.com/
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
 [credential]
 	helper = !aws codecommit credential-helper $@
 	UseHttpPath = true
