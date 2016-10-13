@@ -3,14 +3,11 @@ scriptencoding utf-8
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
-let NERDTreeIgnore = ['\.pyc$']
-let g:deoplete#enable_at_startup = 1
-let g:pymode_lint = 1
-let g:pymode_lint_ignore = "E501,E261,E221,E302"
-let g:pymode_rope_goto_definition_bind = "<leader>gd"
-let g:pymode_trim_whitespaces = 1
 let g:python2_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
+
+let NERDTreeIgnore = ['\.pyc$']
+let g:deoplete#enable_at_startup = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
 let g:tagbar_type_make = { 'kinds': ['m:macros', 't:targets'] }
