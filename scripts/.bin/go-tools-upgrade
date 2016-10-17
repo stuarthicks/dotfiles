@@ -19,6 +19,7 @@ $GO github.com/newhook/go-symbols
 $GO github.com/nsf/gocode
 $GO github.com/otium/ytdl
 $GO github.com/rogpeppe/godef
+$GO github.com/smartystreets/goconvey
 $GO github.com/sqs/goreturns
 $GO github.com/tpng/gopkgs
 $GO github.com/vektra/mockery
