@@ -9,8 +9,20 @@ Documentation:
 Style/AccessorMethodName:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: single_quotes
+
+Metrics/ClassLength:
+  Enabled: false
 
 Metrics/LineLength:
   Enabled: false
