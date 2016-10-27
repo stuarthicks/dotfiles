@@ -32,3 +32,5 @@ session.vim
 target/
 tmp/
 vim-go-test-compile
+*.pyc
+*.yarb
