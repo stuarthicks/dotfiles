@@ -159,6 +159,14 @@ eval "$(command pyenv virtualenv-init --no-rehash - zsh)" > /dev/null 2>&1
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
+export GOPATH=~/go
+
+path=(~/.brew/bin $path)
+path=(~/.brew/sbin $path)
+path=(~/.cargo/bin $path)
+path=($GOPATH/bin $path)
+path=(~/.bin $path)
+
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
 path=($^path(N))       && typeset -U PATH
