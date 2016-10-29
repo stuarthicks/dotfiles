@@ -153,6 +153,9 @@ aws-profile() {
 . ~/.fzf.zsh       > /dev/null 2>&1
 . ~/.zplugins/k.sh > /dev/null 2>&1
 
+path=(~/.brew/bin $path)
+path=(~/.brew/sbin $path)
+
 eval "$(command rbenv init            --no-rehash - zsh)" > /dev/null 2>&1
 eval "$(command pyenv init            --no-rehash - zsh)" > /dev/null 2>&1
 eval "$(command pyenv virtualenv-init --no-rehash - zsh)" > /dev/null 2>&1
@@ -161,8 +164,6 @@ zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
 export GOPATH=~/go
 
-path=(~/.brew/bin $path)
-path=(~/.brew/sbin $path)
 path=(~/.cargo/bin $path)
 path=($GOPATH/bin $path)
 path=(~/.bin $path)
