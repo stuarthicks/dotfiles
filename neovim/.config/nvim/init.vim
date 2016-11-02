@@ -4,12 +4,24 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
-
 let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '\.yarb$']
 let g:deoplete#enable_at_startup = 1
+let g:go_dispatch_enabled = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = 'goimports'
+let g:go_fmt_fail_silently = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_string_spellcheck = 0
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_term_enabled = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
 let g:tagbar_type_make = { 'kinds': ['m:macros', 't:targets'] }
@@ -100,10 +112,6 @@ nnoremap gd gdzz
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
-map <leader>qn :cnext<CR>
-map <leader>qp :cprevious<CR>
-nnoremap <leader>qc :cclose<CR>
-
 au Filetype json nnoremap <leader>mf :%!python -mjson.tool<cr>
 nnoremap <leader>mfw :%s/\s\+$//
 
@@ -142,12 +150,6 @@ augroup GPG
   autocmd VimLeave     *.asc :!clear
 augroup END
 
-" Resize splits when window is resized
-augroup AUTORESIZE
-  autocmd!
-  autocmd VimResized * :wincmd =
-augroup END
-
 " Mappings related to terminal buffers
 tnoremap <leader><leader> <C-\><C-n>
 tnoremap <A-h> <C-\><C-n><C-w>h
@@ -158,4 +160,3 @@ tnoremap <A-l> <C-\><C-n><C-w>l
 nnoremap <silent> <leader>tv :vsplit +terminal<cr>
 nnoremap <silent> <leader>ts :split +terminal<cr>
 nnoremap <silent> <leader>tt :tabnew +terminal<cr>
-
