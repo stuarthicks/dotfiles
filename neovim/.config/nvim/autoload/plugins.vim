@@ -39,7 +39,7 @@ function! g:plugins#InstallDeinPlugins()
   call dein#add('tpope/vim-endwise', { 'on_ft': 'ruby' })
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-vinegar', { 'on_cmd': 'Explore' })
+  call dein#add('tpope/vim-vinegar')
   call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
 
   call dein#end()

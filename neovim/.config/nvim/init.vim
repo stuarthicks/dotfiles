@@ -116,7 +116,7 @@ au Filetype json nnoremap <leader>mf :%!python -mjson.tool<cr>
 nnoremap <leader>mfw :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <leader>e :Explore<cr>
+nnoremap <leader>e :20Lexplore<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
