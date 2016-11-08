@@ -24,7 +24,7 @@
 	ui = auto
 [color "diff"]
 	old = red strike
-  new = green italic
+	new = green italic
 [help]
 	autocorrect = 1
 [svn]
