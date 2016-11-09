@@ -1,4 +1,9 @@
-function! g:plugins#InstallDein()
+function! g:plugins#Init()
+  call g:plugins#Install()
+  call g:plugins#Configure()
+endfunction
+
+function! g:plugins#Install()
 
   let l:repo = 'https://github.com/Shougo/dein.vim.git'
   let l:dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
@@ -7,12 +12,8 @@ function! g:plugins#InstallDein()
     exec "!git clone ".l:repo." ".l:dir
   endif
   exec "set runtimepath^=".l:dir
-endfunction
 
-function! g:plugins#InstallDeinPlugins()
-
-  let l:dir = '~/.config/nvim/dein'
-  call dein#begin(expand(l:dir))
+  call dein#begin(expand('~/.config/nvim/dein'))
 
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/deoplete.nvim', { 'on_event': 'InsertEnter' })
@@ -24,11 +25,8 @@ function! g:plugins#InstallDeinPlugins()
   call dein#add('fatih/vim-go', { 'on_ft': 'go' })
   call dein#add('godlygeek/tabular', { 'on_cmd': 'Tabularize' })
   call dein#add('haya14busa/incsearch.vim')
-  call dein#add('junegunn/goyo.vim', { 'on_cmd': 'Goyo' })
-  call dein#add('junegunn/limelight.vim', { 'on_cmd': 'Limelight' })
   call dein#add('junegunn/vim-easy-align')
   call dein#add('justinmk/molokai')
-  call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle' })
   call dein#add('rizzatti/dash.vim')
   call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
   call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
@@ -48,7 +46,7 @@ function! g:plugins#InstallDeinPlugins()
   endif
 endfunction
 
-function! g:plugins#ConfigurePlugins()
+function! g:plugins#Configure()
 
   " haya14busa/incsearch.vim
   map /  <Plug>(incsearch-forward)
@@ -72,15 +70,6 @@ function! g:plugins#ConfigurePlugins()
   " rizzatti/dash.vim'
   nmap <silent> <leader>d <Plug>DashSearch
   nmap <leader>dd :Dash<space>
-
-  " junegunn/goyo.vim
-  " junegunn/limelight.vim
-  nnoremap <silent> <leader>y :Goyo<cr>
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
-
-  " majutsushi/tagbar
-  nnoremap <silent> <leader>ot :TagbarToggle<cr>
 
   " scrooloose/nerdtree
   nnoremap <silent> <leader>of :NERDTreeToggle<cr>

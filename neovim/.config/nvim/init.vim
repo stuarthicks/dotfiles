@@ -12,7 +12,6 @@ let g:deoplete#enable_at_startup = 1
 let g:go_dispatch_enabled = 1
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'
-let g:go_fmt_fail_silently = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -21,16 +20,13 @@ let g:go_highlight_operators = 1
 let g:go_highlight_string_spellcheck = 0
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-let g:go_term_enabled = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
 let g:tagbar_type_make = { 'kinds': ['m:macros', 't:targets'] }
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 
-call g:plugins#InstallDein()
-call g:plugins#InstallDeinPlugins()
-call g:plugins#ConfigurePlugins()
+call g:plugins#Init()
 
 filetype plugin indent on
 
@@ -116,7 +112,7 @@ au Filetype json nnoremap <leader>mf :%!python -mjson.tool<cr>
 nnoremap <leader>mfw :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <leader>e :20Lexplore<cr>
+nnoremap <leader>e :Explore<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
@@ -130,6 +126,17 @@ nnoremap <BS> <C-^>
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+function! CleanNoNameEmptyBuffers()
+    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
+    if !empty(buffers)
+        exe 'bd '.join(buffers, ' ')
+    else
+        echo 'No buffer deleted'
+    endif
+endfunction
+
+nnoremap <silent> <leader>C :call CleanNoNameEmptyBuffers()<CR>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
