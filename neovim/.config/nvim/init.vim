@@ -7,27 +7,7 @@ let g:maplocalleader = '\'
 let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
-let NERDTreeIgnore = ['\.pyc$', '\.yarb$']
-let g:deoplete#enable_at_startup = 1
-let g:go_dispatch_enabled = 1
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'goimports'
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_string_spellcheck = 0
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
-let g:tagbar_type_make = { 'kinds': ['m:macros', 't:targets'] }
-let g:tmux_navigator_no_mappings = 1
-let g:tmux_navigator_save_on_switch = 1
-
 call g:plugins#Init()
-
 filetype plugin indent on
 
 " Theming!
@@ -67,8 +47,8 @@ set nowrap
 set nowrapscan
 set number
 set path+=**
-set scrolloff=10
-set sidescrolloff=10
+set scrolloff=5
+set sidescrolloff=5
 set splitbelow
 set splitright
 set timeoutlen=300
@@ -108,8 +88,7 @@ nnoremap gd gdzz
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
-au Filetype json nnoremap <leader>mf :%!python -mjson.tool<cr>
-nnoremap <leader>mfw :%s/\s\+$//
+nnoremap <leader>w :%s/\s\+$//
 
 nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <leader>e :Explore<cr>
@@ -135,8 +114,7 @@ function! CleanNoNameEmptyBuffers()
         echo 'No buffer deleted'
     endif
 endfunction
-
-nnoremap <silent> <leader>C :call CleanNoNameEmptyBuffers()<CR>
+nnoremap <silent> <leader>B :call CleanNoNameEmptyBuffers()<CR>
 
 " Tab to trigger omnifunc completion
 inoremap <Tab> <C-x><C-o>
@@ -172,6 +150,17 @@ tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
-nnoremap <silent> <leader>tv :vsplit +terminal<cr>
-nnoremap <silent> <leader>ts :split +terminal<cr>
-nnoremap <silent> <leader>tt :tabnew +terminal<cr>
+" Mappings for specific filetypes
+augroup FileTypeMappings
+  autocmd!
+  autocmd FileType go nnoremap <buffer> <silent> <leader>T :GoTestFunc<cr>
+  autocmd FileType go nnoremap <buffer> <silent> <leader>a :GoAlternate<cr>
+  autocmd FileType go nnoremap <buffer> <silent> <leader>c :GoCoverageToggle<cr>
+  autocmd FileType go nnoremap <buffer> <silent> <leader>i :GoImports<cr>
+  autocmd FileType go nnoremap <buffer> <silent> <leader>l :GoMetaLinter<cr>
+  autocmd FileType go nnoremap <buffer> <silent> <leader>r :GoRename<cr>
+  autocmd FileType go nnoremap <buffer> <silent> <leader>t :GoTest<cr>
+  autocmd FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
+  autocmd FileType ruby nnoremap <buffer> <silent> <Leader>l :RuboCop<cr>
+  autocmd Filetype json nnoremap <buffer> <silent> <leader>f :%!python -mjson.tool<cr>
+augroup END
