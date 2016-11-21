@@ -14,6 +14,10 @@ filetype plugin indent on
 set termguicolors
 colorscheme molokai
 set background=dark
+augroup ColourOverrides
+  autocmd!
+  autocmd BufReadPost * highlight Search guibg=none guifg=lightgreen
+augroup END
 
 " Searching
 set ignorecase
@@ -58,13 +62,16 @@ if executable('pt')
   set grepformat=%f:%l:%c:%m
 endif
 
-nnoremap <leader>f :find<space>
-nnoremap <leader>g :grep<space>
-nnoremap <leader>b :ls<cr>:b
+nnoremap <Leader>f :find<space>
+nnoremap <Leader>g :grep<space>
+nnoremap <Leader>b :ls<cr>:b
 
 " Annoying typo fixes
 nnoremap q: <nop>
 nnoremap ; :
+
+" Don't jump cursor when using * to search for word under cursor
+nnoremap * *``
 
 " Play q macro
 nnoremap Q @q
@@ -88,10 +95,10 @@ nnoremap gd gdzz
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
-nnoremap <leader>w :%s/\s\+$//
+nnoremap <Leader>w :%s/\s\+$//
 
-nnoremap <leader><space> :nohlsearch<cr>
-nnoremap <leader>e :Explore<cr>
+nnoremap <Leader><space> :nohlsearch<cr>
+nnoremap <Leader>e :Explore<cr>
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
@@ -114,7 +121,7 @@ function! CleanNoNameEmptyBuffers()
         echo 'No buffer deleted'
     endif
 endfunction
-nnoremap <silent> <leader>B :call CleanNoNameEmptyBuffers()<CR>
+nnoremap <silent> <Leader>B :call CleanNoNameEmptyBuffers()<CR>
 
 " Tab to trigger omnifunc completion
 inoremap <Tab> <C-x><C-o>
@@ -144,23 +151,19 @@ augroup GPG
 augroup END
 
 " Mappings related to terminal buffers
-tnoremap <leader><leader> <C-\><C-n>
+tnoremap <Leader><Leader> <C-\><C-n>
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
-" Mappings for specific filetypes
-augroup FileTypeMappings
-  autocmd!
-  autocmd FileType go nnoremap <buffer> <silent> <leader>T :GoTestFunc<cr>
-  autocmd FileType go nnoremap <buffer> <silent> <leader>a :GoAlternate<cr>
-  autocmd FileType go nnoremap <buffer> <silent> <leader>c :GoCoverageToggle<cr>
-  autocmd FileType go nnoremap <buffer> <silent> <leader>i :GoImports<cr>
-  autocmd FileType go nnoremap <buffer> <silent> <leader>l :GoMetaLinter<cr>
-  autocmd FileType go nnoremap <buffer> <silent> <leader>r :GoRename<cr>
-  autocmd FileType go nnoremap <buffer> <silent> <leader>t :GoTest<cr>
-  autocmd FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
-  autocmd FileType ruby nnoremap <buffer> <silent> <Leader>l :RuboCop<cr>
-  autocmd Filetype json nnoremap <buffer> <silent> <leader>f :%!python -mjson.tool<cr>
-augroup END
+au FileType go nmap <buffer> <Leader>T <Plug>(go-test-func)
+au FileType go nmap <buffer> <Leader>a <Plug>(go-alternate)
+au FileType go nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <buffer> <Leader>i <Plug>(go-imports)
+au FileType go nmap <buffer> <Leader>l <Plug>(go-metalinter)
+au FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
+au FileType go nmap <buffer> <Leader>t <Plug>(go-test)
+au FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
+au FileType ruby nnoremap <buffer> <Leader>l :RuboCop<cr>
+au Filetype json nnoremap <buffer> <Leader>f :%!python -mjson.tool<cr>

@@ -14,17 +14,17 @@ function! g:plugins#Install()
   exec "set runtimepath^=".l:dir
 
   call dein#begin(expand('~/.config/nvim/dein'))
-  call dein#add('Shougo/dein.vim')
 
+  call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
   call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('fatih/vim-go', { 'on_ft': 'go' })
+  call dein#add('fatih/molokai')
+  call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.9' })
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('junegunn/vim-easy-align')
-  call dein#add('justinmk/molokai')
   call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle'})
   call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
   call dein#add('scrooloose/syntastic')
@@ -49,7 +49,6 @@ function! g:plugins#Configure()
 
   let NERDTreeIgnore = ['\.pyc$', '\.yarb$']
   let g:deoplete#enable_at_startup = 1
-  let g:go_dispatch_enabled = 1
   let g:go_fmt_autosave = 1
   let g:go_fmt_command = 'goimports'
   let g:go_highlight_build_constraints = 1
