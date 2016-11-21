@@ -1,5 +1,15 @@
 #!/bin/sh
 
+require() {
+    if ! command -v "$1" > /dev/null 2>&1; then
+      echo "Command $1 not found: Cannot install dotfiles automatically."
+      exit 1
+    fi
+}
+
+require git
+require stow
+
 case "$(uname)" in
   "Darwin")
     if ! command -v brew; then
