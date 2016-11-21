@@ -138,6 +138,14 @@ endfunction
 
 nnoremap <silent> <leader>C :call CleanNoNameEmptyBuffers()<CR>
 
+" Tab to trigger omnifunc completion
+inoremap <Tab> <C-x><C-o>
+
+" In completion, arrow keys to select, enter to confirm
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " Don't clutter directories with .swp files
 silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
 set backupdir=~/.config/nvim/backup

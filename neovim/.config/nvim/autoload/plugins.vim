@@ -16,7 +16,7 @@ function! g:plugins#Install()
   call dein#begin(expand('~/.config/nvim/dein'))
 
   call dein#add('Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim', { 'on_event': 'InsertEnter' })
+  call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
@@ -27,6 +27,7 @@ function! g:plugins#Install()
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('justinmk/molokai')
+  call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle'})
   call dein#add('rizzatti/dash.vim')
   call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
   call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
@@ -73,4 +74,7 @@ function! g:plugins#Configure()
 
   " scrooloose/nerdtree
   nnoremap <silent> <leader>of :NERDTreeToggle<cr>
+
+  " magjutsushi/tagbar
+  nnoremap <silent> <leader>ot :TagbarToggle<cr>
 endfunction
