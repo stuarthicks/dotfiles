@@ -1,28 +1,27 @@
 #!/usr/bin/env zsh
-set -eux
 
 # FINDER
-defaults write com.apple.finder QuitMenuItem -bool YES
-defaults write com.apple.finder AppleShowAllFiles YES
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
-defaults write com.apple.finder ShowPathbar -bool true
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+echo defaults write com.apple.finder QuitMenuItem -bool YES
+echo defaults write com.apple.finder AppleShowAllFiles YES
+echo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+echo defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+echo defaults write com.apple.finder ShowPathbar -bool true
+echo defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+echo defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+echo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # INPUT
-defaults write NSGlobalDomain KeyRepeat -int 0
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
-defaults write -g ApplePressAndHoldEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+echo defaults write NSGlobalDomain KeyRepeat -int 0
+echo defaults write NSGlobalDomain InitialKeyRepeat -int 12
+echo defaults write -g ApplePressAndHoldEnabled -bool false
+echo defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+echo defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+echo defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # MISC
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock single-app -bool true
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+echo defaults write com.apple.dock autohide -bool true
+echo defaults write com.apple.dock single-app -bool true
+echo defaults write NSGlobalDomain AppleFontSmoothing -int 2
+echo defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-chflags nohidden $HOME/Library
+echo chflags nohidden $HOME/Library
