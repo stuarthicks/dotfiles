@@ -7,13 +7,7 @@ case "$(uname)" in
       export PATH="../.brew/bin:$PATH"
     fi
     brew tap 'homebrew/bundle' && brew bundle install
-    brew link --force curl openssl
-    ;;
-  "Linux")
-    if ! command -v brew; then
-      git clone 'https://github.com/Linuxbrew/brew' ../.brew
-      export PATH="../.brew/bin:$PATH"
-    fi
+    brew link --force curl libressl
     ;;
   *) ;;
 esac
@@ -23,7 +17,6 @@ git clone 'https://github.com/syl20bnr/spacemacs' ../.emacs.d
 
 stow --stow --verbose \
   abcde        \
-  bspwm        \
   ctags        \
   editorconfig \
   git          \
@@ -31,7 +24,6 @@ stow --stow --verbose \
   neovim       \
   rubocop      \
   scripts      \
-  spacemacs    \
   ssh          \
   tmux         \
   zsh          \
