@@ -164,6 +164,7 @@ zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
 export GOPATH=~/go
 
+path=(~/Library/Haskell/bin $path)
 path=(~/.cargo/bin $path)
 path=($GOPATH/bin $path)
 path=(~/.bin $path)
