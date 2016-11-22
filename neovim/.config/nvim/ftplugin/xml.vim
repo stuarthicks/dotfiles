@@ -1,4 +1,1 @@
-augroup XML
-  autocmd!
-  autocmd FileType xml nmap <leader>f :call g:xml#DoPrettyXML()<cr>
-augroup END
+nmap <buffer> <Leader>i :call g:xml#DoPrettyXML()<cr>

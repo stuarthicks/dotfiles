@@ -1,7 +1,4 @@
-augroup RUBY
-  au!
-  au FileType ruby nnoremap <buffer> <Leader>l :RuboCop<cr>
-augroup END
+nmap <buffer> <Leader>l :RuboCop<cr>
 
 let g:vimrubocop_config = '~/.rubocop.yml'
 let g:vimrubocop_keymap = 0
