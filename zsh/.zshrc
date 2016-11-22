@@ -82,7 +82,6 @@ alias hex='hexdump -C'
 alias ll='ls --color --group-directories-first -halF'
 alias m=mosh
 alias mp=ncmpcpp
-alias n='nvim -S'
 alias p='ps aux | grep -i'
 alias pr='hub pull-request'
 alias py=pyenv
