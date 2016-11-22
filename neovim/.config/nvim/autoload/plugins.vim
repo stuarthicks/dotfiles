@@ -43,10 +43,6 @@ endfunction
 
 function! g:plugins#Configure()
 
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-
   let NERDTreeIgnore = ['\.pyc$', '\.yarb$']
   let g:deoplete#enable_at_startup = 1
   let g:go_fmt_autosave = 1
