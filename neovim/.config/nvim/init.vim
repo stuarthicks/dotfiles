@@ -157,13 +157,18 @@ tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
-au FileType go nmap <buffer> <Leader>T <Plug>(go-test-func)
-au FileType go nmap <buffer> <Leader>a <Plug>(go-alternate)
-au FileType go nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
-au FileType go nmap <buffer> <Leader>i <Plug>(go-imports)
-au FileType go nmap <buffer> <Leader>l <Plug>(go-metalinter)
-au FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
-au FileType go nmap <buffer> <Leader>t <Plug>(go-test)
-au FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
-au FileType ruby nnoremap <buffer> <Leader>l :RuboCop<cr>
-au Filetype json nnoremap <buffer> <Leader>f :%!python -mjson.tool<cr>
+if !exists('g:autocommands_loaded')
+  let g:autocommands_loaded = 1
+  autocmd! BufWritePost * Neomake
+
+  au FileType go nmap <buffer> <Leader>T <Plug>(go-test-func)
+  au FileType go nmap <buffer> <Leader>a <Plug>(go-alternate)
+  au FileType go nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
+  au FileType go nmap <buffer> <Leader>i <Plug>(go-imports)
+  au FileType go nmap <buffer> <Leader>l <Plug>(go-metalinter)
+  au FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
+  au FileType go nmap <buffer> <Leader>t <Plug>(go-test)
+  au FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
+  au FileType ruby nnoremap <buffer> <Leader>l :RuboCop<cr>
+  au Filetype json nnoremap <buffer> <Leader>f :%!python -mjson.tool<cr>
+endif

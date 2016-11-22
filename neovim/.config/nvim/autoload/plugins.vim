@@ -27,7 +27,7 @@ function! g:plugins#Install()
   call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle'})
   call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
-  call dein#add('scrooloose/syntastic')
+  call dein#add('neomake/neomake')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('sk1418/QFGrep')
   call dein#add('tomtom/tcomment_vim')
@@ -59,12 +59,6 @@ function! g:plugins#Configure()
   let g:go_highlight_string_spellcheck = 0
   let g:go_highlight_structs = 1
   let g:go_highlight_types = 1
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'python'] }
   let g:tagbar_type_make = { 'kinds': ['m:macros', 't:targets'] }
   let g:tmux_navigator_no_mappings = 1
   let g:tmux_navigator_save_on_switch = 1
