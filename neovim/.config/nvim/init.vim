@@ -7,6 +7,11 @@ let g:maplocalleader = '\'
 let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
+let g:NERDTreeIgnore = ['\.pyc$', '\.yarb$']
+let g:deoplete#enable_at_startup = 1
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 1
+
 call g:plugins#Init()
 filetype plugin indent on
 
@@ -29,6 +34,17 @@ set wildignore+=*/.svn/*
 set wildignore+=*/Godeps/*
 set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
+nnoremap <Leader><space> :nohlsearch<cr>
+
+if executable('pt')
+  set grepprg=pt\ --nocolor\ --nogroup\ --column\ --context\ 0
+  set grepformat=%f:%l:%c:%m
+endif
+
+" haya14busa/incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " Set mainly to improve performance
 set lazyredraw
@@ -57,11 +73,8 @@ set splitbelow
 set splitright
 set timeoutlen=300
 
-if executable('pt')
-  set grepprg=pt\ --nocolor\ --nogroup\ --column\ --context\ 0
-  set grepformat=%f:%l:%c:%m
-endif
-
+" Navigation
+nnoremap <Leader>e :Explore<cr>
 nnoremap <Leader>f :find<space>
 nnoremap <Leader>g :grep<space>
 nnoremap <Leader>b :ls<cr>:b
@@ -95,10 +108,24 @@ nnoremap gd gdzz
 nnoremap <silent> <C-x> :bd<cr>
 nnoremap <silent> <C-q> :q<cr>
 
+" junegunn/vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+
+" Shougo/neosnippet.vim'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" scrooloose/nerdtree
+nnoremap <silent> <leader>of :NERDTreeToggle<cr>
+
+" magjutsushi/tagbar
+nnoremap <silent> <leader>ot :TagbarToggle<cr>
+
+" Remove trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//
 
-nnoremap <Leader><space> :nohlsearch<cr>
-nnoremap <Leader>e :Explore<cr>
+" Auto handle paste-mode
 nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 " Arrow keys to resize vim splits
@@ -113,15 +140,8 @@ nnoremap <BS> <C-^>
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-function! CleanNoNameEmptyBuffers()
-    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val) < 0 && (getbufline(v:val, 1, "$") == [""])')
-    if !empty(buffers)
-        exe 'bd '.join(buffers, ' ')
-    else
-        echo 'No buffer deleted'
-    endif
-endfunction
-nnoremap <silent> <Leader>B :call CleanNoNameEmptyBuffers()<CR>
+" Delete erroneous [No Name] buffers
+nnoremap <silent> <Leader>B :call g:buffers#CleanNoNameEmptyBuffers()<CR>
 
 " Tab to trigger omnifunc completion
 inoremap <Tab> <C-x><C-o>
@@ -157,18 +177,8 @@ tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
-if !exists('g:autocommands_loaded')
-  let g:autocommands_loaded = 1
-  autocmd! BufWritePost * Neomake
-
-  au FileType go nmap <buffer> <Leader>T <Plug>(go-test-func)
-  au FileType go nmap <buffer> <Leader>a <Plug>(go-alternate)
-  au FileType go nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
-  au FileType go nmap <buffer> <Leader>i <Plug>(go-imports)
-  au FileType go nmap <buffer> <Leader>l <Plug>(go-metalinter)
-  au FileType go nmap <buffer> <Leader>r <Plug>(go-rename)
-  au FileType go nmap <buffer> <Leader>t <Plug>(go-test)
-  au FileType go silent exe "GoGuruScope " . go#package#ImportPath(expand('%:p:h')) . "..."
-  au FileType ruby nnoremap <buffer> <Leader>l :RuboCop<cr>
-  au Filetype json nnoremap <buffer> <Leader>f :%!python -mjson.tool<cr>
-endif
+" Run linters on save
+augroup NEOMAKE
+  autocmd!
+  autocmd BufWritePost * Neomake
+augroup END
