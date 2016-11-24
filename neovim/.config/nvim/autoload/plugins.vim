@@ -26,7 +26,7 @@ function! g:plugins#InstallPlugins() abort
   call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('fatih/molokai')
-  call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.9' })
+  call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.10' })
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle'})
