@@ -1,4 +1,4 @@
-nmap <buffer> <Leader>a <Plug>(go-alternate)
+nmap <buffer> <Leader>a <Plug>(go-alternate-edit)
 nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
 nmap <buffer> <Leader>i <Plug>(go-imports)
 nmap <buffer> <Leader>l <Plug>(go-metalinter)
