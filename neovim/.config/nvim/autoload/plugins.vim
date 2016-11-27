@@ -23,6 +23,7 @@ function! g:plugins#InstallPlugins() abort
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neosnippet.vim')
+  call dein#add('airblade/vim-gitgutter')
   call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('fatih/molokai')
@@ -38,6 +39,8 @@ function! g:plugins#InstallPlugins() abort
   call dein#add('tpope/vim-obsession')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
   call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
 
   call dein#end()

@@ -8,6 +8,9 @@ let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
 let g:NERDTreeIgnore = ['\.pyc$', '\.yarb$']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
 let g:deoplete#enable_at_startup = 1
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
