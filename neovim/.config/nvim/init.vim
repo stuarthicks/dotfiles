@@ -61,6 +61,7 @@ set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
 set hidden
+set inccommand=split
 set linebreak
 set listchars=tab:»—,trail:_
 set modelines=1
