@@ -149,6 +149,11 @@ aws-profile() {
   export AWS_PROFILE="$@"
 }
 
+anybar() {
+  echo -n $1 \
+    | nc -4u -w0 localhost ${2:-1738}
+}
+
 . ~/.fzf.zsh       > /dev/null 2>&1
 . ~/.zplugins/k.sh > /dev/null 2>&1
 
