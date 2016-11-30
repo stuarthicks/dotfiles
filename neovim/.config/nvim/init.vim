@@ -180,9 +180,3 @@ tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
-
-" Run linters on save
-augroup NEOMAKE
-  autocmd!
-  autocmd BufWritePost * Neomake
-augroup END

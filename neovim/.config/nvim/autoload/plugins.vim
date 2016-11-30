@@ -31,7 +31,6 @@ function! g:plugins#InstallPlugins() abort
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle'})
-  call dein#add('neomake/neomake')
   call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
   call dein#add('sheerun/vim-polyglot')
   call dein#add('sk1418/QFGrep')
@@ -41,6 +40,7 @@ function! g:plugins#InstallPlugins() abort
   call dein#add('tpope/vim-surround')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('w0rp/ale')
   call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
 
   call dein#end()
