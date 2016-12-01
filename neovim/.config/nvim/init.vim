@@ -10,7 +10,7 @@ let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 let g:NERDTreeIgnore = ['\.pyc$', '\.yarb$']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='molokai'
+let g:airline_theme='kolor'
 let g:deoplete#enable_at_startup = 1
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
@@ -20,7 +20,7 @@ filetype plugin indent on
 
 " Theming!
 set termguicolors
-colorscheme molokai
+colorscheme space-vim-dark
 set background=dark
 augroup ColourOverrides
   autocmd!
@@ -79,9 +79,9 @@ set timeoutlen=300
 
 " Navigation
 nnoremap <Leader>e :Explore<cr>
-nnoremap <Leader>f :find<space>
+nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>g :grep<space>
-nnoremap <Leader>b :ls<cr>:b
+nnoremap <Leader>b :Buffers<cr>
 
 " Annoying typo fixes
 nnoremap q: <nop>
