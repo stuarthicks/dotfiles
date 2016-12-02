@@ -118,6 +118,10 @@ function start-ssh-agent {
   source "$SSH_ENV" > /dev/null 2>&1
 }
 
+sts-eval() {
+  eval "$(sts $1)"
+}
+
 _fzf_compgen_path() { pt --hidden --nocolor -g "" "$1"; }
 
 fancy-ctrl-z () {
