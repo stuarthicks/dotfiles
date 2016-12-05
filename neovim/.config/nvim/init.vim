@@ -12,6 +12,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='kolor'
 let g:deoplete#enable_at_startup = 1
+let g:fzf_prefer_tmux = 1
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 
@@ -50,7 +51,6 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " Set mainly to improve performance
-set lazyredraw
 set nofoldenable
 set synmaxcol=220
 
