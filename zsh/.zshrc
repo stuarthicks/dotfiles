@@ -69,7 +69,6 @@ bindkey -M menuselect "=" accept-and-menu-complete
 
 # hide common commands from history
 alias cd=' cd'
-alias k=' k'
 alias ls=' ls'
 alias pwd=' pwd'
 
@@ -159,7 +158,6 @@ anybar() {
 }
 
 . ~/.fzf.zsh       > /dev/null 2>&1
-. ~/.zplugins/k.sh > /dev/null 2>&1
 
 path=(~/.brew/bin $path)
 path=(~/.brew/sbin $path)
