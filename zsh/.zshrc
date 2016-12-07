@@ -13,6 +13,9 @@ bindkey '\e[Z' reverse-menu-complete # Shift+Tab
 
 ttyctl -f # freeze tty
 
+alias -g NULL='> /dev/null 2>&1'
+alias -g L="|& less"
+
 DIRSTACKSIZE=9
 DIRSTACKFILE=~/.zdirs
 
@@ -40,7 +43,7 @@ setopt HIST_VERIFY
 setopt LONG_LIST_JOBS
 setopt MULTIOS
 setopt NO_CLOBBER
-setopt PIPE_FAIL
+setopt PIPE_FAIL NULL # Not available on all zsh versions
 setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
 setopt PUSHD_IGNORE_DUPS
@@ -74,11 +77,10 @@ alias pwd=' pwd'
 
 # nonspecific
 alias bonsai='tree -F --filelimit 15'
-alias fenv='env | fzf'
 alias g=git
 alias git=hub
 alias hex='hexdump -C'
-alias ll='ls --color --group-directories-first -halF'
+alias ll='ls --color --group-directories-first -lh'
 alias m=mosh
 alias mp=ncmpcpp
 alias p='ps aux | grep -i'
@@ -93,8 +95,6 @@ alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:
 alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
-
-alias -g L="|& less"
 
 export AWS_DEFAULT_REGION=us-east-1
 
@@ -114,7 +114,7 @@ function start-ssh-agent {
   rm -f "$SSH_ENV"
   ssh-agent > "$SSH_ENV"
   chmod 600 "$SSH_ENV"
-  source "$SSH_ENV" > /dev/null 2>&1
+  source "$SSH_ENV" NULL
 }
 
 sts-eval() {
@@ -146,25 +146,21 @@ man() {
 
 aws-region() {
   export AWS_DEFAULT_REGION="$@"
+  export AWS_REGION="$@"
 }
 
 aws-profile() {
   export AWS_PROFILE="$@"
 }
 
-anybar() {
-  echo -n $1 \
-    | nc -4u -w0 localhost ${2:-1738}
-}
-
-. ~/.fzf.zsh       > /dev/null 2>&1
+. ~/.fzf.zsh NULL
 
 path=(~/.brew/bin $path)
 path=(~/.brew/sbin $path)
 
-eval "$(command rbenv init            --no-rehash - zsh)" > /dev/null 2>&1
-eval "$(command pyenv init            --no-rehash - zsh)" > /dev/null 2>&1
-eval "$(command pyenv virtualenv-init --no-rehash - zsh)" > /dev/null 2>&1
+eval "$(command rbenv init            --no-rehash - zsh NULL)" NULL
+eval "$(command pyenv init            --no-rehash - zsh NULL)" NULL
+eval "$(command pyenv virtualenv-init --no-rehash - zsh NULL)" NULL
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
