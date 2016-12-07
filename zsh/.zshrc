@@ -158,9 +158,9 @@ aws-profile() {
 path=(~/.brew/bin $path)
 path=(~/.brew/sbin $path)
 
-eval "$(command rbenv init            --no-rehash - zsh NULL)" NULL
-eval "$(command pyenv init            --no-rehash - zsh NULL)" NULL
-eval "$(command pyenv virtualenv-init --no-rehash - zsh NULL)" NULL
+eval "$(command rbenv init            --no-rehash - zsh)" NULL
+eval "$(command pyenv init            --no-rehash - zsh)" NULL
+eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
