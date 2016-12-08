@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 set -eu
 
+dir=$(pwd)
+
 declare -a cmds
 while read -r line; do
-  cmds+=($line)
+  cmds+=("$line")
 done < "${1:-/dev/stdin}"
 
-tmux new-window "${cmds[0]}"
+tmux new-window -c "$dir" "${cmds[0]}; read"
 
 unset "cmds[0]"
 
 for i in "${cmds[@]}"; do
-  tmux split-window -h "$i"
+  tmux split-window -c "$dir" -h "$i; read"
   tmux select-layout tiled > /dev/null
 done
 
