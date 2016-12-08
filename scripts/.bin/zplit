@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -eu
+
+declare -a cmds
+while read -r line; do
+  cmds+=($line)
+done < "${1:-/dev/stdin}"
+
+tmux new-window "${cmds[0]}"
+
+unset "cmds[0]"
+
+for i in "${cmds[@]}"; do
+  tmux split-window -h "$i"
+  tmux select-layout tiled > /dev/null
+done
+
+tmux select-pane -t 0
