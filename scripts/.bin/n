@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
+set -eu
+
+if command -v reattach-to-user-namespace > /dev/null 2>&1; then
+  exec reattach-to-user-namespace nvim "$@" -S
+fi
+
 exec nvim "$@" -S
