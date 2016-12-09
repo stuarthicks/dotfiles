@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 set -eu
 
-if command -v reattach-to-user-namespace > /dev/null 2>&1; then
-  exec reattach-to-user-namespace nvim "$@" -S
+ARGS=$*
+
+if [ -f 'Session.vim' ]; then
+  ARGS+=(-S Session.vim)
 fi
 
-exec nvim "$@" -S
+if command -v reattach-to-user-namespace > /dev/null 2>&1; then
+  exec reattach-to-user-namespace nvim ${ARGS[@]}
+fi
+
+exec nvim ${ARGS[@]}
