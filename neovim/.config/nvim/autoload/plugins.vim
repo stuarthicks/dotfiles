@@ -42,6 +42,7 @@ function! g:plugins#InstallPlugins() abort
   call dein#add('tpope/vim-surround')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('vimwiki/vimwiki')
   call dein#add('w0rp/ale')
   call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
 
