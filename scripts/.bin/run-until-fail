@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+count=0
+
+while true; do
+  count=$((count+1))
+  eval "$@" || (echo "$(tput setaf 1)Failed on iteration ${count}$(tput sgr0)"; exit 1)
+done
