@@ -10,7 +10,7 @@ let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 let g:NERDTreeIgnore = ['\.pyc$', '\.yarb$']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='kolor'
+let g:airline_theme='solarized'
 let g:deoplete#enable_at_startup = 1
 let g:fzf_prefer_tmux = 1
 let g:tmux_navigator_no_mappings = 1
@@ -21,8 +21,8 @@ filetype plugin indent on
 
 " Theming!
 set termguicolors
-colorscheme space-vim-dark
 set background=dark
+colorscheme solarized
 augroup ColourOverrides
   autocmd!
   autocmd BufReadPost * highlight Search guibg=none guifg=lightgreen
