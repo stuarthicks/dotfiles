@@ -12,9 +12,8 @@ $GO github.com/gojp/goreportcard
 $GO github.com/maruel/panicparse
 $GO github.com/smartystreets/goconvey
 $GO github.com/sqs/goreturns
-$GO github.com/vektra/mockery
-$GO golang.org/x/tools
 
-gometalinter --install
-
-nvim a.go -c ':GoInstallBinaries' -c 'GoUpdateBinaries' +qall
+$GO golang.org/x/build/version/...
+$GO golang.org/x/tools/cmd/godoc
+$GO golang.org/x/tools/cmd/goimports
+$GO golang.org/x/tools/cmd/gorename
