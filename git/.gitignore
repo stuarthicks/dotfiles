@@ -34,3 +34,4 @@ tmp/
 vim-go-test-compile
 *.pyc
 *.yarb
+.editorconfig
