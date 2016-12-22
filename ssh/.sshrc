@@ -16,13 +16,18 @@ fi
 export PS1="${env_col}${AWS_ZONE} ${STACK_ENV} ${STACK_GROUP} ${green}\h ${blue}\w
 \$${reset} "
 
-alias l='ls --color --group-directories-first -halF'
+alias l='ls --color --group-directories-first -lah'
 alias k=l
 
 alias d=docker
 alias e=etcdctl
 alias f=fleetctl
 alias s=systemctl
+
+dl_ncdu() {
+  curl -sSLfO 'https://dev.yorhel.nl/download/ncdu-linux-i486-1.12.tar.gz'
+  tar xzvf ncdu-linux-i486-1.12.tar.gz
+}
 
 j() {
   if [ $# = 1 ] && [ "${1##*.}" = "service" ]; then
