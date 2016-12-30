@@ -1,4 +1,6 @@
-scriptencoding utf-8
+if &compatible
+  set nocompatible
+endif
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -7,26 +9,53 @@ let g:maplocalleader = '\'
 let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
-let g:NERDTreeIgnore = ['\.pyc$', '\.yarb$']
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
 let g:deoplete#enable_at_startup = 1
-let g:fzf_prefer_tmux = 1
-let g:tmux_navigator_no_mappings = 1
-let g:tmux_navigator_save_on_switch = 1
+let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
+let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
 
-call g:plugins#Init()
+if empty(glob(g:dein_dir))
+  exec 'silent !mkdir -p '.g:dein_dir
+  exec '!git clone '.g:dein_repo.' '.g:dein_dir
+endif
+exec 'set runtimepath^='.g:dein_dir
+
+call dein#begin(expand('~/.config/nvim/dein'))
+
+" Plugins!
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
+call dein#add('editorconfig/editorconfig-vim')
+call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.10' })
+call dein#add('frankier/neovim-colors-solarized-truecolor-only')
+call dein#add('haya14busa/incsearch.vim')
+call dein#add('junegunn/fzf', { 'build': './install --no-update-rc', 'merged': 0 })
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+call dein#add('junegunn/vim-easy-align')
+call dein#add('sheerun/vim-polyglot')
+call dein#add('sk1418/QFGrep')
+call dein#add('tomasr/molokai')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-surround')
+call dein#add('w0rp/ale')
+call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
+
+call dein#end()
+
+if dein#check_install()
+  call dein#install()
+endif
+
 filetype plugin indent on
+syntax enable
 
 " Theming!
 set termguicolors
 set background=dark
-colorscheme solarized
-augroup ColourOverrides
-  autocmd!
-  autocmd BufReadPost * highlight Search guibg=none guifg=lightgreen
-augroup END
+colorscheme molokai
 
 " Searching
 set ignorecase
@@ -38,7 +67,7 @@ set wildignore+=*/.svn/*
 set wildignore+=*/Godeps/*
 set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
-nnoremap <Leader><space> :nohlsearch<cr>
+nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
 if executable('pt')
   set grepprg=pt\ --nocolor\ --nogroup\ --column\ --context\ 0
@@ -50,11 +79,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" Set mainly to improve performance
-set nofoldenable
-set synmaxcol=220
-
-" Misc Options
 set autowrite
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
@@ -63,9 +87,10 @@ set diffopt+=iwhite
 set hidden
 set inccommand=split
 set linebreak
-set listchars=tab:»—,trail:_
+set list
+set listchars=tab:—›,trail:_
 set modelines=1
-set mouse=a
+set nofoldenable
 set nolist
 set nowrap
 set nowrapscan
@@ -75,6 +100,7 @@ set scrolloff=5
 set sidescrolloff=5
 set splitbelow
 set splitright
+set synmaxcol=500
 set timeoutlen=300
 
 " Navigation
@@ -119,12 +145,6 @@ vmap <Enter> <Plug>(EasyAlign)
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" scrooloose/nerdtree
-nnoremap <silent> <leader>of :NERDTreeToggle<cr>
-
-" magjutsushi/tagbar
-nnoremap <silent> <leader>ot :TagbarToggle<cr>
 
 " Remove trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//
