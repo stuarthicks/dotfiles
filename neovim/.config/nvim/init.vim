@@ -90,6 +90,7 @@ set linebreak
 set list
 set listchars=tab:—›,trail:_
 set modelines=1
+set mouse=
 set nofoldenable
 set nolist
 set nowrap
