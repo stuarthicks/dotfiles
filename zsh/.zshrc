@@ -157,6 +157,14 @@ aws-profile() {
 
 path=(~/.brew/bin $path)
 path=(~/.brew/sbin $path)
+path=(~/.brew/opt/coreutils/libexec/gnubin $path)
+
+manpath=(/usr/share/man $manpath)
+manpath=(/usr/local/share/man $manpath)
+manpath=(~/.brew/share/man $manpath)
+manpath=(~/.brew/opt/coreutils/libexec/gnuman $manpath)
+
+infopath=(~/.brew/share/info $infopath)
 
 eval "$(command rbenv init            --no-rehash - zsh)" NULL
 eval "$(command pyenv init            --no-rehash - zsh)" NULL

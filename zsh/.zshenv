@@ -25,3 +25,5 @@ export CGO_LDFLAGS="-L $HOME/.brew/lib"
 
 export SSH_ENV=~/.ssh/environment
 . "${SSH_ENV}" > /dev/null 2>&1
+
+export LD_LIBRARY_PATH="$HOME/.brew/lib:$LD_LIBRARY_PATH"

@@ -19,7 +19,7 @@ brew 'cairo'
 brew 'circleci-cli'
 brew 'cmake'
 brew 'colordiff'
-brew 'coreutils'
+brew 'coreutils', args: [ 'with-gmp' ]
 brew 'ctags'
 brew 'curl', args: [ 'with-libressl', 'with-nghttp2', 'with-rtmpdump' ]
 brew 'docker-clean'
@@ -37,7 +37,7 @@ brew 'gettext'
 brew 'git'
 brew 'git-lfs'
 brew 'glib'
-brew 'gnu-sed'
+brew 'gnu-sed', args: [ 'with-default-names' ]
 brew 'gobject-introspection'
 brew 'gradle'
 brew 'graphviz'
