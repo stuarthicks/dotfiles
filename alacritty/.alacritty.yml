@@ -6,36 +6,24 @@ dpi:
   x: 96.0
   y: 96.0
 
-# Display tabs using this many cells (changes require restart)
 tabspaces: 8
 
-# When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
-# Font configuration (changes require restart)
 font:
-  # The normal (roman) font face to use.
   normal:
     family: Source Code Pro
-    # Style can be specified to pick a specific face.
-    # style: Regular
 
-  # The bold font face
   bold:
     family: Source Code Pro
     style: Bold
-    # Style can be specified to pick a specific face.
-    # style: Bold
 
-  # The italic font face
   italic:
     family: Source Code Pro
     style: Italic
-    # Style can be specified to pick a specific face.
-    # style: Italic
 
-  # Point size of the font
   size: 14.0
+
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
@@ -47,12 +35,10 @@ render_timer: false
 
 # Colors (Tomorrow Night Bright)
 colors:
-  # Default colors
   primary:
     background: '0x000000'
     foreground: '0xeaeaea'
 
-  # Normal colors
   normal:
     black:   '0x000000'
     red:     '0xd54e53'
@@ -63,7 +49,6 @@ colors:
     cyan:    '0x70c0ba'
     white:   '0x424242'
 
-  # Bright colors
   bright:
     black:   '0x666666'
     red:     '0xff3334'
