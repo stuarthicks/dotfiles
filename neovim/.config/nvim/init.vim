@@ -27,9 +27,7 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
-call dein#add('editorconfig/editorconfig-vim')
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.11' })
-call dein#add('frankier/neovim-colors-solarized-truecolor-only')
 call dein#add('haya14busa/incsearch.vim')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
@@ -88,7 +86,7 @@ set hidden
 set inccommand=split
 set linebreak
 set list
-set listchars=tab:—›,trail:_
+set listchars=tab:›—,trail:_
 set modelines=1
 set mouse=
 set nofoldenable
