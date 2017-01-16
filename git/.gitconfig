@@ -69,3 +69,5 @@
 	t = tag
 [hub]
 	host = bithub.brightcove.com
+[rebase]
+	autoStash = true
