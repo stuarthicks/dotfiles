@@ -9,7 +9,6 @@ let g:maplocalleader = '\'
 let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 
-let g:deoplete#enable_at_startup = 1
 let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
 let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
 
@@ -21,11 +20,7 @@ exec 'set runtimepath^='.g:dein_dir
 
 call dein#begin(expand('~/.config/nvim/dein'))
 
-" Plugins!
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neosnippet.vim')
 call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.11' })
 call dein#add('haya14busa/incsearch.vim')
@@ -139,11 +134,6 @@ nnoremap <silent> <C-q> :q<cr>
 
 " junegunn/vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
-
-" Shougo/neosnippet.vim'
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Remove trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//
