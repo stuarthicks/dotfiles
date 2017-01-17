@@ -1,4 +1,5 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator
+# Should display the render timer
+render_timer: false
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
@@ -6,9 +7,6 @@ dpi:
   x: 96.0
   y: 96.0
 
-tabspaces: 8
-
-draw_bold_text_with_bright_colors: true
 
 font:
   normal:
@@ -30,34 +28,37 @@ font:
     x: 0.0
     y: 0.0
 
-# Should display the render timer
-render_timer: false
+  use_thin_strokes: true
 
-# Colors (Tomorrow Night Bright)
+tabspaces: 8
+
+draw_bold_text_with_bright_colors: true
+
+# Colors (Molokai)
 colors:
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
+    background: '0x121212'
+    foreground: '0xbbbbbb'
 
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0x424242'
+    black:   '0x121212'
+    red:     '0xfa2573'
+    green:   '0x98e123'
+    yellow:  '0xdfd460'
+    blue:    '0x1080d0'
+    magenta: '0x8700ff'
+    cyan:    '0x43a8d0'
+    white:   '0xbbbbbb'
 
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0x2a2a2a'
+    black:   '0x555555'
+    red:     '0xf6669d'
+    green:   '0xb1e05f'
+    yellow:  '0xfff26d'
+    blue:    '0x00afff'
+    magenta: '0xaf87ff'
+    cyan:    '0x51ceff'
+    white:   '0xffffff'
 
 # Key bindings
 #
@@ -150,4 +151,3 @@ key_bindings:
 # - Copy (TODO)
 # mouse_bindings:
 #   - { mouse: Middle, action: PasteSelection }
-
