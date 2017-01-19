@@ -85,8 +85,6 @@ alias m=mosh
 alias mp=ncmpcpp
 alias p='ps aux | grep -i'
 alias pr='hub pull-request'
-alias py=pyenv
-alias rb=rbenv
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias t=tmux
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
@@ -95,8 +93,6 @@ alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:
 alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
-
-export AWS_DEFAULT_REGION=us-east-1
 
 path()    { echo $PATH    | tr : $'\n' }
 fpath()   { echo $FPATH   | tr : $'\n' }
@@ -117,13 +113,13 @@ function start-ssh-agent {
   source "$SSH_ENV" NULL
 }
 
-sts-eval() {
-  eval "$(sts $1)"
+function sts {
+  eval "$(sts-parse $1)"
 }
 
 _fzf_compgen_path() { pt --hidden --nocolor -g "" "$1"; }
 
-fancy-ctrl-z () {
+function fancy-ctrl-z {
   if [[ $#BUFFER -eq 0 ]]; then
     kill -9 %+
     zle redisplay
@@ -132,7 +128,7 @@ fancy-ctrl-z () {
   fi
 }
 
-man() {
+function man {
   env \
     LESS_TERMCAP_mb=$(printf "\x1b[38;2;255;200;200m") \
     LESS_TERMCAP_md=$(printf "\x1b[38;2;255;100;200m") \
@@ -144,16 +140,35 @@ man() {
     man "$@"
 }
 
-aws-region() {
+function aws-region {
   export AWS_DEFAULT_REGION="$@"
   export AWS_REGION="$@"
 }
 
-aws-profile() {
+function aws-profile {
+  export AWS_DEFAULT_PROFILE="$@"
   export AWS_PROFILE="$@"
 }
 
+function rbenv {
+  eval "$(command rbenv init - zsh)" NULL
+  rbenv "$@"
+}
+
+function plenv {
+  eval "$(command plenv init - zsh)" NULL
+  plenv "$@"
+}
+
+function pyenv {
+  eval "$(command pyenv init            - zsh)" NULL
+  eval "$(command pyenv virtualenv-init - zsh)" NULL
+  pyenv "$@"
+}
+
 . ~/.fzf.zsh NULL
+
+zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
 path=(~/.brew/bin $path)
 path=(~/.brew/sbin $path)
@@ -165,14 +180,6 @@ manpath=(~/.brew/share/man $manpath)
 manpath=(~/.brew/opt/coreutils/libexec/gnuman $manpath)
 
 infopath=(~/.brew/share/info $infopath)
-
-eval "$(command rbenv init            --no-rehash - zsh)" NULL
-eval "$(command pyenv init            --no-rehash - zsh)" NULL
-eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
-
-zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
-
-export GOPATH=~/go
 
 path=(~/Library/Haskell/bin $path)
 path=(~/.cargo/bin $path)
