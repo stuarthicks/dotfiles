@@ -9,6 +9,7 @@ $GO github.com/Masterminds/glide-report
 $GO github.com/alecthomas/gometalinter
 $GO github.com/divan/depscheck
 $GO github.com/gojp/goreportcard
+$GO github.com/golang/dep
 $GO github.com/maruel/panicparse
 $GO github.com/smartystreets/goconvey
 $GO github.com/sqs/goreturns
