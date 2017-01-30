@@ -59,6 +59,8 @@
 	fe = fetch --all --tags --prune
 	l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
 	ls = log --show-signature --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
+	checkin = push --verbose
+	p = checkin
 	update = pull --ff-only
 	up = update
 	r = remote --verbose
