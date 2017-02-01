@@ -32,13 +32,18 @@ font:
 
 tabspaces: 8
 
-draw_bold_text_with_bright_colors: true
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: false
 
 # Colors (Molokai)
 colors:
   primary:
     background: '0x121212'
     foreground: '0xbbbbbb'
+  cursor:
+    background: '0xbbbbbb'
+    foreground: '0x121212'
 
   normal:
     black:   '0x121212'
@@ -149,5 +154,15 @@ key_bindings:
 # - Paste
 # - PasteSelection
 # - Copy (TODO)
-# mouse_bindings:
-#   - { mouse: Middle, action: PasteSelection }
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+# Shell
+#
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+#
+shell:
+ program: /Users/shicks/.brew/bin/zsh
+ args:
+   - --login

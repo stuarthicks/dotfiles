@@ -21,12 +21,13 @@ exec 'set runtimepath^='.g:dein_dir
 call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
-call dein#add('davidhalter/jedi-vim', { 'on_ft': 'python' })
+call dein#add('elzr/vim-json', { 'on_ft': 'json' })
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.11' })
 call dein#add('haya14busa/incsearch.vim')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
+call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
 call dein#add('sheerun/vim-polyglot')
 call dein#add('sk1418/QFGrep')
@@ -82,11 +83,10 @@ set hidden
 set inccommand=split
 set linebreak
 set list
-set listchars=tab:›—,trail:_
+set listchars=tab:›—,trail:_,space:.
 set modelines=1
 set mouse=
 set nofoldenable
-set nolist
 set nowrap
 set nowrapscan
 set number
