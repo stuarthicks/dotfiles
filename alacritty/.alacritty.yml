@@ -7,17 +7,16 @@ dpi:
   x: 96.0
   y: 96.0
 
-
 font:
   normal:
-    family: Source Code Pro
+    family: Menlo
 
   bold:
-    family: Source Code Pro
+    family: Menlo
     style: Bold
 
   italic:
-    family: Source Code Pro
+    family: Menlo
     style: Italic
 
   size: 16.0
