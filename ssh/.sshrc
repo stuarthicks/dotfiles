@@ -24,6 +24,8 @@ alias e=etcdctl
 alias f=fleetctl
 alias s=systemctl
 
+alias cloudinit='journalctl --identifier=coreos-cloudinit'
+
 dl_ncdu() {
   curl -sSLfO 'https://dev.yorhel.nl/download/ncdu-linux-i486-1.12.tar.gz'
   tar xzvf ncdu-linux-i486-1.12.tar.gz
