@@ -3,20 +3,25 @@ render_timer: false
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
+# dpi:
+#   x: 96.0
+#   y: 96.0
+
+# Macbook Retina built-in display
 dpi:
-  x: 96.0
-  y: 96.0
+  x: 226.98
+  y: 226.98
 
 font:
   normal:
-    family: Menlo
+    family: Source Code Pro
 
   bold:
-    family: Menlo
+    family: Source Code Pro
     style: Bold
 
   italic:
-    family: Menlo
+    family: Source Code Pro
     style: Italic
 
   size: 16.0
@@ -137,8 +142,10 @@ key_bindings:
   - { key: Back,                    chars: "\x7f"                        }
   - { key: Delete,                  chars: "\x1b[3~",  mode: AppKeypad   }
   - { key: Delete,                  chars: "\x1b[P",   mode: ~AppKeypad  }
-  - { key: Q,        mods: Command, action: Quit                         }
-  # - { key: W,        mods: Command, action: Quit                         }
+  - { key: W,        mods: Shift|Command, action: Quit                   }
+
+# macOS Fixes
+  - { key: Key3,     mods: Alt,     chars: "#",        mode: ~AppKeypad  }
 
 # Mouse bindings
 #
