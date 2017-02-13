@@ -151,18 +151,18 @@ function aws-profile {
 }
 
 function rbenv {
-  eval "$(command rbenv init - zsh)" NULL
+  eval "$(command rbenv init --no-rehash - zsh)" NULL
   rbenv "$@"
 }
 
 function plenv {
-  eval "$(command plenv init - zsh)" NULL
+  eval "$(command plenv init --no-rehash - zsh)" NULL
   plenv "$@"
 }
 
 function pyenv {
-  eval "$(command pyenv init            - zsh)" NULL
-  eval "$(command pyenv virtualenv-init - zsh)" NULL
+  eval "$(command pyenv init            --no-rehash - zsh)" NULL
+  eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
   pyenv "$@"
 }
 
