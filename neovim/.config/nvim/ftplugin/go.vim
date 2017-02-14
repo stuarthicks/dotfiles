@@ -1,3 +1,7 @@
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal noexpandtab
+
 nmap <buffer> <Leader>a <Plug>(go-alternate-edit)
 nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
 nmap <buffer> <Leader>i <Plug>(go-imports)
