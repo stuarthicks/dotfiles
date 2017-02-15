@@ -82,7 +82,7 @@ set diffopt+=iwhite
 set hidden
 set inccommand=split
 set linebreak
-set list
+set nolist
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
 set mouse=
