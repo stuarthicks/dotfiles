@@ -77,6 +77,7 @@ alias pwd=' pwd'
 
 # nonspecific
 alias bonsai='tree -F --filelimit 15'
+alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 alias g=git
 alias git=hub
 alias hex='hexdump -C'
@@ -84,10 +85,10 @@ alias ll='ls --color --group-directories-first -lh'
 alias m=mosh
 alias mp=ncmpcpp
 alias p='ps aux | grep -i'
+alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias pr='hub pull-request'
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias t=tmux
-alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 
 # osx specific
 alias macos-indexing='sudo mdutil -a -v -i'
