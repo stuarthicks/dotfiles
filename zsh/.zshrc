@@ -81,12 +81,13 @@ alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:
 alias g=git
 alias git=hub
 alias hex='hexdump -C'
-alias ll='ls --color --group-directories-first -lh'
+alias k='ls --group-directories-first --color -lhN'
 alias m=mosh
 alias mp=ncmpcpp
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias pr='hub pull-request'
+alias qq="$HOME/go/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias t=tmux
 
