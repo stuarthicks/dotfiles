@@ -184,7 +184,7 @@ infopath=(~/.brew/share/info $infopath)
 
 path=(~/Library/Haskell/bin $path)
 path=(~/.cargo/bin $path)
-path=($GOPATH/bin $path)
+path=(~/go/bin $path)
 path=(~/.bin $path)
 
 fpath=($^fpath(N))     && typeset -U FPATH
