@@ -18,7 +18,6 @@ export CGO_CPPFLAGS="-I $HOME/.brew/include"
 export CGO_LDFLAGS="-L $HOME/.brew/lib"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_DEFAULT_COMMAND='pt --nocolor -g ""'
-export GOPATH=~/go
 export GPGKEY=AC065BDDB7CCA53C
 export HOMEBREW_NO_ANALYTICS=1
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"

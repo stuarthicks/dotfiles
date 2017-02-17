@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# FINDER
+# Finder
 echo defaults write com.apple.finder QuitMenuItem -bool YES
 echo defaults write com.apple.finder AppleShowAllFiles YES
 echo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -9,8 +9,9 @@ echo defaults write com.apple.finder ShowPathbar -bool true
 echo defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 echo defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 echo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+echo defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# INPUT
+# Input
 echo defaults write NSGlobalDomain KeyRepeat -int 1
 echo defaults write NSGlobalDomain InitialKeyRepeat -int 14
 echo defaults write -g ApplePressAndHoldEnabled -bool false
@@ -18,9 +19,13 @@ echo defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool fal
 echo defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 echo defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# MISC
+# Dock
 echo defaults write com.apple.dock autohide -bool true
+echo defaults write com.apple.dock no-bouncing -bool true
+echo defaults write com.apple.dock scroll-to-open -bool true
 echo defaults write com.apple.dock single-app -bool true
+
+# Misc
 echo defaults write NSGlobalDomain AppleFontSmoothing -int 2
 echo defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 

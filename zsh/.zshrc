@@ -99,7 +99,6 @@ alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 path()    { echo $PATH    | tr : $'\n' }
 fpath()   { echo $FPATH   | tr : $'\n' }
 manpath() { echo $MANPATH | tr : $'\n' }
-gopath()  { echo $GOPATH  | tr : $'\n' }
 
 function macos-java {
   export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
