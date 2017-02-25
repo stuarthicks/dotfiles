@@ -13,7 +13,6 @@ bindkey '\e[Z' reverse-menu-complete # Shift+Tab
 
 ttyctl -f # freeze tty
 
-alias -g NULL='> /dev/null 2>&1'
 alias -g L="|& less"
 
 DIRSTACKSIZE=9
@@ -43,7 +42,7 @@ setopt HIST_VERIFY
 setopt LONG_LIST_JOBS
 setopt MULTIOS
 setopt NO_CLOBBER
-setopt PIPE_FAIL NULL # Not available on all zsh versions
+setopt PIPE_FAIL &>/dev/null # Not available on all zsh versions
 setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
 setopt PUSHD_IGNORE_DUPS
@@ -70,11 +69,6 @@ zstyle ':completion:*' tag-order '! users'                      # listing all us
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-# hide common commands from history
-alias cd=' cd'
-alias ls=' ls'
-alias pwd=' pwd'
-
 # nonspecific
 alias bonsai='tree -F --filelimit 15'
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
@@ -83,7 +77,6 @@ alias git=hub
 alias hex='hexdump -C'
 alias k='ls --group-directories-first --color -lhN'
 alias m=mosh
-alias mp=ncmpcpp
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias pr='hub pull-request'
@@ -111,14 +104,12 @@ function start-ssh-agent {
   rm -f "$SSH_ENV"
   ssh-agent > "$SSH_ENV"
   chmod 600 "$SSH_ENV"
-  source "$SSH_ENV" NULL
+  source "$SSH_ENV" &> /dev/null
 }
 
 function sts {
   eval "$(sts-parse $1)"
 }
-
-_fzf_compgen_path() { pt --hidden --nocolor -g "" "$1"; }
 
 function fancy-ctrl-z {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -151,24 +142,6 @@ function aws-profile {
   export AWS_PROFILE="$@"
 }
 
-function rbenv {
-  eval "$(command rbenv init --no-rehash - zsh)" NULL
-  rbenv "$@"
-}
-
-function plenv {
-  eval "$(command plenv init --no-rehash - zsh)" NULL
-  plenv "$@"
-}
-
-function pyenv {
-  eval "$(command pyenv init            --no-rehash - zsh)" NULL
-  eval "$(command pyenv virtualenv-init --no-rehash - zsh)" NULL
-  pyenv "$@"
-}
-
-. ~/.fzf.zsh NULL
-
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
 path=(~/.brew/bin $path)
@@ -181,6 +154,14 @@ manpath=(~/.brew/share/man $manpath)
 manpath=(~/.brew/opt/coreutils/libexec/gnuman $manpath)
 
 infopath=(~/.brew/share/info $infopath)
+
+if pyenv --version &> /dev/null; then
+  eval "$(command pyenv init --no-rehash - zsh)"
+fi
+
+if rbenv --version &> /dev/null; then
+  eval "$(command rbenv init --no-rehash - zsh)"
+fi
 
 path=(~/Library/Haskell/bin $path)
 path=(~/.cargo/bin $path)
