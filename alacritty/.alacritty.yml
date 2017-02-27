@@ -69,8 +69,8 @@ colors:
     background: '0x121212'
     foreground: '0xbbbbbb'
   cursor:
-    background: '0xbbbbbb'
-    foreground: '0x121212'
+    text: '0xbbbbbb'
+    cursor: '0x121212'
 
   normal:
     black:   '0x121212'
