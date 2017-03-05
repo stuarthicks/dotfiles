@@ -89,9 +89,9 @@ alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 
-path()    { echo $PATH    | tr : $'\n' }
-fpath()   { echo $FPATH   | tr : $'\n' }
-manpath() { echo $MANPATH | tr : $'\n' }
+function path    { echo $PATH    | tr : $'\n' }
+function fpath   { echo $FPATH   | tr : $'\n' }
+function manpath { echo $MANPATH | tr : $'\n' }
 
 function macos-java {
   export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
@@ -101,10 +101,9 @@ function macos-java {
 }
 
 function start-ssh-agent {
-  rm -f "$SSH_ENV"
-  ssh-agent > "$SSH_ENV"
+  ssh-agent >! "$SSH_ENV"
   chmod 600 "$SSH_ENV"
-  source "$SSH_ENV" &> /dev/null
+  . "$SSH_ENV" &> /dev/null
 }
 
 function sts {

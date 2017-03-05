@@ -23,6 +23,6 @@ export PYENV_ROOT=~/.pyenv
 export RBENV_ROOT=~/.rbenv
 
 export SSH_ENV=~/.ssh/environment
-. "${SSH_ENV}" > /dev/null 2>&1
+. "${SSH_ENV}" &> /dev/null
 
 export LD_LIBRARY_PATH="$HOME/.brew/lib:$LD_LIBRARY_PATH"
