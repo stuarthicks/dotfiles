@@ -27,13 +27,7 @@ alias s=systemctl
 alias cloudinit='journalctl --identifier=coreos-cloudinit'
 
 ctop() {
-  if [ -x ~/ctop ]; then
-    ~/ctop "$@"
-  else
-    curl -sSLf -o ~/ctop https://github.com/bcicen/ctop/releases/download/v0.4.1/ctop-0.4.1-linux-amd64
-    chmod +x ~/ctop
-    ~/ctop
-  fi
+  docker run -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
 dl_ncdu() {
