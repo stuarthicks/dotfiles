@@ -64,33 +64,64 @@ render_timer: false
 custom_cursor_colors: false
 
 # Colors (Molokai)
+# colors:
+#   primary:
+#     background: '0x121212'
+#     foreground: '0xbbbbbb'
+#
+#   cursor:
+#     text: '0xbbbbbb'
+#     cursor: '0x121212'
+#
+#   normal:
+#     black:   '0x121212'
+#     red:     '0xfa2573'
+#     green:   '0x98e123'
+#     yellow:  '0xdfd460'
+#     blue:    '0x1080d0'
+#     magenta: '0x8700ff'
+#     cyan:    '0x43a8d0'
+#     white:   '0xbbbbbb'
+#
+#   bright:
+#     black:   '0x555555'
+#     red:     '0xf6669d'
+#     green:   '0xb1e05f'
+#     yellow:  '0xfff26d'
+#     blue:    '0x00afff'
+#     magenta: '0xaf87ff'
+#     cyan:    '0x51ceff'
+#     white:   '0xffffff'
+
+# Colors (Solarized Light)
 colors:
   primary:
-    background: '0x121212'
-    foreground: '0xbbbbbb'
+    background: '0xfcf4dc'
+    foreground: '0x536870'
+
   cursor:
-    text: '0xbbbbbb'
-    cursor: '0x121212'
+    text: '0x536870'
+    cursor: '0xfcf4dc'
 
   normal:
-    black:   '0x121212'
-    red:     '0xfa2573'
-    green:   '0x98e123'
-    yellow:  '0xdfd460'
-    blue:    '0x1080d0'
-    magenta: '0x8700ff'
-    cyan:    '0x43a8d0'
-    white:   '0xbbbbbb'
+    black:   '0x002831'
+    red:     '0xd11c24'
+    green:   '0x738a05'
+    yellow:  '0xa57706'
+    blue:    '0x2176c7'
+    magenta: '0xc61c6f'
+    cyan:    '0x259286'
+    white:   '0xeae3cb'
 
   bright:
-    black:   '0x555555'
-    red:     '0xf6669d'
-    green:   '0xb1e05f'
-    yellow:  '0xfff26d'
-    blue:    '0x00afff'
-    magenta: '0xaf87ff'
-    cyan:    '0x51ceff'
-    white:   '0xffffff'
+    black:   '0x001e27'
+    red:     '0xbd3613'
+    green:   '0x475b62'
+    yellow:  '0x536870'
+    blue:    '0x708284'
+    magenta: '0x5956ba'
+    cyan:    '0x819090'
+    white:   '0xfcf4dc'
 
 # Visual Bell
 #
