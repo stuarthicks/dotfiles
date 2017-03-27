@@ -21,7 +21,6 @@ exec 'set runtimepath^='.g:dein_dir
 call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
-call dein#add('altercation/vim-colors-solarized')
 call dein#add('elzr/vim-json', { 'on_ft': 'json' })
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.11' })
 call dein#add('haya14busa/incsearch.vim')
@@ -32,6 +31,7 @@ call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
 call dein#add('sheerun/vim-polyglot')
 call dein#add('sk1418/QFGrep')
+call dein#add('tomasr/molokai')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
@@ -49,8 +49,8 @@ syntax enable
 
 " Theming!
 set termguicolors
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme molokai
 
 " Searching
 set ignorecase
