@@ -120,6 +120,35 @@ function fancy-ctrl-z {
   fi
 }
 
+function fkill {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+function br {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+function fshow {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
 function man {
   env \
     LESS_TERMCAP_mb=$(printf "\x1b[38;2;255;200;200m") \
@@ -154,6 +183,8 @@ manpath=(~/.brew/share/man $manpath)
 manpath=(~/.brew/opt/coreutils/libexec/gnuman $manpath)
 
 infopath=(~/.brew/share/info $infopath)
+
+. ~/.fzf.zsh
 
 if pyenv --version &> /dev/null; then
   eval "$(command pyenv init --no-rehash - zsh)"
