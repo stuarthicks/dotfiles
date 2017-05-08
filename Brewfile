@@ -25,7 +25,7 @@ brew 'docker-clean'
 brew 'editorconfig'
 brew 'faad2'
 brew 'fdk-aac'
-brew 'ffmpeg', args: [ 'with-fdk-aac' ]
+brew 'ffmpeg', args: [ 'with-fdk-aac', 'with-freetype' ]
 brew 'fluid-synth'
 brew 'fontconfig'
 brew 'freetype'
