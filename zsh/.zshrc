@@ -171,6 +171,10 @@ function aws-profile {
   export AWS_PROFILE="$@"
 }
 
+function urlencode {
+  python -c "import urllib; print urllib.quote('''$*''')"
+}
+
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
 path=(~/.brew/bin $path)
