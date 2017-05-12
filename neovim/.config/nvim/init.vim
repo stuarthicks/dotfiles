@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 let g:mapleader = ' '
@@ -59,11 +61,6 @@ set wildignore+=*/Godeps/*
 set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
 nnoremap <silent> <Leader><space> :nohlsearch<cr>
-
-if executable('pt')
-  set grepprg=pt\ --nocolor\ --nogroup\ --column\ --context\ 0
-  set grepformat=%f:%l:%c:%m
-endif
 
 " haya14busa/incsearch.vim
 map /  <Plug>(incsearch-forward)
