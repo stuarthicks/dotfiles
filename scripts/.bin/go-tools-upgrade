@@ -1,6 +1,8 @@
 #!/bin/bash
 
 GO='go get -u'
+export GOPATH=$HOME/gotools
+export GOBIN=$HOME/go/bin
 
 set -x
 
