@@ -2,7 +2,7 @@
 autoload -Uz colors && colors
 autoload -Uz edit-command-line
 
-export PROMPT="%{$fg[red]%}\$%{$reset_color%} "
+export PROMPT="%n@%m %{$fg[red]%}\$%{$reset_color%} "
 
 zle -N edit-command-line
 
