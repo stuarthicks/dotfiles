@@ -68,7 +68,7 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 set autowrite
-" set clipboard^=unnamed,unnamedplus
+set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
