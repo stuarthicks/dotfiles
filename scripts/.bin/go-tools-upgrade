@@ -6,13 +6,13 @@ export GOBIN=$HOME/go/bin
 
 set -x
 
-$GO github.com/HewlettPackard/gas/...
 $GO github.com/alecthomas/gometalinter
-$GO github.com/gojp/goreportcard/...
 $GO github.com/golang/dep/...
-$GO github.com/maruel/panicparse
+$GO github.com/maruel/panicparse/...
 
 $GO golang.org/x/build/version/...
 $GO golang.org/x/tools/cmd/godoc
 $GO golang.org/x/tools/cmd/goimports
 $GO golang.org/x/tools/cmd/gorename
+
+gometalinter --install --update
