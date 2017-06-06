@@ -20,7 +20,7 @@ call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
 call dein#add('elzr/vim-json', { 'on_ft': 'json' })
-call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.12' })
+call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.13' })
 call dein#add('haya14busa/incsearch.vim')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
