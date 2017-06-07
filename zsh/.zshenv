@@ -6,6 +6,7 @@ export TZ='Europe/London'
 export LC_ALL=en_GB.UTF-8
 
 export PAGER=less
+export MANPAGER="nvim -c 'set ft=man' -"
 export LESS="-RSMsi"
 export EDITOR=nvim
 export VISUAL="$EDITOR"
