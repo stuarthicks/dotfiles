@@ -32,6 +32,7 @@ call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
 call dein#add('w0rp/ale')
+call dein#add('yuttie/comfortable-motion.vim')
 call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
 
 call dein#end()
