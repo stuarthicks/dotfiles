@@ -22,6 +22,8 @@ export HOMEBREW_NO_ANALYTICS=1
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 export PYENV_ROOT=~/.pyenv
 export RBENV_ROOT=~/.rbenv
+export GOPATH=$HOME/.gotools:$HOME/go
+export GOBIN=$HOME/.gobin
 
 export SSH_ENV=~/.ssh/environment
 . "${SSH_ENV}" &> /dev/null

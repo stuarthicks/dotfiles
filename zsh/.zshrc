@@ -188,7 +188,7 @@ fi
 
 path=(~/Library/Haskell/bin $path)
 path=(~/.cargo/bin $path)
-path=(~/go/bin $path)
+path=(~/.gobin $path)
 path=(~/.bin $path)
 
 fpath=($^fpath(N))     && typeset -U FPATH
