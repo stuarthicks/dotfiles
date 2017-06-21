@@ -68,17 +68,18 @@ map g/ <Plug>(incsearch-stay)
 
 set autowrite
 set clipboard^=unnamed,unnamedplus
+set colorcolumn=80
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
 set hidden
 set inccommand=split
 set linebreak
-set nolist
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
 set mouse=
 set nofoldenable
+set nolist
 set nowrap
 set nowrapscan
 set number
