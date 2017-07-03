@@ -4,6 +4,8 @@
 	signingkey = AC065BDDB7CCA53C
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg2
 [core]
 	excludesFile = ~/.gitignore
 	pager = less
