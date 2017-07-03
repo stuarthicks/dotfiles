@@ -80,7 +80,7 @@ alias m=mosh
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias pr='hub pull-request'
-alias qq="$HOME/go/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
+alias qq="$HOME/.gotools/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
 alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
 alias t=tmux
 
