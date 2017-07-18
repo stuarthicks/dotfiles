@@ -77,7 +77,7 @@ set inccommand=split
 set linebreak
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
-set mouse=
+set mouse=a
 set nofoldenable
 set nolist
 set nowrap
