@@ -45,7 +45,7 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-set termguicolors
+" set termguicolors
 set background=dark
 colorscheme molokai
 
