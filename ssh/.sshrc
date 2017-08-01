@@ -68,5 +68,3 @@ service() {
   | sort -u \
   | xargs -n1 fleetctl "$2"
 }
-
-echo "TOOLBOX_DOCKER_TAG=24" >>$HOME/.toolboxrc
