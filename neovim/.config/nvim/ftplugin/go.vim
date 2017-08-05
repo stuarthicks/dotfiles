@@ -8,6 +8,7 @@ nmap <buffer> <Leader>i <Plug>(go-imports)
 nmap <buffer> <Leader>l <Plug>(go-metalinter)
 nmap <buffer> <Leader>r <Plug>(go-rename)
 nmap <buffer> <Leader>t <Plug>(go-test)
+nmap <buffer> <Leader>d <Plug>(go-doc)
 
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'

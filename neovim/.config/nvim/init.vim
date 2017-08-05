@@ -8,6 +8,8 @@ let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
 let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
 let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
 
+let g:vimfiler_ignore_pattern = ''
+
 if empty(glob(g:dein_dir))
   exec 'silent !mkdir -p '.g:dein_dir
   exec '!git clone '.g:dein_repo.' '.g:dein_dir
@@ -17,18 +19,21 @@ exec 'set runtimepath^='.g:dein_dir
 call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim', { 'on_cmd': 'VimFilerExplorer'})
 call dein#add('elzr/vim-json', { 'on_ft': 'json' })
-call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.13' })
+call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.14' })
 call dein#add('fgsch/vim-varnish', { 'on_ft': 'vcl' })
 call dein#add('haya14busa/incsearch.vim')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
+call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle' })
 call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
 call dein#add('sheerun/vim-polyglot')
 call dein#add('sk1418/QFGrep')
-call dein#add('tomasr/molokai')
+call dein#add('jackiehluo/vim-material')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
@@ -48,7 +53,7 @@ syntax enable
 " Theming!
 " set termguicolors
 set background=dark
-colorscheme molokai
+colorscheme material
 
 " Searching
 set ignorecase
@@ -73,13 +78,14 @@ set colorcolumn=80
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
+set foldlevelstart=20
+set foldmethod=syntax
 set hidden
 set inccommand=split
 set linebreak
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
 set mouse=a
-set nofoldenable
 set nolist
 set nowrap
 set nowrapscan
@@ -93,7 +99,7 @@ set synmaxcol=500
 set timeoutlen=300
 
 " Navigation
-nnoremap <Leader>e :Explore<cr>
+nnoremap <Leader>e :VimFilerExplorer<cr>
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>g :grep<space>
 nnoremap <Leader>b :Buffers<cr>
@@ -151,13 +157,12 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Delete erroneous [No Name] buffers
 nnoremap <silent> <Leader>B :call g:buffers#CleanNoNameEmptyBuffers()<CR>
 
-" Tab to trigger omnifunc completion
-inoremap <Tab> <C-x><C-o>
-
 " In completion, arrow keys to select, enter to confirm
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+nnoremap <silent> <Leader>s :TagbarToggle<cr>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
