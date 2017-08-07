@@ -13,7 +13,6 @@
 [push]
 	default = current
 [merge]
-	ff = only
 	conflictstyle = diff3
 [transfer]
 	fsckobjects = true
