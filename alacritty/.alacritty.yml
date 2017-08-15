@@ -4,18 +4,21 @@
 # environment variables. Some entries may override variables
 # set by alacritty it self.
 env:
-  # TERM env customization. Default is xterm-256color
-  # Note: the default TERM value `xterm-256color` does not
-  # specify all features alacritty supports. This does pose
-  # a few issues with programs relying on terminfo and the
-  # `tput` command
+  # TERM env customization.
+  #
+  # If this property is not set, alacritty will set it to xterm-256color.
+  #
+  # Note that some xterm terminfo databases don't declare support for italics.
+  # You can verify this by checking for the presence of `smso` and `sitm` in
+  # `infocmp xterm-256color`.
   TERM: screen-256color
 
 # Window dimensions in character columns and lines
 # (changes require restart)
 dimensions:
   columns: 80
-  lines: 25
+  lines: 24
+
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
 # (change requires restart)
@@ -37,18 +40,27 @@ tabspaces: 8
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
+# Font configuration (changes require restart)
 font:
+  # The normal (roman) font face to use.
   normal:
     family: Source Code Pro
+    # Style can be specified to pick a specific face.
+    # style: Regular
 
+  # The bold font face
   bold:
     family: Source Code Pro
-    style: Bold
+    # Style can be specified to pick a specific face.
+    # style: Bold
 
+  # The italic font face
   italic:
     family: Source Code Pro
-    style: Italic
+    # Style can be specified to pick a specific face.
+    # style: Italic
 
+  # Point size of the font
   size: 12.0
 
   # Offset is the extra space around each character. offset.y can be thought of
@@ -106,35 +118,6 @@ colors:
     cyan:    '0x51ceff'
     white:   '0xffffff'
 
-# Colors (Solarized Light)
-# colors:
-#   primary:
-#     background: '0xfcf4dc'
-#     foreground: '0x536870'
-#
-#   cursor:
-#     text: '0x536870'
-#     cursor: '0xfcf4dc'
-#
-#   normal:
-#     black:   '0x002831'
-#     red:     '0xd11c24'
-#     green:   '0x738a05'
-#     yellow:  '0xa57706'
-#     blue:    '0x2176c7'
-#     magenta: '0xc61c6f'
-#     cyan:    '0x259286'
-#     white:   '0xeae3cb'
-#
-#   bright:
-#     black:   '0x001e27'
-#     red:     '0xbd3613'
-#     green:   '0x475b62'
-#     yellow:  '0x536870'
-#     blue:    '0x708284'
-#     magenta: '0x5956ba'
-#     cyan:    '0x819090'
-#     white:   '0xfcf4dc'
 
 # Visual Bell
 #
@@ -245,10 +228,7 @@ key_bindings:
   - { key: Back,                    chars: "\x7f"                        }
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
   - { key: Insert,                  chars: "\x1b[2~"                     }
-  - { key: Delete,                  chars: "\x1b[3~",  mode: AppKeypad   }
-
-# macOS Fixes
-  - { key: Key3,     mods: Alt,     chars: "#",        mode: ~AppKeypad  }
+  - { key: Delete,                  chars: "\x1b[3~"                     }
 
 # Mouse bindings
 #
