@@ -33,7 +33,7 @@ call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
 call dein#add('sheerun/vim-polyglot')
 call dein#add('sk1418/QFGrep')
-call dein#add('jackiehluo/vim-material')
+call dein#add('tomasr/molokai')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
@@ -51,9 +51,9 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-" set termguicolors
+set termguicolors
 set background=dark
-colorscheme material
+colorscheme molokai
 
 " Searching
 set ignorecase
