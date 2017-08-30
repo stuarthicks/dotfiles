@@ -1,16 +1,6 @@
 #!/bin/bash
-
-GO='go get -u'
-
 set -x
 
-$GO github.com/alecthomas/gometalinter
-$GO github.com/golang/dep/...
-$GO github.com/maruel/panicparse/...
-
-$GO golang.org/x/build/version/...
-$GO golang.org/x/tools/cmd/godoc
-$GO golang.org/x/tools/cmd/goimports
-$GO golang.org/x/tools/cmd/gorename
-
-gometalinter --install --update
+go get -u github.com/golang/dep/...
+go get -u github.com/maruel/panicparse/...
+go get -u golang.org/x/tools/cmd/goimports
