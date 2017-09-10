@@ -42,7 +42,7 @@ setopt HIST_VERIFY
 setopt LONG_LIST_JOBS
 setopt MULTIOS
 setopt NO_CLOBBER
-setopt PIPE_FAIL &>/dev/null # Not available on all zsh versions
+setopt PIPE_FAIL
 setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
 setopt PUSHD_IGNORE_DUPS
@@ -73,9 +73,8 @@ bindkey -M menuselect "=" accept-and-menu-complete
 alias bonsai='tree -F --filelimit 15'
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 alias g=git
-alias git=hub
 alias hex='hexdump -C'
-alias k='ls --group-directories-first --color -lhN'
+alias k='ls -lFGO'
 alias m=mosh
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
@@ -130,23 +129,10 @@ function fkill {
   fi
 }
 
-function br {
-  local branches branch
-  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-function fshow {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
+function fakeaws {
+  unset AWS_DEFAULT_PROFILE AWS_PROFILE AWS_CONFIG_DIR
+  export AWS_ACCESS_KEY_ID=1
+  export AWS_SECRET_ACCESS_KEY=1
 }
 
 function aws-region {
@@ -163,20 +149,24 @@ function urlencode {
   python -c "import urllib; print urllib.quote('''$*''')"
 }
 
+function urldecode {
+  python -c "import urllib; print urllib.unquote('''$*''')"
+}
+
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
-path=(~/.brew/bin $path)
-path=(~/.brew/sbin $path)
-path=(~/.brew/opt/coreutils/libexec/gnubin $path)
+path=(
+  ~/.brew/bin
+  ~/.brew/sbin
+  $path
+)
 
-manpath=(/usr/share/man $manpath)
-manpath=(/usr/local/share/man $manpath)
-manpath=(~/.brew/share/man $manpath)
-manpath=(~/.brew/opt/coreutils/libexec/gnuman $manpath)
-
-infopath=(~/.brew/share/info $infopath)
-
-. ~/.fzf.zsh
+manpath=(
+  /usr/share/man
+  /usr/local/share/man
+  ~/.brew/share/man
+  $manpath
+)
 
 if pyenv --version &> /dev/null; then
   eval "$(command pyenv init --no-rehash - zsh)"
@@ -186,10 +176,12 @@ if rbenv --version &> /dev/null; then
   eval "$(command rbenv init --no-rehash - zsh)"
 fi
 
-path=(~/Library/Haskell/bin $path)
-path=(~/.cargo/bin $path)
-path=(~/.gobin $path)
-path=(~/.bin $path)
+path=(
+  ~/.bin
+  ~/.gobin
+  ~/.cargo/bin
+  $path
+)
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH

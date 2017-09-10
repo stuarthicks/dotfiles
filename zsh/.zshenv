@@ -13,7 +13,7 @@ export VISUAL="$EDITOR"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 export AWS_CONFIG_DIR=~/.aws
-export AWS_DEFAULT_REGION=us-east-1
+export AWS_DEFAULT_REGION=eu-west-1
 export CGO_CFLAGS="-I $HOME/.brew/include"
 export CGO_CPPFLAGS="-I $HOME/.brew/include"
 export CGO_LDFLAGS="-L $HOME/.brew/lib"
