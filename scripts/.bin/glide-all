@@ -2,5 +2,5 @@
 set -euo pipefail
 
 find ./*/glide.yaml \
-  | cut -d '/' -f1 \
+  | cut -d '/' -f2 \
   | xargs -n1 -I{} bash -c "cd {}; glide install"
