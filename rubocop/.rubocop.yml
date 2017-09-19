@@ -21,6 +21,9 @@ Style/MutableConstant:
 Style/StringLiterals:
   EnforcedStyle: single_quotes
 
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
 Metrics/ClassLength:
   Enabled: false
 
