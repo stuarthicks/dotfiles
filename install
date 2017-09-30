@@ -17,17 +17,12 @@ case "$(uname)" in
       export PATH="../.brew/bin:$PATH"
     fi
     brew tap 'homebrew/bundle' && brew bundle install
-    brew link --force curl libressl
     ;;
   *) ;;
 esac
 
-git clone 'https://github.com/tmux-plugins/tpm' ../.tmux/plugins/tpm
-git clone 'https://github.com/syl20bnr/spacemacs' ../.emacs.d
-
 stow --stow --verbose \
   abcde        \
-  ctags        \
   editorconfig \
   git          \
   mpd          \
@@ -37,3 +32,4 @@ stow --stow --verbose \
   ssh          \
   tmux         \
   zsh          \
+

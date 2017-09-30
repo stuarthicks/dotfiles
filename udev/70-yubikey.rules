@@ -1,6 +1,0 @@
-# Needed for challenge/response to work correctly.
-ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0010|0110|0111|114|116|0115", ATTRS{MODE}="777"
-
-# Allow HID access for U2F/Security Key
-ATTRS{idVendor}=="1050", GROUP="plugdev", MODE="0660"
-ATTRS{idVendor}=="2581", ATTRS{idProduct}=="f1d0", GROUP="plugdev", MODE="0660"
