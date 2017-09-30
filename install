@@ -25,7 +25,6 @@ stow --stow --verbose \
   abcde        \
   editorconfig \
   git          \
-  mpd          \
   neovim       \
   rubocop      \
   scripts      \

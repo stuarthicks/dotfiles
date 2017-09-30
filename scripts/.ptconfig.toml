@@ -1,3 +1,0 @@
-color = true
-context = 3
-ignore = [".git", "vendor", "bundle", "Godeps"]
