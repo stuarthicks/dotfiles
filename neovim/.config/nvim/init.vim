@@ -22,25 +22,18 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim', { 'on_cmd': 'VimFilerExplorer'})
 call dein#add('editorconfig/editorconfig-vim')
-call dein#add('elzr/vim-json', { 'on_ft': 'json' })
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.14' })
-call dein#add('fgsch/vim-varnish', { 'on_ft': 'vcl' })
-call dein#add('haya14busa/incsearch.vim')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
-call dein#add('majutsushi/tagbar', { 'on_cmd': 'TagbarToggle' })
 call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
 call dein#add('sheerun/vim-polyglot')
-call dein#add('sk1418/QFGrep')
 call dein#add('tomasr/molokai')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
 call dein#add('w0rp/ale')
-call dein#add('yuttie/comfortable-motion.vim')
-call dein#add('zchee/deoplete-go', { 'build': 'make', 'on_ft': 'go' })
 
 call dein#end()
 
@@ -67,11 +60,6 @@ set wildignore+=*/Godeps/*
 set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
 nnoremap <silent> <Leader><space> :nohlsearch<cr>
-
-" haya14busa/incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 set autowrite
 set clipboard^=unnamed,unnamedplus
