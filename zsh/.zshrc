@@ -75,7 +75,6 @@ alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:
 alias g=git
 alias hex='hexdump -C'
 alias k='ls -lFGO'
-alias m=mosh
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias pr='hub pull-request'
@@ -93,67 +92,10 @@ function path    { echo $PATH    | tr : $'\n' }
 function fpath   { echo $FPATH   | tr : $'\n' }
 function manpath { echo $MANPATH | tr : $'\n' }
 
-function macos-java {
-  export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
-  path=("$JAVA_HOME/bin" $path)
-  path=($^path(N)) && typeset -U PATH
-  echo "JAVA_HOME is $JAVA_HOME"
-}
-
-function start-ssh-agent {
-  ssh-agent >! "$SSH_ENV"
-  chmod 600 "$SSH_ENV"
-  . "$SSH_ENV" &> /dev/null
-}
-
-function sts {
-  eval "$(sts-parse $1)"
-}
-
-function fancy-ctrl-z {
-  if [[ $#BUFFER -eq 0 ]]; then
-    kill -9 %+
-    zle redisplay
-  else
-    zle push-input
-  fi
-}
-
-function fkill {
-  local pid
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-
-  if [ "x$pid" != "x" ]
-  then
-    echo $pid | xargs kill -${1:-9}
-  fi
-}
-
-function fakeaws {
-  unset AWS_DEFAULT_PROFILE AWS_PROFILE AWS_CONFIG_DIR
-  export AWS_ACCESS_KEY_ID=1
-  export AWS_SECRET_ACCESS_KEY=1
-}
-
-function aws-region {
-  export AWS_DEFAULT_REGION="$@"
-  export AWS_REGION="$@"
-}
-
-function aws-profile {
-  export AWS_DEFAULT_PROFILE="$@"
-  export AWS_PROFILE="$@"
-}
-
-function urlencode {
-  python -c "import urllib; print urllib.quote('''$*''')"
-}
-
-function urldecode {
-  python -c "import urllib; print urllib.unquote('''$*''')"
-}
-
-zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
+fpath=(
+  ~/.zsh_functions
+  $fpath
+)
 
 path=(
   ~/.brew/bin
@@ -168,13 +110,8 @@ manpath=(
   $manpath
 )
 
-if pyenv --version &> /dev/null; then
-  eval "$(command pyenv init --no-rehash - zsh)"
-fi
-
-if rbenv --version &> /dev/null; then
-  eval "$(command rbenv init --no-rehash - zsh)"
-fi
+eval "$(command pyenv init --no-rehash - zsh)"
+eval "$(command rbenv init --no-rehash - zsh)"
 
 path=(
   ~/.bin
@@ -190,3 +127,16 @@ path=($^path(N))       && typeset -U PATH
 autoload -Uz compinit && compinit
 autoload -Uz compdef
 compdef mosh=ssh
+
+autoload -Uz aws-fake
+autoload -Uz aws-profile
+autoload -Uz aws-region
+autoload -Uz fancy-ctrl-z
+autoload -Uz fkill
+autoload -Uz macos-java
+autoload -Uz start-ssh-agent
+autoload -Uz sts
+autoload -Uz urldecode
+autoload -Uz urlencode
+
+zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z

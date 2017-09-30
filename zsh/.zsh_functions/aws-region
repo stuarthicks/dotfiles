@@ -1,0 +1,6 @@
+function aws-region {
+  export AWS_DEFAULT_REGION="$@"
+  export AWS_REGION="$@"
+}
+
+aws-region "$@"

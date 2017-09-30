@@ -1,0 +1,5 @@
+function urlencode {
+  python -c "import urllib; print urllib.quote('''$*''')"
+}
+
+urlencode "$@"

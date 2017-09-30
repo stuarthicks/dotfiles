@@ -1,0 +1,5 @@
+function urldecode {
+  python -c "import urllib; print urllib.unquote('''$*''')"
+}
+
+urldecode "$@"

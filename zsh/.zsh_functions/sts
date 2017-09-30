@@ -1,0 +1,5 @@
+function sts {
+  eval "$(sts-parse $1)"
+}
+
+sts "$@"
