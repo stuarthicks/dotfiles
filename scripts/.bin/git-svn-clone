@@ -1,6 +1,0 @@
-#!/bin/bash
-set -eux
-
-svn_loc="$1"
-first_revision=$(svn log --stop-on-copy --limit 1 -q -r1:HEAD "$svn_loc" | tail -n2 | head -n1 | cut -d ' ' -f 1)
-git svn clone -$first_revision:HEAD -s $svn_loc/

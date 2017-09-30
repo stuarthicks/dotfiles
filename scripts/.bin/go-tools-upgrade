@@ -1,6 +1,0 @@
-#!/bin/bash
-set -x
-
-go get -u github.com/golang/dep/...
-go get -u github.com/maruel/panicparse/...
-go get -u golang.org/x/tools/cmd/goimports

@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-set -eu
-
-killall gpg-agent
-rm -f ~/.gpg-agent-info
-/usr/local/MacGPG2/bin/gpg-agent --daemon > ~/.gpg-agent-info

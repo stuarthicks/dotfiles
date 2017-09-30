@@ -1,3 +1,0 @@
-#!/bin/sh
-glide install
-find vendor -type f -name glide.yaml -execdir glide install ';'
