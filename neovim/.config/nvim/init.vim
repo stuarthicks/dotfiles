@@ -23,6 +23,7 @@ call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim', { 'on_cmd': 'VimFilerExplorer'})
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.15' })
+call dein#add('iCyMind/NeoSolarized')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
@@ -47,7 +48,7 @@ syntax enable
 " Theming!
 set termguicolors
 set background=dark
-colorscheme molokai
+colorscheme NeoSolarized
 
 " Searching
 set ignorecase
@@ -63,7 +64,7 @@ nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
 set autowrite
 set clipboard^=unnamed,unnamedplus
-set colorcolumn=80
+" set colorcolumn=80
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
