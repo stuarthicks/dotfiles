@@ -13,17 +13,21 @@ export VISUAL="$EDITOR"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 export AWS_CONFIG_DIR=~/.aws
-export AWS_DEFAULT_REGION=eu-west-1
+export AWS_REGION=eu-west-1
+export AWS_SESSION_TTL=4h
+export AWS_ASSUME_ROLE_TTL=1h
+
+export GOPATH=$HOME/.gotools:$HOME/go
+export GOBIN=$HOME/.gobin
 export CGO_CFLAGS="-I $HOME/.brew/include"
 export CGO_CPPFLAGS="-I $HOME/.brew/include"
 export CGO_LDFLAGS="-L $HOME/.brew/lib"
+
 export GPGKEY=AC065BDDB7CCA53C
 export HOMEBREW_NO_ANALYTICS=1
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 export PYENV_ROOT=~/.pyenv
 export RBENV_ROOT=~/.rbenv
-export GOPATH=$HOME/.gotools:$HOME/go
-export GOBIN=$HOME/.gobin
 
 export SSH_ENV=~/.ssh/environment
 . "${SSH_ENV}" &> /dev/null
