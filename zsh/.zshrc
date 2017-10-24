@@ -23,7 +23,6 @@ export CLICOLOR=1
 export HISTFILE=~/.zsh_history
 export HISTSIZE=2000
 export KEYTIMEOUT=1
-export REPORTTIME=1
 export SAVEHIST=2000
 
 setopt ALIASES
@@ -140,3 +139,13 @@ autoload -Uz urldecode
 autoload -Uz urlencode
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+_fzf_compgen_path() {
+  rg --files --no-ignore --hidden --glob "!.git/*" "$1" | with-dir "$1"
+}
+
+_fzf_compgen_dir() {
+  rg --files --no-ignore --hidden --glob "!.git/*" "$1" | only-dir "$1"
+}
