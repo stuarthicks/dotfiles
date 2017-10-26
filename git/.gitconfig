@@ -19,7 +19,6 @@
 [branch]
 	autosetuprebase = always
 [diff]
-	tool = nvim -d
 	compactionHeuristic = true
 [difftool]
 	prompt = false
