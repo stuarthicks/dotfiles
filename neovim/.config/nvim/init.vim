@@ -19,8 +19,6 @@ exec 'set runtimepath^='.g:dein_dir
 call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler.vim', { 'on_cmd': 'VimFilerExplorer'})
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.15' })
 call dein#add('iCyMind/NeoSolarized')
@@ -29,8 +27,8 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
 call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
+call dein#add('scrooloose/nerdtree')
 call dein#add('sheerun/vim-polyglot')
-call dein#add('tomasr/molokai')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-surround')
@@ -89,7 +87,7 @@ set synmaxcol=500
 set timeoutlen=300
 
 " Navigation
-nnoremap <Leader>e :VimFilerExplorer<cr>
+nnoremap <Leader>e :NERDTreeToggle<cr>
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>g :grep<space>
 nnoremap <Leader>b :Buffers<cr>
