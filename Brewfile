@@ -3,16 +3,20 @@
 tap 'homebrew/dupes'
 tap 'homebrew/services'
 tap 'homebrew/versions'
+tap 'caskroom/cask'
 
 tap 'rockymadden/rockymadden'
 tap 'stuarthicks/brews'
 
+cask 'aws-vault'
+
+brew 'arping'
 brew 'circleci-cli'
 brew 'clang-format'
 brew 'cmake'
-brew 'colordiff'
 brew 'editorconfig'
 brew 'ffmpeg', args: [ 'with-fdk-aac', 'with-freetype' ]
+brew 'figlet'
 brew 'git'
 brew 'git-lfs'
 brew 'gnu-sed', args: [ 'with-default-names' ]
@@ -21,6 +25,7 @@ brew 'htop-osx'
 brew 'hub'
 brew 'imagemagick'
 brew 'libmagic'
+brew 'lolcat'
 brew 'jq'
 brew 'media-info'
 brew 'mosh'
