@@ -1,0 +1,16 @@
+#!/bin/sh
+set -x
+
+( cd ~/.dotfiles && brew update && brew bundle )
+echo
+
+rbenv each gem update --system
+rbenv each gem install bundler rubocop neovim pry
+echo
+
+pip2 install -U pip setuptools wheel virtualenv neovim awscli cdiff
+pip3 install -U pip setuptools wheel virtualenv neovim awscli cdiff
+echo
+
+go get -u github.com/maruel/panicparse/cmd/pp
+echo
