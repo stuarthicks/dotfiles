@@ -4,6 +4,7 @@ let g:mapleader = ' '
 let g:maplocalleader = '\'
 let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
 let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
+let g:ruby_host_prog = $HOME.'/.rbenv/shims/ruby'
 
 let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
 let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
@@ -21,12 +22,11 @@ call dein#begin(expand('~/.config/nvim/dein'))
 call dein#add('Shougo/dein.vim')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.15' })
-call dein#add('iCyMind/NeoSolarized')
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
 call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
-call dein#add('rust-lang/rust.vim', { 'on_ft': 'rs' })
+call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
 call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
 call dein#add('sheerun/vim-polyglot')
 call dein#add('tomtom/tcomment_vim')
@@ -44,9 +44,9 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-set termguicolors
+" set termguicolors
 set background=dark
-colorscheme NeoSolarized
+colorscheme default
 
 " Searching
 set ignorecase
