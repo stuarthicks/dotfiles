@@ -2,9 +2,6 @@ scriptencoding utf-8
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
-let g:python_host_prog = $HOME.'/.pyenv/shims/python2'
-let g:python3_host_prog = $HOME.'/.pyenv/shims/python3'
-let g:ruby_host_prog = $HOME.'/.rbenv/shims/ruby'
 
 let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
 let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
