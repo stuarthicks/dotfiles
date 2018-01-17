@@ -22,7 +22,6 @@ case "$(uname)" in
 esac
 
 stow --stow --verbose \
-  abcde        \
   editorconfig \
   git          \
   neovim       \
