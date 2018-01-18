@@ -1,0 +1,6 @@
+#!/bin/bash
+set -uo pipefail
+
+find . -type f -name Gemfile.lock -print0 \
+  | xargs -0 -L1 dirname \
+  | xargs -n1 -I{} bash -c "echo {}; cd {}; bundle install; echo"
