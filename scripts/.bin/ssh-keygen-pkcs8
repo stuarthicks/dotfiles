@@ -15,14 +15,11 @@ if [ -e "$file"       ] ; then echo "Exists: $file"       ; exit 1 ; fi
 if [ -e "$file_pub"   ] ; then echo "Exists: $file_pub"   ; exit 1 ; fi
 if [ -e "$file_pkcs8" ] ; then echo "Exists: $file_pkcs8" ; exit 1 ; fi
 
-del=""
+del="rm -Pv"
 if command -v "srm" ; then
   del="srm"
 elif command -v "shred" ; then
   del="shred -u"
-else
-  echo "No secure delete command found."
-  exit 1
 fi
 
 tmp_passwd="$(uuidgen) $(uuidgen)"
