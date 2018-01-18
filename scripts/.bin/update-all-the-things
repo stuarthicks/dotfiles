@@ -1,16 +1,26 @@
 #!/bin/sh
-set -x
 
+softwareupdate -a -i
+echo
+
+echo 'Updating homebrew'
 ( cd ~/.dotfiles && brew update && brew bundle )
 echo
 
+echo 'Updating ruby environment'
 rbenv each gem update --system
 rbenv each gem install bundler rubocop neovim pry
 echo
 
+echo 'Updating python environment'
 pip2 install -U pip setuptools wheel virtualenv neovim awscli cdiff
 pip3 install -U pip setuptools wheel virtualenv neovim awscli cdiff
 echo
 
-go get -u github.com/maruel/panicparse/cmd/pp
+echo 'Updating Go tools'
+go get -v -u github.com/maruel/panicparse/cmd/pp
+go get -v -u github.com/golang/dep/cmd/dep
+go get -v -u github.com/alecthomas/gometalinter
+gometalinter --install
+
 echo
