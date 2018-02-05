@@ -12,10 +12,7 @@ export EDITOR=nvim
 export VISUAL="$EDITOR"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-export AWS_CONFIG_DIR=~/.aws
 export AWS_REGION=eu-west-1
-export AWS_SESSION_TTL=4h
-export AWS_ASSUME_ROLE_TTL=1h
 
 export GOPATH=$HOME/.gotools:$HOME/go
 export GOBIN=$HOME/.gobin
