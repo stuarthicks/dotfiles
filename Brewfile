@@ -1,10 +1,8 @@
 # vi: set ft=ruby
 
-tap 'caskroom/cask'
-cask 'aws-vault'
-
-brew 'stuarthicks/brews/rbenv-each'
-brew 'stuarthicks/brews/tstools'
+tap 'stuarthicks/brews'
+brew 'rbenv-each', args: [ 'HEAD' ]
+brew 'tstools'
 
 # homebrew-core
 brew 'cmake'
