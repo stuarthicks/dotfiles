@@ -6,7 +6,7 @@ let g:maplocalleader = '\'
 let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
 let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
 
-let g:vimfiler_ignore_pattern = ''
+let g:NERDTreeIgnore = ['\.pyc$']
 
 if empty(glob(g:dein_dir))
   exec 'silent !mkdir -p '.g:dein_dir
@@ -22,7 +22,6 @@ call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.16' })
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('junegunn/vim-easy-align')
-call dein#add('python-mode/python-mode', { 'on_ft': 'python' })
 call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
 call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
 call dein#add('sheerun/vim-polyglot')
