@@ -6,9 +6,11 @@ brew 'tstools'
 
 # homebrew-core
 brew 'cmake'
+brew 'dep'
 brew 'editorconfig'
 brew 'ffmpeg', args: [ 'with-fdk-aac', 'with-freetype' ]
 brew 'git-lfs'
+brew 'glide'
 brew 'gnu-sed', args: [ 'with-default-names' ]
 brew 'graphviz'
 brew 'hub'
