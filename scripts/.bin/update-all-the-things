@@ -18,9 +18,9 @@ pip3 install -U pip setuptools wheel virtualenv neovim awscli cdiff
 echo
 
 echo 'Updating Go tools'
-go get -v -u github.com/maruel/panicparse/cmd/pp
-go get -v -u github.com/golang/dep/cmd/dep
 go get -v -u github.com/alecthomas/gometalinter
+go get -v -u github.com/maruel/panicparse/cmd/pp
+go get -v -u github.com/smartystreets/goconvey
 gometalinter --install
 
 echo

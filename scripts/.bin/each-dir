@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
-set -eu
+#!/bin/sh
 
 for i in *; do
   if [ -d "$i" ]; then
     (
-      echo 
+      echo
       echo "${i}:"
-      cd "$i"
-      exec $@
+      cd "$i" || exit
+      exec "$@"
     )
   fi
 done
