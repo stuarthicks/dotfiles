@@ -4,15 +4,23 @@ softwareupdate -a -i
 echo
 
 echo 'Updating homebrew'
-( cd ~/.dotfiles && brew update && brew bundle )
+(
+  cd ~/.dotfiles && \
+    brew update && \
+    brew bundle
+)
 echo
 
-echo 'Updating ruby environment'
+echo 'Updating ruby'
 rbenv each gem update --system
-rbenv each gem install bundler rubocop neovim pry
+rbenv each gem install --force \
+  bundler \
+  rubocop \
+  neovim \
+  pry
 echo
 
-echo 'Updating python environment'
+echo 'Updating python'
 pip2 install -U pip setuptools wheel virtualenv neovim awscli cdiff
 pip3 install -U pip setuptools wheel virtualenv neovim awscli cdiff
 echo
@@ -21,6 +29,12 @@ echo 'Updating Go tools'
 go get -v -u github.com/alecthomas/gometalinter
 go get -v -u github.com/maruel/panicparse/cmd/pp
 go get -v -u github.com/smartystreets/goconvey
+go get -u -v golang.org/x/build/version/...
+go get -u -v golang.org/x/vgo
 gometalinter --install
+echo
 
+echo 'Updating rust'
+rustup self update
+rustup update
 echo
