@@ -4,6 +4,9 @@ tap 'stuarthicks/brews'
 brew 'rbenv-each', args: [ 'HEAD' ]
 brew 'tstools'
 
+tap 'go-delve/delve'
+brew 'delve'
+
 # homebrew-core
 brew 'cmake'
 brew 'dep'
