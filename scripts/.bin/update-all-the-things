@@ -29,8 +29,9 @@ echo 'Updating Go tools'
 go get -v -u github.com/alecthomas/gometalinter
 go get -v -u github.com/maruel/panicparse/cmd/pp
 go get -v -u github.com/smartystreets/goconvey
-go get -u -v golang.org/x/build/version/...
-go get -u -v golang.org/x/vgo
+go get -v -u github.com/y0ssar1an/q
+go get -v -u golang.org/x/build/version/...
+go get -v -u golang.org/x/vgo
 gometalinter --install
 echo
 
