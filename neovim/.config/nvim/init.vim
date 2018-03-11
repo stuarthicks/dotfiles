@@ -17,7 +17,6 @@ exec 'set runtimepath^='.g:dein_dir
 call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
-call dein#add('editorconfig/editorconfig-vim')
 call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.16' })
 call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
