@@ -4,15 +4,13 @@ tap 'stuarthicks/brews'
 brew 'rbenv-each', args: [ 'HEAD' ]
 brew 'tstools'
 
-tap 'go-delve/delve'
-brew 'delve'
-
 # homebrew-core
 brew 'cmake'
 brew 'coreutils'
 brew 'ffmpeg', args: [ 'with-fdk-aac', 'with-freetype' ]
 brew 'git-lfs'
 brew 'gnu-sed', args: [ 'with-default-names' ]
+brew 'gnupg', args: [ 'with-readline' ]
 brew 'hub'
 brew 'imagemagick'
 brew 'jq'
