@@ -38,3 +38,5 @@ vim-go-test-compile
 .\#*
 \#*\#
 *~
+
+**/.bin/*
