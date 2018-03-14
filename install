@@ -8,7 +8,6 @@ require() {
 }
 
 require git
-require stow
 
 case "$(uname)" in
   "Darwin")
@@ -21,8 +20,9 @@ case "$(uname)" in
   *) ;;
 esac
 
+require stow
+
 stow --stow --verbose \
-  editorconfig \
   git          \
   neovim       \
   rubocop      \
