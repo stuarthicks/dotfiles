@@ -116,6 +116,7 @@ path=(
   ~/.bin
   ~/.gobin
   ~/.cargo/bin
+  ~/Library/Mobile\ Documents/com~apple~CloudDocs/WorkScripts
   $path
 )
 
