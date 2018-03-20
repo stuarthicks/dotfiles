@@ -4,6 +4,9 @@ tap 'stuarthicks/brews'
 brew 'rbenv-each', args: [ 'HEAD' ]
 brew 'tstools'
 
+tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
+brew 'ripgrep-bin'
+
 # homebrew-core
 brew 'cmake'
 brew 'coreutils'
