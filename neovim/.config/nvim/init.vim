@@ -3,34 +3,38 @@ scriptencoding utf-8
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
-let g:dein_repo = 'https://github.com/Shougo/dein.vim.git'
-let g:dein_dir = '~/.config/nvim/dein/repos/github.com/Shougo/dein.vim'
-
 let g:NERDTreeIgnore = ['\.pyc$']
+
+let g:dein_dir = expand('~/.config/nvim/dein')
+let g:dein_plugin_dir = expand('~/.config/nvim/dein_plugins')
 
 if empty(glob(g:dein_dir))
   exec 'silent !mkdir -p '.g:dein_dir
-  exec '!git clone '.g:dein_repo.' '.g:dein_dir
+  exec '!git clone git@github.com:Shougo/dein.vim '.g:dein_dir
 endif
+
 exec 'set runtimepath^='.g:dein_dir
 
-call dein#begin(expand('~/.config/nvim/dein'))
+if dein#load_state(g:dein_plugin_dir)
+  call dein#begin(g:dein_plugin_dir)
 
-call dein#add('Shougo/dein.vim')
-call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.17' })
-call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('junegunn/vim-easy-align')
-call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
-call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
-call dein#add('sheerun/vim-polyglot')
-call dein#add('tomasr/molokai')
-call dein#add('tomtom/tcomment_vim')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-surround')
-call dein#add('w0rp/ale')
+  call dein#add(g:dein_dir)
+  call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.17' })
+  call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
+  call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('tomasr/molokai')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-surround')
+  call dein#add('w0rp/ale')
 
-call dein#end()
+  call dein#end()
+  call dein#save_state()
+endif
 
 if dein#check_install()
   call dein#install()
@@ -58,7 +62,6 @@ nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
 set autowrite
 set clipboard^=unnamed,unnamedplus
-" set colorcolumn=80
 set completeopt=longest,menuone
 set cursorline
 set diffopt+=iwhite
@@ -79,7 +82,7 @@ set scrolloff=5
 set sidescrolloff=5
 set splitbelow
 set splitright
-set synmaxcol=500
+set synmaxcol=1000
 set timeoutlen=300
 
 " Navigation
