@@ -22,7 +22,6 @@ export CGO_LDFLAGS="-L $HOME/.brew/lib"
 
 export GPGKEY=AC065BDDB7CCA53C
 export HOMEBREW_NO_ANALYTICS=1
-export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
 export PYENV_ROOT=~/.pyenv
 export RBENV_ROOT=~/.rbenv
 

@@ -86,6 +86,7 @@ alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+alias alacritty='open -n -a Alacritty'
 
 function path    { echo $PATH    | tr : $'\n' }
 function fpath   { echo $FPATH   | tr : $'\n' }
