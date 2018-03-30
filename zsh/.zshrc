@@ -69,17 +69,12 @@ zstyle ':completion:*' tag-order '! users'                      # listing all us
 bindkey -M menuselect "=" accept-and-menu-complete
 
 # nonspecific
-alias bonsai='tree -F --filelimit 15'
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
-alias g=git
 alias hex='hexdump -C'
 alias k='ls -lFGO'
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
-alias pr='hub pull-request'
 alias qq="$HOME/.gotools/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
-alias red='exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )'
-alias t=tmux
 
 # osx specific
 alias macos-indexing='sudo mdutil -a -v -i'
@@ -109,6 +104,11 @@ manpath=(
   ~/.brew/share/man
   $manpath
 )
+
+function nvm() {
+  export NVM_DIR=$HOME/.nvm
+  [ -f "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
 
 eval "$(command pyenv init --no-rehash - zsh)"
 eval "$(command rbenv init --no-rehash - zsh)"

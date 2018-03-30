@@ -9,16 +9,10 @@ brew 'ripgrep-bin'
 
 # homebrew-core
 brew 'cmake'
-brew 'coreutils'
-brew 'ffmpeg', args: [ 'with-fdk-aac', 'with-freetype' ]
 brew 'git-lfs'
-brew 'gnu-sed', args: [ 'with-default-names' ]
 brew 'gnupg', args: [ 'with-readline' ]
-brew 'hub'
-brew 'imagemagick'
 brew 'jq'
 brew 'libmagic'
-brew 'media-info'
 brew 'openssl'
 brew 'openssl@1.1'
 brew 'pyenv'
