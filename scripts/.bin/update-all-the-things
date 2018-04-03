@@ -4,7 +4,7 @@
   echo 'Updating dotfiles'
   cd ~/.dotfiles && \
     git fetch --all --prune && \
-    git pull --ff-only
+    git pull --ff-only origin master
   echo
 )
 
@@ -34,12 +34,11 @@ pip3 install -U pip setuptools wheel virtualenv neovim awscli cdiff
 echo
 
 echo 'Updating Go tools'
-go get -v -u github.com/alecthomas/gometalinter
-go get -v -u github.com/maruel/panicparse/cmd/pp
-go get -v -u github.com/smartystreets/goconvey
-go get -v -u github.com/y0ssar1an/q
-go get -v -u golang.org/x/build/version/...
-go get -v -u golang.org/x/vgo
+go get -v -u \
+  github.com/alecthomas/gometalinter \
+  github.com/maruel/panicparse/cmd/pp \
+  github.com/y0ssar1an/q \
+  golang.org/x/vgo
 gometalinter --install
 echo
 

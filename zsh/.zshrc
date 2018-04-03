@@ -110,6 +110,12 @@ function nvm() {
   [ -f "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 }
 
+path=(
+  ~/.rbenv/bin
+  ~/.pyenv/bin
+  $path
+)
+
 eval "$(command pyenv init --no-rehash - zsh)"
 eval "$(command rbenv init --no-rehash - zsh)"
 
@@ -141,13 +147,3 @@ autoload -Uz urldecode
 autoload -Uz urlencode
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-_fzf_compgen_path() {
-  rg --files --no-ignore --hidden --glob "!.git/*" "$1" | with-dir "$1"
-}
-
-_fzf_compgen_dir() {
-  rg --files --no-ignore --hidden --glob "!.git/*" "$1" | only-dir "$1"
-}
