@@ -8,7 +8,6 @@ brew 'ripgrep-bin'
 
 # homebrew-core
 brew 'git-lfs'
-brew 'gnupg', args: [ 'with-readline' ]
 brew 'jq'
 brew 'libmagic'
 brew 'reattach-to-user-namespace'
