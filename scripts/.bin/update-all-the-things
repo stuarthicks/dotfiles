@@ -19,27 +19,10 @@ echo 'Updating homebrew'
 )
 echo
 
-echo 'Updating ruby'
-rbenv each gem update --system
-rbenv each gem install --force \
-  bundler \
-  rubocop \
-  neovim \
-  pry
-echo
-
-echo 'Updating python'
-pip2 install -U pip setuptools wheel virtualenv neovim awscli cdiff
-pip3 install -U pip setuptools wheel virtualenv neovim awscli cdiff
-echo
-
 echo 'Updating Go tools'
 go get -v -u \
-  github.com/alecthomas/gometalinter \
   github.com/maruel/panicparse/cmd/pp \
-  github.com/y0ssar1an/q \
-  golang.org/x/vgo
-gometalinter --install
+  github.com/y0ssar1an/q
 echo
 
 echo 'Updating rust'
