@@ -112,11 +112,9 @@ function nvm() {
 
 path=(
   ~/.rbenv/bin
-  ~/.pyenv/bin
   $path
 )
 
-eval "$(command pyenv init --no-rehash - zsh)"
 eval "$(command rbenv init --no-rehash - zsh)"
 
 path=(
