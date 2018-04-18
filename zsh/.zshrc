@@ -93,8 +93,11 @@ fpath=(
 )
 
 path=(
+  ~/.bin
+  ~/.gobin
   ~/.brew/bin
   ~/.brew/sbin
+  ~/Library/Mobile\ Documents/com~apple~CloudDocs/WorkScripts
   $path
 )
 
@@ -103,26 +106,6 @@ manpath=(
   /usr/local/share/man
   ~/.brew/share/man
   $manpath
-)
-
-function nvm() {
-  export NVM_DIR=$HOME/.nvm
-  [ -f "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-}
-
-path=(
-  ~/.rbenv/bin
-  $path
-)
-
-eval "$(command rbenv init --no-rehash - zsh)"
-
-path=(
-  ~/.bin
-  ~/.gobin
-  ~/.cargo/bin
-  ~/Library/Mobile\ Documents/com~apple~CloudDocs/WorkScripts
-  $path
 )
 
 fpath=($^fpath(N))     && typeset -U FPATH
