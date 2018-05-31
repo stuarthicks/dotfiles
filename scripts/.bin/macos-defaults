@@ -28,5 +28,6 @@ echo defaults write com.apple.dock single-app -bool true
 # Misc
 echo defaults write NSGlobalDomain AppleFontSmoothing -int 2
 echo defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+echo defaults write com.apple.Safari IncludeInternalDebugMenu 1
 
 echo chflags nohidden $HOME/Library
