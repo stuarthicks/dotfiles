@@ -1,31 +1,32 @@
 #!/bin/sh
 
+softwareupdate -a -i
+
 (
-  echo 'Updating dotfiles'
   cd ~/.dotfiles && \
     git fetch --all --prune && \
     git pull --ff-only origin master
-  echo
 )
 
-softwareupdate -a -i
-echo
-
-echo 'Updating homebrew'
 (
   cd ~/.dotfiles && \
     brew update && \
     brew bundle
 )
-echo
 
-echo 'Updating Go tools'
 go get -v -u \
+  github.com/golangci/golangci-lint \
   github.com/maruel/panicparse/cmd/pp \
   github.com/y0ssar1an/q
-echo
 
-echo 'Updating rust'
+gem update --system
+gem install neovim pry
+
+PY_DEPS='pip setuptools wheel virtualenv pipenv neovim awscli cdiff'
+pip2 install -U $PY_DEPS
+pip3 install -U $PY_DEPS
+
+npm install -g neovim
+
 rustup self update
 rustup update
-echo
