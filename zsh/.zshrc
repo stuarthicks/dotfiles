@@ -75,6 +75,7 @@ alias k='ls -lFGO'
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias qq="$HOME/.gotools/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
+alias github-fetch-pulls="git config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'; git fetch --all --prune"
 
 # osx specific
 alias macos-indexing='sudo mdutil -a -v -i'
