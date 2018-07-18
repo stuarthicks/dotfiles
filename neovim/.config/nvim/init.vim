@@ -19,6 +19,7 @@ if dein#load_state(g:dein_plugin_dir)
   call dein#begin(g:dein_plugin_dir)
 
   call dein#add(g:dein_dir)
+  call dein#add('icymind/NeoSolarized')
   call dein#add('fatih/vim-go', { 'on_ft': 'go', 'rev': 'v1.17' })
   call dein#add('junegunn/fzf', { 'build': './install --no-update-rc --no-key-bindings --no-completion', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
@@ -26,7 +27,6 @@ if dein#load_state(g:dein_plugin_dir)
   call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
   call dein#add('scrooloose/nerdtree', { 'on_cmd': 'NERDTreeToggle' })
   call dein#add('sheerun/vim-polyglot')
-  call dein#add('tomasr/molokai')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
@@ -45,8 +45,8 @@ syntax enable
 
 " Theming!
 set termguicolors
-set background=dark
-colorscheme molokai
+set background=light
+colorscheme NeoSolarized
 
 " Searching
 set ignorecase
