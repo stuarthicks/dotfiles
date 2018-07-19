@@ -26,7 +26,7 @@ PY_DEPS='pip setuptools wheel virtualenv pipenv neovim awscli cdiff'
 pip2 install -U $PY_DEPS
 pip3 install -U $PY_DEPS
 
-npm install -g neovim
+# npm install -g neovim
 
 rustup self update
 rustup update
