@@ -45,7 +45,7 @@ syntax enable
 
 " Theming!
 set termguicolors
-set background=light
+set background=dark
 colorscheme NeoSolarized
 
 " Searching
