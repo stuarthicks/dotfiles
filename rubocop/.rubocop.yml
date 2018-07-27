@@ -21,7 +21,10 @@ Style/MutableConstant:
 Style/StringLiterals:
   EnforcedStyle: single_quotes
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
   Enabled: false
 
 Metrics/ClassLength:
