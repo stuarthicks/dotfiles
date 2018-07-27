@@ -46,6 +46,11 @@ syntax enable
 " Theming!
 set termguicolors
 set background=dark
+
+if $ITERM_PROFILE == 'Light'
+  set background=light
+endif
+
 colorscheme NeoSolarized
 
 " Searching
