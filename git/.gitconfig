@@ -3,39 +3,17 @@
 	email = s@smhicks.uk
 	signingkey = 445ACF75CD841838
 [commit]
-	gpgsign = false
-[gpg]
-	program = gpg2
+	gpgsign = true
 [core]
 	excludesFile = ~/.gitignore
 	pager = less
 	symlinks = true
-[push]
-	default = current
-[merge]
-	conflictstyle = diff3
-[transfer]
-	fsckobjects = true
 [branch]
 	autosetuprebase = always
-[diff]
-	compactionHeuristic = true
 [difftool]
 	prompt = false
-[rerere]
-	enabled = true
-	autoupdate = true
-[color]
-	ui = auto
-[color "diff"]
-	old = red strike
-	new = green italic
-[help]
-	autocorrect = 1
-[svn]
-	logwindowsize = 25000
-[tig]
-	tab-size = 8
+[rebase]
+	autoStash = true
 [url "git@github.com:"]
 	insteadOf = http://github.com/
 	insteadOf = https://github.com/
@@ -46,32 +24,19 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
-[credential]
-	helper = !aws codecommit credential-helper $@
-	UseHttpPath = true
-	required = true
 [alias]
 	abandon-ship = reset HEAD^^ --hard
 	br = branch
-	brs = branch --all
-	ci = commit --verbose
+	ci = commit
 	cl = clone
 	co = checkout
 	d = diff --ignore-all-space
 	ds = diff --staged --ignore-all-space
-	dt = difftool --dir-diff
-	dts = difftool --staged --dir-diff
 	fe = fetch --all --tags --prune
 	l = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
 	ls = log --show-signature --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
 	up = pull --ff-only
-	r = remote --verbose
 	refs = for-each-ref --sort=committerdate --format='%(refname:short)	%(authorname)	%(committerdate:relative)' refs/remotes/
 	s = status
 	sba = "!f() { git subtree add --prefix $2 $1 ${3:-master} --squash; }; f"
 	sbu = "!f() { git subtree pull --prefix $2 $1 ${3:-master} --squash; }; f"
-	t = tag
-[hub]
-	host = bithub.brightcove.com
-[rebase]
-	autoStash = true

@@ -8,6 +8,7 @@ brew 'ripgrep-bin'
 
 # homebrew-core
 brew 'git-lfs'
+brew 'gnupg2'
 brew 'jq'
 brew 'libmagic'
 brew 'neovim'
