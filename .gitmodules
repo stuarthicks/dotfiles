@@ -1,0 +1,33 @@
+[submodule "vim/.vim/pack/plugins/start/vim-go"]
+	path = vim/.vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "vim/.vim/pack/plugins/start/fzf"]
+	path = vim/.vim/pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "vim/.vim/pack/plugins/start/fzf-vim"]
+	path = vim/.vim/pack/plugins/start/fzf-vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/.vim/pack/plugins/start/vim-easy-align"]
+	path = vim/.vim/pack/plugins/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
+[submodule "vim/.vim/pack/plugins/opt/nerdtree"]
+	path = vim/.vim/pack/plugins/opt/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/.vim/pack/plugins/start/polyglot"]
+	path = vim/.vim/pack/plugins/start/polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/.vim/pack/plugins/start/tcomment"]
+	path = vim/.vim/pack/plugins/start/tcomment
+	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/.vim/pack/plugins/start/vim-repeat"]
+	path = vim/.vim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "vim/.vim/pack/plugins/start/vim-surround"]
+	path = vim/.vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/.vim/pack/plugins/start/ale"]
+	path = vim/.vim/pack/plugins/start/ale
+	url = https://github.com/w0rp/ale
+[submodule "vim/.vim/pack/plugins/start/NeoSolarized"]
+	path = vim/.vim/pack/plugins/start/NeoSolarized
+	url = https://github.com/icymind/NeoSolarized
