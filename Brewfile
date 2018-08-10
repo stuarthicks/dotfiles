@@ -7,8 +7,6 @@ tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'ripgrep-bin'
 
 # homebrew-core
-brew 'libmagic'
-brew 'neovim'
 brew 'openssl@1.1'
 brew 'reattach-to-user-namespace'
 brew 'ruby'
