@@ -16,9 +16,9 @@ export AWS_REGION=eu-west-1
 
 export GOPATH=$HOME/.gotools:$HOME/go
 export GOBIN=$HOME/.gobin
-export CGO_CFLAGS="-I $HOME/.brew/include"
-export CGO_CPPFLAGS="-I $HOME/.brew/include"
-export CGO_LDFLAGS="-L $HOME/.brew/lib"
+# export CGO_CFLAGS="-I $HOME/.brew/include"
+# export CGO_CPPFLAGS="-I $HOME/.brew/include"
+# export CGO_LDFLAGS="-L $HOME/.brew/lib"
 
 export GPGKEY=AC065BDDB7CCA53C
 export HOMEBREW_NO_ANALYTICS=1
