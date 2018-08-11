@@ -31,3 +31,6 @@
 [submodule "vim/.vim/pack/plugins/start/NeoSolarized"]
 	path = vim/.vim/pack/plugins/start/NeoSolarized
 	url = https://github.com/icymind/NeoSolarized
+[submodule "vim/.vim/pack/plugins/opt/tagbar"]
+	path = vim/.vim/pack/plugins/opt/tagbar
+	url = https://github.com/majutsushi/tagbar

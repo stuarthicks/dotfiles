@@ -60,6 +60,7 @@ nnoremap <Leader>n :NERDTreeToggle<cr>
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>g :grep<space>
 nnoremap <Leader>b :Buffers<cr>
+nnoremap <Leader>s :TagbarToggle<cr>
 
 " Annoying typo fixes
 nnoremap q: <nop>
