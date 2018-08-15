@@ -34,3 +34,6 @@
 [submodule "vim/.vim/pack/plugins/opt/tagbar"]
 	path = vim/.vim/pack/plugins/opt/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "vim/.vim/pack/plugins/opt/goyo"]
+	path = vim/.vim/pack/plugins/opt/goyo
+	url = https://github.com/junegunn/goyo.vim
