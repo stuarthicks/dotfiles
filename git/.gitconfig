@@ -3,7 +3,7 @@
 	email = s@smhicks.uk
 	signingkey = 445ACF75CD841838
 [commit]
-	gpgsign = true
+	gpgsign = false
 [core]
 	excludesFile = ~/.gitignore
 	pager = less
