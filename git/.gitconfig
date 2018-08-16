@@ -1,9 +1,6 @@
 [user]
 	name = Stuart Hicks
 	email = s@smhicks.uk
-	signingkey = 445ACF75CD841838
-[commit]
-	gpgsign = false
 [core]
 	excludesFile = ~/.gitignore
 	pager = less
@@ -12,6 +9,8 @@
 	autosetuprebase = always
 [difftool]
 	prompt = false
+[push]
+	default = current
 [rebase]
 	autoStash = true
 [url "git@github.com:"]
@@ -27,7 +26,7 @@
 [alias]
 	abandon-ship = reset HEAD^^ --hard
 	br = branch
-	ci = commit
+	ci = commit --verbose
 	cl = clone
 	co = checkout
 	d = diff --ignore-all-space

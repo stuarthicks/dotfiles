@@ -16,6 +16,7 @@ softwareupdate -a -i
 
 go get -v -u \
   github.com/golangci/golangci-lint \
+  github.com/jstemmer/gotags \
   github.com/maruel/panicparse/cmd/pp \
   github.com/y0ssar1an/q
 

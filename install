@@ -24,10 +24,10 @@ require stow
 
 stow --stow --verbose \
   git          \
-  neovim       \
   rubocop      \
   scripts      \
   ssh          \
   tmux         \
+  vim          \
   zsh          \
 

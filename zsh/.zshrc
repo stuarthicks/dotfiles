@@ -101,6 +101,8 @@ path=(
   ~/.brew/opt/openssl@1.1/bin
   ~/.cargo/bin
   ~/Library/Mobile\ Documents/com~apple~CloudDocs/WorkScripts
+  /Library/Frameworks/Python.framework/Versions/2.7/bin
+  /Library/Frameworks/Python.framework/Versions/3.7/bin
   $path
 )
 
