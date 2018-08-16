@@ -22,7 +22,7 @@ go get -v -u \
 gem update --system
 gem install neovim pry
 
-PY_DEPS='pip setuptools wheel virtualenv pipenv neovim awscli cdiff'
+PY_DEPS='pip setuptools wheel virtualenv pipenv neovim awscli cdiff sslyze'
 pip2 install -U $PY_DEPS
 pip3 install -U $PY_DEPS
 
