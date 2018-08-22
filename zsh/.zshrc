@@ -98,7 +98,6 @@ path=(
   ~/.gobin
   ~/.brew/bin
   ~/.brew/sbin
-  ~/.brew/opt/openssl@1.1/bin
   ~/.cargo/bin
   ~/Library/Mobile\ Documents/com~apple~CloudDocs/WorkScripts
   /Library/Frameworks/Python.framework/Versions/2.7/bin
