@@ -38,6 +38,7 @@ set diffopt+=iwhite
 set foldlevelstart=20
 set foldmethod=syntax
 set hidden
+set hlsearch
 set linebreak
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
