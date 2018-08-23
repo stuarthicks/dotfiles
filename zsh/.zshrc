@@ -96,8 +96,6 @@ fpath=(
 path=(
   ~/.bin
   ~/.gobin
-  ~/.brew/bin
-  ~/.brew/sbin
   ~/.cargo/bin
   /Library/Frameworks/Python.framework/Versions/2.7/bin
   /Library/Frameworks/Python.framework/Versions/3.7/bin
@@ -107,7 +105,6 @@ path=(
 manpath=(
   /usr/share/man
   /usr/local/share/man
-  ~/.brew/share/man
   $manpath
 )
 
