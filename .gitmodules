@@ -40,3 +40,6 @@
 [submodule "vim/.vim/pack/plugins/start/signify"]
 	path = vim/.vim/pack/plugins/start/signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "vim/.vim/pack/plugins/start/fugitive"]
+	path = vim/.vim/pack/plugins/start/fugitive
+	url = https://github.com/tpope/vim-fugitive
