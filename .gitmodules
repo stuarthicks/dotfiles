@@ -37,3 +37,6 @@
 [submodule "vim/.vim/pack/plugins/opt/goyo"]
 	path = vim/.vim/pack/plugins/opt/goyo
 	url = https://github.com/junegunn/goyo.vim
+[submodule "vim/.vim/pack/plugins/start/signify"]
+	path = vim/.vim/pack/plugins/start/signify
+	url = https://github.com/mhinz/vim-signify
