@@ -41,18 +41,19 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Go Mono
+    family: Source Code Pro
     # Style can be specified to pick a specific face.
     # style: Regular
 
   # The bold font face
   bold:
-    family: Go Mono
+    family: Source Code Pro
+    # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Go Mono
+    family: Source Code Pro
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -71,6 +72,10 @@ font:
   glyph_offset:
     x: 0
     y: 0
+
+  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
+  # screens and make reading text a little easier.
+  scale_with_dpi: true
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
