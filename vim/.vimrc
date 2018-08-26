@@ -1,15 +1,9 @@
-scriptencoding utf-8
-
 filetype plugin indent on
 syntax enable
 
 " Theming!
 set termguicolors
 set background=dark
-
-if $ITERM_PROFILE == 'Light'
-  set background=light
-endif
 
 colorscheme NeoSolarized
 
@@ -19,27 +13,23 @@ let g:maplocalleader = '\'
 let g:NERDTreeIgnore = ['\.pyc$']
 
 " Searching
-set ignorecase
+set hlsearch
 set showmatch
 set smartcase
 set wildmode=longest,list
+set wildignore+=*/.idea/*
 set wildignore+=*/.git/*
 set wildignore+=*/.svn/*
-set wildignore+=*/Godeps/*
 set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
 nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
-set autowrite
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
-set cursorline
 set diffopt+=iwhite
 set foldlevelstart=20
 set foldmethod=syntax
 set hidden
-set hlsearch
-set linebreak
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
 set mouse=a
@@ -52,7 +42,7 @@ set scrolloff=5
 set sidescrolloff=5
 set splitbelow
 set splitright
-set synmaxcol=1000
+set synmaxcol=500
 set timeoutlen=300
 
 " Navigation
@@ -77,29 +67,15 @@ nnoremap Q @q
 vnoremap < <gv
 vnoremap > >gv
 
-" Opposite of J. Split line at current point.
-nmap <M-j> i<CR><Esc>d^==kg_lD
-
-" Keep cursor in centre of screen after motions
-nnoremap n nzz
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-nnoremap { {zz
-nnoremap } }zz
-nnoremap gd gdzz
-
-" Closing buffers/windows more conveniently
-nnoremap <silent> <C-x> :bd<cr>
-nnoremap <silent> <C-q> :q<cr>
-
 " junegunn/vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 
 " Remove trailing whitespace
-nnoremap <Leader>w :%s/\s\+$//
+nnoremap <Leader>w :%s/\s\+$//<cr>
 
 " Auto handle paste-mode
-nnoremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <Leader>P :set paste<CR>o<esc>"*]p:set nopaste<cr>
+set pastetoggle=<Leader>p
 
 " Arrow keys to resize vim splits
 nnoremap <Left> :vertical resize -2<CR>
@@ -115,13 +91,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Delete erroneous [No Name] buffers
 nnoremap <silent> <Leader>B :call g:buffers#CleanNoNameEmptyBuffers()<CR>
-
-" In completion, arrow keys to select, enter to confirm
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-nnoremap <silent> <Leader>s :TagbarToggle<cr>
 
 " Don't clutter directories with .swp files
 silent !mkdir ~/.vim/backup > /dev/null 2>&1

@@ -12,7 +12,6 @@ nmap <buffer> <Leader>d <Plug>(go-doc)
 
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'
-let g:go_snippet_engine = 'neosnippet'
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
