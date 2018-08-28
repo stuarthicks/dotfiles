@@ -8,6 +8,7 @@ Use [stow](https://www.gnu.org/software/stow/) to manage symlinks to per-app con
 - [cmake](https://cmake.org/download/)
 - [ctags](http://ctags.sourceforge.net)
 - [go](http://golang.org/dl)
+- [jq](https://stedolan.github.io/jq/download/)
 - [libevent](http://libevent.org)
 - [openssl](http://openssl.org)
 - [python](https://www.python.org/downloads/)
@@ -19,3 +20,11 @@ Use [stow](https://www.gnu.org/software/stow/) to manage symlinks to per-app con
 - [sshrc](https://github.com/Russell91/sshrc)
 - [stow](https://www.gnu.org/software/stow/)
 - [tmux](https://github.com/tmux/tmux/releases)
+
+OpenSSL won't give you any ca certs. Lazy way is to grab them from cURL/Mozilla's CA bundle:
+
+```bash
+/usr/local/bin/ruby ./scripts/.bin/ruby_openssl_verify 
+sudo curl -sSLf -o /usr/local/ssl/cert.pem https://curl.haxx.se/ca/cacert.pem
+sudo chmod 444 /usr/local/ssl/cert.pem
+```
