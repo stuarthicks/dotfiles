@@ -28,9 +28,9 @@
 [submodule "vim/.vim/pack/plugins/start/ale"]
 	path = vim/.vim/pack/plugins/start/ale
 	url = https://github.com/w0rp/ale
-[submodule "vim/.vim/pack/plugins/start/NeoSolarized"]
-	path = vim/.vim/pack/plugins/start/NeoSolarized
-	url = https://github.com/icymind/NeoSolarized
 [submodule "vim/.vim/pack/plugins/opt/tagbar"]
 	path = vim/.vim/pack/plugins/opt/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "vim/.vim/pack/plugins/start/solarized"]
+	path = vim/.vim/pack/plugins/start/solarized
+	url = https://github.com/altercation/vim-colors-solarized
