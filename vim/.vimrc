@@ -75,7 +75,6 @@ nnoremap <Leader>w :%s/\s\+$//<cr>
 
 " Auto handle paste-mode
 nnoremap <Leader>P :set paste<CR>o<esc>"*]p:set nopaste<cr>
-set pastetoggle=<C-i>
 
 " Arrow keys to resize vim splits
 nnoremap <Left> :vertical resize -2<CR>
