@@ -2,10 +2,8 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-set termguicolors
 set background=dark
-
-colorscheme NeoSolarized
+colorscheme solarized
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
