@@ -100,6 +100,7 @@ path=(
   ~/.cargo/bin
   /Library/Frameworks/Python.framework/Versions/2.7/bin
   /Library/Frameworks/Python.framework/Versions/3.7/bin
+  /usr/local/gnupg-2.2/bin
   $path
 )
 

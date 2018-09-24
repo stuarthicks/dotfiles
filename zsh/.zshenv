@@ -15,6 +15,7 @@ export GEM_HOME=$HOME/.gems
 export GOPATH=$HOME/.gotools:$HOME/go
 export GOBIN=$HOME/.gobin
 
+export GPG_TTY=$(tty)
 export GPGKEY=AC065BDDB7CCA53C
 
 export SSH_ENV=$HOME/.ssh/environment
