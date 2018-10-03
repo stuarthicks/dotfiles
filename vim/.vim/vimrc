@@ -22,6 +22,7 @@ set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
 nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
+set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 set diffopt+=iwhite
