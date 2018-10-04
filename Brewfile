@@ -1,12 +1,12 @@
 # vi: ft=ruby
 
 tap 'homebrew/cask'
-
 tap 'homebrew/cask-fonts'
-cask 'font-source-code-pro'
-
+tap 'stuarthicks/brews'
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
-brew 'ripgrep-bin'
+
+cask 'font-go'
+cask 'font-source-code-pro'
 
 brew 'adns'
 brew 'bento4'
@@ -15,8 +15,8 @@ brew 'carthage'
 brew 'cmake'
 brew 'coreutils'
 brew 'ctags'
-brew 'curl'
-brew 'ffmpeg'
+brew 'curl', args: %w[with-openssl with-nghttp2 with-rtmpdump]
+brew 'ffmpeg', args: %w[with-fdk-aac with-fontconfig with-freetype with-srt]
 brew 'fontconfig'
 brew 'freetype'
 brew 'gdbm'
@@ -59,6 +59,7 @@ brew 'python'
 brew 'python@2'
 brew 'readline'
 brew 'reattach-to-user-namespace'
+brew 'ripgrep-bin'
 brew 'ruby'
 brew 'rust'
 brew 'sqlite'
@@ -68,5 +69,7 @@ brew 'tectonic'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
+brew 'tsocks', args: %w[HEAD]
+brew 'tstools', args: %w[HEAD]
 brew 'vim'
 brew 'xz'
