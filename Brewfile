@@ -72,6 +72,6 @@ brew 'tig'
 brew 'tmux'
 brew 'tree'
 brew 'tsocks', args: %w[HEAD]
-brew 'tstools', args: %w[HEAD]
+brew 'tstools'
 brew 'vim'
 brew 'xz'
