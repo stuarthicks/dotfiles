@@ -2,6 +2,7 @@ function start-ssh-agent {
   ssh-agent >! "$SSH_ENV"
   chmod 600 "$SSH_ENV"
   . "$SSH_ENV" &> /dev/null
+  ssh-add -A
 }
 
 start-ssh-agent "$@"
