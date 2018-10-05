@@ -98,6 +98,8 @@ path=(
   ~/.gobin
   ~/.gems/bin
   ~/.cargo/bin
+  /usr/local/bin
+  /usr/local/sbin
   $path
 )
 
