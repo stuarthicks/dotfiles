@@ -1,0 +1,12 @@
+function aws-cfg {
+  profile=${1:-dev}
+  region=${2:-eu-west-1}
+
+  export AWS_PROFILE=$profile
+  export AWS_REGION=$region
+
+  export AWS_DEFAULT_PROFILE=$profile
+  export AWS_DEFAULT_REGION=$region
+}
+
+aws-cfg "$@"

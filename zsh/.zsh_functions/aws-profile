@@ -1,6 +1,0 @@
-function aws-profile {
-  export AWS_DEFAULT_PROFILE="$@"
-  export AWS_PROFILE="$@"
-}
-
-aws-profile "$@"

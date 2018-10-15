@@ -117,14 +117,10 @@ autoload -Uz compinit && compinit
 autoload -Uz compdef
 compdef mosh=ssh
 
-autoload -Uz aws-fake
-autoload -Uz aws-profile
-autoload -Uz aws-region
+autoload -Uz aws-cfg
+autoload -Uz aws-sts-setenv
 autoload -Uz fancy-ctrl-z
-autoload -Uz fkill
-autoload -Uz macos-java
-autoload -Uz start-ssh-agent
-autoload -Uz sts
+autoload -Uz ssh-agent-init
 autoload -Uz urldecode
 autoload -Uz urlencode
 

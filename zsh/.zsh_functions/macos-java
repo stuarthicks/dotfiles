@@ -1,9 +1,0 @@
-function macos-java {
-  export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
-  path=("$JAVA_HOME/bin" $path)
-  path=($^path(N)) && typeset -U PATH
-  echo "JAVA_HOME is $JAVA_HOME"
-}
-
-macos-java "$@"
-
