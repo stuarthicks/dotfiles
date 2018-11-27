@@ -3,7 +3,7 @@ syntax enable
 
 " Theming!
 set background=dark
-colorscheme solarized
+colorscheme dracula
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'

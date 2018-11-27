@@ -31,6 +31,6 @@
 [submodule "vim/.vim/pack/plugins/opt/tagbar"]
 	path = vim/.vim/pack/plugins/opt/tagbar
 	url = https://github.com/majutsushi/tagbar
-[submodule "vim/.vim/pack/plugins/start/solarized"]
-	path = vim/.vim/pack/plugins/start/solarized
-	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/.vim/pack/plugins/start/dracula"]
+	path = vim/.vim/pack/plugins/start/dracula
+	url = https://github.com/dracula/vim
