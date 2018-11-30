@@ -2,8 +2,8 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-set background=dark
-colorscheme dracula
+set background=light
+colorscheme papercolor
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'

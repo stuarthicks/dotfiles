@@ -40,3 +40,4 @@ vim-go-test-compile
 *~
 
 **/.bin/*
+.env
