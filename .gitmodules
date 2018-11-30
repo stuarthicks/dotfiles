@@ -34,3 +34,9 @@
 [submodule "vim/.vim/pack/plugins/start/papercolor-theme"]
 	path = vim/.vim/pack/plugins/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
+[submodule "vim/.vim/pack/plugins/opt/limelight"]
+	path = vim/.vim/pack/plugins/opt/limelight
+	url = https://github.com/junegunn/limelight.vim
+[submodule "vim/.vim/pack/plugins/opt/goyo"]
+	path = vim/.vim/pack/plugins/opt/goyo
+	url = https://github.com/junegunn/goyo.vim
