@@ -29,12 +29,11 @@ set diffopt+=iwhite
 set foldlevelstart=20
 set foldmethod=syntax
 set hidden
+set linebreak
 set listchars=tab:›—,trail:_,space:.
 set modelines=1
 set mouse=a
 set nolist
-set nowrap
-set nowrapscan
 set number
 set path+=**
 set scrolloff=5
@@ -42,7 +41,10 @@ set sidescrolloff=5
 set splitbelow
 set splitright
 set synmaxcol=500
+set textwidth=0
 set timeoutlen=300
+set wrap
+set wrapmargin=0
 
 " Navigation
 nnoremap <Leader>e :Explore<cr>
