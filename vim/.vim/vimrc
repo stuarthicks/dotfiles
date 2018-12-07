@@ -2,7 +2,7 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-set background=light
+set background=dark
 colorscheme papercolor
 
 let g:mapleader = ' '

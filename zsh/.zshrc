@@ -94,13 +94,15 @@ fpath=(
 )
 
 path=(
+  /usr/local/opt/openssl/bin
+  /usr/local/opt/ruby/bin
+  /usr/local/bin
+  /usr/local/sbin
+  $path
   ~/.bin
   ~/.gobin
   ~/.gems/bin
   ~/.cargo/bin
-  /usr/local/bin
-  /usr/local/sbin
-  $path
 )
 
 manpath=(

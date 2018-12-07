@@ -1,17 +1,11 @@
 [user]
 	name = Stuart Hicks
-	email = s@smhicks.uk
-	signingkey = 445ACF75CD841838
-[commit]
-	gpgsign = true
+	email = stuartmhicks@me.com
 [core]
-	excludesFile = ~/.gitignore
 	pager = less
 	symlinks = true
 [branch]
 	autosetuprebase = always
-[difftool]
-	prompt = false
 [push]
 	default = current
 [rebase]
