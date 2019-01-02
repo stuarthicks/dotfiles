@@ -3,7 +3,7 @@ syntax enable
 
 " Theming!
 set background=dark
-colorscheme papercolor
+colorscheme molokai
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
