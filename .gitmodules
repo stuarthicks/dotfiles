@@ -40,3 +40,6 @@
 [submodule "vim/.vim/pack/plugins/start/molokai"]
 	path = vim/.vim/pack/plugins/start/molokai
 	url = https://github.com/tomasr/molokai
+[submodule "tmux/.tmux_plugins/urlview"]
+	path = tmux/.tmux_plugins/urlview
+	url = https://github.com/tmux-plugins/tmux-urlview
