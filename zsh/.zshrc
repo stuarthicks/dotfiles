@@ -94,8 +94,6 @@ fpath=(
 )
 
 path=(
-  /usr/local/opt/openssl/bin
-  /usr/local/opt/ruby/bin
   /usr/local/bin
   /usr/local/sbin
   $path
@@ -110,6 +108,8 @@ manpath=(
   /usr/local/share/man
   $manpath
 )
+
+eval "$(rbenv init - zsh)"
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
