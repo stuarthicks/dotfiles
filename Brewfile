@@ -1,5 +1,7 @@
 # vi: ft=ruby
 
+system 'softwareupdate -i -a'
+
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'stuarthicks/brews'
