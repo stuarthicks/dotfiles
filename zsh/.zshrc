@@ -71,7 +71,7 @@ bindkey -M menuselect "=" accept-and-menu-complete
 # nonspecific
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
 alias hex='hexdump -C'
-alias k='ls -lFGO'
+alias k='gls --group-directories-first --color -lFG'
 alias p='ps aux | grep -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias qq="$HOME/.gotools/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
@@ -110,6 +110,7 @@ manpath=(
 )
 
 eval "$(rbenv init - zsh)"
+eval "$(pyenv init - zsh)"
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
