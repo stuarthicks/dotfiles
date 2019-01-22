@@ -10,6 +10,13 @@ let g:maplocalleader = '\'
 
 let g:NERDTreeIgnore = ['\.pyc$']
 
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'json': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 1
+
 " Searching
 set hlsearch
 set showmatch
