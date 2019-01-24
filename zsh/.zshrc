@@ -128,3 +128,5 @@ autoload -Uz urldecode
 autoload -Uz urlencode
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
+
+. /usr/local/opt/nvm/nvm.sh

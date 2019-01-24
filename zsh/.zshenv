@@ -29,3 +29,5 @@ export CDIFF_OPTIONS='-s -w 0'
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_INSTALL_CLEANUP=1
+
+export NVM_DIR=$HOME/.nvm
