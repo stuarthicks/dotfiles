@@ -23,7 +23,7 @@ brew 'cmake'
 brew 'coreutils'
 brew 'ctags'
 brew 'curl', args: %w[with-openssl with-nghttp2 with-rtmpdump]
-brew 'dnscrypt-proxy'
+brew 'dnscrypt-proxy', restart_service: :changed
 brew 'extract_url'
 brew 'ffmpeg', args: %w[with-fdk-aac with-fontconfig with-freetype with-srt]
 brew 'fontconfig'
@@ -91,3 +91,17 @@ brew 'tstools'
 brew 'vim'
 brew 'xz'
 brew 'zsh'
+
+mas '1Blocker', id: 1107421413
+mas '1Password 7', id: 1333542190
+mas 'Amphetamine', id: 937984704
+mas 'Dark Reader for Safari', id: 1438243180
+mas 'Keka', id: 470158793
+mas 'LastPass', id: 926036361
+mas 'NewsGuard', id: 1438657064
+mas 'Picture in Picture', id: 1099477261
+mas 'Slack', id: 803453959
+mas 'Things3', id: 904280696
+mas 'Tweetbot', id: 1384080005
+mas 'WhatsApp', id: 1147396723
+mas 'Xcode', id: 497799835
