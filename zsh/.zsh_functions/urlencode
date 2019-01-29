@@ -1,5 +1,5 @@
 function urlencode {
-  python -c "import urllib; print urllib.quote('''$*''')"
+  python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"
 }
 
 urlencode "$@"

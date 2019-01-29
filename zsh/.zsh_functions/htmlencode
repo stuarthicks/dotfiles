@@ -1,0 +1,5 @@
+function htmlencode {
+  python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")' 
+}
+
+htmlencode "$@"

@@ -126,6 +126,8 @@ autoload -Uz fancy-ctrl-z
 autoload -Uz ssh-agent-init
 autoload -Uz urldecode
 autoload -Uz urlencode
+autoload -Uz htmldecode
+autoload -Uz htmlencode
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
