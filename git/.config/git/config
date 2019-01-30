@@ -29,6 +29,7 @@
 	d = diff --ignore-all-space
 	ds = diff --staged --ignore-all-space
 	fe = fetch --all --tags --prune
+        add-github-pulls = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
 	l = log --pretty=format:'%G? %C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
 	ls = log --show-signature --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
 	s = status

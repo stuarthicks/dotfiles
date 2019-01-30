@@ -70,19 +70,16 @@ bindkey -M menuselect "=" accept-and-menu-complete
 
 # nonspecific
 alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'"'"''
-alias hex='hexdump -C'
 alias k='gls --group-directories-first --color -lFG'
-alias p='ps aux | grep -i'
+alias p='ps aux | rg -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias qq="$HOME/.gotools/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
-alias github-fetch-pulls="git config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'; git fetch --all --prune"
 
 # osx specific
 alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
-alias alacritty='open -n -a Alacritty'
 
 function path    { echo $PATH    | tr : $'\n' }
 function fpath   { echo $FPATH   | tr : $'\n' }
@@ -94,13 +91,11 @@ fpath=(
 )
 
 path=(
+  ~/.bin
+  ~/.gobin
   /usr/local/bin
   /usr/local/sbin
   $path
-  ~/.bin
-  ~/.gobin
-  ~/.gems/bin
-  ~/.cargo/bin
 )
 
 manpath=(
@@ -109,8 +104,20 @@ manpath=(
   $manpath
 )
 
-eval "$(rbenv init - zsh)"
-eval "$(pyenv init - zsh)"
+function rbenv {
+  eval "$(command rbenv init --no-rehash - zsh)"
+  rbenv "$@"
+}
+
+function pyenv {
+  eval "$(command pyenv init --no-rehash - zsh)"
+  pyenv "$@"
+}
+
+function nvm {
+  . /usr/local/opt/nvm/nvm.sh
+  nvm "$@"
+}
 
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
@@ -131,4 +138,3 @@ autoload -Uz htmlencode
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
 
-. /usr/local/opt/nvm/nvm.sh
