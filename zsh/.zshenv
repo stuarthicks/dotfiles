@@ -8,9 +8,8 @@ export PAGER=less
 export LESS="-RSMsi"
 export EDITOR=vim
 export VISUAL="$EDITOR"
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-
-export GEM_HOME=$HOME/.gems
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+export CLICOLOR=Gxfxcxdxbxegedabagacad
 
 export GOPATH=$HOME/.gotools:$HOME/go
 export GOBIN=$HOME/.gobin
@@ -20,12 +19,6 @@ export GPGKEY=AC065BDDB7CCA53C
 
 export SSH_ENV=$HOME/.ssh/environment
 . "${SSH_ENV}" &> /dev/null
-
-export FZF_TMUX=1
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-export CDIFF_OPTIONS='-s -w 0'
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_INSTALL_CLEANUP=1

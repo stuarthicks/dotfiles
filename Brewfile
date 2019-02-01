@@ -24,7 +24,7 @@ brew 'cmake'
 brew 'coreutils'
 brew 'ctags'
 brew 'curl', args: %w[with-openssl with-nghttp2 with-rtmpdump]
-brew 'dnscrypt-proxy', restart_service: :changed
+brew 'dnscrypt-proxy'
 brew 'extract_url'
 brew 'ffmpeg', args: %w[with-fdk-aac with-fontconfig with-freetype with-srt]
 brew 'fontconfig'
