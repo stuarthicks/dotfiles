@@ -95,7 +95,6 @@ brew 'zsh'
 
 mas '1Blocker', id: 1107421413
 mas '1Password 7', id: 1333542190
-mas 'Amphetamine', id: 937984704
 mas 'Dark Reader for Safari', id: 1438243180
 mas 'Keka', id: 470158793
 mas 'LastPass', id: 926036361
