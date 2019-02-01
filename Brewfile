@@ -12,6 +12,7 @@ cask 'firefox'
 cask 'font-source-code-pro'
 cask 'goland'
 cask 'google-chrome'
+cask 'macdown'
 cask 'tor-browser'
 cask 'vlc'
 
