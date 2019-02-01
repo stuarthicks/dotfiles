@@ -99,7 +99,6 @@ mas 'Amphetamine', id: 937984704
 mas 'Dark Reader for Safari', id: 1438243180
 mas 'Keka', id: 470158793
 mas 'LastPass', id: 926036361
-mas 'NewsGuard', id: 1438657064
 mas 'Picture in Picture', id: 1099477261
 mas 'Slack', id: 803453959
 mas 'Things3', id: 904280696
