@@ -73,7 +73,7 @@ alias cucumber-unused-steps='bash -c '"'"'vim --cmd "set errorformat=%m\ \#\ %f:
 alias k='ls -FlOPp'
 alias p='ps aux | rg -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
-alias qq="$HOME/.gotools/src/github.com/y0ssar1an/q/q.sh; rm -f $TMPDIR/q"
+alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 # osx specific
 alias macos-indexing='sudo mdutil -a -v -i'
@@ -118,6 +118,29 @@ function nvm {
   nvm "$@"
 }
 
+qq() {
+    clear
+    logpath="$TMPDIR/q"
+    if [[ -z "$TMPDIR" ]]; then
+        logpath="/tmp/q"
+    fi
+    if [[ ! -f "$logpath" ]]; then
+        echo 'Q LOG' > "$logpath"
+    fi
+    tail -100f -- "$logpath"
+}
+
+rmqq() {
+    logpath="$TMPDIR/q"
+    if [[ -z "$TMPDIR" ]]; then
+        logpath="/tmp/q"
+    fi
+    if [[ -f "$logpath" ]]; then
+        rm "$logpath"
+    fi
+    qq
+}
+
 fpath=($^fpath(N))     && typeset -U FPATH
 manpath=($^manpath(N)) && typeset -U MANPATH
 path=($^path(N))       && typeset -U PATH
@@ -136,4 +159,3 @@ autoload -Uz htmldecode
 autoload -Uz htmlencode
 
 zle -N fancy-ctrl-z && bindkey '^Z' fancy-ctrl-z
-
