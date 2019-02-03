@@ -2,7 +2,7 @@
 autoload -Uz colors && colors
 autoload -Uz edit-command-line
 
-export PROMPT="%{$fg[red]%}🦕 %{$reset_color%} "
+export PROMPT="%{$fg[red]%}➠%{$reset_color%} "
 
 zle -N edit-command-line
 
@@ -91,8 +91,7 @@ fpath=(
 )
 
 path=(
-  ~/.bin
-  ~/.gobin
+  ~/.local/bin
   /usr/local/bin
   /usr/local/sbin
   $path

@@ -11,8 +11,7 @@ export VISUAL="$EDITOR"
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export CLICOLOR=Gxfxcxdxbxegedabagacad
 
-export GOPATH=$HOME/.gotools:$HOME/go
-export GOBIN=$HOME/.gobin
+export GOBIN=$HOME/.local/bin
 
 export GPG_TTY=$(tty)
 export GPGKEY=AC065BDDB7CCA53C
