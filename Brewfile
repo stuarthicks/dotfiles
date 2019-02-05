@@ -7,12 +7,10 @@ tap 'stuarthicks/brews'
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 
 cask 'android-studio'
-cask 'atom'
 cask 'firefox'
 cask 'font-source-code-pro'
 cask 'goland'
 cask 'google-chrome'
-cask 'macdown'
 cask 'tor-browser'
 cask 'vlc'
 
