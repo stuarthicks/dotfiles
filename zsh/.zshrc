@@ -77,7 +77,6 @@ alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {}
 
 # osx specific
 alias macos-indexing='sudo mdutil -a -v -i'
-alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 
