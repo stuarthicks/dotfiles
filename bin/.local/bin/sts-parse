@@ -1,6 +1,0 @@
-echo export AWS_ACCESS_KEY_ID=$(cat "$1" | jq -r '.Credentials.AccessKeyId')
-echo export AWS_SECRET_ACCESS_KEY=$(cat "$1" | jq -r '.Credentials.SecretAccessKey')
-echo export AWS_SESSION_TOKEN=$(cat "$1" | jq -r '.Credentials.SessionToken')
-echo unset AWS_PROFILE
-echo unset AWS_DEFAULT_PROFILE
-echo unset AWS_CONFIG_DIR
