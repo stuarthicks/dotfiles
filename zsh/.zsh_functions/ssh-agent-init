@@ -1,8 +1,0 @@
-function ssh-agent-init {
-  ssh-agent >! "$SSH_ENV"
-  chmod 600 "$SSH_ENV"
-  . "$SSH_ENV" &> /dev/null
-  ssh-add -A
-}
-
-ssh-agent-init "$@"

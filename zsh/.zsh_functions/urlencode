@@ -1,5 +1,0 @@
-function urlencode {
-  python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"
-}
-
-urlencode "$@"

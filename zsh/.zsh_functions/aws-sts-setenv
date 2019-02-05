@@ -1,5 +1,0 @@
-function aws-sts-setenv {
-  eval "$(sts-parse $1)"
-}
-
-aws-sts-setenv "$@"
