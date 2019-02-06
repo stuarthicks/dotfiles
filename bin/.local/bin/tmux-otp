@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-set -euo pipefail
-
-otp | tmux loadb -
-tmux pasteb -s ''
-tmux send-keys Enter
