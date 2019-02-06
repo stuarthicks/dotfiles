@@ -10,8 +10,7 @@ export LC_ALL=en_GB.UTF-8
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export MANPATH=/usr/share/man:/usr/local/share/man:$MANPATH
 export NDK_PATH=$HOME/Library/Android/sdk/ndk-bundle
-export NVM_DIR=$HOME/.nvm
-export PAGER=less
+export NOTION_HOME="$HOME/.notion"
 export PATH=$HOME/.local/bin:/usr/local/sbin:$PATH
 export PS1="\e[31m$ \e[0m"
 export TERM='screen-256color'
@@ -43,8 +42,11 @@ urlencode() { python -c "import sys, urllib; print urllib.quote(sys.stdin.read()
 eval "$(rbenv init --no-rehash -- -)"
 eval "$(pyenv init --no-rehash -- -)"
 
-nvm-init() { . /usr/local/opt/nvm/nvm.sh; }
+# https://www.notionjs.com/
+# shellcheck source=/dev/null
+. "$NOTION_HOME/load.sh"
 
+export PATH="${NOTION_HOME}/bin:$PATH"
 ssh-agent-init() {
   ssh-agent >! "$HOME/.ssh/environment"
   chmod 600 "$HOME/.ssh/environment"
