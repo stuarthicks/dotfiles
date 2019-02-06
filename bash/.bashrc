@@ -54,7 +54,8 @@ if [ -s "$HOME/.workrc" ]; then
 fi
 
 ssh-agent-init() {
-  ssh-agent >! "$HOME/.ssh/environment"
+  rm -f "$HOME/.ssh/environment"
+  ssh-agent > "$HOME/.ssh/environment"
   chmod 600 "$HOME/.ssh/environment"
   # shellcheck source=/dev/null
   . "$HOME/.ssh/environment" &> /dev/null
