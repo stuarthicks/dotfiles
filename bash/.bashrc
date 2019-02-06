@@ -23,6 +23,7 @@ GPG_TTY=$(tty); export GPG_TTY
 . "$HOME/.ssh/environment" &> /dev/null
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
+alias git-open='open $(git remote get-url origin)'
 alias k='ls -FlOPp'
 alias p='ps aux | rg -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
@@ -45,8 +46,13 @@ eval "$(pyenv init --no-rehash -- -)"
 # https://www.notionjs.com/
 # shellcheck source=/dev/null
 . "$NOTION_HOME/load.sh"
-
 export PATH="${NOTION_HOME}/bin:$PATH"
+
+if [ -s "$HOME/.workrc" ]; then
+  # shellcheck source=/dev/null
+  . "$HOME/.workrc"
+fi
+
 ssh-agent-init() {
   ssh-agent >! "$HOME/.ssh/environment"
   chmod 600 "$HOME/.ssh/environment"
@@ -64,6 +70,8 @@ aws-profile() {
 
   export AWS_DEFAULT_PROFILE=$profile
   export AWS_DEFAULT_REGION=$region
+
+  unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
 }
 
 aws-setenv() {
@@ -78,7 +86,6 @@ aws-setenv() {
   export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
   unset AWS_PROFILE
   unset AWS_DEFAULT_PROFILE
-  unset AWS_CONFIG_DIR
 }
 
 qq() {
