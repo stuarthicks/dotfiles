@@ -1,3 +1,5 @@
+PS1="\[$(tput setaf 1)\]\$ \[$(tput sgr0)\]"
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export CLICOLOR=Gxfxcxdxbxegedabagacad
 export EDITOR=vim
@@ -12,7 +14,6 @@ export MANPATH=/usr/share/man:/usr/local/share/man:$MANPATH
 export NDK_PATH=$HOME/Library/Android/sdk/ndk-bundle
 export NOTION_HOME="$HOME/.notion"
 export PATH=$HOME/.local/bin:/usr/local/sbin:$PATH
-export PS1='$ '
 export TERM='screen-256color'
 export TZ='Europe/London'
 export VISUAL=vim
