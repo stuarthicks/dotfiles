@@ -49,6 +49,9 @@ eval "$(pyenv init --no-rehash -- -)"
 . "$NOTION_HOME/load.sh"
 export PATH="${NOTION_HOME}/bin:$PATH"
 
+# shellcheck source=/dev/null
+. "$HOME/.cargo/env"
+
 if [ -s "$HOME/.workrc" ]; then
   # shellcheck source=/dev/null
   . "$HOME/.workrc"
