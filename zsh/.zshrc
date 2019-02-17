@@ -1,4 +1,5 @@
 # vi: set ft=zsh
+ttyctl -f # freeze tty
 
 autoload -Uz colors
 colors
@@ -22,21 +23,14 @@ bindkey -s '\eu' '^Ucd ..; pwd^M'    # meta-u to go up a dir
 bindkey '\ee'  edit-command-line     # meta-e to edit current cmd in $EDITOR
 bindkey '\e[Z' reverse-menu-complete # Shift+Tab
 
-ttyctl -f # freeze tty
-
-alias -g L="|& less"
-
+COMPLETION_WAITING_DOTS="true"
+DIRSTACKFILE=$HOME/.zdirs
 DIRSTACKSIZE=9
-DIRSTACKFILE=~/.zdirs
+HISTFILE=~/.zsh_history
+HISTSIZE=2000
+KEYTIMEOUT=1
+SAVEHIST=2000
 
-export COMPLETION_WAITING_DOTS="true"
-export CLICOLOR=1
-export HISTFILE=~/.zsh_history
-export HISTSIZE=2000
-export KEYTIMEOUT=1
-export SAVEHIST=2000
-
-setopt ALIASES
 setopt AUTO_PUSHD
 setopt CHECK_JOBS
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -49,13 +43,9 @@ setopt HIST_NO_STORE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
-setopt LONG_LIST_JOBS
-setopt MULTIOS
 setopt NO_CLOBBER
 setopt PIPE_FAIL
 setopt PRINT_EXIT_VALUE
-setopt PROMPT_SUBST
-setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_MINUS
 setopt PUSHD_SILENT
 setopt PUSHD_TO_HOME
@@ -65,17 +55,13 @@ setopt TRANSIENT_RPROMPT
 
 zmodload zsh/complist
 
-zstyle ':completion:*:*:cd:*:directory-stack' force-list always
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-zstyle ':completion:*:complete:cd::' tag-order '! users' -      # do not auto complete user names
-zstyle ':completion:*:descriptions' format '%U%d%u'             # TODO: figure out what this does
-zstyle ':completion:*:warnings' format 'No matches for: %B%d%b' # error msg when no matches
 zstyle ':completion:*' format '%B---- %d%b'                     # show title for each completion category
 zstyle ':completion:*' group-name ''                            # use tag as group name
 zstyle ':completion:*' insert-tab false                         # don't insert tabs in an empty buffer
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"     # how to format completion options
 zstyle ':completion:*' menu select=2                            # show menu when at least 2 options.
-zstyle ':completion:*' tag-order '! users'                      # listing all users takes ages.
+zstyle ':completion:*:*:cd:*:directory-stack' force-list always
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
@@ -85,7 +71,6 @@ alias k='ls -FlOPp'
 alias p='ps aux | rg -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias macos-indexing='sudo mdutil -a -v -i'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 
@@ -101,36 +86,31 @@ eval "$(rbenv init --no-rehash -- -)"
 eval "$(pyenv init --no-rehash -- -)"
 
 # https://www.notionjs.com/
-# shellcheck source=/dev/null
-. "$NOTION_HOME/load.sh"
+source "$NOTION_HOME/load.sh"
 export PATH="${NOTION_HOME}/bin:$PATH"
 
 # https://rustup.rs
-# shellcheck source=/dev/null
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 if [ -s "$HOME/.workrc" ]; then
-  # shellcheck source=/dev/null
-  . "$HOME/.workrc"
+  source "$HOME/.workrc"
 fi
 
 function ssh-agent-init {
   rm -f "$HOME/.ssh/environment"
   ssh-agent > "$HOME/.ssh/environment"
   chmod 600 "$HOME/.ssh/environment"
-  # shellcheck source=/dev/null
-  . "$HOME/.ssh/environment" &> /dev/null
+  source "$HOME/.ssh/environment" &> /dev/null
   ssh-add -A
 }
 
 function aws-profile {
   profile=${1:-dev}
-  region=${2:-eu-west-1}
-
   export AWS_PROFILE=$profile
-  export AWS_REGION=$region
-
   export AWS_DEFAULT_PROFILE=$profile
+
+  region=${2:-eu-west-1}
+  export AWS_REGION=$region
   export AWS_DEFAULT_REGION=$region
 
   unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
