@@ -1,9 +1,13 @@
 filetype plugin indent on
 syntax enable
 
-" Theming!
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme molokai
+
+if $TERMINAL_LIGHT == '1'
+  set background=light
+  colorscheme PaperColor
+endif
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
