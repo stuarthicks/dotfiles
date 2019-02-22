@@ -10,9 +10,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-easy-align"]
 	path = vim/.vim/pack/plugins/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align
-[submodule "vim/.vim/pack/plugins/start/nerdtree"]
-	path = vim/.vim/pack/plugins/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree
 [submodule "vim/.vim/pack/plugins/start/polyglot"]
 	path = vim/.vim/pack/plugins/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot
@@ -46,3 +43,6 @@
 [submodule "vim/.vim/pack/plugins/start/papercolor-theme"]
 	path = vim/.vim/pack/plugins/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
+[submodule "vim/.vim/pack/plugins/start/nerdtree"]
+	path = vim/.vim/pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
