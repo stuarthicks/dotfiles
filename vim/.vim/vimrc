@@ -2,13 +2,14 @@ filetype plugin indent on
 syntax enable
 
 " Theming!
-set background=dark
-colorscheme molokai
+set background=light
+colorscheme PaperColor
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
 let g:NERDTreeIgnore = ['\.pyc$']
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
