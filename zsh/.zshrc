@@ -159,3 +159,5 @@ typeset -U MANPATH
 
 path=($^path(N))
 typeset -U PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

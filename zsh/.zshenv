@@ -5,6 +5,8 @@ source "$HOME/.ssh/environment" &> /dev/null
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export CLICOLOR=1
 export EDITOR=vim
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_TMUX=1
 export GOBIN=$HOME/.local/bin
 export GPGKEY=AC065BDDB7CCA53C
 export GPG_TTY=$(tty)
