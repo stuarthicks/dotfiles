@@ -9,6 +9,8 @@ if $TERMINAL_LIGHT == '1'
   colorscheme PaperColor
 endif
 
+set guifont=SourceCodePro-Regular:h12
+
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
