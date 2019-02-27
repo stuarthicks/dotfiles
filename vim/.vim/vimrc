@@ -49,10 +49,10 @@ set foldlevelstart=20
 set foldmethod=syntax
 set hidden
 set linebreak
-set listchars=tab:›—,trail:_,space:.
+set list
+set listchars=tab:——,trail:_
 set modelines=1
 set mouse=a
-set nolist
 set number
 set path+=**
 set scrolloff=5
