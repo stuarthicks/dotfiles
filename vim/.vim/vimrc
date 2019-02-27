@@ -17,6 +17,10 @@ let g:maplocalleader = '\'
 let g:NERDTreeIgnore = ['\.pyc$']
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
+let g:ale_linters = {
+\   'go': ['gometalinter'],
+\}
+
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'json': ['prettier'],
@@ -40,6 +44,7 @@ set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 set diffopt+=iwhite
+set expandtab
 set foldlevelstart=20
 set foldmethod=syntax
 set hidden
@@ -51,10 +56,12 @@ set nolist
 set number
 set path+=**
 set scrolloff=5
+set shiftwidth=2
 set sidescrolloff=5
 set splitbelow
 set splitright
 set synmaxcol=500
+set tabstop=2
 set textwidth=0
 set timeoutlen=300
 set wrap

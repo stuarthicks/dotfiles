@@ -1,7 +1,3 @@
-setlocal tabstop=8
-setlocal shiftwidth=8
-setlocal noexpandtab
-
 nmap <buffer> <Leader>a <Plug>(go-alternate-edit)
 nmap <buffer> <Leader>c <Plug>(go-coverage-toggle)
 nmap <buffer> <Leader>i <Plug>(go-imports)
@@ -11,7 +7,7 @@ nmap <buffer> <Leader>t <Plug>(go-test)
 nmap <buffer> <Leader>d <Plug>(go-doc)
 
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'goimports'
+let g:go_fmt_command = 'gofmt -s'
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
