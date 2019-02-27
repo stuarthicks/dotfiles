@@ -46,3 +46,6 @@
 [submodule "vim/.vim/pack/plugins/start/nerdtree"]
 	path = vim/.vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/.vim/pack/plugins/start/editorconfig"]
+	path = vim/.vim/pack/plugins/start/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim
