@@ -67,7 +67,7 @@ bindkey -M menuselect "=" accept-and-menu-complete
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-open='open $(git remote get-url origin)'
-alias k='ls -FlOPp'
+alias k='ls -lh'
 alias p='ps aux | rg -i'
 alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
