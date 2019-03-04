@@ -49,3 +49,6 @@
 [submodule "vim/.vim/pack/plugins/start/editorconfig"]
 	path = vim/.vim/pack/plugins/start/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "vim/.vim/pack/plugins/start/rg"]
+	path = vim/.vim/pack/plugins/start/rg
+	url = https://github.com/jremmen/vim-ripgrep
