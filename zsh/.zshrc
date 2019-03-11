@@ -122,8 +122,8 @@ function aws-setenv {
     STS=$(cat "$1")
     AWS_SESSION_TOKEN=$(echo "$STS" | jq -r '.Credentials.SessionToken // 1')
     export AWS_SESSION_TOKEN
-	else
-		unset AWS_SESSION_TOKEN
+  else
+    unset AWS_SESSION_TOKEN
   fi
   AWS_ACCESS_KEY_ID=$(echo "$STS" | jq -r '.Credentials.AccessKeyId // 1')
   AWS_SECRET_ACCESS_KEY=$(echo "$STS" | jq -r '.Credentials.SecretAccessKey // 1')
