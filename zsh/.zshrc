@@ -82,20 +82,6 @@ function htmlencode { python3 -c 'import html,sys; print(html.escape(sys.stdin.r
 function urldecode { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
 function urlencode { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
 
-eval "$(rbenv init --no-rehash -- -)"
-eval "$(pyenv init --no-rehash -- -)"
-
-# https://www.notionjs.com/
-source "$NOTION_HOME/load.sh"
-export PATH="${NOTION_HOME}/bin:$PATH"
-
-# https://rustup.rs
-source "$HOME/.cargo/env"
-
-if [ -s "$HOME/.workrc" ]; then
-  source "$HOME/.workrc"
-fi
-
 function ssh-agent-init {
   rm -f "$HOME/.ssh/environment"
   ssh-agent > "$HOME/.ssh/environment"

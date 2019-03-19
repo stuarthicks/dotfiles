@@ -1,7 +1,5 @@
 # vi: set ft=zsh
 
-source "$HOME/.ssh/environment" &> /dev/null
-
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export CLICOLOR=1
 export EDITOR=vim
@@ -24,3 +22,20 @@ export PATH=$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export TERM='screen-256color'
 export TZ='Europe/London'
 export VISUAL=vim
+
+source "$HOME/.ssh/environment" &> /dev/null
+
+eval "$(rbenv init --no-rehash - zsh)"
+eval "$(pyenv init --no-rehash - zsh)"
+
+# https://www.notionjs.com/
+source "$NOTION_HOME/load.sh"
+export PATH="${NOTION_HOME}/bin:$PATH"
+
+# https://rustup.rs
+source "$HOME/.cargo/env"
+
+if [ -s "$HOME/.workrc" ]; then
+  source "$HOME/.workrc"
+fi
+
