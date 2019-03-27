@@ -24,18 +24,3 @@ export TZ='Europe/London'
 export VISUAL=vim
 
 source "$HOME/.ssh/environment" &> /dev/null
-
-eval "$(rbenv init --no-rehash - zsh)"
-eval "$(pyenv init --no-rehash - zsh)"
-
-# https://www.notionjs.com/
-source "$NOTION_HOME/load.sh"
-export PATH="${NOTION_HOME}/bin:$PATH"
-
-# https://rustup.rs
-source "$HOME/.cargo/env"
-
-if [ -s "$HOME/.workrc" ]; then
-  source "$HOME/.workrc"
-fi
-

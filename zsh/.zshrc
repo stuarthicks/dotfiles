@@ -137,6 +137,20 @@ function fancy-ctrl-z {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+eval "$(rbenv init --no-rehash - zsh)"
+eval "$(pyenv init --no-rehash - zsh)"
+
+# https://www.notionjs.com/
+source "$NOTION_HOME/load.sh"
+export PATH="${NOTION_HOME}/bin:$PATH"
+
+# https://rustup.rs
+source "$HOME/.cargo/env"
+
+if [ -s "$HOME/.workrc" ]; then
+  source "$HOME/.workrc"
+fi
+
 fpath=($^fpath(N))
 typeset -U FPATH
 
