@@ -18,9 +18,11 @@ export MANPATH=/usr/share/man:/usr/local/share/man:$MANPATH
 export NDK_PATH=$HOME/Library/Android/sdk/ndk-bundle
 export NOTION_HOME="$HOME/.notion"
 export PAGER=less
-export PATH=$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export TERM='screen-256color'
 export TZ='Europe/London'
 export VISUAL=vim
+
+export PATH=$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ccache/libexec:$PATH
+export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.pyenv/bin
 
 source "$HOME/.ssh/environment" &> /dev/null
