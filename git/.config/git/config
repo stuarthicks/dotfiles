@@ -1,6 +1,11 @@
 [user]
 	name = Stuart Hicks
 	email = stuartmhicks@me.com
+  signingkey = ED99ADBF9E141390
+[commit]
+  gpgsign = true
+[gpg]
+  program = /usr/local/MacGPG2/bin/gpg2
 [credential]
 	helper = osxkeychain
 [core]
