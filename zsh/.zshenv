@@ -22,7 +22,14 @@ export TERM='screen-256color'
 export TZ='Europe/London'
 export VISUAL=vim
 
-export PATH=$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ccache/libexec:$PATH
-export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.pyenv/bin
+path=(
+  /usr/local/bin
+  /usr/local/sbin
+  /usr/local/opt/ccache/libexec
+  $path
+  $HOME/.local/bin
+  $HOME/.rbenv/bin
+  $HOME/.pyenv/bin
+)
 
 source "$HOME/.ssh/environment" &> /dev/null
