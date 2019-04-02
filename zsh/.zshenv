@@ -1,5 +1,8 @@
 # vi: set ft=zsh
 
+export TZ=$(find /usr/share/zoneinfo/* -type f | shuf -n1 | cut -d'/' -f5-)
+# export TZ='Europe/London'
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export CLICOLOR=1
 export EDITOR=vim
@@ -19,7 +22,6 @@ export NDK_PATH=$HOME/Library/Android/sdk/ndk-bundle
 export NOTION_HOME="$HOME/.notion"
 export PAGER=less
 export TERM='screen-256color'
-export TZ='Europe/London'
 export VISUAL=vim
 
 path=(
