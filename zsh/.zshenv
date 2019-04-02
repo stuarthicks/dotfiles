@@ -1,6 +1,6 @@
 # vi: set ft=zsh
 
-export TZ=$(find /usr/share/zoneinfo/* -type f | shuf -n1 | cut -d'/' -f5-)
+export TZ=$(find /usr/share/zoneinfo/* -type f | /usr/local/bin/shuf -n1 | cut -d'/' -f5-)
 # export TZ='Europe/London'
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
