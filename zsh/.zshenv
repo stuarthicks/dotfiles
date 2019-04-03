@@ -24,11 +24,9 @@ export PAGER=less
 export TERM='screen-256color'
 export VISUAL=vim
 
-path=(
+path+=(
   /usr/local/bin
   /usr/local/sbin
-  /usr/local/opt/ccache/libexec
-  $path
   $HOME/.local/bin
   $HOME/.rbenv/bin
   $HOME/.pyenv/bin

@@ -137,27 +137,40 @@ function fancy-ctrl-z {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-eval "$(rbenv init --no-rehash - zsh)"
-eval "$(pyenv init --no-rehash - zsh)"
+rbenv() {
+  eval "$(command rbenv init --no-rehash - zsh)"
+  rbenv $@
+}
 
-# https://www.notionjs.com/
-source "$NOTION_HOME/load.sh"
-export PATH="${NOTION_HOME}/bin:$PATH"
+pyenv() {
+  eval "$(command pyenv init --no-rehash - zsh)"
+  pyenv $@
+}
 
-# https://rustup.rs
-source "$HOME/.cargo/env"
+notion() {
+  # https://www.notionjs.com/
+  source "$NOTION_HOME/load.sh"
+  export PATH="${NOTION_HOME}/bin:$PATH"
+  notion $@
+}
+
+rustup() {
+  # https://rustup.rs
+  source "$HOME/.cargo/env"
+  rustup $@
+}
 
 if [ -s "$HOME/.workrc" ]; then
   source "$HOME/.workrc"
 fi
 
 fpath=($^fpath(N))
-typeset -U FPATH
+typeset -TUx FPATH fpath
 
 manpath=($^manpath(N))
-typeset -U MANPATH
+typeset -TUx MANPATH manpath
 
 path=($^path(N))
-typeset -U PATH
+typeset -TUx PATH path
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
