@@ -197,7 +197,7 @@ colors:
   # Example:
   #   `- { index: 16, color: '0xff00ff' }`
   #
-  # indexed_colors: []
+  indexed_colors: []
 
 # Visual Bell
 #
@@ -397,6 +397,8 @@ alt_send_esc: true
 #   - ResetFontSize
 #   - ScrollPageUp
 #   - ScrollPageDown
+#   - ScrollLineUp
+#   - ScrollLineDown
 #   - ScrollToTop
 #   - ScrollToBottom
 #   - ClearHistory
@@ -428,7 +430,18 @@ key_bindings:
   #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
 
   # (macOS only)
-  #- { key: Key0,   mods: Command, action: ResetFontSize    } #- { key: Equals, mods: Command, action: IncreaseFontSize } #- { key: Add,    mods: Command, action: IncreaseFontSize } #- { key: Minus,  mods: Command, action: DecreaseFontSize } #- { key: K,      mods: Command, action: ClearHistory     } #- { key: K,      mods: Command, chars: "\x0c"            } #- { key: V,      mods: Command, action: Paste            } #- { key: C,      mods: Command, action: Copy             } #- { key: H,      mods: Command, action: Hide             } #- { key: Q,      mods: Command, action: Quit             } #- { key: W,      mods: Command, action: Quit             } - { key: Paste,                   action: Paste                            }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Add,    mods: Command, action: IncreaseFontSize }
+  - { key: Minus,  mods: Command, action: DecreaseFontSize }
+  - { key: K,      mods: Command, action: ClearHistory     }
+  - { key: K,      mods: Command, chars: "\x0c"            }
+  - { key: V,      mods: Command, action: Paste            }
+  - { key: C,      mods: Command, action: Copy             }
+  - { key: H,      mods: Command, action: Hide             }
+  - { key: Q,      mods: Command, action: Quit             }
+  - { key: W,      mods: Command, action: Quit             }
+
+  - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                         }
   - { key: L,        mods: Control, action: ClearLogNotice               }
   - { key: L,        mods: Control, chars: "\x0c"                        }
