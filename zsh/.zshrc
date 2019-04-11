@@ -69,7 +69,6 @@ alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bun
 alias git-open='open $(git remote get-url origin)'
 alias k='ls -lh'
 alias p='ps aux | rg -i'
-alias pdf-combine='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=tmp.pdf'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
@@ -137,40 +136,10 @@ function fancy-ctrl-z {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-rbenv() {
-  eval "$(command rbenv init --no-rehash - zsh)"
-  rbenv $@
-}
-
-pyenv() {
-  eval "$(command pyenv init --no-rehash - zsh)"
-  pyenv $@
-}
-
-notion() {
-  # https://www.notionjs.com/
-  source "$NOTION_HOME/load.sh"
-  export PATH="${NOTION_HOME}/bin:$PATH"
-  notion $@
-}
-
-rustup() {
-  # https://rustup.rs
-  source "$HOME/.cargo/env"
-  rustup $@
-}
-
-if [ -s "$HOME/.workrc" ]; then
-  source "$HOME/.workrc"
-fi
-
-fpath=($^fpath(N))
-typeset -TUx FPATH fpath
+path=($^path(N))
+typeset -TUx PATH path
 
 manpath=($^manpath(N))
 typeset -TUx MANPATH manpath
-
-path=($^path(N))
-typeset -TUx PATH path
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
