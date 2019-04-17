@@ -13,6 +13,9 @@ cask 'font-source-code-pro'
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'ripgrep-bin'
 
+tap 'garethr/kubeval'
+brew 'kubeval'
+
 brew 'cmake'
 brew 'coreutils'
 brew 'ctags'
