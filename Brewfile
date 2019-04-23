@@ -4,6 +4,7 @@ tap 'homebrew/cask'
 cask 'firefox'
 cask 'goland'
 cask 'google-chrome'
+cask 'macvim'
 cask 'rubymine'
 cask 'vlc'
 
