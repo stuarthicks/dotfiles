@@ -97,12 +97,14 @@ export path=(
   $path
   $HOME/.local/bin
   $HOME/.cargo/bin
+  $RBENV_HOME/bin
+  $PYENV_HOME/bin
 )
 
 export MANPATH=/usr/local/share/man:$MANPATH
 
-eval "$($RBENV_HOME/bin/rbenv init --no-rehash - zsh)"
-eval "$($PYENV_HOME/bin/pyenv init --no-rehash - zsh)"
+eval "$(rbenv init --no-rehash - zsh)"
+eval "$(pyenv init --no-rehash - zsh)"
 source "$NVM_DIR/nvm.sh" --no-use
 
 source "$HOME/.ssh/environment" &> /dev/null
