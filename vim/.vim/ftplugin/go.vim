@@ -7,7 +7,9 @@ nmap <buffer> <Leader>t <Plug>(go-test)
 nmap <buffer> <Leader>d <Plug>(go-doc)
 
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'gofmt -s'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_metalinter_command='golangci-lint'
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
