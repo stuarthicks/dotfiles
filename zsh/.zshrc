@@ -125,7 +125,7 @@ function htmlencode { python3 -c 'import html,sys; print(html.escape(sys.stdin.r
 function urldecode { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
 function urlencode { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
 
-function ssh-agent-init {
+function ssh-init {
   rm -f "$HOME/.ssh/environment"
   ssh-agent > "$HOME/.ssh/environment"
   chmod 600 "$HOME/.ssh/environment"
