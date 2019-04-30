@@ -1,13 +1,8 @@
 filetype plugin indent on
 syntax enable
 
-set background=dark
-colorscheme molokai
-
-if $TERMINAL_LIGHT == '1'
-  set background=light
-  colorscheme PaperColor
-endif
+set background=light
+colorscheme PaperColor
 
 set guifont=SourceCodePro-Regular:h12
 
