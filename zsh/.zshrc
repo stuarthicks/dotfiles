@@ -74,6 +74,8 @@ export EDITOR=vim
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_TMUX=1
 export GOBIN=$HOME/.local/bin
+export GOPROXY=https://proxy.golang.org
+export GOSUMDB=sum.golang.org
 export GPGKEY=ED99ADBF9E141390
 export GPG_TTY=$(tty)
 export HISTCONTROL=ignoredups
@@ -84,12 +86,12 @@ export LC_ALL=en_GB.UTF-8
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export MANPATH=/usr/share/man:/usr/local/share/man:$MANPATH
 export NDK_PATH=$HOME/Library/Android/sdk/ndk-bundle
+export NVM_DIR="$HOME/.nvm"
 export PAGER=less
 export PYENV_HOME=$HOME/.pyenv
 export RBENV_HOME=$HOME/.rbenv
 export TERM='screen-256color'
 export VISUAL=vim
-export NVM_DIR="$HOME/.nvm"
 
 export path=(
   /usr/local/bin
