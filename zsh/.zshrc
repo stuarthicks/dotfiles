@@ -90,6 +90,7 @@ export NVM_DIR="$HOME/.nvm"
 export PAGER=less
 export PYENV_HOME=$HOME/.pyenv
 export RBENV_HOME=$HOME/.rbenv
+export NODENV_HOME=$HOME/.nodenv
 export TERM='screen-256color'
 export VISUAL=vim
 
@@ -101,13 +102,14 @@ export path=(
   $HOME/.cargo/bin
   $RBENV_HOME/bin
   $PYENV_HOME/bin
+  $NODENV_HOME/bin
 )
 
 export MANPATH=/usr/local/share/man:$MANPATH
 
 eval "$(rbenv init --no-rehash - zsh)"
 eval "$(pyenv init --no-rehash - zsh)"
-source "$NVM_DIR/nvm.sh" --no-use
+eval "$(nodenv init --no-rehash - zsh)"
 
 source "$HOME/.ssh/environment" &> /dev/null
 source "$HOME/.workrc"

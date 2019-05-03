@@ -24,8 +24,6 @@ git clone https://github.com/rbenv/rbenv-each.git
 git clone https://github.com/rbenv/rbenv-vars.git
 git clone https://github.com/rbenv/ruby-build.git
 git clone https://github.com/rkh/rbenv-update.git
-git clone https://github.com/tpope/rbenv-ctags.git
-git clone https://github.com/yyuu/rbenv-ccache.git
 ```
 
 ## pyenv
@@ -36,14 +34,20 @@ mkdir -p ~/.pyenv/plugins
 cd ~/.pyenv/plugins
 git clone https://github.com/pyenv/pyenv-doctor.git
 git clone https://github.com/pyenv/pyenv-update.git
-git clone https://github.com/yyuu/pyenv-ccache.git
 git clone https://github.com/yyuu/pyenv-pip-rehash.git
 ```
 
-## notion
+## nodenv
 
 ```
-curl -sSLf https://get.notionjs.com | bash
+git clone https://github.com/nodenv/nodenv ~/.nodenv
+mkdir -p ~/.nodenv/plugins
+cd  ~/.nodenv/plugins
+git clone https://github.com/hurrymaplelad/nodenv-package-json-engine
+git clone https://github.com/nodenv/node-build
+git clone https://github.com/nodenv/node-build-update-defs
+git clone https://github.com/nodenv/nodenv-each
+git clone https://github.com/nodenv/nodenv-update
 ```
 
 ## rustup

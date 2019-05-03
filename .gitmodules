@@ -49,3 +49,6 @@
 [submodule "vim/.vim/pack/plugins/start/rg"]
 	path = vim/.vim/pack/plugins/start/rg
 	url = https://github.com/jremmen/vim-ripgrep
+[submodule "vim/.vim/pack/plugins/start/solarized"]
+	path = vim/.vim/pack/plugins/start/solarized
+	url = https://github.com/altercation/vim-colors-solarized
