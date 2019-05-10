@@ -27,7 +27,7 @@ unlimited-cucumber-works
 *.test
 .ropeproject/*
 debug
-log/
+logs/
 Session.vim
 target/
 tmp/
