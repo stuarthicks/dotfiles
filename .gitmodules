@@ -34,9 +34,6 @@
 [submodule "vim/.vim/pack/plugins/opt/goyo"]
 	path = vim/.vim/pack/plugins/opt/goyo
 	url = https://github.com/junegunn/goyo.vim
-[submodule "tmux/.tmux_plugins/urlview"]
-	path = tmux/.tmux_plugins/urlview
-	url = https://github.com/tmux-plugins/tmux-urlview
 [submodule "vim/.vim/pack/plugins/start/papercolor-theme"]
 	path = vim/.vim/pack/plugins/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
