@@ -113,6 +113,7 @@ eval "$(nodenv init --no-rehash - zsh)"
 
 source "$HOME/.ssh/environment" &> /dev/null
 source "$HOME/.workrc"
+
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-open='open $(git remote get-url origin)'
 alias k='ls -lh'
@@ -120,6 +121,7 @@ alias p='ps aux | rg -i'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+# sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
 
 function path    { echo $PATH    | tr : $'\n'; }
 function manpath { echo $MANPATH | tr : $'\n'; }
