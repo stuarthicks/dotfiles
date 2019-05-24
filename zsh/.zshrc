@@ -121,7 +121,22 @@ alias p='ps aux | rg -i'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
-# sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
+
+function strip_colours {
+  sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
+}
+
+function terminal_colours {
+  for x in {0..8}; do
+    for i in {30..37}; do
+      for a in {40..47}; do
+        echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "
+      done
+      echo
+    done
+  done
+  echo ""
+}
 
 function path    { echo $PATH    | tr : $'\n'; }
 function manpath { echo $MANPATH | tr : $'\n'; }
@@ -193,5 +208,3 @@ manpath=($^manpath(N))
 typeset -TUx MANPATH manpath
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
