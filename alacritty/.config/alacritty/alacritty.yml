@@ -88,19 +88,19 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    family: Source Code Pro
+    family: Fira Mono for Powerline
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
   bold:
-    family: Source Code Pro
+    family: Fira Mono for Powerline
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
-    family: Source Code Pro
+    family: Fira Mono for Powerline
     # The `style` can be specified to pick a specific face.
     style: Italic
 
@@ -145,35 +145,35 @@ persistent_logging: false
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Molokai)
+# Colors (Horizon)
 colors:
   primary:
-    background: '0x121212'
-    foreground: '0xbbbbbb'
+    background: '0x1C1E26'
+    foreground: '0xD8DEE9'
 
   cursor:
-    text: '0x121212'
-    cursor: '0xbbbbbb'
+    text: '0x1C1E26'
+    cursor: '0xD8DEE9'
 
   normal:
-    black:   '0x121212'
-    red:     '0xfa2573'
-    green:   '0x98e123'
-    yellow:  '0xdfd460'
-    blue:    '0x1080d0'
-    magenta: '0x8700ff'
-    cyan:    '0x43a8d0'
-    white:   '0xbbbbbb'
+    black:   '0x1C1E26'
+    red:     '0xE95678'
+    green:   '0x29D398'
+    yellow:  '0xFAB795'
+    blue:    '0x26BBD9'
+    magenta: '0xEE64AC'
+    cyan:    '0x59E1E3'
+    white:   '0xD8DEE9'
 
   bright:
-    black:   '0x555555'
-    red:     '0xf6669d'
-    green:   '0xb1e05f'
-    yellow:  '0xfff26d'
-    blue:    '0x00afff'
-    magenta: '0xaf87ff'
-    cyan:    '0x51ceff'
-    white:   '0xffffff'
+    black:   '0x1C1E26'
+    red:     '0xEC6A88'
+    green:   '0x3FDAA4'
+    yellow:  '0xFBC3A7'
+    blue:    '0x3FC4DE'
+    magenta: '0xF075B5'
+    cyan:    '0x6BE4E6'
+    white:   '0xD8DEE9'
 
   # Dim colors
   #

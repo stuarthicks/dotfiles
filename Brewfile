@@ -2,6 +2,7 @@
 
 tap 'homebrew/cask'
 cask 'alacritty'
+cask 'docker'
 cask 'firefox'
 cask 'goland'
 cask 'google-chrome'
@@ -9,7 +10,10 @@ cask 'rubymine'
 cask 'vlc'
 
 tap 'homebrew/cask-fonts'
-cask 'font-source-code-pro'
+cask 'font-fira-mono'
+cask 'font-source-code-pro-for-powerline'
+cask 'font-fira-mono'
+cask 'font-fira-mono-for-powerline'
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'ripgrep-bin'
