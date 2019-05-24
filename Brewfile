@@ -1,6 +1,7 @@
 # vi: ft=ruby
 
 tap 'homebrew/cask'
+cask 'alacritty'
 cask 'firefox'
 cask 'goland'
 cask 'google-chrome'
