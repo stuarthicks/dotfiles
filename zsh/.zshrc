@@ -91,7 +91,6 @@ export PAGER=less
 export PYENV_HOME=$HOME/.pyenv
 export RBENV_HOME=$HOME/.rbenv
 export NODENV_HOME=$HOME/.nodenv
-export TERM='screen-256color'
 export VISUAL=vim
 
 export path=(
