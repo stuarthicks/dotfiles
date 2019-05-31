@@ -25,12 +25,6 @@
 [submodule "vim/.vim/pack/plugins/start/tagbar"]
 	path = vim/.vim/pack/plugins/start/tagbar
 	url = https://github.com/majutsushi/tagbar
-[submodule "vim/.vim/pack/plugins/start/limelight"]
-	path = vim/.vim/pack/plugins/start/limelight
-	url = https://github.com/junegunn/limelight.vim
-[submodule "vim/.vim/pack/plugins/start/goyo"]
-	path = vim/.vim/pack/plugins/start/goyo
-	url = https://github.com/junegunn/goyo.vim
 [submodule "vim/.vim/pack/plugins/start/nerdtree"]
 	path = vim/.vim/pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
