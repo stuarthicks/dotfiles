@@ -1,6 +1,3 @@
-[submodule "vim/.vim/pack/plugins/start/vim-go"]
-	path = vim/.vim/pack/plugins/start/vim-go
-	url = https://github.com/fatih/vim-go
 [submodule "vim/.vim/pack/plugins/start/fzf"]
 	path = vim/.vim/pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf
@@ -46,3 +43,6 @@
 [submodule "vim/.vim/pack/plugins/start/horizon"]
 	path = vim/.vim/pack/plugins/start/horizon
 	url = https://github.com/ntk148v/vim-horizon
+[submodule "vim/.vim/pack/plugins/start/vimgo"]
+	path = vim/.vim/pack/plugins/start/vimgo
+	url = https://github.com/myitcv/govim
