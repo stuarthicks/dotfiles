@@ -1,7 +1,6 @@
 # vi: ft=ruby
 
 tap 'homebrew/cask'
-cask 'alacritty'
 cask 'aerial'
 cask 'deluge'
 cask 'docker'
