@@ -16,7 +16,11 @@ zle -N self-insert url-quote-magic
 autoload -Uz bracketed-paste-magic
 zle -N bracketed-paste bracketed-paste-magic
 
-export PROMPT="%{$fg[red]%}$%{$reset_color%} "
+# export PROMPT="%{$fg[red]%}$%{$reset_color%} "
+# npm install --global pure-prompt
+autoload -Uz promptinit
+promptinit
+prompt pure
 
 bindkey -e                           # default to emacs keybindings
 bindkey -s '\eu' '^Ucd ..; pwd^M'    # meta-u to go up a dir
