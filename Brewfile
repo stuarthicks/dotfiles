@@ -2,6 +2,8 @@
 
 tap 'homebrew/cask'
 cask 'aerial'
+cask 'alacritty'
+cask 'appcleaner'
 cask 'deluge'
 cask 'docker'
 cask 'firefox'
