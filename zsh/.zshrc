@@ -204,6 +204,36 @@ function fancy-ctrl-z {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+focus-on-something () {
+  if [ -n "$FOCUS_CMD" ]; then
+    BUFFER='unset FOCUS'
+  else
+    BUFFER='FOCUS="!!"'
+  fi
+  zle expand-history
+  zle end-of-line
+  zle accept-line
+}
+zle -N focus-on-something && bindkey '^F' focus-on-something
+
+do-something () {
+   if  [ -n "$FOCUS_CMD" ]; then BUFFER="$FOCUS_CMD"
+  elif [ -f "Makefile" ];   then BUFFER="make"
+  elif [ -x "test" ];       then BUFFER="./test"
+  elif [ -x "test.sh" ];    then BUFFER="./test.sh"
+  elif [ -x "run_tests" ];  then BUFFER="./run_tests"
+  elif [ -x "build" ];      then BUFFER="./build"
+  elif [ -x "build.sh" ];   then BUFFER="./build.sh"
+  elif [ -f "pom.xml" ];    then BUFFER="mvn clean install"
+  elif [ -f "Gemfile" ];    then BUFFER="bundle install"
+  elif [ -f "Cargo.toml" ]; then BUFFER="cargo build"
+  elif [ -x "gradlew" ];    then BUFFER="./gradlew"
+  fi
+  zle end-of-line
+  zle accept-line
+}
+zle -N do-something && bindkey '^G' do-something # Go!
+
 path=($^path(N))
 typeset -TUx PATH path
 
