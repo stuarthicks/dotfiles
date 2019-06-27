@@ -5,21 +5,8 @@ syntax enable
 set background=dark
 colorscheme horizon
 
-set guifont=SourceCodePro-Regular:h12
-
 let g:mapleader = ' '
 let g:maplocalleader = '\'
-
-let g:ale_linters = {
-\   'go': ['gometalinter'],
-\}
-
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'json': ['prettier'],
-\}
-
-let g:ale_fix_on_save = 1
 
 " Searching
 set hlsearch
@@ -68,9 +55,7 @@ set wrapmargin=0
 
 " Navigation
 nnoremap <Leader>e :Explore<cr>
-nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>r :Rg<space>
-nnoremap <Leader>b :Buffers<cr>
 
 " Annoying typo fixes
 nnoremap q: <nop>
@@ -86,29 +71,8 @@ nnoremap Q @q
 vnoremap < <gv
 vnoremap > >gv
 
-" junegunn/vim-easy-align
-vmap <Enter> <Plug>(EasyAlign)
-
-" Remove trailing whitespace
-nnoremap <Leader>w :%s/\s\+$//<cr>
-
-" Auto handle paste-mode
-nnoremap <Leader>P :set paste<CR>o<esc>"*]p:set nopaste<cr>
-
-" Arrow keys to resize vim splits
-nnoremap <Left> :vertical resize -2<CR>
-nnoremap <Right> :vertical resize +2<CR>
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-
-" Return to previous edit point
-nnoremap <BS> <C-^>
-
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" Delete erroneous [No Name] buffers
-nnoremap <silent> <Leader>B :call g:buffers#CleanNoNameEmptyBuffers()<CR>
 
 " Convenient editing of ascii-armoured encrypted files
 augroup GPG
