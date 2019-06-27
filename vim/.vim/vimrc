@@ -10,9 +10,6 @@ set guifont=SourceCodePro-Regular:h12
 let g:mapleader = ' '
 let g:maplocalleader = '\'
 
-let g:NERDTreeIgnore = ['\.pyc$']
-let g:NERDTreeNodeDelimiter = "\u00a0"
-
 let g:ale_linters = {
 \   'go': ['gometalinter'],
 \}
@@ -46,7 +43,7 @@ set foldlevelstart=20
 set foldmethod=syntax
 set hidden
 set linebreak
-set list
+set nolist
 set listchars=tab:——,trail:_
 set modelines=1
 set mouse=a
@@ -71,11 +68,9 @@ set wrapmargin=0
 
 " Navigation
 nnoremap <Leader>e :Explore<cr>
-nnoremap <Leader>n :NERDTreeToggle<cr>
 nnoremap <Leader>f :Files<cr>
-nnoremap <Leader>g :grep<space>
+nnoremap <Leader>r :Rg<space>
 nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>s :TagbarToggle<cr>
 
 " Annoying typo fixes
 nnoremap q: <nop>
