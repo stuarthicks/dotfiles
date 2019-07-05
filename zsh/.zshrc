@@ -120,10 +120,18 @@ source "$HOME/.workrc"
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-open='open $(git remote get-url origin)'
 alias k='ls -lh'
+alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias p='ps aux | rg -i'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
-alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+
+vim-fzf() {
+  BUFFER='vim "$(rg --files | fzf-tmux)"'
+  zle end-of-line
+  zle accept-line
+}
+
+zle -N vim-fzf && bindkey '^F' vim-fzf
 
 function strip_colours {
   sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
@@ -204,7 +212,7 @@ function fancy-ctrl-z {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-focus-on-something () {
+focus() {
   if [ -n "$FOCUS_CMD" ]; then
     BUFFER='unset FOCUS'
   else
@@ -214,7 +222,6 @@ focus-on-something () {
   zle end-of-line
   zle accept-line
 }
-zle -N focus-on-something && bindkey '^F' focus-on-something
 
 do-something () {
    if  [ -n "$FOCUS_CMD" ]; then BUFFER="$FOCUS_CMD"
