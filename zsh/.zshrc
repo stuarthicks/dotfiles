@@ -119,6 +119,7 @@ source "$HOME/.workrc"
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-open='open $(git remote get-url origin)'
+alias git=hub
 alias k='ls -lh'
 alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
