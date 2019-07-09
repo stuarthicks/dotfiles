@@ -1,35 +1,18 @@
 # vi: set ft=zsh
 ttyctl -f # freeze tty
 
-autoload -Uz colors
-colors
+autoload -Uz colors                && colors
+autoload -Uz compinit              && compinit
+autoload -Uz edit-command-line     && zle -N edit-command-line
+autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
+autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
 
-autoload -Uz compinit
-compinit
+export PROMPT="%{$fg[red]%}❯%{$reset_color%} "
 
-autoload -Uz edit-command-line
-zle -N edit-command-line
+# meta-e to edit current cmd in $EDITOR
+bindkey '\ee'  edit-command-line
 
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
-
-autoload -Uz bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-magic
-
-# export PROMPT="%{$fg[red]%}$%{$reset_color%} "
-# npm install --global pure-prompt
-autoload -Uz promptinit
-promptinit
-prompt pure
-
-bindkey -e                           # default to emacs keybindings
-bindkey -s '\eu' '^Ucd ..; pwd^M'    # meta-u to go up a dir
-bindkey '\ee'  edit-command-line     # meta-e to edit current cmd in $EDITOR
-bindkey '\e[Z' reverse-menu-complete # Shift+Tab
-
-COMPLETION_WAITING_DOTS="true"
-DIRSTACKFILE=$HOME/.zdirs
-DIRSTACKSIZE=9
+HISTCONTROL=ignoredups
 HISTFILE=~/.zsh_history
 HISTSIZE=2000
 KEYTIMEOUT=1
@@ -69,28 +52,23 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-# export TZ=$(find /usr/share/zoneinfo/* -type f | /usr/local/bin/shuf -n1 | cut -d'/' -f5-)
 export TZ='Europe/London'
+tz_rand() {
+  export TZ=$(find /usr/share/zoneinfo/* -type f | /usr/local/bin/shuf -n1 | cut -d'/' -f5-); date
+}
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
 export CLICOLOR=1
 export EDITOR=vim
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_TMUX=1
 export GOBIN=$HOME/.local/bin
-export GOPROXY=https://proxy.golang.org
-export GOSUMDB=sum.golang.org
 export GPGKEY=ED99ADBF9E141390
 export GPG_TTY=$(tty)
-export HISTCONTROL=ignoredups
 export HOMEBREW_INSTALL_CLEANUP=1
 export HOMEBREW_NO_ANALYTICS=1
-export INPUTRC=${XDG_CONFIG_HOME:-$HOME/.config}/readline/inputrc
 export LC_ALL=en_GB.UTF-8
 export LSCOLORS=Gxfxcxdxbxegedabagacad
-export MANPATH=/usr/share/man:/usr/local/share/man:$MANPATH
-export NDK_PATH=$HOME/Library/Android/sdk/ndk-bundle
-export NVM_DIR="$HOME/.nvm"
+export MANPATH=/usr/local/share/man:/usr/share/man:$MANPATH
 export PAGER=less
 export PYENV_HOME=$HOME/.pyenv
 export RBENV_HOME=$HOME/.rbenv
@@ -108,8 +86,6 @@ export path=(
   $NODENV_HOME/bin
 )
 
-export MANPATH=/usr/local/share/man:$MANPATH
-
 eval "$(rbenv init --no-rehash - zsh)"
 eval "$(pyenv init --no-rehash - zsh)"
 eval "$(nodenv init --no-rehash - zsh)"
@@ -121,33 +97,13 @@ alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bun
 alias git-open='open $(git remote get-url origin)'
 alias git=hub
 alias k='ls -lh'
-alias macos-dns-flush='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias p='ps aux | rg -i'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
-vim-fzf() {
-  BUFFER='vim "$(rg --files | fzf-tmux)"'
-  zle end-of-line
-  zle accept-line
-}
-
-zle -N vim-fzf && bindkey '^F' vim-fzf
-
 function strip_colours {
   sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
-}
-
-function terminal_colours {
-  for x in {0..8}; do
-    for i in {30..37}; do
-      for a in {40..47}; do
-        echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "
-      done
-      echo
-    done
-  done
-  echo ""
 }
 
 function path    { echo $PATH    | tr : $'\n'; }
@@ -201,46 +157,6 @@ function qq {
     echo 'Q LOG' > "$logpath"
     tail -100f -- "$logpath"
 }
-
-function fancy-ctrl-z {
- if [[ $#BUFFER -eq 0 ]]; then
-   kill -9 %+
-   zle redisplay
- else
-   zle push-input
- fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-focus() {
-  if [ -n "$FOCUS_CMD" ]; then
-    BUFFER='unset FOCUS'
-  else
-    BUFFER='FOCUS="!!"'
-  fi
-  zle expand-history
-  zle end-of-line
-  zle accept-line
-}
-
-do-something () {
-   if  [ -n "$FOCUS_CMD" ]; then BUFFER="$FOCUS_CMD"
-  elif [ -f "Makefile" ];   then BUFFER="make"
-  elif [ -x "test" ];       then BUFFER="./test"
-  elif [ -x "test.sh" ];    then BUFFER="./test.sh"
-  elif [ -x "run_tests" ];  then BUFFER="./run_tests"
-  elif [ -x "build" ];      then BUFFER="./build"
-  elif [ -x "build.sh" ];   then BUFFER="./build.sh"
-  elif [ -f "pom.xml" ];    then BUFFER="mvn clean install"
-  elif [ -f "Gemfile" ];    then BUFFER="bundle install"
-  elif [ -f "Cargo.toml" ]; then BUFFER="cargo build"
-  elif [ -x "gradlew" ];    then BUFFER="./gradlew"
-  fi
-  zle end-of-line
-  zle accept-line
-}
-zle -N do-something && bindkey '^G' do-something # Go!
 
 path=($^path(N))
 typeset -TUx PATH path
