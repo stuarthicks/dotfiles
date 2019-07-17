@@ -3,7 +3,7 @@
 	email = stuartmhicks@me.com
   signingkey = ED99ADBF9E141390
 [commit]
-  gpgsign = true
+  gpgsign = false
 [gpg]
   program = /usr/local/MacGPG2/bin/gpg2
 [credential]
