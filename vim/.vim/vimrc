@@ -60,22 +60,9 @@ nnoremap <Leader>e :Explore<cr>
 nnoremap <Leader>r :Rg<space>
 nnoremap <C-t> :FZF<cr>
 
-" Annoying typo fixes
-nnoremap q: <nop>
-nnoremap ; :
-
-" Don't jump cursor when using * to search for word under cursor
-nnoremap * *``
-
-" Play q macro
-nnoremap Q @q
-
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Convenient editing of ascii-armoured encrypted files
 augroup GPG
