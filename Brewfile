@@ -1,8 +1,6 @@
 # vi: ft=ruby
 
 tap 'homebrew/cask'
-cask 'aerial'
-cask 'alacritty'
 cask 'appcleaner'
 cask 'docker'
 cask 'firefox'
@@ -14,9 +12,6 @@ cask 'vlc'
 tap 'homebrew/cask-fonts'
 cask 'font-fira-mono'
 cask 'font-source-code-pro'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-fira-mono'
-cask 'font-fira-mono-for-powerline'
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'ripgrep-bin'
