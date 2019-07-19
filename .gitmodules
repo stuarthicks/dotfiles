@@ -1,6 +1,3 @@
-[submodule "vim/.vim/pack/plugins/start/vim-easy-align"]
-	path = vim/.vim/pack/plugins/start/easy-align
-	url = https://github.com/junegunn/vim-easy-align
 [submodule "vim/.vim/pack/plugins/start/rg"]
 	path = vim/.vim/pack/plugins/start/rg
 	url = https://github.com/jremmen/vim-ripgrep
