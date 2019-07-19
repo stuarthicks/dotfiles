@@ -1,11 +1,3 @@
-[user]
-	name = Stuart Hicks
-	email = stuartmhicks@me.com
-  signingkey = ED99ADBF9E141390
-[commit]
-  gpgsign = false
-[gpg]
-  program = /usr/local/MacGPG2/bin/gpg2
 [credential]
 	helper = osxkeychain
 [core]
@@ -15,25 +7,8 @@
 	autosetuprebase = always
 [push]
 	default = current
-[rebase]
-	autoStash = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
-[alias]
-	abandon-ship = reset HEAD^^ --hard
-	br = branch
-	ci = commit --verbose
-	cl = clone
-	co = checkout
-	d = diff --ignore-all-space
-	ds = diff --staged --ignore-all-space
-	fe = fetch --all --tags --prune
-	github-pulls = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
-	l = log --pretty=format:'%G? %C(yellow)%h %C(blue)%ad%C(red)%d %C(green)[%cn] %C(reset)%s' --decorate --date=short --date=relative -n 21
-	s = status
-	sba = "!f() { git subtree add --prefix $2 $1 ${3:-master} --squash; }; f"
-	sbu = "!f() { git subtree pull --prefix $2 $1 ${3:-master} --squash; }; f"
-	up = pull --ff-only
