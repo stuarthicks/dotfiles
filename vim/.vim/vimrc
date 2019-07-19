@@ -58,7 +58,7 @@ set wrapmargin=0
 " Navigation
 nnoremap <Leader>e :Explore<cr>
 nnoremap <Leader>r :Rg<space>
-nnoremap <C-f> :FZF<cr>
+nnoremap <C-t> :FZF<cr>
 
 " Annoying typo fixes
 nnoremap q: <nop>
