@@ -17,7 +17,7 @@
 	br = branch
 	ci = commit --verbose
 	co = checkout
-	down = pull
+	d = diff --ignore-all-space --ignore-space-change
+	ds = diff --ignore-all-space --ignore-space-change --staged
 	fe = fetch --all --tags --prune
-	s = status --short
-	up = push
+	s = status --short --branch
