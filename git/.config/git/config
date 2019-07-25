@@ -12,3 +12,12 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[alias]
+	abandon-ship = reset --hard HEAD^^
+	br = branch
+	ci = commit --verbose
+	co = checkout
+	down = pull
+	fe = fetch --all --tags --prune
+	s = status --short
+	up = push
