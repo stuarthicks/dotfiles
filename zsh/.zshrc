@@ -90,7 +90,20 @@ eval "$(rbenv init --no-rehash - zsh)"
 eval "$(pyenv init --no-rehash - zsh)"
 eval "$(nodenv init --no-rehash - zsh)"
 
-source "$HOME/.ssh/environment" &> /dev/null
+SSH_ENV="$HOME/.ssh/environment"
+
+if ! [ -e "$SSH_ENV" ]; then
+  touch "$SSH_ENV"
+  chmod 600 "$SSH_ENV"
+fi
+
+source "$SSH_ENV" &> /dev/null
+if ! ps -p "${SSH_AGENT_PID:--1}" &> /dev/null; then
+  ssh-agent >! "$SSH_ENV" &> /dev/null
+  source "$SSH_ENV"
+  ssh-add -A &> /dev/null
+fi
+
 source "$HOME/.workrc"
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
@@ -113,14 +126,6 @@ function htmldecode { python3 -c 'import html,sys; print(html.unescape(sys.stdin
 function htmlencode { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
 function urldecode { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
 function urlencode { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
-
-function ssh-init {
-  rm -f "$HOME/.ssh/environment"
-  ssh-agent > "$HOME/.ssh/environment"
-  chmod 600 "$HOME/.ssh/environment"
-  source "$HOME/.ssh/environment" &> /dev/null
-  ssh-add -A
-}
 
 function aws-profile {
   profile=${1:-dev}
