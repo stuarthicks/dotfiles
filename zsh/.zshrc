@@ -99,7 +99,7 @@ manpath=($^manpath(N))
 typeset -Ux MANPATH manpath
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
-alias k='ls -lh'
+alias k='gls -lhFk --group-directories-first --color'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias p='ps aux | rg -i'
