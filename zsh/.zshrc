@@ -65,6 +65,9 @@ export path=(
   /usr/local/bin
   /usr/local/sbin
   $path
+  $HOME/.rbenv/bin
+  $HOME/.pyenv/bin
+  $HOME/.nodenv/bin
 )
 
 eval "$(rbenv init --no-rehash - zsh)"

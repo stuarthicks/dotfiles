@@ -1,0 +1,4 @@
+#!/bin/bash
+set -eo pipefail
+
+curl -sSLf https://sh.rustup.rs | sh
