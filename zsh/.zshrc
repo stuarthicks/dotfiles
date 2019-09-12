@@ -48,16 +48,12 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
 bindkey -M menuselect "=" accept-and-menu-complete
 
-export CLICOLOR="1"
 export EDITOR="vim"
-export GOBIN="$HOME/.local/bin"
-export GOPATH="$HOME/Code/gopath"
 export GPGKEY="ED99ADBF9E141390"
 export GPG_TTY="$(tty)"
 export HOMEBREW_INSTALL_CLEANUP="1"
 export HOMEBREW_NO_ANALYTICS="1"
 export LC_ALL="en_GB.UTF-8"
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export MANPATH="/usr/local/share/man:/usr/share/man:$MANPATH"
 export PAGER="less"
 export PROMPT="%{$fg[red]%}#%{$reset_color%} "
