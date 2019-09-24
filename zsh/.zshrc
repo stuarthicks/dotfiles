@@ -64,6 +64,7 @@ export path=(
   $HOME/.local/bin
   /usr/local/bin
   /usr/local/sbin
+  /usr/local/opt/openssl@1.1/bin
   $path
   $HOME/.rbenv/bin
   $HOME/.pyenv/bin
