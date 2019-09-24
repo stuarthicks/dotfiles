@@ -1,4 +1,8 @@
 set nocompatible
+set nobackup
+set nowritebackup
+set noswapfile
+
 filetype plugin indent on
 syntax enable
 
@@ -9,6 +13,7 @@ set rtp+=~/.fzf
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
+
 
 " Searching
 set hlsearch
@@ -22,6 +27,7 @@ set wildignore+=*/vendor/*
 set wildignore+=*/node_modules/*
 nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
+set autoindent
 set backspace=indent,eol,start
 set balloondelay=250
 set clipboard^=unnamed,unnamedplus
@@ -32,11 +38,11 @@ set foldlevelstart=20
 set foldmethod=syntax
 set hidden
 set linebreak
-set nolist
 set listchars=tab:——,trail:_
 set modelines=1
 set mouse=a
 set nobackup
+set nolist
 set noswapfile
 set nowritebackup
 set number
@@ -44,12 +50,15 @@ set path+=**
 set scrolloff=5
 set shiftwidth=2
 set sidescrolloff=5
+set signcolumn=number
+set smartindent
 set splitbelow
 set splitright
 set synmaxcol=500
 set tabstop=2
 set textwidth=0
 set timeoutlen=300
+set ttymouse=sgr
 set ttymouse=sgr
 set updatetime=500
 set wrap
@@ -73,3 +82,8 @@ augroup GPG
   autocmd BufWritePost *.asc u
   autocmd VimLeave     *.asc :!clear
 augroup END
+
+if has("patch-8.1.1904")
+  set completeopt+=popup
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif

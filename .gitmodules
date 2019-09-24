@@ -4,3 +4,6 @@
 [submodule "vim/.vim/pack/plugins/start/horizon"]
 	path = vim/.vim/pack/plugins/start/horizon
 	url = https://github.com/ntk148v/vim-horizon
+[submodule "vim/.vim/pack/plugins/start/govim"]
+	path = vim/.vim/pack/plugins/start/govim
+	url = https://github.com/govim/govim.git
