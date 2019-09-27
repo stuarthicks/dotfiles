@@ -7,6 +7,7 @@ autoload -Uz edit-command-line     && zle -N edit-command-line
 autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
 autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
 
+bindkey -e
 bindkey '\ee'  edit-command-line
 
 HISTCONTROL=ignoredups
