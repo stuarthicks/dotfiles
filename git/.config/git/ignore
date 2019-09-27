@@ -41,3 +41,8 @@ vim-go-test-compile
 
 **/.bin/*
 .env
+.ruby-gemset
+.ruby-version
+.tools-version
+.python-version
+.node-version
