@@ -5,3 +5,6 @@ neovim/.config/nvim/.netrwhist
 
 vim/.vim/backup
 vim/.vim/.netrwhist
+
+ssh/
+bin/

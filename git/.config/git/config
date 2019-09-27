@@ -1,5 +1,3 @@
-[credential]
-	helper = osxkeychain
 [core]
 	pager = less
 	symlinks = true
