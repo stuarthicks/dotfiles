@@ -6,6 +6,8 @@ set noswapfile
 filetype plugin indent on
 syntax enable
 
+set guioptions=
+
 set background=dark
 colorscheme horizon
 
