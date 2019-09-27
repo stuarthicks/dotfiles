@@ -7,6 +7,7 @@ autoload -Uz edit-command-line     && zle -N edit-command-line
 autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
 autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
 
+bindkey -e
 bindkey '\ee'  edit-command-line
 
 HISTCONTROL=ignoredups
@@ -49,6 +50,7 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 bindkey -M menuselect "=" accept-and-menu-complete
 
 export EDITOR="vim"
+export GEM_HOME="$HOME/.gems"
 export GPGKEY="ED99ADBF9E141390"
 export GPG_TTY="$(tty)"
 export HOMEBREW_INSTALL_CLEANUP="1"
@@ -64,17 +66,14 @@ export path=(
   $HOME/.local/bin
   /usr/local/bin
   /usr/local/sbin
+  /usr/local/opt/ruby/bin
   /usr/local/opt/openssl@1.1/bin
   $path
-  $HOME/.rbenv/bin
-  $HOME/.pyenv/bin
   $HOME/.nodenv/bin
+  $HOME/.cargo/bin
 )
 
-eval "$(rbenv init --no-rehash - zsh)"
-eval "$(pyenv init --no-rehash - zsh)"
 eval "$(nodenv init --no-rehash - zsh)"
-source "$HOME/.cargo/env"
 
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -162,5 +161,3 @@ function tls_sans() {
     | cut -d':' -f2- \
     | sort -u
 }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
