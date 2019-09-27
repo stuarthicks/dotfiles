@@ -154,4 +154,13 @@ function qq {
   tail -100f -- "$logpath"
 }
 
+function tls_sans() {
+  openssl s_client -connect "$1:443" -showcerts </dev/null 2>/dev/null \
+    | openssl x509 -noout -text \
+    | grep -A1 'Subject Alternative Name' \
+    | tail -n1 \
+    | cut -d':' -f2- \
+    | sort -u
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
