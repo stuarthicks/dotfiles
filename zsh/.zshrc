@@ -151,5 +151,3 @@ function qq {
   echo 'Q LOG' > "$logpath"
   tail -100f -- "$logpath"
 }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

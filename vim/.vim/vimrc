@@ -9,11 +9,8 @@ syntax enable
 set background=dark
 colorscheme horizon
 
-set rtp+=~/.fzf
-
 let g:mapleader = ' '
 let g:maplocalleader = '\'
-
 
 " Searching
 set hlsearch
@@ -67,7 +64,6 @@ set wrapmargin=0
 " Navigation
 nnoremap <Leader>e :Explore<cr>
 nnoremap <Leader>r :Rg<space>
-nnoremap <C-t> :FZF<cr>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
