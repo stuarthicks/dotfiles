@@ -158,6 +158,7 @@ function tls_sans() {
     | openssl x509 -noout -text \
     | grep -A1 'Subject Alternative Name' \
     | tail -n1 \
-    | sed -e "s/, /\n/g" \
-    | cut -d':' -f2-
+    | tr 'DNS:' $'\n' \
+    | awk NF \
+    | sort -u
 }
