@@ -75,20 +75,6 @@ export path=(
 
 eval "$(nodenv init --no-rehash - zsh)"
 
-SSH_ENV="$HOME/.ssh/environment"
-
-if ! [ -e "$SSH_ENV" ]; then
-  touch "$SSH_ENV"
-  chmod 600 "$SSH_ENV"
-fi
-
-source "$SSH_ENV" &> /dev/null
-if ! ps -p "${SSH_AGENT_PID:--1}" &> /dev/null; then
-  ssh-agent >! "$SSH_ENV" &> /dev/null
-  source "$SSH_ENV"
-  ssh-add -A &> /dev/null
-fi
-
 source "$HOME/.workrc"
 
 path=($^path(N))
