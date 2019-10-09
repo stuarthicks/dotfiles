@@ -1,7 +1,9 @@
 #!/bin/sh
 
 if command -v /usr/local/bin/reattach-to-user-namespace >/dev/null 2>&1; then
-  exec /usr/local/bin/reattach-to-user-namespace -l $SHELL --login
+  export SHELL=/bin/zsh
+  exec /usr/local/bin/reattach-to-user-namespace -l /bin/zsh --login
 fi
 
+export SHELL=/usr/bin/zsh
 exec /usr/bin/zsh --login

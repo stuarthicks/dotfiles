@@ -53,11 +53,14 @@ export EDITOR="vim"
 export GEM_HOME="$HOME/.gems"
 export GPGKEY="ED99ADBF9E141390"
 export GPG_TTY="$(tty)"
+export HOMEBREW_CELLAR="/usr/local/Cellar";
 export HOMEBREW_INSTALL_CLEANUP="1"
 export HOMEBREW_NO_ANALYTICS="1"
+export HOMEBREW_PREFIX="/usr/local";
+export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
+export INFOPATH="/usr/local/share/info:$INFOPATH";
 export LC_ALL="en_GB.UTF-8"
-export MANPATH="/usr/local/share/man:/usr/share/man:$MANPATH"
-export PAGER="less"
+export MANPATH="/usr/local/share/man:$MANPATH";
 export PROMPT="%{$fg[red]%}#%{$reset_color%} "
 export TZ="Europe/London"
 export VISUAL="vim"
@@ -76,27 +79,10 @@ export path=(
 
 eval "$(nodenv init --no-rehash - zsh)"
 
-SSH_ENV="$HOME/.ssh/environment"
-
-if ! [ -e "$SSH_ENV" ]; then
-  touch "$SSH_ENV"
-  chmod 600 "$SSH_ENV"
-fi
-
-source "$SSH_ENV" &> /dev/null
-if ! ps -p "${SSH_AGENT_PID:--1}" &> /dev/null; then
-  ssh-agent >! "$SSH_ENV" &> /dev/null
-  source "$SSH_ENV"
-  ssh-add -A &> /dev/null
-fi
-
 source "$HOME/.workrc"
 
 path=($^path(N))
-typeset -Ux PATH path
-
-manpath=($^manpath(N))
-typeset -Ux MANPATH manpath
+typeset -TUx PATH path
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias k='gls -lhFk --group-directories-first --color'
@@ -105,19 +91,14 @@ alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias p='ps aux | rg -i'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
-function strip_colours {
-  sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
-}
+path() { echo $PATH | tr : $'\n'; }
 
-function path    { echo $PATH    | tr : $'\n'; }
-function manpath { echo $MANPATH | tr : $'\n'; }
+htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
+htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
+urldecode() { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
+urlencode() { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
 
-function htmldecode { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
-function htmlencode { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
-function urldecode { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
-function urlencode { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
-
-function aws-profile {
+aws-profile() {
   profile=${1:-dev}
   export AWS_PROFILE=$profile
   export AWS_DEFAULT_PROFILE=$profile
@@ -129,7 +110,7 @@ function aws-profile {
   unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
 }
 
-function aws-setenv {
+aws-setenv() {
   STS='{}'
   if [ -f "$1" ]; then
     STS=$(cat "$1")
@@ -145,7 +126,7 @@ function aws-setenv {
   unset AWS_DEFAULT_PROFILE
 }
 
-function qq {
+qq() {
   echo '"github.com/y0ssar1an/q"' | pbcopy
   clear
   logpath="${TMPDIR:-/tmp}/q"
@@ -154,11 +135,12 @@ function qq {
   tail -100f -- "$logpath"
 }
 
-function tls_sans() {
+tls_sans() {
   openssl s_client -connect "$1:443" -showcerts < /dev/null 2> /dev/null \
     | openssl x509 -noout -text \
     | grep -A1 'Subject Alternative Name' \
     | tail -n1 \
-    | sed -e "s/, /\n/g" \
-    | cut -d':' -f2-
+    | tr 'DNS:' $'\n' \
+    | awk NF \
+    | sort -u
 }
