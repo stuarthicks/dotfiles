@@ -71,6 +71,7 @@ export path=(
   $path
   $HOME/.nodenv/bin
   $HOME/.cargo/bin
+  $GEM_HOME/bin
 )
 
 eval "$(nodenv init --no-rehash - zsh)"
