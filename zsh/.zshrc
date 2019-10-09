@@ -82,7 +82,7 @@ eval "$(nodenv init --no-rehash - zsh)"
 source "$HOME/.workrc"
 
 path=($^path(N))
-typeset -TUx PATH path
+typeset -Ux PATH path
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias k='gls -lhFk --group-directories-first --color'
