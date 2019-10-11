@@ -1,63 +1,52 @@
-# vi: set ft=zsh
-ttyctl -f # freeze tty
-
-autoload -Uz colors                && colors
-autoload -Uz compinit              && compinit
-autoload -Uz edit-command-line     && zle -N edit-command-line
-autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
-autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
+ttyctl -f
 
 bindkey -e
-bindkey '\ee'  edit-command-line
 
-HISTCONTROL=ignoredups
-HISTFILE=~/.zsh_history
-HISTSIZE=2000
+autoload -Uz colors
+colors
+
+autoload -Uz compinit
+compinit
+
+zmodload zsh/complist
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
+autoload -Uz  edit-command-line
+zle      -N   edit-command-line
+bindkey '\ee' edit-command-line
+
+HISTFILE=~/.zhistory
 KEYTIMEOUT=1
-SAVEHIST=2000
 
 setopt AUTO_PUSHD
-setopt CHECK_JOBS
-setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FCNTL_LOCK
-setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_NO_STORE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 setopt NO_CLOBBER
-setopt PIPE_FAIL
 setopt PRINT_EXIT_VALUE
 setopt PUSHD_MINUS
 setopt PUSHD_SILENT
 setopt PUSHD_TO_HOME
-setopt RM_STAR_WAIT
-setopt SHARE_HISTORY
 
-zmodload zsh/complist
-
-zstyle ':completion:*' format '%B---- %d%b'                     # show title for each completion category
-zstyle ':completion:*' group-name ''                            # use tag as group name
-zstyle ':completion:*' insert-tab false                         # don't insert tabs in an empty buffer
-zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"     # how to format completion options
-zstyle ':completion:*' menu select=2                            # show menu when at least 2 options.
+zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
-bindkey -M menuselect "=" accept-and-menu-complete
-
+export CLICOLOR="1"
 export EDITOR="vim"
 export GEM_HOME="$HOME/.gems"
-export GPGKEY="ED99ADBF9E141390"
 export GPG_TTY="$(tty)"
-export HOMEBREW_CELLAR="/usr/local/Cellar";
 export HOMEBREW_INSTALL_CLEANUP="1"
 export HOMEBREW_NO_ANALYTICS="1"
-export HOMEBREW_PREFIX="/usr/local";
-export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
 export INFOPATH="/usr/local/share/info:$INFOPATH";
 export LC_ALL="en_GB.UTF-8"
 export MANPATH="/usr/local/share/man:$MANPATH";
@@ -66,32 +55,47 @@ export TZ="Europe/London"
 export VISUAL="vim"
 
 export path=(
+  $GEM_HOME/bin
   $HOME/.local/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/local/opt/ruby/bin
   /usr/local/opt/openssl@1.1/bin
   $path
-  $HOME/.nodenv/bin
-  $HOME/.cargo/bin
-  $GEM_HOME/bin
 )
-
-eval "$(nodenv init --no-rehash - zsh)"
 
 source "$HOME/.workrc"
 
 path=($^path(N))
 typeset -Ux PATH path
 
+alias k='ls -lhFk'
+alias p='ps aux | rg -i'
+
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
-alias k='gls -lhFk --group-directories-first --color'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
-alias p='ps aux | rg -i'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 path() { echo $PATH | tr : $'\n'; }
+
+nodenv() {
+  export PATH=$HOME/.nodenv/bin:$PATH
+  eval "$(command nodenv init --no-rehash - zsh)"
+  command nodenv $@
+}
+
+cargo() {
+  source $HOME/.cargo/env
+  unset -f cargo
+  command cargo $@
+}
+
+rustup() {
+  source $HOME/.cargo/env
+  unset -f rustup
+  rustup $@
+}
 
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
