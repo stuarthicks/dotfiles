@@ -1,3 +1,6 @@
+[user]
+	name = Stuart Hicks
+  email = stuarthicks@users.noreply.github.com
 [core]
 	pager = less
 	symlinks = true
@@ -10,6 +13,8 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[url "git@github.com:"]
+  insteadOf = "https://github.com/"
 [alias]
 	abandon-ship = reset --hard HEAD^^
 	br = branch
