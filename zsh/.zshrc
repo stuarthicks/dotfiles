@@ -67,6 +67,7 @@ export VISUAL="vim"
 
 export path=(
   $HOME/.local/bin
+  $GEM_HOME/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/local/opt/ruby/bin
@@ -74,7 +75,6 @@ export path=(
   $path
   $HOME/.nodenv/bin
   $HOME/.cargo/bin
-  $GEM_HOME/bin
 )
 
 eval "$(nodenv init --no-rehash - zsh)"
