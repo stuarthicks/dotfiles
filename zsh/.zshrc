@@ -22,6 +22,9 @@ bindkey '\ee' edit-command-line
 
 HISTFILE=~/.zhistory
 KEYTIMEOUT=1
+PROMPT="%{$fg[red]%}#%{$reset_color%} "
+
+export GPG_TTY="$(tty)"
 
 setopt AUTO_PUSHD
 setopt HIST_FCNTL_LOCK
@@ -41,36 +44,7 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
-export CLICOLOR="1"
-export EDITOR="vim"
-export GEM_HOME="$HOME/.gems"
-export GPG_TTY="$(tty)"
-export HOMEBREW_INSTALL_CLEANUP="1"
-export HOMEBREW_NO_ANALYTICS="1"
-export INFOPATH="/usr/local/share/info:$INFOPATH";
-export LC_ALL="en_GB.UTF-8"
-export MANPATH="/usr/local/share/man:$MANPATH";
-export PROMPT="%{$fg[red]%}#%{$reset_color%} "
-export TZ="Europe/London"
-export VISUAL="vim"
-
-export path=(
-  $GEM_HOME/bin
-  $HOME/.local/bin
-  $GEM_HOME/bin
-  /usr/local/bin
-  /usr/local/sbin
-  /usr/local/opt/ruby/bin
-  /usr/local/opt/openssl@1.1/bin
-  $path
-)
-
-source "$HOME/.workrc"
-
-path=($^path(N))
-typeset -Ux PATH path
-
-alias k='ls -lhFk'
+alias k='ls -alhFk'
 alias p='ps aux | rg -i'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'

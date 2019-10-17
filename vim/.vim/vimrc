@@ -9,7 +9,7 @@ syntax enable
 set guioptions=
 
 set background=dark
-colorscheme horizon
+colorscheme default
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
