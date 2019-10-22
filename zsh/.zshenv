@@ -2,21 +2,9 @@ export CLICOLOR="1"
 export GEM_HOME="$HOME/.gems"
 export HOMEBREW_INSTALL_CLEANUP="1"
 export HOMEBREW_NO_ANALYTICS="1"
-export INFOPATH="/usr/local/share/info:$INFOPATH";
+export INFOPATH="/usr/local/share/info${INFOPATH+:$INFOPATH}"
 export LC_ALL="en_GB.UTF-8"
-export MANPATH="/usr/local/share/man:$MANPATH";
+export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}"
+export PATH="$HOME/.local/bin:$HOME/gems/bin:/usr/local/opt/ruby/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export TZ="Europe/London"
 export VISUAL="vim"
-
-export path=(
-  $HOME/.local/bin
-  $GEM_HOME/bin
-  /usr/local/bin
-  /usr/local/sbin
-  /usr/local/opt/ruby/bin
-  /usr/local/opt/openssl@1.1/bin
-  $path
-)
-
-path=($^path(N))
-typeset -Ux PATH path

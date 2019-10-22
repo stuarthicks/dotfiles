@@ -4,6 +4,7 @@ dotfiles
 - Install [Homebrew](https://brew.sh/)
 - `brew bundle`
 - `stow -R [dirs]`
+- 'sudo mv /etc/zprofile /etc/zshenv` (macOS does path mangling in zprofile intead of env, so this fixes that)
 
 # Other useful things to install
 
