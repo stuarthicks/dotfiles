@@ -56,6 +56,9 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
+source "$HOME/.vim/pack/plugins/start/skim/shell/completion.zsh"
+source "$HOME/.vim/pack/plugins/start/skim/shell/key-bindings.zsh"
+
 alias k='ls -alhFk'
 alias p='ps aux | rg -i'
 

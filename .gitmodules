@@ -4,3 +4,6 @@
 [submodule "vim/.vim/pack/plugins/start/govim"]
 	path = vim/.vim/pack/plugins/start/govim
 	url = https://github.com/govim/govim.git
+[submodule "vim/.vim/pack/plugins/start/skim"]
+	path = vim/.vim/pack/plugins/start/skim
+	url = git@github.com:lotabout/skim.git
