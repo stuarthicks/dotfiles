@@ -81,6 +81,9 @@ augroup GPG
   autocmd VimLeave     *.asc :!clear
 augroup END
 
+vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
+vnoremap <leader>64 c<c-r>=system('base64', @")<cr><esc>
+
 if has("patch-8.1.1904")
   set completeopt+=popup
   set completepopup=align:menu,border:off,highlight:Pmenu
