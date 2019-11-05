@@ -6,6 +6,7 @@ brew 'coreutils'
 brew 'dnscrypt-proxy', restart_service: :changed
 brew 'gcc'
 brew 'git-lfs'
+brew 'gpg'
 brew 'jq'
 brew 'kubernetes-cli'
 brew 'openssl@1.1'

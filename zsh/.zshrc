@@ -138,3 +138,15 @@ tls_sans() {
     | awk NF \
     | sort -u
 }
+
+java_ls() {
+  /usr/libexec/java_home -V 2>&1 \
+    | cut -s -d , -f 1 \
+    | cut -c 5-
+}
+
+java_use() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+    java -version
+}
+
