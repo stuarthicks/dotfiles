@@ -3,6 +3,7 @@
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 
 brew 'coreutils'
+brew 'ctags'
 brew 'dnscrypt-proxy', restart_service: :changed
 brew 'gcc'
 brew 'git-lfs'

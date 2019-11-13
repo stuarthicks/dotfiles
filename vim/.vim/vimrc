@@ -63,9 +63,16 @@ set updatetime=500
 set wrap
 set wrapmargin=0
 
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 20
+
 " Navigation
-nnoremap <Leader>e :Explore<cr>
+nnoremap <Leader>e :Vexplore<cr>
 nnoremap <Leader>r :Rg<space>
+nnoremap <Leader>s :TagbarToggle<cr>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -88,3 +95,10 @@ if has("patch-8.1.1904")
   set completeopt+=popup
   set completepopup=align:menu,border:off,highlight:Pmenu
 endif
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
