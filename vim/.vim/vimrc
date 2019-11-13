@@ -95,10 +95,3 @@ if has("patch-8.1.1904")
   set completeopt+=popup
   set completepopup=align:menu,border:off,highlight:Pmenu
 endif
-
-" Load all plugins now.
-" Plugins need to be added to runtimepath before helptags can be generated.
-packloadall
-" Load all of the helptags now, after plugins have been loaded.
-" All messages and errors will be ignored.
-silent! helptags ALL
