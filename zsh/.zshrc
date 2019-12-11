@@ -150,3 +150,6 @@ java_use() {
     java -version
 }
 
+op_signin() {
+  eval "$(op signin my)"
+}
