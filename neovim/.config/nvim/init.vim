@@ -2,17 +2,24 @@ set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.local/share/dein')
   call dein#begin('~/.local/share/dein')
-
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('lotabout/skim', {'merged': 0, 'build': './install'})
   call dein#add('lotabout/skim.vim', {'on_cmd': 'SK'})
   call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
+  call dein#add('ntk148v/vim-horizon')
   call dein#add('quentindecock/vim-cucumber-align-pipes', {'on_ft': 'cucumber'})
+  call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
+  call dein#add('sheerun/vim-polyglot')
   call dein#add('tomtom/tcomment_vim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-surround')
 
   call dein#end()
   call dein#save_state()
@@ -24,6 +31,9 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+
+set termguicolors
+colorscheme horizon
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
@@ -86,7 +96,7 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 " Navigation
-nnoremap <Leader>e :Vexplore<cr>
+nnoremap <Leader>e :NERDTreeToggle<cr>
 nnoremap <Leader>r :Rg<space>
 nnoremap <Leader>s :TagbarToggle<cr>
 
