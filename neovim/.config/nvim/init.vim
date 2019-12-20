@@ -1,18 +1,48 @@
-set nocompatible
-set nobackup
-set nowritebackup
-set noswapfile
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.local/share/dein')
+  call dein#begin('~/.local/share/dein')
+  call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
+
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('bronson/vim-trailing-whitespace')
+  call dein#add('dense-analysis/ale')
+  call dein#add('fatih/vim-go', {'on_ft': 'go'})
+  call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
+  call dein#add('lotabout/skim', {'merged': 0, 'build': './install'})
+  call dein#add('lotabout/skim.vim', {'on_cmd': 'SK'})
+  call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
+  call dein#add('ntk148v/vim-horizon')
+  call dein#add('quentindecock/vim-cucumber-align-pipes', {'on_ft': 'cucumber'})
+  call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
+  call dein#add('sheerun/vim-polyglot')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-surround')
+
+  call dein#end()
+  call dein#save_state()
+endif
 
 filetype plugin indent on
 syntax enable
 
-set guioptions=
+if dein#check_install()
+  call dein#install()
+endif
 
-set background=dark
-colorscheme default
+set termguicolors
+colorscheme horizon
 
 let g:mapleader = ' '
 let g:maplocalleader = '\'
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+set guioptions=
 
 " Searching
 set hlsearch
@@ -28,7 +58,6 @@ nnoremap <silent> <Leader><space> :nohlsearch<cr>
 
 set autoindent
 set backspace=indent,eol,start
-set balloondelay=250
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 set diffopt+=iwhite
@@ -49,7 +78,6 @@ set path+=**
 set scrolloff=5
 set shiftwidth=2
 set sidescrolloff=5
-set signcolumn=number
 set smartindent
 set splitbelow
 set splitright
@@ -57,8 +85,6 @@ set synmaxcol=500
 set tabstop=2
 set textwidth=0
 set timeoutlen=300
-set ttymouse=sgr
-set ttymouse=sgr
 set updatetime=500
 set wrap
 set wrapmargin=0
@@ -70,7 +96,7 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 " Navigation
-nnoremap <Leader>e :Vexplore<cr>
+nnoremap <Leader>e :NERDTreeToggle<cr>
 nnoremap <Leader>r :Rg<space>
 nnoremap <Leader>s :TagbarToggle<cr>
 
@@ -78,20 +104,5 @@ nnoremap <Leader>s :TagbarToggle<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-" Convenient editing of ascii-armoured encrypted files
-augroup GPG
-  autocmd!
-  autocmd BufReadPost  *.asc :%!gpg -q -d
-  autocmd BufReadPost  *.asc |redraw!
-  autocmd BufWritePre  *.asc :%!gpg -q -e -a
-  autocmd BufWritePost *.asc u
-  autocmd VimLeave     *.asc :!clear
-augroup END
-
 vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
 vnoremap <leader>64 c<c-r>=system('base64', @")<cr><esc>
-
-if has("patch-8.1.1904")
-  set completeopt+=popup
-  set completepopup=align:menu,border:off,highlight:Pmenu
-endif
