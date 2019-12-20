@@ -60,8 +60,12 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 source "$HOME/.skim/shell/completion.zsh"
 source "$HOME/.skim/shell/key-bindings.zsh"
 
-alias k='ls -alhFk'
+alias k='ls -lhFk'
 alias p='ps aux | rg -i'
+
+if [ `uname` = 'Linux' ]; then
+  alias k='ls -lhFk --color --group-directories-first'
+fi
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
