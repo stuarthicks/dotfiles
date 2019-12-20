@@ -106,8 +106,9 @@ aws-profile() {
 
 aws-setenv() {
   STS='{}'
-  if [ -f "$1" ]; then
-    STS=$(cat "$1")
+  FILE="$HOME/.aws/cli/cache/$1.json"
+  if [ -f "$FILE" ]; then
+    STS=$(cat "$FILE")
     AWS_SESSION_TOKEN=$(echo "$STS" | jq -r '.Credentials.SessionToken // 1')
     export AWS_SESSION_TOKEN
   else
