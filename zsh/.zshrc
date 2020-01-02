@@ -94,8 +94,8 @@ rustup() {
 
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
-urldecode() { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
-urlencode() { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
+urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
+urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read())("; }
 
 aws-profile() {
   profile=${1:-dev}
