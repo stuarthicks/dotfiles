@@ -60,8 +60,12 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 source "$HOME/.skim/shell/completion.zsh"
 source "$HOME/.skim/shell/key-bindings.zsh"
 
-alias k='ls -alhFk'
+alias k='ls -lhFk'
 alias p='ps aux | rg -i'
+
+if [ `uname` = 'Linux' ]; then
+  alias k='ls -lhFk --color --group-directories-first'
+fi
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
@@ -90,8 +94,8 @@ rustup() {
 
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
-urldecode() { python -c "import sys, urllib; print urllib.unquote(sys.stdin.read())"; }
-urlencode() { python -c "import sys, urllib; print urllib.quote(sys.stdin.read())"; }
+urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
+urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read())("; }
 
 aws-profile() {
   profile=${1:-dev}
@@ -107,8 +111,9 @@ aws-profile() {
 
 aws-setenv() {
   STS='{}'
-  if [ -f "$1" ]; then
-    STS=$(cat "$1")
+  FILE="$HOME/.aws/cli/cache/$1.json"
+  if [ -f "$FILE" ]; then
+    STS=$(cat "$FILE")
     AWS_SESSION_TOKEN=$(echo "$STS" | jq -r '.Credentials.SessionToken // 1')
     export AWS_SESSION_TOKEN
   else

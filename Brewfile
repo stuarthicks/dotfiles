@@ -1,9 +1,9 @@
 # vi: ft=ruby
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
+tap 'universal-ctags/universal-ctags', 'https://github.com/universal-ctags/homebrew-universal-ctags.git'
 
 brew 'coreutils'
-brew 'ctags'
 brew 'gcc'
 brew 'git-lfs'
 brew 'gpg'
@@ -21,4 +21,5 @@ brew 'sops'
 brew 'stow'
 brew 'tig'
 brew 'tmux'
+brew 'universal-ctags'
 brew 'yq'
