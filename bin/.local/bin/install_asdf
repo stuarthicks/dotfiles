@@ -1,0 +1,29 @@
+#!/bin/bash
+set -euo pipefail
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+
+# shellcheck source=/dev/null
+source ~/.asdf/asdf.sh
+
+asdf plugin-add golang
+asdf install golang latest
+
+asdf plugin-add ruby
+asdf install ruby latest
+
+asdf plugin-add python
+asdf install python latest
+
+asdf plugin-add nodejs
+~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+~/.asdf/plugins/nodejs/bin/import-previous-release-team-keyring
+asdf install nodejs latest
+
+asdf plugin-add shellcheck
+asdf install shellcheck latest
+
+asdf plugin-add shfmt
+asdf install shfmt latest

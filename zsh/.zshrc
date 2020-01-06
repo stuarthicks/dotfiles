@@ -60,6 +60,13 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 source "$HOME/.skim/shell/completion.zsh"
 source "$HOME/.skim/shell/key-bindings.zsh"
 
+# https://asdf-vm.com
+source "$HOME/.asdf/completions/asdf.bash"
+
+if [ -s ~/.workrc ]; then
+  source ~/.workrc
+fi
+
 alias k='ls -lhFk'
 alias p='ps aux | rg -i'
 
@@ -73,24 +80,6 @@ alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 path() { echo $PATH | tr : $'\n'; }
-
-nodenv() {
-  export PATH=$HOME/.nodenv/bin:$PATH
-  eval "$(command nodenv init --no-rehash - zsh)"
-  command nodenv $@
-}
-
-cargo() {
-  source $HOME/.cargo/env
-  unset -f cargo
-  command cargo $@
-}
-
-rustup() {
-  source $HOME/.cargo/env
-  unset -f rustup
-  rustup $@
-}
 
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }

@@ -15,14 +15,4 @@ export MANPATH="/usr/local/share/man:$MANPATH"
 export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
-export RBENV_HOME="$HOME/.rbenv"
-export PATH="$RBENV_HOME/bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
-
-export PYENV_HOME="$HOME/.pyenv"
-export PATH="$PYENV_HOME/bin:$PATH"
-eval "$(pyenv init - --no-rehash)"
-
-export NODENV_HOME="$HOME/.nodenv"
-export PATH="$NODENV_HOME/bin:$PATH"
-eval "$(nodenv init - --no-rehash)"
+source "$HOME/.asdf/asdf.sh"
