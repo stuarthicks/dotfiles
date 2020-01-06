@@ -72,6 +72,7 @@ set mouse=a
 set nobackup
 set nolist
 set noswapfile
+set nowrap
 set nowritebackup
 set number
 set path+=**
@@ -86,7 +87,6 @@ set tabstop=2
 set textwidth=0
 set timeoutlen=300
 set updatetime=500
-set wrap
 set wrapmargin=0
 
 let g:netrw_altv = 1
