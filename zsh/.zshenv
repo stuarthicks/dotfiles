@@ -15,4 +15,5 @@ export MANPATH="/usr/local/share/man:$MANPATH"
 export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
-source "$HOME/.asdf/asdf.sh"
+export ASDF_DIR="$HOME/.asdf"
+source "$ASDF_DIR/asdf.sh"
