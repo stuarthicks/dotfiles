@@ -76,6 +76,7 @@ fi
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+alias macos-ntp-'sudo sntp -sS time.apple.com'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
