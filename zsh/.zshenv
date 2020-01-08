@@ -17,3 +17,4 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 export ASDF_DIR="$HOME/.asdf"
 source "$ASDF_DIR/asdf.sh"
+source "$ASDF_DIR/plugins/java/set-java-home.sh"
