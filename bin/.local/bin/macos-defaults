@@ -10,6 +10,7 @@ echo defaults write NSGlobalDomain            NSAutomaticQuoteSubstitutionEnable
 echo defaults write NSGlobalDomain            NSAutomaticSpellingCorrectionEnabled -bool false
 echo defaults write NSGlobalDomain            NSDocumentSaveNewDocumentsToCloud    -bool false
 echo defaults write NSGlobalDomain            WebKitDeveloperExtras                -bool true
+echo defaults write NSGlobalDomain            NSAutomaticWindowAnimationsEnabled   -bool false
 echo defaults write com.apple.Safari          IncludeInternalDebugMenu                   1
 echo defaults write com.apple.desktopservices DSDontWriteNetworkStores             -bool true
 echo defaults write com.apple.desktopservices DSDontWriteUSBStores                 -bool true
