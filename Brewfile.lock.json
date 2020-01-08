@@ -456,7 +456,7 @@
         }
       },
       "universal-ctags": {
-        "version": "HEAD-a3c87ab",
+        "version": "HEAD-68da03a",
         "bottle": false
       }
     }
@@ -464,9 +464,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.2.2-32-g53bb918",
+        "HOMEBREW_VERSION": "2.2.2-54-g8294060",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "a00e60918e749662f677d7dc257a978b9a653e8a",
+        "Homebrew/homebrew-core": "a5788f1f4832e1713a1e8476312390247e71d478",
         "CLT": "11.0.33.8",
         "Xcode": "11.3",
         "macOS": "10.15.2"
