@@ -149,3 +149,7 @@ java_use() {
 op_signin() {
   eval "$(op signin my)"
 }
+
+if [ -s ~/.config/broot/launcher/bash/br ]; then
+  source ~/.config/broot/launcher/bash/br
+fi
