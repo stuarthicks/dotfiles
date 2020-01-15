@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "burntsushi/ripgrep": {
-        "revision": "8892bf648cfec111e6e7ddd9f30e932b0371db68",
+        "revision": "5a6e17fcc133f70f922a123483d0d5a158c041b0",
         "options": {
           "clone_target": "https://github.com/BurntSushi/ripgrep.git"
         }
@@ -456,7 +456,7 @@
         }
       },
       "universal-ctags": {
-        "version": "HEAD-68da03a",
+        "version": "HEAD-a3c87ab",
         "bottle": false
       }
     }
@@ -472,9 +472,9 @@
         "macOS": "10.15.2"
       },
       "mojave": {
-        "HOMEBREW_VERSION": "2.2.2-52-g40765b4",
+        "HOMEBREW_VERSION": "2.2.2-97-gd837734",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "bed9405b1f31ec884d4d047c294394873015f4a1",
+        "Homebrew/homebrew-core": "5715bdbb8742d6441a4260440d59371b448d7f38",
         "CLT": "11.0.0.0.1.1559496560",
         "Xcode": "11.3",
         "macOS": "10.14.6"

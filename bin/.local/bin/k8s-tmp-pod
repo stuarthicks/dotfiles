@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+NAMESPACE='playback'
+POD="tmp-${USER}-$(date +%s)"
+
+kubectl -n "$NAMESPACE" run "$POD" \
+  --image=bitnami/minideb:buster \
+  --restart=Never \
+  -l 'fin-org=media-tech,fin-product=unknown,fin-service=unknown,fin-component=unknown,fin-team-org=unknown,fin-team-eng=unknown' \
+  --command -- sleep infinity
+kubectl -n "$NAMESPACE" wait --timeout 60s --for condition=ready pod "$POD"
+kubectl -n "$NAMESPACE" exec -it "$POD" /bin/bash
+kubectl -n "$NAMESPACE" delete pod "$POD"
