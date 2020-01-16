@@ -458,6 +458,31 @@
       "universal-ctags": {
         "version": "HEAD-a3c87ab",
         "bottle": false
+      },
+      "moreutils": {
+        "version": "0.63",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/moreutils-0.63.catalina.bottle.tar.gz",
+              "sha256": "0277b44f53cc7e581c338a28fa330e4d436cd05757d99cfc9baa1f5ca095af4c"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/moreutils-0.63.mojave.bottle.tar.gz",
+              "sha256": "a3d5a342bf079998b52d172f0f5e8b066b256145e2eb3ded393a0e6e2680b573"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/moreutils-0.63.high_sierra.bottle.tar.gz",
+              "sha256": "3731c1304a72a7a0486891bf592cd82b7422d0c37cadeb00b6f633e62f20aa35"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/moreutils-0.63.sierra.bottle.tar.gz",
+              "sha256": "fac2ba67a62889ff07edb8257e0d13aa96143a7421521ffdf3e0cf685a1cdc1e"
+            }
+          }
+        }
       }
     }
   },
@@ -472,11 +497,11 @@
         "macOS": "10.15.2"
       },
       "mojave": {
-        "HOMEBREW_VERSION": "2.2.2-97-gd837734",
+        "HOMEBREW_VERSION": "2.2.3-4-gfc0777b",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "5715bdbb8742d6441a4260440d59371b448d7f38",
+        "Homebrew/homebrew-core": "7fb7867dc866bba9e1285ca7438a922cfe2db976",
         "CLT": "11.0.0.0.1.1559496560",
-        "Xcode": "11.3",
+        "Xcode": "11.3.1",
         "macOS": "10.14.6"
       }
     }
