@@ -41,6 +41,7 @@ if go env > /dev/null 2>&1; then
   go get -u github.com/maruel/panicparse/cmd/pp
   go get -u github.com/rogpeppe/gohack
   go get -u github.com/smartystreets/goconvey
+  go get -u golang.org/x/tools/gopls
 fi
 
 if asdf -h > /dev/null 2>&1; then
