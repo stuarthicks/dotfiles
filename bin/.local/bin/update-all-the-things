@@ -1,0 +1,51 @@
+#!/bin/bash
+set -eu
+
+# Terminal colours!
+readonly BLUE=$(tput setaf 6)
+readonly RESET=$(tput sgr0)
+
+if [ "$(uname)" = 'Darwin' ]; then
+  if softwareupdate -h > /dev/null 2>&1; then
+    echo "${BLUE}Installing macOS system and App Store updates...${RESET}"
+    softwareupdate --install --all --include-config-data
+  fi
+
+  if brew -h > /dev/null 2>&1; then
+    echo
+    echo "${BLUE}Updating Homebrew...${RESET}"
+    brew update
+    brew upgrade
+    (
+      cd ~/.dotfiles
+      brew bundle
+    )
+  fi
+fi
+
+if [ "$(uname)" = 'Linux' ]; then
+  if apt -h > /dev/null 2>&1; then
+    echo
+    echo "${BLUE}Updating apt....${RESET}"
+    apt update
+    apt full-upgrade
+    apt autoremove
+    stat /var/run/reboot-required || echo 'No reboot required'
+  fi
+fi
+
+if go env > /dev/null 2>&1; then
+  echo
+  echo "${BLUE}Updating Go tooling...${RESET}"
+  go get -u github.com/gojp/goreportcard
+  go get -u github.com/maruel/panicparse/cmd/pp
+  go get -u github.com/rogpeppe/gohack
+  go get -u github.com/smartystreets/goconvey
+fi
+
+if asdf -h > /dev/null 2>&1; then
+  echo
+  echo "${BLUE}Updating asdf-vm...${RESET}"
+  asdf update
+  asdf plugin update --all
+fi
