@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "burntsushi/ripgrep": {
-        "revision": "5a6e17fcc133f70f922a123483d0d5a158c041b0",
+        "revision": "e3b1f86908ba3c1ae2e4b7a8264817abb322efd5",
         "options": {
           "clone_target": "https://github.com/BurntSushi/ripgrep.git"
         }
@@ -108,13 +108,17 @@
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/git-lfs-2.9.2.catalina.bottle.1.tar.gz",
+              "sha256": "2c6e5fac4c30b021c7b193e4e324df245e67caff2f6f8eaf59b7170475e95825"
+            },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/git-lfs-2.9.2.mojave.bottle.tar.gz",
-              "sha256": "584207acb926949f5c093d87d06e3e9deda2c78640041120d431f17bb5dad4c3"
+              "url": "https://homebrew.bintray.com/bottles/git-lfs-2.9.2.mojave.bottle.1.tar.gz",
+              "sha256": "dc6d138b8add71ea2cc9b6dc18401fac9e832afcaf4d267b7494615bc52e59fe"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/git-lfs-2.9.2.high_sierra.bottle.tar.gz",
-              "sha256": "b24483f15a987597f2b905b40882f3f89c69e478c01c434310d16c1145b161dd"
+              "url": "https://homebrew.bintray.com/bottles/git-lfs-2.9.2.high_sierra.bottle.1.tar.gz",
+              "sha256": "ef1874b898390008d6eb1b257d3d04d54ce5c89b9431e25b036a83588ed01fd5"
             }
           }
         }
@@ -497,9 +501,9 @@
         "macOS": "10.15.2"
       },
       "mojave": {
-        "HOMEBREW_VERSION": "2.2.3-4-gfc0777b",
+        "HOMEBREW_VERSION": "2.2.4",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7fb7867dc866bba9e1285ca7438a922cfe2db976",
+        "Homebrew/homebrew-core": "a3f99229e70c970a9c3e8c1d92f477c561e06cda",
         "CLT": "11.0.0.0.1.1559496560",
         "Xcode": "11.3.1",
         "macOS": "10.14.6"
