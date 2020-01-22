@@ -1,3 +1,11 @@
+set tabstop=8
+set list
+
+augroup gofmt
+  autocmd!
+  autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+augroup end
+
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [

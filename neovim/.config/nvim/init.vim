@@ -102,9 +102,10 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 " Navigation
-nnoremap <Leader>t :NERDTreeToggle<cr>
-nnoremap <Leader>r :Rg<space>
-nnoremap <Leader>s :TagbarToggle<cr>
+nnoremap <localleader>n :NERDTreeToggle<cr>
+nnoremap <localleader>t :TagbarToggle<cr>
+nnoremap <localleader>r :Rg<space>
+nnoremap <localleader>s :SK<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -229,7 +230,3 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-augroup gofmt
-  autocmd!
-  autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-augroup end
