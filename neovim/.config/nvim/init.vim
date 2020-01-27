@@ -9,7 +9,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
-  call dein#add('junegunn/vim-easy-align', { 'on_cmd': 'EasyAlign' })
+  call dein#add('junegunn/vim-easy-align')
   call dein#add('lotabout/skim', {'merged': 0, 'build': './install'})
   call dein#add('lotabout/skim.vim', {'on_cmd': 'SK'})
   call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
@@ -106,6 +106,7 @@ nnoremap <localleader>n :NERDTreeToggle<cr>
 nnoremap <localleader>t :TagbarToggle<cr>
 nnoremap <localleader>r :Rg<space>
 nnoremap <localleader>s :SK<cr>
+nnoremap <localleader>d :Dash<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
