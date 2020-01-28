@@ -85,7 +85,7 @@ path() { echo $PATH | tr : $'\n'; }
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
 urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
-urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read())("; }
+urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))"; }
 
 aws-profile() {
   profile=${1:-dev}
@@ -150,6 +150,7 @@ op_signin() {
   eval "$(op signin my)"
 }
 
+# cargo install broot
 if [ -s ~/.config/broot/launcher/bash/br ]; then
   source ~/.config/broot/launcher/bash/br
 fi
