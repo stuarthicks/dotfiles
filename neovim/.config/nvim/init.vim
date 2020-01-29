@@ -1,24 +1,28 @@
+nnoremap ; :
+nnoremap q: <nop>
+nnoremap Q @q
+
+let g:mapleader = ' '
+let g:maplocalleader = ','
+
 set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.local/share/dein')
   call dein#begin('~/.local/share/dein')
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
+  call dein#add('Yggdroot/LeaderF', { 'on_cmd': ['LeaderfFile', 'LeaderfBufferAll'], 'build': './install.sh' })
   call dein#add('airblade/vim-gitgutter')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
-  call dein#add('lotabout/skim', {'merged': 0, 'build': './install'})
-  call dein#add('lotabout/skim.vim', {'on_cmd': 'SK'})
   call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
   call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
   call dein#add('ntk148v/vim-horizon')
-  call dein#add('quentindecock/vim-cucumber-align-pipes', {'on_ft': 'cucumber'})
   call dein#add('rizzatti/dash.vim', { 'on_cmd': ['Dash', 'DashKeywords'] })
   call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
-  call dein#add('sheerun/vim-polyglot')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-repeat')
@@ -37,9 +41,6 @@ endif
 
 " set termguicolors
 colorscheme horizon
-
-let g:mapleader = ' '
-let g:maplocalleader = '\'
 
 set nobackup
 set nowritebackup
@@ -101,12 +102,16 @@ let g:netrw_browse_split = 4
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
+let g:Lf_PreviewInPopup = 1
+let g:Lf_WindowPosition = 'popup'
+
 " Navigation
 nnoremap <localleader>n :NERDTreeToggle<cr>
 nnoremap <localleader>t :TagbarToggle<cr>
 nnoremap <localleader>r :Rg<space>
-nnoremap <localleader>s :SK<cr>
 nnoremap <localleader>d :Dash<cr>
+nnoremap <localleader>f :LeaderfFile<cr>
+nnoremap <localleader>b :LeaderfBufferAll<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
