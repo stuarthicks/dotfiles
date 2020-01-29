@@ -85,7 +85,7 @@ path() { echo $PATH | tr : $'\n'; }
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
 urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
-urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read())("; }
+urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))"; }
 
 aws-profile() {
   profile=${1:-dev}
@@ -102,8 +102,19 @@ aws-profile() {
 aws-setenv() {
   STS='{}'
   FILE="$HOME/.aws/cli/cache/$1.json"
-  if [ -f "$FILE" ]; then
+  if [ -s "$FILE" ]; then
     STS=$(cat "$FILE")
+    DATE=date
+    if [ $(uname) = 'Darwin' ]; then
+      DATE=gdate # `brew install coreutils`
+    fi
+    expires=$($DATE -d "$(cat "$FILE" | jq -r .ResponseMetadata.HTTPHeaders.date)" +%s)
+    now=$($DATE +%s)
+    if [ $now -gt $expires ]; then
+      aws-profile "$1" "$AWS_REGION"
+      aws s3 ls > /dev/null
+      STS=$(cat "$FILE")
+    fi
     AWS_SESSION_TOKEN=$(echo "$STS" | jq -r '.Credentials.SessionToken // 1')
     export AWS_SESSION_TOKEN
   else
@@ -135,21 +146,6 @@ tls_sans() {
     | sort -u
 }
 
-java_ls() {
-  /usr/libexec/java_home -V 2>&1 \
-    | cut -s -d , -f 1 \
-    | cut -c 5-
-}
-
-java_use() {
-    export JAVA_HOME=$(/usr/libexec/java_home -v $1)
-    java -version
-}
-
 op_signin() {
-  eval "$(op signin my)"
+  eval "$(op signin my.1password.com)"
 }
-
-if [ -s ~/.config/broot/launcher/bash/br ]; then
-  source ~/.config/broot/launcher/bash/br
-fi
