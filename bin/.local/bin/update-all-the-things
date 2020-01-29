@@ -25,11 +25,10 @@ fi
 
 if [ "$(uname)" = 'Linux' ]; then
   if apt -h > /dev/null 2>&1; then
-    echo
     echo "${BLUE}Updating apt....${RESET}"
-    apt update
-    apt full-upgrade
-    apt autoremove
+    sudo apt update
+    sudo apt full-upgrade
+    sudo apt autoremove
     stat /var/run/reboot-required || echo 'No reboot required'
   fi
 fi
@@ -37,11 +36,11 @@ fi
 if go env > /dev/null 2>&1; then
   echo
   echo "${BLUE}Updating Go tooling...${RESET}"
-  go get -u github.com/gojp/goreportcard
-  go get -u github.com/maruel/panicparse/cmd/pp
-  go get -u github.com/rogpeppe/gohack
-  go get -u github.com/smartystreets/goconvey
-  go get -u golang.org/x/tools/gopls
+  go get -u -v github.com/gojp/goreportcard
+  go get -u -v github.com/maruel/panicparse/cmd/pp
+  go get -u -v github.com/rogpeppe/gohack
+  go get -u -v github.com/smartystreets/goconvey
+  go get -u -v golang.org/x/tools/gopls
 fi
 
 if asdf -h > /dev/null 2>&1; then
