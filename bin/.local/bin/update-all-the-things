@@ -29,18 +29,17 @@ if [ "$(uname)" = 'Linux' ]; then
     sudo apt update
     sudo apt full-upgrade --yes
     sudo apt autoremove --yes
-    stat /var/run/reboot-required || echo 'No reboot required'
   fi
 
   if snap -h > /dev/null 2>&1; then
     echo
-    echo "${BLUE}Updating Snap apps...${RESET}"
+    echo "${BLUE}Updating Snap...${RESET}"
     snap refresh
   fi
 
   if flatpak -h > /dev/null 2>&1; then
     echo
-    echo "${BLUE}Updating Flatpak apps...${RESET}"
+    echo "${BLUE}Updating Flatpak...${RESET}"
     flatpak update --assumeyes
   fi
 fi
@@ -66,4 +65,10 @@ if nvim -h > /dev/null 2>&1; then
   echo
   echo "${BLUE}Updating Neovim plugins...${RESET}"
   nvim +'call dein#update()' +qall
+fi
+
+if [ "$(uname)" = 'Linux' ]; then
+  echo
+  echo "${BLUE}Checking if reboot is required...${RESET}"
+  (stat /var/run/reboot-required > /dev/null 2>&1 && echo 'Reboot required') || echo 'No reboot required'
 fi
