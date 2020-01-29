@@ -27,10 +27,29 @@ if [ "$(uname)" = 'Linux' ]; then
   if apt -h > /dev/null 2>&1; then
     echo "${BLUE}Updating apt....${RESET}"
     sudo apt update
-    sudo apt full-upgrade
-    sudo apt autoremove
+    sudo apt full-upgrade --yes
+    sudo apt autoremove --yes
     stat /var/run/reboot-required || echo 'No reboot required'
   fi
+
+  if snap -h > /dev/null 2>&1; then
+    echo
+    echo "${BLUE}Updating Snap apps...${RESET}"
+    snap refresh
+  fi
+
+  if flatpak -h > /dev/null 2>&1; then
+    echo
+    echo "${BLUE}Updating Flatpak apps...${RESET}"
+    flatpak update --assumeyes
+  fi
+fi
+
+if asdf -h > /dev/null 2>&1; then
+  echo
+  echo "${BLUE}Updating asdf-vm...${RESET}"
+  asdf update
+  asdf plugin update --all
 fi
 
 if go env > /dev/null 2>&1; then
@@ -43,9 +62,8 @@ if go env > /dev/null 2>&1; then
   go get -u -v golang.org/x/tools/gopls
 fi
 
-if asdf -h > /dev/null 2>&1; then
+if nvim -h > /dev/null 2>&1; then
   echo
-  echo "${BLUE}Updating asdf-vm...${RESET}"
-  asdf update
-  asdf plugin update --all
+  echo "${BLUE}Updating Neovim plugins...${RESET}"
+  nvim +'call dein#update()' +qall
 fi
