@@ -123,7 +123,6 @@ vnoremap > >gv
 vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
 vnoremap <leader>64 c<c-r>=system('base64', @")<cr><esc>
 
-" Define mappings
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
