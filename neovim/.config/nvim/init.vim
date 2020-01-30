@@ -110,6 +110,8 @@ nnoremap <leader>d :Dash<cr>
 nnoremap <leader>b :Denite buffer<cr>
 nnoremap <leader>s :Denite file/rec<cr>
 
+tnoremap <ESC> <C-\><C-n>
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 

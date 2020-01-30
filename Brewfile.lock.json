@@ -12,6 +12,9 @@
         "options": {
           "clone_target": "https://github.com/universal-ctags/homebrew-universal-ctags.git"
         }
+      },
+      "homebrew/services": {
+        "revision": "f18aed908662863166956e0bc45c18df1bd84dc9"
       }
     },
     "brew": {
@@ -484,6 +487,51 @@
             "sierra": {
               "url": "https://homebrew.bintray.com/bottles/moreutils-0.63.sierra.bottle.tar.gz",
               "sha256": "fac2ba67a62889ff07edb8257e0d13aa96143a7421521ffdf3e0cf685a1cdc1e"
+            }
+          }
+        }
+      },
+      "mpd": {
+        "version": "0.21.19",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/mpd-0.21.19.catalina.bottle.tar.gz",
+              "sha256": "8ae6ae0fa462ebaa09d1cbc079c8d09f49e550fe7c0402d7b0ef35988757f6e4"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/mpd-0.21.19.mojave.bottle.tar.gz",
+              "sha256": "bbd105f0749b0071115107cf1f8a29441dff3cd779ca3877291fe99c3e6b871e"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/mpd-0.21.19.high_sierra.bottle.tar.gz",
+              "sha256": "178ab20d42fcab20695b044af4591a1cc7691615901e183f79ff581451a74614"
+            }
+          }
+        },
+        "options": {
+          "restart_service": "changed"
+        }
+      },
+      "ncmpcpp": {
+        "version": "0.8.2_8",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/ncmpcpp-0.8.2_8.catalina.bottle.tar.gz",
+              "sha256": "ff762fd88e79f45a898ab22f52906677c217dc33a03501a74b5c8463ce332467"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/ncmpcpp-0.8.2_8.mojave.bottle.tar.gz",
+              "sha256": "c420cdc61ed652e515d7872815009574cbf760dcea801c7ba505b3897c2319dd"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/ncmpcpp-0.8.2_8.high_sierra.bottle.tar.gz",
+              "sha256": "d6524df6cc51ec2beb1ad20f9a11d6bf01795475110440f0914238aabd65c6ca"
             }
           }
         }
