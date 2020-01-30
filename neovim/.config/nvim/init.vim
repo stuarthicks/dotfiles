@@ -5,13 +5,16 @@ nnoremap Q @q
 let g:mapleader = ' '
 let g:maplocalleader = ','
 
+let g:python2_host_prog = '~/.asdf/shims/python2'
+let g:python3_host_prog = '~/.asdf/shims/python3'
+
 set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.local/share/dein')
   call dein#begin('~/.local/share/dein')
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#add('Yggdroot/LeaderF', { 'on_cmd': ['LeaderfFile', 'LeaderfBufferAll'], 'build': './install.sh' })
+  call dein#add('Shougo/denite.nvim', { 'on_cmd': 'Denite' })
   call dein#add('airblade/vim-gitgutter')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
@@ -19,10 +22,8 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
-  call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
   call dein#add('ntk148v/vim-horizon')
   call dein#add('rizzatti/dash.vim', { 'on_cmd': ['Dash', 'DashKeywords'] })
-  call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-repeat')
@@ -39,7 +40,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-" set termguicolors
+set termguicolors
 colorscheme horizon
 
 set nobackup
@@ -63,7 +64,6 @@ nnoremap <silent> <Leader><space> :nohlsearch<cr>
 set autoindent
 set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
-set cmdheight=2
 set completeopt=longest,menuone
 set diffopt+=iwhite
 set expandtab
@@ -102,16 +102,13 @@ let g:netrw_browse_split = 4
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
-let g:Lf_PreviewInPopup = 1
-let g:Lf_WindowPosition = 'popup'
-
 " Navigation
-nnoremap <localleader>n :NERDTreeToggle<cr>
-nnoremap <localleader>t :TagbarToggle<cr>
-nnoremap <localleader>r :Rg<space>
-nnoremap <localleader>d :Dash<cr>
-nnoremap <localleader>f :LeaderfFile<cr>
-nnoremap <localleader>b :LeaderfBufferAll<cr>
+nnoremap <leader>f :Vexplore<cr>
+nnoremap <leader>t :TagbarToggle<cr>
+nnoremap <leader>r :Rg<space>
+nnoremap <leader>d :Dash<cr>
+nnoremap <leader>b :Denite buffer<cr>
+nnoremap <leader>s :Denite file/rec<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -126,70 +123,22 @@ vnoremap > >gv
 vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
 vnoremap <leader>64 c<c-r>=system('base64', @")<cr><esc>
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+" Define mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
+call denite#custom#var('file/rec', 'command',
+	\ ['rg', '--files', '--glob', '!.git'])

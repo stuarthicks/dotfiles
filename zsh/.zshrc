@@ -75,6 +75,7 @@ if [ `uname` = 'Linux' ]; then
 fi
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
+alias git-latest-tag='git describe --tags $(git rev-list --tags --max-count=1)'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias macos-ntp-'sudo sntp -sS time.apple.com'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
