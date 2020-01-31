@@ -150,3 +150,7 @@ tls_sans() {
 op_signin() {
   eval "$(op signin my.1password.com)"
 }
+
+if [ -z ${TMUX:-} ]; then
+  tmux attach || tmux
+fi
