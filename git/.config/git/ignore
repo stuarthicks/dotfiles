@@ -43,6 +43,6 @@ vim-go-test-compile
 .env
 .ruby-gemset
 .ruby-version
-.tools-version
+.tool-versions
 .python-version
 .node-version
