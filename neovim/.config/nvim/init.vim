@@ -14,7 +14,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#begin('~/.local/share/dein')
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#add('Shougo/denite.nvim', { 'on_cmd': 'Denite' })
+  call dein#add('Shougo/denite.nvim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
@@ -139,7 +139,6 @@ function! s:denite_my_settings() abort
   \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
+  call denite#custom#var('file/rec', 'command',
+    \ ['rg', '--files', '--glob', '!.git'])
 endfunction
-
-call denite#custom#var('file/rec', 'command',
-	\ ['rg', '--files', '--glob', '!.git'])
