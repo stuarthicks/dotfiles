@@ -178,3 +178,5 @@ exec --no-startup-id /usr/bin/autocutsel -f -s PRIMARY
 exec --no-startup-id /usr/bin/autocutsel -f -s CLIPBOARD
 exec --no-startup-id /usr/bin/autocutsel -f -s SECONDARY
 exec --no-startup-id feh --bg-fill /home/stuart/Pictures/Wallpapers/wallhaven-wyrqg7.png
+
+bindsym $mod+Shift+x exec i3lock-fancy
