@@ -34,7 +34,7 @@ if [ "$(uname)" = 'Linux' ]; then
   if snap -h > /dev/null 2>&1; then
     echo
     echo "${BLUE}Updating Snap...${RESET}"
-    snap refresh
+    sudo snap refresh
   fi
 
   if flatpak -h > /dev/null 2>&1; then
