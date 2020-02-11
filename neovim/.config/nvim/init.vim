@@ -28,6 +28,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
+  call dein#add('wsdjeg/dein-ui.vim')
 
   call dein#end()
   call dein#save_state()

@@ -54,17 +54,11 @@ fi
 if go env > /dev/null 2>&1; then
   echo
   echo "${BLUE}Updating Go tooling...${RESET}"
-  go get -u -v github.com/gojp/goreportcard
-  go get -u -v github.com/maruel/panicparse/cmd/pp
-  go get -u -v github.com/rogpeppe/gohack
-  go get -u -v github.com/smartystreets/goconvey
-  go get -u -v golang.org/x/tools/gopls
-fi
-
-if nvim -h > /dev/null 2>&1; then
-  echo
-  echo "${BLUE}Updating Neovim plugins...${RESET}"
-  nvim +'call dein#update()' +qall
+  go get -u github.com/gojp/goreportcard
+  go get -u github.com/maruel/panicparse/cmd/pp
+  go get -u github.com/rogpeppe/gohack
+  go get -u github.com/smartystreets/goconvey
+  go get -u golang.org/x/tools/gopls
 fi
 
 if [ "$(uname)" = 'Linux' ]; then
