@@ -10,7 +10,7 @@
 # be disabled and audio files will only be accepted over ipc socket (using
 # file:// protocol) or streaming files over an accepted protocol.
 #
-music_directory		"~/Library/Mobile Documents/com~apple~CloudDocs/Music/"
+music_directory		"~/Music/mpd/"
 #
 # This setting sets the MPD internal playlist directory. The purpose of this
 # directory is storage for playlists created by MPD. The server will use
@@ -81,7 +81,7 @@ sticker_file			"~/.mpd/sticker.sql"
 #bind_to_address		"any"
 #
 # And for Unix Socket
-#bind_to_address		"~/.mpd/socket"
+bind_to_address		"~/.mpd/socket"
 #
 # This setting is the TCP port that is desired for the daemon to get assigned
 # to.
