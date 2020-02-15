@@ -56,10 +56,6 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
-# git clone https://github.com/lotabout/skim .skim; cd .skim; ./install
-source "$HOME/.skim/shell/completion.zsh"
-source "$HOME/.skim/shell/key-bindings.zsh"
-
 # https://asdf-vm.com
 source "$HOME/.asdf/completions/asdf.bash"
 
