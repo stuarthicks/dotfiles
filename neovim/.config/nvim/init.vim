@@ -16,6 +16,7 @@ if dein#load_state('~/.local/share/dein')
 
   call dein#add('Shougo/denite.nvim')
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('baskerville/vim-sxhkdrc')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
