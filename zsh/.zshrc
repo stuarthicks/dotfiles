@@ -70,6 +70,8 @@ if [ `uname` = 'Linux' ]; then
   alias k='ls -lhFk --color --group-directories-first'
 fi
 
+alias -g NULL='> /dev/null 2>&1'
+
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-latest-tag='git describe --tags $(git rev-list --tags --max-count=1)'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
