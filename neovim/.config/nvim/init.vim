@@ -42,7 +42,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-set termguicolors
+" set termguicolors
 colorscheme horizon
 
 set nobackup
