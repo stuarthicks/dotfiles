@@ -22,8 +22,9 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
+  call dein#add('lifepillar/vim-solarized8')
   call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
-  call dein#add('ntk148v/vim-horizon')
+  " call dein#add('ntk148v/vim-horizon')
   call dein#add('rizzatti/dash.vim', { 'on_cmd': ['Dash', 'DashKeywords'] })
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-fugitive')
@@ -43,7 +44,8 @@ if dein#check_install()
 endif
 
 set termguicolors
-colorscheme horizon
+set background=dark
+colorscheme solarized8_flat
 
 set nobackup
 set nowritebackup

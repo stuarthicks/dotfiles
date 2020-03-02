@@ -179,59 +179,92 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Horizon)
+# Colors (Solarized Dark)
 colors:
+  # Default colors
   primary:
-    background: '0x1C1E26'
-    foreground: '0xD8DEE9'
+    background: '#002b36' # base03
+    foreground: '#839496' # base0
 
+  # Cursor colors
   cursor:
-    text: '0x1C1E26'
-    cursor: '0xD8DEE9'
+    text:   '#002b36' # base03
+    cursor: '#839496' # base0
 
+  # Normal colors
   normal:
-    black:   '0x494B51'
-    red:     '0xE95678'
-    green:   '0x29D398'
-    yellow:  '0xFAB795'
-    blue:    '0x26BBD9'
-    magenta: '0xEE64AC'
-    cyan:    '0x59E1E3'
-    white:   '0xD8DEE9'
+    black:   '#073642' # base02
+    red:     '#dc322f' # red
+    green:   '#859900' # green
+    yellow:  '#b58900' # yellow
+    blue:    '#268bd2' # blue
+    magenta: '#d33682' # magenta
+    cyan:    '#2aa198' # cyan
+    white:   '#eee8d5' # base2
 
+  # Bright colors
   bright:
-    black:   '0x494B51'
-    red:     '0xEC6A88'
-    green:   '0x3FDAA4'
-    yellow:  '0xFBC3A7'
-    blue:    '0x3FC4DE'
-    magenta: '0xF075B5'
-    cyan:    '0x6BE4E6'
-    white:   '0xD8DEE9'
+    black:   '#586e75' # base01
+    red:     '#cb4b16' # orange
+    green:   '#586e75' # base01
+    yellow:  '#657b83' # base00
+    blue:    '#839496' # base0
+    magenta: '#6c71c4' # violet
+    cyan:    '#93a1a1' # base1
+    white:   '#fdf6e3' # base3# Colors (Horizon)
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  #indexed_colors: []
+# colors:
+#   primary:
+#     background: '0x1C1E26'
+#     foreground: '0xD8DEE9'
+#
+#   cursor:
+#     text: '0x1C1E26'
+#     cursor: '0xD8DEE9'
+#
+#   normal:
+#     black:   '0x494B51'
+#     red:     '0xE95678'
+#     green:   '0x29D398'
+#     yellow:  '0xFAB795'
+#     blue:    '0x26BBD9'
+#     magenta: '0xEE64AC'
+#     cyan:    '0x59E1E3'
+#     white:   '0xD8DEE9'
+#
+#   bright:
+#     black:   '0x494B51'
+#     red:     '0xEC6A88'
+#     green:   '0x3FDAA4'
+#     yellow:  '0xFBC3A7'
+#     blue:    '0x3FC4DE'
+#     magenta: '0xF075B5'
+#     cyan:    '0x6BE4E6'
+#     white:   '0xD8DEE9'
+#
+#   # Dim colors
+#   #
+#   # If the dim colors are not set, they will be calculated automatically based
+#   # on the `normal` colors.
+#   #dim:
+#   #  black:   '0x000000'
+#   #  red:     '0x8c3336'
+#   #  green:   '0x7a8530'
+#   #  yellow:  '0x97822e'
+#   #  blue:    '0x506d8f'
+#   #  magenta: '0x80638e'
+#   #  cyan:    '0x497e7a'
+#   #  white:   '0x9a9a9a'
+#
+#   # Indexed Colors
+#   #
+#   # The indexed colors include all colors from 16 to 256.
+#   # When these are not set, they're filled with sensible defaults.
+#   #
+#   # Example:
+#   #   `- { index: 16, color: '0xff00ff' }`
+#   #
+#   #indexed_colors: []
 
 # Visual Bell
 #
