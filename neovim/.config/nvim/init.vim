@@ -43,6 +43,7 @@ if dein#check_install()
 endif
 
 set termguicolors
+set background=dark
 colorscheme horizon
 
 set nobackup
