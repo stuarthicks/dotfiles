@@ -56,13 +56,6 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
-# https://asdf-vm.com
-source "$HOME/.asdf/completions/asdf.bash"
-
-if [ -s ~/.workrc ]; then
-  source ~/.workrc
-fi
-
 alias k='ls -lhFk'
 alias p='ps aux | rg -i'
 
