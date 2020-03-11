@@ -3,6 +3,7 @@
 # Homebrew Core
 brew 'coreutils'
 brew 'docker-credential-helper-ecr'
+brew 'extract_url'
 brew 'gcc'
 brew 'git-lfs'
 brew 'gpg'
