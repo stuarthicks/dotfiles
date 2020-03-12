@@ -44,23 +44,6 @@ if [ "$(uname)" = 'Linux' ]; then
   fi
 fi
 
-if asdf -h > /dev/null 2>&1; then
-  echo
-  echo "${BLUE}Updating asdf-vm...${RESET}"
-  asdf update
-  asdf plugin update --all
-fi
-
-if go env > /dev/null 2>&1; then
-  echo
-  echo "${BLUE}Updating Go tooling...${RESET}"
-  go get -u github.com/gojp/goreportcard
-  go get -u github.com/maruel/panicparse/cmd/pp
-  go get -u github.com/rogpeppe/gohack
-  go get -u github.com/smartystreets/goconvey
-  go get -u golang.org/x/tools/gopls
-fi
-
 if [ "$(uname)" = 'Linux' ]; then
   echo
   echo "${BLUE}Checking if reboot is required...${RESET}"
