@@ -14,16 +14,12 @@ TOOLS=(
   gradle
   java
   kotlin
-  kubectl
   maven
   python
   ruby
   rust
   sbt
   scala
-  shellcheck
-  sops
-  terraform
 )
 
 for TOOL in "${TOOLS[@]}"; do
