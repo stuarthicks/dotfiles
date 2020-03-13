@@ -15,18 +15,14 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#add('Shougo/denite.nvim')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('baskerville/vim-sxhkdrc')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
-  call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
   call dein#add('ntk148v/vim-horizon')
   call dein#add('rizzatti/dash.vim', { 'on_cmd': ['Dash', 'DashKeywords'] })
   call dein#add('tomtom/tcomment_vim')
-  call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
   call dein#add('wsdjeg/dein-ui.vim')
@@ -45,6 +41,8 @@ endif
 set termguicolors
 set background=dark
 colorscheme horizon
+highlight Normal guibg=none
+highlight LineNr guibg=none
 
 set nobackup
 set nowritebackup
@@ -88,7 +86,6 @@ set scrolloff=5
 set shiftwidth=2
 set shortmess+=c
 set sidescrolloff=5
-set signcolumn=yes
 set smartindent
 set splitbelow
 set splitright
@@ -107,7 +104,6 @@ let g:netrw_winsize = 20
 
 " Navigation
 nnoremap <leader>f :Vexplore<cr>
-nnoremap <leader>t :TagbarToggle<cr>
 nnoremap <leader>r :Rg<space>
 nnoremap <leader>d :Dash<cr>
 nnoremap <leader>b :Denite buffer<cr>
