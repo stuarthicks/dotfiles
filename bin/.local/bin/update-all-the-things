@@ -1,11 +1,13 @@
 #!/bin/bash
 set -eu
 
+uname=$(uname)
+
 # Terminal colours!
 readonly BLUE=$(tput setaf 6)
 readonly RESET=$(tput sgr0)
 
-if [ "$(uname)" = 'Darwin' ]; then
+if [ "$uname" = 'Darwin' ]; then
   if softwareupdate -h > /dev/null 2>&1; then
     echo "${BLUE}Installing macOS system and App Store updates...${RESET}"
     softwareupdate --install --all --include-config-data
@@ -23,7 +25,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 fi
 
-if [ "$(uname)" = 'Linux' ]; then
+if [ "$uname" = 'Linux' ]; then
   if apt -h > /dev/null 2>&1; then
     echo "${BLUE}Updating apt....${RESET}"
     sudo apt update
@@ -44,7 +46,14 @@ if [ "$(uname)" = 'Linux' ]; then
   fi
 fi
 
-if [ "$(uname)" = 'Linux' ]; then
+if asdf -h > /dev/null 2>&1; then
+  echo
+  echo "${BLUE}Updating asdf-vm...${RESET}"
+  asdf update 2>/dev/null
+  asdf plugin update --all 2>/dev/null | grep -v '^Your branch is up to date'
+fi
+
+if [ "$uname" = 'Linux' ]; then
   echo
   echo "${BLUE}Checking if reboot is required...${RESET}"
   (stat /var/run/reboot-required > /dev/null 2>&1 && echo 'Reboot required') || echo 'No reboot required'

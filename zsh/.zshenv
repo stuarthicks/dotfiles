@@ -4,7 +4,7 @@ export TZ="Europe/London"
 export VISUAL="nvim"
 
 export GOBIN="$HOME/.local/bin"
-export GOPATH="$HOME/Code/go"
+export GOPATH="$HOME/go"
 
 export HOMEBREW_INSTALL_CLEANUP="1"
 export HOMEBREW_NO_ANALYTICS="1"
