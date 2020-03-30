@@ -2,7 +2,6 @@
 
 # Homebrew Core
 brew 'coreutils'
-brew 'docker-credential-helper-ecr'
 brew 'extract_url'
 brew 'gcc'
 brew 'git-lfs'
@@ -12,7 +11,6 @@ brew 'kubectl'
 brew 'moreutils'
 brew 'neovim'
 brew 'openssl@1.1'
-brew 'pv'
 brew 'reattach-to-user-namespace'
 brew 'shellcheck'
 brew 'sops'
@@ -20,7 +18,6 @@ brew 'stow'
 brew 'terraform'
 brew 'tig'
 brew 'tmux'
-brew 'tree'
 brew 'watch'
 brew 'yq'
 
