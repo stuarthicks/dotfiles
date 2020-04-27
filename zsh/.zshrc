@@ -36,8 +36,6 @@ setopt share_history
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
 
-export GPG_TTY="$(tty)"
-
 setopt AUTO_PUSHD
 setopt HIST_FCNTL_LOCK
 setopt HIST_IGNORE_ALL_DUPS
@@ -56,12 +54,32 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
+export CLICOLOR="1"
+export LC_ALL="en_GB.UTF-8"
+export TZ="Europe/London"
+export VISUAL="nvim"
+
+export GOBIN="$HOME/.local/bin"
+export GOPATH="$HOME/go"
+
+export HOMEBREW_INSTALL_CLEANUP="1"
+export HOMEBREW_NO_ANALYTICS="1"
+
+export INFOPATH="/usr/local/share/info:$INFOPATH"
+export MANPATH="/usr/local/share/man:$MANPATH"
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
+export ASDF_DIR="$HOME/.asdf"
+source "$ASDF_DIR/asdf.sh"
+
+export GPG_TTY="$(tty)"
+
 alias k='ls -lhFk'
 alias p='ps aux | rg -i'
 
-if [ `uname` = 'Linux' ]; then
-  alias k='ls -lhFk --color --group-directories-first'
-fi
+test -x "$HOME/.asdf/shims/exa" && alias k='exa -lh --group-directories-first -@ --git'
 
 alias -g NULL='> /dev/null 2>&1'
 
@@ -141,3 +159,5 @@ tls_sans() {
 op_signin() {
   eval "$(op signin my.1password.com)"
 }
+
+test -s "$HOME/.workrc" && source "$HOME/.workrc"
