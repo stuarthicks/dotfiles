@@ -17,4 +17,3 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 export ASDF_DIR="$HOME/.asdf"
 source "$ASDF_DIR/asdf.sh"
-source "$ASDF_DIR/plugins/java/set-java-home.sh"
