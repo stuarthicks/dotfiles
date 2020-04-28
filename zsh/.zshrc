@@ -68,11 +68,21 @@ export HOMEBREW_NO_ANALYTICS="1"
 export INFOPATH="/usr/local/share/info:$INFOPATH"
 export MANPATH="/usr/local/share/man:$MANPATH"
 
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-
 export ASDF_DIR="$HOME/.asdf"
-source "$ASDF_DIR/asdf.sh"
+source "$ASDF_DIR/lib/asdf.sh"
+
+path=(
+  $HOME/.local/bin
+  $HOME/.emacs.d/bin
+  $HOME/.asdf/bin
+  $HOME/.asdf/shims
+  /usr/local/opt/openssl@1.1/bin
+  /usr/local/bin
+  /usr/local/sbin
+  $path
+)
+typeset -TUx PATH path
+
 
 export GPG_TTY="$(tty)"
 
