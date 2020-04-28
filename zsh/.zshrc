@@ -86,10 +86,8 @@ typeset -TUx PATH path
 
 export GPG_TTY="$(tty)"
 
-alias k='ls -lhFk'
+alias k='ls -oFG'
 alias p='ps aux | rg -i'
-
-test -x "$HOME/.asdf/shims/exa" && alias k='exa -lh --group-directories-first -@ --git'
 
 alias -g NULL='> /dev/null 2>&1'
 
@@ -145,15 +143,6 @@ aws-setenv() {
   export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
   unset AWS_PROFILE
   unset AWS_DEFAULT_PROFILE
-}
-
-qq() {
-  echo '"github.com/y0ssar1an/q"' | pbcopy
-  clear
-  logpath="${TMPDIR:-/tmp}/q"
-  rm -f "$logpath"
-  echo 'Q LOG' > "$logpath"
-  tail -100f -- "$logpath"
 }
 
 tls_sans() {
