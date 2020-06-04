@@ -3,7 +3,6 @@
 # Homebrew Core
 brew 'coreutils'
 brew 'git-lfs'
-brew 'gpg'
 brew 'jq'
 brew 'kubectl'
 brew 'moreutils'
