@@ -22,9 +22,6 @@ brew 'ripgrep-bin'
 tap 'universal-ctags/universal-ctags', 'https://github.com/universal-ctags/homebrew-universal-ctags.git'
 brew 'universal-ctags'
 
-tap 'github/gh'
-brew 'gh'
-
 tap 'jesseduffield/lazygit'
 brew 'lazygit'
 
