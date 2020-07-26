@@ -35,6 +35,9 @@ setopt share_history
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
+if command -v starship > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
 
 setopt AUTO_PUSHD
 setopt HIST_FCNTL_LOCK
