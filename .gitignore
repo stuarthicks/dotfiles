@@ -10,3 +10,5 @@ ssh/
 bin/
 
 Brewfile.lock.json
+
+cargo/.cargo/
