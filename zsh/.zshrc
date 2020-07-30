@@ -159,7 +159,11 @@ tls_sans() {
 }
 
 op_signin() {
-  eval "$(op signin my.1password.com)"
+  session_age=$(echo "$(date +%s)-$(stat --printf '%Y' ~/.op_session)" | bc)
+  if [ $session_age -gt 1500 ]; then
+    eval "$(op signin my.1password.com)" >! ~/.op_session
+  fi
+  source ~/.op_session
 }
 
 test -s "$HOME/.workrc" && source "$HOME/.workrc"
