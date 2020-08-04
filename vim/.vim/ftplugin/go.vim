@@ -1,2 +1,2 @@
 set tabstop=4
-set list
+set nolist
