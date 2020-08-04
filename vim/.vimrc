@@ -8,39 +8,8 @@ let g:maplocalleader = ','
 let g:python2_host_prog = '~/.asdf/shims/python2'
 let g:python3_host_prog = '~/.asdf/shims/python3'
 
-set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.local/share/dein')
-  call dein#begin('~/.local/share/dein')
-  call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
-
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('bronson/vim-trailing-whitespace')
-  call dein#add('dense-analysis/ale')
-  call dein#add('fatih/vim-go', {'on_ft': 'go'})
-  call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
-  call dein#add('junegunn/vim-easy-align')
-  call dein#add('tomtom/tcomment_vim')
-  call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-surround')
-  call dein#add('wsdjeg/dein-ui.vim')
-
-  call dein#end()
-  call dein#save_state()
-endif
-
 filetype plugin indent on
 syntax enable
-
-if dein#check_install()
-  call dein#install()
-endif
-
-set notermguicolors
-set background=dark
-colorscheme default
-" highlight Normal guibg=none
-" highlight LineNr guibg=none
 
 set nobackup
 set nowritebackup
@@ -103,9 +72,6 @@ let g:netrw_winsize = 20
 " Navigation
 nnoremap <leader>f :Vexplore<cr>
 nnoremap <leader>r :Rg<space>
-nnoremap <leader>d :Dash<cr>
-nnoremap <leader>b :Denite buffer<cr>
-nnoremap <leader>s :Denite file/rec<cr>
 
 tnoremap <ESC> <C-\><C-n>
 
@@ -121,21 +87,3 @@ vnoremap > >gv
 
 vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
 vnoremap <leader>64 c<c-r>=system('base64', @")<cr><esc>
-
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-  call denite#custom#var('file/rec', 'command',
-    \ ['rg', '--files', '--glob', '!.git'])
-endfunction
