@@ -160,8 +160,8 @@ tls_sans() {
 
 op_signin() {
   session_age=$(echo "$(date +%s)-$(stat --printf '%Y' ~/.op_session)" | bc)
-  if [ $session_age -gt 1500 ]; then
-    eval "$(op signin my.1password.com)" >! ~/.op_session
+  if [ $session_age -gt 1500 ] || ! [ -s ~/.op_session ]; then
+    echo "$(op signin my.1password.com)" >! ~/.op_session
   fi
   source ~/.op_session
 }
