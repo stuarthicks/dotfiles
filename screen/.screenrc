@@ -2,7 +2,6 @@ startup_message off
 vbell off
 term screen-256color
 termcapinfo xterm* ti@:te@
-truecolor on
 defencoding UTF-8
 defshell -$SHELL
 autodetach on
