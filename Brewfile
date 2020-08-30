@@ -15,6 +15,3 @@ brew 'tig'
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'ripgrep-bin'
-
-tap 'jesseduffield/lazygit'
-brew 'lazygit'
