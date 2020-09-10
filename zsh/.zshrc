@@ -74,6 +74,11 @@ export MANPATH="/usr/local/share/man:$MANPATH"
 export ASDF_DIR="$HOME/.asdf"
 source "$ASDF_DIR/lib/asdf.sh"
 
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+export DEVKITPPC=${DEVKITPRO}/devkitPPC
+export PATH=${DEVKITPRO}/tools/bin:$PATH
+
 path=(
   $HOME/.local/bin
   $HOME/.emacs.d/bin
