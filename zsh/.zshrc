@@ -60,7 +60,7 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 export CLICOLOR="1"
 export LC_ALL="en_GB.UTF-8"
 export TZ="Europe/London"
-export VISUAL="vim"
+export VISUAL="nvim"
 
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/go"
