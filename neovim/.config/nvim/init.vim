@@ -20,6 +20,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
+  call dein#add('ntk148v/vim-horizon')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
@@ -36,11 +37,11 @@ if dein#check_install()
   call dein#install()
 endif
 
-set notermguicolors
+set termguicolors
 set background=dark
-colorscheme default
-" highlight Normal guibg=none
-" highlight LineNr guibg=none
+colorscheme horizon
+highlight Normal guibg=none
+highlight LineNr guibg=none
 
 set nobackup
 set nowritebackup
@@ -64,7 +65,6 @@ set autoindent
 set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
-set diffopt+=iwhite
 set expandtab
 set foldlevelstart=20
 set foldmethod=syntax

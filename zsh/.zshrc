@@ -60,7 +60,7 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 export CLICOLOR="1"
 export LC_ALL="en_GB.UTF-8"
 export TZ="Europe/London"
-export VISUAL="vim"
+export VISUAL="nvim"
 
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/go"
@@ -73,6 +73,11 @@ export MANPATH="/usr/local/share/man:$MANPATH"
 
 export ASDF_DIR="$HOME/.asdf"
 source "$ASDF_DIR/lib/asdf.sh"
+
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+export DEVKITPPC=${DEVKITPRO}/devkitPPC
+export PATH=${DEVKITPRO}/tools/bin:$PATH
 
 path=(
   $HOME/.local/bin
