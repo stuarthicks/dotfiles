@@ -5,5 +5,7 @@ count=0
 
 while true; do
   count=$((count+1))
+  echo "ITERATION $count"
+  echo
   eval "$@" || (echo "$(tput setaf 1)Failed on iteration ${count}$(tput sgr0)"; exit 1)
 done
