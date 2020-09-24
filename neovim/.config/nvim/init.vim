@@ -37,7 +37,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-set termguicolors
+set notermguicolors
 set background=dark
 colorscheme horizon
 highlight Normal guibg=none
