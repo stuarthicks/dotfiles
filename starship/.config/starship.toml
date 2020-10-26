@@ -1,2 +1,4 @@
 [character]
 symbol = "#"
+success_symbol = "[#](bold green)"
+

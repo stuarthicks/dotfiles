@@ -35,6 +35,7 @@ setopt share_history
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
+unset RPS1
 if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
@@ -60,6 +61,7 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 export CLICOLOR="1"
 export LC_ALL="en_GB.UTF-8"
 export TZ="Europe/London"
+export EDITOR="nvim"
 export VISUAL="nvim"
 
 export GOBIN="$HOME/.local/bin"
@@ -71,9 +73,6 @@ export HOMEBREW_NO_ANALYTICS="1"
 export INFOPATH="/usr/local/share/info:$INFOPATH"
 export MANPATH="/usr/local/share/man:$MANPATH"
 
-export ASDF_DIR="$HOME/.asdf"
-source "$ASDF_DIR/lib/asdf.sh"
-
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
@@ -82,15 +81,14 @@ export PATH=${DEVKITPRO}/tools/bin:$PATH
 path=(
   $HOME/.local/bin
   $HOME/.emacs.d/bin
-  $HOME/.asdf/bin
-  $HOME/.asdf/shims
-  /usr/local/opt/openssl@1.1/bin
   /usr/local/bin
   /usr/local/sbin
   $path
 )
-typeset -TUx PATH path
 
+test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+typeset -TUx PATH path
 
 export GPG_TTY="$(tty)"
 
@@ -176,4 +174,3 @@ op_signin() {
 }
 
 test -s "$HOME/.workrc" && source "$HOME/.workrc"
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer

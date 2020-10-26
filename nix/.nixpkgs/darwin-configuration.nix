@@ -8,9 +8,15 @@
 environment.systemPackages = with pkgs; [
   cargo
   coreutils-full
+  emacs
+  git
   git-lfs
+  gitAndTools.gh
+  gitAndTools.tig
+  go
   jq
   kubectl
+  lazygit
   neovim
   nodejs
   openssl
@@ -18,6 +24,7 @@ environment.systemPackages = with pkgs; [
   python3Full
   reattach-to-user-namespace
   ripgrep
+  ruby_2_7
   shellcheck
   starship
   stow
