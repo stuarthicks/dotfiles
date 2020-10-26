@@ -1,20 +1,12 @@
 ttyctl -f
-
 bindkey -e
 
-autoload -Uz colors
-colors
-
-autoload -Uz compinit
-compinit
-
+autoload -Uz colors   && colors
+autoload -Uz compinit && compinit
 zmodload zsh/complist
 
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
-
-autoload -Uz bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-magic
+autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
+autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
 
 autoload -Uz  edit-command-line
 zle      -N   edit-command-line
@@ -85,17 +77,14 @@ path=(
   /usr/local/sbin
   $path
 )
+typeset -TUx PATH path
 
 test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
-typeset -TUx PATH path
 
 export GPG_TTY="$(tty)"
 
 alias k='ls --color -oFG'
 alias p='ps aux | rg -i'
-
-alias -g NULL='> /dev/null 2>&1'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-latest-tag='git describe --tags $(git rev-list --tags --max-count=1)'
