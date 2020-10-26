@@ -1,9 +1,9 @@
 dotfiles
 ========
 
-- Install [Homebrew](https://brew.sh/)
-- `brew bundle`
-- `stow -R [dirs]`
+- Install [nix](https://wickedchicken.github.io/post/macos-nix-setup/)
+- `darwin-rebuild switch`
+- `stow [dirs]`
 
 # Handy macOS defaults
 
