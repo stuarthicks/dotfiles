@@ -94,7 +94,7 @@ typeset -TUx PATH path
 
 export GPG_TTY="$(tty)"
 
-alias k='ls -oFG'
+alias k='ls --color -oFG'
 alias p='ps aux | rg -i'
 
 alias -g NULL='> /dev/null 2>&1'
