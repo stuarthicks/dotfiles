@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     cargo
     emacs
-    git
     git-lfs
     gitAndTools.gh
     gitAndTools.tig
@@ -25,6 +24,8 @@
     terraform
     tmux
   ];
+
+  home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
