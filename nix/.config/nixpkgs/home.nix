@@ -7,6 +7,7 @@
     git-lfs
     gitAndTools.gh
     gitAndTools.tig
+    glibcLocales
     go
     jq
     kubectl
@@ -14,6 +15,7 @@
     neovim
     nodejs
     openssl
+    pipenv
     python2Full
     python3Full
     ripgrep
@@ -25,6 +27,7 @@
     tmux
   ];
 
+  home.language.base = "en_GB.UTF-8";
   home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 
   # Let Home Manager install and manage itself.
