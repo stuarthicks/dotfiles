@@ -2,22 +2,31 @@
 
 {
   home.packages = with pkgs; [
+    bzip2
     cargo
     emacs
+    gcc
+    gdbm
     git-lfs
     gitAndTools.gh
     gitAndTools.tig
+    glibc
     glibcLocales
     go
     jq
     kubectl
     lazygit
+    libffi
+    libxml2
+    libyaml
+    ncurses
     neovim
     nodejs
     openssl
     pipenv
     python2Full
     python3Full
+    readline
     ripgrep
     ruby_2_7
     shellcheck
@@ -25,6 +34,7 @@
     stow
     terraform
     tmux
+    zlib
   ];
 
   home.language.base = "en_GB.UTF-8";
