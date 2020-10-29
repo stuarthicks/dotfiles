@@ -51,7 +51,6 @@ zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
 export CLICOLOR="1"
-export LC_ALL="en_GB.UTF-8"
 export TZ="Europe/London"
 export EDITOR="nvim"
 export VISUAL="nvim"
