@@ -58,22 +58,15 @@ export VISUAL="nvim"
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/go"
 
-export HOMEBREW_INSTALL_CLEANUP="1"
-export HOMEBREW_NO_ANALYTICS="1"
-
-export INFOPATH="/usr/local/share/info:$INFOPATH"
-export MANPATH="/usr/local/share/man:$MANPATH"
-
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=${DEVKITPRO}/devkitARM
-export DEVKITPPC=${DEVKITPRO}/devkitPPC
-export PATH=${DEVKITPRO}/tools/bin:$PATH
+devkitpro() {
+  export DEVKITPRO=/opt/devkitpro
+  export DEVKITARM=${DEVKITPRO}/devkitARM
+  export DEVKITPPC=${DEVKITPRO}/devkitPPC
+  export PATH=${DEVKITPRO}/tools/bin:$PATH
+}
 
 path=(
   $HOME/.local/bin
-  $HOME/.emacs.d/bin
-  /usr/local/bin
-  /usr/local/sbin
   $path
 )
 typeset -TUx PATH path
@@ -109,6 +102,7 @@ aws-profile() {
   export AWS_DEFAULT_REGION=$region
 
   unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+  aws s3 ls > /dev/null
 }
 
 aws-setenv() {
@@ -137,16 +131,6 @@ aws-setenv() {
   export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
   unset AWS_PROFILE
   unset AWS_DEFAULT_PROFILE
-}
-
-tls_sans() {
-  openssl s_client -connect "$1:443" -showcerts < /dev/null 2> /dev/null \
-    | openssl x509 -noout -text \
-    | grep -A1 'Subject Alternative Name' \
-    | tail -n1 \
-    | tr 'DNS:' $'\n' \
-    | awk NF \
-    | sort -u
 }
 
 op_signin() {
