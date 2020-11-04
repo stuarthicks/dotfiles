@@ -32,7 +32,6 @@
     shellcheck
     starship
     stow
-    terraform
     tmux
     zlib
   ];
