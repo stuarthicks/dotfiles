@@ -8,7 +8,8 @@
 environment.systemPackages = with pkgs; [
   cargo
   coreutils-full
-  emacs
+  dogdns
+  ffmpeg-full
   git
   git-lfs
   gitAndTools.gh
@@ -17,6 +18,8 @@ environment.systemPackages = with pkgs; [
   jq
   kubectl
   lazygit
+  mediainfo
+  mtr
   neovim
   nodejs
   openssl
