@@ -8,6 +8,9 @@ let g:maplocalleader = ','
 let g:python2_host_prog = '~/.asdf/shims/python2'
 let g:python3_host_prog = '~/.asdf/shims/python3'
 
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+
 set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.local/share/dein')
@@ -18,6 +21,8 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
+  call dein#add('godlygeek/tabular')
+  call dein#add('hashivim/vim-terraform')
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
   call dein#add('ntk148v/vim-horizon')
