@@ -11,7 +11,6 @@
   home.packages = with pkgs; [
     bzip2
     cargo
-    emacs
     gcc
     gdbm
     git-lfs
