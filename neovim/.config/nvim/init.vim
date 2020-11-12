@@ -5,12 +5,6 @@ nnoremap Q @q
 let g:mapleader = ' '
 let g:maplocalleader = ','
 
-let g:python2_host_prog = '~/.asdf/shims/python2'
-let g:python3_host_prog = '~/.asdf/shims/python3'
-
-let g:terraform_align=1
-let g:terraform_fmt_on_save=1
-
 set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.local/share/dein')
@@ -18,14 +12,15 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#add('Shougo/denite.nvim')
-  call dein#add('bronson/vim-trailing-whitespace')
+  call dein#add('bronson/vim-trailing-whitespace', {'on_cmd': 'FixWhitespace'})
   call dein#add('dense-analysis/ale')
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
-  call dein#add('godlygeek/tabular')
-  call dein#add('hashivim/vim-terraform')
+  call dein#add('godlygeek/tabular', {'on_cmd': 'Tabularize'})
+  call dein#add('hashivim/vim-terraform', {'on_ft': 'terraform'})
   call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
   call dein#add('junegunn/vim-easy-align')
   call dein#add('ntk148v/vim-horizon')
+  call dein#add('preservim/nerdtree', {'on_cmd': 'NERDTreeToggle'})
   call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-surround')
@@ -99,18 +94,11 @@ set timeoutlen=300
 set updatetime=300
 set wrapmargin=0
 
-let g:netrw_altv = 1
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 20
-
 " Navigation
-nnoremap <leader>f :Vexplore<cr>
+nnoremap <leader>p :NERDTreeToggle<cr>
 nnoremap <leader>r :Rg<space>
-nnoremap <leader>d :Dash<cr>
 nnoremap <leader>b :Denite buffer<cr>
-nnoremap <leader>s :Denite file/rec<cr>
+nnoremap <leader>f :Denite file/rec<cr>
 
 tnoremap <ESC> <C-\><C-n>
 
@@ -126,6 +114,9 @@ vnoremap > >gv
 
 vnoremap <leader>64d c<c-r>=system('base64 --decode', @")<cr><esc>
 vnoremap <leader>64 c<c-r>=system('base64', @")<cr><esc>
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
