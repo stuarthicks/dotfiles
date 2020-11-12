@@ -14,6 +14,7 @@ environment.systemPackages = with pkgs; [
   git-lfs
   gitAndTools.gh
   gitAndTools.tig
+  gnupg
   go
   jq
   kubectl
