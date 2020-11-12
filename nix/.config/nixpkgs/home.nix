@@ -18,6 +18,7 @@
     gitAndTools.tig
     glibc
     glibcLocales
+    gnupg
     go
     jq
     kubectl
