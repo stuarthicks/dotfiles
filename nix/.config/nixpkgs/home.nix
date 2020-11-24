@@ -20,6 +20,7 @@
     glibcLocales
     gnupg
     go
+    jdk
     jq
     kubectl
     lazygit
