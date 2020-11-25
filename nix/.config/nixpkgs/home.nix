@@ -8,10 +8,12 @@
   home.language.base = "en_GB.UTF-8";
   home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 
+  programs.direnv.enable = true;
+  programs.direnv.enableNixDirenvIntegration = true;
+
   home.packages = with pkgs; [
     bzip2
     cargo
-    direnv
     gcc
     gdbm
     git-lfs
