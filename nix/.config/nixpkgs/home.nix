@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     bzip2
     cargo
+    direnv
     gcc
     gdbm
     git-lfs
@@ -20,6 +21,7 @@
     glibcLocales
     gnupg
     go
+    golangci-lint
     jdk
     jq
     kubectl

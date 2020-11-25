@@ -148,3 +148,4 @@ op_signin() {
 }
 
 test -s "$HOME/.workrc" && source "$HOME/.workrc"
+eval "$(direnv hook zsh)"
