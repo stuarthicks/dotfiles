@@ -11,8 +11,10 @@
     git-lfs
     gitAndTools.gh
     gitAndTools.tig
+    glide
     gnupg
     go
+    golangci-lint
     jq
     kubectl
     lazygit
