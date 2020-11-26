@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     cargo
     coreutils-full
+    direnv
     dogdns
     ffmpeg-full
     git
