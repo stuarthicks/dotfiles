@@ -48,3 +48,5 @@ vim-go-test-compile
 .node-version
 
 sk.json
+shell.nix
+.envrc
