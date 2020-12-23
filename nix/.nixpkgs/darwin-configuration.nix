@@ -7,7 +7,7 @@
     coreutils-full
     direnv
     dogdns
-    ffmpeg-full
+    # ffmpeg-full
     git
     git-lfs
     gitAndTools.gh
@@ -70,6 +70,13 @@
   system.defaults.dock.mru-spaces = false;
   system.defaults.finder.FXEnableExtensionChangeWarning = true;
   system.defaults.finder._FXShowPosixPathInTitle = true;
+
+  environment.etc = {
+    "sudoers.d/10-nix-commands".text = ''
+      %admin ALL=(ALL:ALL) NOPASSWD: /run/current-system/sw/bin/darwin-rebuild, \
+                                     /run/current-system/sw/bin/nix*
+    '';
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
