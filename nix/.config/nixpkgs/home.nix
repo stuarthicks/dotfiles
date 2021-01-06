@@ -45,6 +45,7 @@
     starship
     stow
     tmux
+    unixtools.xxd
     zlib
   ];
 }
