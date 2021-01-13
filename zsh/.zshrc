@@ -25,13 +25,6 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-KEYTIMEOUT=1
-PROMPT="%{$fg[red]%}#%{$reset_color%} "
-unset RPS1
-if command -v starship > /dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
-
 setopt AUTO_PUSHD
 setopt HIST_FCNTL_LOCK
 setopt HIST_IGNORE_ALL_DUPS
@@ -145,6 +138,7 @@ op_signin() {
   source ~/.op_session
 }
 
+test -s /usr/local/bin/brew && eval "$(/usr/local/bin/brew shellenv)"
 test -s /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 eval "$(direnv hook zsh)"
 
@@ -153,3 +147,10 @@ command -v rbenv > /dev/null 2>&1 && eval "$(rbenv init - zsh)"
 command -v pyenv > /dev/null 2>&1 && eval "$(pyenv init - zsh)"
 
 test -s "$HOME/.workrc" && source "$HOME/.workrc"
+
+KEYTIMEOUT=1
+PROMPT="%{$fg[red]%}#%{$reset_color%} "
+unset RPS1
+if command -v starship > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
