@@ -73,8 +73,6 @@ path=(
 )
 typeset -TUx PATH path
 
-test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-
 export GPG_TTY="$(tty)"
 
 alias k='ls --color -oFG'
@@ -149,3 +147,5 @@ op_signin() {
 
 test -s "$HOME/.workrc" && source "$HOME/.workrc"
 eval "$(direnv hook zsh)"
+
+test -s /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
