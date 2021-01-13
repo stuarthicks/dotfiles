@@ -6,6 +6,8 @@
 	symlinks = true
 [branch]
 	autosetuprebase = always
+[pull]
+  ff = only
 [push]
 	default = current
 [filter "lfs"]
