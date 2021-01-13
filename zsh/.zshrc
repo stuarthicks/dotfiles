@@ -145,7 +145,11 @@ op_signin() {
   source ~/.op_session
 }
 
-test -s "$HOME/.workrc" && source "$HOME/.workrc"
+test -s /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 eval "$(direnv hook zsh)"
 
-test -s /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+export GEM_HOME=$HOME/.gems
+command -v rbenv > /dev/null 2>&1 && eval "$(rbenv init - zsh)"
+command -v pyenv > /dev/null 2>&1 && eval "$(pyenv init - zsh)"
+
+test -s "$HOME/.workrc" && source "$HOME/.workrc"
