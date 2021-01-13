@@ -127,10 +127,13 @@ aws-setenv() {
 }
 
 op_signin() {
-  if [ $(uname) = 'Darwin' ]; then
-    session_age=$(echo "$(date +%s)-$(stat -f '%m' ~/.op_session)" | bc)
-  else
-    session_age=$(echo "$(date +%s)-$(stat --printf '%Y' ~/.op_session)" | bc)
+  session_age=1501
+  if [ -s ~/.op_session ]; then
+    if [ $(uname) = 'Darwin' ]; then
+      session_age=$(echo "$(date +%s)-$(stat -f '%m' ~/.op_session)" | bc)
+    else
+      session_age=$(echo "$(date +%s)-$(stat --printf '%Y' ~/.op_session)" | bc)
+    fi
   fi
   if [ $session_age -gt 1500 ] || ! [ -s ~/.op_session ]; then
     echo "$(op signin my.1password.com)" >! ~/.op_session
