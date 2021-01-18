@@ -157,7 +157,8 @@ typeset -TUx PATH path
 test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 eval "$(direnv hook zsh)"
 
-test -s "$HOME/.workrc" && source "$HOME/.workrc"
+# test -s "$HOME/.workrc" && source "$HOME/.workrc"
+test -s "$HOME/.localrc" && source "$HOME/.localrc"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
