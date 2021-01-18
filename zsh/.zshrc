@@ -60,12 +60,6 @@ devkitpro() {
   export PATH=${DEVKITPRO}/tools/bin:$PATH
 }
 
-path=(
-  $HOME/.local/bin
-  $path
-)
-typeset -TUx PATH path
-
 export GPG_TTY="$(tty)"
 
 alias k='ls --color -oFG'
@@ -141,19 +135,33 @@ op_signin() {
   source ~/.op_session
 }
 
+path=(
+  /usr/sbin
+  /sbin
+  $path
+)
+
 test -s /usr/local/bin/brew && eval "$(/usr/local/bin/brew shellenv)"
 test -s /home/linuxbrew/.linuxbrew/bin/brew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-eval "$(direnv hook zsh)"
 
 export GEM_HOME=$HOME/.gems
 command -v rbenv > /dev/null 2>&1 && eval "$(rbenv init --no-rehash - zsh)"
 command -v pyenv > /dev/null 2>&1 && eval "$(pyenv init --no-rehash - zsh)"
 
+path=(
+  $HOME/.local/bin
+  $path
+)
+typeset -TUx PATH path
+
+test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+eval "$(direnv hook zsh)"
+
 test -s "$HOME/.workrc" && source "$HOME/.workrc"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
-unset RPS1
 if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
+
