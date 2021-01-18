@@ -145,13 +145,14 @@ path=(
   "$HOME/.cargo/bin"
   "$HOME/.gems/bin"
   "$HOME/.nix-profile/bin"
+  /run/current-system/sw/bin
+  /nix/var/nix/profiles/default/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
   /usr/sbin
   /bin
   /sbin
-  $path
 )
 typeset -TUx PATH path
 
