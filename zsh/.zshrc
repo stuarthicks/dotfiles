@@ -160,6 +160,7 @@ test -s "$HOME/.localrc" && source "$HOME/.localrc"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
+unset RPS1
 if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
