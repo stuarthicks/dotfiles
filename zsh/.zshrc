@@ -142,11 +142,14 @@ eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/.local/bin"
-  "$GEM_HOME/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.gems/bin"
   "$HOME/.nix-profile/bin"
+  /usr/local/bin
+  /usr/local/sbin
   /usr/bin
-  /bin
   /usr/sbin
+  /bin
   /sbin
   $path
 )
