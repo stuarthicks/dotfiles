@@ -3,6 +3,7 @@
   # https://search.nixos.org/packages
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    awscli
     cargo
     coreutils-full
     direnv
@@ -24,6 +25,7 @@
     neovim
     nodejs
     openssl
+    python27Packages.pip
     python2Full
     python3Full
     reattach-to-user-namespace
