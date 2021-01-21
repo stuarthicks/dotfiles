@@ -154,6 +154,7 @@ path=(
   /usr/sbin
   /bin
   /sbin
+  $path
 )
 typeset -TUx PATH path
 
