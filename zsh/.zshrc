@@ -47,8 +47,8 @@ export CLICOLOR="1"
 export TZ="Europe/London"
 export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/go"

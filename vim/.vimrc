@@ -35,7 +35,6 @@ set autoindent
 set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
-set diffopt+=iwhite
 set expandtab
 set foldlevelstart=20
 set foldmethod=syntax

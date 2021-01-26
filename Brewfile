@@ -11,7 +11,6 @@ if uname.eql?('darwin')
   brew 'git-lfs'
   brew 'imagemagick'
   brew 'jq'
-  brew 'neovim'
   brew 'openssl@1.1'
   brew 'pv'
   brew 'reattach-to-user-namespace'

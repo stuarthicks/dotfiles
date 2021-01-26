@@ -3,6 +3,7 @@
   # https://search.nixos.org/packages
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    alacritty
     awscli
     cargo
     coreutils-full
@@ -22,7 +23,6 @@
     lazygit
     mediainfo
     mtr
-    neovim
     nodejs
     openssl
     python27Packages.pip
@@ -36,6 +36,7 @@
     stow
     terraform
     tmux
+    vim
   ];
 
   # Auto upgrade nix package and the daemon service.

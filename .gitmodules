@@ -4,9 +4,6 @@
 [submodule "vim/.vim/pack/plugins/start/ale"]
 	path = vim/.vim/pack/plugins/start/ale
 	url = git@github.com:dense-analysis/ale
-[submodule "vim/.vim/pack/plugins/start/govim"]
-	path = vim/.vim/pack/plugins/start/govim
-	url = git@github.com:govim/govim
 [submodule "vim/.vim/pack/plugins/start/ripgrep"]
 	path = vim/.vim/pack/plugins/start/ripgrep
 	url = git@github.com:jremmen/vim-ripgrep
@@ -22,3 +19,12 @@
 [submodule "vim/.vim/pack/plugins/start/surround"]
 	path = vim/.vim/pack/plugins/start/surround
 	url = git@github.com:tpope/vim-surround
+[submodule "vim/.vim/pack/plugins/start/denite.nvim"]
+	path = vim/.vim/pack/plugins/start/denite.nvim
+	url = git@github.com:Shougo/denite.nvim
+[submodule "vim/.vim/pack/plugins/start/vim-horizon"]
+	path = vim/.vim/pack/plugins/start/vim-horizon
+	url = git@github.com:ntk148v/vim-horizon
+[submodule "vim/.vim/pack/plugins/start/coc.nvim"]
+	path = vim/.vim/pack/plugins/start/coc.nvim
+	url = git@github.com:neoclide/coc.nvim
