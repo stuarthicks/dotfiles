@@ -24,6 +24,7 @@
     gnupg
     go
     golangci-lint
+    grepcidr
     jdk
     jq
     kubectl
@@ -42,6 +43,7 @@
     ripgrep
     ruby_2_7
     shellcheck
+    sslyze
     starship
     stow
     tmux

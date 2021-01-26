@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo
+
+if command -v home-manager > /dev/null 2>&1; then
+  home-manager edit
+fi
+
+if command -v darwin-rebuild > /dev/null 2>&1; then
+  darwin-rebuild edit
+fi
