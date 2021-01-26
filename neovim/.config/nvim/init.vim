@@ -39,9 +39,9 @@ endif
 
 set notermguicolors
 set background=dark
-colorscheme default
-" highlight Normal guibg=none
-" highlight LineNr guibg=none
+colorscheme horizon
+highlight Normal guibg=none
+highlight LineNr guibg=none
 
 set nobackup
 set nowritebackup
