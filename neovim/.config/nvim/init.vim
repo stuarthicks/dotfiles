@@ -39,9 +39,9 @@ endif
 
 set notermguicolors
 set background=dark
-colorscheme horizon
-highlight Normal guibg=none
-highlight LineNr guibg=none
+colorscheme default
+" highlight Normal guibg=none
+" highlight LineNr guibg=none
 
 set nobackup
 set nowritebackup
@@ -65,6 +65,7 @@ set autoindent
 set backspace=indent,eol,start
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
+set diffopt+=iwhite
 set expandtab
 set foldlevelstart=20
 set foldmethod=syntax
