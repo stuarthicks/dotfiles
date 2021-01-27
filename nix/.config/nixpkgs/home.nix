@@ -33,7 +33,6 @@
     libxml2
     libyaml
     ncurses
-    neovim
     nodejs
     openssl
     pipenv
@@ -48,6 +47,7 @@
     stow
     tmux
     unixtools.xxd
+    vim
     zlib
   ];
 }

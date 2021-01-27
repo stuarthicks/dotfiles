@@ -10,8 +10,8 @@ syntax enable
 
 set background=dark
 colorscheme horizon
-highlight Normal guibg=none
-highlight LineNr guibg=none
+" highlight Normal guibg=none
+" highlight LineNr guibg=none
 
 set nobackup
 set nowritebackup
