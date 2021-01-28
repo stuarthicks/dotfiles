@@ -1,8 +1,11 @@
 { config, pkgs, lib, ... }: {
 
+  nixpkgs.config.allowUnfree = true;
+
   # https://search.nixos.org/packages
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    _1password
     alacritty
     awscli
     cargo

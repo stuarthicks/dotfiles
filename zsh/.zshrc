@@ -1,4 +1,4 @@
-etyctl -f
+ttyctl -f
 bindkey -e
 
 autoload -Uz colors   && colors
@@ -123,16 +123,15 @@ aws-setenv() {
 op_signin() {
   session_age=1501
   if [ -s ~/.op_session ]; then
-    if [ $(uname) = 'Darwin' ]; then
-      session_age=$(echo "$(date +%s)-$(stat -f '%m' ~/.op_session)" | bc)
-    else
-      session_age=$(echo "$(date +%s)-$(stat --printf '%Y' ~/.op_session)" | bc)
-    fi
+    session_age=$(echo "$(date +%s)-$(stat --printf '%Y' ~/.op_session)" | bc)
   fi
   if [ $session_age -gt 1500 ] || ! [ -s ~/.op_session ]; then
-    echo "$(op signin my.1password.com)" >! ~/.op_session
+    res="$(op signin my.1password.com)"
+    if [ $? = 0 ]; then
+      echo "$res" >! ~/.op_session
+      source ~/.op_session
+    fi
   fi
-  source ~/.op_session
 }
 
 export GEM_HOME=$HOME/.gems
@@ -143,11 +142,9 @@ eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
-  "$HOME/.gems/bin"
   "$HOME/.nix-profile/bin"
-  /run/current-system/sw/bin
   /nix/var/nix/profiles/default/bin
+  /run/current-system/sw/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
