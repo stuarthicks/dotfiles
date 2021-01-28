@@ -70,10 +70,10 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 " Navigation
-nnoremap <leader>p :NERDTreeToggle<cr>
-nnoremap <leader>r :Rg<space>
-nnoremap <leader>b :Denite buffer<cr>
-nnoremap <leader>f :Denite file/rec<cr>
+nnoremap <localleader>p :NERDTreeToggle<cr>
+nnoremap <localleader>r :Rg<space>
+nnoremap <localleader>b :Denite buffer<cr>
+nnoremap <localleader>f :Denite file/rec<cr>
 
 tnoremap <ESC> <C-\><C-n>
 
