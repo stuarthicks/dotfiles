@@ -31,3 +31,6 @@
 [submodule "vim/.vim/pack/plugins/start/nerdtree"]
 	path = vim/.vim/pack/plugins/start/nerdtree
 	url = git@github.com:preservim/nerdtree
+[submodule "vim/.vim/pack/plugins/start/vim-nix"]
+	path = vim/.vim/pack/plugins/start/vim-nix
+	url = git@github.com:LnL7/vim-nix.git
