@@ -37,7 +37,6 @@
     openssl
     pipenv
     python2Full
-    python3Full
     readline
     ripgrep
     ruby_2_7
