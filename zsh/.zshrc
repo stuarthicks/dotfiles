@@ -1,4 +1,4 @@
-ttyctl -f
+etyctl -f
 bindkey -e
 
 autoload -Uz colors   && colors
@@ -99,7 +99,7 @@ aws-setenv() {
     STS=$(cat "$FILE")
     DATE=date
     if [ $(uname) = 'Darwin' ]; then
-      DATE=gdate # `brew install coreutils`
+      DATE=gdate
     fi
     expires=$($DATE -d "$(cat "$FILE" | jq -r .ResponseMetadata.HTTPHeaders.date)" +%s)
     now=$($DATE +%s)
