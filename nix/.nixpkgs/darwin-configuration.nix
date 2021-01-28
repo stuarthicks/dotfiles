@@ -25,9 +25,10 @@
     mtr
     nodejs
     openssl
+    p7zip
+    pipenv
     python27Packages.pip
     python2Full
-    python3Full
     reattach-to-user-namespace
     ripgrep
     ruby_2_7
