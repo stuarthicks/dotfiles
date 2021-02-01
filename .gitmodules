@@ -34,3 +34,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-nix"]
 	path = vim/.vim/pack/plugins/start/vim-nix
 	url = git@github.com:LnL7/vim-nix.git
+[submodule "vim/.vim/pack/plugins/start/vcl"]
+	path = vim/.vim/pack/plugins/start/vcl
+	url = https://github.com/smerrill/vcl-vim-plugin

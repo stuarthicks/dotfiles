@@ -11,6 +11,10 @@ syntax enable
 set termguicolors
 set background=dark
 colorscheme horizon
+highlight Normal guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
 
 set nobackup
 set nowritebackup
