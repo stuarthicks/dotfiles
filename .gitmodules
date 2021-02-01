@@ -31,9 +31,9 @@
 [submodule "vim/.vim/pack/plugins/start/nerdtree"]
 	path = vim/.vim/pack/plugins/start/nerdtree
 	url = git@github.com:preservim/nerdtree
-[submodule "vim/.vim/pack/plugins/start/vim-nix"]
-	path = vim/.vim/pack/plugins/start/vim-nix
-	url = git@github.com:LnL7/vim-nix.git
-[submodule "vim/.vim/pack/plugins/start/vcl"]
-	path = vim/.vim/pack/plugins/start/vcl
-	url = https://github.com/smerrill/vcl-vim-plugin
+[submodule "vim/.vim/pack/plugins/start/hlsl"]
+	path = vim/.vim/pack/plugins/start/hlsl
+	url = https://github.com/beyondmarc/hlsl.vim
+[submodule "vim/.vim/pack/plugins/start/polyglot"]
+	path = vim/.vim/pack/plugins/start/polyglot
+	url = https://github.com/sheerun/vim-polyglot
