@@ -78,6 +78,8 @@ htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
 urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
 urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))"; }
+range2cidr() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; }
+cidr2range() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; }
 
 aws-profile() {
   profile=${1:-dev}
