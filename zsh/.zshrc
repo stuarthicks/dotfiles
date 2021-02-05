@@ -62,7 +62,6 @@ devkitpro() {
 
 export GPG_TTY="$(tty)"
 
-alias k='ls --color -oFG'
 alias p='ps aux | rg -i'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
@@ -165,3 +164,6 @@ unset RPS1
 if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
+
+source ~/.k.zsh
+alias k='k --no-vcs'
