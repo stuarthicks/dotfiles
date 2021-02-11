@@ -1,17 +1,19 @@
 { config, pkgs, ... }: {
-  home.stateVersion = "20.09";
-  programs.home-manager.enable = true;
-
-  home.username = "stuart";
-  home.homeDirectory = "/home/stuart";
 
   home.language.base = "en_GB.UTF-8";
-  home.sessionVariables.LOCALES_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
 
-  programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
+  programs.home-manager = {
+    enable = true;
+  };
 
-  nixpkgs.config.allowUnfree = true;
+  programs.direnv = {
+    enable = true;
+    enableNixDirenvIntegration = true;
+  };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   home.packages = with pkgs; [
     _1password
@@ -45,7 +47,6 @@
     ripgrep
     ruby_2_7
     shellcheck
-    sslyze
     starship
     stow
     tmux
@@ -53,4 +54,5 @@
     vim
     zlib
   ];
+
 }
