@@ -45,8 +45,6 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
 export CLICOLOR="1"
 export TZ="Europe/London"
-export LANG=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
 export EDITOR="vim"
 export VISUAL="vim"
 
@@ -138,7 +136,6 @@ op_signin() {
 export GEM_HOME=$HOME/.gems
 
 test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-test command -v nix-shell > /dev/null 2>&1 && export LOCALE_ARCHIVE=$(nix-shell --pure -p bash -p glibcLocales --run 'echo $LOCALE_ARCHIVE')
 test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
