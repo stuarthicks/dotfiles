@@ -20,6 +20,10 @@
     _1password-gui
     bzip2
     cargo
+    charles
+    charles
+    fd
+    firefox
     gcc
     gdbm
     git-lfs
@@ -38,13 +42,18 @@
     libffi
     libxml2
     libyaml
+    ncat
+    ncdu
     ncurses
+    nmap
     nodejs
     openssl
     pipenv
+    pv
     python2Full
     readline
     ripgrep
+    screen
     shellcheck
     starship
     stow
