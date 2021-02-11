@@ -43,7 +43,6 @@ set foldlevelstart=20
 set foldmethod=syntax
 set hidden
 set linebreak
-set listchars=tab:——,trail:_
 set modelines=1
 set mouse=a
 set nobackup
