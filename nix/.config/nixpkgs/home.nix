@@ -45,7 +45,6 @@
     python2Full
     readline
     ripgrep
-    ruby_2_7
     shellcheck
     starship
     stow
