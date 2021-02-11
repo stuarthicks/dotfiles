@@ -153,7 +153,7 @@ path=(
 )
 typeset -TUx PATH path
 
-test -s "$HOME/.localrc" && source "$HOME/.localrc"
+test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
