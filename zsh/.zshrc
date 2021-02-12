@@ -133,6 +133,24 @@ op_signin() {
   fi
 }
 
+rbenv-init() {
+  test -d $HOME/.rbenv || install_rbenv
+  export PATH=$HOME/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
+}
+
+pyenv-init() {
+  test -d $HOME/.pyenv || install_pyenv
+  export PATH=$HOME/.pyenv/bin:$PATH
+  eval "$(pyenv init -)"
+}
+
+nodenv-init() {
+  test -d $HOME/.nodenv || install_nodenv
+  export PATH=$HOME/.nodenv/bin:$PATH
+  eval "$(nodenv init -)"
+}
+
 export GEM_HOME=$HOME/.gems
 
 test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
