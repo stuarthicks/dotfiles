@@ -77,41 +77,32 @@
     };
   };
 
-
-  # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
-
   # Force override nixPath to remove root channel (used only for multi-user installs)
   nix.nixPath = lib.mkForce [ "darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels:$HOME/.nix-defexpr/channels" ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh = {
-    enable = true;
-    # shellInit =
-    # ''
-    #   source ${config.system.build.setEnvironment}
-    # '';
-  };
+  programs.zsh.enable = true;
 
-  system.defaults.NSGlobalDomain.AppleFontSmoothing = 2;
-  system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
-  system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
-  system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 14;
-  system.defaults.NSGlobalDomain.KeyRepeat = 1;
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
-  system.defaults.dock.autohide = false;
-  system.defaults.dock.mru-spaces = false;
-  system.defaults.finder.FXEnableExtensionChangeWarning = true;
-  system.defaults.finder._FXShowPosixPathInTitle = true;
+  system.defaults = {
+    NSGlobalDomain.AppleFontSmoothing = 2;
+    NSGlobalDomain.AppleKeyboardUIMode = 3;
+    NSGlobalDomain.ApplePressAndHoldEnabled = false;
+    NSGlobalDomain.AppleShowAllExtensions = true;
+    NSGlobalDomain.InitialKeyRepeat = 14;
+    NSGlobalDomain.KeyRepeat = 1;
+    NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+    NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
+    NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
+    NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
+    dock.autohide = false;
+    dock.mru-spaces = false;
+    finder.FXEnableExtensionChangeWarning = true;
+    finder._FXShowPosixPathInTitle = true;
+  };
 
   environment.etc = {
     "sudoers.d/10-nix-commands".text = ''
