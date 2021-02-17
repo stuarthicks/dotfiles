@@ -58,6 +58,7 @@
       "firefox"
       "moonlight"
       "sdformatter"
+      "signal"
       "transmit"
     ];
     masApps = {
