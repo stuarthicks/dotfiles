@@ -8,7 +8,7 @@ let g:maplocalleader = ','
 filetype plugin indent on
 syntax enable
 
-set termguicolors
+" set termguicolors
 set background=dark
 colorscheme horizon
 highlight Normal guibg=NONE ctermbg=NONE
