@@ -54,6 +54,7 @@
     ];
     casks = [
       "appcleaner"
+      "daisydisk"
       "firefox"
       "moonlight"
       "sdformatter"
