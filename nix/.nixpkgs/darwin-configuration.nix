@@ -58,6 +58,7 @@
       "firefox"
       "moonlight"
       "sdformatter"
+      "transmit"
     ];
     masApps = {
       "1Blocker"           = 1107421413;
