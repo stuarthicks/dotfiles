@@ -6,17 +6,13 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     _1password
-    alacritty
-    awscli
-    cargo
     coreutils-full
     direnv
     dogdns
     ffmpeg-full
+    gh
     git
     git-lfs
-    gitAndTools.gh
-    gitAndTools.tig
     glide
     gnupg
     go
@@ -29,19 +25,55 @@
     nodejs
     openssl
     p7zip
-    pipenv
-    python27Packages.pip
-    python2Full
+    powershell
+    pv
     reattach-to-user-namespace
     ripgrep
-    ruby_2_7
     shellcheck
     starship
-    stow
     terraform
+    tig
     tmux
     vim
   ];
+
+  homebrew = {
+    enable = true;
+    autoUpdate = true;
+    cleanup = "zap";
+    taps = [
+      "homebrew/cask"
+    ];
+    brews = [
+      "mas"
+      "pyenv"
+      "rbenv"
+      "ruby-build"
+      "rustup-init"
+      "stow"
+    ];
+    casks = [
+      "appcleaner"
+      "firefox"
+      "moonlight"
+      "sdformatter"
+    ];
+    masApps = {
+      "1Blocker"           = 1107421413;
+      "1Password 7"        = 1333542190;
+      "Caffeinated"        = 1362171212;
+      "Hush"               = 1544743900;
+      "Keka"               = 470158793;
+      "Magnet"             = 441258766;
+      "Monit"              = 1014850245;
+      "NordVPN IKE"        = 1116599239;
+      "Picture in Picture" = 1099477261;
+      "Slack"              = 803453959;
+      "Things"             = 904280696;
+      "Xcode"              = 497799835;
+    };
+  };
+
 
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
@@ -81,7 +113,10 @@
   environment.etc = {
     "sudoers.d/10-nix-commands".text = ''
       %admin ALL=(ALL:ALL) NOPASSWD: /run/current-system/sw/bin/darwin-rebuild, \
-                                     /run/current-system/sw/bin/nix*
+                                     /run/current-system/sw/bin/nix*, \
+                                     /run/current-system/sw/bin/ln, \
+                                     /nix/store/*/activate, \
+                                     /bin/launchctl
     '';
   };
 
