@@ -46,6 +46,7 @@
     ];
     brews = [
       "mas"
+      "openjdk@11"
       "pyenv"
       "rbenv"
       "ruby-build"
@@ -56,6 +57,7 @@
       "appcleaner"
       "daisydisk"
       "firefox"
+      "google-chrome"
       "moonlight"
       "sdformatter"
       "signal"
@@ -104,15 +106,7 @@
     finder._FXShowPosixPathInTitle = true;
   };
 
-  environment.etc = {
-    "sudoers.d/10-nix-commands".text = ''
-      %admin ALL=(ALL:ALL) NOPASSWD: /run/current-system/sw/bin/darwin-rebuild, \
-                                     /run/current-system/sw/bin/nix*, \
-                                     /run/current-system/sw/bin/ln, \
-                                     /nix/store/*/activate, \
-                                     /bin/launchctl
-    '';
-  };
+  users.nix.configureBuildUsers = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
