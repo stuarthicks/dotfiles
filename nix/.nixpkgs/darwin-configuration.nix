@@ -45,7 +45,6 @@
       "homebrew/cask"
     ];
     brews = [
-      "mas"
       "openjdk@11"
       "pyenv"
       "rbenv"
@@ -63,20 +62,6 @@
       "signal"
       "transmit"
     ];
-    masApps = {
-      "1Blocker"           = 1107421413;
-      "1Password 7"        = 1333542190;
-      "Caffeinated"        = 1362171212;
-      "Hush"               = 1544743900;
-      "Keka"               = 470158793;
-      "Magnet"             = 441258766;
-      "Monit"              = 1014850245;
-      "NordVPN IKE"        = 1116599239;
-      "Picture in Picture" = 1099477261;
-      "Slack"              = 803453959;
-      "Things"             = 904280696;
-      "Xcode"              = 497799835;
-    };
   };
 
   # Force override nixPath to remove root channel (used only for multi-user installs)
