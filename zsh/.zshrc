@@ -78,14 +78,16 @@ urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys
 range2cidr() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; }
 cidr2range() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; }
 
+aws-region() {
+  region=${1:-us-east-1}
+  export AWS_REGION=$region
+  export AWS_DEFAULT_REGION=$region
+}
+
 aws-profile() {
   profile=${1:-dev}
   export AWS_PROFILE=$profile
   export AWS_DEFAULT_PROFILE=$profile
-
-  region=${2:-eu-west-1}
-  export AWS_REGION=$region
-  export AWS_DEFAULT_REGION=$region
 
   unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
   aws s3 ls > /dev/null
@@ -161,6 +163,7 @@ path=(
   "$HOME/.nix-profile/bin"
   /nix/var/nix/profiles/default/bin
   /run/current-system/sw/bin
+  /usr/local/go/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
