@@ -21,45 +21,36 @@
     bzip2
     cargo
     charles
-    charles
+    dogdns
     fd
     firefox
-    gcc
-    gdbm
+    gh
     git-lfs
-    gitAndTools.gh
-    gitAndTools.tig
     glibc
     glibcLocales
     gnupg
-    go
-    golangci-lint
     grepcidr
-    jdk
     jq
     kubectl
     lazygit
-    libffi
-    libxml2
-    libyaml
     ncat
     ncdu
     ncurses
     nmap
     nodejs
     openssl
-    pipenv
     pv
-    python2Full
     readline
     ripgrep
     screen
     shellcheck
     starship
     stow
+    terraform_0_14
+    tig
     tmux
-    unixtools.xxd
     vim
+    xxd
     zlib
   ];
 
