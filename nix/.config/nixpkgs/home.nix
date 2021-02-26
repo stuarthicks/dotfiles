@@ -21,7 +21,9 @@
     bzip2
     cargo
     charles
+    cmake
     dogdns
+    emacs
     fd
     firefox
     gh
@@ -33,6 +35,7 @@
     jq
     kubectl
     lazygit
+    moreutils
     ncat
     ncdu
     ncurses
