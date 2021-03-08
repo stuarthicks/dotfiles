@@ -64,6 +64,7 @@ alias p='ps aux | rg -i'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias git-latest-tag='git describe --tags $(git rev-list --tags --max-count=1)'
+alias git-purge-branches="git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias macos-ntp-'sudo sntp -sS time.apple.com'
 alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
@@ -182,6 +183,3 @@ unset RPS1
 if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
-
-source ~/.k.zsh
-alias k='k --no-vcs'
