@@ -48,9 +48,6 @@ export TZ="Europe/London"
 export EDITOR="vim"
 export VISUAL="vim"
 
-export GOBIN="$HOME/.local/bin"
-export GOPATH="$HOME/go"
-
 devkitpro() {
   export DEVKITPRO=/opt/devkitpro
   export DEVKITARM=${DEVKITPRO}/devkitARM
@@ -60,14 +57,10 @@ devkitpro() {
 
 export GPG_TTY="$(tty)"
 
-alias p='ps aux | rg -i'
-
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
-alias git-latest-tag='git describe --tags $(git rev-list --tags --max-count=1)'
-alias git-purge-branches="git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-alias macos-ntp-'sudo sntp -sS time.apple.com'
-alias macos-ports='sudo lsof -PiTCP -sTCP:LISTEN'
+alias macos-ntp-sync'sudo sntp -sS time.apple.com'
+alias macos-netstat='sudo lsof -PiTCP -sTCP:LISTEN'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 path() { echo $PATH | tr : $'\n'; }
@@ -154,14 +147,14 @@ nodenv-init() {
   eval "$(nodenv init -)"
 }
 
-export GEM_HOME=$HOME/.gems
-
 test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
+  "$HOME/bin"
   "$HOME/.local/bin"
   "$HOME/.nix-profile/bin"
+  "$HOME/go/bin"
   /nix/var/nix/profiles/default/bin
   /run/current-system/sw/bin
   /usr/local/go/bin

@@ -17,44 +17,14 @@
 
   home.packages = with pkgs; [
     _1password
-    _1password-gui
-    bzip2
     cargo
     charles
-    cmake
     dogdns
-    emacs
-    fd
-    firefox
     gh
-    git-lfs
-    glibc
-    glibcLocales
-    gnupg
     grepcidr
-    jq
-    kubectl
     lazygit
-    moreutils
-    ncat
-    ncdu
-    ncurses
-    nmap
-    nodejs
-    openssl
-    pv
-    readline
-    ripgrep
-    screen
-    shellcheck
-    starship
-    stow
     terraform_0_14
-    tig
-    tmux
-    vim
     xxd
-    zlib
   ];
 
 }

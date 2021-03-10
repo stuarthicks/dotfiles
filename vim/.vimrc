@@ -10,7 +10,7 @@ syntax enable
 
 " set termguicolors
 set background=dark
-colorscheme horizon
+colorscheme default
 highlight Normal guibg=NONE ctermbg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
