@@ -153,7 +153,9 @@ path=(
   "$HOME/bin"
   "$HOME/.local/bin"
   "$HOME/go/bin"
+  "$HOME/.cargo/bin"
   /usr/local/go/bin
+  /home/linuxbrew/.linuxbrew/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
