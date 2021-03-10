@@ -147,16 +147,12 @@ nodenv-init() {
   eval "$(nodenv init -)"
 }
 
-test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/bin"
   "$HOME/.local/bin"
-  "$HOME/.nix-profile/bin"
   "$HOME/go/bin"
-  /nix/var/nix/profiles/default/bin
-  /run/current-system/sw/bin
   /usr/local/go/bin
   /usr/local/bin
   /usr/local/sbin
