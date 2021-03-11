@@ -156,6 +156,7 @@ path=(
   "$HOME/.cargo/bin"
   /usr/local/go/bin
   /home/linuxbrew/.linuxbrew/bin
+  /home/linuxbrew/.linuxbrew/sbin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
