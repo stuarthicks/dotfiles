@@ -147,6 +147,13 @@ nodenv-init() {
   eval "$(nodenv init -)"
 }
 
+sdk-init() {
+  export SDKMAN_DIR="$HOME/.sdkman"
+  sdk_sh="$SDKMAN_DIR/bin/sdkman-init.sh"
+  test -s "$sdk_sh" || curl -s "https://get.sdkman.io" | bash
+  source "$sdk_sh"
+}
+
 test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
