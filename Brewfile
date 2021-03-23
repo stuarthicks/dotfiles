@@ -1,4 +1,3 @@
-tap 'homebrew/cask'
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 
 uname = `uname`
@@ -16,6 +15,7 @@ if uname.chomp.eql?('Darwin')
   brew 'tig'
   brew 'tmux'
 
+  tap 'homebrew/cask'
   cask '1password-cli'
   cask 'appcleaner'
   cask 'daisydisk'
