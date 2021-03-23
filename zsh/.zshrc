@@ -48,13 +48,6 @@ export TZ="Europe/London"
 export EDITOR="vim"
 export VISUAL="vim"
 
-devkitpro() {
-  export DEVKITPRO=/opt/devkitpro
-  export DEVKITARM=${DEVKITPRO}/devkitARM
-  export DEVKITPPC=${DEVKITPRO}/devkitPPC
-  export PATH=${DEVKITPRO}/tools/bin:$PATH
-}
-
 export GPG_TTY="$(tty)"
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
@@ -152,6 +145,14 @@ sdk-init() {
   sdk_sh="$SDKMAN_DIR/bin/sdkman-init.sh"
   test -s "$sdk_sh" || curl -s "https://get.sdkman.io" | bash
   source "$sdk_sh"
+}
+
+devkitpro-init() {
+  # https://github.com/devkitPro/pacman/releases
+  export DEVKITPRO=/opt/devkitpro
+  export DEVKITARM=${DEVKITPRO}/devkitARM
+  export DEVKITPPC=${DEVKITPRO}/devkitPPC
+  export PATH=${DEVKITPRO}/tools/bin:$PATH
 }
 
 test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"

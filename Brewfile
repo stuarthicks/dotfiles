@@ -26,6 +26,7 @@ if uname.chomp.eql?('Darwin')
   cask 'sdformatter'
   cask 'signal'
   cask 'transmit'
+  cask 'visual-studio-code'
 end
 
 brew 'direnv'
