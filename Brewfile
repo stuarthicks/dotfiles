@@ -29,6 +29,9 @@ if uname.chomp.eql?('Darwin')
   cask 'visual-studio-code'
 end
 
+tap 'homebrew/cask-fonts'
+cask 'font-go-mono-nerd-font'
+
 brew 'direnv'
 brew 'dog'
 brew 'gh'
