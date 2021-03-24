@@ -27,10 +27,10 @@ if uname.chomp.eql?('Darwin')
   cask 'signal'
   cask 'transmit'
   cask 'visual-studio-code'
-end
 
-tap 'homebrew/cask-fonts'
-cask 'font-go-mono-nerd-font'
+  tap 'homebrew/cask-fonts'
+  cask 'font-go-mono-nerd-font'
+end
 
 brew 'direnv'
 brew 'dog'
