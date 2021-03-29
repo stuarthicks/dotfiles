@@ -32,6 +32,7 @@
     gnupg
     go
     grepcidr
+    jetbrains.idea-ultimate
     jq
     kubectl
     lazygit
