@@ -160,10 +160,19 @@ devkitpro-init() {
   export PATH=${DEVKITPRO}/tools/bin:$PATH
 }
 
+envrc-init() {
+  cp "$HOME/.dotfiles/misc/shell.nix" .
+  echo 'use nix' > .envrc
+  direnv allow .
+}
+
 NIX_SH="$HOME/.nix-profile/etc/profile.d/nix.sh"
 test -s "$NIX_SH" && source "$NIX_SH"
+
 HOME_MANAGER_VARS="$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 test -s "$HOME_MANAGER_VARS" && source "$HOME_MANAGER_VARS"
+
+eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/bin"
@@ -181,7 +190,6 @@ path=(
 )
 typeset -TUx PATH path
 
-test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
