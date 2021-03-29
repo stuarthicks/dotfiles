@@ -140,6 +140,11 @@ nodenv-init() {
   eval "$(nodenv init -)"
 }
 
+rust-init() {
+  test -d $HOME/.cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  source $HOME/.cargo/env
+}
+
 sdk-init() {
   export SDKMAN_DIR="$HOME/.sdkman"
   sdk_sh="$SDKMAN_DIR/bin/sdkman-init.sh"
@@ -155,16 +160,17 @@ devkitpro-init() {
   export PATH=${DEVKITPRO}/tools/bin:$PATH
 }
 
-test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
+NIX_SH="$HOME/.nix-profile/etc/profile.d/nix.sh"
+test -s "$NIX_SH" && source "$NIX_SH"
+HOME_MANAGER_VARS="$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+test -s "$HOME_MANAGER_VARS" && source "$HOME_MANAGER_VARS"
 
 path=(
   "$HOME/bin"
-  "$HOME/.local/bin"
   "$HOME/go/bin"
-  "$HOME/.cargo/bin"
-  /usr/local/go/bin
-  /home/linuxbrew/.linuxbrew/bin
-  /home/linuxbrew/.linuxbrew/sbin
+  "$HOME/.nix-profile/bin"
+  /nix/var/nix/profiles/default/bin
+  /run/current-system/sw/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
@@ -174,6 +180,8 @@ path=(
   $path
 )
 typeset -TUx PATH path
+
+test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
