@@ -42,6 +42,7 @@
     nmap
     nodejs
     openssl
+    powershell
     pv
     readline
     ripgrep
