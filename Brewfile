@@ -15,24 +15,6 @@ if uname.chomp.eql?('Darwin')
   brew 'stow'
   brew 'tig'
   brew 'tmux'
-
-  tap 'homebrew/cask'
-  cask '1password-cli'
-  cask 'appcleaner'
-  cask 'daisydisk'
-  cask 'firefox'
-  cask 'google-chrome'
-  cask 'microsoft-edge'
-  cask 'microsoft-auto-update'
-  cask 'moonlight'
-  cask 'powershell'
-  cask 'sdformatter'
-  cask 'signal'
-  cask 'transmit'
-  cask 'visual-studio-code'
-
-  tap 'homebrew/cask-fonts'
-  cask 'font-go-mono-nerd-font'
 end
 
 brew 'direnv'

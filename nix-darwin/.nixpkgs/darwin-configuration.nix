@@ -25,7 +25,7 @@
     nodejs
     openssl
     p7zip
-    powershell
+    # powershell
     pv
     reattach-to-user-namespace
     ripgrep
@@ -33,6 +33,7 @@
     starship
     terraform
     tig
+    stow
     tmux
     vim
   ];
