@@ -172,7 +172,7 @@ test -s "$NIX_SH" && source "$NIX_SH"
 HOME_MANAGER_VARS="$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 test -s "$HOME_MANAGER_VARS" && source "$HOME_MANAGER_VARS"
 
-eval "$(direnv hook zsh)"
+test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/bin"
