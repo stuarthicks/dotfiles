@@ -140,6 +140,7 @@ path=(
   "$HOME/.pyenv/bin"
   "$HOME/.nodenv/bin"
   "$DEVKITPRO/tools/bin"
+  /usr/local/go/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
