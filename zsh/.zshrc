@@ -122,64 +122,24 @@ op_signin() {
   fi
 }
 
-rbenv-init() {
-  test -d $HOME/.rbenv || install_rbenv
-  export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
-}
-
-pyenv-init() {
-  test -d $HOME/.pyenv || install_pyenv
-  export PATH=$HOME/.pyenv/bin:$PATH
-  eval "$(pyenv init -)"
-}
-
-nodenv-init() {
-  test -d $HOME/.nodenv || install_nodenv
-  export PATH=$HOME/.nodenv/bin:$PATH
-  eval "$(nodenv init -)"
-}
-
-rust-init() {
-  test -d $HOME/.cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  source $HOME/.cargo/env
-}
-
-sdk-init() {
-  export SDKMAN_DIR="$HOME/.sdkman"
-  sdk_sh="$SDKMAN_DIR/bin/sdkman-init.sh"
-  test -s "$sdk_sh" || curl -s "https://get.sdkman.io" | bash
-  source "$sdk_sh"
-}
-
-devkitpro-init() {
-  # https://github.com/devkitPro/pacman/releases
-  export DEVKITPRO=/opt/devkitpro
-  export DEVKITARM=${DEVKITPRO}/devkitARM
-  export DEVKITPPC=${DEVKITPRO}/devkitPPC
-  export PATH=${DEVKITPRO}/tools/bin:$PATH
-}
-
 envrc-init() {
   cp "$HOME/.dotfiles/misc/shell.nix" .
   echo 'use nix' > .envrc
   direnv allow .
 }
 
-NIX_SH="$HOME/.nix-profile/etc/profile.d/nix.sh"
-test -s "$NIX_SH" && source "$NIX_SH"
-
-HOME_MANAGER_VARS="$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-test -s "$HOME_MANAGER_VARS" && source "$HOME_MANAGER_VARS"
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
 test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
-  "$HOME/bin"
   "$HOME/go/bin"
-  "$HOME/.nix-profile/bin"
-  /nix/var/nix/profiles/default/bin
-  /run/current-system/sw/bin
+  "$HOME/.rbenv/bin"
+  "$HOME/.pyenv/bin"
+  "$HOME/.nodenv/bin"
+  "$DEVKITPRO/tools/bin"
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
@@ -188,8 +148,20 @@ path=(
   /sbin
   $path
 )
+
 typeset -TUx PATH path
 
+test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export SDKMAN_DIR="$HOME/.sdkman"
+source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+eval "$(nodenv init -)"
+source $HOME/.cargo/env
+
+export PATH="$HOME/bin:$PATH"
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
