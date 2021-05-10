@@ -132,7 +132,6 @@ export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
-test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/go/bin"
@@ -165,6 +164,8 @@ source $HOME/.cargo/env
 export PATH="$HOME/bin:$PATH"
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
+
+eval "$(direnv hook zsh)"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
