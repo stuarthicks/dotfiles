@@ -122,12 +122,6 @@ op_signin() {
   fi
 }
 
-envrc-init() {
-  cp "$HOME/.dotfiles/misc/shell.nix" .
-  echo 'use nix' > .envrc
-  direnv allow .
-}
-
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
@@ -167,7 +161,4 @@ test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
-unset RPS1
-if command -v starship > /dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
