@@ -147,19 +147,23 @@ typeset -TUx PATH path
 
 test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export SDKMAN_DIR="$HOME/.sdkman"
-source "$SDKMAN_DIR/bin/sdkman-init.sh"
+use-sdkman() {
+  export SDKMAN_DIR="$HOME/.sdkman"
+  source "$SDKMAN_DIR/bin/sdkman-init.sh"
+}
 
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-eval "$(nodenv init -)"
+eval "$(rbenv init --no-rehash - zsh)"
+eval "$(pyenv init --no-rehash - zsh)"
+eval "$(nodenv init --no-rehash - zsh)"
 source $HOME/.cargo/env
 
 export PATH="$HOME/bin:$PATH"
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
-eval "$(direnv hook zsh)"
+use-direnv() {
+  eval "$(direnv hook zsh)"
+}
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
