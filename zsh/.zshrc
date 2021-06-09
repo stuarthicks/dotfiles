@@ -128,13 +128,7 @@ export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
-
 path=(
-  "$HOME/go/bin"
-  "$HOME/.rbenv/bin"
-  "$HOME/.pyenv/bin"
-  "$HOME/.nodenv/bin"
-  "$DEVKITPRO/tools/bin"
   /usr/local/go/bin
   /usr/local/bin
   /usr/local/sbin
@@ -145,27 +139,32 @@ path=(
   $path
 )
 
+test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+test -s "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" && . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+eval "$(direnv hook zsh)"
+
+path=(
+  "$HOME/go/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.rbenv/shims"
+  "$HOME/.rbenv/bin"
+  "$HOME/.pyenv/shims"
+  "$HOME/.pyenv/bin"
+  "$HOME/.nodenv/shims"
+  "$HOME/.nodenv/bin"
+  "$DEVKITPRO/tools/bin"
+  $path
+)
+
 typeset -TUx PATH path
 
-test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-. /home/stuart/.nix-profile/etc/profile.d/nix.sh
-
-use-sdkman() {
-  export SDKMAN_DIR="$HOME/.sdkman"
-  source "$SDKMAN_DIR/bin/sdkman-init.sh"
-}
-
-eval "$(rbenv init --no-rehash - zsh)"
-eval "$(pyenv init --no-rehash - zsh)"
-eval "$(nodenv init --no-rehash - zsh)"
-source $HOME/.cargo/env
-
+test -s "$HOME/.homerc" && source "$HOME/.homerc"
 export PATH="$HOME/bin:$PATH"
 
-test -s "$HOME/.homerc" && source "$HOME/.homerc"
-
-use-direnv() {
-  eval "$(direnv hook zsh)"
+sdkman() {
+  export SDKMAN_DIR="$HOME/.sdkman"
+  source "$SDKMAN_DIR/bin/sdkman-init.sh"
 }
 
 KEYTIMEOUT=1
