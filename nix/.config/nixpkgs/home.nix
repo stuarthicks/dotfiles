@@ -11,6 +11,8 @@
     enableNixDirenvIntegration = true;
   };
 
+  services.lorri.enable = true;
+
   nixpkgs.config = {
     allowUnfree = true;
   };
