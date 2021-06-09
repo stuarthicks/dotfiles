@@ -50,6 +50,8 @@ export VISUAL="vim"
 
 export GPG_TTY="$(tty)"
 
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 alias macos-ntp-sync'sudo sntp -sS time.apple.com'
@@ -146,6 +148,7 @@ path=(
 typeset -TUx PATH path
 
 test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+. /home/stuart/.nix-profile/etc/profile.d/nix.sh
 
 use-sdkman() {
   export SDKMAN_DIR="$HOME/.sdkman"
