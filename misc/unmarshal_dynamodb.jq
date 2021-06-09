@@ -1,30 +1,30 @@
 def unmarshal_dynamodb:
   # DynamoDB string type
-  (objects | .s)
+  (objects | .S)
 
   # DynamoDB blob type
-  // (objects | .b)
+  // (objects | .B)
 
   # DynamoDB number type
-  // (objects | .n | strings | tonumber)
+  // (objects | .N | strings | tonumber)
 
   # DynamoDB boolean type
-  // (objects | .bOOL)
+  // (objects | .BOOL)
 
   # DynamoDB map type, recursion on each item
-  // (objects | .m | objects | with_entries(.value |= unmarshal_dynamodb))
+  // (objects | .M | objects | with_entries(.value |= unmarshal_dynamodb))
 
   # DynamoDB list type, recursion on each item
-  // (objects | .l | arrays | map(unmarshal_dynamodb))
+  // (objects | .L | arrays | map(unmarshal_dynamodb))
 
   # DynamoDB typed list type SS, string set
-  // (objects | .sS | arrays | map(unmarshal_dynamodb))
+  // (objects | .SS | arrays | map(unmarshal_dynamodb))
 
   # DynamoDB typed list type NS, number set
-  // (objects | .nS | arrays | map(tonumber))
+  // (objects | .NS | arrays | map(tonumber))
 
   # DynamoDB typed list type BS, blob set
-  // (objects | .bS | arrays | map(unmarshal_dynamodb))
+  // (objects | .BS | arrays | map(unmarshal_dynamodb))
 
   # managing others DynamoDB output entries: "Count", "Items", "ScannedCount" and "ConsumedCapcity"
   // (objects | with_entries(.value |= unmarshal_dynamodb))
