@@ -1,0 +1,2 @@
+#!/bin/sh
+nix-channel --update && nix-env -u && nix-rebuild

@@ -19,35 +19,24 @@
 
   home.packages = with pkgs; [
     _1password
-    _1password-gui
-    bzip2
     cargo
-    charles
     cmake
     dogdns
     fd
-    firefox
     gh
     git-lfs
     glibc
     glibcLocales
-    gnupg
     go
     grepcidr
-    jetbrains.idea-ultimate
     jq
     kubectl
-    lazygit
-    moreutils
     ncat
     ncdu
-    ncurses
-    nmap
-    nodejs
+    nix-tree
     openssl
     powershell
     pv
-    readline
     ripgrep
     screen
     shellcheck
