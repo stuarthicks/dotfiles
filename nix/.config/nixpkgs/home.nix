@@ -8,7 +8,7 @@
 
   programs.direnv = {
     enable = true;
-    enableNixDirenvIntegration = true;
+    nix-direnv.enable = true;
   };
 
   services.lorri.enable = true;
@@ -42,7 +42,7 @@
     shellcheck
     starship
     stow
-    terraform_0_15
+    terraform_1_0_0
     tig
     tmux
     vim
