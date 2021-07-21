@@ -1,6 +1,9 @@
 ttyctl -f
 bindkey -e
 
+export ASDF_DIR=$HOME/.asdf
+fpath=(${ASDF_DIR}/completions $fpath)
+
 autoload -Uz colors   && colors
 autoload -Uz compinit && compinit
 zmodload zsh/complist
@@ -64,6 +67,7 @@ htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
 urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
 urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))"; }
+unicodedecode() { python3 -c "import sys, codecs; print(codecs.decode(sys.stdin.read(), 'unicode-escape'))"; }
 range2cidr() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; }
 cidr2range() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; }
 
@@ -129,7 +133,6 @@ export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
 path=(
-  /usr/local/go/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
@@ -140,32 +143,20 @@ path=(
 )
 
 test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-test -s "$HOME/.nix-profile/etc/profile.d/nix.sh" && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-test -s "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" && . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/go/bin"
-  "$HOME/.cargo/bin"
-  "$HOME/.rbenv/shims"
-  "$HOME/.rbenv/bin"
-  "$HOME/.pyenv/shims"
-  "$HOME/.pyenv/bin"
-  "$HOME/.nodenv/shims"
-  "$HOME/.nodenv/bin"
   "$DEVKITPRO/tools/bin"
   $path
 )
+
+. $ASDF_DIR/asdf.sh
 
 typeset -TUx PATH path
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 export PATH="$HOME/bin:$PATH"
-
-sdkman() {
-  export SDKMAN_DIR="$HOME/.sdkman"
-  source "$SDKMAN_DIR/bin/sdkman-init.sh"
-}
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
