@@ -156,12 +156,31 @@ path=(
   $path
 )
 
+export ASDF_DIR=$HOME/.asdf
 . $ASDF_DIR/asdf.sh
 
 typeset -TUx PATH path
 
-test -s "$HOME/.homerc" && source "$HOME/.homerc"
 export PATH="$HOME/bin:$PATH"
+
+if brew -h > /dev/null 2>&1; then
+  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+fi
+
+fpath=("${ASDF_DIR}/completions" $fpath)
+
+autoload -Uz colors   && colors
+autoload -Uz compinit && compinit
+zmodload zsh/complist
+
+autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
+autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
+
+autoload -Uz  edit-command-line
+zle      -N   edit-command-line
+bindkey '\ee' edit-command-line
+
+test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
