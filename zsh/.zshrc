@@ -185,3 +185,4 @@ test -s "$HOME/.homerc" && source "$HOME/.homerc"
 KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
 eval "$(starship init zsh)"
+unset RPS1
