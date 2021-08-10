@@ -20,12 +20,13 @@
     jq
     kubectl
     lazygit
+    lorri
     mediainfo
     mtr
     nodejs
     openssl
     p7zip
-    # powershell
+    powershell
     pv
     reattach-to-user-namespace
     ripgrep

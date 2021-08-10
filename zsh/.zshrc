@@ -1,6 +1,10 @@
 ttyctl -f
 bindkey -e
 
+if [ -e /etc/static/zshrc ]; then
+  . /etc/static/zshrc
+fi
+
 export ASDF_DIR=$HOME/.asdf
 fpath=(${ASDF_DIR}/completions $fpath)
 
@@ -143,6 +147,7 @@ path=(
 )
 
 test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -e /Users/stuart/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/stuart/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 eval "$(direnv hook zsh)"
 
 path=(
