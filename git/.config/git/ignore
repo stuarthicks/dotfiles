@@ -47,7 +47,7 @@ vim-go-test-compile
 .python-version
 .node-version
 
-sk.json
+*.sk.json
 shell.nix
 .envrc
 result
