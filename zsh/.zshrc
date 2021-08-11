@@ -132,7 +132,7 @@ op_signin() {
   fi
 }
 
-nix-direnv-init() {
+nix-dir() {
   if [ ! -e shell.nix ]; then
     ln -s $HOME/.dotfiles/misc/shell.nix
   fi
