@@ -20,7 +20,6 @@
     jq
     kubectl
     lazygit
-    lorri
     mediainfo
     mtr
     nodejs
