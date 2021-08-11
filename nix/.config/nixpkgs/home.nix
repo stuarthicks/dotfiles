@@ -3,7 +3,6 @@
   home.language.base = "en_GB.UTF-8";
 
   programs.home-manager.enable = true;
-  services.lorri.enable = true;
 
   programs.direnv = {
     enable = true;

@@ -2,6 +2,9 @@
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
-    hello
+    git
+    go
+    gnumake
+    ruby
   ];
 }

@@ -132,6 +132,18 @@ op_signin() {
   fi
 }
 
+nix-direnv-init() {
+  if [ ! -e shell.nix ]; then
+    ln -s $HOME/.dotfiles/misc/shell.nix
+  fi
+  if [ ! -e .envrc ]; then
+    echo 'use nix' > .envrc
+    direnv allow
+  else
+    grep '^use nix$' .envrc || echo 'use nix' >> .envrc
+  fi
+}
+
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
