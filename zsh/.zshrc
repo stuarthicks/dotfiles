@@ -134,7 +134,7 @@ op_signin() {
 
 nix-dir() {
   if [ ! -e shell.nix ]; then
-    ln -s $HOME/.dotfiles/misc/shell.nix
+    cp $HOME/.dotfiles/misc/shell.nix .
   fi
   if [ ! -e .envrc ]; then
     echo 'use nix' > .envrc
