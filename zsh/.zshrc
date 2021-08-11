@@ -146,8 +146,18 @@ path=(
   $path
 )
 
-test -x /home/linuxbrew/.linuxbrew/bin/brew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-if [ -e /Users/stuart/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/stuart/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/stuart/.nix-profile/etc/profile.d/nix.sh
+fi
+
+if [ -e $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+  . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi
+
 eval "$(direnv hook zsh)"
 
 path=(
@@ -186,3 +196,4 @@ KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
 eval "$(starship init zsh)"
 unset RPS1
+
