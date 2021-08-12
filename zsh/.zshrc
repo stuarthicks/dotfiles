@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 ttyctl -f
 bindkey -e
 
@@ -5,12 +7,8 @@ if [ -e /etc/static/zshrc ]; then
   . /etc/static/zshrc
 fi
 
-export ASDF_DIR=$HOME/.asdf
-fpath=(${ASDF_DIR}/completions $fpath)
 
 autoload -Uz colors   && colors
-autoload -Uz compinit && compinit
-zmodload zsh/complist
 
 autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
 autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
@@ -189,6 +187,7 @@ if brew -h > /dev/null 2>&1; then
   fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
 fi
 
+export ASDF_DIR=$HOME/.asdf
 fpath=("${ASDF_DIR}/completions" $fpath)
 
 autoload -Uz colors   && colors
@@ -209,3 +208,4 @@ PROMPT="%{$fg[red]%}#%{$reset_color%} "
 eval "$(starship init zsh)"
 unset RPS1
 
+# zprof
