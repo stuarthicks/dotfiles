@@ -9,6 +9,26 @@
     nix-direnv.enable = true;
   };
 
+  programs.gh = {
+    enable = true;
+    aliases = {
+      draft = "pr create --draft";
+    };
+  };
+
+  programs.go = {
+    enable = true;
+    goPrivate = [
+      "github.com/zencoder/*"
+      "github.com/brightcove/*"
+      "bithub.brightcove.com/*"
+    ];
+    packages = {
+      "github.com/maruel/panicparse" = builtins.fetchGit("https://github.com/maruel/panicparse");
+      "github.com/ryboe/q" = builtins.fetchGit("https://github.com/ryboe/q");
+    };
+  };
+
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -16,14 +36,11 @@
   home.packages = with pkgs; [
     _1password
     cargo
-    cmake
     dogdns
     fd
-    gh
     git-lfs
     glibc
     glibcLocales
-    go
     grepcidr
     jq
     ncat
