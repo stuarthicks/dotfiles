@@ -156,9 +156,22 @@ path=(
   $path
 )
 
-if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+# `brew shellenv`, but without exec'ing ruby on every new shell
+case $(uname); in
+  Darwin)
+    export HOMEBREW_PREFIX="/usr/local";
+    export HOMEBREW_CELLAR="/usr/local/Cellar";
+    export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
+    export HOMEBREW_SHELLENV_PREFIX="/usr/local";
+    export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}";
+    export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:";
+    export INFOPATH="/usr/local/share/info:${INFOPATH:-}";
+    ;;
+  Linux)
+    # TODO
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    ;;
+esac
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
   . $HOME/.nix-profile/etc/profile.d/nix.sh
@@ -184,7 +197,7 @@ typeset -TUx PATH path
 export PATH="$HOME/bin:$PATH"
 
 if brew -h > /dev/null 2>&1; then
-  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+  fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
 fi
 
 export ASDF_DIR=$HOME/.asdf
