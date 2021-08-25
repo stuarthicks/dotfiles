@@ -43,6 +43,7 @@
     glibcLocales
     grepcidr
     jq
+    miller
     ncat
     ncdu
     openssl

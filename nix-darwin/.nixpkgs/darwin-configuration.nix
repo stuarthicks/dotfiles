@@ -21,6 +21,7 @@
     kubectl
     lazygit
     mediainfo
+    miller
     mtr
     nodejs
     openssl
