@@ -49,6 +49,7 @@
     openssl
     powershell
     pv
+    rdfind
     ripgrep
     screen
     shellcheck
