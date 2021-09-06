@@ -58,6 +58,7 @@
     tig
     tmux
     vim
+    xsv
     xxd
     zlib
   ];
