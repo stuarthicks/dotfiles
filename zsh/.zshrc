@@ -185,6 +185,7 @@ eval "$(direnv hook zsh)"
 
 path=(
   "$HOME/go/bin"
+  "$HOME/.node_modules/bin"
   "$DEVKITPRO/tools/bin"
   $path
 )

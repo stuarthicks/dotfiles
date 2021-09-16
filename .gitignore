@@ -12,3 +12,6 @@ bin/
 Brewfile.lock.json
 
 cargo/.cargo/
+
+git/.config/configstore/
+git/.config/gh/

@@ -9,7 +9,6 @@
     coreutils-full
     direnv
     dogdns
-    ffmpeg-full
     gh
     git
     git-lfs
