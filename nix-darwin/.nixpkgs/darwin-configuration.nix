@@ -22,6 +22,7 @@
     mediainfo
     miller
     mtr
+    neovim
     nodejs
     openssl
     p7zip

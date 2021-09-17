@@ -1,18 +1,21 @@
-# zmodload zsh/zprof
-
+# Disable being able to suspend the terminal with ctrl-s.
 ttyctl -f
+
+# Default keybindings to "emacs" style (same as default bash/readline).
 bindkey -e
 
+# If nixpkgs is installed, source the global nix config.
 if [ -e /etc/static/zshrc ]; then
   . /etc/static/zshrc
 fi
 
+autoload -Uz colors && colors
 
-autoload -Uz colors   && colors
-
+# Auto escape pasted urls correctly (ie, if pasted not within quotes).
 autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
 autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
 
+# Press meta-e to open current command prompt in EDITOR. Save and quit to execute buffer.
 autoload -Uz  edit-command-line
 zle      -N   edit-command-line
 bindkey '\ee' edit-command-line
@@ -24,25 +27,23 @@ HISTFILE=~/.zhistory
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
+setopt hist_fcntl_lock
+setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
 setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-setopt AUTO_PUSHD
-setopt HIST_FCNTL_LOCK
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_NO_STORE
-setopt HIST_REDUCE_BLANKS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_VERIFY
-setopt NO_CLOBBER
-setopt PRINT_EXIT_VALUE
-setopt PUSHD_MINUS
-setopt PUSHD_SILENT
-setopt PUSHD_TO_HOME
+setopt auto_pushd
+setopt no_clobber
+setopt print_exit_value
+setopt pushd_minus
+setopt pushd_silent
+setopt pushd_to_home
 
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
@@ -55,7 +56,13 @@ export VISUAL="vim"
 
 export GPG_TTY="$(tty)"
 
+export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
+export GOPATH=$HOME/code/go
+export GONOPROXY='*'
+export GONOSUMDB='*'
+export GOPRIVATE='*'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
@@ -64,6 +71,7 @@ alias macos-netstat='sudo lsof -PiTCP -sTCP:LISTEN'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 path() { echo $PATH | tr : $'\n'; }
+fpath() { echo $FPATH | tr : $'\n'; }
 
 htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
 htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
@@ -191,8 +199,11 @@ path=(
 )
 
 export ASDF_DIR=$HOME/.asdf
-. $ASDF_DIR/asdf.sh
+if [ -e "$ASDF_DIR/asdf.sh" ]; then
+  . "$ASDF_DIR/asdf.sh"
+fi
 
+# Remove path entries that are either duplicates or don't exist
 typeset -TUx PATH path
 
 export PATH="$HOME/bin:$PATH"
@@ -201,19 +212,11 @@ if brew -h > /dev/null 2>&1; then
   fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
 fi
 
-export ASDF_DIR=$HOME/.asdf
 fpath=("${ASDF_DIR}/completions" $fpath)
+typeset -TUx FPATH fpath
 
-autoload -Uz colors   && colors
 autoload -Uz compinit && compinit
 zmodload zsh/complist
-
-autoload -Uz url-quote-magic       && zle -N self-insert url-quote-magic
-autoload -Uz bracketed-paste-magic && zle -N bracketed-paste bracketed-paste-magic
-
-autoload -Uz  edit-command-line
-zle      -N   edit-command-line
-bindkey '\ee' edit-command-line
 
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
@@ -221,5 +224,3 @@ KEYTIMEOUT=1
 PROMPT="%{$fg[red]%}#%{$reset_color%} "
 eval "$(starship init zsh)"
 unset RPS1
-
-# zprof
