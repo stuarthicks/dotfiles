@@ -167,7 +167,7 @@ path=(
   "$HOME/bin"
   "$ASDF_BIN"
   "$ASDF_USER_SHIMS"
-  "$HOME/go/bin"
+  "$GOPATH/bin"
   "$HOME/.node_modules/bin"
   "$DEVKITPRO/tools/bin"
   "$HOMEBREW_PREFIX/bin"
