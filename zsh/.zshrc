@@ -141,6 +141,9 @@ export DEVKITPPC=${DEVKITPRO}/devkitPPC
 case $(uname); in
   Darwin)
     export HOMEBREW_PREFIX="/usr/local";
+    if [ "$(uname -m)" = 'arm64' ]; then
+      export HOMEBREW_PREFIX="/opt/homebrew";
+    fi
     ;;
   Linux)
     export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
@@ -157,7 +160,6 @@ export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}/"
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
 export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
-
 
 export ASDF_DIR="$HOME/.asdf"
 export ASDF_BIN="$ASDF_DIR/bin"
