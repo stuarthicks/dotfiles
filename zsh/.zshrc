@@ -4,11 +4,6 @@ ttyctl -f
 # Default keybindings to "emacs" style (same as default bash/readline).
 bindkey -e
 
-# If nixpkgs is installed, source the global nix config.
-if [ -e /etc/static/zshrc ]; then
-  . /etc/static/zshrc
-fi
-
 autoload -Uz colors && colors
 
 # Auto escape pasted urls correctly (ie, if pasted not within quotes).
@@ -70,16 +65,17 @@ alias macos-ntp-sync'sudo sntp -sS time.apple.com'
 alias macos-netstat='sudo lsof -PiTCP -sTCP:LISTEN'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
-path() { echo $PATH | tr : $'\n'; }
-fpath() { echo $FPATH | tr : $'\n'; }
-
-htmldecode() { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; }
-htmlencode() { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; }
-urldecode() { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))"; }
-urlencode() { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))"; }
+path()          { echo $PATH | tr : $'\n';                                                                   }
+fpath()         { echo $FPATH | tr : $'\n';                                                                  }
+infopath()      { echo $INFOPATH | tr : $'\n';                                                               }
+manpath()       { echo $MANPATH | tr : $'\n';                                                                }
+htmldecode()    { python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")';              }
+htmlencode()    { python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")';                }
+urldecode()     { python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))";      }
+urlencode()     { python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))";        }
 unicodedecode() { python3 -c "import sys, codecs; print(codecs.decode(sys.stdin.read(), 'unicode-escape'))"; }
-range2cidr() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; }
-cidr2range() { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; }
+range2cidr()    { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";';        }
+cidr2range()    { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";';        }
 
 aws-region() {
   region=${1:-us-east-1}
@@ -138,23 +134,44 @@ op_signin() {
   fi
 }
 
-nix-dir() {
-  if [ ! -e shell.nix ]; then
-    cp $HOME/.dotfiles/misc/shell.nix .
-  fi
-  if [ ! -e .envrc ]; then
-    echo 'use nix' > .envrc
-    direnv allow
-  else
-    grep '^use nix$' .envrc || echo 'use nix' >> .envrc
-  fi
-}
-
 export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
+case $(uname); in
+  Darwin)
+    export HOMEBREW_PREFIX="/usr/local";
+    ;;
+  Linux)
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+    ;;
+  *)
+    export HOMEBREW_PREFIX="$HOME/.brew_not_installed"
+    ;;
+esac
+
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
+export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew";
+export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}/"
+export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
+export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
+
+
+export ASDF_DIR="$HOME/.asdf"
+export ASDF_BIN="$ASDF_DIR/bin"
+export ASDF_USER_SHIMS="$ASDF_DIR/shims"
+
 path=(
+  "$HOME/bin"
+  "$ASDF_BIN"
+  "$ASDF_USER_SHIMS"
+  "$HOME/go/bin"
+  "$HOME/.node_modules/bin"
+  "$DEVKITPRO/tools/bin"
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/sbin"
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
@@ -164,56 +181,17 @@ path=(
   $path
 )
 
-# `brew shellenv`, but without exec'ing ruby on every new shell
-case $(uname); in
-  Darwin)
-    export HOMEBREW_PREFIX="/usr/local";
-    export HOMEBREW_CELLAR="/usr/local/Cellar";
-    export HOMEBREW_REPOSITORY="/usr/local/Homebrew";
-    export HOMEBREW_SHELLENV_PREFIX="/usr/local";
-    export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}";
-    export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:";
-    export INFOPATH="/usr/local/share/info:${INFOPATH:-}";
-    ;;
-  Linux)
-    # TODO
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    ;;
-esac
-
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-  . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
-if [ -e $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
-  . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-fi
-
-eval "$(direnv hook zsh)"
-
-path=(
-  "$HOME/go/bin"
-  "$HOME/.node_modules/bin"
-  "$DEVKITPRO/tools/bin"
-  $path
-)
-
-export ASDF_DIR=$HOME/.asdf
-if [ -e "$ASDF_DIR/asdf.sh" ]; then
-  . "$ASDF_DIR/asdf.sh"
-fi
-
 # Remove path entries that are either duplicates or don't exist
 typeset -TUx PATH path
 
-export PATH="$HOME/bin:$PATH"
-
-if brew -h > /dev/null 2>&1; then
-  fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
-fi
-
+# Add brew and asdf fpath entries for shell completion of tooling installed that way
+fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
 fpath=("${ASDF_DIR}/completions" $fpath)
 typeset -TUx FPATH fpath
+
+eval "$(direnv hook zsh)"
+
+test -e "$ASDF_DIR/lib/asdf.sh" && . "$ASDF_DIR/lib/asdf.sh"
 
 autoload -Uz compinit && compinit
 zmodload zsh/complist
