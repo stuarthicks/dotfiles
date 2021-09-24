@@ -9,6 +9,8 @@ if uname.chomp.eql?('Darwin')
   brew 'grepcidr'
 end
 
+brew 'dog'
 brew 'git-lfs'
 brew 'kubectl'
+brew 'lazygit'
 brew 'terraform'
