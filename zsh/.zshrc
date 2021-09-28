@@ -164,6 +164,7 @@ export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 export ASDF_DIR="$HOME/.asdf"
 export ASDF_BIN="$ASDF_DIR/bin"
 export ASDF_USER_SHIMS="$ASDF_DIR/shims"
+export GEM_HOME="$HOME/.gems"
 
 path=(
   "$HOME/bin"
