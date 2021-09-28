@@ -12,6 +12,8 @@ if uname.chomp.eql?('Darwin')
   brew 'stow'
 end
 
+brew 'dog'
 brew 'git-lfs'
 brew 'kubectl'
+brew 'lazygit'
 brew 'terraform'
