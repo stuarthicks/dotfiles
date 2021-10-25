@@ -12,9 +12,10 @@ if uname.chomp.eql?('Darwin')
   brew 'go'
   brew 'neovim'
   brew 'node'
-  brew 'rust'
+  brew 'rustup-init'
   brew 'starship'
   brew 'stow'
+  brew 'tmux'
 end
 
 brew 'dog'
