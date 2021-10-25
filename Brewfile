@@ -7,10 +7,12 @@ if uname.chomp.eql?('Darwin')
   cask 'git-credential-manager-core'
 
   brew 'direnv'
+  brew 'exa'
   brew 'git-lfs'
   brew 'go'
   brew 'neovim'
   brew 'node'
+  brew 'rust'
   brew 'starship'
   brew 'stow'
 end
