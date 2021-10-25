@@ -13,6 +13,7 @@ if uname.chomp.eql?('Darwin')
 end
 
 brew 'dog'
+brew 'gh'
 brew 'grepcidr'
 brew 'kubectl'
 brew 'lazygit'
