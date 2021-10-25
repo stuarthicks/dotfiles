@@ -8,6 +8,9 @@ if uname.chomp.eql?('Darwin')
 
   brew 'direnv'
   brew 'git-lfs'
+  brew 'go'
+  brew 'neovim'
+  brew 'node'
   brew 'starship'
   brew 'stow'
 end
