@@ -199,4 +199,5 @@ zmodload zsh/complist
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
 KEYTIMEOUT=1
-PROMPT="%{$fg[green]%}#%{$reset_color%} "
+PROMPT="
+%{$fg[green]%}#%{$reset_color%} "
