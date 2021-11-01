@@ -59,7 +59,7 @@ export GONOPROXY='*'
 export GONOSUMDB='*'
 export GOPRIVATE='*'
 
-alias k='exa --long --header --binary --time-style long-iso --group-directories-first --group --git'
+alias k='ls -lh'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
@@ -136,10 +136,6 @@ op_signin() {
   fi
 }
 
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=${DEVKITPRO}/devkitARM
-export DEVKITPPC=${DEVKITPRO}/devkitPPC
-
 case $(uname); in
   Darwin)
     export HOMEBREW_PREFIX="/usr/local";
@@ -163,18 +159,20 @@ export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
 export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
-export ASDF_DIR="$HOME/.asdf"
-export ASDF_BIN="$ASDF_DIR/bin"
-export ASDF_USER_SHIMS="$ASDF_DIR/shims"
 export GEM_HOME="$HOME/.gems"
+
+eval "$(~/.pyenv/bin/pyenv init - zsh)"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 path=(
   "$HOME/bin"
-  "$ASDF_BIN"
-  "$ASDF_USER_SHIMS"
-  "$GOPATH/bin"
+  "$HOME/.rbenv/bin"
+  "$HOME/.rbenv/shims"
+  "$HOME/.pyenv/bin"
+  "$HOME/.pyenv/shims"
   "$HOME/.node_modules/bin"
-  "$DEVKITPRO/tools/bin"
+  "$GOPATH/bin"
+  /usr/local/go/bin
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   /usr/local/bin
@@ -191,12 +189,9 @@ typeset -TUx PATH path
 
 # Add brew and asdf fpath entries for shell completion of tooling installed that way
 fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
-fpath=("${ASDF_DIR}/completions" $fpath)
 typeset -TUx FPATH fpath
 
 eval "$(direnv hook zsh)"
-
-test -e "$ASDF_DIR/lib/asdf.sh" && . "$ASDF_DIR/lib/asdf.sh"
 
 autoload -Uz compinit && compinit
 zmodload zsh/complist
@@ -204,6 +199,4 @@ zmodload zsh/complist
 test -s "$HOME/.homerc" && source "$HOME/.homerc"
 
 KEYTIMEOUT=1
-PROMPT="%{$fg[red]%}#%{$reset_color%} "
-eval "$(starship init zsh)"
-unset RPS1
+PROMPT="%{$fg[green]%}#%{$reset_color%} "
