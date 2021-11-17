@@ -17,10 +17,10 @@
 	process = git-lfs filter-process
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
-[url "git@github.com:"]
-  insteadOf = "https://github.com/"
-[url "git@bithub.brightcove.com:"]
-  insteadOf = "https://bithub.brightcove.com/"
+[url "https://github.com/"]
+  insteadOf = "git@github.com:"
+[url "https://bithub.brightcove.com/"]
+  insteadOf = "git@bithub.brightcove.com:"
 [alias]
 	abandon-ship = reset --hard HEAD^^
 	br = branch

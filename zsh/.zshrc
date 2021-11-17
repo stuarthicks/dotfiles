@@ -79,6 +79,18 @@ unicodedecode() { python3 -c "import sys, codecs; print(codecs.decode(sys.stdin.
 range2cidr()    { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";';        }
 cidr2range()    { perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";';        }
 
+nix-dir() {
+  if [ ! -e shell.nix ]; then
+    cp $HOME/.dotfiles/misc/shell.nix .
+  fi
+  if [ ! -e .envrc ]; then
+    echo 'use nix' > .envrc
+    direnv allow
+  else
+    grep '^use nix$' .envrc || echo 'use nix' >> .envrc
+  fi
+}
+
 aws-region() {
   region=${1:-us-east-1}
   export AWS_REGION=$region
@@ -161,20 +173,28 @@ export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
 export GEM_HOME="$HOME/.gems"
 
+if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+  . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+fi
+
 eval "$(~/.pyenv/bin/pyenv init - zsh)"
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 path=(
   "$HOME/bin"
+  "$HOME/.cargo/bin"
   "$HOME/.rbenv/bin"
   "$HOME/.rbenv/shims"
   "$HOME/.pyenv/bin"
   "$HOME/.pyenv/shims"
   "$HOME/.node_modules/bin"
   "$GOPATH/bin"
+  "$HOME/.nix-profile/bin"
   /usr/local/go/bin
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
+  /nix/var/nix/profiles/default/bin
+  /run/current-system/sw/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
@@ -201,3 +221,4 @@ test -s "$HOME/.homerc" && source "$HOME/.homerc"
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
+unset RPS1
