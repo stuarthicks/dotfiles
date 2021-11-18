@@ -39,6 +39,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     _1password
+    cmake
     coreutils-full
     direnv
     dogdns
@@ -64,6 +65,7 @@
     pv
     reattach-to-user-namespace
     ripgrep
+    rustup
     shellcheck
     starship
     stow
