@@ -46,8 +46,8 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
 export CLICOLOR="1"
 export TZ="Europe/London"
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 export GPG_TTY="$(tty)"
 
@@ -177,16 +177,11 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
   . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 fi
 
-eval "$(~/.pyenv/bin/pyenv init - zsh)"
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
-
 path=(
   "$HOME/bin"
   "$HOME/.cargo/bin"
   "$HOME/.rbenv/bin"
   "$HOME/.rbenv/shims"
-  "$HOME/.pyenv/bin"
-  "$HOME/.pyenv/shims"
   "$HOME/.node_modules/bin"
   "$GOPATH/bin"
   "$HOME/.nix-profile/bin"

@@ -72,8 +72,10 @@
     terraform
     tig
     tmux
+    universal-ctags
     vim
     wget
+    ydiff
     zsh
   ];
 
