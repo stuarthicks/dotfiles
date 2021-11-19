@@ -42,25 +42,27 @@
     cmake
     coreutils-full
     direnv
+    docker
     dogdns
     gh
     git
     git-lfs
     glide
     gnupg
-    go
     golangci-lint
     jq
     kubectl
     lazygit
     mediainfo
     miller
+    minikube
     mtr
     neovim
     nix-info
     nodejs
     openssl
     p7zip
+    podman
     powershell
     pv
     reattach-to-user-namespace
