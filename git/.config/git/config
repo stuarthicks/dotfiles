@@ -1,6 +1,9 @@
 [user]
 	name = Stuart Hicks
-  email = stuarthicks@users.noreply.github.com
+	email = stuarthicks@users.noreply.github.com
+	signingkey = 6B83367827C2D2A1B3412889ED99ADBF9E141390
+[commit]
+	gpgsign = true
 [core]
 	pager = less
 	symlinks = true
