@@ -63,8 +63,9 @@ alias k='ls -lh'
 
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias macos-dns-flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-alias macos-ntp-sync'sudo sntp -sS time.apple.com'
+alias macos-launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias macos-netstat='sudo lsof -PiTCP -sTCP:LISTEN'
+alias macos-ntp-sync'sudo sntp -sS time.apple.com'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 path()          { echo $PATH | tr : $'\n';                                                                   }
