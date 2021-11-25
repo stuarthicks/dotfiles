@@ -10,9 +10,4 @@ if uname.chomp.eql?('Darwin')
   brew 'openssl@1.1'
 end
 
-brew 'dog'
-brew 'gh'
 brew 'grepcidr'
-brew 'kubectl'
-brew 'lazygit'
-brew 'terraform'
