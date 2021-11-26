@@ -35,6 +35,10 @@ let g:mapleader = ' '
 let g:maplocalleader = ','
 
 set termguicolors
+if $TERM_PROGRAM == 'Apple_Terminal'
+  set notermguicolors
+endif
+
 set background=dark
 colorscheme horizon
 highlight Normal guibg=NONE ctermbg=NONE
