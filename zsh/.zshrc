@@ -181,8 +181,6 @@ fi
 path=(
   "$HOME/bin"
   "$HOME/.cargo/bin"
-  "$HOME/.rbenv/bin"
-  "$HOME/.rbenv/shims"
   "$HOME/.node_modules/bin"
   "$GOPATH/bin"
   "$HOME/.nix-profile/bin"
