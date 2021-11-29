@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+if [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+  curl -s "https://get.sdkman.io" | bash
+fi
+
+set +euo pipefail
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+exec zsh -l
