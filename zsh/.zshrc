@@ -55,6 +55,7 @@ export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 export GOPATH=$HOME/code/go
+export GOBIN=$HOME/.local/bin
 export GONOPROXY='*'
 export GONOSUMDB='*'
 export GOPRIVATE='*'
@@ -179,16 +180,12 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
 fi
 
 path=(
-  "$HOME/bin"
+  "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/.node_modules/bin"
-  "$GOPATH/bin"
-  "$HOME/.nix-profile/bin"
   /usr/local/go/bin
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  /nix/var/nix/profiles/default/bin
-  /run/current-system/sw/bin
   /usr/local/bin
   /usr/local/sbin
   /usr/bin
