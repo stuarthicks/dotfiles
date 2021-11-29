@@ -1,5 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 set -e
+
+if [ -x ~/.rbenv/bin/rbenv ]; then
+  export PATH=~/.rbenv/bin:~/.rbenv/shims:$PATH
+  eval "$(rbenv init zsh -)"
+  exec zsh -l
+fi
 
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 

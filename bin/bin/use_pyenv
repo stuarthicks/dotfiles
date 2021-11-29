@@ -1,5 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 set -e
+
+if [ -x ~/.pyenv/bin/pyenv ]; then
+  export PATH=~/.pyenv/bin:~/.pyenv/shims:$PATH
+  eval "$(pyenv init zsh -)"
+  exec zsh -l
+fi
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 

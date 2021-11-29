@@ -1,5 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 set -e
+
+if [ -x ~/.nodenv/bin/nodenv ]; then
+  export PATH=~/.nodenv/bin:~/.nodenv/shims:$PATH
+  eval "$(nodenv init zsh -)"
+  exec zsh -l
+fi
 
 git clone https://github.com/nodenv/nodenv ~/.nodenv
 
