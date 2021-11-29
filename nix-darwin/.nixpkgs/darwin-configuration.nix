@@ -40,27 +40,17 @@
   environment.systemPackages = with pkgs; [
     _1password
     cmake
-    coreutils-full
     direnv
     docker
     dogdns
     gh
-    git
     git-lfs
-    glide
-    gnupg
-    golangci-lint
     jq
     kubectl
-    lazygit
-    mediainfo
-    miller
     minikube
     mtr
     neovim
-    nix-info
     nodejs
-    openssl
     p7zip
     podman
     powershell
@@ -69,7 +59,6 @@
     ripgrep
     rustup
     shellcheck
-    starship
     stow
     terraform
     tig
