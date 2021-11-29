@@ -1,6 +1,8 @@
 
 case `uname`.chomp
 when 'Darwin'
+  cask 'powershell'
+
   tap 'microsoft/git'
   cask 'git-credential-manager-core'
 
@@ -12,14 +14,14 @@ when 'Darwin'
   brew 'grepcidr'
   brew 'jq'
   brew 'libyaml'
+  brew 'neovim'
   brew 'openssl@1.1'
-  brew 'powershell'
   brew 'pv'
   brew 'shellcheck'
+  brew 'starship'
   brew 'stow'
   brew 'tig'
   brew 'tmux'
-  brew 'xxd'
   brew 'zlib'
 
 when 'Linux'
