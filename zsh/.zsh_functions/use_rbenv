@@ -1,18 +1,20 @@
 # vi: set ft=zsh:
 use_rbenv() {
-  if [ !-x ~/.rbenv/bin/rbenv ]; then
-    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  if [[ ! -x ~/.rbenv/bin/rbenv ]]; then
+    (
+      git clone "https://github.com/rbenv/rbenv.git" ~/.rbenv
 
-    mkdir -p ~/.rbenv/plugins
-    cd ~/.rbenv/plugins
+      mkdir -p ~/.rbenv/plugins
+      cd ~/.rbenv/plugins
 
-    git clone https://github.com/jf/rbenv-gemset.git
-    git clone https://github.com/maljub01/rbenv-bundle-exec.git
-    git clone https://github.com/nicknovitski/rbenv-gem-update
-    git clone https://github.com/rbenv/rbenv-each.git
-    git clone https://github.com/rbenv/rbenv-vars.git
-    git clone https://github.com/rbenv/ruby-build.git
-    git clone https://github.com/rkh/rbenv-update.git
+      git clone "https://github.com/jf/rbenv-gemset.git"
+      git clone "https://github.com/maljub01/rbenv-bundle-exec.git"
+      git clone "https://github.com/nicknovitski/rbenv-gem-update"
+      git clone "https://github.com/rbenv/rbenv-each.git"
+      git clone "https://github.com/rbenv/rbenv-vars.git"
+      git clone "https://github.com/rbenv/ruby-build.git"
+      git clone "https://github.com/rkh/rbenv-update.git"
+    )
   fi
 
   export PATH=~/.rbenv/bin:~/.rbenv/shims:$PATH

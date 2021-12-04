@@ -1,0 +1,7 @@
+# vi: set ft=zsh:
+aws_region() {
+  region=${1:-us-east-1}
+  export AWS_REGION=$region
+  export AWS_DEFAULT_REGION=$region
+}
+

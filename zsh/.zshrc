@@ -52,68 +52,14 @@ export VISUAL="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export GEM_HOME="$HOME/.gems"
-export GOPATH=$HOME/code/go
-export GOBIN=$HOME/.local/bin
+export GOPATH="$HOME/code/go"
+export GOBIN="$HOME/.local/bin"
 export GONOPROXY='*'
 export GONOSUMDB='*'
 export GOPRIVATE='*'
 
-alias k='ls -lh'
-
-alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
-alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-
-path()          ( echo $PATH     | tr : $'\n'; )
-fpath()         ( echo $FPATH    | tr : $'\n'; )
-infopath()      ( echo $INFOPATH | tr : $'\n'; )
-manpath()       ( echo $MANPATH  | tr : $'\n'; )
-htmldecode()    ( python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; )
-htmlencode()    ( python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; )
-urldecode()     ( python3 -c 'import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'; )
-urlencode()     ( python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))'; )
-unicodedecode() ( python3 -c 'import sys, codecs; print(codecs.decode(sys.stdin.read(), 'unicode-escape'))'; )
-range2cidr()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
-cidr2range()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; )
-
-aws-region() {
-  region=${1:-us-east-1}
-  export AWS_REGION=$region
-  export AWS_DEFAULT_REGION=$region
-}
-
-aws-profile() {
-  profile=${1:-dev}
-  export AWS_PROFILE=$profile
-  export AWS_DEFAULT_PROFILE=$profile
-
-  unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
-  aws iam list-account-aliases > /dev/null
-}
-
-aws-setenv() {
-  STS='{}'
-  FILE="$HOME/.aws/cli/cache/$1.json"
-  unset AWS_SESSION_TOKEN
-  if [ -s "$FILE" ]; then
-    STS=$(cat "$FILE")
-    HTTP_DATE=$(cat "$FILE" | jq -r '.ResponseMetadata.HTTPHeaders.date')
-    EXPIRY=$([ $(uname) = 'Darwin' ] && /bin/date -j -f "%a, %d %b %Y %H:%M:%S %Z" "$HTTP_DATE" +%s || date -d "$HTTP_DATE" +%s)
-    NOW=$(date +%s)
-    if [ $NOW -gt $EXPIRY ]; then
-      aws-profile "$1" "$AWS_REGION"
-      aws iam list-account-aliases > /dev/null
-      STS=$(cat "$FILE")
-    fi
-  fi
-  export AWS_ACCESS_KEY_ID=$(echo "$STS" | jq -r '.Credentials.AccessKeyId // 1')
-  export AWS_SECRET_ACCESS_KEY=$(echo "$STS" | jq -r '.Credentials.SecretAccessKey // 1')
-  export AWS_SESSION_TOKEN=$(echo "$STS" | jq -r '.Credentials.SessionToken // 1')
-  unset AWS_PROFILE
-  unset AWS_DEFAULT_PROFILE
-}
-
 case $(uname); in
-  Darwin) export HOMEBREW_PREFIX=$([ "$(uname -m)" = 'arm64' ] && echo "/opt/homebrew" || echo "/usr/local") ;;
+  Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
 
@@ -144,19 +90,41 @@ path=(
 # Remove path entries that are either duplicates or don't exist
 typeset -TUx PATH path
 
-fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
+fpath=(
+  "$HOME/.zsh_functions"
+  "${HOMEBREW_PREFIX}/share/zsh/site-functions"
+  $fpath
+)
 
 # Remove fpath entries that are either duplicates or don't exist
 typeset -TUx FPATH fpath
 
-if [ -d "$HOME/.zsh_functions" ]; then
-  for f in "$HOME"/.zsh_functions/*; do
-    source "$f"
-  done
-fi
+autoload aws_profile
+autoload aws_region
+autoload aws_setenv
+autoload use_nodenv
+autoload use_pyenv
+autoload use_rbenv
+autoload use_sdkman
 
 autoload -Uz compinit && compinit
 zmodload zsh/complist
+
+path()          ( echo "$PATH"     | tr : $'\n'; )
+fpath()         ( echo "$FPATH"    | tr : $'\n'; )
+infopath()      ( echo "$INFOPATH" | tr : $'\n'; )
+manpath()       ( echo "$MANPATH"  | tr : $'\n'; )
+htmldecode()    ( python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; )
+htmlencode()    ( python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; )
+urldecode()     ( python3 -c 'import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'; )
+urlencode()     ( python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))'; )
+unicodedecode() ( python3 -c 'import sys, codecs; print(codecs.decode(sys.stdin.read(), 'unicode-escape'))'; )
+range2cidr()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
+cidr2range()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; )
+
+alias k='ls -lh'
+alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
+alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 KEYTIMEOUT=1
 PROMPT="
@@ -164,4 +132,4 @@ PROMPT="
 command -v starship > /dev/null && eval "$(starship init zsh)"
 unset RPS1
 
-test -s "$HOME/.profile" && source "$HOME/.profile"
+[[ -s "$HOME/.profile" ]] && . "$HOME/.profile"

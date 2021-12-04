@@ -1,0 +1,19 @@
+# vi: set ft=zsh:
+aws_setenv() {
+  FILE="$HOME/.aws/cli/cache/$1.json"
+  unset AWS_SESSION_TOKEN
+  if [[ -s "$FILE" ]]; then
+    STS=$(cat "$FILE")
+    HTTP_DATE=$(cat "$FILE" | jq -r '.ResponseMetadata.HTTPHeaders.date')
+    EXPIRY=$([[ $(uname) == 'Darwin' ]] && /bin/date -j -f "%a, %d %b %Y %H:%M:%S %Z" "$HTTP_DATE" +%s || date -d "$HTTP_DATE" +%s)
+    NOW=$(date +%s)
+    if [[ "$NOW" -gt "$EXPIRY" ]]; then
+      aws iam --profile "$1" --region us-east-1 list-account-aliases > /dev/null
+      STS=$(cat "$FILE")
+    fi
+  fi
+  export AWS_ACCESS_KEY_ID=$(echo "${STS:-{\}}" | jq -r '.Credentials.AccessKeyId // 1')
+  export AWS_SECRET_ACCESS_KEY=$(echo "${STS:-{\}}" | jq -r '.Credentials.SecretAccessKey // 1')
+  export AWS_SESSION_TOKEN=$(echo "${STS:-{\}}" | jq -r '.Credentials.SessionToken // 1')
+  unset AWS_PROFILE AWS_DEFAULT_PROFILE
+}

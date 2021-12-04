@@ -1,6 +1,6 @@
 # vi: set ft=zsh:
 use_sdkman() {
-  if [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+  if [[ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
     curl -s "https://get.sdkman.io" | bash
   fi
 
