@@ -145,7 +145,15 @@ path=(
 typeset -TUx PATH path
 
 fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
+
+# Remove fpath entries that are either duplicates or don't exist
 typeset -TUx FPATH fpath
+
+if [ -d "$HOME/.zsh_functions" ]; then
+  for f in "$HOME"/.zsh_functions/*; do
+    source "$f"
+  done
+fi
 
 autoload -Uz compinit && compinit
 zmodload zsh/complist
