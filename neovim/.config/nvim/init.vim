@@ -10,8 +10,6 @@ call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
 call dein#add('bronson/vim-trailing-whitespace', {'on_cmd': 'FixWhitespace'})
 call dein#add('dense-analysis/ale')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('fatih/vim-go', {'on_ft': 'go'})
 call dein#add('jamessan/vim-gnupg', {'on_ft': 'asc'})
 call dein#add('jremmen/vim-ripgrep', {'on_cmd': 'Rg'})
 call dein#add('junegunn/vim-easy-align')
