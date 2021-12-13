@@ -1,8 +1,8 @@
 # Disable suspending the terminal with ctrl-s
 ttyctl -f
 
-# Default keybindings to "emacs" style (same as default bash/readline).
-bindkey -e
+# Default keybindings to "vim" style
+bindkey -v
 
 autoload -Uz colors && colors
 
