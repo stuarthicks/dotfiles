@@ -2,7 +2,7 @@
 ttyctl -f
 
 # Default keybindings to "vim" style
-bindkey -v
+bindkey -e
 
 autoload -Uz colors && colors
 
