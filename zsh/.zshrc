@@ -122,7 +122,7 @@ unicodedecode() ( python3 -c 'import sys, codecs; print(codecs.decode(sys.stdin.
 range2cidr()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
 cidr2range()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; )
 
-alias k='exa --long --header --time-style iso --octal-permissions --extended --git --colour-scale --group-directories-first'
+alias k='exa --long --header --time-style iso --no-permissions --octal-permissions --extended --git --colour-scale --group-directories-first'
 alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
 alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
