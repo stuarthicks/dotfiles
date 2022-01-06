@@ -9,6 +9,7 @@ when 'Darwin'
   tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
   brew 'ripgrep'
 
+  brew 'exa'
   brew 'gh'
   brew 'git-lfs'
   brew 'grepcidr'
