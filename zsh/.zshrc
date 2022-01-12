@@ -18,7 +18,7 @@ bindkey '\ee' edit-command-line
 HISTSIZE=50000
 SAVEHIST=10000
 HISTDUP=erase
-HISTFILE=~/.zhistory
+HISTFILE=${ZDOTDIR:-~}/.zhistory
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first

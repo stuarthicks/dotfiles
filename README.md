@@ -5,6 +5,12 @@ dotfiles
 - `brew bundle`
 - `stow -R [dirs]`
 
+~/.zshenv
+
+    export ZDOTDIR=$HOME/.dotfiles/zsh
+    [[ -f $ZDOTDIR/.zshenv ]] && source $ZDOTDIR/.zshenv
+
+
 # Other useful things to install
 
 ## go
