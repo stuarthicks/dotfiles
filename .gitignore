@@ -15,3 +15,7 @@ cargo/.cargo/
 
 git/.config/configstore/
 git/.config/gh/
+
+zsh/.zcompdump
+zsh/.zhistory
+zsh/.zprofile
