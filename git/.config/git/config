@@ -18,8 +18,12 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[diff]
+	algorithm = histogram
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
+[merge]
+	conflictStyle = zdiff3
 [url "https://github.com/"]
   insteadOf = "git@github.com:"
 [url "https://bithub.brightcove.com/"]
