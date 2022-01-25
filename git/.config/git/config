@@ -23,7 +23,8 @@
 [diff "gpg"]
 	textconv = gpg --no-tty --decrypt
 [merge]
-	conflictStyle = zdiff3
+	# conflictStyle = zdiff3
+	conflictStyle = diff3
 [url "https://github.com/"]
   insteadOf = "git@github.com:"
 [url "https://bithub.brightcove.com/"]
