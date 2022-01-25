@@ -34,7 +34,7 @@
 	br = branch
 	ci = commit --verbose
 	co = checkout
-	d = diff --ignore-all-space --ignore-space-change
-	ds = diff --ignore-all-space --ignore-space-change --staged
+	d = diff --histogram --ignore-all-space --ignore-space-change
+	ds = diff --histogram --ignore-all-space --ignore-space-change --staged
 	fe = fetch --all --tags --prune
 	s = status
