@@ -1,7 +1,7 @@
 # vi: set ft=zsh:
 use_sdkman() {
   if [[ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
-    curl -s "https://get.sdkman.io" | bash
+    curl -s "https://get.sdkman.io?rcupdate=false" | bash
   fi
 
   source "$HOME/.sdkman/bin/sdkman-init.sh"
