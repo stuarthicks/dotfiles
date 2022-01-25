@@ -1,3 +1,4 @@
+tap 'homebrew/cask'
 
 case `uname`.chomp
 when 'Darwin'
@@ -9,12 +10,17 @@ when 'Darwin'
   tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
   brew 'ripgrep'
 
+  tap 'stuarthicks/brews'
+  brew 'tstools'
+
+  brew 'cmake'
   brew 'exa'
   brew 'gh'
   brew 'git-lfs'
   brew 'grepcidr'
   brew 'jq'
   brew 'libyaml'
+  brew 'media-info'
   brew 'neovim'
   brew 'openssl@1.1'
   brew 'pv'
