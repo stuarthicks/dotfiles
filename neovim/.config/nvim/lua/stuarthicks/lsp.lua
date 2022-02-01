@@ -31,7 +31,17 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = {
+  'bashls',
+  'dockerls',
+  'eslint',
+  'golangci_lint_ls',
+  'gopls',
+  'jsonls',
+  'terraformls',
+  'vimls',
+}
+
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -41,3 +51,16 @@ for _, lsp in pairs(servers) do
     }
   }
 end
+
+require'lspconfig'.sumneko_lua.setup {
+  on_attach = on_attach,
+  flags = {
+    -- This will be the default in neovim 0.7+
+    debounce_text_changes = 150,
+  },
+  settings = {
+    Lua = {
+      diagnostics = { globals = {'vim'} }
+    }
+  }
+}
