@@ -37,5 +37,6 @@ end
 
 brew 'dog'
 brew 'kubernetes-cli'
+brew 'lua-language-server'
 brew 'rustup-init'
 brew 'terraform'
