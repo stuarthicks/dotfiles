@@ -29,7 +29,6 @@ vim.g.netrw_winsize = 20
 -- vim.o.clipboard ^= {'unnamed','unnamedplus'}
 -- vim.o.path += '**'
 -- vim.o.shortmess += 'c'
-vim.o.autoindent = true
 vim.o.backspace = table.concat({
   'indent',
   'eol',
@@ -43,17 +42,10 @@ vim.o.completeopt = table.concat({
 vim.o.expandtab = true
 vim.o.foldlevelstart = 20
 vim.o.foldmethod = 'syntax'
-vim.o.hidden = true
-vim.o.hlsearch = true
-vim.o.linebreak = true
-vim.o.list = false
-vim.o.modelines = 1
 vim.o.mouse = 'a'
-vim.o.number = true
 vim.o.number = true
 vim.o.scrolloff = 5
 vim.o.shiftwidth = 2
-vim.o.showmatch = true
 vim.o.sidescrolloff = 5
 vim.o.signcolumn = 'number'
 vim.o.smartcase = true
@@ -61,9 +53,7 @@ vim.o.smartindent = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.swapfile = false
-vim.o.synmaxcol = 500
 vim.o.tabstop = 2
-vim.o.textwidth = 0
 vim.o.timeoutlen = 300
 vim.o.updatetime = 300
 vim.o.wildignore = table.concat({
@@ -75,7 +65,6 @@ vim.o.wildignore = table.concat({
 }, ',')
 vim.o.wildmode = 'longest,list'
 vim.o.wrap = false
-vim.o.wrapmargin = 0
 vim.o.writebackup = false
 
 local map = function(key)
