@@ -52,3 +52,4 @@ shell.nix
 .envrc
 result
 venv/
+zsh/.zsh_history
