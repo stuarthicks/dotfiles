@@ -51,3 +51,4 @@ vim-go-test-compile
 shell.nix
 .envrc
 result
+venv/
