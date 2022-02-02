@@ -1,3 +1,5 @@
+-- vi: set ft=lua ts=2 sw=2 expandtab :
+
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -5,23 +7,26 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-  use { 'bronson/vim-trailing-whitespace', cmd ={'FixWhitespace'} }
+  use 'wbthomason/packer.nvim'
+
   use 'dense-analysis/ale'
-  use { 'jamessan/vim-gnupg', cmd = {'asc'} }
-  use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
   use 'junegunn/vim-easy-align'
+  use 'neovim/nvim-lspconfig'
   use 'ntk148v/vim-horizon'
-  use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} }
   use 'sheerun/vim-polyglot'
   use 'tomtom/tcomment_vim'
-
+  use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
-  use 'tpope/vim-fugitive'
-
-  use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
-
+  use { 'bronson/vim-trailing-whitespace', cmd ={'FixWhitespace'} }
+  use { 'jamessan/vim-gnupg', cmd = {'asc'} }
+  use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
+  use { 'kyazdani42/nvim-web-devicons' }
+  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   if packer_bootstrap then
     require('packer').sync()
