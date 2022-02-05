@@ -36,6 +36,7 @@ when 'Linux'
 end
 
 brew 'dog'
+brew 'jo'
 brew 'kubernetes-cli'
 brew 'lua-language-server'
 brew 'rustup-init'
