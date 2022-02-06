@@ -38,6 +38,7 @@ export DEVKITPPC=/opt/devkitpro/devkitPPC
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
+  "$HOME/.gems/bin"
   "$HOME/.node_modules/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
