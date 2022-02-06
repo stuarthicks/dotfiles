@@ -65,6 +65,7 @@ vim.o.wildignore = table.concat({
   '*/node_modules/*',
 }, ',')
 vim.o.wildmode = 'longest,list'
+vim.o.winhighlight = 'Normal:None'
 vim.o.wrap = false
 vim.o.writebackup = false
 
