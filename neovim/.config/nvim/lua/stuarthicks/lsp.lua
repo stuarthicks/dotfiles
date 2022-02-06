@@ -40,6 +40,7 @@ local servers = {
   'golangci_lint_ls',
   'gopls',
   'jsonls',
+  'rust_analyzer',
   'terraformls',
   'vimls',
 }

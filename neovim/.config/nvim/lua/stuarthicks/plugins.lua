@@ -17,16 +17,21 @@ return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
   use 'dense-analysis/ale'
-  use 'junegunn/vim-easy-align'
+  use 'folke/tokyonight.nvim'
+  use 'mfussenegger/nvim-dap'
   use 'neovim/nvim-lspconfig'
   use 'ntk148v/vim-horizon'
+  use 'ray-x/go.nvim'
+  use 'rcarriga/nvim-dap-ui'
   use 'sheerun/vim-polyglot'
+  use 'theHamsta/nvim-dap-virtual-text'
   use 'tomtom/tcomment_vim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'williamboman/nvim-lsp-installer'
-  use { 'bronson/vim-trailing-whitespace', cmd ={'FixWhitespace'} }
+  use { 'RRethy/nvim-align', cmd = 'Align' }
+  use { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} }
   use { 'jamessan/vim-gnupg', cmd = {'asc'} }
   use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
   use { 'kyazdani42/nvim-web-devicons' }
@@ -34,10 +39,23 @@ return require('packer').startup({function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
 
   if packer_bootstrap then
     require('packer').sync()
   end
+
+  require'nvim-web-devicons'.setup {
+   default = true;
+  }
+
+  require('go').setup({
+    goimport  = 'gopls',
+    gofmt     = 'gopls',
+    dap_debug = true,
+  })
+  require("go.format").goimport() -- goimport + gofmt
+  require('navigator').setup()
 end,
   config = {
     profile = {

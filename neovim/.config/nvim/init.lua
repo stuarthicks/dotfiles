@@ -11,7 +11,8 @@ end
 
 vim.o.background = 'dark'
 vim.cmd [[
-  colorscheme horizon
+  let g:tokyonight_style = "night"
+  colorscheme tokyonight
   " highlight Normal guibg=NONE ctermbg=NONE
   " highlight LineNr guibg=NONE ctermbg=NONE
   " highlight SignColumn guibg=NONE ctermbg=NONE
@@ -95,16 +96,13 @@ map {'v', '<', '<gv'}
 map {'v', '>', '>gv'}
 
 map {'n', '<Leader><space>', ':nohlsearch<cr>', silent = true}
-map {'n', '<leader>b', ':buffers<cr>'}
 map {'n', '<leader>h', ':vertical help<space>'}
 map {'n', '<leader>t', ':split +term<cr>'}
 
 map {'n', '<leader>p', ':NERDTreeToggle<cr>'}
 map {'n', '<leader>r', ':Rg<space>'}
-map {'x', 'ga', '<Plug>(EasyAlign)'}
-map {'n', 'ga', '<Plug>(EasyAlign)'}
 
 map {'n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>'}
-map {'n',  '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>'}
-map {'n',  '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>'}
-map {'n',  '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>'}
+map {'n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>'}
+map {'n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>'}
+map {'n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>'}
