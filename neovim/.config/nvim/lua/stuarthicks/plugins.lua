@@ -13,6 +13,16 @@ vim.cmd([[
   augroup end
 ]])
 
+vim.cmd([[
+  augroup godev
+    autocmd!
+    autocmd FileType go lua require('go').setup({goimport = 'gopls', gofmt = 'gopls', dap_debug = true})
+    autocmd FileType go lua require('go.format').goimport()
+    autocmd FileType go lua require('navigator').setup()
+    autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
+  augroup end
+]])
+
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
@@ -38,29 +48,22 @@ return require('packer').startup({function(use)
   -- use 'ntk148v/vim-horizon'
 
   -- SLOW
-  -- use 'ray-x/go.nvim'
-  -- use 'mfussenegger/nvim-dap'
-  -- use 'rcarriga/nvim-dap-ui'
-  -- use 'theHamsta/nvim-dap-virtual-text'
-  --
+  use 'ray-x/go.nvim'
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
+
   use { 'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make' }}
 
   if packer_bootstrap then
     require('packer').sync()
   end
 
-  require('navigator').setup()
 
   require'nvim-web-devicons'.setup {
    default = true;
   }
 
-  -- require('go').setup({
-  --   goimport  = 'gopls',
-  --   gofmt     = 'gopls',
-  --   dap_debug = true,
-  -- })
-  -- require("go.format").goimport() -- goimport + gofmt
 end,
   config = {
     profile = {
