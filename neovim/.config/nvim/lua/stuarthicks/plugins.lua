@@ -18,13 +18,8 @@ return require('packer').startup({function(use)
 
   use 'dense-analysis/ale'
   use 'folke/tokyonight.nvim'
-  use 'mfussenegger/nvim-dap'
   use 'neovim/nvim-lspconfig'
-  use 'ntk148v/vim-horizon'
-  use 'ray-x/go.nvim'
-  use 'rcarriga/nvim-dap-ui'
   use 'sheerun/vim-polyglot'
-  use 'theHamsta/nvim-dap-virtual-text'
   use 'tomtom/tcomment_vim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
@@ -32,35 +27,45 @@ return require('packer').startup({function(use)
   use 'williamboman/nvim-lsp-installer'
   use { 'RRethy/nvim-align', cmd = 'Align' }
   use { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} }
-  use { 'jamessan/vim-gnupg', cmd = {'asc'} }
+  use { 'jamessan/vim-gnupg', ft = {'asc'} }
   use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
   use { 'kyazdani42/nvim-web-devicons' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+
+  -- use 'ntk148v/vim-horizon'
+
+  -- SLOW
+  -- use 'ray-x/go.nvim'
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'rcarriga/nvim-dap-ui'
+  -- use 'theHamsta/nvim-dap-virtual-text'
+  --
+  use { 'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make' }}
 
   if packer_bootstrap then
     require('packer').sync()
   end
 
+  require('navigator').setup()
+
   require'nvim-web-devicons'.setup {
    default = true;
   }
 
-  require('go').setup({
-    goimport  = 'gopls',
-    gofmt     = 'gopls',
-    dap_debug = true,
-  })
-  require("go.format").goimport() -- goimport + gofmt
-  require('navigator').setup()
+  -- require('go').setup({
+  --   goimport  = 'gopls',
+  --   gofmt     = 'gopls',
+  --   dap_debug = true,
+  -- })
+  -- require("go.format").goimport() -- goimport + gofmt
 end,
   config = {
     profile = {
       enable = true,
-      threshold = 1, -- ms
+      threshold = 0, -- ms
     },
     display = {
       open_fn = function()
