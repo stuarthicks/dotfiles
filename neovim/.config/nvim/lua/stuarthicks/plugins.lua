@@ -13,7 +13,7 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
   use 'dense-analysis/ale'
@@ -38,4 +38,16 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+  config = {
+    profile = {
+      enable = true,
+      threshold = 1, -- ms
+    },
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single', style = 'minimal' })
+      end
+    }
+  },
+})
