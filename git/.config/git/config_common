@@ -38,5 +38,3 @@
 	ds = diff --histogram --ignore-all-space --ignore-space-change --staged
 	fe = fetch --all --tags --prune
 	s = status
-[credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe
