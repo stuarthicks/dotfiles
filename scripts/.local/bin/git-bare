@@ -7,10 +7,10 @@ DIR=${2:-}
 if [[ "${DIR:-}" = "" ]]; then
   DIR=$(basename "$REPO")
 fi
-
+"
 mkdir -p "$DIR"
 cd "$DIR"
 
 git clone --recursive --bare "$REPO" .bare
 echo 'gitdir: ./.bare' > .git
-git worktree add master || git worktree add main
+git worktree add master
