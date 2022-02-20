@@ -4,7 +4,7 @@ set -eu
 REPO=$1
 DIR=${2:-}
 
-test -z ${DIR:-} && DIR=$(basename "$REPO")
+test -z "${DIR:-}" && DIR=$(basename "$REPO")
 
 mkdir -p "$DIR"
 cd "$DIR"
