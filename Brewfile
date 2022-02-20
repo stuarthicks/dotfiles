@@ -1,7 +1,6 @@
-tap 'homebrew/cask'
-
 case `uname`.chomp
 when 'Darwin'
+  tap 'homebrew/cask'
   cask 'powershell'
 
   tap 'microsoft/git'
@@ -20,7 +19,9 @@ when 'Darwin'
   brew 'git-lfs'
   brew 'grepcidr'
   brew 'jq'
+  brew 'kubernetes-cli'
   brew 'libyaml'
+  brew 'lua-language-server'
   brew 'media-info'
   brew 'neovim'
   brew 'openssl@1.1'
@@ -28,6 +29,7 @@ when 'Darwin'
   brew 'shellcheck'
   brew 'starship'
   brew 'stow'
+  brew 'terraform'
   brew 'tig'
   brew 'tmux'
   brew 'wget'
@@ -36,10 +38,3 @@ when 'Darwin'
 when 'Linux'
 
 end
-
-brew 'dog'
-brew 'jo'
-brew 'kubernetes-cli'
-brew 'lua-language-server'
-brew 'rustup-init'
-brew 'terraform'
