@@ -1,40 +1,41 @@
-case `uname`.chomp
-when 'Darwin'
-  tap 'homebrew/cask'
-  cask 'powershell'
+# vi: set ft=ruby sw=2 ts=2 expandtab :
 
-  tap 'microsoft/git'
-  cask 'git-credential-manager-core'
+%w[
+  homebrew/cask
+  microsoft/git
+  stuarthicks/brews
+].each { |t| tap t }
 
-  tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
-  brew 'ripgrep'
+tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 
-  tap 'stuarthicks/brews'
-  brew 'tstools'
+%w[
+  git-credential-manager-core
+  powershell
+].each { |c| cask c }
 
-  brew 'cmake'
-  brew 'exa'
-  brew 'fd'
-  brew 'gh'
-  brew 'git-lfs'
-  brew 'grepcidr'
-  brew 'jq'
-  brew 'kubernetes-cli'
-  brew 'libyaml'
-  brew 'lua-language-server'
-  brew 'media-info'
-  brew 'neovim'
-  brew 'openssl@1.1'
-  brew 'pv'
-  brew 'shellcheck'
-  brew 'starship'
-  brew 'stow'
-  brew 'terraform'
-  brew 'tig'
-  brew 'tmux'
-  brew 'wget'
-  brew 'zlib'
-
-when 'Linux'
-
-end
+%w[
+  cmake
+  exa
+  fd
+  gh
+  git-lfs
+  grepcidr
+  jq
+  kubernetes-cli
+  libyaml
+  lua-language-server
+  media-info
+  neovim
+  openssl@1.1
+  pv
+  ripgrep
+  shellcheck
+  starship
+  stow
+  terraform
+  tig
+  tmux
+  tstools
+  wget
+  zlib
+].each { |b| brew b }
