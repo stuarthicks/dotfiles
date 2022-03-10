@@ -73,5 +73,4 @@ autoload use_rbenv
 autoload use_sdkman
 
 alias k='exa --long --header --time-style iso --no-permissions --octal-permissions --git --colour-scale --group-directories-first'
-alias cucumber-unused-steps='vim --cmd "set errorformat=%m\ \#\ %f:%l" -q <( bundle exec cucumber --dry-run --format=usage | grep -B1 -i "not matched by any steps" )'
-alias symlinks-prune='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
+alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
