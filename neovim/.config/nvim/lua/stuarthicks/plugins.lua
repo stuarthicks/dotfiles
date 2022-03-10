@@ -13,16 +13,6 @@ vim.cmd([[
   augroup end
 ]])
 
-vim.cmd([[
-  augroup godev
-    autocmd!
-    autocmd FileType go lua require('go').setup({goimport = 'gopls', gofmt = 'gopls', dap_debug = true})
-    autocmd FileType go lua require('go.format').goimport()
-    autocmd FileType go lua require('navigator').setup()
-    autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
-  augroup end
-]])
-
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
@@ -59,6 +49,7 @@ return require('packer').startup({function(use)
     require('packer').sync()
   end
 
+  require('telescope').load_extension('fzf')
 
   require'nvim-web-devicons'.setup {
    default = true;
