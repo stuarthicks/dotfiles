@@ -25,6 +25,7 @@ tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
   libyaml
   lua-language-server
   media-info
+  neomutt
   neovim
   openssl@1.1
   pv
