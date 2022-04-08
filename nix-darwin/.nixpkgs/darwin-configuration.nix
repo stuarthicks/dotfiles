@@ -7,7 +7,9 @@
     # bento4
     # starship
     # tstools
+    circleci-cli
     cmake
+    direnv
     direnv
     dogdns
     exa
@@ -22,9 +24,11 @@
     kubectl
     lazygit
     libyaml
+    lorri
     mediainfo
     neomutt
     neovim
+    nix-direnv
     nmap
     openssl
     powershell
