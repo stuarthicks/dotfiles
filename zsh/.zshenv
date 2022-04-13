@@ -67,10 +67,13 @@ typeset -TUx FPATH fpath
 autoload aws_profile
 autoload aws_region
 autoload aws_setenv
+autoload install_asdf
 autoload use_nodenv
 autoload use_pyenv
 autoload use_rbenv
 autoload use_sdkman
+
+test -s ~/.asdf/asdf.sh && . ~/.asdf/asdf.sh
 
 alias k='exa --header --time-style iso --no-permissions --octal-permissions --git --colour-scale --group-directories-first'
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
