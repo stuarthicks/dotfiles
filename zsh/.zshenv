@@ -72,5 +72,5 @@ autoload use_pyenv
 autoload use_rbenv
 autoload use_sdkman
 
-alias k='exa --long --header --time-style iso --no-permissions --octal-permissions --git --colour-scale --group-directories-first'
+alias k='exa --header --time-style iso --no-permissions --octal-permissions --git --colour-scale --group-directories-first'
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
