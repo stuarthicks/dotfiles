@@ -1,12 +1,12 @@
 # vi: set ft=ruby sw=2 ts=2 expandtab :
 
 %w[
+  homebrew/cask
   stuarthicks/brews
 ].each { |t| tap t }
 
 case `uname`.chomp
 when 'Darwin'
-  cask 'homebrew/casks'
   %w[
   ].each { |c| cask b }
 
