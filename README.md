@@ -2,24 +2,14 @@ dotfiles
 ========
 
 - Install [Homebrew](https://brew.sh/)
-- `brew bundle`
-- `stow -R [dirs]`
+
+    cd $HOME
+    mkdir -p .local/bin .config/{git,nvim}
+    cd .dotfiles
+    brew bundle
+    stow [dirs]
 
 ~/.zshenv
 
     export ZDOTDIR=$HOME/.dotfiles/zsh
-    [[ -f $ZDOTDIR/.zshenv ]] && source $ZDOTDIR/.zshenv
-
-
-# Other useful things to install
-
-## go
-
-http://golang.org/dl
-
-### tooling
-
-    go get -u \
-      github.com/maruel/panicparse/ \
-      github.com/psampaz/go-mod-outdated \
-      github.com/y0ssar1an/q
+    source $ZDOTDIR/.zshenv
