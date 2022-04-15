@@ -11,7 +11,7 @@ end
 
 vim.o.background = 'dark'
 vim.cmd [[
-  colorscheme nvim-smyck
+  colorscheme murphy
   highlight Normal guibg=NONE ctermbg=NONE
   highlight LineNr guibg=NONE ctermbg=NONE
   highlight SignColumn guibg=NONE ctermbg=NONE
@@ -26,6 +26,9 @@ vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 4
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 20
+
+vim.g.did_load_filetypes = 0
+vim.g.do_filetype_lua = 1
 
 -- vim.o.clipboard ^= {'unnamed','unnamedplus'}
 -- vim.o.path += '**'
@@ -69,39 +72,21 @@ vim.o.winhighlight = 'Normal:None'
 vim.o.wrap = false
 vim.o.writebackup = false
 
-local map = function(key)
-  -- get the extra options
-  local opts = {noremap = true}
-  for i, v in pairs(key) do
-    if type(i) == 'string' then opts[i] = v end
-  end
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', 'q:', '<nop>')
+vim.keymap.set('n', 'Q', '@q')
+vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
-  -- basic support for buffer-scoped keybindings
-  local buffer = opts.buffer
-  opts.buffer = nil
+vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
+vim.keymap.set('n', '<leader>h', ':vertical help<space>')
+vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
-  if buffer then
-    vim.api.nvim_buf_set_keymap(0, key[1], key[2], key[3], opts)
-  else
-    vim.api.nvim_set_keymap(key[1], key[2], key[3], opts)
-  end
-end
+vim.keymap.set('n', '<leader>p', ':NERDTreeToggle<cr>')
+vim.keymap.set('n', '<leader>r', ':Rg<space>')
 
-map {'n', ';', ':'}
-map {'n', 'q:', '<nop>'}
-map {'n', 'Q', '@q'}
-map {'t', '<ESC>', '<C-\\><C-n>'}
-map {'v', '<', '<gv'}
-map {'v', '>', '>gv'}
-
-map {'n', '<Leader><space>', ':nohlsearch<cr>', silent = true}
-map {'n', '<leader>h', ':vertical help<space>'}
-map {'n', '<leader>t', ':split +term<cr>'}
-
-map {'n', '<leader>p', ':NERDTreeToggle<cr>'}
-map {'n', '<leader>r', ':Rg<space>'}
-
-map {'n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>'}
-map {'n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>'}
-map {'n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>'}
-map {'n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>'}
+vim.keymap.set('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>')
+vim.keymap.set('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>')
+vim.keymap.set('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>')
+vim.keymap.set('n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>')

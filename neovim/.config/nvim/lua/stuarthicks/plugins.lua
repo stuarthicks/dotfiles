@@ -17,7 +17,6 @@ return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
   use 'dense-analysis/ale'
-  use 'ingsme/nvim-smyck'
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
   use 'tomtom/tcomment_vim'
