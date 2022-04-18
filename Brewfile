@@ -2,6 +2,7 @@
 
 %w[
   homebrew/cask
+  homebrew/cask-versions
   microsoft/git
   stuarthicks/brews
 ].each { |t| tap t }
@@ -24,6 +25,7 @@ when 'Darwin'
     git-credential-manager-core
     google-chrome
     intellij-idea
+    microsoft-auto-update
     microsoft-edge
     moonlight
     nvidia-geforce-now
@@ -37,6 +39,8 @@ when 'Darwin'
   ].each { |c| cask c }
 
   %w[
+    autoconf
+    automake
     bash-language-server
     bento4
     circleci
@@ -50,6 +54,7 @@ when 'Darwin'
     git-lfs
     graphviz
     grepcidr
+    httpie
     jo
     jq
     lazygit
