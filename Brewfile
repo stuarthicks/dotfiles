@@ -46,7 +46,6 @@ when 'Darwin'
     circleci
     cmake
     direnv
-    dog
     exa
     fd
     ffmpeg
@@ -82,6 +81,7 @@ when 'Linux'
 end
 
 %w[
+  dog
   kubernetes-cli
   neovim
   starship
