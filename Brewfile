@@ -4,6 +4,7 @@
   homebrew/cask
   homebrew/cask-versions
   microsoft/git
+  soldiermoth/tap
   stuarthicks/brews
 ].each { |t| tap t }
 
@@ -82,6 +83,7 @@ end
 
 %w[
   dog
+  hlsq
   kubernetes-cli
   neovim
   starship
