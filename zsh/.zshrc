@@ -52,7 +52,8 @@ unicodedecode() ( python3 -c 'import sys, codecs; print(codecs.decode(sys.stdin.
 range2cidr()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
 cidr2range()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; )
 
-test command -v direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
+test command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
+test command -v lorri &> /dev/null && pgrep lorri &> /dev/null || lorri daemon &> /dev/null &!
 
 KEYTIMEOUT=1
 PROMPT="
