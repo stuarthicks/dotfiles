@@ -40,12 +40,11 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 autoload -Uz compinit && compinit
 zmodload zsh/complist
 
-path()          ( echo "$PATH"     | tr : $'\n'; )
-fpath()         ( echo "$FPATH"    | tr : $'\n'; )
-infopath()      ( echo "$INFOPATH" | tr : $'\n'; )
-manpath()       ( echo "$MANPATH"  | tr : $'\n'; )
-range2cidr()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
-cidr2range()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; )
+path()       ( echo "$PATH"     | tr : $'\n'; )
+fpath()      ( echo "$FPATH"    | tr : $'\n'; )
+infopath()   ( echo "$INFOPATH" | tr : $'\n'; )
+manpath()    ( echo "$MANPATH"  | tr : $'\n'; )
+range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
 
 test command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 test command -v lorri &> /dev/null && pgrep lorri &> /dev/null || lorri daemon &> /dev/null &!
