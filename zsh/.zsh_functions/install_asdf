@@ -1,7 +1,5 @@
 # vi: set ft=zsh:
-install_asdf() {
-  if [[ ! -s ~/.asdf/asdf.sh ]]; then
-    git clone "https://github.com/asdf-vm/asdf" ~/.asdf
-  fi
-  . ~/.asdf/asdf.sh
-}
+if [[ ! -s ~/.asdf/asdf.sh ]]; then
+  git clone "https://github.com/asdf-vm/asdf" ~/.asdf
+fi
+. ~/.asdf/asdf.sh
