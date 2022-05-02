@@ -3,6 +3,11 @@ profile=${1:-dev}
 export AWS_PROFILE=$profile
 export AWS_DEFAULT_PROFILE=$profile
 
+current_region=${AWS_REGION:-us-east-1}
+region=${2:-$current_region}
+export AWS_REGION=$region
+export AWS_DEFAULT_REGION=$region
+
 unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
 aws iam list-account-aliases > /dev/null
 
