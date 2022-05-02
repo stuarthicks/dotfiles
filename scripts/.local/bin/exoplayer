@@ -1,4 +1,0 @@
-#!/bin/bash -eu -o pipefail
-
-adb shell am start -a com.google.android.exoplayer.demo.action.VIEW -d "$@" \
-  && adb logcat -s ExoPlayerImplInternal
