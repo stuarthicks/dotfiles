@@ -88,4 +88,5 @@ end
   starship
   terraform
   tstools
+  zellij
 ].each { |b| brew b }
