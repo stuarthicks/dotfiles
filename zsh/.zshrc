@@ -40,17 +40,11 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 autoload -Uz compinit && compinit
 zmodload zsh/complist
 
-path()          ( echo "$PATH"     | tr : $'\n'; )
-fpath()         ( echo "$FPATH"    | tr : $'\n'; )
-infopath()      ( echo "$INFOPATH" | tr : $'\n'; )
-manpath()       ( echo "$MANPATH"  | tr : $'\n'; )
-htmldecode()    ( python3 -c 'import html,sys; print(html.unescape(sys.stdin.read()), end="")'; )
-htmlencode()    ( python3 -c 'import html,sys; print(html.escape(sys.stdin.read()), end="")'; )
-urldecode()     ( python3 -c 'import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'; )
-urlencode()     ( python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.stdin.read()))'; )
-unicodedecode() ( python3 -c 'import sys, codecs; print(codecs.decode(sys.stdin.read(), 'unicode-escape'))'; )
-range2cidr()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
-cidr2range()    ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::cidr2range("'"$1"'")) . "\n";'; )
+path()       ( echo "$PATH"     | tr : $'\n'; )
+fpath()      ( echo "$FPATH"    | tr : $'\n'; )
+infopath()   ( echo "$INFOPATH" | tr : $'\n'; )
+manpath()    ( echo "$MANPATH"  | tr : $'\n'; )
+range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
 
 eval "$(direnv hook zsh)" || echo "direnv"
 pgrep lorri &> /dev/null || lorri daemon &> /dev/null &!

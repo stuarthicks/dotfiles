@@ -25,7 +25,6 @@ when 'Darwin'
     firefox
     git-credential-manager-core
     google-chrome
-    intellij-idea
     microsoft-auto-update
     microsoft-edge
     moonlight
@@ -89,4 +88,5 @@ end
   starship
   terraform
   tstools
+  zellij
 ].each { |b| brew b }

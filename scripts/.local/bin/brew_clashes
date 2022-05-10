@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-set -euo pipefail
-
-find $(brew --prefix)/bin -type l -maxdepth 1 \
-  | xargs basename \
-  | xargs -I {} sh -c "PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin command -v {}" \
-  ||:

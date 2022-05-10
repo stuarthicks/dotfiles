@@ -1,18 +1,20 @@
 # vi: set ft=zsh:
-aws_profile() {
-  profile=${1:-dev}
-  export AWS_PROFILE=$profile
-  export AWS_DEFAULT_PROFILE=$profile
+profile=${1:-dev}
+export AWS_PROFILE=$profile
+export AWS_DEFAULT_PROFILE=$profile
 
-  unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
-  aws iam list-account-aliases > /dev/null
+current_region=${AWS_REGION:-us-east-1}
+region=${2:-$current_region}
+export AWS_REGION=$region
+export AWS_DEFAULT_REGION=$region
 
-  if [[ ! -L ~/.aws/cli/cache/$profile.json ]]; then
-    (
-      cd ~/.aws/cli/cache
-      F=$(ls -lArt | grep -v ^l | tail -n1 | awk '{print $NF}')
-      ln -s $F $profile.json
-    )
-  fi
-}
+unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+aws iam list-account-aliases > /dev/null
 
+if [[ ! -L ~/.aws/cli/cache/$profile.json ]]; then
+  (
+    cd ~/.aws/cli/cache
+    F=$(ls -lArt | grep -v ^l | tail -n1 | awk '{print $NF}')
+    ln -s $F $profile.json
+  )
+fi
