@@ -25,6 +25,7 @@ when 'Darwin'
     firefox
     git-credential-manager-core
     google-chrome
+    iterm2
     microsoft-auto-update
     microsoft-edge
     moonlight
