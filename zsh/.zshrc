@@ -46,9 +46,6 @@ infopath()   ( echo "$INFOPATH" | tr : $'\n'; )
 manpath()    ( echo "$MANPATH"  | tr : $'\n'; )
 range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
 
-eval "$(direnv hook zsh)" || echo "direnv"
-pgrep lorri &> /dev/null || lorri daemon &> /dev/null &!
-
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "

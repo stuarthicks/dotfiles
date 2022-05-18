@@ -46,7 +46,6 @@ when 'Darwin'
     bento4
     circleci
     cmake
-    direnv
     exa
     fd
     ffmpeg
