@@ -1,4 +1,6 @@
-# vi: set ft=ruby sw=2 ts=2 expandtab :
+# frozen_string_literal: true
+
+# rubocop:disable Style/TrailingCommaInHashLiteral
 
 %w[
   homebrew/cask
@@ -90,3 +92,6 @@ end
   tstools
   zellij
 ].each { |b| brew b }
+
+# rubocop:enable Style/TrailingCommaInHashLiteral
+# vi: set ft=ruby sw=2 ts=2 expandtab :
