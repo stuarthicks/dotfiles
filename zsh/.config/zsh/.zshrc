@@ -51,3 +51,5 @@ PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
 command -v starship > /dev/null && eval "$(starship init zsh)"
 unset RPS1
+
+eval "$(direnv hook zsh)"
