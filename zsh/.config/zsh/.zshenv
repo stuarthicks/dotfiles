@@ -6,7 +6,7 @@ export VISUAL="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export CUCUMBER_PUBLISH_QUIET=true
-export GEM_HOME="$HOME/.gems"
+export GEM_HOME="$HOME/.gem"
 export GOPATH="$HOME/code/go"
 export GOBIN="$HOME/.local/bin"
 export GONOPROXY='*'
