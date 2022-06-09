@@ -16,7 +16,6 @@ when 'Darwin'
     '1Password 7': '1333542190',
     'Caffeinated': '1362171212',
     'Microsoft Remote Desktop': '1295203466',
-    'NextDNS': '1464122853',
     'Textual IRC Client': '1262957439',
     'Things': '904280696',
   }.each { |a, i| mas a.to_s, id: i.to_i }
@@ -27,6 +26,7 @@ when 'Darwin'
     firefox
     git-credential-manager-core
     google-chrome
+    intellij-idea
     iterm2
     microsoft-auto-update
     microsoft-edge
@@ -48,6 +48,7 @@ when 'Darwin'
     bento4
     circleci
     cmake
+    direnv
     exa
     fd
     ffmpeg
