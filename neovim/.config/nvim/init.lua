@@ -11,11 +11,11 @@ end
 
 vim.o.background = 'dark'
 vim.cmd [[
-  colorscheme murphy
-  highlight Normal guibg=NONE ctermbg=NONE
-  highlight LineNr guibg=NONE ctermbg=NONE
-  highlight SignColumn guibg=NONE ctermbg=NONE
-  highlight EndOfBuffer guibg=NONE ctermbg=NONE
+  colorscheme nvim-smyck
+  " highlight Normal guibg=NONE ctermbg=NONE
+  " highlight LineNr guibg=NONE ctermbg=NONE
+  " highlight SignColumn guibg=NONE ctermbg=NONE
+  " highlight EndOfBuffer guibg=NONE ctermbg=NONE
 ]]
 
 vim.g.mapleader = ' '

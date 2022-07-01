@@ -1,7 +1,9 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
 
 local fn = vim.fn
+local path = require 'nvim-lsp-installer.core.path'
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
@@ -17,6 +19,7 @@ return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
   use 'dense-analysis/ale'
+  use 'ingsme/nvim-smyck'
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
   use 'tomtom/tcomment_vim'
@@ -34,13 +37,8 @@ return require('packer').startup({function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} }
 
-  -- use 'ntk148v/vim-horizon'
-
   -- SLOW
   use 'ray-x/go.nvim'
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'theHamsta/nvim-dap-virtual-text'
 
   use { 'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make' }}
 
@@ -53,6 +51,12 @@ return require('packer').startup({function(use)
   require'nvim-web-devicons'.setup {
    default = true;
   }
+
+  require('go').setup({
+    fillstruct = 'gopls',
+    max_line_len = 1000,
+    lsp_cfg = false,
+  })
 
 end,
   config = {
