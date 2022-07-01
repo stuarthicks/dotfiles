@@ -3,7 +3,7 @@
 	email = stuarthicks@users.noreply.github.com
 	signingkey = E9AEC9F451CC2992B88814F341A7CA6E756E42A8
 [commit]
-	gpgsign = true
+	gpgsign = false
 [core]
 	pager = less
 	symlinks = true
