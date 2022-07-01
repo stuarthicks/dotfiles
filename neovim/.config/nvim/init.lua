@@ -84,6 +84,7 @@ vim.keymap.set('n', '<leader>h', ':vertical help<space>')
 vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
 vim.keymap.set('n', '<leader>p', ':NERDTreeToggle<cr>')
+vim.keymap.set('n', '<leader>o', ':SymbolsOutline<cr>')
 vim.keymap.set('n', '<leader>r', ':Rg<space>')
 
 vim.keymap.set('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>')

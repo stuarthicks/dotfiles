@@ -22,6 +22,7 @@ return require('packer').startup({function(use)
   use 'ingsme/nvim-smyck'
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
+  use 'simrat39/symbols-outline.nvim'
   use 'tomtom/tcomment_vim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
