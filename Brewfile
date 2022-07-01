@@ -44,7 +44,6 @@ when 'Darwin'
   %w[
     autoconf
     automake
-    bash-language-server
     bento4
     circleci
     cmake
@@ -61,7 +60,6 @@ when 'Darwin'
     jq
     lazygit
     libyaml
-    lua-language-server
     mas
     mediainfo
     neomutt
@@ -75,7 +73,6 @@ when 'Darwin'
     tig
     tmux
     wget
-    yaml-language-server
     zlib
   ].each { |b| brew b }
 when 'Linux'
@@ -84,13 +81,16 @@ when 'Linux'
 end
 
 %w[
+  bash-language-server
   dog
   hlsq
   kubernetes-cli
+  lua-language-server
   neovim
   starship
   terraform
   tstools
+  yaml-language-server
   zellij
 ].each { |b| brew b }
 
