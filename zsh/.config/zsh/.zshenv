@@ -39,7 +39,6 @@ path=(
   "$HOMEBREW_PREFIX/sbin"
   "/opt/local/bin"
   "/opt/local/sbin"
-  '/usr/local/go/bin'
   '/usr/local/bin'
   '/usr/local/sbin'
   '/usr/bin'
@@ -67,6 +66,4 @@ autoload aws_setenv
 test -s ~/.asdf/asdf.sh && . ~/.asdf/asdf.sh
 
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias vizshenv='nvim "$ZDOTDIR/.zshenv"'
-alias vizshrc='nvim "$ZDOTDIR/.zshrc"'
 alias k='ls -l'
