@@ -12,13 +12,6 @@
 
 case `uname`.chomp
 when 'Darwin'
-  {
-    '1Password 7': '1333542190',
-    'Caffeinated': '1362171212',
-    'Microsoft Remote Desktop': '1295203466',
-    'Textual IRC Client': '1262957439',
-    'Things': '904280696',
-  }.each { |a, i| mas a.to_s, id: i.to_i }
   %w[
     1password-cli
     anki
@@ -60,7 +53,6 @@ when 'Darwin'
     jq
     lazygit
     libyaml
-    mas
     mediainfo
     neomutt
     nmap
