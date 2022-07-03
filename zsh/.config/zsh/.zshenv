@@ -2,6 +2,7 @@ export CLICOLOR="1"
 export TZ="Europe/London"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
+export PAGER="nvimpager"
 
 export GPG_TTY="$(tty)"
 
