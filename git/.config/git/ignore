@@ -53,3 +53,4 @@ shell.nix
 result
 venv/
 zsh/.zsh_history
+.direnv/
