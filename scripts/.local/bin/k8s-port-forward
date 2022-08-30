@@ -1,0 +1,27 @@
+#!/bin/bash
+set -eu
+
+cleanup() {
+  kubectl -n playback delete pod "$POD"
+}
+
+trap 'cleanup' EXIT HUP TERM INT
+
+POD="${USER}-tmp-port-forward"
+
+while getopts "n:l:r:n:" opt; do
+  case "$opt" in
+    n) POD="$OPTARG" ;;
+    l) L_PORT="$OPTARG" ;; # local port
+    r) R_PORT="$OPTARG" ;; # remote port
+    h) HOST="$OPTARG"   ;; # remote hostname
+  esac
+done
+
+if [ -z ${L_PORT:-} ]; then
+  L_PORT=$R_PORT
+fi
+
+kubectl -n playback run "$POD" --image=alpine/socat --restart=Never -l 'fin-org=media-tech,fin-product=unknown,fin-service=unknown,fin-component=unknown,fin-team-org=unknown,fin-team-eng=unknown' -- -d -d "tcp-listen:$R_PORT,fork,reuseaddr" "tcp-connect:${HOSTNAME}:$R_PORT"
+kubectl -n playback wait --timeout 60s --for condition=Ready pod "$POD"
+kubectl -n playback port-forward "$POD" $L_PORT:$R_PORT
