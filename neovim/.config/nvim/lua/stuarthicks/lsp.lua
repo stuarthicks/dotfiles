@@ -56,8 +56,6 @@ local servers = {
   'vimls',
 }
 
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
-
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -80,15 +78,3 @@ require'lspconfig'.sumneko_lua.setup {
     }
   }
 }
-
-local server_available, requested_server = lsp_installer_servers.get_server("gopls")
-if server_available then
-    requested_server:on_ready(function ()
-        local opts = require'go.lsp'.config() -- config() return the go.nvim gopls setup
-        requested_server:setup(opts)
-    end)
-    if not requested_server:is_installed() then
-        -- Queue the server to be installed
-        requested_server:install()
-    end
-end

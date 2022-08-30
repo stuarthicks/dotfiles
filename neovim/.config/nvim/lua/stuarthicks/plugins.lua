@@ -47,6 +47,8 @@ return require('packer').startup({function(use)
     require('packer').sync()
   end
 
+  require("nvim-lsp-installer").setup {}
+
   require('telescope').load_extension('fzf')
 
   require'nvim-web-devicons'.setup {
