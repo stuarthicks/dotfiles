@@ -6,7 +6,6 @@
   homebrew/cask
   homebrew/cask-versions
   microsoft/git
-  soldiermoth/tap
   stuarthicks/brews
 ].each { |t| tap t }
 
@@ -46,7 +45,7 @@ end
 
 %w[
   bash-language-server
-  hlsq
+  kubeval
   lua-language-server
   tstools
   yaml-language-server
