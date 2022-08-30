@@ -64,7 +64,5 @@ typeset -TUx FPATH fpath
 autoload aws_profile
 autoload aws_setenv
 
-test -s ~/.asdf/asdf.sh && . ~/.asdf/asdf.sh
-
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls -l'
