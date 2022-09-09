@@ -12,6 +12,8 @@
 case `uname`.chomp
 when 'Darwin'
   %w[
+    1password-cli
+    anki
     dash
     firefox
     git-credential-manager-core
@@ -21,8 +23,10 @@ when 'Darwin'
     microsoft-auto-update
     microsoft-edge
     moonlight
+    nvidia-geforce-now
     paw
     powershell
+    signal
     steam
     transmit
     visual-studio-code
@@ -30,25 +34,56 @@ when 'Darwin'
   ].each { |c| cask c }
 
   %w[
+    autoconf
+    automake
+    bento4
     circleci
+    cmake
+    direnv
+    exa
+    fd
+    ffmpeg
+    gh
+    git-lfs
+    graphviz
+    grepcidr
+    httpie
+    jo
+    jq
+    lazygit
+    libyaml
+    mediainfo
+    neomutt
+    nmap
+    openssl
+    pv
+    ripgrep
+    rustup
+    shellcheck
+    stow
+    tig
+    tmux
+    wget
+    zlib
   ].each { |b| brew b }
 when 'Linux'
   %w[
-    kubernetes-cli
-    neovim
-    starship
-    terraform
-    dog
-    zellij
   ].each { |b| brew b }
 end
 
 %w[
   bash-language-server
+  dog
+  hlsq
+  kubernetes-cli
   kubeval
   lua-language-server
+  neovim
+  starship
+  terraform
   tstools
   yaml-language-server
+  zellij
 ].each { |b| brew b }
 
 # rubocop:enable Style/TrailingCommaInHashLiteral

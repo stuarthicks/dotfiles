@@ -40,6 +40,7 @@ path=(
   "$HOMEBREW_PREFIX/sbin"
   "/opt/local/bin"
   "/opt/local/sbin"
+  '/usr/local/go/bin'
   '/usr/local/bin'
   '/usr/local/sbin'
   '/usr/bin'
@@ -65,4 +66,6 @@ autoload aws_profile
 autoload aws_setenv
 
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
+alias vizshenv='nvim "$ZDOTDIR/.zshenv"'
+alias vizshrc='nvim "$ZDOTDIR/.zshrc"'
 alias k='ls -l'
