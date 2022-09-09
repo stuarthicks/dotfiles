@@ -27,15 +27,15 @@ export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
 export MANPATH="${HOMEBREW_PREFIX}/share/man:/opt/local/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=/opt/devkitpro/devkitARM
-export DEVKITPPC=/opt/devkitpro/devkitPPC
+ . "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
 
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/.gems/bin"
   "$HOME/.node_modules/bin"
+  "$HOME/.asdf/shims"
+  "$HOMEBREW_PREFIX/opt/asdf/libexec/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   "/opt/local/bin"
@@ -66,6 +66,4 @@ autoload aws_profile
 autoload aws_setenv
 
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias vizshenv='nvim "$ZDOTDIR/.zshenv"'
-alias vizshrc='nvim "$ZDOTDIR/.zshrc"'
 alias k='ls -l'

@@ -2,88 +2,70 @@
 
 # rubocop:disable Style/TrailingCommaInHashLiteral
 
+tap 'microsoft/git'
+tap 'stuarthicks/brews'
+
 %w[
-  homebrew/cask
-  homebrew/cask-versions
-  microsoft/git
-  stuarthicks/brews
-].each { |t| tap t }
-
-case `uname`.chomp
-when 'Darwin'
-  %w[
-    1password-cli
-    anki
-    dash
-    firefox
-    git-credential-manager-core
-    google-chrome
-    intellij-idea
-    iterm2
-    microsoft-auto-update
-    microsoft-edge
-    moonlight
-    nvidia-geforce-now
-    paw
-    powershell
-    signal
-    steam
-    transmit
-    visual-studio-code
-    vlc
-  ].each { |c| cask c }
-
-  %w[
-    autoconf
-    automake
-    bento4
-    circleci
-    cmake
-    direnv
-    exa
-    fd
-    ffmpeg
-    gh
-    git-lfs
-    graphviz
-    grepcidr
-    httpie
-    jo
-    jq
-    lazygit
-    libyaml
-    mediainfo
-    neomutt
-    nmap
-    openssl
-    pv
-    ripgrep
-    rustup
-    shellcheck
-    stow
-    tig
-    tmux
-    wget
-    zlib
-  ].each { |b| brew b }
-when 'Linux'
-  %w[
-  ].each { |b| brew b }
-end
+  asdf
+  autoconf
+  automake
+  awscli
+  bento4
+  circleci
+  cmake
+  dav1d
+  diffutils
+  direnv
+  dog
+  exa
+  fd
+  ffmpeg
+  gh
+  git-lfs
+  go
+  gosec
+  graphviz
+  grepcidr
+  httpie
+  jo
+  jq
+  kubernetes-cli
+  lazygit
+  libyaml
+  lua
+  luarocks
+  mediainfo
+  neomutt
+  neovim
+  nmap
+  nodejs
+  openssl
+  pv
+  python
+  rav1e
+  ripgrep
+  ruby
+  rustup
+  shellcheck
+  skopeo
+  starship
+  stow
+  terraform
+  tig
+  tmux
+  tree-sitter
+  wget
+  xsv
+  zellij
+  zlib
+].each { |b| brew b } if `uname`.chomp.eql?('Darwin')
 
 %w[
   bash-language-server
-  dog
-  hlsq
-  kubernetes-cli
   kubeval
   lua-language-server
-  neovim
-  starship
-  terraform
   tstools
   yaml-language-server
-  zellij
 ].each { |b| brew b }
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
