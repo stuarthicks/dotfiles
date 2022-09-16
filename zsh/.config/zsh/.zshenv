@@ -2,12 +2,10 @@ export CLICOLOR="1"
 export TZ="Europe/London"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export PAGER="nvimpager"
 
 export GPG_TTY="$(tty)"
 
 export CUCUMBER_PUBLISH_QUIET=true
-export GEM_HOME="$HOME/.gem"
 export GOPATH="$HOME/code/go"
 export GOBIN="$HOME/.local/bin"
 export GONOPROXY='*'
