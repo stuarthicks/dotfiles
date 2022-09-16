@@ -1,4 +1,5 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
+
 require('stuarthicks.plugins')
 require('stuarthicks.treesitter')
 require('stuarthicks.lsp')

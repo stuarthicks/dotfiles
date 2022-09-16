@@ -33,6 +33,7 @@ path=(
   "$HOME/.gems/bin"
   "$HOME/.node_modules/bin"
   "$HOME/.asdf/shims"
+  "$HOME/.nix-profile/bin"
   "$HOMEBREW_PREFIX/opt/asdf/libexec/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
