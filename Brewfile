@@ -4,19 +4,16 @@
 
 tap 'microsoft/git'
 tap 'stuarthicks/brews'
+tap 'soldiermoth/tap'
 
 %w[
-  asdf
   autoconf
   automake
   awscli
-  bento4
   circleci
-  cmake
   dav1d
   diffutils
   direnv
-  dog
   exa
   fd
   ffmpeg
@@ -29,14 +26,12 @@ tap 'stuarthicks/brews'
   httpie
   jo
   jq
-  kubernetes-cli
   lazygit
   libyaml
   lua
   luarocks
   mediainfo
   neomutt
-  neovim
   nmap
   nodejs
   openssl
@@ -48,24 +43,31 @@ tap 'stuarthicks/brews'
   rustup
   shellcheck
   skopeo
-  starship
   stow
   terraform
   tig
   tmux
   tree-sitter
   wget
-  xsv
-  zellij
   zlib
 ].each { |b| brew b } if `uname`.chomp.eql?('Darwin')
 
 %w[
+  asdf
   bash-language-server
+  bento4
+  cmake
+  dog
+  hlsq
+  kubernetes-cli
   kubeval
   lua-language-server
-  tstools
+  neovim
+  starship
+  stuarthicks/brews/tstools
+  xsv
   yaml-language-server
+  zellij
 ].each { |b| brew b }
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
