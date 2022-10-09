@@ -23,8 +23,9 @@ vim.cmd([[
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
-  use "lunarvim/horizon.nvim"
   use 'dense-analysis/ale'
+  use 'ggandor/leap.nvim'
+  use 'lunarvim/horizon.nvim'
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
   use 'simrat39/symbols-outline.nvim'
@@ -37,7 +38,6 @@ return require('packer').startup({function(use)
   use { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} }
   use { 'jamessan/vim-gnupg', ft = {'asc'} }
   use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
-  use { 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -45,20 +45,17 @@ return require('packer').startup({function(use)
 
   -- SLOW
   use 'ray-x/go.nvim'
-
   use { 'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make' }}
 
   if packer_bootstrap then
     require('packer').sync()
   end
 
+  require('leap').set_default_keymaps()
+
   require("nvim-lsp-installer").setup {}
 
   require('telescope').load_extension('fzf')
-
-  require'nvim-web-devicons'.setup {
-   default = true;
-  }
 
   require('go').setup({
     fillstruct = 'gopls',
