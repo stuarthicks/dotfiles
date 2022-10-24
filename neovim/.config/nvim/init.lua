@@ -4,12 +4,6 @@ require('stuarthicks.plugins')
 require('stuarthicks.treesitter')
 require('stuarthicks.lsp')
 
-local term_program = os.getenv('TERM_PROGRAM')
-vim.o.termguicolors = true
-if term_program == 'Apple_Terminal' then
-  vim.o.termguicolors = false
-end
-
 vim.o.background = 'dark'
 vim.cmd [[
   colorscheme horizon
@@ -18,6 +12,13 @@ vim.cmd [[
   highlight SignColumn guibg=NONE ctermbg=NONE
   highlight EndOfBuffer guibg=NONE ctermbg=NONE
 ]]
+
+local term_program = os.getenv('TERM_PROGRAM')
+vim.o.termguicolors = true
+if term_program == 'Apple_Terminal' then
+  vim.o.termguicolors = false
+  vim.cmd 'colorscheme default'
+end
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
