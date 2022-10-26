@@ -13,7 +13,6 @@ tap 'soldiermoth/tap'
   circleci
   dav1d
   diffutils
-  direnv
   exa
   fd
   ffmpeg
@@ -57,6 +56,7 @@ tap 'soldiermoth/tap'
   bash-language-server
   bento4
   cmake
+  direnv
   dog
   hlsq
   kubernetes-cli
