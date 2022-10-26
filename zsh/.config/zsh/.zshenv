@@ -6,11 +6,8 @@ export VISUAL="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export CUCUMBER_PUBLISH_QUIET=true
-export GOPATH="$HOME/code/go"
+export GOPATH="$HOME/go"
 export GOBIN="$HOME/.local/bin"
-export GONOPROXY='*'
-export GONOSUMDB='*'
-export GOPRIVATE='*'
 
 case $(uname); in
   Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;
@@ -30,10 +27,6 @@ export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
-  "$HOME/.gems/bin"
-  "$HOME/.node_modules/bin"
-  "$HOME/.asdf/shims"
-  "$HOME/.nix-profile/bin"
   "$HOMEBREW_PREFIX/opt/asdf/libexec/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
@@ -65,4 +58,4 @@ autoload aws_profile
 autoload aws_setenv
 
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias k='ls -l'
+alias k='ls'

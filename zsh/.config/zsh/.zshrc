@@ -52,4 +52,4 @@ PROMPT="
 command -v starship > /dev/null && eval "$(starship init zsh)"
 unset RPS1
 
-eval "$(direnv hook zsh)"
+source "$HOME/.config/asdf-direnv/zshrc"
