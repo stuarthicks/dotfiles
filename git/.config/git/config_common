@@ -1,40 +1,42 @@
 [user]
-	name = Stuart Hicks
-	email = stuarthicks@users.noreply.github.com
-	signingkey = E9AEC9F451CC2992B88814F341A7CA6E756E42A8
+  name = Stuart Hicks
+  email = stuarthicks@users.noreply.github.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2odgEamTZm8fkbCwsAmsCQFTz8P/l06yJpniahH4wW
+[gpg]
+  format = ssh
 [commit]
-	gpgsign = false
+  gpgsign = true
 [core]
-	pager = less
-	symlinks = true
+  pager = less
+  symlinks = true
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [pull]
   ff = only
 [push]
-	default = current
+  default = current
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [diff]
-	algorithm = histogram
+  algorithm = histogram
 [diff "gpg"]
-	textconv = gpg --no-tty --decrypt
+  textconv = gpg --no-tty --decrypt
 [merge]
-	# conflictStyle = zdiff3
-	conflictStyle = diff3
+  # conflictStyle = zdiff3
+  conflictStyle = diff3
 [url "https://github.com/"]
   insteadOf = "git@github.com:"
 [url "https://bithub.brightcove.com/"]
   insteadOf = "git@bithub.brightcove.com:"
 [alias]
-	abandon-ship = reset --hard HEAD^^
-	br = branch
-	ci = commit --verbose
-	co = checkout
-	d = diff --histogram --ignore-all-space --ignore-space-change
-	ds = diff --histogram --ignore-all-space --ignore-space-change --staged
-	fe = fetch --all --tags --prune
-	s = status
+  abandon-ship = reset --hard HEAD^^
+  br = branch
+  ci = commit --verbose
+  co = checkout
+  d = diff --histogram --ignore-all-space --ignore-space-change
+  ds = diff --histogram --ignore-all-space --ignore-space-change --staged
+  fe = fetch --all --tags --prune
+  s = status

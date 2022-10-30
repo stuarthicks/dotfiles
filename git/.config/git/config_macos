@@ -1,2 +1,4 @@
 [include]
-	path = config_common
+  path = config_common
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
