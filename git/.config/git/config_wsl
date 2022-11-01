@@ -2,3 +2,5 @@
 	path = config_common
 [credential]
 	helper = /mnt/c/Program\\ Files\\ \\(x86\\)/Git\\ Credential\\ Manager/git-credential-manager-core.exe
+[gpg "ssh"]
+  program = /mnt/c/Users/stuar/AppData/Local/1Password/app/8/op-ssh-sign.exe
