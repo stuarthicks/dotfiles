@@ -46,6 +46,8 @@ infopath()   ( echo "$INFOPATH" | tr : $'\n'; )
 manpath()    ( echo "$MANPATH"  | tr : $'\n'; )
 range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
 
+strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
