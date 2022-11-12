@@ -58,6 +58,7 @@ tap 'soldiermoth/tap'
   cmake
   direnv
   dog
+  gitui
   hlsq
   kubernetes-cli
   kubeval
@@ -65,8 +66,10 @@ tap 'soldiermoth/tap'
   neovim
   starship
   stuarthicks/brews/tstools
+  xq
   xsv
   yaml-language-server
+  yq
   zellij
 ].each { |b| brew b }
 
