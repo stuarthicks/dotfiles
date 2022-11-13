@@ -22,8 +22,6 @@ export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
 export MANPATH="${HOMEBREW_PREFIX}/share/man:/opt/local/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
- . "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
-
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
