@@ -86,7 +86,7 @@ path=(
 typeset -TUx PATH path
 
 fpath=(
-  "$ZDOTDIR/functions"
+  "$HOME/.config/zsh/functions"
   "${HOMEBREW_PREFIX}/share/zsh/site-functions"
   $fpath
 )
