@@ -10,6 +10,7 @@
     awscli
     # bash-language-server
     # bento4
+    coreutils-prefixed
     circleci-cli
     cmake
     dav1d
