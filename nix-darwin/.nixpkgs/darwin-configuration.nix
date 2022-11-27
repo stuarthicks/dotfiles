@@ -21,7 +21,7 @@
     exa
     fd
     fd
-    ffmpeg
+    ffmpeg-full
     gh
     gh
     git
@@ -46,6 +46,7 @@
     neomutt
     neovim
     neovim
+    niv
     nmap
     nodejs
     openssl
