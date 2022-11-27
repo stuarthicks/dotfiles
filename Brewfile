@@ -7,71 +7,31 @@ tap 'stuarthicks/brews'
 tap 'soldiermoth/tap'
 
 %w[
-  autoconf
-  automake
-  awscli
-  circleci
-  dav1d
-  diffutils
-  exa
-  fd
-  ffmpeg
-  gh
-  git-lfs
-  go
-  gosec
-  graphviz
-  grepcidr
-  httpie
-  jo
-  jq
-  lazygit
-  libyaml
-  lua
-  luarocks
-  mediainfo
-  neomutt
-  nmap
-  nodejs
-  openssl
-  pv
-  python
-  rav1e
-  ripgrep
-  ruby
-  rustup
-  shellcheck
-  skopeo
-  stow
-  terraform
-  tig
-  tmux
-  tree-sitter
-  wget
-  zlib
-].each { |b| brew b } if `uname`.chomp.eql?('Darwin')
-
-%w[
-  asdf
   bash-language-server
   bento4
-  cmake
-  direnv
-  dog
-  gitui
   hlsq
-  kubernetes-cli
-  kubeval
   lua-language-server
-  neovim
-  starship
-  stuarthicks/brews/tstools
-  xq
-  xsv
-  yaml-language-server
-  yq
-  zellij
 ].each { |b| brew b }
+
+if `uname`.chomp.eql?('Linux')
+  %w[
+    asdf
+    cmake
+    direnv
+    dog
+    gitui
+    kubernetes-cli
+    kubeval
+    neovim
+    starship
+    stuarthicks/brews/tstools
+    xq
+    xsv
+    yaml-language-server
+    yq
+    zellij
+  ].each { |b| brew b }
+end
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
 # vi: set ft=ruby sw=2 ts=2 expandtab :
