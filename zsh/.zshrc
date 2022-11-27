@@ -132,8 +132,4 @@ if (( $+commands[asdf] )) && (( $+commands[direnv] )); then
   src "$HOME/.config/asdf-direnv/zshrc"
 fi
 
-if (( $+commands[tea] )); then
-  add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }
-fi
-
 src "$HOME/.localrc"
