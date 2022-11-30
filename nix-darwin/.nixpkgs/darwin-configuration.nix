@@ -1,14 +1,21 @@
 { config, pkgs, ... }:
-
+let
+  toolkit = pkgs.fetchFromGitHub {
+    owner = "stuarthicks";
+    repo = "toolkit";
+    rev = "981ee81343b178d0681f6a34bd60f48c8f88ed38";
+    sha256 = "cuyPqwzqGQ6Heh2oYMBkI3S1pnVXfcvxatdrM2pg+u4=";
+  };
+in
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    toolkit
     asdf
     autoconf
     automake
     awscli
-    # bash-language-server
     # bento4
     coreutils-prefixed
     circleci-cli
@@ -40,7 +47,6 @@
     lazygit
     libyaml
     lua
-    # lua-language-server
     luarocks
     mediainfo
     neomutt
@@ -49,6 +55,8 @@
     niv
     nmap
     nodejs
+    nodePackages.bash-language-server
+    nodePackages.prettier
     openssl
     pv
     python
@@ -60,6 +68,7 @@
     skopeo
     starship
     stow
+    sumneko-lua-language-server
     terraform
     tig
     tmux

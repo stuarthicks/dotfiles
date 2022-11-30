@@ -7,21 +7,21 @@ tap 'stuarthicks/brews'
 tap 'soldiermoth/tap'
 
 %w[
-  bash-language-server
   bento4
   hlsq
-  lua-language-server
 ].each { |b| brew b }
 
 if `uname`.chomp.eql?('Linux')
   %w[
     asdf
+    bash-language-server
     cmake
     direnv
     dog
     gitui
     kubernetes-cli
     kubeval
+    lua-language-server
     neovim
     starship
     stuarthicks/brews/tstools
