@@ -67,7 +67,7 @@ export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
-  "$HOMEBREW_PREFIX/opt/asdf/libexec/bin"
+  "$HOME/.asdf/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   "/opt/local/bin"

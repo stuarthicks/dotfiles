@@ -46,6 +46,7 @@ in
     kubeval
     lazygit
     libyaml
+    lorri
     lua
     luarocks
     mediainfo
@@ -54,10 +55,11 @@ in
     neovim
     niv
     nmap
-    nodejs
     nodePackages.bash-language-server
     nodePackages.prettier
+    nodejs
     openssl
+    powershell
     pv
     python
     rav1e
