@@ -8,28 +8,26 @@ let
   };
 in
 {
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    toolkit
+    _1password
     asdf
     autoconf
     automake
     awscli
-    # bento4
-    coreutils-prefixed
     circleci-cli
     cmake
-    dav1d
+    coreutils-prefixed
     dav1d
     diffutils
     direnv
     dog
     exa
     fd
-    fd
     ffmpeg-full
-    gh
     gh
     git
     git-lfs
@@ -38,7 +36,6 @@ in
     gosec
     graphviz
     grepcidr
-    # hlsq
     httpie
     jo
     jq
@@ -52,7 +49,6 @@ in
     mediainfo
     neomutt
     neovim
-    neovim
     niv
     nmap
     nodePackages.bash-language-server
@@ -61,10 +57,11 @@ in
     openssl
     powershell
     pv
-    python
+    python311
     rav1e
     ripgrep
     ruby
+    # runc # pending aarch64-darwin support
     rustup
     shellcheck
     skopeo
@@ -74,6 +71,7 @@ in
     terraform
     tig
     tmux
+    toolkit
     tree-sitter
     wget
     xq
@@ -84,19 +82,37 @@ in
     zlib
   ];
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+  homebrew = { 
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
+    };
+    taps = [
+      "soldiermoth/tap"
+      "stuarthicks/brews"
+    ];
+    brews = [
+      "bento4"
+      "hlsq"
+      "tstools"
+    ];
+  };
+
+  # Use a custom configuration.nix location. $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
+  nix.package = pkgs.nix;
 
   services.lorri.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true; # default shell on catalina
-  # programs.fish.enable = true;
+  programs.zsh.enable = true;
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   # Used for backwards compatibility, please read the changelog before changing. $ darwin-rebuild changelog
   system.stateVersion = 4;
