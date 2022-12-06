@@ -61,7 +61,6 @@ in
     rav1e
     ripgrep
     ruby
-    # runc # pending aarch64-darwin support
     rustup
     shellcheck
     skopeo
@@ -74,6 +73,8 @@ in
     toolkit
     tree-sitter
     wget
+    x264
+    x265
     xq
     xsv
     yaml-language-server
@@ -111,6 +112,8 @@ in
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
+
+  programs.nix-index.enable = true;
 
   security.pam.enableSudoTouchIdAuth = true;
 
