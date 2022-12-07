@@ -25,6 +25,7 @@ in
     diffutils
     direnv
     dog
+    emacs
     exa
     fd
     ffmpeg-full
@@ -109,6 +110,7 @@ in
   nix.package = pkgs.nix;
 
   services.lorri.enable = true;
+  services.emacs.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
