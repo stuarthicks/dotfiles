@@ -43,6 +43,7 @@ in
     kubectl
     kubeval
     lazygit
+    libiconvReal
     libyaml
     lorri
     lua
