@@ -24,6 +24,7 @@ return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
   use 'dense-analysis/ale'
+  use 'eandrju/cellular-automaton.nvim'
   use 'ggandor/leap.nvim'
   use 'lunarvim/horizon.nvim'
   use 'neovim/nvim-lspconfig'

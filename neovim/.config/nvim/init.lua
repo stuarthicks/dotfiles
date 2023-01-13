@@ -94,6 +94,8 @@ vim.keymap.set('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_
 vim.keymap.set('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>')
 vim.keymap.set('n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>')
 
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+
 vim.cmd([[
   augroup hls
     autocmd!
