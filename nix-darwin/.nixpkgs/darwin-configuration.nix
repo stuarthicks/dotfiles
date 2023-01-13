@@ -20,10 +20,12 @@ in
     awscli
     circleci-cli
     cmake
+    colima
     coreutils-prefixed
     dav1d
     diffutils
     direnv
+    docker-client
     dog
     emacs
     exa
@@ -99,6 +101,7 @@ in
     brews = [
       "bento4"
       "hlsq"
+      "nerdctl"
       "tstools"
     ];
   };
