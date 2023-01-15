@@ -13,7 +13,6 @@ in
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    _1password
     asdf
     autoconf
     automake
@@ -39,6 +38,7 @@ in
     gosec
     graphviz
     grepcidr
+    groff
     httpie
     jo
     jq
@@ -95,8 +95,12 @@ in
       cleanup = "uninstall";
     };
     taps = [
+      "1password/tap"
       "soldiermoth/tap"
       "stuarthicks/brews"
+    ];
+    casks = [
+      "1password-cli"
     ];
     brews = [
       "bento4"

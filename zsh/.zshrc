@@ -132,4 +132,5 @@ if (( $+commands[asdf] )) && (( $+commands[direnv] )); then
   src "$HOME/.config/asdf-direnv/zshrc"
 fi
 
+src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
