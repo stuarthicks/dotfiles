@@ -2,35 +2,88 @@
 
 # rubocop:disable Style/TrailingCommaInHashLiteral
 
+ARCH, OS = RUBY_PLATFORM.split('-')
+
+tap '1password/tap'
+tap 'homebrew/cask'
 tap 'microsoft/git'
-tap 'stuarthicks/brews'
 tap 'soldiermoth/tap'
+tap 'stuarthicks/brews'
 
-%w[
-  bento4
-  hlsq
-].each { |b| brew b }
+brew 'bash-language-server'
+brew 'cmake'
+brew 'direnv'
+brew 'dog'
+brew 'gitui'
+brew 'kubernetes-cli'
+brew 'kubeval'
+brew 'lua-language-server'
+brew 'neovim'
+brew 'starship'
+brew 'tstools'
+brew 'xq'
+brew 'xsv'
+brew 'yaml-language-server'
+brew 'yq'
+brew 'zellij'
 
-if `uname`.chomp.eql?('Linux')
-  %w[
-    asdf
-    bash-language-server
-    cmake
-    direnv
-    dog
-    gitui
-    kubernetes-cli
-    kubeval
-    lua-language-server
-    neovim
-    starship
-    stuarthicks/brews/tstools
-    xq
-    xsv
-    yaml-language-server
-    yq
-    zellij
-  ].each { |b| brew b }
+if OS.start_with?('darwin')
+  brew 'asdf'
+  brew 'autoconf'
+  brew 'automake'
+  brew 'awscli'
+  brew 'bento4'
+  brew 'circleci'
+  brew 'colima'
+  brew 'coreutils'
+  brew 'dav1d'
+  brew 'diffutils'
+  brew 'docker'
+  brew 'fd'
+  brew 'ffmpeg'
+  brew 'gh'
+  brew 'git'
+  brew 'git-lfs'
+  brew 'go'
+  brew 'gosec'
+  brew 'graphviz'
+  brew 'grepcidr'
+  brew 'groff'
+  brew 'hlsq'
+  brew 'httpie'
+  brew 'jo'
+  brew 'jq'
+  brew 'libiconv'
+  brew 'libyaml'
+  brew 'lua'
+  brew 'luarocks'
+  brew 'mediainfo'
+  brew 'neomutt'
+  brew 'nerdctl' if ARCH.start_with?('arm')
+  brew 'nmap'
+  brew 'nodejs'
+  brew 'openssl'
+  brew 'prettier'
+  brew 'pv'
+  brew 'python'
+  brew 'rav1e'
+  brew 'ripgrep'
+  brew 'ruby'
+  brew 'rustup'
+  brew 'shellcheck'
+  brew 'skopeo'
+  brew 'stow'
+  brew 'terraform'
+  brew 'tig'
+  brew 'tmux'
+  brew 'tree-sitter'
+  brew 'wget'
+  brew 'x264'
+  brew 'x265'
+  brew 'zlib'
+
+  cask '1password-cli'
+  cask 'powershell'
 end
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
