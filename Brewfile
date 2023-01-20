@@ -36,11 +36,9 @@ brew 'zellij'
 
 if OS.start_with?('darwin')
   brew 'circleci'
-  brew 'colima'
   brew 'coreutils'
   brew 'dav1d'
   brew 'diffutils'
-  brew 'docker'
   brew 'fd'
   brew 'ffmpeg'
   brew 'gh'
