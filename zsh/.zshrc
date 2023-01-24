@@ -48,7 +48,7 @@ export VISUAL="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export CUCUMBER_PUBLISH_QUIET=true
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/code/go:$HOME/code/repos"
 export GOBIN="$HOME/.local/bin"
 
 case $(uname); in
