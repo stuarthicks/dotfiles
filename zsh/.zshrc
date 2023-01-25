@@ -132,5 +132,11 @@ if (( $+commands[asdf] )) && (( $+commands[direnv] )); then
   src "$HOME/.config/asdf-direnv/zshrc"
 fi
 
+if (( $+commands[kubectl] )); then
+  . <(kubectl completion zsh)
+fi
+
+test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic --silent)
+
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
