@@ -118,6 +118,23 @@ range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'
 
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
+tls_cert_summary() (
+  hostname=$1
+  openssl~1.1 s_client \
+    -connect "$1:443" \
+    -showcerts </dev/null 2>/dev/null \
+    | openssl~1.1 x509 \
+      -in - \
+      -inform PEM \
+      -noout \
+      -issuer \
+      -subject \
+      -startdate \
+      -enddate \
+      -ext subjectAltName \
+    | sed -e 's/DNS:/\n/g'
+)
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
