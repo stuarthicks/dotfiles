@@ -13,30 +13,23 @@ brew 'asdf'
 brew 'awscli'
 brew 'bento4'
 brew 'dog'
-brew 'neovim'
 brew 'tstools'
-brew 'xsv'
-brew 'yq'
 brew 'zellij'
 
 if OS.start_with?('darwin')
   brew 'circleci'
   brew 'coreutils'
   brew 'direnv'
-  brew 'fd'
   brew 'gh'
   brew 'git'
   brew 'git-lfs'
   brew 'glide'
-  brew 'go'
   brew 'groff'
-  brew 'jq'
   brew 'kubectl'
   brew 'kubeval'
   brew 'libiconv'
   brew 'libyaml'
   brew 'macos-trash'
-  brew 'shellcheck'
   brew 'starship'
   brew 'stow'
   brew 'terraform'
@@ -46,6 +39,12 @@ if OS.start_with?('darwin')
 
   cask '1password-cli'
   cask 'powershell'
+end
+
+if OS.start_with?('linux')
+  brew 'neovim'
+  brew 'xsv'
+  brew 'yq'
 end
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
