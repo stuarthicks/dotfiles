@@ -42,7 +42,7 @@ zmodload zsh/complist
 
 export CLICOLOR="1"
 export TZ="Europe/London"
-export EDITOR="nvim"
+export EDITOR="tea nvim"
 export VISUAL="$EDITOR"
 
 export GPG_TTY="$(tty)"
