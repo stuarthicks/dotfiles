@@ -51,6 +51,8 @@ export CUCUMBER_PUBLISH_QUIET=true
 export GOPATH="$HOME/code/gopath"
 export GOBIN="$HOME/.local/bin"
 
+export AWS_CLI_AUTO_PROMPT=on-partial
+
 case $(uname); in
   Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
@@ -153,7 +155,7 @@ if (( $+commands[kubectl] )); then
   . <(kubectl completion zsh)
 fi
 
-test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic --silent)
+test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic --silent) &> /dev/null
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
