@@ -48,7 +48,7 @@ export VISUAL="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export CUCUMBER_PUBLISH_QUIET=true
-export GOPATH="$HOME/code/gopath"
+export GOPATH="$HOME/Developer/gopath"
 export GOBIN="$HOME/.local/bin"
 
 export AWS_CLI_AUTO_PROMPT=on-partial
@@ -68,12 +68,9 @@ export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
 path=(
   "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
   "$HOME/.asdf/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  "/opt/local/bin"
-  "/opt/local/sbin"
   '/usr/local/go/bin'
   '/usr/local/bin'
   '/usr/local/sbin'
@@ -102,15 +99,7 @@ autoload aws_setenv
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls'
 
-src() {
-  local file=$1
-  if [[ -f "$file" ]]; then
-    if [[ ! -f "${file}.zwc" ]]; then
-      zcompile "$file"
-    fi
-    source "$file"
-  fi
-}
+src() { test -f "$1" && source "$1"; }
 
 path()       ( echo "$PATH"     | tr : $'\n'; )
 fpath()      ( echo "$FPATH"    | tr : $'\n'; )
