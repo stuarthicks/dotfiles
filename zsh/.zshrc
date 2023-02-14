@@ -48,7 +48,7 @@ export VISUAL="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export CUCUMBER_PUBLISH_QUIET=true
-export GOPATH="$HOME/Developer/gopath"
+export GOPATH="$HOME/Developer/go"
 export GOBIN="$HOME/.local/bin"
 
 export AWS_CLI_AUTO_PROMPT=on-partial
