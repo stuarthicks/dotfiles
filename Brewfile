@@ -13,6 +13,7 @@ brew 'asdf'
 brew 'awscli'
 brew 'bento4'
 brew 'dog'
+brew 'magic-wormhole'
 brew 'tstools'
 brew 'zellij'
 
