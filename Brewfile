@@ -7,12 +7,14 @@ ARCH, OS = RUBY_PLATFORM.split('-')
 tap '1password/tap'
 tap 'homebrew/cask' if OS.start_with?('darwin')
 tap 'microsoft/git'
+tap 'soldiermoth/tap'
 tap 'stuarthicks/brews'
 
 brew 'asdf'
 brew 'awscli'
 brew 'bento4'
 brew 'dog'
+brew 'hlsq'
 brew 'magic-wormhole'
 brew 'tstools'
 brew 'zellij'
