@@ -127,6 +127,13 @@ tls_cert_summary() (
     | sed -e 's/DNS:/\n/g'
 )
 
+init_nix_dev() {
+  nix flake init -t "github:DeterminateSystems/zero-to-nix#${1:-go}-dev"
+  # nix flake init -t "github:the-nix-way/dev-templates#${1:-go}"
+  git add --intent-to-add flake.nix flake.lock
+  git update-index --assume-unchanged flake.nix flake.lock
+}
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
