@@ -145,7 +145,7 @@ if (( $+commands[kubectl] )); then
   . <(kubectl completion zsh)
 fi
 
-test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic --silent) &> /dev/null
+# test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic --silent) &> /dev/null
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
