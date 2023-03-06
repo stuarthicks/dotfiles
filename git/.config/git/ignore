@@ -54,3 +54,6 @@ result
 venv/
 zsh/.zsh_history
 .direnv/
+
+flake.nix
+flake.lock
