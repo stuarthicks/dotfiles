@@ -37,9 +37,6 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
-autoload -Uz compinit && compinit
-zmodload zsh/complist
-
 export CLICOLOR="1"
 export TZ="Europe/London"
 export EDITOR="nvim"
@@ -84,9 +81,13 @@ typeset -TUx PATH path
 
 fpath=(
   "$HOME/.config/zsh/functions"
+  "$HOME/.asdf/completions"
   "${HOMEBREW_PREFIX}/share/zsh/site-functions"
   $fpath
 )
+
+autoload -Uz compinit && compinit
+zmodload zsh/complist
 
 # Remove fpath entries that are either duplicates or don't exist
 typeset -TUx FPATH fpath
