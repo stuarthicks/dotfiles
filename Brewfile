@@ -16,6 +16,7 @@ brew 'bento4'
 brew 'dog'
 brew 'hlsq'
 brew 'magic-wormhole'
+brew 'neovim'
 brew 'tstools'
 brew 'zellij'
 
@@ -45,7 +46,6 @@ if OS.start_with?('darwin')
 end
 
 if OS.start_with?('linux')
-  brew 'neovim'
   brew 'xsv'
   brew 'yq'
 end
