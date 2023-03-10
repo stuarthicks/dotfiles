@@ -4,3 +4,5 @@
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://bithub.brightcove.com"]
+	provider = github
