@@ -23,13 +23,9 @@ vim.cmd([[
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'dense-analysis/ale'
-  use 'eandrju/cellular-automaton.nvim'
-  use 'ggandor/leap.nvim'
   use 'lunarvim/horizon.nvim'
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
-  use 'simrat39/symbols-outline.nvim'
   use 'tomtom/tcomment_vim'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
@@ -51,8 +47,6 @@ return require('packer').startup({function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
-
-  require('leap').set_default_keymaps()
 
   require("nvim-lsp-installer").setup {}
 
