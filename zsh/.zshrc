@@ -144,6 +144,7 @@ if (( $+commands[kubectl] )); then
   . <(kubectl completion zsh)
 fi
 
+alias update_tea='sh <(curl -sSL --tlsv1.2 tea.xyz)'
 test -d "$HOME/.tea" && source <("$HOME/.tea/tea.xyz/v*/bin/tea" --magic --silent) &> /dev/null
 
 src "$HOME/.config/op/plugins.sh"
