@@ -34,6 +34,7 @@ if OS.start_with?('darwin')
   brew 'libiconv'
   brew 'libyaml'
   brew 'macos-trash'
+  brew 'sslscan'
   brew 'starship'
   brew 'stow'
   brew 'terraform'
