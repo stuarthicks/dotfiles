@@ -63,7 +63,7 @@ export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
 path=(
   "$HOME/.local/bin"
-  "$HOME/.asdf/bin"
+  "$HOME/.krew/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   '/usr/local/go/bin'
@@ -81,7 +81,6 @@ typeset -TUx PATH path
 
 fpath=(
   "$HOME/.config/zsh/functions"
-  "$HOME/.asdf/completions"
   "${HOMEBREW_PREFIX}/share/zsh/site-functions"
   $fpath
 )
@@ -135,10 +134,6 @@ if (( $+commands[starship] )); then
 fi
 
 unset RPS1
-
-if (( $+commands[asdf] )) && (( $+commands[direnv] )); then
-  src "$HOME/.config/asdf-direnv/zshrc"
-fi
 
 if (( $+commands[kubectl] )); then
   . <(kubectl completion zsh)
