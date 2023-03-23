@@ -135,6 +135,10 @@ fi
 
 unset RPS1
 
+if (( $+commands[direnv] )); then
+  eval "$(direnv hook zsh)"
+fi
+
 if (( $+commands[kubectl] )); then
   . <(kubectl completion zsh)
 fi
