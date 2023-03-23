@@ -5,23 +5,28 @@
 ARCH, OS = RUBY_PLATFORM.split('-')
 
 tap '1password/tap'
+tap 'fastly/tap'
 tap 'homebrew/cask' if OS.start_with?('darwin')
 tap 'microsoft/git'
 tap 'soldiermoth/tap'
 tap 'stuarthicks/brews'
 
-brew 'asdf'
 brew 'awscli'
 brew 'bento4'
+brew 'circleci'
 brew 'dog'
+brew 'fastly'
 brew 'hlsq'
 brew 'magic-wormhole'
-brew 'neovim'
+brew 'prettier'
+brew 'ruby-build'
+brew 'terraform'
 brew 'tstools'
+brew 'xsv'
+brew 'yq'
 brew 'zellij'
 
 if OS.start_with?('darwin')
-  brew 'circleci'
   brew 'coreutils'
   brew 'direnv'
   brew 'gh'
@@ -30,15 +35,17 @@ if OS.start_with?('darwin')
   brew 'glide'
   brew 'groff'
   brew 'kubectl'
-  brew 'kubeval'
   brew 'libiconv'
   brew 'libyaml'
   brew 'macos-trash'
+  brew 'neovim'
+  brew 'node'
   brew 'sslscan'
   brew 'starship'
   brew 'stow'
   brew 'terraform'
   brew 'tig'
+  brew 'tmux'
   brew 'tree-sitter'
   brew 'xq'
 
@@ -47,8 +54,6 @@ if OS.start_with?('darwin')
 end
 
 if OS.start_with?('linux')
-  brew 'xsv'
-  brew 'yq'
 end
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
