@@ -30,6 +30,7 @@ brew 'yq'
 brew 'zellij'
 
 if OS.start_with?('darwin')
+  brew 'cmake'
   brew 'direnv'
   brew 'gh'
   brew 'git'
@@ -41,6 +42,7 @@ if OS.start_with?('darwin')
   brew 'macos-trash'
   brew 'neovim'
   brew 'node'
+  brew 'ripgrep'
   brew 'sslscan'
   brew 'starship'
   brew 'stow'
