@@ -49,7 +49,6 @@ if OS.start_with?('darwin')
   brew 'terraform'
   brew 'tig'
   brew 'tmux'
-  brew 'tree-sitter'
   brew 'xq'
 
   cask '1password-cli'
