@@ -37,6 +37,7 @@ if OS.start_with?('darwin')
   brew 'git-lfs'
   brew 'glide'
   brew 'groff'
+  brew 'jq'
   brew 'kubectl'
   brew 'libiconv'
   brew 'macos-trash'
