@@ -59,12 +59,13 @@ export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
 export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew";
 export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}/"
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
-export MANPATH="${HOMEBREW_PREFIX}/share/man:/opt/local/share/man${MANPATH+:$MANPATH}:";
+export MANPATH="$HOME/Developer/opt/share/man:${HOMEBREW_PREFIX}/share/man:/opt/local/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
 path=(
   "$HOME/.local/bin"
   "$HOME/.krew/bin"
+  "$HOME/Developer/opt/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   '/usr/local/go/bin'
