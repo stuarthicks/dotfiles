@@ -44,6 +44,7 @@ export VISUAL="$EDITOR"
 
 export GPG_TTY="$(tty)"
 
+export AWS_DEFAULT_REGION=us-east-1
 export CUCUMBER_PUBLISH_QUIET=true
 export GOPATH="$HOME/Developer/go"
 export GOBIN="$HOME/.local/bin"
@@ -81,6 +82,7 @@ typeset -TUx PATH path
 
 fpath=(
   "$HOME/.config/zsh/functions"
+  "$HOME/.awsume/zsh-autocomplete"
   "${HOMEBREW_PREFIX}/share/zsh/site-functions"
   $fpath
 )
