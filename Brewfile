@@ -30,7 +30,9 @@ brew 'yq'
 brew 'zellij'
 
 if OS.start_with?('darwin')
+  brew 'automake'
   brew 'cmake'
+  brew 'curl'
   brew 'direnv'
   brew 'gh'
   brew 'git'
@@ -40,6 +42,7 @@ if OS.start_with?('darwin')
   brew 'jq'
   brew 'kubectl'
   brew 'libiconv'
+  brew 'libtool'
   brew 'macos-trash'
   brew 'neovim'
   brew 'node'
@@ -50,6 +53,7 @@ if OS.start_with?('darwin')
   brew 'terraform'
   brew 'tig'
   brew 'tmux'
+  brew 'trurl'
   brew 'xq'
 
   cask '1password-cli'
