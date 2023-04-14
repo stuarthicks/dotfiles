@@ -83,7 +83,6 @@ path=(
 typeset -TUx PATH path
 
 fpath=(
-  "$HOME/.config/zsh/functions"
   "$HOME/.awsume/zsh-autocomplete"
   "${HOMEBREW_PREFIX}/share/zsh/site-functions"
   $fpath
@@ -94,9 +93,6 @@ zmodload zsh/complist
 
 # Remove fpath entries that are either duplicates or don't exist
 typeset -TUx FPATH fpath
-
-autoload aws_profile
-autoload aws_setenv
 
 alias awsume="source awsume"
 alias undynamo='jq -f ~/.dotfiles/scripts/.local/share/convertfrom_dynamodb.jq'
@@ -115,10 +111,10 @@ strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
 tls_cert_summary() (
   hostname=$1
-  openssl~1.1 s_client \
+  $(brew --prefix openssl)/bin/openssl s_client \
     -connect "$1:443" \
     -showcerts </dev/null 2>/dev/null \
-    | openssl~1.1 x509 \
+    | $(brew --prefix openssl)/bin/openssl x509 \
       -in - \
       -inform PEM \
       -noout \
@@ -128,6 +124,11 @@ tls_cert_summary() (
       -enddate \
       -ext subjectAltName \
     | sed -e 's/DNS:/\n/g'
+)
+
+aws_prompt() (
+  export AWS_CLI_AUTO_PROMPT=on
+  aws
 )
 
 KEYTIMEOUT=1
