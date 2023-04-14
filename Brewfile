@@ -12,6 +12,7 @@ tap 'soldiermoth/tap'
 tap 'stuarthicks/brews'
 
 brew 'awscli'
+brew 'awsume'
 brew 'bento4'
 brew 'circleci'
 brew 'coreutils'

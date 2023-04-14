@@ -98,6 +98,7 @@ typeset -TUx FPATH fpath
 autoload aws_profile
 autoload aws_setenv
 
+alias awsume="source awsume"
 alias undynamo='jq -f ~/.dotfiles/scripts/.local/share/convertfrom_dynamodb.jq'
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls'
