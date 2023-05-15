@@ -109,23 +109,6 @@ range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'
 
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
-tls_cert_summary() (
-  hostname=$1
-  $(brew --prefix openssl)/bin/openssl s_client \
-    -connect "$1:443" \
-    -showcerts </dev/null 2>/dev/null \
-    | $(brew --prefix openssl)/bin/openssl x509 \
-      -in - \
-      -inform PEM \
-      -noout \
-      -issuer \
-      -subject \
-      -startdate \
-      -enddate \
-      -ext subjectAltName \
-    | sed -e 's/DNS:/\n/g'
-)
-
 aws_prompt() (
   export AWS_CLI_AUTO_PROMPT=on
   aws
