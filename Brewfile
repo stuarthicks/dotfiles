@@ -53,6 +53,7 @@ if OS.start_with?('darwin')
   brew 'macos-trash'
   brew 'neovim'
   brew 'node'
+  brew 'pipx'
   brew 'ripgrep'
   brew 'sk'
   brew 'sslscan'
