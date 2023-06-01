@@ -5,6 +5,7 @@
 ARCH, OS = RUBY_PLATFORM.split('-')
 
 tap '1password/tap'
+tap 'belgianbeer/minmin'
 tap 'fastly/tap'
 tap 'homebrew/cask' if OS.start_with?('darwin')
 tap 'microsoft/git'
@@ -30,6 +31,7 @@ brew 'terraform'
 brew 'tflint'
 brew 'tfsec'
 brew 'tstools'
+brew 'tzdiff'
 brew 'xsv'
 brew 'yq'
 brew 'zellij'
