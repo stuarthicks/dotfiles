@@ -114,6 +114,14 @@ aws_prompt() (
   aws
 )
 
+csvql() (
+ csv=$1; shift
+
+ # Defaults to printing out csv. Can make tables like this:
+ # -cmd '.mode column'
+ sqlite3 :memory: -cmd ".import -csv ${csv} csv" $@
+)
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
@@ -134,3 +142,4 @@ fi
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
+
