@@ -23,6 +23,7 @@ vim.cmd([[
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'folke/tokyonight.nvim'
   use 'lunarvim/horizon.nvim'
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
