@@ -140,6 +140,10 @@ if (( $+commands[kubectl] )); then
   . <(kubectl completion zsh)
 fi
 
+if (( $+commands[fastly] )); then
+  eval "$(fastly --completion-script-zsh)"
+fi
+
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
 
