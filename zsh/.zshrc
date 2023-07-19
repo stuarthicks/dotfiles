@@ -136,6 +136,12 @@ if (( $+commands[fastly] )); then
   eval "$(fastly --completion-script-zsh)"
 fi
 
+if (( $+commands[orbctl] )); then
+  . <(orbctl completion zsh)
+  compdef _orbctl orbctl
+fi
+
+
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
 
