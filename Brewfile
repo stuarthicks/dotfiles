@@ -2,13 +2,11 @@
 
 # rubocop:disable Style/TrailingCommaInHashLiteral
 
-ARCH, OS = RUBY_PLATFORM.split('-')
-
 tap '1password/tap'
 tap 'belgianbeer/minmin'
 tap 'fastly/tap'
 tap 'homebrew-ffmpeg/ffmpeg'
-tap 'homebrew/cask' if OS.start_with?('darwin')
+tap 'homebrew/cask' if OS.mac?
 tap 'microsoft/git'
 tap 'soldiermoth/tap'
 tap 'stuarthicks/brews'
@@ -42,7 +40,7 @@ brew 'xsv'
 brew 'yq'
 brew 'zellij'
 
-if OS.start_with?('darwin')
+if OS.mac?
   brew 'automake'
   brew 'bat'
   brew 'cmake'
@@ -80,7 +78,7 @@ if OS.start_with?('darwin')
   cask 'powershell'
 end
 
-if OS.start_with?('linux')
+if OS.linux?
 end
 
 # rubocop:enable Style/TrailingCommaInHashLiteral
