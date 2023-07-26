@@ -99,6 +99,9 @@ alias undynamo='jq -f ~/.dotfiles/scripts/.local/share/convertfrom_dynamodb.jq'
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls'
 
+alias tolower='tr "[:upper:]" "[:lower:]"'
+alias toupper='tr "[:lower:]" "[:upper:]"'
+
 src() { test -f "$1" && source "$1"; }
 
 path()       ( echo "$PATH"     | tr : $'\n'; )
