@@ -2,20 +2,15 @@
 
 # rubocop:disable Style/TrailingCommaInHashLiteral
 
-ARCH, OS = RUBY_PLATFORM.split('-')
-
 tap '1password/tap'
-tap 'belgianbeer/minmin'
 tap 'fastly/tap'
 tap 'homebrew-ffmpeg/ffmpeg'
-tap 'homebrew/cask' if OS.start_with?('darwin')
+tap 'homebrew/cask' if OS.mac?
 tap 'microsoft/git'
 tap 'soldiermoth/tap'
 tap 'stuarthicks/brews'
 tap 'wader/tap'
 
-brew 'awscli'
-brew 'awsume'
 brew 'bento4'
 brew 'circleci'
 brew 'coreutils'
@@ -24,13 +19,12 @@ brew 'deno'
 brew 'dog'
 brew 'fastly'
 brew 'glow'
-brew 'go'
 brew 'hlsq'
 brew 'k9s'
 brew 'libyaml'
 brew 'magic-wormhole'
 brew 'prettier'
-brew 'ruby-build'
+brew 'shush'
 brew 'starship'
 brew 'terraform'
 brew 'tflint'
@@ -42,8 +36,9 @@ brew 'xsv'
 brew 'yq'
 brew 'zellij'
 
-if OS.start_with?('darwin')
+if OS.mac?
   brew 'automake'
+  brew 'awscli'
   brew 'bat'
   brew 'cmake'
   brew 'curl'
@@ -51,9 +46,10 @@ if OS.start_with?('darwin')
   brew 'direnv'
   brew 'fd'
   brew 'gh'
-  brew 'git'
   brew 'git-lfs'
+  brew 'git'
   brew 'glide'
+  brew 'go'
   brew 'groff'
   brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
   brew 'jq'
@@ -66,7 +62,9 @@ if OS.start_with?('darwin')
   brew 'node'
   brew 'pipx'
   brew 'pv'
+  brew 'python'
   brew 'ripgrep'
+  brew 'ruby-build'
   brew 'sk'
   brew 'sslscan'
   brew 'stow'
@@ -80,7 +78,7 @@ if OS.start_with?('darwin')
   cask 'powershell'
 end
 
-if OS.start_with?('linux')
+if OS.linux?
 end
 
 # rubocop:enable Style/TrailingCommaInHashLiteral

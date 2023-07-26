@@ -44,6 +44,7 @@ export VISUAL="$EDITOR"
 
 export GPG_TTY="$(tty)"
 
+export AWS_CLI_AUTO_PROMPT=on-partial
 export AWS_DEFAULT_REGION=us-east-1
 export CUCUMBER_PUBLISH_QUIET=true
 export GOPATH="$HOME/Developer/go"
@@ -54,7 +55,6 @@ case $(uname); in
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
 
-export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
 export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew";
 export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}/"
@@ -102,20 +102,12 @@ alias k='ls'
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
 
-src() { test -f "$1" && source "$1"; }
-
-path()       ( echo "$PATH"     | tr : $'\n'; )
-fpath()      ( echo "$FPATH"    | tr : $'\n'; )
-infopath()   ( echo "$INFOPATH" | tr : $'\n'; )
-manpath()    ( echo "$MANPATH"  | tr : $'\n'; )
-range2cidr() ( perl -e 'use Net::CIDR; print join("\n", Net::CIDR::range2cidr("'"$1"'")) . "\n";'; )
+path()     ( echo "$PATH"     | tr : $'\n'; )
+fpath()    ( echo "$FPATH"    | tr : $'\n'; )
+infopath() ( echo "$INFOPATH" | tr : $'\n'; )
+manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
 
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
-
-aws_prompt() (
-  export AWS_CLI_AUTO_PROMPT=on
-  aws
-)
 
 KEYTIMEOUT=1
 PROMPT="
@@ -127,23 +119,14 @@ fi
 
 unset RPS1
 
-if (( $+commands[direnv] )); then
-  eval "$(direnv hook zsh)"
-fi
+if-cmd() ( if (( $+commands[$1] )); then exit 0; fi; exit 1; )
 
-if (( $+commands[kubectl] )); then
-  . <(kubectl completion zsh)
-fi
+if-cmd direnv  && eval "$(direnv hook zsh)"
+if-cmd fastly  && eval "$(fastly --completion-script-zsh)"
+if-cmd kubectl && . <(kubectl completion zsh)
+if-cmd orbctl  && . <(orbctl completion zsh) && compdef _orbctl orbctl
 
-if (( $+commands[fastly] )); then
-  eval "$(fastly --completion-script-zsh)"
-fi
-
-if (( $+commands[orbctl] )); then
-  . <(orbctl completion zsh)
-  compdef _orbctl orbctl
-fi
-
+src() { test -f "$1" && source "$1"; }
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
