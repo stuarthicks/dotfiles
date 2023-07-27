@@ -5,7 +5,6 @@
 tap '1password/tap'
 tap 'fastly/tap'
 tap 'homebrew-ffmpeg/ffmpeg'
-tap 'homebrew/cask' if OS.mac?
 tap 'microsoft/git'
 tap 'soldiermoth/tap'
 tap 'stuarthicks/brews'
