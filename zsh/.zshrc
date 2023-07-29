@@ -130,4 +130,3 @@ src() { test -f "$1" && source "$1"; }
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
-
