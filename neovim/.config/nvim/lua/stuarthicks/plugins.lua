@@ -34,6 +34,7 @@ return require('packer').startup({function(use)
   use 'williamboman/nvim-lsp-installer'
   use { 'RRethy/nvim-align', cmd = 'Align' }
   use { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} }
+  use { 'imsnif/kdl.vim', ft = {'kdl'} }
   use { 'jamessan/vim-gnupg', ft = {'asc'} }
   use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
