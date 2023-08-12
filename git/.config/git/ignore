@@ -57,3 +57,5 @@ zsh/.zsh_history
 
 flake.nix
 flake.lock
+
+devenv.*
