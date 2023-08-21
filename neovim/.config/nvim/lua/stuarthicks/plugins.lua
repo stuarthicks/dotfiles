@@ -23,8 +23,19 @@ vim.cmd([[
 return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'folke/tokyonight.nvim'
-  use 'lunarvim/horizon.nvim'
+  -- Themes
+  -- use 'folke/tokyonight.nvim'
+  -- use 'lunarvim/horizon.nvim'
+  use {
+    'miyakogi/nvim-smyck',
+    config = function()
+      require('nvim-smyck').colorscheme({
+        italic_comments = true,
+        minimal_mode = true,
+      })
+    end
+  }
+
   use 'neovim/nvim-lspconfig'
   use 'sheerun/vim-polyglot'
   use 'tomtom/tcomment_vim'
