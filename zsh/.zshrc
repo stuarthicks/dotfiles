@@ -109,6 +109,17 @@ manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
 
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
+repo() {
+  URL=$1
+  BASE=$(trurl -g '{host}{path}' "$URL" | cut -d '/' -f-2)
+  DIR="$HOME/Developer/src/${BASE}"
+
+  mkdir -p "$DIR"
+  cd "$DIR"
+  git clone --recursive "$URL"
+  cd "$(basename "$URL")"
+}
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
