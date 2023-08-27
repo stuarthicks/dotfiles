@@ -6,7 +6,7 @@ require('stuarthicks.lsp')
 
 vim.o.background = 'dark'
 vim.cmd [[
-  colorscheme nvim-smyck
+  colorscheme tokyonight-night
   highlight Normal guibg=NONE ctermbg=NONE
   highlight LineNr guibg=NONE ctermbg=NONE
   highlight SignColumn guibg=NONE ctermbg=NONE
