@@ -7,16 +7,16 @@ if [ -d cucumber/coverage ]; then
   gocovmerge coverage.out cucumber/coverage.out > combined.out
 fi
 
-sed -i '/mock/d' coverage.out
+sed '/mock/d' coverage.out
 echo
 echo -n 'unit test coverage: '
 go tool cover -func coverage.out | grep '^total' | awk '{print $3}'
 
-sed -i '/mock/d' cucumber/coverage.out
+sed '/mock/d' cucumber/coverage.out
 echo -n 'integration test coverage: '
 go tool cover -func cucumber/coverage.out | grep '^total' | awk '{print $3}'
 
-sed -i '/mock/d' combined.out
+sed '/mock/d' combined.out
 echo -n 'overall test coverage: '
 go tool cover -func combined.out | grep '^total' | awk '{print $3}'
 
