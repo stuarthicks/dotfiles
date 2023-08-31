@@ -1,86 +1,87 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
 
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-
-return require('packer').startup({function(use)
-  use 'wbthomason/packer.nvim'
-
-  -- Themes
-  use 'folke/tokyonight.nvim'
-  -- use 'lunarvim/horizon.nvim'
-  -- use {
-  --   'miyakogi/nvim-smyck',
-  --   config = function()
-  --     require('nvim-smyck').colorscheme({
-  --       italic_comments = true,
-  --       minimal_mode = true,
-  --     })
-  --   end
-  -- }
-
-  use 'neovim/nvim-lspconfig'
-  use 'sheerun/vim-polyglot'
-  use 'tomtom/tcomment_vim'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
-  use 'williamboman/nvim-lsp-installer'
-  use { 'RRethy/nvim-align', cmd = 'Align' }
-  use { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} }
-  use { 'imsnif/kdl.vim', ft = {'kdl'} }
-  use { 'jamessan/vim-gnupg', ft = {'asc'} }
-  use { 'jremmen/vim-ripgrep', cmd = {'Rg'} }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} }
-
-  -- SLOW
-  use 'ray-x/go.nvim'
-  use { 'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make' }}
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-
-  require("nvim-lsp-installer").setup {}
-
-  require('telescope').load_extension('fzf')
-
-  require('go').setup({
-    fillstruct = 'gopls',
-    max_line_len = 1000,
-    lsp_cfg = false,
-  })
-
-end,
-  config = {
-    profile = {
-      enable = true,
-      threshold = 0, -- ms
-    },
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single', style = 'minimal' })
+require("lazy").setup({
+    { 'RRethy/nvim-align', cmd = 'Align' },
+    { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
+    { 'folke/neodev.nvim' },
+    { 'folke/tokyonight.nvim' },
+    { 'imsnif/kdl.vim', ft = {'kdl'} },
+    { 'jamessan/vim-gnupg', ft = {'asc'} },
+    { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
+    { 'neovim/nvim-lspconfig' },
+    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+    { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} },
+    { 'sheerun/vim-polyglot' },
+    { 'tomtom/tcomment_vim' },
+    { 'tpope/vim-fugitive' },
+    { 'tpope/vim-repeat' },
+    { 'tpope/vim-surround' },
+    {
+      'folke/neoconf.nvim',
+      cmd = "Neoconf",
+      config = function()
+        require("neoconf").setup({
+            -- override any of the default settings here
+          })
       end
-    }
-  },
-})
+    },
+    {
+      'folke/which-key.nvim',
+      config = function()
+        local wk = require('which-key')
+      end
+    },
+    {
+      'williamboman/nvim-lsp-installer',
+      config = function()
+        require("nvim-lsp-installer").setup({})
+      end
+    },
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    },
+    {
+      'nvim-telescope/telescope.nvim',
+      branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        require('telescope').load_extension('fzf')
+      end
+    },
+    {
+      'ray-x/go.nvim',
+      dependencies = {
+        'mfussenegger/nvim-dap' ,
+        'neovim/nvim-lspconfig',
+        'nvim-telescope/telescope-dap.nvim' ,
+        'nvim-treesitter/nvim-treesitter',
+        'ray-x/guihua.lua',
+        'rcarriga/nvim-dap-ui' ,
+        'theHamsta/nvim-dap-virtual-text' ,
+      },
+      config = function()
+        require("go").setup({
+            fillstruct = 'gopls',
+            max_line_len = 1000,
+            lsp_cfg = false,
+          })
+      end,
+      event = {"CmdlineEnter"},
+      ft = {"go", 'gomod'},
+      build = ':lua require("go.install").update_all_sync()'
+    },
+  })

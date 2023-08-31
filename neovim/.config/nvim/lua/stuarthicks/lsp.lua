@@ -45,7 +45,17 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
+  'bashls',
+  'cucumber_language_server',
+  'dockerls',
+  -- 'eslint',
+  'golangci_lint_ls',
   'gopls',
+  'jedi_language_server',
+  'jsonls',
+  'terraformls',
+  'tflint',
+  'yamlls',
 }
 
 for _, lsp in pairs(servers) do
