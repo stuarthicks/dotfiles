@@ -29,6 +29,8 @@ require("lazy").setup({
     { 'tomtom/tcomment_vim' },
     { 'tpope/vim-fugitive' },
     { 'tpope/vim-repeat' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'williamboman/mason.nvim' },
     { 'tpope/vim-surround' },
     {
       'folke/neoconf.nvim',
@@ -43,12 +45,6 @@ require("lazy").setup({
       'folke/which-key.nvim',
       config = function()
         local wk = require('which-key')
-      end
-    },
-    {
-      'williamboman/mason.nvim',
-      config = function()
-        require("mason").setup()
       end
     },
     {
@@ -93,4 +89,9 @@ require("lazy").setup({
       ft = {"go", 'gomod'},
       build = ':lua require("go.install").update_all_sync()'
     },
+  })
+
+require("mason").setup()
+require("mason-lspconfig").setup({
+    automatic_installation = true,
   })

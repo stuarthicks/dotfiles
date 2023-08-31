@@ -46,16 +46,22 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
   'bashls',
+  'cucumber_language_server',
   'dockerls',
+  'eslint',
+  'golangci_lint_ls',
   'gopls',
+  'jedi_language_server',
   'jsonls',
+  'lua_ls',
+  'marksman',
+  'rust_analyzer',
+  'solargraph',
+  'taplo',
   'terraformls',
   'tflint',
+  -- 'tfsec',
   'yamlls',
-  -- 'cucumber_language_server',
-  -- 'eslint',
-  -- 'golangci_lint_ls',
-  -- 'jedi_language_server',
 }
 
 for _, lsp in pairs(servers) do
