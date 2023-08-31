@@ -21,6 +21,7 @@ require("lazy").setup({
     { 'imsnif/kdl.vim', ft = {'kdl'} },
     { 'jamessan/vim-gnupg', ft = {'asc'} },
     { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
+    { 'mhartington/formatter.nvim' },
     { 'neovim/nvim-lspconfig' },
     { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
     { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} },
@@ -45,9 +46,17 @@ require("lazy").setup({
       end
     },
     {
-      'williamboman/nvim-lsp-installer',
+      'williamboman/mason.nvim',
       config = function()
-        require("nvim-lsp-installer").setup({})
+        require("mason").setup()
+      end
+    },
+    {
+      'mfussenegger/nvim-lint',
+      config = function()
+        require('lint').linters_by_ft = {
+          terraform = { 'tfsec',}
+        }
       end
     },
     {
