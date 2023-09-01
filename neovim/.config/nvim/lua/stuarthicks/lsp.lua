@@ -52,6 +52,7 @@ local servers = {
   'golangci_lint_ls',
   'gopls',
   'jedi_language_server',
+  'jq-lsp',
   'jsonls',
   'lua_ls',
   'marksman',
@@ -60,8 +61,8 @@ local servers = {
   'taplo',
   'terraformls',
   'tflint',
-  -- 'tfsec',
   'yamlls',
+  -- 'tfsec',
 }
 
 for _, lsp in pairs(servers) do
