@@ -1,3 +1,4 @@
+# vi: set ft=gitconfig sw=2 ts=2 expandtab #
 [include]
 	path = config_common
 [credential]
