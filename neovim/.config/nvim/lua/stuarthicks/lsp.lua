@@ -1,5 +1,7 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
 
+require('lspconfig')['lua_ls'].setup { settings = { Lua = { diagnostics = { globals = {'vim'} } } } }
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -40,37 +42,4 @@ local on_attach = function(client, bufnr)
     augroup end
   ]])
 
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = {
-  'bashls',
-  'cucumber_language_server',
-  'dockerls',
-  'eslint',
-  'golangci_lint_ls',
-  'gopls',
-  'jedi_language_server',
-  'jq-lsp',
-  'jsonls',
-  'lua_ls',
-  'marksman',
-  'rust_analyzer',
-  'solargraph',
-  'taplo',
-  'terraformls',
-  'tflint',
-  'yamlls',
-  -- 'tfsec',
-}
-
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
 end
