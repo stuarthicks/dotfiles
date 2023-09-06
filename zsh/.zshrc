@@ -149,6 +149,5 @@ if-cmd orbctl  && . <(orbctl completion zsh) && compdef _orbctl orbctl
 
 src() { test -f "$1" && source "$1"; }
 
-src "$HOME/.iterm2_shell_integration.zsh"
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
