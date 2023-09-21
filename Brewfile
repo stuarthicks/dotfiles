@@ -52,6 +52,7 @@ if OS.mac?
   brew 'git'
   brew 'git-lfs'
   brew 'glide'
+  brew 'gotags'
   brew 'groff'
   brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
   brew 'jq'
@@ -75,6 +76,7 @@ if OS.mac?
   brew 'tig'
   brew 'tmux'
   brew 'trurl'
+  brew 'universal-ctags'
   brew 'vale'
   brew 'xq'
 

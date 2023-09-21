@@ -87,6 +87,7 @@ vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
 vim.keymap.set('n', '<leader>p', ':NERDTreeToggle<cr>')
 vim.keymap.set('n', '<leader>r', ':Rg<space>')
+vim.keymap.set('n', '<leader>s', ':TagbarToggle<cr>')
 
 vim.keymap.set('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>')
 vim.keymap.set('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>')

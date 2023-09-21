@@ -24,6 +24,7 @@ require("lazy").setup({
   { 'mhartington/formatter.nvim' },
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} },
+  { 'preservim/tagbar', cmd = {'TagbarToggle'} },
   { 'sheerun/vim-polyglot' },
   { 'tomtom/tcomment_vim' },
   { 'tpope/vim-fugitive' },
