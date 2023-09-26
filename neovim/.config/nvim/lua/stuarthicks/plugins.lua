@@ -14,10 +14,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  { "akinsho/horizon.nvim", version = "*" },
   { 'RRethy/nvim-align', cmd = 'Align' },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
   { 'folke/neodev.nvim' },
-  { 'folke/tokyonight.nvim' },
   { 'imsnif/kdl.vim', ft = {'kdl'} },
   { 'jamessan/vim-gnupg', ft = {'asc'} },
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },

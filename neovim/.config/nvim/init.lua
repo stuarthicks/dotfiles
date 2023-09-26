@@ -6,7 +6,7 @@ require('stuarthicks.lsp')
 
 vim.o.background = 'dark'
 vim.cmd [[
-  colorscheme tokyonight-night
+  colorscheme horizon
   highlight Normal guibg=NONE ctermbg=NONE
   highlight LineNr guibg=NONE ctermbg=NONE
   highlight SignColumn guibg=NONE ctermbg=NONE
@@ -17,7 +17,7 @@ local term_program = os.getenv('TERM_PROGRAM')
 vim.o.termguicolors = true
 if term_program == 'Apple_Terminal' then
   vim.o.termguicolors = false
-  vim.cmd 'colorscheme default'
+  vim.cmd 'colorscheme horizon'
 end
 
 vim.g.mapleader = ' '
