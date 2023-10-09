@@ -146,6 +146,7 @@ if-cmd direnv  && eval "$(direnv hook zsh)"
 if-cmd fastly  && eval "$(fastly --completion-script-zsh)"
 if-cmd kubectl && . <(kubectl completion zsh)
 if-cmd orbctl  && . <(orbctl completion zsh) && compdef _orbctl orbctl
+if-cmd lw-scanner && . <(lw-scanner completion zsh) && compdef _lw-scanner lw-scanner
 
 src() { test -f "$1" && source "$1"; }
 
