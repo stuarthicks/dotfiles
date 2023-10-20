@@ -14,7 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "akinsho/horizon.nvim", version = "*" },
   { 'RRethy/nvim-align', cmd = 'Align' },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
   { 'folke/neodev.nvim' },
@@ -30,6 +29,20 @@ require("lazy").setup({
   { 'tpope/vim-fugitive' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    'folke/zen-mode.nvim',
+    opts = {},
+  },
+  {
+    "folke/twilight.nvim",
+    opts = {},
+  },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
