@@ -48,6 +48,7 @@ vim.o.completeopt = table.concat({
 vim.o.expandtab = true
 vim.o.foldlevelstart = 20
 vim.o.foldmethod = 'syntax'
+vim.o.linebreak = true
 vim.o.mouse = 'a'
 vim.o.number = true
 vim.o.scrolloff = 5
