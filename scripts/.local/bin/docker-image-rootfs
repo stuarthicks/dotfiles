@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Requires:
+# https://github.com/containers/skopeo
+# https://github.com/opencontainers/umoci
+
 readonly SCRIPT=$(basename "$0")
 readonly USAGE=$(cat <<-EOF
 	$SCRIPT: Unpack a rootfs from a docker image.
