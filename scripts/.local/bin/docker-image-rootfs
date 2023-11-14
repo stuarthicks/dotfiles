@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly SCRIPT=$(basename "$0")
+readonly USAGE=$(cat <<-EOF
+	$SCRIPT: Unpack a rootfs from a docker image.
+
+	USAGE:
+		./$SCRIPT -i [DOCKER_IMAGE]
+
+	EOF
+)
+
+if [[ "$*" =~ '--help' ]] || [[ "$*" =~ '-h' ]]; then
+  echo "$USAGE"
+  exit 1
+fi
+
+while getopts "i:" opt; do
+  case $opt in
+    i)
+      IMAGE=$OPTARG
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+if [ -z "${IMAGE:-}" ]; then
+  echo "$USAGE"
+  exit 1
+fi
+
+if [ -d rootfs ]; then
+  echo "Aborting, as rootfs dir already exists"
+  exit 1
+fi
+
+if [ -d bundle ]; then
+  echo "Aborting, as bundle dir already exists"
+  exit 1
+fi
+
+docker pull "${IMAGE}"
+skopeo copy "docker-daemon:${IMAGE}" oci:bundle:latest
+umoci unpack --rootless --image bundle unpacked
+mv unpacked/rootfs rootfs
+rm -rf ./bundle ./unpacked
