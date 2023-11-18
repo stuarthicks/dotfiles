@@ -1,6 +1,5 @@
+# vi: set ft=ruby sw=2 ts=2 expandtab :
 # frozen_string_literal: true
-
-# rubocop:disable Style/TrailingCommaInHashLiteral
 
 tap '1password/tap'
 tap 'fastly/tap'
@@ -15,6 +14,7 @@ brew 'bento4'
 brew 'circleci'
 brew 'coreutils'
 brew 'csvq'
+brew 'd2'
 brew 'deno'
 brew 'dog'
 brew 'fastly'
@@ -86,6 +86,3 @@ end
 
 if OS.linux?
 end
-
-# rubocop:enable Style/TrailingCommaInHashLiteral
-# vi: set ft=ruby sw=2 ts=2 expandtab :
