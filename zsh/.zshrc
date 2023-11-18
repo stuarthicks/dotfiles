@@ -150,5 +150,6 @@ if-cmd lw-scanner && . <(lw-scanner completion zsh) && compdef _lw-scanner lw-sc
 
 src() { test -f "$1" && source "$1"; }
 
+src "$HOME/.orbstack/shell/init.zsh"
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
