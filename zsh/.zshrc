@@ -130,6 +130,26 @@ sdk() {
   sdk "$@"
 }
 
+function insert-fzy-file() {
+  local selected_path
+  echo
+  selected_path=$(fd -t f | fzy) || return
+  LBUFFER="$LBUFFER${(q)selected_path} "
+  zle reset-prompt
+}
+zle -N insert-fzy-file
+bindkey "^T" "insert-fzy-file"
+
+function insert-fzy-dir() {
+  local selected_path
+  echo
+  selected_path=$(fd -t d | fzy) || return
+  LBUFFER="$LBUFFER${(q)selected_path} "
+  zle reset-prompt
+}
+zle -N insert-fzy-dir
+bindkey "^G" "insert-fzy-dir"
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
