@@ -11,6 +11,7 @@ tap 'stuarthicks/brews'
 tap 'wader/tap'
 
 brew 'bento4'
+brew 'cidr'
 brew 'circleci'
 brew 'coreutils'
 brew 'csvq'
