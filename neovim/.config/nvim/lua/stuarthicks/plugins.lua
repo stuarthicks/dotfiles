@@ -16,11 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { 'RRethy/nvim-align', cmd = 'Align' },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
-  { 'folke/neodev.nvim' },
-  { 'imsnif/kdl.vim', ft = {'kdl'} },
   { 'jamessan/vim-gnupg', ft = {'asc'} },
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
-  { 'mhartington/formatter.nvim' },
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} },
   { 'preservim/tagbar', cmd = {'TagbarToggle'} },
@@ -33,14 +30,6 @@ require("lazy").setup({
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
-    opts = {},
-  },
-  {
-    'folke/zen-mode.nvim',
-    opts = {},
-  },
-  {
-    "folke/twilight.nvim",
     opts = {},
   },
   {
@@ -93,13 +82,9 @@ require("lazy").setup({
   {
     'ray-x/go.nvim',
     dependencies = {
-      'mfussenegger/nvim-dap' ,
       'neovim/nvim-lspconfig',
-      'nvim-telescope/telescope-dap.nvim' ,
       'nvim-treesitter/nvim-treesitter',
       'ray-x/guihua.lua',
-      'rcarriga/nvim-dap-ui' ,
-      'theHamsta/nvim-dap-virtual-text' ,
     },
     config = function()
       require("go").setup({
