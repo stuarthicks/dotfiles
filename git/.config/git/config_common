@@ -25,6 +25,8 @@
   process = git-lfs filter-process
 [diff]
   algorithm = histogram
+  colormoved = "default"
+  colormovedws = "allow-indentation-change"
 [diff "gpg"]
   textconv = gpg --no-tty --decrypt
 [merge]
