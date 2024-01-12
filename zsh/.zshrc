@@ -37,6 +37,9 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 
+if-cmd() ( if (( $+commands[$1] )); then exit 0; fi; exit 1; )
+src() { test -f "$1" && source "$1"; }
+
 export CLICOLOR="1"
 export TZ="Europe/London"
 export EDITOR="nvim"
@@ -50,17 +53,15 @@ export CUCUMBER_PUBLISH_QUIET=true
 export GOPATH="$HOME/Developer"
 export GOBIN="$HOME/.local/bin"
 
+
 case $(uname); in
   Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
 
-export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
-export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew";
-export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}/"
-export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
-export MANPATH="$HOME/Developer/opt/share/man:${HOMEBREW_PREFIX}/share/man:/opt/local/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
+test -x "$HOMEBREW_PREFIX/bin/brew" && eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
+export MANPATH="$HOME/Developer/opt/share/man${MANPATH+:$MANPATH}:";
 
 path=(
   "$HOME/.local/bin"
@@ -130,45 +131,16 @@ sdk() {
   sdk "$@"
 }
 
-function insert-fzy-file() {
-  local selected_path
-  echo
-  selected_path=$(fd -t f | fzy) || return
-  LBUFFER="$LBUFFER${(q)selected_path} "
-  zle reset-prompt
-}
-zle -N insert-fzy-file
-bindkey "^T" "insert-fzy-file"
-
-function insert-fzy-dir() {
-  local selected_path
-  echo
-  selected_path=$(fd -t d | fzy) || return
-  LBUFFER="$LBUFFER${(q)selected_path} "
-  zle reset-prompt
-}
-zle -N insert-fzy-dir
-bindkey "^G" "insert-fzy-dir"
-
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
 
-if (( $+commands[starship] )); then
-  eval "$(starship init zsh)"
-fi
-
+if-cmd starship && eval "$(starship init zsh)"
 unset RPS1
-
-if-cmd() ( if (( $+commands[$1] )); then exit 0; fi; exit 1; )
 
 if-cmd direnv  && eval "$(direnv hook zsh)"
 if-cmd fastly  && eval "$(fastly --completion-script-zsh)"
 if-cmd kubectl && . <(kubectl completion zsh)
-if-cmd orbctl  && . <(orbctl completion zsh) && compdef _orbctl orbctl
-if-cmd lw-scanner && . <(lw-scanner completion zsh) && compdef _lw-scanner lw-scanner
-
-src() { test -f "$1" && source "$1"; }
 
 src "$HOME/.orbstack/shell/init.zsh"
 src "$HOME/.config/op/plugins.sh"
