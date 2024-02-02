@@ -19,6 +19,7 @@ require("lazy").setup({
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} },
+  { 'preservim/tagbar', cmd = {'TagbarToggle'} },
   { 'sheerun/vim-polyglot' },
   { 'tomtom/tcomment_vim' },
   { 'tpope/vim-repeat' },

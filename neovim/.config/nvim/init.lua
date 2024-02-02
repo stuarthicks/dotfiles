@@ -4,21 +4,27 @@ require('stuarthicks.plugins')
 require('stuarthicks.treesitter')
 require('stuarthicks.lsp')
 
+vim.o.termguicolors = true
 vim.o.background = 'dark'
+vim.cmd [[ colorscheme tokyonight-night ]]
+
+if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
+  vim.o.termguicolors = false
+  vim.cmd [[ colorscheme tokyonight-night ]]
+end
+
+if vim.g.neovide then
+  vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+  vim.cmd [[ colorscheme cyberdream ]]
+  vim.opt.guifont = 'Berkeley Mono:h16'
+end
+
 vim.cmd [[
-  colorscheme cyberdream
   highlight Normal guibg=NONE ctermbg=NONE
   highlight LineNr guibg=NONE ctermbg=NONE
   highlight SignColumn guibg=NONE ctermbg=NONE
   highlight EndOfBuffer guibg=NONE ctermbg=NONE
 ]]
-
-local term_program = os.getenv('TERM_PROGRAM')
-vim.o.termguicolors = true
-if term_program == 'Apple_Terminal' then
-  vim.o.termguicolors = false
-  vim.cmd 'colorscheme tokyonight-night'
-end
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
