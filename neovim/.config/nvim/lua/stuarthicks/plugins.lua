@@ -22,6 +22,7 @@ require("lazy").setup({
   { 'preservim/tagbar', cmd = {'TagbarToggle'} },
   { 'sheerun/vim-polyglot' },
   { 'tomtom/tcomment_vim' },
+  { 'tpope/vim-fugitive' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
   {
