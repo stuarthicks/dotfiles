@@ -8,11 +8,6 @@ vim.o.termguicolors = true
 vim.o.background = 'dark'
 vim.cmd [[ colorscheme tokyonight-night ]]
 
-if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
-  vim.o.termguicolors = false
-  vim.cmd [[ colorscheme tokyonight-night ]]
-end
-
 if vim.g.neovide then
   vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
   vim.cmd [[ colorscheme cyberdream ]]
@@ -25,6 +20,12 @@ vim.cmd [[
   highlight SignColumn guibg=NONE ctermbg=NONE
   highlight EndOfBuffer guibg=NONE ctermbg=NONE
 ]]
+
+if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
+  vim.o.termguicolors = false
+  vim.o.background = 'light'
+  vim.cmd [[ colorscheme cyberdream ]]
+end
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
