@@ -24,12 +24,6 @@ require("lazy").setup({
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
   {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     dependencies = {
@@ -86,4 +80,25 @@ require("lazy").setup({
     ft = {"go", 'gomod'},
     build = ':lua require("go.install").update_all_sync()'
   },
+  -- Themes
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        -- Recommended - see "Configuring" below for more config options
+        transparent = false,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = false,
+      })
+    end,
+  }
 })
