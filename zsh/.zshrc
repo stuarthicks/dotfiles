@@ -85,6 +85,7 @@ typeset -TUx PATH path
 
 fpath=(
   "$HOME/.awsume/zsh-autocomplete"
+  "$HOME/.local/share/zsh/functions"
   "${HOMEBREW_PREFIX}/share/zsh/site-functions"
   $fpath
 )
@@ -141,8 +142,8 @@ unset RPS1
 
 if-cmd direnv  && eval "$(direnv hook zsh)"
 if-cmd fastly  && eval "$(fastly --completion-script-zsh)"
+if-cmd docker  && . <(docker completion zsh)
 if-cmd kubectl && . <(kubectl completion zsh)
 
-src "$HOME/.orbstack/shell/init.zsh"
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
