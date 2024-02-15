@@ -55,3 +55,4 @@
   jaccuse = blame -w -C -C -C
   bb = !better-git-branch.sh
   desc = branch --edit-description
+  cfg = config --list --show-origin
