@@ -12,6 +12,8 @@
 [core]
   pager = less
   symlinks = true
+[blame]
+  date = short
 [branch]
   autosetuprebase = always
 [pull]
@@ -19,9 +21,9 @@
 [push]
   default = current
 [filter "lfs"]
+  required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
-  required = true
   process = git-lfs filter-process
 [diff]
   algorithm = histogram
@@ -32,6 +34,9 @@
 [merge]
   # conflictStyle = zdiff3
   conflictStyle = diff3
+[rerere]
+  enabled = true
+  autoUpdate = true
 [url "https://github.com/"]
   insteadOf = "git@github.com:"
 [url "https://bithub.brightcove.com/"]
@@ -45,3 +50,8 @@
   ds = diff --histogram --ignore-all-space --ignore-space-change --staged
   fe = fetch --all --tags --prune
   s = status
+  shove = push --force-with-lease
+  staash = stash --all
+  jaccuse = blame -w -C -C -C
+  bb = !better-git-branch.sh
+  desc = branch --edit-description
