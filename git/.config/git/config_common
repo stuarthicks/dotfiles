@@ -10,10 +10,15 @@
 [commit]
   gpgsign = true
 [core]
-  pager = less
+  pager = delta
   symlinks = true
-[blame]
-  date = short
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  hyperlinks = true
+  side-by-side = true
+  line-numbers = true
 [branch]
   autosetuprebase = always
 [pull]
@@ -32,7 +37,6 @@
 [diff "gpg"]
   textconv = gpg --no-tty --decrypt
 [merge]
-  # conflictStyle = zdiff3
   conflictStyle = diff3
 [rerere]
   enabled = true
