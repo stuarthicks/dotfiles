@@ -144,6 +144,7 @@ if-cmd direnv  && eval "$(direnv hook zsh)"
 if-cmd fastly  && eval "$(fastly --completion-script-zsh)"
 if-cmd docker  && . <(docker completion zsh)
 if-cmd kubectl && . <(kubectl completion zsh)
+if-cmd pkgx    && . <(pkgx --shellcode)
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
