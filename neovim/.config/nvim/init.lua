@@ -10,16 +10,16 @@ vim.cmd [[ colorscheme tokyonight-night ]]
 
 if vim.g.neovide then
   vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
-  vim.cmd [[ colorscheme cyberdream ]]
-  vim.opt.guifont = 'Berkeley Mono:h16'
+  vim.cmd [[ colorscheme tokyonight-night ]]
+  vim.opt.guifont = 'Berkeley Mono:h14'
+else
+  vim.cmd [[
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight LineNr guibg=NONE ctermbg=NONE
+    highlight SignColumn guibg=NONE ctermbg=NONE
+    highlight EndOfBuffer guibg=NONE ctermbg=NONE
+  ]]
 end
-
-vim.cmd [[
-  highlight Normal guibg=NONE ctermbg=NONE
-  highlight LineNr guibg=NONE ctermbg=NONE
-  highlight SignColumn guibg=NONE ctermbg=NONE
-  highlight EndOfBuffer guibg=NONE ctermbg=NONE
-]]
 
 if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
   vim.o.termguicolors = false
