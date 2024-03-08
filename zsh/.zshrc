@@ -101,6 +101,7 @@ alias as=awsume
 alias undynamo='jq -f ~/.dotfiles/scripts/.local/share/convertfrom_dynamodb.jq'
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls'
+alias vimdiff='nvim -d'
 
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'

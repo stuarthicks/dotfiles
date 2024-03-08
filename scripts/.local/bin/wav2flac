@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -eu
+
+# Convert a dir of wav files to flac
+
+in_dir=$1
+out_dir="flac ${in_dir}"
+
+mkdir -p "${out_dir}"
+
+for f in "${in_dir}"/*; do
+  basename="$(basename "$f")"
+  short="${basename%%.wav}"
+  ffmpeg -i "$f" "${out_dir}/${short}.flac"
+done

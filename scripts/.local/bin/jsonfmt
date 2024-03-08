@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eu
+if [ "$*" != "" ]; then
+  prettier -w $@
+else
+  prettier --stdin-filepath=o.json
+fi
