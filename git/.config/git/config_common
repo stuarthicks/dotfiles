@@ -54,6 +54,7 @@
   ds = diff --histogram --ignore-all-space --ignore-space-change --staged
   fe = fetch --all --tags --prune
   s = status
+  sw = switch
   shove = push --force-with-lease
   staash = stash --all
   jaccuse = blame -w -C -C -C
