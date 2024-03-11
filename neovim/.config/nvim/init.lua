@@ -10,8 +10,7 @@ vim.cmd [[ colorscheme tokyonight-night ]]
 
 if vim.g.neovide then
   vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
-  vim.cmd [[ colorscheme tokyonight-night ]]
-  vim.opt.guifont = 'Berkeley Mono:h14'
+  vim.opt.guifont = 'BerkeleyMono Nerd Font:h13'
 else
   vim.cmd [[
     highlight Normal guibg=NONE ctermbg=NONE
@@ -24,7 +23,6 @@ end
 if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
   vim.o.termguicolors = false
   vim.o.background = 'light'
-  vim.cmd [[ colorscheme cyberdream ]]
 end
 
 vim.g.mapleader = ' '
@@ -93,7 +91,7 @@ vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<leader>h', ':vertical help<space>')
 vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
-vim.keymap.set('n', '<leader>p', ':NERDTreeToggle<cr>')
+vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>r', ':Rg<space>')
 vim.keymap.set('n', '<leader>s', ':TagbarToggle<cr>')
 

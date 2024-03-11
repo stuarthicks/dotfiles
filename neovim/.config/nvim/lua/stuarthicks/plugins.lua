@@ -38,8 +38,23 @@ require("lazy").setup({
   },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
+    config = function()
+      require("nvim-tree").setup({
+        sort = {
+          sorter = "case_sensitive",
+        },
+        renderer = {
+          group_empty = true,
+        },
+      })
+    end
+  },
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-  { 'preservim/nerdtree', cmd = {'NERDTreeToggle'} },
   { 'preservim/tagbar', cmd = {'TagbarToggle'} },
   { 'sheerun/vim-polyglot' },
   { 'tomtom/tcomment_vim' },
@@ -110,18 +125,4 @@ require("lazy").setup({
     priority = 1000,
     opts = {},
   },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({
-        -- Recommended - see "Configuring" below for more config options
-        transparent = false,
-        italic_comments = true,
-        hide_fillchars = true,
-        borderless_telescope = false,
-      })
-    end,
-  }
 })
