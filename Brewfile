@@ -55,7 +55,6 @@ if OS.mac?
   brew 'gh'
   brew 'git'
   brew 'git-lfs'
-  brew 'glide'
   brew 'gotags'
   brew 'groff'
   brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
