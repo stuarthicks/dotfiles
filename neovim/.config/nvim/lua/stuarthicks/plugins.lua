@@ -16,6 +16,18 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { 'RRethy/nvim-align', cmd = 'Align' },
   {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    opts = {
+      start_in_insert = true,
+      auto_scroll = true,
+      direction = 'float',
+    },
+    config = function()
+      require("toggleterm").setup{}
+    end
+  },
+  {
     'apple/pkl-neovim',
     dependenxies = {
       'nvim-treesitter/nvim-treesitter',

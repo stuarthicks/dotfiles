@@ -53,6 +53,7 @@ vim.o.completeopt = table.concat({
 vim.o.expandtab = true
 vim.o.foldlevelstart = 20
 vim.o.foldmethod = 'syntax'
+vim.o.ignorecase = true
 vim.o.linebreak = true
 vim.o.mouse = 'a'
 vim.o.number = true
@@ -89,7 +90,7 @@ vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<leader>h', ':vertical help<space>')
-vim.keymap.set('n', '<leader>t', ':split +term<cr>')
+-- vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
 vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>r', ':Rg<space>')
@@ -105,4 +106,12 @@ vim.cmd([[
     autocmd!
     autocmd BufRead *.m3u8 setfiletype hlsplaylist
   augroup end
+]])
+
+vim.cmd([[
+  autocmd TermEnter term://*toggleterm#*
+        \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+  nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
+  inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
 ]])
