@@ -13,6 +13,10 @@ autoload -Uz  edit-command-line
 zle      -N   edit-command-line
 bindkey '\ee' edit-command-line
 
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+
 setopt append_history
 setopt auto_pushd
 setopt extended_history
