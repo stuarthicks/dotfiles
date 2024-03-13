@@ -30,8 +30,8 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
-[blame]
-  ignoreRevsFile = ".git-blame-ignore-revs"
+# [blame]
+#   ignoreRevsFile = ".git-blame-ignore-revs"
 [diff]
   algorithm = histogram
   colormoved = "default"
