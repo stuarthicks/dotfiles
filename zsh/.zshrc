@@ -106,6 +106,32 @@ alias vimdiff='nvim -d'
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
 
+fzy-history() {
+  LBUFFER+=$(
+  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) \
+    | fzy \
+    | sed -E 's/ *[0-9]*\*? *//' \
+    | sed -E 's/\\/\\\\/g'
+  )
+  zle reset-prompt
+}
+zle -N fzy-history
+bindkey "^r" fzy-history
+
+fzy-dir() {
+  LBUFFER+=$(fd -t d -H | fzy)
+  zle reset-prompt
+}
+zle -N fzy-dir
+bindkey "^g" fzy-dir
+
+fzy-file() {
+  LBUFFER+=$(fd -t f -H | fzy)
+  zle reset-prompt
+}
+zle -N fzy-file
+bindkey "^t" fzy-file
+
 path()     ( echo "$PATH"     | tr : $'\n'; )
 fpath()    ( echo "$FPATH"    | tr : $'\n'; )
 infopath() ( echo "$INFOPATH" | tr : $'\n'; )
