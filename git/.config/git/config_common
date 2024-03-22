@@ -10,15 +10,15 @@
 [commit]
   gpgsign = true
 [core]
-  pager = delta
   symlinks = true
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true
-  hyperlinks = true
-  side-by-side = true
-  line-numbers = true
+[diff]
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [branch]
   autosetuprebase = always
 [pull]
@@ -52,6 +52,8 @@
   br = branch
   ci = commit --verbose
   co = checkout
+  dt = difftool
+  dts = difftool --staged
   d = diff --histogram --ignore-all-space --ignore-space-change
   ds = diff --histogram --ignore-all-space --ignore-space-change --staged
   fe = fetch --all --tags --prune
