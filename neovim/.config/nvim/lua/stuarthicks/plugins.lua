@@ -27,27 +27,6 @@ require("lazy").setup({
       require("toggleterm").setup{}
     end
   },
-  {
-    'apple/pkl-neovim',
-    dependenxies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
-    config = function()
-      local hasConfigs, configs = pcall(require, "nvim-treesitter.configs")
-      if hasConfigs then
-        configs.setup {
-          ensure_installed = "pkl",
-          highlight = {
-            -- false will disable the whole extension
-            enable = true,
-          },
-          indent = {
-            enable = true
-          }
-        }
-      end
-    end
-  },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
   {
