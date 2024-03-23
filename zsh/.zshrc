@@ -54,9 +54,9 @@ export GPG_TTY="$(tty)"
 export AWS_CLI_AUTO_PROMPT=on-partial
 export AWS_DEFAULT_REGION=us-east-1
 export CUCUMBER_PUBLISH_QUIET=true
-export GOPATH="$HOME/Developer"
+export GIT_EXTERNAL_DIFF='difft'
 export GOBIN="$HOME/.local/bin"
-
+export GOPATH="$HOME/Developer"
 
 case $(uname); in
   Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;

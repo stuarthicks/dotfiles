@@ -66,3 +66,5 @@
   desc = branch --edit-description
   cfg = config --list --show-origin
   l = log --oneline --decorate
+  sh = show
+  showe = show --ext-diff
