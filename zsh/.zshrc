@@ -172,10 +172,7 @@ if-cmd starship && eval "$(starship init zsh)"
 unset RPS1
 
 if-cmd direnv  && eval "$(direnv hook zsh)"
-if-cmd fastly  && eval "$(fastly --completion-script-zsh)"
 if-cmd zoxide  && eval "$(zoxide init zsh)"
-if-cmd docker  && . <(docker completion zsh)
-if-cmd kubectl && . <(kubectl completion zsh)
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
