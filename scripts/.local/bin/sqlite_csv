@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -u
+
+CSV_FILE=$1
+
+sqlite3 :memory: \
+    -cmd '.mode csv' \
+    -cmd ".import \"${CSV_FILE}\" csv" \
+    -cmd '.mode column'
