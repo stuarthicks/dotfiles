@@ -25,4 +25,3 @@ def convertfrom_dynamodb:
     // (arrays | { value: map(convertfrom_dynamodb) })                        # all other non-conforming arrays
     // { value: . }).value                                          # everything else
     ;
-convertfrom_dynamodb
