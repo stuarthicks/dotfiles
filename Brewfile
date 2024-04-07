@@ -92,6 +92,3 @@ if OS.mac?
   cask '1password-cli'
   cask 'powershell'
 end
-
-if OS.linux?
-end
