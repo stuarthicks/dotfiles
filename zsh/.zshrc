@@ -84,8 +84,13 @@ path=(
   $path
 )
 
-# Remove path entries that are either duplicates or don't exist
-typeset -TUx PATH path
+# Prevent duplicate PATH entries
+typeset -U PATH path
+
+# Remove dirs from PATH that don't exist
+for ((i = 1; i <= $#path; i++)); do
+  test ! -d "$path[i]" && path[i]=()
+done
 
 fpath=(
   "$HOME/.awsume/zsh-autocomplete"
@@ -97,8 +102,13 @@ fpath=(
 autoload -Uz compinit && compinit
 zmodload zsh/complist
 
-# Remove fpath entries that are either duplicates or don't exist
-typeset -TUx FPATH fpath
+# Prevent duplicate fpath entries
+typeset -U fpath
+
+# Remove dirs from PATH that don't exist
+for ((i = 1; i <= $#fpath; i++)); do
+  test ! -d "$fpath[i]" && fpath[i]=()
+done
 
 alias awsume="source awsume"
 alias as=awsume
