@@ -9,9 +9,3 @@ Install [Homebrew](https://brew.sh/)
     cd .dotfiles
     brew bundle
     stow [dirs]
-
-
-~/.zshenv
-
-    export ZDOTDIR=$HOME/.dotfiles/zsh
-    source $ZDOTDIR/.zshenv
