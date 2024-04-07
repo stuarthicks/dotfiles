@@ -180,8 +180,8 @@ PROMPT="
 if-cmd starship && eval "$(starship init zsh)"
 unset RPS1
 
-if-cmd direnv  && eval "$(direnv hook zsh)"
-if-cmd zoxide  && eval "$(zoxide init zsh)"
+if-cmd direnv && eval "$(direnv hook zsh)"
+if-cmd zoxide && eval "$(zoxide init zsh)"
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
