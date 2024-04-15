@@ -173,6 +173,12 @@ sdk() {
   sdk "$@"
 }
 
+go-sdk() (
+  ver=$1
+  go install "golang.org/dl/go${ver}@latest"
+  eval "go${ver}" download
+)
+
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
