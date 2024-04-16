@@ -1395,3 +1395,5 @@ devenv.*
 shell.nix
 system_keys/
 *.iml
+
+.groovylintrc.json
