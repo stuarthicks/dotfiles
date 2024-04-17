@@ -3,6 +3,8 @@
   name = Stuart Hicks
   email = stuarthicks@users.noreply.github.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2odgEamTZm8fkbCwsAmsCQFTz8P/l06yJpniahH4wW
+[init]
+  defaultBranch = "main"
 [gpg]
   format = ssh
 [gpg "ssh"]
@@ -38,6 +40,10 @@
   colormovedws = "allow-indentation-change"
 [diff "gpg"]
   textconv = gpg --no-tty --decrypt
+[diff "mp4"]
+  textconv = mp4dump --verbosity 3
+[diff "ts"]
+  textconv = tsreport -v
 [merge]
   conflictStyle = diff3
 [rerere]

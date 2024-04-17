@@ -22,3 +22,8 @@
 *.rs    diff=rust
 *.lisp  diff=lisp
 *.el    diff=lisp
+*.asc   -diff diff=gpg filter=gpg
+*.mp4   -diff diff=mp4 filter=mp4
+*.m4f   -diff diff=mp4 filter=mp4
+*.m4s   -diff diff=mp4 filter=mp4
+*.ts    -diff diff=ts  filter=ts
