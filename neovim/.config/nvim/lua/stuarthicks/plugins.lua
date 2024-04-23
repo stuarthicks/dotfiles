@@ -28,6 +28,7 @@ require("lazy").setup({
     end
   },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
+  { 'jamessan/vim-gnupg' },
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
   {
     'nvim-tree/nvim-tree.lua',
