@@ -27,6 +27,15 @@ require("lazy").setup({
       require("toggleterm").setup{}
     end
   },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "nvim-telescope/telescope.nvim", -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+    },
+    config = true
+  },
   { 'bronson/vim-trailing-whitespace', cmd = {'FixWhitespace'} },
   { 'jamessan/vim-gnupg' },
   { 'jremmen/vim-ripgrep', cmd = {'Rg'} },
