@@ -105,6 +105,7 @@ vim.cmd.cnoreabbrev('git', 'Git')
 vim.cmd.cnoreabbrev('goupdatebinaries', 'GoUpdateBinaries')
 vim.cmd.cnoreabbrev('lazy', 'Lazy')
 vim.cmd.cnoreabbrev('mason', 'Mason')
+vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 
 vim.cmd([[
