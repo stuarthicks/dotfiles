@@ -115,6 +115,7 @@ alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls'
 alias vimdiff='nvim -d'
+alias neogit='nvim +Neogit'
 
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
