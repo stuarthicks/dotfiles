@@ -171,7 +171,7 @@ PROMPT="
 if-cmd starship && eval "$(starship init zsh)"
 unset RPS1
 
-if-cmd direnv && eval "$(direnv hook zsh)"
+# if-cmd direnv && eval "$(direnv hook zsh)"
 if-cmd zoxide && eval "$(zoxide init zsh)"
 if-cmd mise   && eval "$(mise activate zsh)"
 
