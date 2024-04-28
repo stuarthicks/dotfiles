@@ -163,22 +163,6 @@ repo() {
   cd "$(basename "$URL")"
 }
 
-sdk() {
-  unset -f sdk
-  export SDKMAN_DIR="$HOME/.sdkman"
-  if ! [[ -d "$SDKMAN_DIR" ]] ; then
-    curl -s "https://get.sdkman.io" | bash
-  fi
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-  sdk "$@"
-}
-
-go-sdk() (
-  ver=$1
-  go install "golang.org/dl/go${ver}@latest"
-  eval "go${ver}" download
-)
-
 KEYTIMEOUT=1
 PROMPT="
 %{$fg[green]%}#%{$reset_color%} "
@@ -188,6 +172,7 @@ unset RPS1
 
 if-cmd direnv && eval "$(direnv hook zsh)"
 if-cmd zoxide && eval "$(zoxide init zsh)"
+if-cmd mise   && eval "$(mise activate zsh)"
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
