@@ -175,5 +175,7 @@ unset RPS1
 if-cmd zoxide && eval "$(zoxide init zsh)"
 if-cmd mise   && eval "$(mise activate zsh)"
 
+if-cmd carapace && source <(carapace _carapace)
+
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
