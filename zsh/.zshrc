@@ -157,10 +157,9 @@ repo() {
   URL=$1
   BASE=$(trurl -g '{host}{path}' "$URL" | cut -d '/' -f-2)
   DIR="$HOME/Developer/src/${BASE}"
-
   mkdir -p "$DIR"
   cd "$DIR"
-  git clone --recursive "$URL"
+  git clone --recursive "$(trurl --set scheme=https "${URL}")"
   cd "$(basename "$URL")"
 }
 
