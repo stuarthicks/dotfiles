@@ -13,6 +13,7 @@ brew 'soldiermoth/tap/hlsq'
 tap 'stuarthicks/brews'
 brew 'stuarthicks/brews/rextract'
 brew 'stuarthicks/brews/tid'
+brew 'stuarthicks/brews/tls_cert_info'
 brew 'stuarthicks/brews/tstools'
 
 tap 'wader/tap'
