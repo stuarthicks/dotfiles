@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  echo "Usage: $0 -f [format] input_directory output_directory"
+  echo "  -f [format]   Convert files to [format] (default: flac)"
+  exit 1
+}
+
+if [ "$#" -lt 3 ]; then
+  usage
+fi
+
+codec="flac"
+extension="flac"
+
+while getopts ":f:" opt; do
+  case $opt in
+    f) codec=$OPTARG;;
+    \?) usage ;;
+  esac
+done
+
+if [ "$codec" = "alac" ]; then
+  extension="mp4a"
+fi
+
+# Shift the positional arguments to get input and output directories
+shift $((OPTIND -1))
+
+input_dir="$1"
+output_dir="$2"
+
+if [ -z "$codec" ]; then
+  usage
+fi
+
+mkdir -p "$output_dir"
+
+for input_file in "$input_dir"/*; do
+  file_extension="${input_file##*.}"
+  base_name=$(basename "$input_file" ."$file_extension")
+  output_file="$output_dir/$base_name.$extension"
+  case "$codec" in
+    "flac")
+      ffmpeg -i "$input_file" -c:a flac "$output_file" ;;
+    "alac")
+      ffmpeg -i "$input_file" -c:a alac "$output_file" ;;
+    *)
+      usage ;;
+  esac
+done
