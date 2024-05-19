@@ -1,7 +1,9 @@
 STOW := 'stow --no-folding'
 
+# Run: stow, brew
 default: stow brew
 
+# Create config symlinks
 stow:
   {{STOW}} alacritty
   {{STOW}} git
@@ -13,9 +15,11 @@ stow:
   {{STOW}} tmux
   {{STOW}} zsh
 
+# Install software using Homebrew
 brew:
   brew bundle
   brew bundle cleanup
 
+# Run Homebrew cleanup
 clean:
   brew bundle cleanup --force
