@@ -75,6 +75,7 @@ if OS.mac?
   brew 'git-lfs'
   brew 'gotags'
   brew 'groff'
+  brew 'imagemagick'
   brew 'jo'
   brew 'jq'
   brew 'just'
