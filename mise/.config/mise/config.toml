@@ -1,7 +1,6 @@
 [tools]
 "cargo:cargo-binstall" = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
-"go:github.com/stuarthicks/rextract" = "latest"
 "go:github.com/stuarthicks/tid" = "latest"
 "npm:prettier" = "latest"
 go = "latest"
