@@ -7,3 +7,5 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://bithub.brightcove.com"]
 	provider = github
+[credential "https://dev.azure.com"]
+	useHttpPath = true
