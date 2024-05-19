@@ -59,16 +59,16 @@ require("lazy").setup({
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
   { 'preservim/tagbar', cmd = {'TagbarToggle'} },
   { 'sheerun/vim-polyglot' },
-  {
-    'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
-    },
-    lazy = false,
-    config = function()
-      require('Comment').setup()
-    end,
-  },
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   opts = {
+  --     -- add any options here
+  --   },
+  --   lazy = false,
+  --   config = function()
+  --     require('Comment').setup()
+  --   end,
+  -- },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features

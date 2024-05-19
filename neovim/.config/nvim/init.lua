@@ -4,9 +4,12 @@ require('stuarthicks.plugins')
 require('stuarthicks.treesitter')
 require('stuarthicks.lsp')
 
-vim.o.termguicolors = true
-vim.o.background = 'dark'
 vim.cmd [[ colorscheme tokyonight-night ]]
+
+if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
+  vim.o.termguicolors = false
+  vim.cmd [[ colorscheme default ]]
+end
 
 if vim.g.neovide then
   vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
@@ -18,11 +21,6 @@ else
     highlight SignColumn guibg=NONE ctermbg=NONE
     highlight EndOfBuffer guibg=NONE ctermbg=NONE
   ]]
-end
-
-if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
-  vim.o.termguicolors = false
-  vim.o.background = 'light'
 end
 
 vim.g.mapleader = ' '
