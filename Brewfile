@@ -101,4 +101,5 @@ if OS.mac?
   cask '1password-cli'
 
   cask 'powershell'
+  cask 'alacritty'
 end
