@@ -7,6 +7,7 @@ node = "latest"
 ruby = "latest"
 rust = "latest"
 usage = "latest"
+"go:github.com/oligot/go-mod-upgrade" = "latest"
 
 [settings]
 experimental = true
