@@ -1,0 +1,24 @@
+import = [
+  "~/.config/alacritty/themes/themes/tokyo-night.toml"
+]
+
+[font]
+normal.family = "BerkeleyMono Nerd Font"
+normal.style = "Regular"
+size = 14
+
+[window]
+decorations_theme_variant = "Dark"
+decorations = "Full"
+padding.x = 5
+padding.y = 5
+opacity = 1
+blur = true
+option_as_alt = "OnlyLeft"
+
+[cursor]
+style.shape = "Beam"
+style.blinking = "On"
+
+[mouse]
+hide_when_typing = true
