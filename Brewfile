@@ -19,6 +19,9 @@ brew 'wader/tap/fq'
 tap 'ynqa/tap'
 brew 'ynqa/tap/jnv'
 
+tap 'goreleaser/tap'
+brew 'goreleaser/tap/goreleaser'
+
 # Homebrew Core
 brew 'bento4'
 brew 'cidr'
