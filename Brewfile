@@ -11,6 +11,7 @@ tap 'soldiermoth/tap'
 brew 'soldiermoth/tap/hlsq'
 
 tap 'stuarthicks/brews'
+brew 'stuarthicks/brews/presign-s3-url'
 brew 'stuarthicks/brews/rextract'
 brew 'stuarthicks/brews/tid'
 brew 'stuarthicks/brews/tls_cert_info'
