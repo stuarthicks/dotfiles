@@ -3,9 +3,7 @@ dotfiles
 
 Install [Homebrew](https://brew.sh/)
 
-
-    cd $HOME
-    mkdir -p .local/bin .config/{git,nvim}
-    cd .dotfiles
-    brew bundle
-    stow [dirs]
+    brew install just stow
+    git clone http://github.com/stuarthicks/dotfiles ~/.dotfiles
+    cd ~/.dotfiles
+    just

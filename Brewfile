@@ -101,6 +101,7 @@ if OS.mac?
   tap '1password/tap'
   cask '1password-cli'
 
-  cask 'powershell'
   cask 'alacritty'
+  cask 'git-credential-manager'
+  cask 'powershell'
 end
