@@ -72,6 +72,7 @@ if OS.mac?
   brew 'groff'
   brew 'jo'
   brew 'jq'
+  brew 'just'
   brew 'kubectl'
   brew 'libiconv'
   brew 'libtool'
