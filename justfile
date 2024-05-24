@@ -17,6 +17,7 @@ stow:
 
 # Install software using Homebrew
 brew:
+  brew update
   brew bundle
   brew bundle cleanup
 
