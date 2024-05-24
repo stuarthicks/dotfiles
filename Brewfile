@@ -53,6 +53,7 @@ brew 'tsduck'
 brew 'tzdiff'
 brew 'xsv'
 brew 'yq'
+brew 'yt-dlp'
 brew 'zellij'
 
 if OS.mac?
