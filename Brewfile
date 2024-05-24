@@ -12,6 +12,7 @@ brew 'soldiermoth/tap/hlsq'
 
 tap 'stuarthicks/tap'
 brew 'stuarthicks/tap/access_key_manager'
+brew 'stuarthicks/tap/oauth2_token'
 brew 'stuarthicks/tap/presign-s3-url'
 brew 'stuarthicks/tap/rextract'
 brew 'stuarthicks/tap/tid'
