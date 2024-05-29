@@ -9,6 +9,7 @@ rust = "latest"
 usage = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
 "cargo:rustreleaser" = "latest"
+"go:github.com/maykonlf/semver-cli/cmd/semver" = "latest"
 
 [settings]
 experimental = true
