@@ -154,6 +154,10 @@ manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
 
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
+fkill() (
+  kill $@ $(ps -eo pid,user,stat,command | fzy | awk '{print $1}')
+)
+
 repo() {
   URL=$1
   BASE=$(trurl -g '{host}{path}' "$URL" | cut -d '/' -f-2)
