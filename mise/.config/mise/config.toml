@@ -9,6 +9,7 @@ rust = "latest"
 usage = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
 "cargo:rustreleaser" = "latest"
+"pipx:terminaltexteffects" = "latest"
 
 [settings]
 experimental = true
