@@ -20,6 +20,7 @@ brew:
   brew update
   brew bundle
   brew bundle cleanup
+  mise up
 
 # Run Homebrew cleanup
 clean:
