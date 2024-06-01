@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -eu
+
+case "$(uname -s)" in
+  "Darwin")
+    softwareupdate --all --install
+    mas upgrade
+    ;;
+  "Linux")
+    sudo dnf upgrade
+    ;;
+esac
+
+if [ -e /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  winget.exe upgrade --all --include-unknown
+fi
+
+cd ~/.dotfiles
+git fetch --all --prune
+git pull --ff --rebase origin main
+just
+
+# vi: set tabstop=2 shiftwidth=2 expandtab :
