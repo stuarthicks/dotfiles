@@ -3,6 +3,7 @@
 "cargo:rustreleaser" = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
+"go:golang.org/x/tools/cmd/gonew" = "latest"
 "npm:prettier" = "latest"
 "pipx:terminaltexteffects" = "latest"
 go = "latest"
