@@ -8,6 +8,7 @@
 "pipx:terminaltexteffects" = "latest"
 go = "latest"
 node = "latest"
+poetry = "latest"
 python = "latest"
 ruby = "latest"
 rust = "latest"
