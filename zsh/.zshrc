@@ -69,13 +69,10 @@ export MANPATH="$HOME/Developer/opt/share/man${MANPATH+:$MANPATH}:";
 
 path=(
   "$HOME/.local/bin"
-  "$HOME/.krew/bin"
-  "$HOME/.cargo/bin"
   "$HOME/Developer/opt/bin"
   "$HOMEBREW_PREFIX/opt/curl/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  '/usr/local/go/bin'
   '/usr/local/bin'
   '/usr/local/sbin'
   '/usr/bin'
