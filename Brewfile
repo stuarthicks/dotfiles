@@ -107,3 +107,8 @@ if OS.mac?
   cask 'git-credential-manager'
   cask 'powershell'
 end
+
+
+if OS.linux?
+  brew 'swift'
+end
