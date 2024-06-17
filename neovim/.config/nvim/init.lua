@@ -12,7 +12,6 @@ if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
 end
 
 if vim.g.neovide then
-  vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
   vim.opt.guifont = 'BerkeleyMono Nerd Font:h13'
 else
   vim.cmd [[
@@ -22,6 +21,8 @@ else
     highlight EndOfBuffer guibg=NONE ctermbg=NONE
   ]]
 end
+
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
