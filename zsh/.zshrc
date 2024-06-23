@@ -144,6 +144,13 @@ fzy-file() {
 zle -N fzy-file
 bindkey "^t" fzy-file
 
+fzy-commit() {
+  LBUFFER+=$(git log --oneline | fzy | awk '{print $1}')
+  zle reset-prompt
+}
+zle -N fzy-commit
+bindkey "^g" fzy-commit
+
 path()     ( echo "$PATH"     | tr : $'\n'; )
 fpath()    ( echo "$FPATH"    | tr : $'\n'; )
 infopath() ( echo "$INFOPATH" | tr : $'\n'; )
