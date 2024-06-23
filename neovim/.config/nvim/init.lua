@@ -164,6 +164,7 @@ vim.cmd.cnoreabbrev('lazy', 'Lazy')
 vim.cmd.cnoreabbrev('mason', 'Mason')
 vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
+vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 
 vim.cmd([[
   augroup hls

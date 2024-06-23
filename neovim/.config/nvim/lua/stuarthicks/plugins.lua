@@ -161,6 +161,9 @@ require("lazy").setup({
       vim.fn["firenvim#install"](0)
     end
   },
+
+  {'akinsho/git-conflict.nvim', version = "*", config = true},
+
   -- Themes
   {
     'folke/tokyonight.nvim',
