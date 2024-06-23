@@ -1,61 +1,92 @@
 # vi: set ft=gitconfig sw=2 ts=2 expandtab #
+
 [user]
   name = Stuart Hicks
   email = stuarthicks@users.noreply.github.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2odgEamTZm8fkbCwsAmsCQFTz8P/l06yJpniahH4wW
+
 [init]
   defaultBranch = "main"
-[gpg]
-  format = ssh
-[gpg "ssh"]
-  allowedSignersFile = ~/.ssh/allowed_signers
-[commit]
-  gpgsign = true
+
 [core]
   symlinks = true
-[diff]
-  tool = difftastic
-[difftool]
-  prompt = false
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-  difftool = true
+
 [branch]
   autosetuprebase = always
+
 [pull]
   ff = only
+
 [push]
   default = current
+
+[rebase]
+  autosquash = true
+
+[commit]
+  gpgsign = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
+
+[diff]
+  tool = difftastic
+  algorithm = histogram
+  colormoved = "default"
+  colormovedws = "allow-indentation-change"
+
+[diff "gpg"]
+  textconv = gpg --no-tty --decrypt
+
+[diff "mp4"]
+  textconv = mp4dump --verbosity 3
+
+[diff "ts"]
+  textconv = tsreport -v
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+[log]
+  abbrevCommit = true
+  date = relative
+
+[format]
+  pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+
+# [blame]
+#   ignoreRevsFile = ".git-blame-ignore-revs"
+
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
-# [blame]
-#   ignoreRevsFile = ".git-blame-ignore-revs"
-[diff]
-  algorithm = histogram
-  colormoved = "default"
-  colormovedws = "allow-indentation-change"
-[diff "gpg"]
-  textconv = gpg --no-tty --decrypt
-[diff "mp4"]
-  textconv = mp4dump --verbosity 3
-[diff "ts"]
-  textconv = tsreport -v
+
 [merge]
   conflictStyle = diff3
+
 [rerere]
   enabled = true
   autoUpdate = true
+
 [url "https://github.com/"]
   insteadOf = "git@github.com:"
+
 [url "https://bithub.brightcove.com/"]
   insteadOf = "git@bithub.brightcove.com:"
+
 [alias]
   abandon-ship = reset --hard HEAD^^
-  br = branch
   ci = commit --verbose
   co = checkout
   dt = difftool
@@ -71,6 +102,5 @@
   bb = !better-git-branch.sh
   desc = branch --edit-description
   cfg = config --list --show-origin
-  l = log --oneline --decorate
-  sh = show
-  showe = show --ext-diff
+  l = log
+  sh = show --ext-diff
