@@ -153,7 +153,7 @@ vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>r', ':Rg<space>')
 vim.keymap.set('n', '<leader>s', ':TagbarToggle<cr>')
 
-vim.keymap.set('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>')
+vim.keymap.set('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files({hidden = true})<cr>')
 vim.keymap.set('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>')
 vim.keymap.set('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>')
 vim.keymap.set('n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>')
