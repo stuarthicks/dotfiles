@@ -181,6 +181,9 @@ wk.register({
   b = {
     name = 'Tab bar'
   },
+  c = {
+    name = 'Code Actions'
+  },
   f = {
     name = "Find",
     b = "Buffers",
