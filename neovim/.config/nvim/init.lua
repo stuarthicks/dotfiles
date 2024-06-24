@@ -166,7 +166,7 @@ vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 
-vim.keymap.set("n", "gx", "<esc>:URLOpenUnderCursor<cr>")
+vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 
 -- for repository page
 vim.api.nvim_set_keymap("n", "<leader>gr", ":OpenInGHRepo <CR>", { silent = true, noremap = true })
@@ -174,6 +174,36 @@ vim.api.nvim_set_keymap("n", "<leader>gr", ":OpenInGHRepo <CR>", { silent = true
 -- for current file page
 vim.api.nvim_set_keymap("n", "<leader>gf", ":OpenInGHFile <CR>", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>gl", ":OpenInGHFileLines <CR>", { silent = true, noremap = true })
+
+local wk = require("which-key")
+
+wk.register({
+  b = {
+    name = 'Tab bar'
+  },
+  f = {
+    name = "Find",
+    b = "Buffers",
+    f = "Files",
+    g = "Live Grep",
+    h = "Help Tags",
+  },
+  o = {
+    name = "Open Link in Browser",
+  },
+  g = {
+    name = "GitHub",
+    r = "Open Repository",
+    f = "Open File",
+  },
+}, { prefix = "<leader>" })
+
+wk.register({
+  g = {
+    name = 'GitHub',
+    l = 'Open Selected Lines',
+  },
+}, { prefix = "<leader>", mode = 'v' })
 
 vim.cmd([[
   augroup hls
