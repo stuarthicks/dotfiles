@@ -166,6 +166,15 @@ vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 
+vim.keymap.set("n", "gx", "<esc>:URLOpenUnderCursor<cr>")
+
+-- for repository page
+vim.api.nvim_set_keymap("n", "<leader>gr", ":OpenInGHRepo <CR>", { silent = true, noremap = true })
+
+-- for current file page
+vim.api.nvim_set_keymap("n", "<leader>gf", ":OpenInGHFile <CR>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>gl", ":OpenInGHFileLines <CR>", { silent = true, noremap = true })
+
 vim.cmd([[
   augroup hls
     autocmd!
