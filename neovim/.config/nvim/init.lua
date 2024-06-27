@@ -22,11 +22,6 @@ else
   ]]
 end
 
-if vim.g.started_by_firenvim == true then
-  vim.o.laststatus = 0
-  vim.o.showtabline = 0
-end
-
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
 vim.g.mapleader = ' '
@@ -84,6 +79,12 @@ vim.o.wildmode = 'longest,list'
 vim.o.winhighlight = 'Normal:None'
 vim.o.wrap = false
 vim.o.writebackup = false
+
+if vim.g.started_by_firenvim == true then
+  vim.o.laststatus = 0
+  vim.o.showtabline = 0
+  vim.o.wrap = true
+end
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
