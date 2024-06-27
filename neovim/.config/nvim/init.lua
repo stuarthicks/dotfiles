@@ -80,14 +80,15 @@ vim.o.winhighlight = 'Normal:None'
 vim.o.wrap = false
 vim.o.writebackup = false
 
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
 if vim.g.started_by_firenvim == true then
   vim.o.laststatus = 0
   vim.o.showtabline = 0
   vim.o.wrap = true
+  map('n', 'zz', ':set lines=10<cr>', opts)
 end
-
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
