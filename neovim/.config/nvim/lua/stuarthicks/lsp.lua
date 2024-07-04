@@ -1,7 +1,5 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
 
--- require('lspconfig')['lua_ls'].setup { settings = { Lua = { diagnostics = { globals = {'vim'} } } } }
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }

@@ -106,8 +106,14 @@ require("lazy").setup({
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},     -- Required
       {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip', build = "make jsregexp" },     -- Required
+      {'L3MON4D3/LuaSnip', build = "make install_jsregexp" },     -- Required
     },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
   },
   {
     "folke/which-key.nvim",
