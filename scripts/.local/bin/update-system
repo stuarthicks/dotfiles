@@ -20,4 +20,10 @@ git fetch --all --prune
 git pull --ff --rebase origin main
 just
 
+nvim --headless \
+  '+Lazy! sync' \
+  '+MasonUpdate' \
+  '+TSUpdateSync' \
+  +qa
+
 # vi: set tabstop=2 shiftwidth=2 expandtab :
