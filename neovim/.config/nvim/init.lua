@@ -180,36 +180,26 @@ vim.api.nvim_set_keymap("v", "<leader>gl", ":OpenInGHFileLines <CR>", { silent =
 
 local wk = require("which-key")
 
-wk.register({
-  b = {
-    name = 'Tab bar'
-  },
-  c = {
-    name = 'Code Actions'
-  },
-  f = {
-    name = "Find",
-    b = "Buffers",
-    f = "Files",
-    g = "Live Grep",
-    h = "Help Tags",
-  },
-  o = {
-    name = "Open Link in Browser",
-  },
-  g = {
-    name = "GitHub",
-    r = "Open Repository",
-    f = "Open File",
-  },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>b", group = "Tab bar" },
+  { "<leader>c", group = "Code Actions" },
 
-wk.register({
-  g = {
-    name = 'GitHub',
-    l = 'Open Selected Lines',
-  },
-}, { prefix = "<leader>", mode = 'v' })
+  { "<leader>o", desc = "Open Link in Browser" },
+  { "<leader>r", desc = "Ripgrep" },
+
+  { "<leader>f", group = "Find" },
+  { "<leader>fb", desc = "Buffers" },
+  { "<leader>ff", desc = "Files" },
+  { "<leader>fg", desc = "Live Grep" },
+  { "<leader>fh", desc = "Help Tags" },
+
+  { "<leader>g", group = "GitHub" },
+  { "<leader>g", group = "GitHub", mode = "v" },
+  { "<leader>gf", desc = "Open File" },
+  { "<leader>gr", desc = "Open Repository" },
+  { "<leader>gl", desc = "Open Selected Lines", mode = "v" },
+
+})
 
 vim.cmd([[
   augroup hls
