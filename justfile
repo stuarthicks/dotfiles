@@ -25,3 +25,7 @@ brew:
 # Run Homebrew cleanup
 clean:
   brew bundle cleanup --force
+
+# Build nix-darwin system
+nix-darwin:
+  darwin-rebuild switch --flake nix-darwin
