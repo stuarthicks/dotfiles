@@ -93,6 +93,7 @@ if OS.mac?
   brew 'ripgrep'
   brew 'sslscan'
   brew 'stow'
+  brew 'tmate'
   brew 'terraform'
   brew 'tig'
   brew 'tmux'
