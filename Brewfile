@@ -28,6 +28,12 @@ brew 'ynqa/tap/jnv'
 tap 'goreleaser/tap'
 brew 'goreleaser/tap/goreleaser'
 
+tap 'jfryy/tap'
+brew 'jfryy/tap/qq'
+
+tap 'neilotoole/sq'
+brew 'neilotoole/sq/sq'
+
 # Homebrew Core
 brew 'bento4'
 brew 'cidr'
