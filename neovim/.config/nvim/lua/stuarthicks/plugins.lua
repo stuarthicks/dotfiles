@@ -188,6 +188,12 @@ require("lazy").setup({
     'Almo7aya/openingh.nvim'
   },
 
+  {
+    'ellisonleao/glow.nvim',
+    config = true,
+    cmd = "Glow"
+  },
+
   -- Themes
   {
     'folke/tokyonight.nvim',

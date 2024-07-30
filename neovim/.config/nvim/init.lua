@@ -161,13 +161,14 @@ vim.keymap.set('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_
 vim.keymap.set('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>')
 vim.keymap.set('n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>')
 
+vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 vim.cmd.cnoreabbrev('git', 'Git')
+vim.cmd.cnoreabbrev('glow', 'Glow')
 vim.cmd.cnoreabbrev('goupdatebinaries', 'GoUpdateBinaries')
 vim.cmd.cnoreabbrev('lazy', 'Lazy')
 vim.cmd.cnoreabbrev('mason', 'Mason')
 vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
-vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 
 vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 
