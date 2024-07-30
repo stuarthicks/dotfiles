@@ -34,6 +34,9 @@ brew 'jfryy/tap/qq'
 tap 'neilotoole/sq'
 brew 'neilotoole/sq/sq'
 
+tap 'rsteube/tap'
+brew 'rsteube/tap/carapace'
+
 # Homebrew Core
 brew 'bento4'
 brew 'cidr'

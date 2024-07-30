@@ -181,6 +181,11 @@ unset RPS1
 
 if-cmd zoxide && eval "$(zoxide init zsh)"
 if-cmd mise   && eval "$(mise activate zsh)"
+if-cmd sq     && source <(sq completion zsh)
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 src "$HOME/.config/op/plugins.sh"
 src "$HOME/.localrc"
