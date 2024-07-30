@@ -7,7 +7,7 @@ case "$(uname -s)" in
     mas upgrade
     ;;
   "Linux")
-    doas dnf upgrade
+    doas dnf upgrade --assumeyes
     ;;
 esac
 
