@@ -115,6 +115,7 @@ alias k='ls'
 alias vimdiff='nvim -d'
 alias neogit='nvim +Neogit'
 alias gron='fastgron'
+alias ungron='fastgron --ungron'
 
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
