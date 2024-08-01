@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+while read -r line; do
+  echo "${line}====" | fold -w 4 | sed '$ d' | tr -d '\n'
+done < "${1:-/dev/stdin}"
