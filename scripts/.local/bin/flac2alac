@@ -11,5 +11,5 @@ mkdir -p "${out_dir}"
 for f in "${in_dir}"/*; do
   basename="$(basename "$f")"
   short="${basename%%.flac}"
-  ffmpeg -i "$f" -acodec alac "${out_dir}/${short}.m4a"
+  ffmpeg -i "$f" -vn -ac 2 -c:a alac "${out_dir}/${short}.m4a"
 done
