@@ -37,6 +37,9 @@ brew 'neilotoole/sq/sq'
 tap 'rsteube/tap'
 brew 'rsteube/tap/carapace'
 
+tap 'owenthereal/upterm'
+brew 'owenthereal/upterm/upterm'
+
 # Homebrew Core
 brew 'bento4'
 brew 'cidr'
@@ -75,6 +78,7 @@ if OS.mac?
   # Homebrew Core
   brew 'automake'
   brew 'awscli'
+  brew 'bash'
   brew 'bat'
   brew 'cmake'
   brew 'coreutils'
@@ -105,9 +109,9 @@ if OS.mac?
   brew 'ripgrep'
   brew 'sslscan'
   brew 'stow'
-  brew 'tmate'
   brew 'terraform'
   brew 'tig'
+  brew 'tmate'
   brew 'tmux'
   brew 'trurl'
   brew 'universal-ctags'
