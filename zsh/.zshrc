@@ -182,6 +182,10 @@ PROMPT="
 if-cmd starship && eval "$(starship init zsh)"
 unset RPS1
 
+if [ -n "${UPTERM_ADMIN_SOCKET:-}" ]; then
+  export UPTERM_SYM='🤝'
+fi
+
 if-cmd zoxide && eval "$(zoxide init zsh)"
 if-cmd mise   && eval "$(mise activate zsh)"
 if-cmd sq     && source <(sq completion zsh)

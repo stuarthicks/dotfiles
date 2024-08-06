@@ -8,7 +8,13 @@ $git_status\
 $cmd_duration\
 $line_break\
 $python\
+${env_var}\
 $character"""
+
+[env_var]
+variable = 'UPTERM_SYM'
+default = ''
+format = '$env_value'
 
 [directory]
 style = "blue"
