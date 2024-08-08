@@ -121,12 +121,17 @@ if OS.mac?
   tap '1password/tap'
   cask '1password-cli'
 
+  tap 'jandedobbeleer/oh-my-posh'
+  cask 'jandedobbeleer/oh-my-posh/oh-my-posh'
+
   cask 'alacritty'
   cask 'git-credential-manager'
   cask 'powershell'
 end
 
-
 if OS.linux?
   brew 'swift'
+
+  tap 'jandedobbeleer/oh-my-posh'
+  brew 'jandedobbeleer/oh-my-posh/oh-my-posh'
 end
