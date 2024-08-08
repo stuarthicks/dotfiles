@@ -152,7 +152,7 @@ require("lazy").setup({
     config = function()
       require("go").setup({
         fillstruct = 'gopls',
-        max_line_len = 1000,
+        max_line_len = 0,
         lsp_cfg = false,
       })
     end,
