@@ -19,7 +19,7 @@ stow:
 brew:
   brew update
   brew bundle
-  brew bundle cleanup
+  brew bundle cleanup || true
   mise up
 
 # Run Homebrew cleanup
