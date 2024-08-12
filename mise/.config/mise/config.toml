@@ -1,20 +1,9 @@
 [tools]
-go = "latest"
-node = "latest"
-pipx = "latest"
-pkl = "latest"
-python = "latest"
 ruby = "latest"
-rust = "latest"
 usage = "latest"
 
-"cargo:cargo-binstall" = "latest"
-"cargo:hx" = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
-"npm:prettier" = "latest"
-"pipx:jc" = "latest"
-"pipx:terminaltexteffects" = "latest"
 
 [settings]
 experimental = true
