@@ -65,7 +65,8 @@ esac
 
 test -x "$HOMEBREW_PREFIX/bin/brew" && eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-export MANPATH="$HOME/Developer/opt/share/man${MANPATH+:$MANPATH}:";
+export MANPATH="$HOME/Developer/opt/share/man${MANPATH+:$MANPATH}:"
+export XDG_DATA_DIRS="${HOMEBREW_PREFIX}/share:$XDG_DATA_DIRS"
 
 path=(
   "$HOME/.local/bin"
