@@ -4,6 +4,7 @@ usage = "latest"
 
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
+go = "latest"
 
 [settings]
 experimental = true
