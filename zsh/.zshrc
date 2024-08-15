@@ -40,6 +40,7 @@ setopt share_history
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 if-cmd() ( if (( $+commands[$1] )); then exit 0; fi; exit 1; )
 src() { test -f "$1" && source "$1"; }
