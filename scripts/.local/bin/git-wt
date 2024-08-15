@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+TARGET=$(git branch -a | fzy)
+REMOTE=$(echo "${TARGET}" | rextract -e 'remotes/([^/]+)/' || echo -n)
+BRANCH=$(echo "${TARGET}" | rextract -e 'remotes/[^/]+/(.+)' || echo -n)
+
+mkdir -p "worktrees"
+
+if [ -z "${REMOTE:-}" ]; then
+  BRANCH=$(echo "${TARGET}" | cut -c3-)
+  git worktree add "worktrees/${BRANCH}" "${BRANCH}"
+  exit 0
+fi
+
+# Checkout a remote branch as a new local worktree
+git worktree add --track -b "${BRANCH}" "worktrees/${BRANCH} "${REMOTE}/${BRANCH}"
