@@ -59,7 +59,7 @@ export TZ="Europe/London"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
-export GPG_TTY="$(tty)"
+export GPG_TTY=$TTY
 
 export AWS_CLI_AUTO_PROMPT=on-partial
 export AWS_DEFAULT_REGION=us-east-1
