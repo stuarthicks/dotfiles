@@ -1398,3 +1398,4 @@ system_keys/
 
 .groovylintrc.json
 .mise.toml
+worktrees/
