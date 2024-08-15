@@ -73,6 +73,7 @@ brew 'xsv'
 brew 'yq'
 brew 'yt-dlp'
 brew 'zellij'
+brew 'zsh-syntax-highlighting'
 
 if OS.mac?
   tap 'homebrew-ffmpeg/ffmpeg'
