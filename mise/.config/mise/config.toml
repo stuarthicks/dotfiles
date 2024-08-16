@@ -1,10 +1,11 @@
 [tools]
+go = "latest"
 ruby = "latest"
 usage = "latest"
 
+"go:github.com/Eyevinn/mp4ff/cmd/..." = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
-go = "latest"
 
 [settings]
 experimental = true
