@@ -200,8 +200,8 @@ require("lazy").setup({
     config = function()
       -- Setup orgmode
       require('orgmode').setup({
-        org_agenda_files = '~/.orgfiles/**/*',
-        org_default_notes_file = '~/.orgfiles/refile.org',
+        org_agenda_files = '~/iCloud/Orgfiles/**/*',
+        org_default_notes_file = '~/iCloud/Orgfiles/refile.org',
       })
     end,
   },
