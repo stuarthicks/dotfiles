@@ -131,11 +131,11 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
 -- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+map('n', '<Leader>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+map('n', '<Leader>bn', '<Cmd>BufferOrderByName<CR>', opts)
+map('n', '<Leader>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+map('n', '<Leader>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+map('n', '<Leader>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
@@ -148,7 +148,7 @@ vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
-vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
+vim.keymap.set('n', '<Leader><cr>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<leader>h', ':vertical help<space>')
 -- vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
@@ -170,7 +170,7 @@ vim.cmd.cnoreabbrev('mason', 'Mason')
 vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 
-vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
+vim.keymap.set("n", "<leader>u", "<esc>:URLOpenUnderCursor<cr>")
 
 -- for repository page
 vim.api.nvim_set_keymap("n", "<leader>gr", ":OpenInGHRepo <CR>", { silent = true, noremap = true })
@@ -184,8 +184,9 @@ local wk = require("which-key")
 wk.add({
   { "<leader>b", group = "Tab bar" },
   { "<leader>c", group = "Code Actions" },
+  { "<leader>o", group = "Org Mode" },
 
-  { "<leader>o", desc = "Open Link in Browser" },
+  { "<leader>u", desc = "Open URL in Browser" },
   { "<leader>r", desc = "Ripgrep" },
 
   { "<leader>f", group = "Find" },

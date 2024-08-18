@@ -9,7 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
-  })
+  t})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -192,6 +192,18 @@ require("lazy").setup({
     'ellisonleao/glow.nvim',
     config = true,
     cmd = "Glow"
+  },
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_agenda_files = '~/.orgfiles/**/*',
+        org_default_notes_file = '~/.orgfiles/refile.org',
+      })
+    end,
   },
 
   -- Themes
