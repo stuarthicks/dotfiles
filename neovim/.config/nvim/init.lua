@@ -50,6 +50,8 @@ vim.o.completeopt = table.concat({
   'longest',
   'menuone',
 }, ',')
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
 vim.o.expandtab = true
 vim.o.foldlevelstart = 20
 vim.o.foldmethod = 'syntax'
