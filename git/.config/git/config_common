@@ -104,3 +104,6 @@
   cfg = config --list --show-origin
   l = log
   sh = show --ext-diff
+
+[include]
+  path = config_work
