@@ -40,6 +40,9 @@ brew 'rsteube/tap/carapace'
 tap 'owenthereal/upterm'
 brew 'owenthereal/upterm/upterm'
 
+tap 'danielgatis/imgcat'
+brew 'danielgatis/imgcat/imgcat'
+
 # Homebrew Core
 brew 'bento4'
 brew 'cidr'
