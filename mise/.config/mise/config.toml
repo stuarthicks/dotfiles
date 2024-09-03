@@ -1,8 +1,10 @@
 [tools]
 go = "latest"
 ruby = "latest"
+rust = "latest"
 usage = "latest"
 
+"cargo:hexview" = "latest"
 "go:github.com/Eyevinn/mp4ff/cmd/..." = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
