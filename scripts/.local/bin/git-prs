@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-gh pr list --limit 100 --json number,title,updatedAt,author --template '{{range .}}{{tablerow .number .title .author.name (timeago .updatedAt)}}{{end}}' \
+op plugin run -- gh pr list --limit 100 --json number,title,updatedAt,author --template '{{range .}}{{tablerow .number .title .author.name (timeago .updatedAt)}}{{end}}' \
   | fzy \
   | cut -f1 -d ' ' \
-  | xargs gh pr checkout
+  | xargs op plugin run -- gh pr checkout
