@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+mkdir -p $HOME/.akamai-cli/logs
+
+docker run \
+  --rm \
+  --interactive \
+  --tty \
+  --name akamai-shell \
+  --volume $HOME/.edgerc:/root/.edgerc:ro \
+  --volume $HOME/.akamai-cli:/cli/.akamai-cli \
+  akamai/shell
