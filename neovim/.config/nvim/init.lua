@@ -150,7 +150,7 @@ vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
-vim.keymap.set('n', '<Leader><cr>', ':nohlsearch<cr>')
+vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<leader>h', ':vertical help<space>')
 -- vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
