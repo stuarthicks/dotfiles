@@ -31,20 +31,20 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   d2
   doggo
   fastgron
-  fx
   fzy
+  gh
   glow
   go
-  jaq
   jnv
   k9s
   lazygit
   libyaml
   magic-wormhole
   mise
-  neovide
+  neovim
   powerlevel10k
   prettier
+  python3
   shush
   starship
   tflint
@@ -56,7 +56,6 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   xsv
   yq
   yt-dlp
-  zellij
   zsh-syntax-highlighting
 ].each do |formula|
   brew formula
@@ -79,7 +78,6 @@ if OS.mac?
     difftastic
     fd
     fzf
-    gh
     git
     git-lfs
     gotags
@@ -95,7 +93,6 @@ if OS.mac?
     make
     mas
     mediainfo
-    neovim
     opentofu
     pv
     ripgrep
@@ -122,5 +119,10 @@ if OS.mac?
 end
 
 if OS.linux?
+  %w[
+    coreutils
+  ].each do |formula|
+    brew formula
+  end
   tap 'jandedobbeleer/oh-my-posh'; brew 'jandedobbeleer/oh-my-posh/oh-my-posh'
 end
