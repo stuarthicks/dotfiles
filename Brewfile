@@ -33,6 +33,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   fastgron
   fzy
   gh
+  git-absorb
   glow
   go
   jnv
