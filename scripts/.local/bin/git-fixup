@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+DEFAULT_BRANCH=$(git remote set-head origin -a | rextract -e 'set to (\w+)')
+MERGE_BASE=$(git merge-base "${DEFAULT_BRANCH}" HEAD)
+FIXUP_COMMIT=$(git log --oneline "${DEFAULT_BRANCH}..HEAD" | fzy | awk '{print $1}')
+
+git commit $@ --fixup "${FIXUP_COMMIT}"
