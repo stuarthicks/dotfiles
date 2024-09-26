@@ -34,6 +34,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   fzy
   gh
   git-absorb
+  git-revise
   glow
   go
   jnv
