@@ -55,6 +55,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   tsduck
   tzdiff
   urlview
+  xh
   xsv
   yq
   yt-dlp
