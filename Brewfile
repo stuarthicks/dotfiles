@@ -46,6 +46,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   neovim
   powerlevel10k
   prettier
+  procs
   python3
   shush
   starship
