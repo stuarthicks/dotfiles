@@ -7,6 +7,7 @@ default: stow brew
 stow:
   {{STOW}} alacritty
   {{STOW}} git
+  {{STOW}} helix
   {{STOW}} jq
   {{STOW}} mise
   {{STOW}} neovim

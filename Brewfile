@@ -37,6 +37,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   git-revise
   glow
   go
+  helix
   jnv
   k9s
   lazygit
