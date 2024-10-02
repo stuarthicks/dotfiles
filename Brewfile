@@ -61,6 +61,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   xsv
   yq
   yt-dlp
+  zellij
   zsh-syntax-highlighting
 ].each do |formula|
   brew formula
