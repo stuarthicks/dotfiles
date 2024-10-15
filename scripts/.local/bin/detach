@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+eval "$@" >> "${TMPDIR:-/tmp}/detach.log" 2>&1 &!

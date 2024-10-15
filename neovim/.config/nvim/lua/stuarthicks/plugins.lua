@@ -188,40 +188,6 @@ require("lazy").setup({
     'Almo7aya/openingh.nvim'
   },
 
-  {
-    'ellisonleao/glow.nvim',
-    config = true,
-    cmd = "Glow"
-  },
-  {
-    'nvim-orgmode/orgmode',
-    event = 'VeryLazy',
-    ft = { 'org' },
-    config = function()
-      -- Setup orgmode
-      require('orgmode').setup({
-        org_agenda_files = '~/iCloud/Orgfiles/**/*',
-        org_default_notes_file = '~/iCloud/Orgfiles/refile.org',
-      })
-    end,
-  },
-
-  -- {
-  --   "chipsenkbeil/org-roam.nvim",
-  --   tag = "0.1.0",
-  --   dependencies = {
-  --     {
-  --       "nvim-orgmode/orgmode",
-  --       tag = "0.3.4",
-  --     },
-  --   },
-  --   config = function()
-  --     require("org-roam").setup({
-  --       directory = "~/.orgfiles/roam",
-  --     })
-  --   end
-  -- },
-
   -- Themes
   {
     'folke/tokyonight.nvim',
