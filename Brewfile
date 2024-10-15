@@ -10,17 +10,18 @@ brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
+tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
 tap 'fastly/tap'        ; brew 'fastly/tap/fastly'
+tap 'goreleaser/tap'    ; brew 'goreleaser/tap/goreleaser'
 tap 'hashicorp/tap'     ; brew 'hashicorp/tap/terraform'
+tap 'jfryy/tap'         ; brew 'jfryy/tap/qq'
+tap 'jwt-rs/jwt-ui'     ; brew 'jwt-rs/jwt-ui/jwt-ui'
+tap 'neilotoole/sq'     ; brew 'neilotoole/sq/sq'
+tap 'owenthereal/upterm'; brew 'owenthereal/upterm/upterm'
+tap 'rsteube/tap'       ; brew 'rsteube/tap/carapace'
 tap 'soldiermoth/tap'   ; brew 'soldiermoth/tap/hlsq'
 tap 'wader/tap'         ; brew 'wader/tap/fq'
 tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
-tap 'goreleaser/tap'    ; brew 'goreleaser/tap/goreleaser'
-tap 'jfryy/tap'         ; brew 'jfryy/tap/qq'
-tap 'neilotoole/sq'     ; brew 'neilotoole/sq/sq'
-tap 'rsteube/tap'       ; brew 'rsteube/tap/carapace'
-tap 'owenthereal/upterm'; brew 'owenthereal/upterm/upterm'
-tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
 
 # Homebrew Core
 %w[
@@ -38,6 +39,7 @@ tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
   glow
   go
   helix
+  jc
   jnv
   k9s
   lazygit
