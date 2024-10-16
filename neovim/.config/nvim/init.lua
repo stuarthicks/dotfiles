@@ -93,6 +93,36 @@ if vim.g.started_by_firenvim == true then
   map('n', 'zz', ':set lines=10<cr>', opts)
 end
 
+vim.g.firenvim_config = {
+  globalSettings = { alt = "all" },
+  localSettings = {
+    [".*"] = {
+      cmdline  = "neovim",
+      content  = "text",
+      selector = "textarea",
+      takeover = "always",
+      priority = 0,
+    }
+  }
+}
+
+local firenvim_excluded_patterns = {
+  "^https://app\\.slack\\.com/",
+  "^https://[^/]+\\.atlassian\\.net/",
+}
+
+for _, pattern in ipairs(firenvim_excluded_patterns) do
+  vim.g.firenvim_config.localSettings[pattern] = {
+    takeover = 'never',
+    priority = 1,
+  }
+end
+
+vim.api.nvim_create_autocmd({'BufEnter'}, {
+  pattern = "github.com_*.txt",
+  command = "set filetype=markdown"
+})
+
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
