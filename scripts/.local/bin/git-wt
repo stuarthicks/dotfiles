@@ -13,4 +13,4 @@ if [ -z "${REMOTE:-}" ]; then
 fi
 
 # Checkout a remote branch as a new local worktree
-git worktree add --track -b "${BRANCH}" "worktrees/${BRANCH} "${REMOTE}/${BRANCH}"
+git worktree add --track -b "${BRANCH}" "worktrees/${BRANCH}" "${REMOTE}/${BRANCH}"
