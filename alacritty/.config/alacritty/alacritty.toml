@@ -1,6 +1,6 @@
 [general]
 import = [
-  "~/.config/alacritty/themes/themes/tokyo-night.toml"
+  "~/.config/alacritty/themes/themes/tokyo_night_enhanced.toml"
 ]
 
 [font]
