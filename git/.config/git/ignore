@@ -1403,3 +1403,4 @@ worktrees/
 default.nix
 devenv.*
 shell.nix
+.vscode/*
