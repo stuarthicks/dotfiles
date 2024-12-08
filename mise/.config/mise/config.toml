@@ -1,5 +1,7 @@
 [tools]
 go = "latest"
+node = "latest"
+python = "latest"
 ruby = "latest"
 rust = "latest"
 usage = "latest"
@@ -15,9 +17,12 @@ usage = "latest"
 "go:github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister" = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
-"npm:@webos-tools/cli" = "latest"
 "npm:@enact/cli" = "latest"
+"npm:@webos-tools/cli" = "latest"
 "npm:patch-package" = "latest"
+"npm:prettier" = "latest"
+"pipx:jc" = "latest"
+"pipx:toolong" = "latest"
 
 [settings]
 experimental = true
