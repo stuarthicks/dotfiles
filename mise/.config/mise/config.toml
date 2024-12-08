@@ -15,6 +15,9 @@ usage = "latest"
 "go:github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister" = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
+"npm:@webos-tools/cli" = "latest"
+"npm:@enact/cli" = "latest"
+"npm:patch-package" = "latest"
 
 [settings]
 experimental = true

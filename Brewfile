@@ -45,7 +45,6 @@ tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
   lazygit
   libyaml
   magic-wormhole
-  mise
   neovim
   powerlevel10k
   prettier

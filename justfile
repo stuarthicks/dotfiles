@@ -1,7 +1,7 @@
 STOW := 'stow --no-folding'
 
 # Run: stow, brew
-default: stow brew
+default: stow brew mise
 
 # Create config symlinks
 stow:
@@ -22,7 +22,10 @@ brew:
   brew update
   brew bundle
   brew bundle cleanup || true
-  mise up
+
+mise:
+  mise self-update
+  mise upgrade --bump
 
 # Run Homebrew cleanup
 clean:

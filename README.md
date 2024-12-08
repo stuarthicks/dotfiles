@@ -13,3 +13,8 @@ AWSume
     pipx install awsume
     pipx inject awsume awsume-console-plugin
     pipx inject awsume awsume-1password-plugin
+
+Mise
+
+    curl https://mise.run | sh
+
