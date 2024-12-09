@@ -30,6 +30,7 @@ tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
   circleci
   csvq
   d2
+  docker-credential-helper-ecr
   doggo
   fastgron
   fzy
