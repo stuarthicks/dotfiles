@@ -6,6 +6,7 @@ default: stow brew mise
 # Create config symlinks
 stow:
   {{STOW}} alacritty
+  {{STOW}} ghostty
   {{STOW}} git
   {{STOW}} helix
   {{STOW}} jq

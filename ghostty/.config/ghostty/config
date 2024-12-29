@@ -1,0 +1,12 @@
+font-family = "BerkeleyMono Nerd Font"
+
+theme = "tokyonight"
+background-opacity = 0.9
+background-blur-radius = 20
+
+shell-integration = zsh
+
+# macos-titlebar-style = hidden
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
