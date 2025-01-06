@@ -11,10 +11,6 @@ case "$(uname -s)" in
     ;;
 esac
 
-if [ -e /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-  winget.exe upgrade --all --include-unknown
-fi
-
 cd ~/.dotfiles
 git fetch --all --prune
 git pull --ff --rebase origin main
