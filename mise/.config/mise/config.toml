@@ -5,6 +5,8 @@ python = "latest"
 ruby = "latest"
 rust = "latest"
 usage = "latest"
+zig = "latest"
+zls = "latest"
 
 "cargo:hexview" = "latest"
 "cargo:sd" = "latest"
