@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+#USAGE arg "<version>"
+
+mise use ruby@$usage_version
+mise use gem:neovim@latest
+mise use gem:pry-byebug@latest
+mise use gem:rubocop@latest

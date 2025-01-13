@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+
+mise use python@latest
+
+mise config set env._.python.venv.path .venv
+mise config set env._.python.venv.create true -t bool
+
+mise config set hooks.postinstall "pip install pip-tools neovim"

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+
+mise use go@latest
+mise use go:github.com/oligot/go-mod-upgrade@latest
+mise use go:github.com/maruel/panicparse/v2/cmd/pp@latest
