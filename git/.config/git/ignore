@@ -1405,3 +1405,6 @@ devenv.*
 shell.nix
 .vscode/*
 mise.toml
+mise.*.toml
+mise.local.toml
+mise.*.local.toml

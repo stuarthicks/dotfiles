@@ -186,6 +186,10 @@ repo() {
   cd "$(basename "$URL")"
 }
 
+mise-env() {
+  export MISE_ENV=$@
+}
+
 # if-cmd starship && eval "$(starship init zsh)"
 # unset RPS1
 
