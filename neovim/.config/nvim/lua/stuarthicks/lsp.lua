@@ -27,7 +27,12 @@ lsp.on_attach(function(client, bufnr)
   bind('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', lsp_opts)
   bind('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', lsp_opts)
   bind('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', lsp_opts)
-  bind('n', '<leader>d', ':GoDebug<space>', lsp_opts)
+
+  -- Debugging
+  bind('n', '<leader>d', ':GoDebug -n<cr>', lsp_opts) -- debug nearest test
+  bind('n', '<leader>D', ':GoDebug -s<cr>', lsp_opts) -- stop debugging
+  bind('n', '<F5>', ':GoDbgContinue<cr>', lsp_opts)
+  bind('n', '<F9>', ':GoDebug -b<cr>', lsp_opts) -- toggle breakpoint
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
