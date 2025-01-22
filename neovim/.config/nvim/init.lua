@@ -1,5 +1,8 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
+
 require('stuarthicks.plugins')
 require('stuarthicks.snippets')
 require('stuarthicks.treesitter')
@@ -24,9 +27,6 @@ else
 end
 
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
 
 vim.g.netrw_altv = 1
 vim.g.netrw_banner = 0
@@ -182,16 +182,12 @@ vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<leader>h', ':vertical help<space>')
--- vim.keymap.set('n', '<leader>t', ':split +term<cr>')
 
 vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>r', ':Rg<space>')
-vim.keymap.set('n', '<leader>s', ':TagbarToggle<cr>')
-
-vim.keymap.set('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files({hidden = true})<cr>')
-vim.keymap.set('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>')
-vim.keymap.set('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>')
-vim.keymap.set('n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>')
+vim.keymap.set('n', '<leader>t', ':TagbarToggle<cr>')
+vim.keymap.set('n', '<leader>st', ':TodoTelescope keywords=TODO,FIX,FIXME<cr>')
+vim.keymap.set('n', '<leader>sT', ':Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>')
 
 vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 vim.cmd.cnoreabbrev('git', 'Git')
@@ -201,38 +197,19 @@ vim.cmd.cnoreabbrev('lazy', 'Lazy')
 vim.cmd.cnoreabbrev('mason', 'Mason')
 vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
+vim.cmd.cnoreabbrev('health', 'checkhealth')
+vim.cmd.cnoreabbrev('hc', 'checkhealth')
 
-vim.keymap.set("n", "<leader>u", "<esc>:URLOpenUnderCursor<cr>")
-
--- for repository page
-vim.api.nvim_set_keymap("n", "<leader>gr", ":OpenInGHRepo <CR>", { silent = true, noremap = true })
-
--- for current file page
-vim.api.nvim_set_keymap("n", "<leader>gf", ":OpenInGHFile <CR>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("v", "<leader>gl", ":OpenInGHFileLines <CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 
 local wk = require("which-key")
 
 wk.add({
   { "<leader>b", group = "Tab bar" },
-  { "<leader>c", group = "Code Actions" },
-  { "<leader>o", group = "Org Mode" },
+  { "<leader>a", group = "Code Actions" },
 
-  { "<leader>u", desc = "Open URL in Browser" },
+  { "<leader>o", desc = "Open URL in Browser" },
   { "<leader>r", desc = "Ripgrep" },
-
-  { "<leader>f", group = "Find" },
-  { "<leader>fb", desc = "Buffers" },
-  { "<leader>ff", desc = "Files" },
-  { "<leader>fg", desc = "Live Grep" },
-  { "<leader>fh", desc = "Help Tags" },
-
-  { "<leader>g", group = "GitHub" },
-  { "<leader>g", group = "GitHub", mode = "v" },
-  { "<leader>gf", desc = "Open File" },
-  { "<leader>gr", desc = "Open Repository" },
-  { "<leader>gl", desc = "Open Selected Lines", mode = "v" },
-
 })
 
 vim.cmd([[
@@ -240,12 +217,4 @@ vim.cmd([[
     autocmd!
     autocmd BufRead *.m3u8 setfiletype hlsplaylist
   augroup end
-]])
-
-vim.cmd([[
-  autocmd TermEnter term://*toggleterm#*
-        \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-
-  nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
-  inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
 ]])
