@@ -121,7 +121,6 @@ if OS.mac?
   tap '1password/tap'            ; cask '1password-cli'
   tap 'jandedobbeleer/oh-my-posh'; cask 'jandedobbeleer/oh-my-posh/oh-my-posh'
 
-  cask 'alacritty'
   cask 'git-credential-manager'
   cask 'powershell'
 end
