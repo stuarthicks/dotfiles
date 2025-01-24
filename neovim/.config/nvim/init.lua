@@ -4,7 +4,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
 require('stuarthicks.plugins')
-require('stuarthicks.snippets')
+require('stuarthicks.mini')
 require('stuarthicks.treesitter')
 require('stuarthicks.lsp')
 
@@ -184,7 +184,6 @@ vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 vim.keymap.set('n', '<leader>h', ':vertical help<space>')
 
 vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<cr>')
-vim.keymap.set('n', '<leader>r', ':Rg<space>')
 vim.keymap.set('n', '<leader>t', ':TagbarToggle<cr>')
 vim.keymap.set('n', '<leader>st', ':TodoTelescope keywords=TODO,FIX,FIXME<cr>')
 vim.keymap.set('n', '<leader>sT', ':Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>')
@@ -199,6 +198,7 @@ vim.cmd.cnoreabbrev('neogit', 'Neogit')
 vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 vim.cmd.cnoreabbrev('health', 'checkhealth')
 vim.cmd.cnoreabbrev('hc', 'checkhealth')
+vim.cmd.cnoreabbrev('ch', 'checkhealth')
 
 vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 
@@ -209,7 +209,6 @@ wk.add({
   { "<leader>a", group = "Code Actions" },
 
   { "<leader>o", desc = "Open URL in Browser" },
-  { "<leader>r", desc = "Ripgrep" },
 })
 
 vim.cmd([[
