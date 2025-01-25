@@ -13,14 +13,12 @@ return {
       require('mini.jump').setup()
 
       require('mini.trailspace').setup()
-      vim.keymap.set('n', '<leader>mt', ':lua MiniTrailspace.trim()<cr>')
+      vim.keymap.set('n', '<leader>ms', ':lua MiniTrailspace.trim()<cr>')
 
       require('mini.files').setup()
       vim.keymap.set('n', '<leader>mf', ':lua MiniFiles.open()<cr>')
     end
-  },
-
-  {
+  }, {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
