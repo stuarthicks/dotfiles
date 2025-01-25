@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.cmd([[
   augroup godev
     autocmd!
-    autocmd FileType go lua require('go').setup({goimport = 'gopls', gofmt = 'gopls', dap_debug = true})
+    autocmd FileType go lua require('go').setup({goimports = 'gopls', gofmt = 'gopls', dap_debug = true})
     autocmd FileType go lua require('go.format').goimport()
     autocmd FileType go lua require('navigator').setup()
     autocmd BufWritePre *.go :silent! lua require('go.format').goimport()

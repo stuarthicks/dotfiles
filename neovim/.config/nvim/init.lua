@@ -4,9 +4,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
 require('stuarthicks.plugins')
-require('stuarthicks.mini')
-require('stuarthicks.treesitter')
-require('stuarthicks.lsp')
+require('stuarthicks.lspconfig')
 
 vim.cmd [[ colorscheme tokyonight-night ]]
 
