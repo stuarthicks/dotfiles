@@ -180,8 +180,6 @@ require("lazy").setup({
     }
   },
 
-  { 'preservim/tagbar', cmd = {'TagbarToggle'} },
-
   { 'echasnovski/mini.nvim', version = '*' },
 
   {
@@ -189,6 +187,7 @@ require("lazy").setup({
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
+    cmd = 'NvimTreeToggle',
     config = function()
       require("nvim-tree").setup({
         sort = {
@@ -256,7 +255,7 @@ require("lazy").setup({
     build = ':lua require("go.install").update_all_sync()'
   },
 
-  { 'jamessan/vim-gnupg' },
+  { 'jamessan/vim-gnupg', ft = 'asc' },
 
   {'akinsho/git-conflict.nvim', version = "*", config = true},
 
