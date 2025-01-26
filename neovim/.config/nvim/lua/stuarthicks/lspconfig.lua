@@ -58,12 +58,13 @@ vim.cmd([[
 vim.lsp.inlay_hint.enable()
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-require('lspconfig').gopls.setup({})
-require('lspconfig').ruby_lsp.setup({})
 require('lspconfig').bashls.setup({})
+require('lspconfig').gopls.setup({})
 require('lspconfig').jsonls.setup({})
-require('lspconfig').yamlls.setup({})
+require('lspconfig').ruby_lsp.setup({})
+require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').terraformls.setup({})
+require('lspconfig').yamlls.setup({})
 
 require'lspconfig'.pylsp.setup({
   settings = {
