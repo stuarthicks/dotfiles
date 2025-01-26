@@ -61,9 +61,9 @@ return {
       { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
 
       -- Grep
-      { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-      { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
-      { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<leader>fl", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+      { "<leader>fB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+      { "<leader>f/", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
 
       -- search
@@ -131,12 +131,12 @@ return {
     opts = {},
     cmd = 'Trouble',
     keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                        desc = "Diagnostics (Trouble)",                        },
-      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",           desc = "Buffer Diagnostics (Trouble)",                 },
-      { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>",                desc = "Symbols (Trouble)",                            },
-      { "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions / references / ... (Trouble)", },
-      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>",                            desc = "Location List (Trouble)",                      },
-      { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>",                             desc = "Quickfix List (Trouble)",                      },
+      { "<leader>tx", "<cmd>Trouble diagnostics toggle<cr>",                        desc = "Diagnostics (Trouble)",                        },
+      { "<leader>tX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",           desc = "Buffer Diagnostics (Trouble)",                 },
+      { "<leader>ts", "<cmd>Trouble symbols toggle focus=false<cr>",                desc = "Symbols (Trouble)",                            },
+      { "<leader>tl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP Definitions / references / ... (Trouble)", },
+      { "<leader>tL", "<cmd>Trouble loclist toggle<cr>",                            desc = "Location List (Trouble)",                      },
+      { "<leader>tQ", "<cmd>Trouble qflist toggle<cr>",                             desc = "Quickfix List (Trouble)",                      },
     },
     specs = {
       "folke/snacks.nvim",
