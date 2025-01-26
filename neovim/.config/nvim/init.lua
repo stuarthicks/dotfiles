@@ -206,8 +206,9 @@ wk.add({
   { '<leader>u',  group = 'Toggle Flags', icon = { icon = '\u{f11d}',  color = 'white' } },
   { '<leader>w',  group = 'Workspace',    icon = { icon = '\u{f52e}',  color = 'purple' } },
 
-  { '<leader>o', desc = 'Open URL in Browser', icon = { icon = '\u{f0239}', color = 'orange' }} ,
   { '<leader>e', desc = 'Open Diagnostics' },
+  { '<leader>o', desc = 'Open URL in Browser', icon = { icon = '\u{f0239}', color = 'orange' } },
+  { '<leader>p', desc = 'Toggle Project Drawer', icon = { icon = '\u{ef81}', color = 'blue' } },
   { '<leader>q', desc = 'Open Local List' },
 })
 
