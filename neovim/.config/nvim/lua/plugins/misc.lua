@@ -7,7 +7,7 @@ return {
     },
     cmd = 'BarbarEnable',
     init = function()
-      vim.g.barbar_auto_setup = false
+      vim.g.barbar_auto_setup = true
     end,
   },
 

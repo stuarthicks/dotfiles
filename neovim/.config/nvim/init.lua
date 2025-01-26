@@ -172,7 +172,7 @@ vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 
-vim.keymap.set('n', '<ctrl>b', ':BarbarEnable<cr>')
+vim.keymap.set('n', '<c-b>', ':BarbarEnable<cr>')
 vim.keymap.set('n', '<leader>p', ':NvimTreeToggle<cr>')
 vim.keymap.set('n', '<leader>st', ':TodoTelescope keywords=TODO,FIX,FIXME<cr>')
 vim.keymap.set('n', '<leader>sT', ':Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>')
