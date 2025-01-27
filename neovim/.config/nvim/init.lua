@@ -218,3 +218,10 @@ vim.cmd([[
     autocmd BufRead *.m3u8 setfiletype hlsplaylist
   augroup end
 ]])
+
+vim.cmd([[
+  augroup systemd
+    autocmd!
+    autocmd BufRead *.service setfiletype systemd
+  augroup end
+]])
