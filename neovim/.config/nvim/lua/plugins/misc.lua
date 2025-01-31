@@ -39,4 +39,9 @@ return {
       url_open.setup ({})
     end,
   },
+
+  {
+    'Almo7aya/openingh.nvim',
+    cmd = {'OpenInGHRepo', 'OpenInGHFile', 'OpenInGHFileLines'},
+  },
 }

@@ -178,6 +178,10 @@ vim.keymap.set('n', '<leader>st', ':TodoTelescope keywords=TODO,FIX,FIXME<cr>')
 vim.keymap.set('n', '<leader>sT', ':Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>')
 vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 
+vim.keymap.set("n", "<leader>gor", ":OpenInGHRepo<cr>")
+vim.keymap.set("n", "<leader>gof", ":OpenInGHFile<cr>")
+vim.keymap.set({"n", "x", "v"}, "<leader>gol", ":OpenInGHFileLines<cr>")
+
 vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 vim.cmd.cnoreabbrev('git', 'Git')
 vim.cmd.cnoreabbrev('glow', 'Glow')
@@ -195,16 +199,21 @@ local wk = require("which-key")
 
 wk.add({
   { '<leader>b',  group = 'Tab bar' },
-  { '<leader>c',  group = 'Code',         icon = { icon = '\u{f0626}', color = 'green' } },
-  { '<leader>f',  group = 'Find / Grep',  icon = { icon = '\u{e68f}',  color = 'blue' } },
-  { '<leader>g',  group = 'Git',          icon = { icon = '\u{e702}',  color = 'red' } },
-  { '<leader>l',  group = 'LSP',          icon = { icon = '\u{f425}',  color = 'yellow'} },
-  { '<leader>lx', group = 'GoDebug',      icon = { icon = '\u{f07d3}', color = 'cyan'} },
-  { '<leader>m',  group = 'Mini',         icon = { icon = '\u{f0a06}', color = 'grey' } },
-  { '<leader>s',  group = 'Fuzzy Search', icon = { icon = '\u{f0866}', color = 'green' } },
-  { '<leader>t',  group = 'Trouble',      icon = { icon = '\u{ea6c}',  color = 'yellow' } },
-  { '<leader>u',  group = 'Toggle Flags', icon = { icon = '\u{f11d}',  color = 'white' } },
-  { '<leader>w',  group = 'Workspace',    icon = { icon = '\u{f52e}',  color = 'purple' } },
+  { '<leader>c',  group = 'Code',            icon = { icon = '\u{f0626}',  color = 'green' } },
+  { '<leader>f',  group = 'Find / Grep',     icon = { icon = '\u{e68f}',   color = 'blue' } },
+  { '<leader>g',  group = 'Git',             icon = { icon = '\u{e702}',   color = 'red' } },
+  { '<leader>l',  group = 'LSP',             icon = { icon = '\u{f425}',   color = 'yellow'} },
+  { '<leader>lx', group = 'GoDebug',         icon = { icon = '\u{f07d3}',  color = 'cyan'} },
+  { '<leader>m',  group = 'Mini',            icon = { icon = '\u{f0a06}',  color = 'grey' } },
+  { '<leader>s',  group = 'Fuzzy Search',    icon = { icon = '\u{f0866}',  color = 'green' } },
+  { '<leader>t',  group = 'Trouble',         icon = { icon = '\u{ea6c}',   color = 'yellow' } },
+  { '<leader>u',  group = 'Toggle Flags',    icon = { icon = '\u{f11d}',   color = 'white' } },
+  { '<leader>w',  group = 'Workspace',       icon = { icon = '\u{f52e}',   color = 'purple' } },
+
+  { '<leader>go', group = 'Open in Browser', icon = { icon = '\u{f0239}', color = 'red' } },
+  { '<leader>gor', desc = 'Open Repository' },
+  { '<leader>gof', desc = 'Open File' },
+  { '<leader>gol', desc = 'Open Lines' },
 
   { '<leader>e', desc = 'Open Diagnostics' },
   { '<leader>o', desc = 'Open URL in Browser', icon = { icon = '\u{f0239}', color = 'orange' } },
