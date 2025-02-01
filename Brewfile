@@ -29,6 +29,7 @@ tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
   cidr
   circleci
   csvq
+  curlie
   d2
   docker-credential-helper-ecr
   doggo
@@ -47,6 +48,8 @@ tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
   libyaml
   magic-wormhole
   neovim
+  nushell
+  posting
   powerlevel10k
   prettier
   procs
