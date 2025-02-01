@@ -124,7 +124,6 @@ alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='ls'
 alias vimdiff='nvim -d'
-alias neogit='nvim +Neogit'
 alias gron='fastgron'
 alias ungron='fastgron --ungron'
 alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
