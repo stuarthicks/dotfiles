@@ -5,7 +5,6 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
-    cmd = 'BarbarEnable',
     init = function()
       vim.g.barbar_auto_setup = true
     end,
