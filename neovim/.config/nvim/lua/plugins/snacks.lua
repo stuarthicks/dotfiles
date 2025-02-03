@@ -14,6 +14,7 @@ return {
       scroll       = { enabled = false },
       statuscolumn = { enabled = true  },
       words        = { enabled = true  },
+      explorer     = { enabled = true  },
       notifier = {
         enabled = true,
         timeout = 3000,

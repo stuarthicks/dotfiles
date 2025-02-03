@@ -22,21 +22,5 @@ return {
       require('mini.files').setup()
       vim.keymap.set('n', '<leader>mf', ':lua MiniFiles.open()<cr>')
     end
-  }, {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons'
-    },
-    cmd = 'NvimTreeToggle',
-    config = function()
-      require("nvim-tree").setup({
-        sort = {
-          sorter = "case_sensitive",
-        },
-        renderer = {
-          group_empty = true,
-        },
-      })
-    end
   },
 }
