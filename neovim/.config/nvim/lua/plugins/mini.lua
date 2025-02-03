@@ -12,8 +12,12 @@ return {
       require('mini.surround').setup()
       require('mini.jump').setup()
 
-      require('mini.trailspace').setup()
-      vim.keymap.set('n', '<leader>ms', ':lua MiniTrailspace.trim()<cr>')
+      -- delay trailspace package so that it doesn't highlight trailing whitespace
+      -- when neovim loads the snacks.nvim dashboard when opened with no files
+      vim.schedule(function()
+        require('mini.trailspace').setup()
+        vim.keymap.set('n', '<leader>ms', ':lua MiniTrailspace.trim()<cr>')
+      end)
 
       require('mini.files').setup()
       vim.keymap.set('n', '<leader>mf', ':lua MiniFiles.open()<cr>')
