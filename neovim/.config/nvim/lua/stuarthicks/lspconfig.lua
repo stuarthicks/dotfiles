@@ -45,20 +45,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.cmd([[
-  augroup godev
-    autocmd!
-    autocmd FileType go lua require('go').setup({goimports = 'gopls', gofmt = 'gopls', dap_debug = true})
-    autocmd FileType go lua require('go.format').goimport()
-    autocmd FileType go lua require('navigator').setup()
-    autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
-  augroup end
-]])
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimports()
+  end,
+  group = format_sync_grp,
+})
 
 vim.lsp.inlay_hint.enable()
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 require('lspconfig').bashls.setup({})
+require('lspconfig').gopls.setup({})
 require('lspconfig').jsonls.setup({})
 require('lspconfig').ruby_lsp.setup({})
 require('lspconfig').rust_analyzer.setup({})
