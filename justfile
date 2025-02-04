@@ -5,6 +5,7 @@ default: stow brew mise
 
 # Create config symlinks
 stow:
+  {{STOW}} aerospace
   {{STOW}} alacritty
   {{STOW}} editorconfig
   {{STOW}} ghostty
