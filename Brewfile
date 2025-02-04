@@ -123,6 +123,7 @@ if OS.mac?
 
   tap '1password/tap'            ; cask '1password-cli'
   tap 'jandedobbeleer/oh-my-posh'; cask 'jandedobbeleer/oh-my-posh/oh-my-posh'
+  tap 'nikitabobko/tap'          ; cask 'nikitabobko/tap/aerospace'
 
   cask 'git-credential-manager'
   cask 'powershell'
