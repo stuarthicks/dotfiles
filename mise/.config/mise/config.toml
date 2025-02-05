@@ -25,6 +25,7 @@ zls = "latest"
 "npm:prettier" = "latest"
 "pipx:jc" = "latest"
 "pipx:toolong" = "latest"
+"pipx:aws-encryption-sdk-cli" = "latest"
 
 [settings]
 experimental = true
