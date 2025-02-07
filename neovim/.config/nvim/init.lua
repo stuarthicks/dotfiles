@@ -6,7 +6,8 @@ vim.g.maplocalleader = ','
 require('stuarthicks.plugins')
 require('stuarthicks.lspconfig')
 
-vim.cmd [[ colorscheme tokyonight-night ]]
+-- vim.cmd [[ colorscheme tokyonight-night ]]
+vim.cmd [[ colorscheme catppuccin ]]
 
 if os.getenv('TERM_PROGRAM') == 'Apple_Terminal' then
   vim.o.termguicolors = false
