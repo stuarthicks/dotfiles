@@ -22,3 +22,8 @@ unfocused-split-opacity = 0.6
 # necessary due to multi-line prompt
 keybind = super+down=jump_to_prompt:3
 keybind = super+up=jump_to_prompt:-3
+
+keybind = shift+left=goto_split:left
+keybind = shift+right=goto_split:right
+keybind = shift+down=goto_split:down
+keybind = shift+up=goto_split:up
