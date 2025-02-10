@@ -1,3 +1,4 @@
+# vi: set ft=dosini :
 font-family = "BerkeleyMono Nerd Font"
 font-feature = -calt
 font-feature = -liga
@@ -12,8 +13,8 @@ shell-integration = zsh
 # macos-titlebar-style = hidden
 macos-option-as-alt = true
 
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 0
+window-padding-y = 0
 window-padding-balance = true
 
 unfocused-split-opacity = 0.6
@@ -22,7 +23,7 @@ unfocused-split-opacity = 0.6
 keybind = super+down=jump_to_prompt:3
 keybind = super+up=jump_to_prompt:-3
 
-keybind = shift+left=goto_split:left
-keybind = shift+right=goto_split:right
-keybind = shift+down=goto_split:down
-keybind = shift+up=goto_split:up
+# keybind = shift+left=goto_split:left
+# keybind = shift+right=goto_split:right
+# keybind = shift+down=goto_split:down
+# keybind = shift+up=goto_split:up
