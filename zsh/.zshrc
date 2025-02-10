@@ -192,9 +192,6 @@ mise-env() {
 # if-cmd starship && eval "$(starship init zsh)"
 # unset RPS1
 
-# if-cmd oh-my-posh && \
-#   eval "$(oh-my-posh init zsh --config "$HOME/.config/oh-my-posh/config.omp.toml")"
-
 if [ -n "${UPTERM_ADMIN_SOCKET:-}" ]; then
   export UPTERM_SYM='🤝'
 fi
