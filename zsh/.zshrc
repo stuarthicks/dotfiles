@@ -1,8 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [ -n "${ZSH_PROFILE:-}" ]; then
+  zmodload zsh/zprof
 fi
 
 ttyctl -f  # Disable suspending the terminal with ctrl-s
@@ -46,14 +43,6 @@ setopt pushd_silent
 setopt pushd_to_home
 setopt share_history
 
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*:*:cd:*:directory-stack' force-list always
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-if-cmd() ( if (( $+commands[$1] )); then exit 0; fi; exit 1; )
-src() { test -f "$1" && source "$1"; }
-
 export CLICOLOR="1"
 export TZ="Europe/London"
 export EDITOR="nvim"
@@ -73,9 +62,12 @@ case $(uname); in
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
 
-test -x "$HOMEBREW_PREFIX/bin/brew" && eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 
 export MANPATH="$HOME/Developer/opt/share/man${MANPATH+:$MANPATH}:"
+export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH+:$INFOPATH}";
 export XDG_DATA_DIRS="${HOMEBREW_PREFIX}/share:$XDG_DATA_DIRS"
 
 path=(
@@ -108,16 +100,36 @@ fpath=(
   $fpath
 )
 
-autoload -Uz compinit && compinit
-zmodload zsh/complist
-
 # Prevent duplicate fpath entries
 typeset -U fpath
 
-# Remove dirs from PATH that don't exist
+# Remove dirs from FPATH that don't exist
 for ((i = 1; i <= $#fpath; i++)); do
   test ! -d "$fpath[i]" && fpath[i]=()
 done
+
+source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Only refresh completion cache once a day to speed up shell startup
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+zmodload zsh/complist
+
+zstyle ':completion:*:*:cd:*:directory-stack' force-list always
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select=2
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+source <(carapace _carapace)
+
+eval "$(zoxide init zsh)"
+eval "$(mise activate zsh)"
+source <(sq completion zsh)
 
 alias awsume="source awsume"
 alias as=awsume
@@ -130,6 +142,13 @@ alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; pri
 
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
+
+alias profile_zsh='ZSH_PROFILE=1 zsh -l --sourcetrace'
+
+path()     ( echo "$PATH"     | tr : $'\n'; )
+fpath()    ( echo "$FPATH"    | tr : $'\n'; )
+infopath() ( echo "$INFOPATH" | tr : $'\n'; )
+manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
 
 fzy-history() {
   LBUFFER+=$(
@@ -164,11 +183,6 @@ fzy-commit() {
 zle -N fzy-commit
 bindkey "^g" fzy-commit
 
-path()     ( echo "$PATH"     | tr : $'\n'; )
-fpath()    ( echo "$FPATH"    | tr : $'\n'; )
-infopath() ( echo "$INFOPATH" | tr : $'\n'; )
-manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
-
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
 fkill() (
@@ -185,36 +199,22 @@ repo() {
   cd "$(basename "$URL")"
 }
 
-mise-env() {
-  export MISE_ENV=$@
-}
+mise-env() { export MISE_ENV="$@"; }
 
-# if-cmd starship && eval "$(starship init zsh)"
-# unset RPS1
-
-if [ -n "${UPTERM_ADMIN_SOCKET:-}" ]; then
-  export UPTERM_SYM='🤝'
+if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
-if-cmd zoxide && eval "$(zoxide init zsh)"
-if-cmd mise   && eval "$(mise activate zsh)"
-if-cmd sq     && source <(sq completion zsh)
+. "$HOME/.config/op/plugins.sh"
+. "$HOME/.localrc"
 
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
+autoload -Uz add-zsh-hook
+prompt_mimir_cmd() { mimir }
+add-zsh-hook precmd prompt_mimir_cmd
 
-src "$HOME/.config/op/plugins.sh"
-src "$HOME/.localrc"
+prompt_symbol='❯'
+PROMPT="%(?.%F{magenta}.%F{red})${prompt_symbol}%f "
 
-PROMPT="
-%{$fg[green]%}#%{$reset_color%} "
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source "${HOMEBREW_PREFIX}/share/powerlevel10k/powerlevel10k.zsh-theme"
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+if [ -n "${ZSH_PROFILE:-}" ]; then
+  zprof
+fi

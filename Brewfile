@@ -50,7 +50,6 @@ tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
   neovim
   nushell
   posting
-  powerlevel10k
   prettier
   procs
   python3

@@ -19,13 +19,14 @@ zls = "latest"
 "go:github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister" = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
+"go:github.com/talal/mimir/..." = "latest"
 "npm:@enact/cli" = "latest"
 "npm:@webos-tools/cli" = "latest"
 "npm:patch-package" = "latest"
 "npm:prettier" = "latest"
+"pipx:aws-encryption-sdk-cli" = "latest"
 "pipx:jc" = "latest"
 "pipx:toolong" = "latest"
-"pipx:aws-encryption-sdk-cli" = "latest"
 
 [settings]
 experimental = true
