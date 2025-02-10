@@ -3,8 +3,7 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-# theme = "tokyonight"
-theme = "catppuccin-macchiato"
+theme = "tokyonight"
 background-opacity = 1
 background-blur-radius = 20
 
