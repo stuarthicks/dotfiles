@@ -3,6 +3,7 @@ font-family = "BerkeleyMono Nerd Font"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+font-size = 16
 
 theme = "tokyonight"
 background-opacity = 1
@@ -13,8 +14,8 @@ shell-integration = zsh
 # macos-titlebar-style = hidden
 macos-option-as-alt = true
 
-window-padding-x = 0
-window-padding-y = 0
+window-padding-x = 5
+window-padding-y = 5
 window-padding-balance = true
 
 unfocused-split-opacity = 0.6
@@ -27,3 +28,8 @@ keybind = super+up=jump_to_prompt:-3
 # keybind = shift+right=goto_split:right
 # keybind = shift+down=goto_split:down
 # keybind = shift+up=goto_split:up
+
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+keybind = alt+up=unbind
+keybind = alt+down=unbind
