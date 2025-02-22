@@ -5,6 +5,9 @@ font-feature = -liga
 font-feature = -dlig
 font-size = 16
 
+# git clone https://github.com/hackr-sh/ghostty-shaders ~/.config/ghostty/shaders
+custom-shader = ~/.config/ghostty/shaders/inside-the-matrix.glsl
+
 theme = "tokyonight"
 background-opacity = 1
 background-blur-radius = 20
