@@ -2,8 +2,8 @@
 [include]
 	path = config_common
 [credential]
-	helper = /home/stuart/winhome/scoop/apps/git-credential-manager/current/git-credential-manager.exe
+	helper = /mnt/c/Users/stuar/scoop/apps/git-credential-manager/current/git-credential-manager.exe
 [gpg "ssh"]
-  program = /mnt/c/Users/stuar/AppData/Local/1Password/app/8/op-ssh-sign.exe
+  program = /mnt/c/Users/stuar/AppData/Local/1Password/app/8/op-ssh-sign-wsl
 [core]
   sshCommand = "ssh.exe"
