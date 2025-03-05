@@ -11,17 +11,36 @@
 [core]
   symlinks = true
 
+[help]
+  autocorrect = prompt
+
+[column]
+  ui = auto
+
 [branch]
   autosetuprebase = always
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 
 [pull]
   ff = only
 
 [push]
-  default = current
+  default = simple
+  autoSetupRemote = true
+  followTags = true
 
 [rebase]
-  autosquash = true
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
 
 [commit]
   gpgsign = true
@@ -35,8 +54,10 @@
 [diff]
   tool = difftastic
   algorithm = histogram
-  colormoved = "default"
+  colormoved = plain
   colormovedws = "allow-indentation-change"
+  mnemonicPrefix = true
+  renames = true
 
 [diff "gpg"]
   textconv = gpg --no-tty --decrypt
@@ -73,7 +94,7 @@
   process = git-lfs filter-process
 
 [merge]
-  conflictStyle = diff3
+  conflictStyle = zdiff3
 
 [rerere]
   enabled = true
