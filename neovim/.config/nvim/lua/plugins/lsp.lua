@@ -44,4 +44,6 @@ return {
     build = ':lua require("go.install").update_all_sync()'
   },
 
+  { 'github/copilot.vim' },
+
 }
