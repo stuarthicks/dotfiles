@@ -125,6 +125,7 @@
   cfg = config --list --show-origin
   l = log
   sh = show --ext-diff
+  sync = !gh repo sync
 
 [include]
   path = config_work
