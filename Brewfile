@@ -10,24 +10,24 @@ brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
-tap 'danielgatis/imgcat'; brew 'danielgatis/imgcat/imgcat'
-tap 'fastly/tap'        ; brew 'fastly/tap/fastly'
-tap 'goreleaser/tap'    ; brew 'goreleaser/tap/goreleaser'
-tap 'hashicorp/tap'     ; brew 'hashicorp/tap/terraform'
-tap 'jfryy/tap'         ; brew 'jfryy/tap/qq'
-tap 'jwt-rs/jwt-ui'     ; brew 'jwt-rs/jwt-ui/jwt-ui'
-tap 'neilotoole/sq'     ; brew 'neilotoole/sq/sq'
-tap 'owenthereal/upterm'; brew 'owenthereal/upterm/upterm'
-tap 'rsteube/tap'       ; brew 'rsteube/tap/carapace'
-tap 'soldiermoth/tap'   ; brew 'soldiermoth/tap/hlsq'
-tap 'wader/tap'         ; brew 'wader/tap/fq'
-tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
+tap 'fastly/tap'               ; brew 'fastly/tap/fastly'
+tap 'goreleaser/tap'           ; brew 'goreleaser/tap/goreleaser'
+tap 'hashicorp/tap'            ; brew 'hashicorp/tap/terraform'
+tap 'jfryy/tap'                ; brew 'jfryy/tap/qq'
+tap 'jwt-rs/jwt-ui'            ; brew 'jwt-rs/jwt-ui/jwt-ui'
+tap 'neilotoole/sq'            ; brew 'neilotoole/sq/sq'
+tap 'owenthereal/upterm'       ; brew 'owenthereal/upterm/upterm'
+tap 'rsteube/tap'              ; brew 'rsteube/tap/carapace'
+tap 'soldiermoth/tap'          ; brew 'soldiermoth/tap/hlsq'
+tap 'wader/tap'                ; brew 'wader/tap/fq'
+tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
 
 # Homebrew Core
 %w[
   bento4
   cidr
   circleci
+  coreutils
   csvq
   curlie
   d2
@@ -61,6 +61,7 @@ tap 'ynqa/tap'          ; brew 'ynqa/tap/jnv'
   tsduck
   tzdiff
   urlview
+  wcurl
   xh
   xsv
   yq
@@ -82,7 +83,6 @@ if OS.mac?
     bash
     bat
     cmake
-    coreutils
     curl
     diff-so-fancy
     difftastic
@@ -103,7 +103,9 @@ if OS.mac?
     make
     mas
     mediainfo
+    moreutils
     opentofu
+    pbzip2
     pv
     ripgrep
     sslscan
@@ -120,19 +122,11 @@ if OS.mac?
     brew formula
   end
 
-  tap '1password/tap'            ; cask '1password-cli'
-  tap 'jandedobbeleer/oh-my-posh'; cask 'jandedobbeleer/oh-my-posh/oh-my-posh'
-  tap 'nikitabobko/tap'          ; cask 'nikitabobko/tap/aerospace'
+  tap '1password/tap'; cask '1password-cli'
 
+  cask 'bruno'
   cask 'git-credential-manager'
+  cask 'neovide'
   cask 'powershell'
-end
-
-if OS.linux?
-  %w[
-    coreutils
-  ].each do |formula|
-    brew formula
-  end
-  tap 'jandedobbeleer/oh-my-posh'; brew 'jandedobbeleer/oh-my-posh/oh-my-posh'
+  cask 'qbittorrent'
 end
