@@ -194,6 +194,9 @@ vim.keymap.set("n", "<leader>gor", ":OpenInGHRepo<cr>")
 vim.keymap.set("n", "<leader>gof", ":OpenInGHFile<cr>")
 vim.keymap.set({"n", "x", "v"}, "<leader>gol", ":OpenInGHFileLines<cr>")
 
+vim.keymap.set("n", "<leader>lj", ":JustSelect<cr>")
+vim.keymap.set("n", "<leader>lm", ":CompilerOpen<cr>")
+
 vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
 vim.cmd.cnoreabbrev('git', 'Git')
 vim.cmd.cnoreabbrev('glow', 'Glow')
@@ -205,6 +208,9 @@ vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 vim.cmd.cnoreabbrev('health', 'checkhealth')
 vim.cmd.cnoreabbrev('hc', 'checkhealth')
 vim.cmd.cnoreabbrev('ch', 'checkhealth')
+vim.cmd.cnoreabbrev('just', 'Just')
+vim.cmd.cnoreabbrev('justselect', 'JustSelect')
+vim.cmd.cnoreabbrev('comp', 'CompilerOpen')
 
 
 local wk = require("which-key")
@@ -231,6 +237,9 @@ wk.add({
   { '<leader>o', desc = 'Open URL in Browser', icon = { icon = '\u{f0239}', color = 'orange' } },
   { '<leader>p', desc = 'Toggle Project Drawer', icon = { icon = '\u{ef81}', color = 'blue' } },
   { '<leader>q', desc = 'Open Local List' },
+
+  { '<leader>lj', desc = 'Just' },
+  { '<leader>lm', desc = 'Make' },
 })
 
 vim.cmd([[
