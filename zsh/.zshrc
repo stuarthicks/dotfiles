@@ -195,7 +195,7 @@ repo() {
   DIR="$HOME/Developer/src/${BASE}"
   mkdir -p "$DIR"
   cd "$DIR"
-  git clone --recursive "$(trurl --set scheme=https "${URL}")"
+  gh repo clone "$(trurl --set scheme=https "${URL}")" -- --recursive
   cd "$(basename "$URL")"
 }
 
