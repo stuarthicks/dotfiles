@@ -1,9 +1,9 @@
 STOW := 'stow --no-folding'
 
-# Run: stow, brew
-default: stow brew mise
+# Run all tasks by default
+default: stow brew mise neovim
 
-# Create config symlinks
+# Create configuration symlinks
 stow:
   {{STOW}} aerospace
   {{STOW}} alacritty
@@ -26,14 +26,15 @@ brew:
   brew bundle
   brew bundle cleanup || true
 
+# Update mise and upgrade all packages
 mise:
   mise self-update
   mise upgrade --bump
 
-# Run Homebrew cleanup
+# Update Neovim plugins
+neovim:
+  nvim --headless '+Lazy! sync' '+MasonUpdate' '+TSUpdateSync' +qa
+
+# Clean up Homebrew formulae
 clean:
   brew bundle cleanup --force
-
-# Build nix-darwin system
-nix-darwin:
-  darwin-rebuild switch --flake nix-darwin

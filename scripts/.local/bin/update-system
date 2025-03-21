@@ -2,24 +2,13 @@
 set -eu
 
 case "$(uname -s)" in
-  "Darwin")
-    softwareupdate --all --install
-    mas upgrade
-    ;;
-  "Linux")
-    doas dnf upgrade --assumeyes --no-best
-    ;;
+  "Darwin") softwareupdate --all --install && mas upgrade ;;
+  "Linux") doas dnf upgrade --assumeyes --no-best ;;
 esac
 
 cd ~/.dotfiles
 git fetch --all --prune
 git pull --ff --rebase origin main
 just
-
-nvim --headless \
-  '+Lazy! sync' \
-  '+MasonUpdate' \
-  '+TSUpdateSync' \
-  +qa
 
 # vi: set tabstop=2 shiftwidth=2 expandtab :
