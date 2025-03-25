@@ -44,6 +44,10 @@ return {
     build = ':lua require("go.install").update_all_sync()'
   },
 
-  { 'github/copilot.vim' },
+  {
+    'VPavliashvili/json-nvim',
+    ft = 'json',
+  },
 
+  { 'kyoh86/vim-jsonl' },
 }
