@@ -20,6 +20,8 @@ window-padding-balance = true
 
 unfocused-split-opacity = 0.6
 
+mouse-hide-while-typing = true
+
 # necessary due to multi-line prompt
 keybind = super+down=jump_to_prompt:3
 keybind = super+up=jump_to_prompt:-3
