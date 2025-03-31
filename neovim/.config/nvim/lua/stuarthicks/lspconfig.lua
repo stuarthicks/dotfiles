@@ -1,19 +1,42 @@
 -- vi: set ft=lua ts=2 sw=2 expandtab :
 
-vim.opt.signcolumn = 'yes'
+vim.lsp.config['gopls'] = {
+  cmd = { 'gopls' },
+  root_markers = {
+    'go.work',
+    'go.mod',
+    'go.sum',
+    '.git',
+  },
+  filetypes = {
+    'go',
+    'gomod',
+    'gosum',
+    'gowork',
+    'gotmpl',
+  },
+}
 
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.lsp.enable({
+  'gopls',
+})
+
+vim.lsp.inlay_hint.enable()
+
 local opts = { silent=true }
 vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.keymap.set('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
--- This is where you enable features that only work
--- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    end
+
     local opts = {buffer = event.buf}
 
     vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
@@ -45,55 +68,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
-vim.lsp.inlay_hint.enable()
+vim.lsp.buf.add_workspace_folder()
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-require('mason-lspconfig').setup_handlers {
-  function (server_name) -- default handler (optional)
-    require('lspconfig')[server_name].setup {}
-  end,
-
-  ['pylsp'] = function ()
-    require('lspconfig').pylsp.setup({
-      settings = {
-        pylsp = {
-          plugins = {
-            pycodestyle = {
-              -- ignore = {'W391'},
-              -- maxLineLength = 100
-            }
-          }
-        }
-      }
-    })
-  end,
-
-  ['lua_ls'] = function()
-    require('lspconfig').lua_ls.setup {
-      on_init = function(client)
-        if client.workspace_folders then
-          local path = client.workspace_folders[1].name
-          if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
-            return
-          end
-        end
-
-        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-          runtime = {
-            version = 'LuaJIT'
-          },
-          -- Make the server aware of Neovim runtime files
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              vim.env.VIMRUNTIME
-            }
-          }
-        })
-      end,
-      settings = {
-        Lua = {}
-      }
-    }
-  end
-}
+vim.diagnostic.config({
+  virtual_text = { current_line = true }
+})

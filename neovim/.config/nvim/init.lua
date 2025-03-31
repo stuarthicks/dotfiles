@@ -58,6 +58,7 @@ vim.o.backup = false
 vim.o.completeopt = table.concat({
   'longest',
   'menuone',
+  'noselect',
 }, ',')
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'
@@ -71,7 +72,6 @@ vim.o.number = true
 vim.o.scrolloff = 5
 vim.o.shiftwidth = 2
 vim.o.sidescrolloff = 5
-vim.o.signcolumn = 'number'
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.splitbelow = true
@@ -88,6 +88,7 @@ vim.o.wildignore = table.concat({
   '*/node_modules/*',
 }, ',')
 vim.o.wildmode = 'longest,list'
+vim.o.winborder = 'rounded'
 vim.o.winhighlight = 'Normal:None'
 vim.o.wrap = false
 vim.o.writebackup = false
@@ -224,6 +225,7 @@ wk.add({
   { '<leader>lx', group = 'GoDebug',         icon = { icon = '\u{f07d3}',  color = 'cyan'} },
   { '<leader>m',  group = 'Mini',            icon = { icon = '\u{f0a06}',  color = 'grey' } },
   { '<leader>s',  group = 'Fuzzy Search',    icon = { icon = '\u{f0866}',  color = 'green' } },
+  { '<leader>S',  group = 'Snacks',          icon = { icon = '\u{ef82}',   color = 'orange' } },
   { '<leader>t',  group = 'Trouble',         icon = { icon = '\u{ea6c}',   color = 'yellow' } },
   { '<leader>u',  group = 'Toggle Flags',    icon = { icon = '\u{f11d}',   color = 'white' } },
   { '<leader>w',  group = 'Workspace',       icon = { icon = '\u{f52e}',   color = 'purple' } },
