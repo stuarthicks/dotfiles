@@ -68,8 +68,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
-vim.lsp.buf.add_workspace_folder()
-
 vim.diagnostic.config({
   virtual_text = { current_line = true }
 })
