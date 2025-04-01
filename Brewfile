@@ -3,6 +3,7 @@
 
 tap 'stuarthicks/tap'
 brew 'stuarthicks/tap/access_key_manager'
+brew 'stuarthicks/tap/mrd'
 brew 'stuarthicks/tap/oauth2_token'
 brew 'stuarthicks/tap/presign-s3-url'
 brew 'stuarthicks/tap/rextract'
