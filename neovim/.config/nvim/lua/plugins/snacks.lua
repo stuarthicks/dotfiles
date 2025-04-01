@@ -6,7 +6,6 @@ return {
     ---@type snacks.Config
     opts = {
       bigfile      = { enabled = true  },
-      dashboard    = { enabled = true  },
       indent       = { enabled = true  },
       input        = { enabled = true  },
       picker       = { enabled = true  },
