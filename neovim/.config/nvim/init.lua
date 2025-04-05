@@ -3,6 +3,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+
 require('stuarthicks.plugins')
 require('stuarthicks.lspconfig')
 
@@ -194,6 +195,7 @@ vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 vim.keymap.set("n", "<leader>gor", ":OpenInGHRepo<cr>")
 vim.keymap.set("n", "<leader>gof", ":OpenInGHFile<cr>")
 vim.keymap.set({"n", "x", "v"}, "<leader>gol", ":OpenInGHFileLines<cr>")
+vim.keymap.set("n", "<leader>c", ":Copilot<space>")
 
 vim.keymap.set("n", "<leader>lj", ":JustSelect<cr>")
 vim.keymap.set("n", "<leader>lm", ":CompilerOpen<cr>")
@@ -212,13 +214,13 @@ vim.cmd.cnoreabbrev('ch', 'checkhealth')
 vim.cmd.cnoreabbrev('just', 'Just')
 vim.cmd.cnoreabbrev('justselect', 'JustSelect')
 vim.cmd.cnoreabbrev('comp', 'CompilerOpen')
+vim.cmd.cnoreabbrev('copilot', 'Copilot')
 
 
 local wk = require("which-key")
 
 wk.add({
   { '<leader>b',  group = 'Tab bar' },
-  { '<leader>c',  group = 'Code',            icon = { icon = '\u{f0626}',  color = 'green' } },
   { '<leader>f',  group = 'Find / Grep',     icon = { icon = '\u{e68f}',   color = 'blue' } },
   { '<leader>g',  group = 'Git',             icon = { icon = '\u{e702}',   color = 'red' } },
   { '<leader>l',  group = 'LSP',             icon = { icon = '\u{f425}',   color = 'yellow'} },
