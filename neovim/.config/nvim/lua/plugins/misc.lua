@@ -39,10 +39,7 @@ return {
     end,
   },
 
-  {
-    'Almo7aya/openingh.nvim',
-    cmd = {'OpenInGHRepo', 'OpenInGHFile', 'OpenInGHFileLines'},
-  },
+  { 'github/copilot.vim', },
 
-  { 'github/copilot.vim', }
+  { 'tpope/vim-sleuth', },
 }

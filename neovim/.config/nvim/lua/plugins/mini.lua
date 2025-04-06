@@ -17,9 +17,6 @@ return {
         require('mini.trailspace').setup()
         vim.keymap.set('n', '<leader>ms', ':lua MiniTrailspace.trim()<cr>')
       end)
-
-      require('mini.files').setup()
-      vim.keymap.set('n', '<leader>mf', ':lua MiniFiles.open()<cr>')
     end
   },
 }

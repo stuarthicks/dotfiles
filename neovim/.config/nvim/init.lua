@@ -186,18 +186,13 @@ vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('n', '<Leader><space>', ':nohlsearch<cr>')
 
-vim.keymap.set('n', '<c-b>', ':BarbarEnable<cr>')
 vim.keymap.set('n', '<leader>p', ':lua Snacks.explorer()<cr>')
 vim.keymap.set('n', '<leader>st', ':TodoTelescope keywords=TODO,FIX,FIXME<cr>')
 vim.keymap.set('n', '<leader>sT', ':Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>')
 vim.keymap.set("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
 
-vim.keymap.set("n", "<leader>gor", ":OpenInGHRepo<cr>")
-vim.keymap.set("n", "<leader>gof", ":OpenInGHFile<cr>")
-vim.keymap.set({"n", "x", "v"}, "<leader>gol", ":OpenInGHFileLines<cr>")
 vim.keymap.set("n", "<leader>c", ":Copilot<space>")
 
-vim.keymap.set("n", "<leader>lj", ":JustSelect<cr>")
 vim.keymap.set("n", "<leader>lm", ":CompilerOpen<cr>")
 
 vim.cmd.cnoreabbrev('conflicts', 'GitConflictListQf')
@@ -211,14 +206,10 @@ vim.cmd.cnoreabbrev('tsupdatesync', 'TSUpdateSync')
 vim.cmd.cnoreabbrev('health', 'checkhealth')
 vim.cmd.cnoreabbrev('hc', 'checkhealth')
 vim.cmd.cnoreabbrev('ch', 'checkhealth')
-vim.cmd.cnoreabbrev('just', 'Just')
-vim.cmd.cnoreabbrev('justselect', 'JustSelect')
 vim.cmd.cnoreabbrev('comp', 'CompilerOpen')
 vim.cmd.cnoreabbrev('copilot', 'Copilot')
 
-
 local wk = require("which-key")
-
 wk.add({
   { '<leader>b',  group = 'Tab bar' },
   { '<leader>f',  group = 'Find / Grep',     icon = { icon = '\u{e68f}',   color = 'blue' } },
@@ -230,20 +221,10 @@ wk.add({
   { '<leader>S',  group = 'Snacks',          icon = { icon = '\u{ef82}',   color = 'orange' } },
   { '<leader>t',  group = 'Trouble',         icon = { icon = '\u{ea6c}',   color = 'yellow' } },
   { '<leader>u',  group = 'Toggle Flags',    icon = { icon = '\u{f11d}',   color = 'white' } },
-  { '<leader>w',  group = 'Workspace',       icon = { icon = '\u{f52e}',   color = 'purple' } },
 
-  { '<leader>go', group = 'Open in Browser', icon = { icon = '\u{f0239}', color = 'red' } },
-  { '<leader>gor', desc = 'Open Repository' },
-  { '<leader>gof', desc = 'Open File' },
-  { '<leader>gol', desc = 'Open Lines' },
-
-  { '<leader>e', desc = 'Open Diagnostics' },
   { '<leader>o', desc = 'Open URL in Browser', icon = { icon = '\u{f0239}', color = 'orange' } },
   { '<leader>p', desc = 'Toggle Project Drawer', icon = { icon = '\u{ef81}', color = 'blue' } },
   { '<leader>q', desc = 'Open Local List' },
-
-  { '<leader>lj', desc = 'Just' },
-  { '<leader>lm', desc = 'Make' },
 })
 
 vim.cmd([[
