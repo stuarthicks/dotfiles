@@ -167,7 +167,7 @@ fzy-dir() {
   zle reset-prompt
 }
 zle -N fzy-dir
-bindkey "^g" fzy-dir
+bindkey "^f" fzy-dir
 
 fzy-file() {
   LBUFFER+=$(fd -t f -H | fzy)
