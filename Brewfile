@@ -51,6 +51,7 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   neovim
   nushell
   posting
+  pre-commit
   prettier
   procs
   python3
