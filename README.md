@@ -17,4 +17,3 @@ AWSume
 Mise
 
     curl https://mise.run | sh
-
