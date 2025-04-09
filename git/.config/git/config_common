@@ -10,6 +10,7 @@
 
 [core]
   symlinks = true
+  hooksPath = ~/.config/git/hooks
 
 [help]
   autocorrect = prompt

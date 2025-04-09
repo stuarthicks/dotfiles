@@ -1,9 +1,7 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
     - id: check-added-large-files
     - id: check-case-conflict
     - id: check-executables-have-shebangs
@@ -20,3 +18,11 @@ repos:
     - id: fix-byte-order-marker
     - id: mixed-line-ending
     - id: trailing-whitespace
+- repo: local
+  hooks:
+    - id: trufflehog
+      name: trufflehog
+      description: Detect secrets in your data.
+      entry: bash -c '$HOME/.local/bin/trufflehog_wrapper'
+      language: system
+      stages: ["pre-commit", "pre-push"]
