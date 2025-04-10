@@ -127,6 +127,7 @@
   l = log
   sh = show --ext-diff
   sync = !gh repo sync
+  root = rev-parse --show-toplevel
 
 [include]
   path = config_work
