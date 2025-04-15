@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+set -x
+
+fd -d 1 -t f -e jpeg \
+  | while read -r line; do
+    name="${line%%.jpeg}"
+    magick "${name}.jpeg" "${name}.pdf"
+  done
+
+pdfpages=$(fd -d 1 -t f -e pdf | paste -s -d $' ' -)
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="images_$(date +'%Y-%m-%d').pdf" $pdfpages
+
+rm $pdfpages
