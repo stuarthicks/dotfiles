@@ -5,6 +5,7 @@ default: stow brew mise neovim
 
 # Create configuration symlinks
 stow:
+  fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p ../{}
   {{STOW}} aerospace
   {{STOW}} alacritty
   {{STOW}} editorconfig
