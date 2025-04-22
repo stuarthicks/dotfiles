@@ -39,7 +39,5 @@ return {
     end,
   },
 
-  { 'github/copilot.vim', },
-
   { 'tpope/vim-sleuth', },
 }
