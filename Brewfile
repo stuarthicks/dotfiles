@@ -55,6 +55,8 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   prettier
   procs
   python3
+  ruby
+  sd
   shush
   starship
   tflint

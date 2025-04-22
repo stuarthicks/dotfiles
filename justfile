@@ -31,6 +31,9 @@ brew:
 mise:
   mise self-update
   mise upgrade --bump
+  mise sync node --brew
+  mise sync python --uv
+  mise sync ruby --brew
 
 # Update Neovim plugins
 neovim:
