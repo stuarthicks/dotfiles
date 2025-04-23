@@ -90,6 +90,7 @@ if OS.mac?
     curl
     diff-so-fancy
     difftastic
+    eza
     fd
     fzf
     git
