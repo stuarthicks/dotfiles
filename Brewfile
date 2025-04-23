@@ -69,7 +69,6 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   xsv
   yq
   yt-dlp
-  zellij
   zsh-syntax-highlighting
 ].each do |formula|
   brew formula

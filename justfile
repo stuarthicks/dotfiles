@@ -15,7 +15,6 @@ stow:
   {{STOW}} scripts
   {{STOW}} ssh
   {{STOW}} tmux
-  {{STOW}} zellij
   {{STOW}} zsh
 
 # Install software using Homebrew
