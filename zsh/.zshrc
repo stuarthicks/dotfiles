@@ -151,6 +151,9 @@ fpath()    ( echo "$FPATH"    | tr : $'\n'; )
 infopath() ( echo "$INFOPATH" | tr : $'\n'; )
 manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
 
+rand_base64() ( openssl rand -base64 ${1:-16} | tr -d $'\n'; )
+rand_hex()    ( openssl rand -hex ${1:-16}    | tr -d $'\n'; )
+
 fzy-history() {
   LBUFFER+=$(
   ([ -n "$ZSH_NAME" ] && fc -l 1 || history) \
