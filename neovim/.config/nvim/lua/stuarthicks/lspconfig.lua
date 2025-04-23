@@ -17,8 +17,33 @@ vim.lsp.config['gopls'] = {
   },
 }
 
+vim.lsp.config['typescript-language-server'] = {
+  cmd = { 'typescript', '--stdio' },
+  root_markers = {
+    'package.json',
+    '.git',
+  },
+  filetypes = {
+    'javascript',
+    'typescript',
+  },
+}
+
+vim.lsp.config['json'] = {
+  cmd = { 'vscode-json-language-server', '--stdio' },
+  root_markers = {
+    '.git',
+  },
+  filetypes = {
+    'json',
+    'jsonl',
+  },
+}
+
 vim.lsp.enable({
   'gopls',
+  'typescript',
+  'json',
 })
 
 vim.lsp.inlay_hint.enable()
