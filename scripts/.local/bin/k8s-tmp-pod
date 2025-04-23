@@ -2,7 +2,7 @@
 set -eu
 
 cleanup() {
-  if [ -z ${KEEP:-} ]; then
+  if [ -z "${KEEP:-}" ]; then
     kubectl -n "$NAMESPACE" delete pod "$POD"
   fi
 }
@@ -19,6 +19,7 @@ while getopts "n:p:i:k" opt; do
     p) POD="$OPTARG" ;;
     i) IMAGE="$OPTARG" ;;
     k) KEEP=true ;;
+    *) echo "invalid args"; exit 1 ;;
   esac
 done
 
