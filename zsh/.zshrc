@@ -135,7 +135,7 @@ alias awsume="source awsume"
 alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 # alias k='ls'
-alias k='eza --group-directories-first --long --binary --context --extended --mounts --time-style=relative --no-time --git'
+alias k='eza --group-directories-first --long --binary --context --mounts --time-style=relative --no-time --git'
 alias vimdiff='nvim -d'
 alias gron='fastgron'
 alias ungron='fastgron --ungron'
