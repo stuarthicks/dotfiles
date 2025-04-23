@@ -11,7 +11,6 @@ stow:
   {{STOW}} editorconfig
   {{STOW}} ghostty
   {{STOW}} git
-  {{STOW}} helix
   {{STOW}} jq
   {{STOW}} mise
   {{STOW}} neovim

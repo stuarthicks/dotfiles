@@ -41,7 +41,6 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   git-revise
   glow
   go
-  helix
   jc
   jnv
   k9s
