@@ -57,7 +57,7 @@ export GIT_EXTERNAL_DIFF='difft'
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/Developer"
 
-case $(uname); in
+case $(uname) in
   Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
@@ -134,7 +134,6 @@ source <(sq completion zsh)
 alias awsume="source awsume"
 alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-# alias k='ls'
 alias k='eza --group-directories-first --long --binary --context --mounts --time-style=relative --no-time --git'
 alias vimdiff='nvim -d'
 alias gron='fastgron'
