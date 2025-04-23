@@ -1394,6 +1394,7 @@ Temporary Items
 .envrc
 .groovylintrc.json
 .idea/
+.mise/
 .mise.toml
 .pre-commit-config.yaml
 
