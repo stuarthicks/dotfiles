@@ -52,12 +52,10 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   posting
   pre-commit
   prettier
-  procs
   python3
   ruby
   sd
   shush
-  starship
   tflint
   tlrc
   trufflehog
@@ -65,7 +63,6 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   tzdiff
   urlview
   wcurl
-  xh
   xsv
   yq
   yt-dlp
