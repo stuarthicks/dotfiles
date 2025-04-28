@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PREFIX=$1
+
+aws s3 ls "$PREFIX" \
+  | awk '{print $4}' \
+  | xargs -I{} aws s3 cp "${PREFIX%/*}/{}" .
