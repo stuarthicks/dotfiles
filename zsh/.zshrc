@@ -62,6 +62,7 @@ case $(uname) in
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
 
+export HOMEBREW_ASK=1
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
 export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 
