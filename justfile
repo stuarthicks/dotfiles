@@ -19,7 +19,7 @@ stow:
 
 # Install software using Homebrew
 brew:
-  brew update
+  brew update-if-needed
   brew bundle
   brew bundle cleanup || true
 
