@@ -17,6 +17,7 @@ usage = "latest"
 "pipx:aws-encryption-sdk-cli" = "latest"
 "pipx:jc" = "latest"
 "pipx:toolong" = "latest"
+rust = "latest"
 
 [settings]
 experimental = true
