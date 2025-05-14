@@ -126,7 +126,5 @@ if OS.mac?
 
   cask 'bruno'
   cask 'git-credential-manager'
-  cask 'neovide'
   cask 'powershell'
-  cask 'qbittorrent'
 end
