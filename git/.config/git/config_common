@@ -53,7 +53,7 @@
   allowedSignersFile = ~/.ssh/allowed_signers
 
 [diff]
-  tool = difftastic
+  external = difft
   algorithm = histogram
   colormoved = plain
   colormovedws = "allow-indentation-change"
@@ -71,9 +71,6 @@
 
 [difftool]
   prompt = false
-
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
 
 [pager]
   difftool = true
