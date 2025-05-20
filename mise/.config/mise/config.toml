@@ -1,6 +1,8 @@
 [tools]
-usage = "latest"
+cosign = "latest"
+just = "latest"
 ruby = "latest"
+usage = "latest"
 
 rust = "latest"
 "cargo:hexview" = "latest"
