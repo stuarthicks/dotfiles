@@ -3,6 +3,7 @@ repos:
   rev: v5.0.0
   hooks:
     - id: check-added-large-files
+      args: ['--maxkb=1024']
     - id: check-case-conflict
     - id: check-executables-have-shebangs
     - id: check-illegal-windows-names
@@ -20,9 +21,16 @@ repos:
     - id: trailing-whitespace
 - repo: local
   hooks:
+    - id: circleci-config-validate
+      name: validate circleci config
+      description: Check .circleci/config.yml against schema
+      entry: circleci config validate
+      language: system
+      stages: ["pre-commit", "pre-push"]
+      files: '.circleci/config.yml'
     - id: trufflehog
-      name: trufflehog
+      name: check for secrets using trufflehog
       description: Detect secrets in your data.
-      entry: bash -c '$HOME/.local/bin/trufflehog_wrapper'
+      entry: bash -c '$HOME/.local/bin/trufflehog-precommit'
       language: system
       stages: ["pre-commit", "pre-push"]
