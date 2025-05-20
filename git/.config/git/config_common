@@ -11,7 +11,7 @@
 [core]
   symlinks = true
   hooksPath = ~/.config/git/hooks
-  autocrlf = true
+  autocrlf = input
 
 [help]
   autocorrect = prompt
