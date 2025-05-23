@@ -1,4 +1,5 @@
 [tools]
+awscli = "latest"
 cosign = "latest"
 just = "latest"
 ruby = "latest"
@@ -18,11 +19,14 @@ go = "latest"
 "go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
 "go:github.com/oligot/go-mod-upgrade" = "latest"
 "go:github.com/stuarthicks/mimir" = "846916c"
-"go:github.com/talal/mimir/..." = "latest"
 
+"python" = "latest"
 "pipx:aws-encryption-sdk-cli" = "latest"
 "pipx:jc" = "latest"
 "pipx:toolong" = "latest"
+
+"node" = "latest"
+"npm:@webos-tools/cli" = "latest"
 
 [settings]
 experimental = true
