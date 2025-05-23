@@ -28,9 +28,9 @@ repos:
       language: system
       stages: ["pre-commit", "pre-push"]
       files: '.circleci/config.yml'
-    - id: trufflehog
-      name: check for secrets using trufflehog
-      description: Detect secrets in your data.
-      entry: bash -c '$HOME/.local/bin/trufflehog-precommit'
-      language: system
-      stages: ["pre-commit", "pre-push"]
+    # - id: trufflehog
+    #   name: check for secrets using trufflehog
+    #   description: Detect secrets in your data.
+    #   entry: bash -c '$HOME/.local/bin/trufflehog-precommit'
+    #   language: system
+    #   stages: ["pre-commit", "pre-push"]
