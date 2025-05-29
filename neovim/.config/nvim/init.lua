@@ -248,12 +248,3 @@ vim.cmd([[
     autocmd BufRead *.service setfiletype systemd
   augroup end
 ]])
-
-vim.api.nvim_create_autocmd("TabClosed", {
-  callback = function()
-    -- If only one tab remains after closing (the command tab), quit Neovim
-    if #vim.api.nvim_list_tabpages() == 1 then
-      vim.cmd("quit")
-    end
-  end,
-})
