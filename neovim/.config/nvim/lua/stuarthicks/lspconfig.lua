@@ -52,11 +52,23 @@ vim.lsp.config["shell"] = {
   },
 }
 
+vim.lsp.config["terraform"] = {
+  cmd = { "terraform-ls", "serve" },
+  root_markers = {
+    ".git",
+    ".terraform.lock.hcl",
+  },
+  filetypes = {
+    "terraform",
+  },
+}
+
 vim.lsp.enable({
   "gopls",
   "typescript",
   "json",
   "shell",
+  "terraform",
 })
 
 vim.lsp.inlay_hint.enable()
