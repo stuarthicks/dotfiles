@@ -75,4 +75,9 @@ return {
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
   },
+
+  {
+    "spindi/vim-vcl",
+    ft = "vcl",
+  },
 }
