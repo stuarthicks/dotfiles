@@ -135,7 +135,7 @@ source <(sq completion zsh)
 alias awsume="source awsume"
 alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias k='eza --group-directories-first --long --group-directories-first --group --sort=extension --binary --context --mounts --time-style=relative --no-time --git'
+alias k='eza --long --header --group-directories-first --group --sort=extension --binary --mounts --no-time --git'
 alias vimdiff='nvim -d'
 alias gron='fastgron'
 alias ungron='fastgron --ungron'
