@@ -111,12 +111,7 @@ done
 
 source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Only refresh completion cache once a day to speed up shell startup
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+compinit
 zmodload zsh/complist
 
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
