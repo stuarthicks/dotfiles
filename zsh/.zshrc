@@ -111,7 +111,18 @@ done
 
 source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-compinit
+autoload -Uz compinit
+
+mkdir -p ~/.zsh/cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+ZSH_COMPDUMP=${ZDOTDIR:-$HOME}/.zsh/zcompdump
+
+if [[ ! -s $ZSH_COMPDUMP || $ZSH_COMPDUMP -ot $HOME/.zshrc ]]; then
+  compinit -d "$ZSH_COMPDUMP"
+fi
+
 zmodload zsh/complist
 
 zstyle ':completion:*:*:cd:*:directory-stack' force-list always
