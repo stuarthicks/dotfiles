@@ -196,7 +196,7 @@ bindkey "^g" fzy-commit
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
 fkill() (
-  kill $@ $(ps -eo pid,user,stat,command | fzy | awk '{print $1}')
+  kill "$@" "$(ps -eo pid,user,stat,command | fzy | awk '{print $1}')"
 )
 
 repo() {
@@ -204,12 +204,12 @@ repo() {
   BASE=$(trurl -g '{host}{path}' "$URL" | cut -d '/' -f-2)
   DIR="$HOME/Developer/src/${BASE}"
   mkdir -p "$DIR"
-  cd "$DIR"
+  cd "$DIR" || return
   gh repo clone "$(trurl --set scheme=https "${URL}")" -- --recursive
-  cd "$(basename "$URL")"
+  cd "$(basename "$URL")" || return
 }
 
-mise-env() { export MISE_ENV="$@"; }
+mise-env() { export MISE_ENV="$*"; }
 
 if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
   source "${HOME}/.iterm2_shell_integration.zsh"
