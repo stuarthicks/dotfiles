@@ -58,11 +58,10 @@ export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/Developer"
 
 case $(uname) in
-  Darwin) export HOMEBREW_PREFIX=$([[ "$(uname -m)" == 'arm64' ]] && echo "/opt/homebrew" || echo "/usr/local") ;;
+  Darwin) export HOMEBREW_PREFIX="/opt/homebrew" ;;
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
 esac
 
-export HOMEBREW_ASK=1
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
 export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 
@@ -220,7 +219,7 @@ fi
 . "$HOME/.localrc"
 
 autoload -Uz add-zsh-hook
-prompt_mimir_cmd() { mimir }
+prompt_mimir_cmd() { mimir; }
 add-zsh-hook precmd prompt_mimir_cmd
 
 prompt_symbol='❯'
