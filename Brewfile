@@ -12,7 +12,7 @@ brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
 tap 'fastly/tap'               ; brew 'fastly/tap/fastly'
-tap 'goreleaser/tap'           ; brew 'goreleaser/tap/goreleaser'
+tap 'goreleaser/tap'           ; cask 'goreleaser/tap/goreleaser'
 tap 'hashicorp/tap'            ; brew 'hashicorp/tap/terraform'
 tap 'jfryy/tap'                ; brew 'jfryy/tap/qq'
 tap 'jwt-rs/jwt-ui'            ; brew 'jwt-rs/jwt-ui/jwt-ui'
@@ -62,7 +62,6 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   tsduck
   tzdiff
   urlview
-  wcurl
   xsv
   yq
   yt-dlp
