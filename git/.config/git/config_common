@@ -60,6 +60,7 @@
   colormovedws = "allow-indentation-change"
   mnemonicPrefix = true
   renames = true
+  tool = difftastic
 
 [diff "gpg"]
   textconv = gpg --no-tty --decrypt
@@ -72,6 +73,9 @@
 
 [difftool]
   prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 
 [pager]
   difftool = true
