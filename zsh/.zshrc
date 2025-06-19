@@ -117,10 +117,7 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 ZSH_COMPDUMP=${ZDOTDIR:-$HOME}/.zsh/zcompdump
-
-if [[ ! -s $ZSH_COMPDUMP || $ZSH_COMPDUMP -ot $HOME/.zshrc ]]; then
-  compinit -d "$ZSH_COMPDUMP"
-fi
+compinit -d "$ZSH_COMPDUMP"
 
 zmodload zsh/complist
 
