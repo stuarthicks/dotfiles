@@ -66,9 +66,6 @@ map("t", "<ESC>", "<C-\\><C-n>")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("n", "<Leader><space>", ":nohlsearch<cr>")
-
-map("n", "<leader>p", ":lua Snacks.explorer()<cr>")
 map("n", "<leader>st", ":TodoTelescope keywords=TODO,FIX,FIXME<cr>")
 map("n", "<leader>sT", ":Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>")
 map("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")

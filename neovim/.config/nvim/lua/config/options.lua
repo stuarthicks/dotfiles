@@ -89,3 +89,5 @@ for _, pattern in ipairs(firenvim_excluded_patterns) do
     priority = 1,
   }
 end
+
+vim.g.snacks_animate = false
