@@ -5,7 +5,6 @@ vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
-
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = "github.com_*.txt",
   command = "set filetype=markdown",
@@ -85,23 +84,4 @@ vim.cmd.cnoreabbrev("tsupdatesync", "TSUpdateSync")
 vim.cmd.cnoreabbrev("health", "checkhealth")
 vim.cmd.cnoreabbrev("hc", "checkhealth")
 vim.cmd.cnoreabbrev("ch", "checkhealth")
-vim.cmd.cnoreabbrev("comp", "CompilerOpen")
 vim.cmd.cnoreabbrev("copilot", "Copilot")
-
-local wk = require("which-key")
-wk.add({
-  { "<leader>b", group = "Tab bar" },
-  { "<leader>f", group = "Find / Grep", icon = { icon = "\u{e68f}", color = "blue" } },
-  { "<leader>g", group = "Git", icon = { icon = "\u{e702}", color = "red" } },
-  { "<leader>l", group = "LSP", icon = { icon = "\u{f425}", color = "yellow" } },
-  { "<leader>lx", group = "GoDebug", icon = { icon = "\u{f07d3}", color = "cyan" } },
-  { "<leader>m", group = "Mini", icon = { icon = "\u{f0a06}", color = "grey" } },
-  { "<leader>s", group = "Fuzzy Search", icon = { icon = "\u{f0866}", color = "green" } },
-  { "<leader>S", group = "Snacks", icon = { icon = "\u{ef82}", color = "orange" } },
-  { "<leader>t", group = "Trouble", icon = { icon = "\u{ea6c}", color = "yellow" } },
-  { "<leader>u", group = "Toggle Flags", icon = { icon = "\u{f11d}", color = "white" } },
-
-  { "<leader>o", desc = "Open URL in Browser", icon = { icon = "\u{f0239}", color = "orange" } },
-  { "<leader>p", desc = "Toggle Project Drawer", icon = { icon = "\u{ef81}", color = "blue" } },
-  { "<leader>q", desc = "Open Local List" },
-})
