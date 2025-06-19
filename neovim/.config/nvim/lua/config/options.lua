@@ -8,9 +8,6 @@ vim.g.netrw_browse_split = 4
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 20
 
-vim.g.did_load_filetypes = 0
-vim.g.do_filetype_lua = 1
-
 -- vim.o.path += '**'
 -- vim.o.shortmess += 'c'
 vim.o.backspace = table.concat({
