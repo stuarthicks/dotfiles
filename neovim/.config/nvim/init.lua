@@ -6,6 +6,8 @@ vim.g.maplocalleader = ","
 require("config.lazy")
 require("config.lsp")
 
+vim.cmd([[ colorscheme tokyonight-night ]])
+
 if os.getenv("TERM_PROGRAM") == "Apple_Terminal" then
   vim.o.termguicolors = false
   vim.cmd([[ colorscheme default ]])
