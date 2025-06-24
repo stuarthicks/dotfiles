@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# This wrapper script exists because while kubectl can be configured to
+# use difft, it fails to correctly position extra args, which prevents
+# the override flag from working. The result being difft treating the
+# inputs as plain text, instead of YAML.
+#
+# See: https://github.com/kubernetes/kubectl/issues/1436
+
+# export KUBECTL_EXTERNAL_DIFF=kubectl-difft
+exec difft --override='*:YAML' "$@"

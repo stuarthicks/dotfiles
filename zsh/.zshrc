@@ -57,6 +57,8 @@ export GIT_EXTERNAL_DIFF='difft'
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/Developer"
 
+export KUBECTL_EXTERNAL_DIFF=kubectl-difft
+
 case $(uname) in
   Darwin) export HOMEBREW_PREFIX="/opt/homebrew" ;;
    Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
