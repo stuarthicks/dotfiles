@@ -206,6 +206,10 @@ repo() {
   cd "$(basename "$URL")" || return
 }
 
+vimgrep() {
+  rg --vimgrep "$@" | nvim -q - +'Trouble qflist'
+}
+
 mise-env() { export MISE_ENV="$*"; }
 
 if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
