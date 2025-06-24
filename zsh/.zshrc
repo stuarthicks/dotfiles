@@ -221,12 +221,9 @@ fi
 . "$HOME/.config/op/plugins.sh"
 . "$HOME/.localrc"
 
-autoload -Uz add-zsh-hook
-prompt_mimir_cmd() { mimir; }
-add-zsh-hook precmd prompt_mimir_cmd
-
-prompt_symbol='❯'
-PROMPT="%(?.%F{magenta}.%F{red})${prompt_symbol}%f "
+PROMPT='
+%F{blue}%~%f
+%F{green}❯%f '
 
 if [ -n "${ZSH_PROFILE:-}" ]; then
   zprof
