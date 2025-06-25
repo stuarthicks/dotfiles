@@ -16,6 +16,8 @@ local map = vim.keymap.set
 map("n", "<A-,>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true })
 map("n", "<A-.>", "<Cmd>BufferLineCycleNext<CR>", { silent = true })
 
+map("n", "<A-c>", "<Cmd>Bdelete<CR>", { silent = true })
+
 -- Magic buffer-picking mode
 map("n", "<C-p>", "<Cmd>BufferLinePick<CR>", { silent = true })
 
