@@ -1,0 +1,39 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.8"
+# dependencies = [
+#     "youtube-transcript-api",
+# ]
+# ///
+
+# Stolen from https://www.cottongeeks.com/articles/2025-06-24-fun-with-uv-and-pep-723
+
+import sys
+import re
+from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.formatters import TextFormatter
+
+if len(sys.argv) < 2:
+    print('Usage: provide YouTube URL or video_id as argument', file=sys.stderr)
+    sys.exit(1)
+
+url_or_id = sys.argv[1]
+
+# Extract video ID from URL if it's a full URL
+video_id_match = re.search(r'(?:v=|/)([a-zA-Z0-9_-]{11})', url_or_id)
+if video_id_match:
+    video_id = video_id_match.group(1)
+else:
+    # Assume it's already a video ID
+    video_id = url_or_id
+
+try:
+    ytt_api = YouTubeTranscriptApi()
+    transcript = ytt_api.fetch(video_id)
+    formatter = TextFormatter()
+    print(formatter.format_transcript(transcript))
+except Exception as e:
+    print(f'Error: {e}', file=sys.stderr)
+    sys.exit(1)
+
+# vi: set ft=python #
