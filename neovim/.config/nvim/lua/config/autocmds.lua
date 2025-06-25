@@ -14,3 +14,12 @@ end
 create_filetype_autocmd("*.asc", "gpg")
 create_filetype_autocmd("*.m3u8", "hlsplaylist")
 create_filetype_autocmd("*.service", "systemd")
+
+local firenvim = vim.api.nvim_create_augroup("firenvim", {})
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  group = firenvim,
+  pattern = "github.com_*.txt",
+  callback = function()
+    vim.filetype = "markdown"
+  end,
+})

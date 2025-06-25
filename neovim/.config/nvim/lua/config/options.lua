@@ -59,32 +59,7 @@ if vim.g.started_by_firenvim == true then
   vim.o.laststatus = 0
   vim.o.showtabline = 0
   vim.o.wrap = true
-  vim.keymap.set("n", "zz", ":set lines=10<cr>", { silent = true })
-end
-
-vim.g.firenvim_config = {
-  globalSettings = { alt = "all" },
-  localSettings = {
-    [".*"] = {
-      cmdline = "neovim",
-      content = "text",
-      selector = "textarea",
-      takeover = "always",
-      priority = 0,
-    },
-  },
-}
-
-local firenvim_excluded_patterns = {
-  "^https://app\\.slack\\.com/",
-  "^https://[^/]+\\.atlassian\\.net/",
-}
-
-for _, pattern in ipairs(firenvim_excluded_patterns) do
-  vim.g.firenvim_config.localSettings[pattern] = {
-    takeover = "never",
-    priority = 1,
-  }
+  vim.keymap.set("n", "zz", ":set lines=20<cr>", { silent = true })
 end
 
 vim.g.snacks_animate = false
