@@ -11,6 +11,7 @@ if vim.g.started_by_firenvim == true then
   spec = {
     { "noice.nvim", cond = false }, -- can't work with gui having ext_cmdline
     { "lualine.nvim", cond = false }, -- not useful in the browser
+    { "bufferline.nvim", cond = false }, -- not useful in the browser
     vim.tbl_extend("force", spec, {
       lazy = false, -- must load at start in browser
       opts = {
