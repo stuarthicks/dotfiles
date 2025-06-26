@@ -25,6 +25,7 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
 
 # Homebrew Core
 %w[
+  akamai
   bento4
   cidr
   circleci
