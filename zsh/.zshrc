@@ -135,7 +135,6 @@ source <(carapace _carapace)
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
 eval "$(fastly --completion-script-zsh)"
-eval "$(akamai --zsh)"
 source <(sq completion zsh)
 
 alias awsume="source awsume"
