@@ -42,3 +42,5 @@ vim.cmd.cnoreabbrev("tsupdatesync", "TSUpdateSync")
 vim.cmd.cnoreabbrev("health", "checkhealth")
 vim.cmd.cnoreabbrev("hc", "checkhealth")
 vim.cmd.cnoreabbrev("ch", "checkhealth")
+
+vim.g.neovide_input_macos_option_key_is_meta = "only_left"
