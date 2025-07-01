@@ -141,7 +141,7 @@ alias awsume="source awsume"
 alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias k='eza --long --header --group-directories-first --group --sort=extension --binary --mounts --no-time --git'
-alias vimdiff='nvim -d'
+alias vimdiff='difft'
 alias gron='fastgron'
 alias ungron='fastgron --ungron'
 alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
