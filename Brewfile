@@ -11,17 +11,28 @@ brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
-tap 'fastly/tap'               ; brew 'fastly/tap/fastly'
-tap 'goreleaser/tap'           ; cask 'goreleaser/tap/goreleaser'
-tap 'hashicorp/tap'            ; brew 'hashicorp/tap/terraform'
-tap 'jfryy/tap'                ; brew 'jfryy/tap/qq'
-tap 'jwt-rs/jwt-ui'            ; brew 'jwt-rs/jwt-ui/jwt-ui'
-tap 'neilotoole/sq'            ; brew 'neilotoole/sq/sq'
-tap 'owenthereal/upterm'       ; brew 'owenthereal/upterm/upterm'
-tap 'rsteube/tap'              ; brew 'rsteube/tap/carapace'
-tap 'soldiermoth/tap'          ; brew 'soldiermoth/tap/hlsq'
-tap 'wader/tap'                ; brew 'wader/tap/fq'
-tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
+tap 'fastly/tap'
+brew 'fastly/tap/fastly'
+tap 'goreleaser/tap'
+cask 'goreleaser/tap/goreleaser'
+tap 'hashicorp/tap'
+brew 'hashicorp/tap/terraform'
+tap 'jfryy/tap'
+brew 'jfryy/tap/qq'
+tap 'jwt-rs/jwt-ui'
+brew 'jwt-rs/jwt-ui/jwt-ui'
+tap 'neilotoole/sq'
+brew 'neilotoole/sq/sq'
+tap 'owenthereal/upterm'
+brew 'owenthereal/upterm/upterm'
+tap 'rsteube/tap'
+brew 'rsteube/tap/carapace'
+tap 'soldiermoth/tap'
+brew 'soldiermoth/tap/hlsq'
+tap 'wader/tap'
+brew 'wader/tap/fq'
+tap 'ynqa/tap'
+brew 'ynqa/tap/jnv'
 
 # Homebrew Core
 %w[
@@ -50,6 +61,7 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   magic-wormhole
   neovim
   nushell
+  pkgx
   posting
   pre-commit
   prettier
@@ -63,7 +75,7 @@ tap 'ynqa/tap'                 ; brew 'ynqa/tap/jnv'
   tsduck
   tzdiff
   urlview
-  xsv
+  xan
   yq
   yt-dlp
   zsh-syntax-highlighting
@@ -122,7 +134,8 @@ if OS.mac?
     brew formula
   end
 
-  tap '1password/tap'; cask '1password-cli'
+  tap '1password/tap'
+  cask '1password-cli'
 
   cask 'bruno'
   cask 'git-credential-manager'
