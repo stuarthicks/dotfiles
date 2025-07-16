@@ -6,7 +6,11 @@ vim.g.maplocalleader = ","
 require("config.lazy")
 require("config.lsp")
 
-vim.cmd([[ colorscheme tokyonight-night ]])
+-- vscode-based editors set this var.
+-- if using their neovim plugin, this colorscheme won't be available
+if vim.g.vscode == nil then
+  vim.cmd([[ colorscheme tokyonight-night ]])
+end
 
 if os.getenv("TERM_PROGRAM") == "Apple_Terminal" then
   vim.o.termguicolors = false
