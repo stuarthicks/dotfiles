@@ -25,3 +25,6 @@ def convertfrom_dynamodb:
     // (arrays | { value: map(convertfrom_dynamodb) })                        # all other non-conforming arrays
     // { value: . }).value                                                    # everything else
     ;
+
+def json_structure:
+  [path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[];
