@@ -13,26 +13,39 @@ brew 'stuarthicks/tap/tstools'
 
 tap 'fastly/tap'
 brew 'fastly/tap/fastly'
+
 tap 'goreleaser/tap'
 cask 'goreleaser/tap/goreleaser'
+
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
+
 tap 'jfryy/tap'
 brew 'jfryy/tap/qq'
+
 tap 'jwt-rs/jwt-ui'
 brew 'jwt-rs/jwt-ui/jwt-ui'
+
 tap 'neilotoole/sq'
 brew 'neilotoole/sq/sq'
+
 tap 'owenthereal/upterm'
 brew 'owenthereal/upterm/upterm'
+
 tap 'rsteube/tap'
 brew 'rsteube/tap/carapace'
+
 tap 'soldiermoth/tap'
 brew 'soldiermoth/tap/hlsq'
+
 tap 'wader/tap'
 brew 'wader/tap/fq'
+
 tap 'ynqa/tap'
 brew 'ynqa/tap/jnv'
+
+tap 'vet-run/vet'
+brew 'vet-run/vet/vet-run'
 
 # Homebrew Core
 %w[
