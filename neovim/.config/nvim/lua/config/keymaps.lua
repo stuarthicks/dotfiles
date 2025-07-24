@@ -30,6 +30,7 @@ map("v", ">", ">gv")
 
 map("n", "<leader>sT", ":Trouble todo filter = {tag = {TODO,FIX,FIXME}}<cr>")
 map("n", "<leader>o", "<esc>:URLOpenUnderCursor<cr>")
+map("n", "<leader>j", ":JustSelect<cr>")
 
 vim.cmd.cnoreabbrev("conflicts", "GitConflictListQf")
 vim.cmd.cnoreabbrev("git", "Git")
@@ -42,5 +43,6 @@ vim.cmd.cnoreabbrev("tsupdatesync", "TSUpdateSync")
 vim.cmd.cnoreabbrev("health", "checkhealth")
 vim.cmd.cnoreabbrev("hc", "checkhealth")
 vim.cmd.cnoreabbrev("ch", "checkhealth")
+vim.cmd.cnoreabbrev("just", "Just")
 
 vim.g.neovide_input_macos_option_key_is_meta = "only_left"
