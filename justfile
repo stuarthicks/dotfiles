@@ -10,6 +10,7 @@ stow:
   {{STOW}} ghostty
   {{STOW}} git
   {{STOW}} jq
+  {{STOW}} lazygit
   {{STOW}} mise
   {{STOW}} neovim
   {{STOW}} scripts

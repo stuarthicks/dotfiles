@@ -5,7 +5,7 @@ font-feature = -liga
 font-feature = -dlig
 font-size = 16
 
-theme = "tokyonight"
+theme = "vague"
 background-opacity = 1
 background-blur-radius = 20
 
