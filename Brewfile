@@ -30,7 +30,7 @@ tap 'neilotoole/sq'
 brew 'neilotoole/sq/sq'
 
 tap 'owenthereal/upterm'
-brew 'owenthereal/upterm/upterm'
+cask 'owenthereal/upterm/upterm'
 
 tap 'rsteube/tap'
 brew 'rsteube/tap/carapace'
