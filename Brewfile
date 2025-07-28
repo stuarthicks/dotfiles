@@ -153,4 +153,7 @@ if OS.mac?
   cask 'bruno'
   cask 'git-credential-manager'
   cask 'powershell'
+
+  tap 'lzt1008/powerflow'
+  cask 'lzt1008/powerflow/powerflow'
 end
