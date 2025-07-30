@@ -1,10 +1,12 @@
 confirmOnQuit: false
 disableStartupPopups: true
+
 keybinding:
   universal:
     quit: <disabled> # disable the default quit behavior
     return: q # make `q` act like `esc` (aka 'return')
 gui:
+  showCommandLog: true
   authorColors:
     "*": "#f3be7c"
   theme:
