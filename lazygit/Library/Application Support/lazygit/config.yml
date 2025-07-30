@@ -5,6 +5,11 @@ keybinding:
   universal:
     quit: <disabled> # disable the default quit behavior
     return: q # make `q` act like `esc` (aka 'return')
+
+git:
+  paging:
+    externalDiffCommand: difft --color=always
+
 gui:
   showCommandLog: true
   authorColors:
