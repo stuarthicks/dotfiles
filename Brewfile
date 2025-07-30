@@ -50,6 +50,7 @@ brew 'vet-run/vet/vet-run'
 # Homebrew Core
 %w[
   akamai
+  asn
   bento4
   cidr
   circleci
