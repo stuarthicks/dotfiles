@@ -9,7 +9,7 @@ require("config.lsp")
 -- vscode-based editors set this var.
 -- if using their neovim plugin, this colorscheme won't be available
 if vim.g.vscode == nil then
-  vim.cmd([[ colorscheme tokyonight-night ]])
+  vim.cmd([[ colorscheme tokyonight-storm ]])
 end
 
 if os.getenv("TERM_PROGRAM") == "Apple_Terminal" then
