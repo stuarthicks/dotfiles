@@ -141,7 +141,6 @@ source <(sq completion zsh)
 alias awsume="source awsume"
 alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
-alias k='eza --long --header --group-directories-first --group --sort=extension --binary --mounts --no-time --git'
 alias vimdiff='difft'
 alias gron='fastgron'
 alias ungron='fastgron --ungron'
@@ -215,6 +214,14 @@ vimgrep() {
 }
 
 mise-env() { export MISE_ENV="$*"; }
+
+function yazi() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
   source "${HOME}/.iterm2_shell_integration.zsh"

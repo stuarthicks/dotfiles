@@ -90,6 +90,7 @@ brew 'vet-run/vet/vet-run'
   tzdiff
   urlview
   xan
+  yazi
   yq
   yt-dlp
   zsh-syntax-highlighting
