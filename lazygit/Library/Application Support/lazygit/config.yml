@@ -11,7 +11,7 @@ git:
     externalDiffCommand: difft --color=always
 
 gui:
-  showCommandLog: true
+  showCommandLog: false
   authorColors:
     "*": "#f3be7c"
   theme:
