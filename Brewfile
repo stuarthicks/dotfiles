@@ -68,6 +68,7 @@ brew 'vet-run/vet/vet-run'
   glow
   go
   jc
+  jj
   jnv
   k9s
   lazygit

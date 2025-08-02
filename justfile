@@ -9,6 +9,7 @@ stow:
   {{STOW}} editorconfig
   {{STOW}} ghostty
   {{STOW}} git
+  {{STOW}} jj
   {{STOW}} jq
   {{STOW}} lazygit
   {{STOW}} mise

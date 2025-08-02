@@ -1,0 +1,14 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Stuart Hicks"
+email = "stuarthicks@users.noreply.github.com"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2odgEamTZm8fkbCwsAmsCQFTz8P/l06yJpniahH4wW"
+
+[ui]
+default-command = "log"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
