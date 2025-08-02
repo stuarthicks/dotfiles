@@ -7,6 +7,7 @@ usage = "latest"
 
 rust = "latest"
 "cargo:hexview" = "latest"
+"cargo:lazyjj" = "latest"
 
 go = "latest"
 "go:github.com/Eyevinn/mp4ff/cmd/mp4ff-crop" = "latest"
