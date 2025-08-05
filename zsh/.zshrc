@@ -56,6 +56,7 @@ export CUCUMBER_PUBLISH_QUIET=true
 export GIT_EXTERNAL_DIFF='difft'
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/Developer"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-difft
 
