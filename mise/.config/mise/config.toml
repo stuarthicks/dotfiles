@@ -6,6 +6,7 @@ ruby = "latest"
 usage = "latest"
 
 rust = "latest"
+"cargo:bob-nvim" = "latest"
 "cargo:hexview" = "latest"
 "cargo:lazyjj" = "latest"
 
