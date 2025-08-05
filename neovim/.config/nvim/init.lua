@@ -132,5 +132,9 @@ require("mason-lspconfig").setup()
 map('n', 'gd', vim.lsp.buf.definition)
 map('n', '<leader>lf', vim.lsp.buf.format)
 
-vim.cmd [[colorscheme tokyonight-night]]
-vim.cmd(":hi statusline guibg=NONE")
+vim.cmd [[
+  colorscheme tokyonight-night
+  highlight Normal guibg=none ctermbg=none
+  highlight NonText guibg=none ctermbg=none
+  highlight statusline ctermbg=NONE guibg=NONE
+]]
