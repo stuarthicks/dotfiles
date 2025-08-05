@@ -130,6 +130,7 @@ require("mason-lspconfig").setup()
 
 -- https://neovim.io/doc/user/lsp.html
 map('n', 'gd', vim.lsp.buf.definition)
+map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', vim.lsp.buf.format)
 
 vim.cmd [[
