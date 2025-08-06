@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-# Fix for being run via intellij outside of wsl
-if ! command -v brew &> /dev/null; then
-  source "$HOME/.zshrc"
-fi
-
-exec $(brew --prefix pre-commit)/bin/pre-commit run --config="$HOME/.dotfiles/.pre-commit-config.yaml" --color=never

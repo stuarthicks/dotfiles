@@ -10,7 +10,6 @@
 
 [core]
   symlinks = true
-  hooksPath = ~/.config/git/hooks
   autocrlf = input
 
 [help]
