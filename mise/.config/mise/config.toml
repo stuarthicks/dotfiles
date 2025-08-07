@@ -1,33 +1,8 @@
 [tools]
-awscli = "latest"
-cosign = "latest"
-just = "latest"
-ruby = "latest"
-usage = "latest"
-
-rust = "latest"
-"cargo:bob-nvim" = "latest"
 "cargo:hexview" = "latest"
-"cargo:lazyjj" = "latest"
-
-go = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-crop" = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-decrypt" = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-encrypt" = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-info" = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-nallister" = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-pslister" = "latest"
-"go:github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister" = "latest"
-"go:github.com/maruel/panicparse/v2/cmd/pp" = "latest"
-"go:github.com/oligot/go-mod-upgrade" = "latest"
-
-"python" = "latest"
-"pipx:aws-encryption-sdk-cli" = "latest"
-"pipx:jc" = "latest"
-"pipx:toolong" = "latest"
-
-"node" = "latest"
 "npm:@webos-tools/cli" = "latest"
+"pipx:aws-encryption-sdk-cli" = "latest"
+"pipx:toolong" = "latest"
 
 [settings]
 experimental = true

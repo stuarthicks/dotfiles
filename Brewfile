@@ -11,142 +11,124 @@ brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
-tap 'fastly/tap'
-brew 'fastly/tap/fastly'
+tap 'goreleaser/tap'        ; cask 'goreleaser/tap/goreleaser'
+tap 'owenthereal/upterm'    ; cask 'owenthereal/upterm/upterm'
 
-tap 'goreleaser/tap'
-cask 'goreleaser/tap/goreleaser'
-
-tap 'hashicorp/tap'
-brew 'hashicorp/tap/terraform'
-
-tap 'jfryy/tap'
-brew 'jfryy/tap/qq'
-
-tap 'jwt-rs/jwt-ui'
-brew 'jwt-rs/jwt-ui/jwt-ui'
-
-tap 'neilotoole/sq'
-brew 'neilotoole/sq/sq'
-
-tap 'owenthereal/upterm'
-cask 'owenthereal/upterm/upterm'
-
-tap 'rsteube/tap'
-brew 'rsteube/tap/carapace'
-
-tap 'soldiermoth/tap'
-brew 'soldiermoth/tap/hlsq'
-
-tap 'wader/tap'
-brew 'wader/tap/fq'
-
-tap 'ynqa/tap'
-brew 'ynqa/tap/jnv'
-
-tap 'vet-run/vet'
-brew 'vet-run/vet/vet-run'
+tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
+tap 'fastly/tap'            ; brew 'fastly/tap/fastly'
+tap 'hashicorp/tap'         ; brew 'hashicorp/tap/terraform'
+tap 'jfryy/tap'             ; brew 'jfryy/tap/qq'
+tap 'jwt-rs/jwt-ui'         ; brew 'jwt-rs/jwt-ui/jwt-ui'
+tap 'neilotoole/sq'         ; brew 'neilotoole/sq/sq'
+tap 'rsteube/tap'           ; brew 'rsteube/tap/carapace'
+tap 'soldiermoth/tap'       ; brew 'soldiermoth/tap/hlsq'
+tap 'wader/tap'             ; brew 'wader/tap/fq'
+tap 'ynqa/tap'              ; brew 'ynqa/tap/jnv'
+tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
 
 # Homebrew Core
 %w[
   akamai
+  aliyun-cli
   asn
+  automake
+  awscli
+  bat
   bento4
+  bob
+  btop
+  cargo-binstall
   cidr
   circleci
+  cmake
   coreutils
+  cosign
   csvq
+  curl
   curlie
   d2
+  difftastic
   docker-credential-helper-ecr
   doggo
   fastgron
+  fd
+  fx
+  fzf
   fzy
   gh
-  git-absorb
-  git-revise
+  git
+  git-lfs
   glow
+  gnupg
   go
+  gotags
+  groff
+  imagemagick
+  isync
   jc
   jj
   jjui
   jnv
+  jq
+  just
   k9s
+  kubectl
   lazygit
+  libiconv
+  libtool
   libyaml
   magic-wormhole
-  neovim
+  make
+  mediainfo
+  moreutils
+  neomutt
+  neovide
   nushell
+  opentofu
+  pbzip2
   pkgx
-  posting
-  pre-commit
   prettier
+  pv
   python3
+  ripgrep
+  ripmime
   ruby
+  rust
   sd
   shush
+  sslscan
+  stow
+  terraform
   tflint
+  tig
   tlrc
-  trufflehog
+  tmux
+  tree-sitter
+  trurl
   tsduck
+  typst
   tzdiff
+  universal-ctags
   urlview
+  usage
+  uv
   xan
+  xq
   yazi
   yq
   yt-dlp
+  zig
+  zoxide
   zsh-syntax-highlighting
 ].each do |formula|
   brew formula
 end
 
 if OS.mac?
-  tap 'homebrew-ffmpeg/ffmpeg'
-  brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
-
   # Homebrew Core
   %w[
-    automake
-    awscli
-    bash
-    bat
-    cmake
-    curl
-    diff-so-fancy
-    difftastic
-    eza
-    fd
-    fzf
-    git
-    git-lfs
-    gotags
-    groff
-    imagemagick
-    jo
-    jq
-    just
-    kubectl
-    libiconv
-    libtool
-    macos-trash
-    make
     mas
-    mediainfo
-    moreutils
-    opentofu
-    pbzip2
-    pv
-    ripgrep
-    sslscan
-    stow
-    terraform
-    tig
-    tmate
-    tmux
-    trurl
-    universal-ctags
-    xq
-    zoxide
+    macos-trash
   ].each do |formula|
     brew formula
   end
@@ -157,7 +139,4 @@ if OS.mac?
   cask 'bruno'
   cask 'git-credential-manager'
   cask 'powershell'
-
-  tap 'lzt1008/powerflow'
-  cask 'lzt1008/powerflow/powerflow'
 end
