@@ -139,4 +139,19 @@ if OS.mac?
   cask 'bruno'
   cask 'git-credential-manager'
   cask 'powershell'
+
+end
+
+
+if File.file?('Brewfile.local.json')
+  extras = JSON.parse(IO.read('Brewfile.local.json'))
+  extras.each do |t, v|
+    tap t
+    (v['casks'] ||= []).each do |c|
+      cask c
+    end
+    (v['brews'] ||= []).each do |b|
+      brew b
+    end
+  end
 end
