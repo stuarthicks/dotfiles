@@ -12,9 +12,7 @@ brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
 tap 'goreleaser/tap'        ; cask 'goreleaser/tap/goreleaser'
-tap 'owenthereal/upterm'    ; cask 'owenthereal/upterm/upterm'
 
-tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 tap 'fastly/tap'            ; brew 'fastly/tap/fastly'
 tap 'hashicorp/tap'         ; brew 'hashicorp/tap/terraform'
 tap 'jfryy/tap'             ; brew 'jfryy/tap/qq'
@@ -63,6 +61,7 @@ tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
   go
   gotags
   groff
+  helix
   imagemagick
   isync
   jc
@@ -74,7 +73,6 @@ tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
   k9s
   kubectl
   lazygit
-  libiconv
   libtool
   libyaml
   magic-wormhole
@@ -127,14 +125,17 @@ end
 if OS.mac?
   # Homebrew Core
   %w[
+    libiconv
     mas
     macos-trash
   ].each do |formula|
     brew formula
   end
 
-  tap '1password/tap'
-  cask '1password-cli'
+  tap '1password/tap'         ; cask '1password-cli'
+  tap 'owenthereal/upterm'    ; cask 'owenthereal/upterm/upterm'
+
+  tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
   cask 'bruno'
   cask 'git-credential-manager'
