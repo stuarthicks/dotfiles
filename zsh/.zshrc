@@ -77,6 +77,7 @@ path=(
   "$HOME/.local/share/bob/nvim-bin"
   "$HOME/Developer/opt/bin"
   "$HOMEBREW_PREFIX/opt/curl/bin"
+  "$HOMEBREW_PREFIX/opt/ruby/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   '/usr/local/bin'
