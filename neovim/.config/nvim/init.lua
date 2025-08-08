@@ -13,6 +13,9 @@ vim.o.wrap = false
 vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 vim.o.guifont = "Berkeley Mono:h16"
 
+vim.g.cursor_cli_command = 'cursor-agent'
+vim.g.cursor_cli_model = 'gpt-5'
+
 local map = vim.keymap.set
 
 map('n', ';', ':')
@@ -35,6 +38,7 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/hoscarcito/cursor-nvim-plugin" },
 })
 
 require("jj").setup({})
@@ -132,6 +136,16 @@ require("mason-lspconfig").setup()
 map('n', 'gd', vim.lsp.buf.definition)
 map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', vim.lsp.buf.format)
+
+-- https://cursor.com/cli
+map({'n', 'v', 'x'}, '<leader>cc', ':CursorChat<cr>')
+map({'n', 'v', 'x'}, '<leader>ce', ':CursorEdit<cr>')
+map({'n', 'v', 'x'}, '<leader>cg', ':CursorGenerate<cr>')
+map({'n', 'v', 'x'}, '<leader>cx', ':CursorExplain<cr>')
+map({'n', 'v', 'x'}, '<leader>cr', ':CursorReview<cr>')
+map({'n', 'v', 'x'}, '<leader>co', ':CursorOptimize<cr>')
+map({'n', 'v', 'x'}, '<leader>cf', ':CursorFix<cr>')
+map({'n', 'v', 'x'}, '<leader>cR', ':CursorRefactor<cr>')
 
 vim.cmd [[
   colorscheme tokyonight-night
