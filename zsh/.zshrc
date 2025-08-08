@@ -146,7 +146,6 @@ alias vimdiff='difft'
 alias gron='fastgron'
 alias ungron='fastgron --ungron'
 alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
-alias neogit='nvim +Neogit'
 
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
@@ -206,7 +205,7 @@ repo() {
   DIR="$HOME/Developer/src/${BASE}"
   mkdir -p "$DIR"
   cd "$DIR" || return
-  gh repo clone "$(trurl --set scheme=https "${URL}")" -- --recursive
+  jj git clone "$(trurl --set scheme=https "${URL}")"
   cd "$(basename "$URL")" || return
 }
 
