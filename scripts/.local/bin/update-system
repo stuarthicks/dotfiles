@@ -7,8 +7,7 @@ case "$(uname -s)" in
 esac
 
 cd ~/.dotfiles
-git fetch --all --prune
-git pull --ff --rebase origin main
+jj git fetch
 just
 
 # vi: set tabstop=2 shiftwidth=2 expandtab :
