@@ -1,7 +1,7 @@
 STOW := 'stow --no-folding'
 
 # Run all tasks by default
-default: stow brew mise neovim
+default: stow brew mise
 
 # Create configuration symlinks
 stow:
@@ -32,10 +32,6 @@ mise:
   mise sync node --brew
   mise sync python --uv
   mise sync ruby --brew
-
-# Update Neovim plugins
-neovim:
-  nvim --headless '+Lazy! sync' '+MasonUpdate' '+TSUpdateSync' +qa
 
 # Clean up Homebrew formulae
 clean:
