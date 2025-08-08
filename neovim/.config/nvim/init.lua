@@ -130,6 +130,15 @@ lspconfig.lua_ls.setup({
   },
 })
 
+lspconfig.cucumber_language_server.setup({
+  settings = {
+    cucumber = {
+      features = { "**/*.feature" },
+      glue = { "**/step_definitions/*.rb" },
+    },
+  },
+})
+
 require("mason-lspconfig").setup()
 
 -- https://neovim.io/doc/user/lsp.html
