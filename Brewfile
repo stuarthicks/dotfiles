@@ -108,6 +108,7 @@ end
   tlrc
   tmux
   tree-sitter
+  tree-sitter-cli
   trurl
   tsduck
   typst
