@@ -24,6 +24,12 @@ tap 'wader/tap'             ; brew 'wader/tap/fq'
 tap 'ynqa/tap'              ; brew 'ynqa/tap/jnv'
 tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
 
+%w[
+  cursor-cli
+].each do |formula|
+  cask formula
+end
+
 # Homebrew Core
 %w[
   akamai
