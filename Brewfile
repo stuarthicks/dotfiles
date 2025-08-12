@@ -56,6 +56,7 @@ end
   doggo
   fastgron
   fd
+  fish
   fx
   fzf
   fzy
