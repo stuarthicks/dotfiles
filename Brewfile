@@ -77,6 +77,7 @@ tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
   lazygit
   libtool
   libyaml
+  lsr
   magic-wormhole
   make
   mediainfo

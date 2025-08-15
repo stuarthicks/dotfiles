@@ -148,6 +148,10 @@ alias gron='fastgron'
 alias ungron='fastgron --ungron'
 alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
 
+alias ls='lsr --group-directories-first --long'
+alias k=ls
+alias K='ls --almost-all'
+
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
 
