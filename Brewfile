@@ -24,11 +24,6 @@ tap 'wader/tap'             ; brew 'wader/tap/fq'
 tap 'ynqa/tap'              ; brew 'ynqa/tap/jnv'
 tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
 
-%w[
-  cursor-cli
-].each do |formula|
-  cask formula
-end
 
 # Homebrew Core
 %w[
@@ -131,7 +126,20 @@ end
 end
 
 if OS.mac?
-  # Homebrew Core
+  tap '1password/tap'         ; cask '1password-cli'
+  tap 'owenthereal/upterm'    ; cask 'owenthereal/upterm/upterm'
+
+  tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
+
+  %w[
+    bruno
+    cursor-cli
+    git-credential-manager
+    powershell
+  ].each do |formula|
+    cask formula
+  end
+
   %w[
     libiconv
     mas
@@ -139,16 +147,6 @@ if OS.mac?
   ].each do |formula|
     brew formula
   end
-
-  tap '1password/tap'         ; cask '1password-cli'
-  tap 'owenthereal/upterm'    ; cask 'owenthereal/upterm/upterm'
-
-  tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
-
-  cask 'bruno'
-  cask 'git-credential-manager'
-  cask 'powershell'
-
 end
 
 
