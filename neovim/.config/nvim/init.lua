@@ -1,10 +1,12 @@
+---@diagnostic disable: missing-fields
 vim.g.mapleader = " "
 vim.o.clipboard = "unnamedplus"
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+vim.o.ignorecase = true
 vim.o.number = true
 vim.o.shiftwidth = 2
 vim.o.signcolumn = "yes"
 vim.o.smartcase = true
-vim.o.ignorecase = true
 vim.o.swapfile = false
 vim.o.termguicolors = true
 vim.o.winborder = "rounded"
@@ -15,7 +17,10 @@ vim.o.guifont = "Berkeley Mono:h16"
 
 local map = vim.keymap.set
 
-map('n', ';', ':')
+map('n', '<leader>w', ':write<cr>')
+map('n', '<leader>q', ':quit<cr>')
+
+map({'n', 'v', 'x'}, ';', ':')
 map("n", "q:", "<nop>")
 map("n", "Q", "@q")
 map("v", "<", "<gv")
@@ -30,10 +35,14 @@ vim.pack.add({
   { src = "https://github.com/NicolasGB/jj.nvim" },
   { src = "https://github.com/echasnovski/mini.nvim" },
   { src = "https://github.com/folke/tokyonight.nvim" },
-  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/jamessan/vim-gnupg" },
+  { src = "https://github.com/kyoh86/vim-jsonl" },
   { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+  { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/spindi/vim-vcl" },
+  { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
 })
 
@@ -104,7 +113,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.cmd("set completeopt+=noselect")
 
-
 local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup({
@@ -137,10 +145,22 @@ lspconfig.cucumber_language_server.setup({
 
 require("mason-lspconfig").setup()
 
+local conform = require("conform")
+
+conform.setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "isort", "black" },
+    rust = { "rustfmt", lsp_format = "fallback" },
+    javascript = { "prettierd", "prettier", stop_after_first = true },
+    go = { "goimports", lsp_format = "fallback" },
+  },
+})
+
 -- https://neovim.io/doc/user/lsp.html
 map('n', 'gd', vim.lsp.buf.definition)
 map('n', 'gD', vim.diagnostic.open_float)
-map('n', '<leader>lf', vim.lsp.buf.format)
+map('n', '<leader>lf', conform.format)
 
 vim.cmd [[
   colorscheme tokyonight-night
@@ -148,3 +168,4 @@ vim.cmd [[
   highlight NonText guibg=none ctermbg=none
   highlight statusline ctermbg=NONE guibg=NONE
 ]]
+
