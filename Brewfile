@@ -132,9 +132,9 @@ if OS.mac?
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
+  # cursor-cli: broken (checksum mismatch)
   %w[
     bruno
-    cursor-cli
     git-credential-manager
     powershell
   ].each do |formula|
