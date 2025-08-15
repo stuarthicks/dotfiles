@@ -48,3 +48,15 @@ go:
   go install github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister@latest
   go install github.com/maruel/panicparse/v2/cmd/pp@latest
   go install github.com/oligot/go-mod-upgrade@latest
+
+awsume:
+  pipx install awsume
+  pipx inject awsume awsume-console-plugin
+  pipx inject awsume awsume-1password-plugin
+
+gh:
+  gh extension install andyfeller/gh-ssh-allowed-signers
+  gh extension install dlvhdr/gh-dash
+  gh extension install matt-bartel/gh-clone-org
+  gh extension install redraw/gh-install
+  gh extension install seachicken/gh-poi

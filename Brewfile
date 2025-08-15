@@ -86,6 +86,7 @@ tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
   nushell
   opentofu
   pbzip2
+  pipx
   pkgx
   prettier
   pv
