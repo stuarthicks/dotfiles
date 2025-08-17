@@ -1384,28 +1384,28 @@ Temporary Items
 !.gitignore
 !.gitsubmodules
 
+.vscode/*
+
 *.iml
 *.log
 *.pem
 
 .devenv/
+devenv.*
+default.nix
+shell.nix
+
 .direnv/
-.editorconfig
 .envrc
-.groovylintrc.json
-.idea/
+
 .mise/
-.mise.toml
+mise.local.toml
+mise.*.local.toml
+
+.idea/
+.editorconfig
+.groovylintrc.json
 .pre-commit-config.yaml
 
 system_keys/
 worktrees/
-
-default.nix
-devenv.*
-shell.nix
-.vscode/*
-mise.toml
-mise.*.toml
-mise.local.toml
-mise.*.local.toml
