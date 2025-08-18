@@ -41,6 +41,7 @@ vim.pack.add({
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
   { src = "https://github.com/spindi/vim-vcl" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
@@ -100,6 +101,18 @@ require('nvim-treesitter.configs').setup({
   },
 
   auto_install = true,
+
+  textobjects = {
+    lsp_interop = {
+      enable = true,
+      border = 'none',
+      floating_preview_opts = {},
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
+    },
+  },
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
