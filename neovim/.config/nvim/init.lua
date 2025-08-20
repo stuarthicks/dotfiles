@@ -182,6 +182,9 @@ conform.setup({
       "goimports",
       lsp_format = "fallback"
     },
+    terraform = {
+      "terraform_fmt"
+    },
   },
 })
 
