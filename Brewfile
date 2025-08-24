@@ -24,6 +24,11 @@ tap 'wader/tap'             ; brew 'wader/tap/fq'
 tap 'ynqa/tap'              ; brew 'ynqa/tap/jnv'
 tap 'vet-run/vet'           ; brew 'vet-run/vet/vet-run'
 
+%w[
+  claude-code
+].each do |formula|
+  cask formula
+end
 
 # Homebrew Core
 %w[
@@ -133,7 +138,6 @@ if OS.mac?
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
-  # cursor-cli: broken (checksum mismatch)
   %w[
     bruno
     git-credential-manager
