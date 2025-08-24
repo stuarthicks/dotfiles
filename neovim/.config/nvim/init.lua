@@ -206,11 +206,11 @@ map('n', '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>')
 map('n', '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>')
 
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = 'oil',
-	group = vim.api.nvim_create_augroup('claudecode_tree_add', { clear = true }),
-	callback = function ()
+  pattern = 'oil',
+  group = vim.api.nvim_create_augroup('claudecode_tree_add', { clear = true }),
+  callback = function ()
     map('n', '<leader>as', '<cmd>ClaudeCodeTreeAdd<cr>')
-	end,
+  end,
 })
 
 vim.cmd [[
