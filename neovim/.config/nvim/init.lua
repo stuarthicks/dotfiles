@@ -45,6 +45,7 @@ vim.pack.add({
   { src = "https://github.com/spindi/vim-vcl" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
+  { src = "https://github.com/coder/claudecode.nvim" },
 })
 
 require("jj").setup({})
@@ -192,6 +193,25 @@ conform.setup({
 map('n', 'gd', vim.lsp.buf.definition)
 map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', conform.format)
+
+require("claudecode").setup()
+map('n', '<leader>ac', '<cmd>ClaudeCode<cr>')
+map('n', '<leader>af', '<cmd>ClaudeCodeFocus<cr>')
+map('n', '<leader>ar', '<cmd>ClaudeCode --resume<cr>')
+map('n', '<leader>aC', '<cmd>ClaudeCode --continue<cr>')
+map('n', '<leader>am', '<cmd>ClaudeCodeSelectModel<cr>')
+map('n', '<leader>ab', '<cmd>ClaudeCodeAdd %<cr>')
+map('v', '<leader>as', '<cmd>ClaudeCodeSend<cr>')
+map('n', '<leader>aa', '<cmd>ClaudeCodeDiffAccept<cr>')
+map('n', '<leader>ad', '<cmd>ClaudeCodeDiffDeny<cr>')
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'oil',
+	group = vim.api.nvim_create_augroup('claudecode_tree_add', { clear = true }),
+	callback = function ()
+    map('n', '<leader>as', '<cmd>ClaudeCodeTreeAdd<cr>')
+	end,
+})
 
 vim.cmd [[
   colorscheme tokyonight-night
