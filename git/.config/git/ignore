@@ -1410,3 +1410,5 @@ mise.*.local.toml
 
 system_keys/
 worktrees/
+
+CLAUDE.local.md
