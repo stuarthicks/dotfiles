@@ -31,6 +31,16 @@ map("n", "<ESC><ESC>", ":set nohlsearch<CR>")
 map({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
 map({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
 
+
+local uname = vim.loop.os_uname()
+-- local is_macos = uname.sysname == "Darwin"
+local is_linux = uname.sysname == "Linux"
+local is_wsl = is_linux and (os.getenv("WSL_DISTRO_NAME") or os.getenv("WSL_INTEROP"))
+
+if is_wsl then
+  vim.g.netrw_browsex_viewer = "wslview"
+end
+
 vim.pack.add({
   { src = "https://github.com/NicolasGB/jj.nvim" },
   { src = "https://github.com/echasnovski/mini.nvim" },
