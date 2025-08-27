@@ -136,7 +136,10 @@ zstyle ':completion:*' menu select=2
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 source <(carapace _carapace)
 
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
+
+alias z='cd $(picker)'
+
 eval "$(mise activate zsh)"
 eval "$(fastly --completion-script-zsh)"
 source <(sq completion zsh)
