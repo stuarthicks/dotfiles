@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-sessions=$(tmux list-sessions)
+sessions=$(tmux list-sessions || echo -n)
 
 projects=$(fd -t d --exact-depth 5 --full-path ~/Developer/src -a ~)
 etc=$(fd -t d --exact-depth 3 --full-path ~/Developer/etc -a ~)
@@ -15,10 +15,18 @@ if [[ "$chosen" =~ ":" ]]; then
   if [ -z "${TMUX:-}" ]; then
     tmux attach -t "$session"
   else
-    tmux switch -t "$session"
+    client="$(tmux display -p "#{client_tty}")"
+    tmux switch-client -c "$client" -t "$session"
   fi
   exit
 fi
 
 name=$(basename "$chosen")
-tmux new-session -s "$name" -c "$chosen"
+
+if [ -z "${TMUX:-}" ]; then
+  tmux new-session -s "$name" -c "$chosen"
+else
+  sid=$(tmux new-session -d -P -F "#{session_id}" -s "$name" -c "$chosen")
+  client=$(tmux display -p "#{client_tty}")
+  tmux switch-client -c "$client" -t "$sid"
+fi
