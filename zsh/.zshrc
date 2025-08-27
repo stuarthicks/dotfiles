@@ -148,6 +148,9 @@ alias gron='fastgron'
 alias ungron='fastgron --ungron'
 alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
 alias cat='bat --paging=never --decorations=never'
+alias bathelp='bat --plain --language=help'
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 alias ls='lsr --group-directories-first --long'
 alias k=ls
