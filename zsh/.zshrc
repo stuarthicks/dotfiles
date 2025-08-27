@@ -47,6 +47,7 @@ export CLICOLOR="1"
 export TZ="Europe/London"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
+export LESS='--mouse'
 
 export GPG_TTY=$TTY
 
