@@ -3,7 +3,7 @@ font-family = "BerkeleyMono Nerd Font"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-font-size = 16
+font-size = 18
 
 theme = "tokyonight"
 background-opacity = 1
