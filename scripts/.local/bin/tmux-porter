@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+sessions=$(tmux list-sessions)
+
+projects=$(fd -t d --exact-depth 5 --full-path ~/Developer/src -a ~)
+etc=$(fd -t d --exact-depth 3 --full-path ~/Developer/etc -a ~)
+other="$HOME/Downloads
+$HOME/.dotfiles"
+
+chosen=$(echo -e "${sessions}\n${projects}\n${etc}\n${other}" | fzy)
+
+if [[ "$chosen" =~ ":" ]]; then
+  session="$(echo "$chosen" | cut -d ":" -f 1)"
+  if [ -z "${TMUX:-}" ]; then
+    tmux attach -t "$session"
+  else
+    tmux switch -t "$session"
+  fi
+  exit
+fi
+
+name=$(basename "$chosen")
+tmux new-session -s "$name" -c "$chosen"
