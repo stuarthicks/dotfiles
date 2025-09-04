@@ -9,6 +9,7 @@ stow:
   {{STOW}} editorconfig
   {{STOW}} ghostty
   {{STOW}} git
+  {{STOW}} helix
   {{STOW}} jj
   {{STOW}} jq
   {{STOW}} lazygit
