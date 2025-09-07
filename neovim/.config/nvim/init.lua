@@ -12,7 +12,6 @@ vim.o.termguicolors = true
 vim.o.winborder = "rounded"
 vim.o.wrap = false
 
-vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 vim.o.guifont = "Berkeley Mono:h16"
 
 local map = vim.keymap.set
@@ -231,3 +230,9 @@ vim.cmd [[
   highlight statusline ctermbg=NONE guibg=NONE
 ]]
 
+if vim.g.neovide then
+  vim.g.neovide_input_macos_option_key_is_meta = "only_left"
+  vim.cmd [[
+    colorscheme tokyonight-night
+  ]]
+end
