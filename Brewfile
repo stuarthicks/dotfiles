@@ -54,6 +54,7 @@ end
   difftastic
   docker-credential-helper-ecr
   doggo
+  duf
   fastgron
   fd
   fish
