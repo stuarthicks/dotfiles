@@ -12,7 +12,7 @@ background-blur-radius = 20
 shell-integration = zsh
 
 # macos-titlebar-style = hidden
-macos-option-as-alt = true
+macos-option-as-alt = left
 
 window-padding-x = 5
 window-padding-y = 5
