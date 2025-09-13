@@ -1379,6 +1379,16 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Zig programming language
+
+.zig-cache/
+.zig-out/
+zig-cache/
+zig-out/
+build/
+build-*/
+docgen_tmp/
+
 #################### Custom.gitignore ####################
 
 # add your custom gitignore here:
