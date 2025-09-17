@@ -67,6 +67,7 @@ end
   glow
   gnupg
   go
+  golangci-lint-langserver
   gotags
   groff
   helix
@@ -101,12 +102,15 @@ end
   ripgrep
   ripmime
   ruby
+  ruby-lsp
   rust
   sd
   shush
+  solargraph
   sslscan
   stow
   terraform
+  terraform-ls
   tflint
   tig
   tlrc
