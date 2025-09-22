@@ -90,7 +90,6 @@ end
   mediainfo
   moreutils
   neomutt
-  neovide
   nushell
   opentofu
   pbzip2
@@ -146,6 +145,7 @@ if OS.mac?
   %w[
     bruno
     git-credential-manager
+    neovide-app
     powershell
   ].each do |formula|
     cask formula
