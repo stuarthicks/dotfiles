@@ -137,9 +137,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.cmd("set completeopt+=noselect")
 
-local lspconfig = require('lspconfig')
+vim.lsp.config('*', {
+  root_markers = { '.jj', '.git' },
+})
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls',{
   settings = {
     Lua = {
       runtime = {
@@ -158,7 +160,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.cucumber_language_server.setup({
+vim.lsp.config('cucumber_language_server', {
   settings = {
     cucumber = {
       features = { "**/*.feature" },
