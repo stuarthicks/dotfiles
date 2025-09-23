@@ -55,7 +55,11 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/coder/claudecode.nvim" },
+  { src = "https://github.com/hat0uma/csvview.nvim" },
 })
+
+require('csvview').setup()
+map('n', '<leader>c', ':CsvViewToggle display_mode=border header_lnum=1<cr>')
 
 require("jj").setup({})
 vim.cmd.cnoreabbrev("j", "J")
