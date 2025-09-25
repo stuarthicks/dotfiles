@@ -1422,3 +1422,5 @@ system_keys/
 worktrees/
 
 CLAUDE.local.md
+
+**/.claude/settings.local.json
