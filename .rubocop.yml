@@ -1,0 +1,4 @@
+Layout/SpaceBeforeSemicolon:
+  Enabled: false
+Style/Semicolon:
+  Enabled: false
