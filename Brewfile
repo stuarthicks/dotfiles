@@ -160,7 +160,6 @@ if OS.mac?
   end
 end
 
-
 if File.file?('Brewfile.local.json')
   extras = JSON.parse(IO.read('Brewfile.local.json'))
   extras.each do |t, v|
