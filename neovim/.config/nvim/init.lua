@@ -247,6 +247,10 @@ end
 if vim.g.started_by_firenvim == true then
   vim.o.guifont = "Berkeley Mono:h11"
   vim.o.laststatus = 0
+  vim.o.linebreak = true
+  vim.o.wrap = true
+
+  map('n', '<leader>l', ':lines ')
 
   vim.g.firenvim_config = {
     globalSettings = {
