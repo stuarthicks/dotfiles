@@ -56,6 +56,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/coder/claudecode.nvim" },
   { src = "https://github.com/hat0uma/csvview.nvim" },
+  { src = "https://github.com/glacambre/firenvim" }, -- nvim --headless "+call firenvim#install(0) | q"
 })
 
 require('csvview').setup()
@@ -241,4 +242,36 @@ if vim.g.neovide then
   vim.cmd [[
     colorscheme tokyonight-night
   ]]
+end
+
+if vim.g.started_by_firenvim == true then
+  vim.o.guifont = "Berkeley Mono:h11"
+  vim.o.laststatus = 0
+
+  vim.g.firenvim_config = {
+    globalSettings = {
+      cmdlineTimeout = 3000
+    },
+    localSettings = {
+      ['.*'] = { selector = 'textarea' },
+    },
+  }
+
+  vim.api.nvim_create_autocmd({'BufEnter'}, {
+    pattern = "github.com_*.txt",
+    command = "set filetype=markdown"
+  })
+
+  vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
+    callback = function(_)
+      if vim.g.timer_started == true then
+        return
+      end
+      vim.g.timer_started = true
+      vim.fn.timer_start(10000, function()
+        vim.g.timer_started = false
+        vim.cmd('silent write')
+      end)
+    end
+  })
 end
