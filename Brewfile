@@ -143,7 +143,6 @@ if OS.mac?
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
   %w[
-    bruno
     git-credential-manager
     neovide-app
     powershell
