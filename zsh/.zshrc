@@ -133,16 +133,23 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select=2
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+# Completion for more commands
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 source <(carapace _carapace)
-
-# eval "$(zoxide init zsh)"
-
-alias z='cd $(picker)'
-
-eval "$(mise activate zsh)"
 eval "$(fastly --completion-script-zsh)"
 source <(sq completion zsh)
+
+# Shell history
+eval "$(atuin init zsh)"
+
+# Navigation
+eval "$(zoxide init zsh)"
+
+# Tool and env management
+eval "$(mise activate zsh)"
 
 alias awsume="source awsume"
 alias as=awsume
@@ -171,39 +178,6 @@ manpath()  ( echo "$MANPATH"  | tr : $'\n'; )
 
 rand_base64() ( openssl rand -base64 ${1:-16} | tr -d $'\n'; )
 rand_hex()    ( openssl rand -hex ${1:-16}    | tr -d $'\n'; )
-
-fzy-history() {
-  LBUFFER+=$(
-  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) \
-    | fzy \
-    | sed -E 's/ *[0-9]*\*? *//' \
-    | sed -E 's/\\/\\\\/g'
-  )
-  zle reset-prompt
-}
-zle -N fzy-history
-bindkey "^r" fzy-history
-
-fzy-dir() {
-  LBUFFER+=$(fd -t d -H | fzy)
-  zle reset-prompt
-}
-zle -N fzy-dir
-bindkey "^f" fzy-dir
-
-fzy-file() {
-  LBUFFER+=$(fd -t f -H | fzy)
-  zle reset-prompt
-}
-zle -N fzy-file
-bindkey "^t" fzy-file
-
-fzy-commit() {
-  LBUFFER+=$(git log --oneline | fzy | awk '{print $1}')
-  zle reset-prompt
-}
-zle -N fzy-commit
-bindkey "^g" fzy-commit
 
 strip_tokenisation() ( awk '{gsub(/\?(akamai|fastly|bc)_token=[^"]+/, "")}1'; )
 
