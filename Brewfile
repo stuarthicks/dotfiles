@@ -133,6 +133,7 @@ end
   zig
   zoxide
   zsh-syntax-highlighting
+  zsh-vi-mode
 ].each do |formula|
   brew formula
 end
