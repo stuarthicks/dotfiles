@@ -3,9 +3,6 @@ theme = "tokyonight"
 [editor]
 true-color = true
 
-# [keys.normal]
-# ";" = "command_mode"
-
 [keys.normal.C-y]
 y = ":sh tmux display-popup -w 80%% -h 80%% -E \"~/.config/helix/yazi-picker.sh open\""
 v = ":sh tmux display-popup -w 80%% -h 80%% -E \"~/.config/helix/yazi-picker.sh vsplit\""
