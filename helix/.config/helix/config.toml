@@ -3,7 +3,13 @@ theme = "tokyonight"
 [editor]
 true-color = true
 
-[keys.normal.C-y]
-y = ":sh tmux display-popup -w 80%% -h 80%% -E \"~/.config/helix/yazi-picker.sh open\""
-v = ":sh tmux display-popup -w 80%% -h 80%% -E \"~/.config/helix/yazi-picker.sh vsplit\""
-s = ":sh tmux display-popup -w 80%% -h 80%% -E \"~/.config/helix/yazi-picker.sh hsplit\""
+[keys.normal]
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+  ':set mouse false',
+  ':set mouse true',
+]
