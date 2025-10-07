@@ -88,6 +88,8 @@ end
   lsr
   magic-wormhole
   make
+  markdown-oxide
+  marksman
   mediainfo
   moreutils
   neomutt
@@ -99,6 +101,7 @@ end
   prettier
   pv
   python3
+  rename
   ripgrep
   ripmime
   ruby
@@ -115,6 +118,7 @@ end
   tig
   tlrc
   tmux
+  tree
   tree-sitter
   tree-sitter-cli
   trurl
@@ -125,11 +129,13 @@ end
   urlview
   usage
   uv
+  vscode-langservers-extracted
   xan
   xq
   yazi
   yq
   yt-dlp
+  zellij
   zig
   zoxide
   zsh-syntax-highlighting
