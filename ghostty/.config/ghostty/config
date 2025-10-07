@@ -3,7 +3,7 @@ font-family = "BerkeleyMono Nerd Font"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-font-size = 18
+font-size = 16
 
 theme = "ayu"
 background-opacity = 1
