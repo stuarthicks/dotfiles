@@ -1424,3 +1424,6 @@ worktrees/
 CLAUDE.local.md
 
 **/.claude/settings.local.json
+
+# ignore file for helix
+.ignore
