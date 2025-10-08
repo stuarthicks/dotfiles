@@ -3,6 +3,9 @@ theme = "ayu_dark"
 [editor]
 true-color = true
 
+[editor.file-picker]
+hidden = false
+
 [keys.normal]
 C-y = [
   ':sh rm -f /tmp/unique-file',
