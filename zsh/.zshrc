@@ -153,6 +153,7 @@ eval "$(zoxide init zsh)"
 
 # Tool and env management
 eval "$(mise activate zsh)"
+eval "$(mise completion zsh)"
 
 alias awsume="source awsume"
 alias as=awsume
