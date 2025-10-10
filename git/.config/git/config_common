@@ -62,7 +62,7 @@
   tool = difftastic
 
 [diff "gpg"]
-  textconv = gpg --no-tty --decrypt
+  textconv = gpg --quiet --no-tty --decrypt
 
 [diff "mp4"]
   textconv = mp4dump --verbosity 3
