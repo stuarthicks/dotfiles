@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROFILE=$(echo "$*" | rextract -e '--profile ([^ ]+)')
+eval "$(source awsume $PROFILE -s)"
+
+for arg do
+  shift
+  [ "$arg" = "--profile" ] && continue
+  [ "$arg" = "$PROFILE" ] && continue
+  set -- "$@" "$arg"
+done
+
+/opt/homebrew/bin/aws $@
