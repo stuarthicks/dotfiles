@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROFILE=$(echo "$*" | rextract -e '--profile ([^ ]+)')
-eval "$(source awsume $PROFILE -s)"
+if [[ "$*" =~ "--profile" ]]; then
+  PROFILE=$(echo "$*" | rextract -e '--profile ([^ ]+)')
+  eval "$(source awsume $PROFILE -s)"
 
-for arg do
-  shift
-  [ "$arg" = "--profile" ] && continue
-  [ "$arg" = "$PROFILE" ] && continue
-  set -- "$@" "$arg"
-done
+  for arg do
+    shift
+    [ "$arg" = "--profile" ] && continue
+    [ "$arg" = "$PROFILE" ] && continue
+    set -- "$@" "$arg"
+  done
+fi
 
 /opt/homebrew/bin/aws $@
