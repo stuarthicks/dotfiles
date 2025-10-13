@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+IN=$1
+OUT="${IN%%.csv}.nonempty.csv"
+
+EMPTY_COLS=$(
+  xan headers "$IN" -j \
+  | while read -r HEADER; do
+    echo -n "$HEADER ";
+    xan select "$HEADER" "$IN" \
+      | sed 1d \
+      | sort \
+      | uniq \
+      | head -n1;
+    done \
+  | rg '""$' \
+  | awk '{print $1}' \
+  | paste -sd, -
+)
+
+xan drop "$EMPTY_COLS" "$IN" > "$OUT"
