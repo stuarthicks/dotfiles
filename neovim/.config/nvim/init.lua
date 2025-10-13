@@ -56,6 +56,7 @@ vim.pack.add({
   { src = "https://github.com/hat0uma/csvview.nvim" },
   { src = "https://github.com/glacambre/firenvim" }, -- nvim --headless "+call firenvim#install(0) | q"
   { src = "https://github.com/Shatur/neovim-ayu" },
+  { src = "https://github.com/mtdl9/vim-log-highlighting" },
 })
 
 require('csvview').setup()
