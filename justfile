@@ -12,7 +12,6 @@ stow:
   {{STOW}} helix
   {{STOW}} jj
   {{STOW}} jq
-  {{STOW}} lazygit
   {{STOW}} mise
   {{STOW}} neovim
   {{STOW}} scripts
