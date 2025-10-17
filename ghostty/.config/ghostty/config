@@ -36,3 +36,6 @@ keybind = alt+right=unbind
 keybind = alt+up=unbind
 keybind = alt+down=unbind
 keybind = shift+enter=text:\n
+
+bell-features = no-system,no-audio,no-attention,no-title,no-border
+
