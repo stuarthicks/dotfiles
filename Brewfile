@@ -56,6 +56,7 @@ end
   docker-credential-helper-ecr
   doggo
   duf
+  eget
   fastgron
   fd
   fish
