@@ -39,6 +39,7 @@ end
   automake
   awscli
   bat
+  bat-extras
   bento4
   bob
   btop
