@@ -66,6 +66,7 @@ end
   fzy
   gh
   git
+  git-extras
   git-lfs
   glow
   gnupg
