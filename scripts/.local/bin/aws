@@ -3,7 +3,7 @@ set -euo pipefail
 
 if [[ "$*" =~ "--profile" ]]; then
   PROFILE=$(echo "$*" | rextract -e '--profile ([^ ]+)')
-  eval "$(source awsume $PROFILE -s)"
+  eval "$(source awsume "$PROFILE" -s)"
 
   for arg do
     shift
@@ -13,4 +13,5 @@ if [[ "$*" =~ "--profile" ]]; then
   done
 fi
 
-/opt/homebrew/bin/aws $@
+
+$(which -a aws | rg -v '.local/bin/aws' | head -n1) "$@"
