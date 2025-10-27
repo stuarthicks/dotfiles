@@ -23,6 +23,7 @@ tap 'soldiermoth/tap' ; brew 'soldiermoth/tap/hlsq'
 tap 'wader/tap'       ; brew 'wader/tap/fq'
 tap 'ynqa/tap'        ; brew 'ynqa/tap/jnv'
 tap 'vet-run/vet'     ; brew 'vet-run/vet/vet-run'
+tap 'dvcrn/formulas'  ; brew 'dvcrn/formulas/chainenv'
 
 %w[
   claude-code
