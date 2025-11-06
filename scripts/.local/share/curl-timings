@@ -9,3 +9,6 @@ time_starttransfer: %{time_starttransfer}\n
 -----------\n
 time_total:         %{time_total}\n
 -----------\n
+\n
+tls_earlydata: %{tls_earlydata}\n
+\n
