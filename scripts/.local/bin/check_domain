@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -eeuo pipefail
+
+# brew install doggo
+# brew install openssl
+# brew install ripgrep
+# brew install trurl
+# brew install stuarthicks/tap/tls_cert_info
+
+domain=$(echo "$1" | trurl -f - --get '{host}')
+
+echo "ℹ️ DNS lookup:"
+doggo "$domain"
+echo
+
+if ! nslookup "$domain" >/dev/null 2>&1; then
+  echo "❌ DNS check failed"
+  exit 1
+fi
+
+echo
+printf "ℹ️ Certificate information:"
+tls_cert_info -address "$domain"
+echo
+
+if ! output=$(openssl s_client -connect "$domain:443" -servername "$domain" -verify_hostname "$domain" -strict -verify_return_error < /dev/null 2>&1); then
+  echo "❌ TLS validation failed"
+  echo "$output"| rg '^Verification error'
+  exit 1
+fi
+
+echo
+echo "✔️ Basic validation passed"
