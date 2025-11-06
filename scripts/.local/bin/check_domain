@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eeuo pipefail
+set -euo pipefail
 
 # brew install doggo
 # brew install openssl
