@@ -149,6 +149,8 @@ source <(sq completion zsh)
 # Shell history
 eval "$(atuin init zsh)"
 
+eval "$(intelli-shell init zsh)"
+
 # Navigation
 eval "$(zoxide init zsh)"
 

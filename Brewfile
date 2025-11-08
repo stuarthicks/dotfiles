@@ -77,6 +77,7 @@ end
   groff
   helix
   imagemagick
+  intelli-shell
   isync
   jc
   jj
