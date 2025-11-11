@@ -164,9 +164,12 @@ if OS.mac?
   end
 
   %w[
+    colima
+    docker
     libiconv
-    mas
+    lima
     macos-trash
+    mas
   ].each do |formula|
     brew formula
   end
