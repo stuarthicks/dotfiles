@@ -4,6 +4,6 @@
 [credential]
 	helper = /mnt/c/Users/stuar/scoop/apps/git-credential-manager/current/git-credential-manager.exe
 [gpg "ssh"]
-  program = /mnt/c/Users/stuar/AppData/Local/1Password/app/8/op-ssh-sign-wsl
+  program = "/mnt/c/Users/stuar/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
 [core]
   sshCommand = "ssh.exe"
