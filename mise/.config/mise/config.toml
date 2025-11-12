@@ -1,7 +1,6 @@
 [tools]
 "cargo:hexview" = "latest"
 "cargo:just-lsp" = "latest"
-"go:github.com/mrjoshuak/godoc-mcp" = "3296b67"
 "npm:@webos-tools/cli" = "latest"
 "pipx:aws-encryption-sdk-cli" = "latest"
 "pipx:toolong" = "latest"

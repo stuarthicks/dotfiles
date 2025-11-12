@@ -187,3 +187,16 @@ if File.file?('Brewfile.local.json')
     end
   end
 end
+
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-crop'
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-decrypt'
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-encrypt'
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-info'
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-nallister'
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-pslister'
+go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister'
+go 'github.com/maruel/panicparse/v2/cmd/pp'
+go 'github.com/mrjoshuak/godoc-mcp'
+go 'github.com/oligot/go-mod-upgrade'
+go 'golang.org/x/tools/cmd/goimports'
+go 'gotest.tools/gotestsum'
