@@ -55,9 +55,9 @@ vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/hat0uma/csvview.nvim" },
   { src = "https://github.com/glacambre/firenvim" }, -- nvim --headless "+call firenvim#install(0) | q"
-  { src = "https://github.com/Shatur/neovim-ayu" },
   { src = "https://github.com/mtdl9/vim-log-highlighting" },
   { src = "https://github.com/rafikdraoui/jj-diffconflicts" },
+  { src = "https://github.com/folke/tokyonight.nvim" },
 })
 
 require('csvview').setup()
@@ -213,7 +213,7 @@ map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', conform.format)
 
 vim.cmd [[
-  colorscheme ayu-dark
+  colorscheme tokyonight-night
   highlight Normal guibg=none ctermbg=none
   highlight NonText guibg=none ctermbg=none
   highlight statusline ctermbg=NONE guibg=NONE
@@ -222,7 +222,7 @@ vim.cmd [[
 if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = "only_left"
   vim.cmd [[
-    colorscheme ayu-dark
+    colorscheme tokyonight-night
   ]]
 end
 
