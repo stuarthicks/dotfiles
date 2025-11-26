@@ -11,19 +11,16 @@ brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
 brew 'stuarthicks/tap/tstools'
 
-tap 'goreleaser/tap'  ; cask 'goreleaser/tap/goreleaser'
+tap 'goreleaser/tap' ; cask 'goreleaser/tap/goreleaser'
 
-tap 'fastly/tap'      ; brew 'fastly/tap/fastly'
-tap 'hashicorp/tap'   ; brew 'hashicorp/tap/terraform'
-tap 'jfryy/tap'       ; brew 'jfryy/tap/qq'
-tap 'jwt-rs/jwt-ui'   ; brew 'jwt-rs/jwt-ui/jwt-ui'
-tap 'neilotoole/sq'   ; brew 'neilotoole/sq/sq'
-tap 'rsteube/tap'     ; brew 'rsteube/tap/carapace'
-tap 'soldiermoth/tap' ; brew 'soldiermoth/tap/hlsq'
-tap 'wader/tap'       ; brew 'wader/tap/fq'
-tap 'ynqa/tap'        ; brew 'ynqa/tap/jnv'
-tap 'vet-run/vet'     ; brew 'vet-run/vet/vet-run'
-tap 'dvcrn/formulas'  ; brew 'dvcrn/formulas/chainenv'
+tap 'fastly/tap'     ; brew 'fastly/tap/fastly'
+tap 'hashicorp/tap'  ; brew 'hashicorp/tap/terraform'
+tap 'jfryy/tap'      ; brew 'jfryy/tap/qq'
+tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq'
+tap 'rsteube/tap'    ; brew 'rsteube/tap/carapace'
+tap 'wader/tap'      ; brew 'wader/tap/fq'
+tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
+tap 'dvcrn/formulas' ; brew 'dvcrn/formulas/chainenv'
 
 %w[
   claude-code
@@ -151,13 +148,11 @@ end
 
 if OS.mac?
   tap '1password/tap'         ; cask '1password-cli'
-  tap 'owenthereal/upterm'    ; cask 'owenthereal/upterm/upterm'
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
   %w[
     git-credential-manager
-    neovide-app
     powershell
   ].each do |formula|
     cask formula
