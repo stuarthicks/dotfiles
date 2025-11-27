@@ -142,12 +142,9 @@ source <(fzf --zsh)
 # Completion for more commands
 # export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 # zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-# source <(carapace _carapace)
+source <(carapace _carapace)
 eval "$(fastly --completion-script-zsh)"
 source <(sq completion zsh)
-
-# Shell history
-eval "$(atuin init zsh)"
 
 eval "$(intelli-shell init zsh)"
 
