@@ -1427,3 +1427,4 @@ CLAUDE.local.md
 
 # ignore file for helix
 .ignore
+*.ignore/*
