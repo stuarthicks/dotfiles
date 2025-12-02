@@ -173,6 +173,7 @@ alias K='ls --almost-all'
 
 alias tolower='tr "[:upper:]" "[:lower:]"'
 alias toupper='tr "[:lower:]" "[:upper:]"'
+alias count_uniq='sort | uniq -c | sort -nr'
 
 alias profile_zsh='ZSH_PROFILE=1 zsh -l --sourcetrace'
 
