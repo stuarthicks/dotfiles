@@ -136,23 +136,11 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select=2
 
-# Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-
-# Completion for more commands
-# export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-# zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
-eval "$(fastly --completion-script-zsh)"
 source <(sq completion zsh)
 
-# Navigation
 eval "$(zoxide init zsh)"
-
-# Tool and env management
-eval "$(mise activate zsh)"
-eval "$(mise completion zsh)"
-eval "$(chainenv completion zsh)"
 
 alias awsume="source awsume"
 alias as=awsume
