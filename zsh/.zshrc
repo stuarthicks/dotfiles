@@ -213,9 +213,13 @@ fi
 . "$HOME/.config/op/plugins.sh"
 . "$HOME/.localrc"
 
+if [ -n "${ZMX_SESSION:-}" ]; then
+  SESSION="${ZMX_SESSION} "
+fi
+
 PROMPT='
 %F{blue}%~%f
-%F{green}❯%f '
+'"${SESSION:-}"'%F{green}❯%f '
 
 if [ -n "${ZSH_PROFILE:-}" ]; then
   zprof
