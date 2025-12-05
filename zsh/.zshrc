@@ -146,8 +146,6 @@ source <(carapace _carapace)
 eval "$(fastly --completion-script-zsh)"
 source <(sq completion zsh)
 
-eval "$(intelli-shell init zsh)"
-
 # Navigation
 eval "$(zoxide init zsh)"
 
