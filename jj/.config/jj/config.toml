@@ -21,3 +21,8 @@ merge-args = [
     "-c", "JJDiffConflicts!", "$output", "$base", "$left", "$right",
 ]
 merge-tool-edits-conflict-markers = true
+
+[revset-aliases]
+'bough(x, m)' = 'descendants(ancestors(x) ~ ancestors(m))'
+'bough(x)' = 'bough(x, trunk())'
+'bough' = 'bough(@)'
