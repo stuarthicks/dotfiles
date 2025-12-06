@@ -16,6 +16,7 @@ if status is-interactive
     mise activate fish | source
 
     fzf_configure_bindings --directory=\ct
+    set fzf_fd_opts --hidden --max-depth 10
 
     alias awsume="source $HOME/.local/bin/awsume.fish"
     alias as=awsume
