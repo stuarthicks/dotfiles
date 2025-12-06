@@ -41,23 +41,23 @@ if is_wsl then
 end
 
 vim.pack.add({
-  { src = "https://github.com/NicolasGB/jj.nvim" },
-  { src = "https://github.com/echasnovski/mini.nvim" },
-  { src = "https://github.com/jamessan/vim-gnupg" },
-  { src = "https://github.com/kyoh86/vim-jsonl" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-  { src = "https://github.com/spindi/vim-vcl" },
-  { src = "https://github.com/stevearc/conform.nvim" },
-  { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/hat0uma/csvview.nvim" },
-  { src = "https://github.com/glacambre/firenvim" }, -- nvim --headless "+call firenvim#install(0) | q"
-  { src = "https://github.com/mtdl9/vim-log-highlighting" },
-  { src = "https://github.com/rafikdraoui/jj-diffconflicts" },
-  { src = "https://github.com/folke/tokyonight.nvim" },
+  "https://github.com/NicolasGB/jj.nvim",
+  "https://github.com/echasnovski/mini.nvim",
+  "https://github.com/jamessan/vim-gnupg",
+  "https://github.com/kyoh86/vim-jsonl",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  "https://github.com/spindi/vim-vcl",
+  "https://github.com/stevearc/conform.nvim",
+  "https://github.com/stevearc/oil.nvim",
+  "https://github.com/hat0uma/csvview.nvim",
+  "https://github.com/glacambre/firenvim", -- nvim --headless "+call firenvim#install(0) | q"
+  "https://github.com/mtdl9/vim-log-highlighting",
+  "https://github.com/rafikdraoui/jj-diffconflicts",
+  "https://github.com/folke/tokyonight.nvim",
 })
 
 require('csvview').setup()
