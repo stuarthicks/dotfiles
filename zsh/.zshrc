@@ -51,7 +51,6 @@ export VISUAL="$EDITOR"
 export GPG_TTY=$TTY
 
 export AWS_CLI_AUTO_PROMPT=on-partial
-export AWS_DEFAULT_REGION=us-east-1
 export CUCUMBER_PUBLISH_QUIET=true
 export GIT_EXTERNAL_DIFF='difft'
 export GOBIN="$HOME/.local/bin"
