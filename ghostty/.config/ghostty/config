@@ -11,6 +11,9 @@ background-blur-radius = 20
 
 shell-integration = zsh
 
+working-directory = home
+window-inherit-working-directory = true
+
 macos-titlebar-style = tabs
 macos-option-as-alt = left
 
