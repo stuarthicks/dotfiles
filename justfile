@@ -7,6 +7,7 @@ default: stow brew mise
 stow:
   fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p ../{}
   {{STOW}} editorconfig
+  {{STOW}} fish
   {{STOW}} ghostty
   {{STOW}} git
   {{STOW}} helix
@@ -60,3 +61,11 @@ gh:
   gh extension install matt-bartel/gh-clone-org
   gh extension install redraw/gh-install
   gh extension install seachicken/gh-poi
+
+fish:
+  fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+  fish -c "fisher install edc/bass"
+  fish -c "fisher install PatrickF1/fzf.fish"
+  fish -c "fisher install kidonng/zoxide.fish"
+  fish -c "fisher install IlanCosman/tide@v6"
+  fish -c "tide configure --auto --style=Lean --prompt_colors='True color' --show_time=No --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Many icons' --transient=No"
