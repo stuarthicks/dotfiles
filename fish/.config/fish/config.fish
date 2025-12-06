@@ -12,6 +12,8 @@ if status is-interactive
 
     fish_add_path -m ~/.local/bin
 
+    mise activate fish | source
+
     alias awsume="source $HOME/.local/bin/awsume.fish"
     alias as=awsume
     alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
