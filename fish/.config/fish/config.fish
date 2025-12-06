@@ -11,6 +11,7 @@ if status is-interactive
     end
 
     fish_add_path -m ~/.local/bin
+    fish_add_path -m ~/.local/share/bob/nvim-bin
 
     mise activate fish | source
 
