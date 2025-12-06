@@ -15,6 +15,8 @@ if status is-interactive
 
     mise activate fish | source
 
+    fzf_configure_bindings --directory=\ct
+
     alias awsume="source $HOME/.local/bin/awsume.fish"
     alias as=awsume
     alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
