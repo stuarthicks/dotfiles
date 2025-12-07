@@ -11,6 +11,7 @@ if status is-interactive
     set -gx GPG_TTY $TTY
     set -gx KUBECTL_EXTERNAL_DIFF kubectl-difft
     set -gx RIPGREP_CONFIG_PATH $HOME/.ripgreprc
+    set -gx RUSTUP_INIT_SKIP_PATH_CHECK 1
 
     switch (uname)
         case Darwin
