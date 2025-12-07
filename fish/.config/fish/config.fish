@@ -45,6 +45,7 @@ if status is-interactive
     end
 
     mise activate fish | source
+    carapace fish | source
 
     set -U fish_greeting
     functions -c fish_prompt _original_fish_prompt 2>/dev/null
