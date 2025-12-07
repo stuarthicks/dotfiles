@@ -24,9 +24,7 @@ if status is-interactive
     set -gx MANPATH "$HOME/Developer/opt/share/man:$MANPATH"
     set -gx MANPATH "$HOMEBREW_PREFIX/share/man:$MANPATH"
     set -gx INFOPATH "$HOMEBREW_PREFIX/share/info:$INFOPATH"
-
     set -gx XDG_DATA_DIRS "$HOMEBREW_PREFIX/share:$XDG_DATA_DIRS"
-    set -gx CARAPACE_BRIDGES zsh,fish,bash,inshellisense
 
     fzf_configure_bindings --directory=\ct
     set fzf_fd_opts --hidden --max-depth 10
@@ -45,7 +43,6 @@ if status is-interactive
     end
 
     mise activate fish | source
-    carapace fish | source
 
     set -U fish_greeting
     functions -c fish_prompt _original_fish_prompt 2>/dev/null
