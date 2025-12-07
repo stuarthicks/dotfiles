@@ -5,6 +5,7 @@ abbr -a -- count_uniq 'sort | uniq -c | sort -nr'
 abbr -a -- cyberchef 'open "$HOME/Developer/src/github.com/gchq/CyberChef/build/prod/index.html"'
 abbr -a -- gron fastgron
 abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
+abbr -a -- j jj
 abbr -a -- jwtd 'jc --jwt | jq'
 abbr -a -- k 'lsr --hyperlinks=auto --group-directories-first'
 abbr -a -- ka 'lsr --hyperlinks=auto --group-directories-first --almost-all --long'
