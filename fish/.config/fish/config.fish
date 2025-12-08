@@ -105,7 +105,7 @@ if status is-interactive
 
         set -gx SSH_AUTH_SOCK $HOME/.ssh/agent.sock
         set ALREADY_RUNNING (ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $status)
-        if test $ALREADY_RUNNING -eq 0
+        if test $ALREADY_RUNNING -ne 0
             if test -S $SSH_AUTH_SOCK
                 # This shouldn't exist if the forwarding command isn't running
                 rm -f "$SSH_AUTH_SOCK"
