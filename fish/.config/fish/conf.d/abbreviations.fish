@@ -7,6 +7,7 @@ abbr -a -- gcloud-clear-project "gcloud config unset project"
 abbr -a -- gron fastgron
 abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
 abbr -a -- j jj
+abbr -a -- jsonfmt "prettier --stdin-filepath=o.json"
 abbr -a -- jwtd 'jc --jwt | jq'
 abbr -a -- k 'lsr --hyperlinks=auto --group-directories-first'
 abbr -a -- ka 'lsr --hyperlinks=auto --group-directories-first --almost-all --long'
