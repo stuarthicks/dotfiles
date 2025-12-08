@@ -1,5 +1,4 @@
-function repo --description 'Clone a repo in the standard location using jujutsu'
-    set URL $1
+function repo --description 'Clone a repo in the standard location using jujutsu' --arg URL
     set BASE (trurl -g '{host}{path}' "$URL" | cut -d '/' -f-2)
     set DIR "$HOME/Developer/src/$BASE"
     mkdir -p "$DIR"
