@@ -3,12 +3,14 @@ abbr -a -- cat 'bat --pager=builtin --decorations=never'
 abbr -a -- cert 'tls_cert_info -address'
 abbr -a -- count_uniq 'sort | uniq -c | sort -nr'
 abbr -a -- cyberchef 'open "$HOME/Developer/src/github.com/gchq/CyberChef/build/prod/index.html"'
+abbr -a -- gcloud-clear-project "gcloud config unset project"
 abbr -a -- gron fastgron
 abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
 abbr -a -- j jj
 abbr -a -- jwtd 'jc --jwt | jq'
 abbr -a -- k 'lsr --hyperlinks=auto --group-directories-first'
 abbr -a -- ka 'lsr --hyperlinks=auto --group-directories-first --almost-all --long'
+abbr -a -- kube-clear-context "kubectl config unset current-context"
 abbr -a -- ls 'lsr --hyperlinks=auto --group-directories-first'
 abbr -a -- manpaths 'printf "%s\\n" $MANPATH'
 abbr -a -- paths 'printf "%s\\n" $PATH'
