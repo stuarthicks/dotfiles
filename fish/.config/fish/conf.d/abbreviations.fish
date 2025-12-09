@@ -1,3 +1,4 @@
+abbr -a -- as awsume
 abbr -a -- bathelp 'bat --plain --language=help'
 abbr -a -- cat 'bat --pager=builtin --decorations=never'
 abbr -a -- cert 'tls_cert_info -address'
