@@ -44,7 +44,9 @@ if status is-interactive
         fish_add_path -mp $d
     end
 
-    mise activate fish | source
+    if type -q mise
+        mise activate fish | source
+    end
 
     if type -q rv
         rv shell init fish | source
