@@ -73,6 +73,7 @@ end
   gotags
   groff
   helix
+  hk
   imagemagick
   intelli-shell
   isync
