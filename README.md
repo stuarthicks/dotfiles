@@ -1,5 +1,4 @@
-dotfiles
-========
+# dotfiles
 
 Install [Homebrew](https://brew.sh/)
 
@@ -26,4 +25,3 @@ Mise
 
     curl https://mise.run | sh
     mise plugin install nix https://github.com/jbadeau/mise-nix.git
-
