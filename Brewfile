@@ -103,7 +103,6 @@ end
   prettier
   pv
   python3
-  rename
   ripgrep
   ripmime
   ruby
