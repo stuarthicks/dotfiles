@@ -69,3 +69,6 @@ fish:
   fish -c "fisher install kidonng/zoxide.fish"
   fish -c "fisher install IlanCosman/tide@v6"
   fish -c "tide configure --auto --style=Lean --prompt_colors='True color' --show_time=No --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Many icons' --transient=No"
+
+hk:
+  hk run pre-commit
