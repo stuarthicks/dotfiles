@@ -38,7 +38,8 @@ if status is-interactive
         $HOMEBREW_PREFIX/opt/ruby/bin \
         $HOMEBREW_PREFIX/bin \
         $HOMEBREW_PREFIX/sbin \
-        $HOME/.nix-profile/bin
+        $HOME/.nix-profile/bin \
+        /run/current-system/sw/bin
 
     for d in $path_directories[-1..1]
         fish_add_path -mp $d
