@@ -18,8 +18,8 @@ Nix
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
     nix profile install --accept-flake-config nixpkgs#cachix
     cachix use devenv
-    nix profile install nixpkgs#devenv
-    nix profile install nixpkgs#devbox
+    nix profile add nixpkgs#devenv
+    nix profile add nixpkgs#devbox
 
 Mise
 
