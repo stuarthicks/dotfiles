@@ -108,6 +108,7 @@ end
   ruby
   ruby-lsp
   rust
+  rv
   sd
   shush
   solargraph
