@@ -150,7 +150,6 @@ alias ungron='fastgron --ungron'
 alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
 alias cat='bat --pager=builtin --decorations=never'
 alias bathelp='bat --plain --language=help'
-alias chainenv-keychain-sync="op item list --vault chainenv --format=json | jq -r '.[].title | @sh' | paste -sd, - | xargs chainenv copy --from 1password --to keychain --overwrite"
 
 alias ls='lsr --group-directories-first --long'
 alias k=ls
@@ -187,15 +186,6 @@ repo() {
 }
 
 mise-env() { export MISE_ENV="$*"; }
-
-chainenv-set() {
-  KEY=$1
-  VALUE=$2
-  chainenv set --backend 1password "$KEY" "$VALUE"
-  chainenv-keychain-sync
-  echo 'Put this in the mise.local.toml:'
-  echo "$KEY = { tools = true, value = \"{{env.CHAINENV_$KEY}}\"}"
-}
 
 function yazi() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
