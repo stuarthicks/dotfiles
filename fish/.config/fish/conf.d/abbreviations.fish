@@ -22,3 +22,5 @@ abbr -a -- toupper 'tr "[:lower:]" "[:upper:]"'
 abbr -a -- ungron 'fastgron --ungron'
 abbr -a -- vimdiff difft
 abbr -a -- wv_kid_to_uuid "base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
+abbr -a -- age-encrypt "age -e -a -r (cat ~/iCloud/Documents/age-key/public.txt)"
+abbr -a -- age-decrypt "age -d -i ~/iCloud/Documents/age-key/key.txt"
