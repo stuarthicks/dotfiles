@@ -45,13 +45,14 @@ if status is-interactive
         fish_add_path -mp $d
     end
 
+    # Disabled for now now as it overrides mise (make a mise plugin for this?)
+    # if type -q rv
+    #     rv shell init fish | source
+    #     rv shell completions fish | source
+    # end
+
     if type -q mise
         mise activate fish | source
-    end
-
-    if type -q rv
-        rv shell init fish | source
-        rv shell completions fish | source
     end
 
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠔⠚⠛⠉⠉⠉⠉⠉⠉⠉⠙⠛⠒⠢⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
