@@ -83,16 +83,19 @@ end
   jq
   just
   k9s
+  kube-linter
   kubectl
   lazygit
   libtool
   libyaml
   lsr
+  luajit
   magic-wormhole
   make
   markdown-oxide
   marksman
   mediainfo
+  metals
   moreutils
   neomutt
   nushell
@@ -112,6 +115,7 @@ end
   sd
   shush
   solargraph
+  sops
   sslscan
   stow
   terraform
