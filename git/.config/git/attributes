@@ -27,3 +27,5 @@
 *.m4f   -diff diff=mp4 filter=mp4
 *.m4s   -diff diff=mp4 filter=mp4
 *.ts    -diff diff=ts  filter=ts
+*.enc.json diff=sops
+*.enc.yaml diff=sops

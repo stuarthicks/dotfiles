@@ -70,6 +70,9 @@
 [diff "ts"]
   textconv = tsreport -v
 
+[diff "sops"]
+  textconv = sops --decrypt --config /dev/null
+
 [difftool]
   prompt = false
 
