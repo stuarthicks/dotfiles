@@ -81,7 +81,7 @@ if status is-interactive
     # ⠀⠀⠀⣀⣀⡠⠤⠶⠛⠁⠀⠀⠀⠈⠀⠀⠀⠛⢷⣤⣀⣀⠀⠀⠀⠀⢀⣠⣴⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     # ⣤⠞⠋⠉⠀⡀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⣤⣄⠘⣿⣿⣟⠛⠿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     if test -f /proc/sys/fs/binfmt_misc/WSLInterop
-        set -gx WSL_DISPLAY wslg
+        set -gx WSL_DISPLAY x410
         switch $WSL_DISPLAY
             case x410
                 set HOST_IP (/usr/sbin/ip route | grep ^default | head -n1 | awk '{print $3}')
