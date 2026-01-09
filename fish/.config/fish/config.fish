@@ -33,6 +33,7 @@ if status is-interactive
     set path_directories \
         ~/.local/bin \
         ~/.local/share/bob/nvim-bin \
+        ~/.krew/bin \
         ~/Developer/opt/bin \
         $HOMEBREW_PREFIX/opt/curl/bin \
         $HOMEBREW_PREFIX/opt/ruby/bin \
