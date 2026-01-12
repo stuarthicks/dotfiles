@@ -25,3 +25,6 @@ abbr -a -- wv_kid_to_uuid "base64 --decode | xxd -p | python -c 'import sys,uuid
 abbr -a -- age-encrypt "age -e -a -r (cat ~/iCloud/Documents/age-key/public.txt)"
 abbr -a -- age-decrypt "age -d -i ~/iCloud/Documents/age-key/key.txt"
 abbr -a -- ku kubectl
+abbr -a -- h hx
+abbr -a -- hh hx --health
+abbr -a -- n nvim
