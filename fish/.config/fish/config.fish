@@ -50,10 +50,11 @@ if status is-interactive
         mise activate fish | source
     end
 
-    if type -q rv
-        rv shell init fish | source
-        rv shell completions fish | source
-    end
+    # FIXME: bundler just doesn't seem to work correctly through rv's shell integration
+    # if type -q rv
+    #     rv shell init fish | source
+    #     rv shell completions fish | source
+    # end
 
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠔⠚⠛⠉⠉⠉⠉⠉⠉⠉⠙⠛⠒⠢⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⠉⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠲⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
