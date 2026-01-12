@@ -20,6 +20,7 @@ tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq'
 tap 'rsteube/tap'    ; brew 'rsteube/tap/carapace'
 tap 'wader/tap'      ; brew 'wader/tap/fq'
 tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
+tap 'terror/tap'     ; brew 'terror/tap/just-lsp'
 
 %w[
   claude-code

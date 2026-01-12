@@ -1,13 +1,11 @@
 [tools]
 "cargo:hexview" = "latest"
-"cargo:just-lsp" = "latest"
 "npm:@webos-tools/cli" = "latest"
 "pipx:aws-encryption-sdk-cli" = "latest"
 "pipx:toolong" = "latest"
 
 [settings]
 experimental = true
-idiomatic_version_file_enable_tools = ["node"]
 
 [settings.python]
 compile = false
