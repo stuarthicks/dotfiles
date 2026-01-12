@@ -1,6 +1,6 @@
 abbr -a -- as awsume
 abbr -a -- bathelp 'bat --plain --language=help'
-abbr -a -- cat 'bat --pager=builtin --decorations=never'
+abbr -a -- cat 'bat --decorations=never'
 abbr -a -- cert 'tls_cert_info -address'
 abbr -a -- count_uniq 'sort | uniq -c | sort -nr'
 abbr -a -- cyberchef 'open "$HOME/Developer/src/github.com/gchq/CyberChef/build/prod/index.html"'
@@ -10,10 +10,10 @@ abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
 abbr -a -- j jj
 abbr -a -- jsonfmt "prettier --stdin-filepath=o.json"
 abbr -a -- jwtd 'jc --jwt | jq'
-abbr -a -- k 'lsr --hyperlinks=auto --group-directories-first --long'
-abbr -a -- ka 'lsr --hyperlinks=auto --group-directories-first --almost-all --long'
+abbr -a -- k 'lsr --hyperlinks=never --group-directories-first --long'
+abbr -a -- ka 'lsr --hyperlinks=never --group-directories-first --long --almost-all'
 abbr -a -- kube-clear-context "kubectl config unset current-context"
-abbr -a -- ls 'lsr --hyperlinks=auto --group-directories-first'
+abbr -a -- ls 'lsr --hyperlinks=never --group-directories-first'
 abbr -a -- manpaths 'printf "%s\\n" $MANPATH'
 abbr -a -- paths 'printf "%s\\n" $PATH'
 abbr -a -- prune-symlinks 'find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
