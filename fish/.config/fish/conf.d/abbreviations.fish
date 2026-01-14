@@ -26,5 +26,9 @@ abbr -a -- age-encrypt "age -e -a -r (cat ~/iCloud/Documents/age-key/public.txt)
 abbr -a -- age-decrypt "age -d -i ~/iCloud/Documents/age-key/key.txt"
 abbr -a -- ku kubectl
 abbr -a -- h hx
-abbr -a -- hh hx --health
+abbr -a -- hh "hx --health"
 abbr -a -- n nvim
+abbr -a -- ji jjui
+abbr -a -- k9s "k9s --readonly"
+abbr -a -- kd "k9s --readonly"
+abbr -a -- kc "eks -x"
