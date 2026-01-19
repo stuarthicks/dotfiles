@@ -33,7 +33,6 @@ end
   akamai
   aliyun-cli
   asn
-  atuin
   automake
   awscli
   bat
