@@ -33,3 +33,5 @@ abbr -a -- k9s "k9s --readonly"
 abbr -a -- kd "k9s --readonly"
 abbr -a -- kc "eks -x"
 abbr -a -- kcc "eks -c"
+abbr -a -- m mise
+abbr -a -- r "rv ruby"
