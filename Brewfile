@@ -71,6 +71,7 @@ end
   golangci-lint-langserver
   gotags
   groff
+  headson
   helix
   hk
   imagemagick
