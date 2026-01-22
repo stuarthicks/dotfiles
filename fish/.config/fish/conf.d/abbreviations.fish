@@ -36,3 +36,5 @@ abbr -a -- kcc "eks -c"
 abbr -a -- m mise
 abbr -a -- r "rv ruby"
 abbr -a -- js "jj status"
+abbr -a -- jd "jj desc"
+abbr -a -- jn "jj new"
