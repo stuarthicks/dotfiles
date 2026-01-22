@@ -35,3 +35,4 @@ abbr -a -- kc "eks -x"
 abbr -a -- kcc "eks -c"
 abbr -a -- m mise
 abbr -a -- r "rv ruby"
+abbr -a -- js "jj status"
