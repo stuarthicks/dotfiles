@@ -10,8 +10,8 @@ abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
 abbr -a -- j jj
 abbr -a -- jsonfmt "prettier --stdin-filepath=o.json"
 abbr -a -- jwtd 'jc --jwt | jq'
-abbr -a -- k 'lsr --hyperlinks=never --group-directories-first --long'
-abbr -a -- ka 'lsr --hyperlinks=never --group-directories-first --long --almost-all'
+abbr -a -- k 'lsr --group-directories-first --long'
+abbr -a -- ka 'lsr --group-directories-first --long --almost-all'
 abbr -a -- kube-clear-context "kubectl config unset current-context"
 abbr -a -- ls 'lsr --hyperlinks=never --group-directories-first'
 abbr -a -- manpaths 'printf "%s\\n" $MANPATH'
