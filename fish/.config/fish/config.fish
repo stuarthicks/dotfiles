@@ -34,6 +34,7 @@ if status is-interactive
         ~/.local/bin \
         ~/.local/share/bob/nvim-bin \
         ~/.krew/bin \
+        ~/.config/tmux/plugins/tmux-session-wizard/bin \
         ~/Developer/opt/bin \
         $HOMEBREW_PREFIX/opt/curl/bin \
         $HOMEBREW_PREFIX/opt/ruby/bin \
@@ -55,6 +56,8 @@ if status is-interactive
     #     rv shell init fish | source
     #     rv shell completions fish | source
     # end
+
+    atuin init fish --disable-up-arrow | source
 
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠔⠚⠛⠉⠉⠉⠉⠉⠉⠉⠙⠛⠒⠢⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⠉⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠲⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
