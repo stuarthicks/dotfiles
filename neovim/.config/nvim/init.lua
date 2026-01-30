@@ -213,7 +213,11 @@ map('n', 'gd', vim.lsp.buf.definition)
 map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', conform.format)
 
-require('ayu').colorscheme()
+local ayu = require('ayu')
+ayu.setup({
+    mirage = true,
+})
+ayu.colorscheme()
 
 vim.cmd [[
   " colorscheme tokyonight-night
