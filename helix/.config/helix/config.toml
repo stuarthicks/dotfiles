@@ -2,6 +2,7 @@ theme = "ayu_dark"
 
 [editor]
 true-color = true
+insert-final-newline = true
 
 [editor.file-picker]
 hidden = false
