@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "helix_mode": true,
   "restore_on_startup": "launchpad",
   "disable_ai": true,
   "telemetry": {
