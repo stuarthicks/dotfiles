@@ -7,9 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "favorite_models": [],
+    "model_parameters": [],
+    "use_modifier_to_send": true
+  },
   "helix_mode": true,
   "restore_on_startup": "launchpad",
-  "disable_ai": true,
+  "disable_ai": false,
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
