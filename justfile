@@ -18,6 +18,7 @@ stow:
   {{STOW}} scripts
   {{STOW}} ssh
   {{STOW}} tmux
+  {{STOW}} zed
   {{STOW}} zsh
 
 # Install software using Homebrew
