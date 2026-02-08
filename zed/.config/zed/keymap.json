@@ -1,7 +1,7 @@
 [
   {
     "bindings": {
-      "ctrl-u": [
+      "ctrl-j": [
         "task::Spawn",
         {
           "task_name": "jjui",
