@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SERVICE="${1:-home}"
+REGION="${2:-us-east-1}"
+
+PROFILE="${AWS_PROFILE:-default}"
+
+need() { command -v "$1" >/dev/null 2>&1 || { echo "missing dependency: $1" >&2; exit 1; }; }
+need aws
+need jq
+need curl
+
+# Ensure SSO is logged in (fails with a helpful message if not)
+# You can pre-run: aws sso login --profile "$PROFILE"
+# We'll just try to export creds; if it fails, tell the user what to do.
+if ! eval "$(aws configure export-credentials --profile "$PROFILE" --format env 2>/dev/null)"; then
+  echo "Could not export credentials for profile '$PROFILE'." >&2
+  echo "If you're using SSO, run: aws sso login --profile '$PROFILE'." >&2
+  exit 1
+fi
+
+# If SERVICE is a full URL, use it as-is; otherwise map known services to their console URLs.
+DESTINATION="$SERVICE"
+if [[ "$SERVICE" != http*://* ]]; then
+  case "$SERVICE" in
+    console|home) DESTINATION="https://console.aws.amazon.com/console/home?region=${REGION}" ;;
+    ec2)          DESTINATION="https://console.aws.amazon.com/ec2/v2/home?region=${REGION}" ;;
+    s3)           DESTINATION="https://s3.console.aws.amazon.com/s3/home?region=${REGION}" ;;
+    iam)          DESTINATION="https://console.aws.amazon.com/iam/home?region=${REGION}" ;;
+    cloudwatch)   DESTINATION="https://console.aws.amazon.com/cloudwatch/home?region=${REGION}" ;;
+    lambda)       DESTINATION="https://console.aws.amazon.com/lambda/home?region=${REGION}" ;;
+    rds)          DESTINATION="https://console.aws.amazon.com/rds/home?region=${REGION}" ;;
+    eks)          DESTINATION="https://console.aws.amazon.com/eks/home?region=${REGION}" ;;
+    ecr)          DESTINATION="https://console.aws.amazon.com/ecr/repositories?region=${REGION}" ;;
+    dynamodb)     DESTINATION="https://console.aws.amazon.com/dynamodbv2/home?region=${REGION}" ;;
+    *)
+      # generic fallback (works for many, but not all services)
+      DESTINATION="https://console.aws.amazon.com/${SERVICE}/home?region=${REGION}"
+      ;;
+  esac
+fi
+
+SESSION_JSON="$(jq -cn \
+  --arg ak "$AWS_ACCESS_KEY_ID" \
+  --arg sk "$AWS_SECRET_ACCESS_KEY" \
+  --arg st "${AWS_SESSION_TOKEN:-}" \
+  '{sessionId:$ak,sessionKey:$sk,sessionToken:$st}')"
+
+SIGNIN_TOKEN="$(curl -sG \
+  --data-urlencode "Action=getSigninToken" \
+  --data-urlencode "Session=${SESSION_JSON}" \
+  "https://signin.aws.amazon.com/federation" \
+  | jq -r '.SigninToken')"
+
+DEST_ENC=$(echo "$DESTINATION" | url_encode)
+
+LOGIN_URL="https://signin.aws.amazon.com/federation?Action=login&Issuer=cli&Destination=${DEST_ENC}&SigninToken=${SIGNIN_TOKEN}"
+echo "$LOGIN_URL"
