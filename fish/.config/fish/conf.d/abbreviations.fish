@@ -31,12 +31,14 @@ abbr -a -- n nvim
 abbr -a -- ji jjui
 abbr -a -- k9s "k9s --readonly"
 abbr -a -- kd "k9s --readonly"
-abbr -a -- kc "eks -x"
-abbr -a -- kcc "eks -c"
+abbr -a -- kc "kubectl config unset current-context"
+abbr -a -- kx "kubectl ctx"
+abbr -a -- ns "kubectl ns"
 abbr -a -- m mise
 abbr -a -- r "rv ruby"
 abbr -a -- js "jj status"
 abbr -a -- jd "jj desc"
 abbr -a -- jn "jj new"
 abbr -a -- ch "jj git push --change"
-abbr -e -- e zed
+abbr -a -- e zed
+abbr -a -- ac 'set -e AWS_PROFILE'
