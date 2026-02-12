@@ -38,3 +38,5 @@ abbr -a -- r "rv ruby"
 abbr -a -- js "jj status"
 abbr -a -- jd "jj desc"
 abbr -a -- jn "jj new"
+abbr -a -- ch "jj git push --change"
+abbr -e -- e zed
