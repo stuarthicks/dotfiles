@@ -8,11 +8,11 @@ prompt: enabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
-  co: pr checkout
-  draft: pr create --draft
-  prs: '!git-prs'
-  open: repo view --web
-  init: '!gh repo create --private --source=. --remote=origin && git push -u --all && gh browse'
+    co: pr checkout
+    draft: pr create --draft
+    prs: '!git-prs'
+    open: repo view --web
+    init: '!gh repo create --private --source=. --remote=origin && git push -u --all && gh browse'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.

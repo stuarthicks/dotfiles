@@ -4,6 +4,9 @@
 name = "Stuart Hicks"
 email = "stuarthicks@users.noreply.github.com"
 
+[git]
+subprocess = true
+
 [signing]
 behavior = "own"
 backend = "ssh"
