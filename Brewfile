@@ -10,7 +10,7 @@ brew 'stuarthicks/tap/presign-s3-url'
 brew 'stuarthicks/tap/rextract'
 brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
-brew 'stuarthicks/tap/tstools'
+# brew 'stuarthicks/tap/tstools'
 
 tap 'goreleaser/tap' ; cask 'goreleaser/tap/goreleaser'
 
