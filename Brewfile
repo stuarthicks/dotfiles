@@ -79,6 +79,7 @@ end
   imagemagick
   intelli-shell
   isync
+  jaq
   jc
   jj
   jjui
