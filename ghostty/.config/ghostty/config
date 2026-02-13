@@ -6,13 +6,13 @@ font-feature = -dlig
 font-size = 16
 
 theme = "Ayu Mirage"
-background-opacity = 1
+background-opacity = 0.9
 background-blur-radius = 20
 
 shell-integration = fish
 
 working-directory = home
-window-inherit-working-directory = true
+window-inherit-working-directory = false
 
 macos-titlebar-style = tabs
 macos-option-as-alt = left

@@ -42,3 +42,4 @@ abbr -a -- jn "jj new"
 abbr -a -- ch "jj git push --change"
 abbr -a -- e zed
 abbr -a -- ac 'set -e AWS_PROFILE'
+abbr -a -- cato cato-sdp
