@@ -1,5 +1,5 @@
 # vi: set ft=dosini :
-font-family = "BerkeleyMono Nerd Font"
+font-family = "Berkeley Mono"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
@@ -41,4 +41,3 @@ keybind = alt+down=unbind
 keybind = shift+enter=text:\n
 
 bell-features = no-system,no-audio,no-attention,no-title,no-border
-
