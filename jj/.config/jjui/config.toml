@@ -44,3 +44,11 @@ if selected then
     flash("Revset: " .. selected)
 end
 '''
+
+[custom_commands.push_change]
+key = ["C"]
+lua = '''
+  local change_id = context.change_id()
+  jj("git", "push", "--change", change_id)
+  revisions.refresh()
+'''
