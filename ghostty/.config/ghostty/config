@@ -34,6 +34,8 @@ keybind = super+up=jump_to_prompt:-3
 # keybind = shift+down=goto_split:down
 # keybind = shift+up=goto_split:up
 
+keybind = cmd+\=toggle_tab_overview
+
 keybind = alt+left=unbind
 keybind = alt+right=unbind
 keybind = alt+up=unbind
