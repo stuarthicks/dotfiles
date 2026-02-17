@@ -1428,3 +1428,6 @@ CLAUDE.local.md
 # ignore file for helix
 .ignore
 *.ignore/*
+
+**/coverage.html
+**/unit-report.xml
