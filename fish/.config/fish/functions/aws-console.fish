@@ -4,7 +4,7 @@ function aws-console --description "launch the aws console"
         case Darwin
             open $url
         case Linux
-            nohup xdg-open $url &
+            nohup xdg-open $url </dev/null &>/dev/null &
             disown
     end
 end
