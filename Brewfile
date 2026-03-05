@@ -22,6 +22,7 @@ tap 'rsteube/tap'    ; brew 'rsteube/tap/carapace'
 tap 'wader/tap'      ; brew 'wader/tap/fq'
 tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
 tap 'terror/tap'     ; brew 'terror/tap/just-lsp'
+tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx'
 
 %w[
   claude-code
@@ -101,6 +102,7 @@ end
   mediainfo
   metals
   moreutils
+  mp4ff
   neomutt
   nushell
   opentofu
@@ -191,13 +193,6 @@ if File.file?('Brewfile.local.json')
   end
 end
 
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-crop'
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-decrypt'
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-encrypt'
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-info'
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-nallister'
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-pslister'
-go 'github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister'
 go 'github.com/maruel/panicparse/v2/cmd/pp'
 go 'github.com/mrjoshuak/godoc-mcp'
 go 'github.com/oligot/go-mod-upgrade'

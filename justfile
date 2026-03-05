@@ -38,13 +38,6 @@ clean:
 
 # Install some useful Go tooling that's not in brew
 go:
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-crop@latest
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-decrypt@latest
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-encrypt@latest
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-info@latest
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-nallister@latest
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-pslister@latest
-  go install github.com/Eyevinn/mp4ff/cmd/mp4ff-subslister@latest
   go install github.com/maruel/panicparse/v2/cmd/pp@latest
   go install github.com/oligot/go-mod-upgrade@latest
 
