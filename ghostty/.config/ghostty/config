@@ -46,3 +46,5 @@ keybind = alt+down=unbind
 keybind = shift+enter=text:\n
 
 bell-features = no-system,no-audio,no-attention,no-title,no-border
+
+custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
