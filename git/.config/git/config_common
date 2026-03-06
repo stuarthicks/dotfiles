@@ -108,9 +108,6 @@
 [url "https://github.com/"]
   insteadOf = "git@github.com:"
 
-[url "https://bithub.brightcove.com/"]
-  insteadOf = "git@bithub.brightcove.com:"
-
 [alias]
   abandon-ship = reset --hard HEAD^^
   ci = commit --verbose
