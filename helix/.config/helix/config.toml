@@ -1,4 +1,4 @@
-theme = "ayu_mirage_transparent"
+theme = "tokyonight"
 
 [editor]
 true-color = true

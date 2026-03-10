@@ -1,6 +1,3 @@
-[ui]
-theme = "base24-ayu-mirage"
-
 [custom_commands.copy_to_clipboard]
 key = ["Y"]
 lua = '''
