@@ -1,6 +1,8 @@
 # ls / lsr
 abbr -a -- l 'lsr --group-directories-first --long'
+abbr -a -- k 'lsr --group-directories-first --long'
 abbr -a -- la 'lsr --group-directories-first --long --almost-all'
+abbr -a -- ka 'lsr --group-directories-first --long --almost-all'
 abbr -a -- ls lsr
 
 # EDITOR/VISUAL
@@ -28,7 +30,7 @@ abbr -a -- jn "jj new"
 abbr -a -- js "jj status"
 
 # kubernetes
-abbr -a -- k kubectl
+abbr -a -- ku kubectl
 abbr -a -- kd "k9s --readonly"
 abbr -a -- kn "kubectl ns"
 abbr -a -- kc "kubectl ctx"
