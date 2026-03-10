@@ -59,7 +59,13 @@ vim.pack.add({
   "https://github.com/rafikdraoui/jj-diffconflicts",
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/Shatur/neovim-ayu",
+
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/NicholasZolton/neojj",
+  "https://github.com/esmuellert/codediff.nvim",
 })
+
+vim.keymap.set("n", "<leader>gg", "<cmd>Neojj<cr>", { desc = "Open Neojj UI" })
 
 require('csvview').setup()
 map('n', '<leader>c', ':CsvViewToggle display_mode=border header_lnum=1<cr>')
