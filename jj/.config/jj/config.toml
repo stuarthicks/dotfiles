@@ -6,7 +6,7 @@ email = "stuarthicks@users.noreply.github.com"
 
 [git]
 subprocess = true
-colocate = false
+colocate = true
 
 [signing]
 behavior = "own"
