@@ -21,14 +21,10 @@
     "metrics": false,
   },
   "ui_font_size": 16,
-  "buffer_font_size": 13.0,
+  "buffer_font_size": 14.0,
   "buffer_font_family": "Berkeley Mono",
   "buffer_font_features": {
     "calt": false,
   },
-  "theme": {
-    "mode": "dark",
-    "light": "Tokyo Night Light",
-    "dark": "Tokyo Night",
-  },
+  "theme": "Tokyo Night",
 }
