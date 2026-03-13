@@ -34,10 +34,12 @@ end
 %w[
   akamai
   aliyun-cli
+  ansible-language-server
   asn
   atuin
   automake
   awscli
+  bash-language-server
   bat
   bat-extras
   bento4
@@ -53,11 +55,13 @@ end
   curl
   curlie
   d2
+  delve
   difftastic
   docker-credential-helper-ecr
   doggo
   duf
   eget
+  falco
   fastgron
   fd
   fish
@@ -116,6 +120,7 @@ end
   ripmime
   ruby
   ruby-lsp
+  ruff
   rust
   rv
   sd
@@ -135,6 +140,7 @@ end
   tree-sitter-cli
   trurl
   tsduck
+  ty
   typst
   tzdiff
   universal-ctags
@@ -144,6 +150,7 @@ end
   vscode-langservers-extracted
   xan
   xq
+  yaml-language-server
   yazi
   yq
   yt-dlp
