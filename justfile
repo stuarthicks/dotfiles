@@ -52,6 +52,7 @@ gh:
   gh extension install matt-bartel/gh-clone-org
   gh extension install redraw/gh-install
   gh extension install seachicken/gh-poi
+  gh extension upgrade --all
 
 fish:
   fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
