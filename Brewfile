@@ -200,6 +200,7 @@ if File.file?('Brewfile.local.json')
   end
 end
 
+go 'github.com/chronologos/lightjj/cmd/lightjj'
 go 'github.com/maruel/panicparse/v2/cmd/pp'
 go 'github.com/mrjoshuak/godoc-mcp'
 go 'github.com/oligot/go-mod-upgrade'
