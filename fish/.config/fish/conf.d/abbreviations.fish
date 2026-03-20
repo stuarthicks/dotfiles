@@ -29,6 +29,7 @@ abbr -a -- jf 'jj git fetch'
 abbr -a -- jn "jj new"
 abbr -a -- js "jj status"
 abbr -a -- jp "jj git push"
+abbr -a -- lj "lightjj &"
 
 # kubernetes
 abbr -a -- ku kubectl
