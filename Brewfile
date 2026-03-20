@@ -182,6 +182,7 @@ if OS.mac?
     lima
     macos-trash
     mas
+    mole
   ].each do |formula|
     brew formula
   end
