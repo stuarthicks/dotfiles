@@ -18,6 +18,7 @@ stow:
   {{STOW}} scripts
   {{STOW}} ssh
   {{STOW}} tmux
+  {{STOW}} tv
   {{STOW}} zed
   {{STOW}} zsh
 

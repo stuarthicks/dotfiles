@@ -57,7 +57,7 @@ if status is-interactive
     #     rv shell completions fish | source
     # end
 
-    atuin init fish --disable-up-arrow | source
+    tv init fish | source
 
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠔⠚⠛⠉⠉⠉⠉⠉⠉⠉⠙⠛⠒⠢⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⠉⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠲⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

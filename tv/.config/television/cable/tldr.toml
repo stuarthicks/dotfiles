@@ -1,0 +1,17 @@
+# ~/.config/television/cable/tldr.toml
+[metadata]
+name = "tldr"
+description = "Browse TLDR pages"
+
+[source]
+command = "tldr --list"
+
+[preview]
+command = "tldr '{}'"
+
+[keybindings]
+ctrl-e = "actions:open"
+
+[actions.open]
+command = "tldr '{}'"
+mode = "execute"

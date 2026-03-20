@@ -36,7 +36,6 @@ end
   aliyun-cli
   ansible-language-server
   asn
-  atuin
   automake
   awscli
   bash-language-server
@@ -129,6 +128,7 @@ end
   sops
   sslscan
   stow
+  television
   terraform
   terraform-ls
   tflint
