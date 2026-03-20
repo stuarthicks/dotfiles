@@ -16,7 +16,7 @@
 # General settings
 # ----------------------------------------------------------------------------
 tick_rate = 50
-default_channel = "files"
+default_channel = "zoxide"
 # Shell settings
 # --------------
 # Default shell used for executing commands (source, preview, actions).
