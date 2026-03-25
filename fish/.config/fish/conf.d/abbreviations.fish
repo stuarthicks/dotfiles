@@ -56,5 +56,6 @@ abbr -a -- toupper 'tr "[:lower:]" "[:upper:]"'
 abbr -a -- ungron 'fastgron --ungron'
 abbr -a -- vimdiff difft
 abbr -a -- wv_kid_to_uuid "base64 --decode | xxd -p | python -c 'import sys,uuid; print(uuid.UUID(hex=sys.stdin.readline().rstrip()))'"
+abbr -a -- v 'tv --layout portrait'
 
 abbr histreplace --regex '\^.*\^.*' --function replace_history --position anywhere
