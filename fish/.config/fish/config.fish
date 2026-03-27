@@ -33,6 +33,7 @@ if status is-interactive
     set path_directories \
         ~/.local/bin \
         ~/.local/share/bob/nvim-bin \
+        ~/.cargo/bin \
         ~/.krew/bin \
         ~/.config/tmux/plugins/tmux-session-wizard/bin \
         ~/Developer/opt/bin \
