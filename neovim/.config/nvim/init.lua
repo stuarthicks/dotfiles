@@ -180,6 +180,18 @@ vim.lsp.config('cucumber_language_server', {
   },
 })
 
+vim.lsp.config('taplo', {
+  settings = {
+    taplo = {
+      schema = {
+        associations = {
+          [".*sesh\\.toml$"] = "https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json",
+        },
+      }
+    }
+  }
+})
+
 require("mason-lspconfig").setup()
 
 local conform = require("conform")

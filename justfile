@@ -16,6 +16,7 @@ stow:
   {{STOW}} mise
   {{STOW}} neovim
   {{STOW}} scripts
+  {{STOW}} sesh
   {{STOW}} ssh
   {{STOW}} tmux
   {{STOW}} tv

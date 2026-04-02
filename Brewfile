@@ -123,6 +123,7 @@ end
   rust
   rv
   sd
+  sesh
   shush
   solargraph
   sops
