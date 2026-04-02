@@ -179,6 +179,7 @@ if OS.mac?
   end
 
   %w[
+    apfel
     colima
     docker
     libiconv
