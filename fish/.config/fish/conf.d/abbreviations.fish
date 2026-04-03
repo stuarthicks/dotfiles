@@ -30,6 +30,7 @@ abbr -a -- jn "jj new"
 abbr -a -- js "jj status"
 abbr -a -- jp "jj git push"
 abbr -a -- lj "lightjj &"
+abbr -a -- d dwm
 
 # kubernetes
 abbr -a -- ku kubectl

@@ -48,9 +48,7 @@ if status is-interactive
         fish_add_path -mp $d
     end
 
-    if type -q mise
-        mise activate fish | source
-    end
+    mise activate fish | source
 
     # FIXME: bundler just doesn't seem to work correctly through rv's shell integration
     # if type -q rv
@@ -59,6 +57,7 @@ if status is-interactive
     # end
 
     tv init fish | source
+    dwm shell-setup --fish | source
 
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠔⠚⠛⠉⠉⠉⠉⠉⠉⠉⠙⠛⠒⠢⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
     # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⠉⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠲⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

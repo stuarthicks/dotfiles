@@ -24,6 +24,7 @@ tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
 tap 'terror/tap'     ; brew 'terror/tap/just-lsp'
 tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx'
 tap 'anomalyco/tap'  ; brew 'anomalyco/tap/opencode'
+tap 'drivasperez/tap'; brew 'drivasperez/tap/dwm'
 
 %w[
   claude-code
