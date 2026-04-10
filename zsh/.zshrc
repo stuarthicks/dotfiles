@@ -74,7 +74,6 @@ export XDG_DATA_DIRS="${HOMEBREW_PREFIX}/share:$XDG_DATA_DIRS"
 
 path=(
   "$HOME/.local/bin"
-  "$HOME/.local/share/bob/nvim-bin"
   "$HOME/Developer/opt/bin"
   "$HOMEBREW_PREFIX/opt/curl/bin"
   "$HOMEBREW_PREFIX/opt/ruby/bin"

@@ -44,7 +44,6 @@ end
   bat
   bat-extras
   bento4
-  bob
   btop
   cargo-binstall
   cidr
