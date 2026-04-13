@@ -18,7 +18,6 @@ stow:
   {{STOW}} scripts
   {{STOW}} sesh
   {{STOW}} ssh
-  {{STOW}} starship
   {{STOW}} tmux
   {{STOW}} tv
   {{STOW}} zed
