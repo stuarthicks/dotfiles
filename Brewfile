@@ -25,6 +25,7 @@ tap 'terror/tap'     ; brew 'terror/tap/just-lsp'
 tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx'
 tap 'anomalyco/tap'  ; brew 'anomalyco/tap/opencode'
 tap 'drivasperez/tap'; brew 'drivasperez/tap/dwm'
+tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship'
 
 %w[
   claude-code
@@ -129,6 +130,7 @@ end
   solargraph
   sops
   sslscan
+  starship
   stow
   television
   terraform

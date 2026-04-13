@@ -1,43 +1,25 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 $username\
 $hostname\
 $directory\
+${custom.jj}\
 $git_branch\
 $git_state\
 $git_status\
 $cmd_duration\
 $line_break\
 $python\
-${env_var}\
 $character"""
-
-[env_var]
-variable = 'UPTERM_SYM'
-default = ''
-format = '$env_value'
 
 [directory]
 style = "blue"
 
-# [character]
-# success_symbol = "[#](purple)"
-# error_symbol = "[#](red)"
-# vicmd_symbol = "[#](green)"
-
-[git_branch]
-format = "[$branch]($style)"
-style = "bright-black"
-
-[git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
@@ -50,3 +32,10 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+detect_extensions = []
+detect_files = []
+
+[custom.jj]
+when = "jj-starship detect"
+shell = ["jj-starship"]
+format = "$output "

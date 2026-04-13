@@ -130,6 +130,8 @@ if status is-interactive
         end
     end
 
+    starship init fish | source
+
     set -U fish_greeting
     functions -c fish_prompt _original_fish_prompt 2>/dev/null
     function fish_prompt --description 'Write out the prompt'
