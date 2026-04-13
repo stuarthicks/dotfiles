@@ -5,9 +5,6 @@ $username\
 $hostname\
 $directory\
 ${custom.jj}\
-$git_branch\
-$git_state\
-$git_status\
 $cmd_duration\
 $line_break\
 $python\
@@ -20,10 +17,6 @@ style = "blue"
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
 
 [cmd_duration]
 format = "[$duration]($style) "
