@@ -5,6 +5,8 @@ $username\
 $hostname\
 $directory\
 ${custom.jj}\
+$aws\
+$kubernetes\
 $cmd_duration\
 $line_break\
 $python\
@@ -27,6 +29,14 @@ format = "[$virtualenv]($style) "
 style = "bright-black"
 detect_extensions = []
 detect_files = []
+
+[aws]
+format = 'on [☁️ ($profile )(\($region\) )]($style)'
+# style = 'bold blue'
+
+[kubernetes]
+disabled = false
+format = 'on [⛵ $context](dimmed green) '
 
 [custom.jj]
 when = "jj-starship detect"
