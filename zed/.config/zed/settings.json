@@ -27,4 +27,13 @@
     "calt": false,
   },
   "theme": "Tokyo Night",
+  "mcpServers": {
+    "crabeye-mcp-bridge": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@crabeye-ai/crabeye-mcp-bridge"
+      ]
+    }
+  },
 }
