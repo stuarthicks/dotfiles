@@ -86,6 +86,7 @@ end
   isync
   jaq
   jc
+  jira-cli
   jj
   jjui
   jnv
