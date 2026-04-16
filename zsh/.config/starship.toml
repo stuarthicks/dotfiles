@@ -5,6 +5,7 @@ $username\
 $hostname\
 $directory\
 ${custom.jj}\
+${terraform}\
 $aws\
 $kubernetes\
 $cmd_duration\
@@ -33,6 +34,9 @@ detect_files = []
 [aws]
 format = 'on [☁️ ($profile )(\($region\) )]($style)'
 # style = 'bold blue'
+
+[terraform]
+disabled = false
 
 [kubernetes]
 disabled = false
