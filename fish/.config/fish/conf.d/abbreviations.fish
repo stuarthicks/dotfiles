@@ -60,3 +60,5 @@ abbr -a -- wv_kid_to_uuid "base64 --decode | xxd -p | python -c 'import sys,uuid
 abbr -a -- v 'tv --layout portrait'
 
 abbr histreplace --regex '\^.*\^.*' --function replace_history --position anywhere
+abbr -a -- ws 'tv --inline tf'
+abbr -a -- tf terraform
