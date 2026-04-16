@@ -74,7 +74,6 @@ end
   git-extras
   git-lfs
   glow
-  gnupg
   go
   golangci-lint-langserver
   gotags
@@ -108,7 +107,6 @@ end
   metals
   moreutils
   mp4ff
-  neomutt
   nushell
   opentofu
   pbzip2
