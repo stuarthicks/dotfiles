@@ -1,0 +1,15 @@
+# ~/.config/television/cable/tf.toml
+[metadata]
+name = "tf"
+description = "Switch terraform workspace"
+requirements = ["terraform"]
+
+[source]
+command = "terraform workspace list"
+
+[keybindings]
+ctrl-o = "actions:open"
+
+[actions.open]
+command = "terraform workspace select '{split:*:1|trim}'"
+mode = "execute"
