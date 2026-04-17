@@ -166,7 +166,8 @@ end
 end
 
 if OS.mac?
-  tap '1password/tap'         ; cask '1password-cli'
+  tap '1password/tap'; cask '1password-cli'
+  tap 'xykong/tap'; cask 'xykong/tap/flux-markdown'
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
@@ -174,6 +175,7 @@ if OS.mac?
     git-credential-manager
     powershell
     opencode-desktop
+    linearmouse
   ].each do |formula|
     cask formula
   end
