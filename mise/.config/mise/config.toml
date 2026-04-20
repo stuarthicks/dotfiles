@@ -1,6 +1,6 @@
 [tools]
 "cargo:hexview" = "latest"
-"npm:@webos-tools/cli" = "latest"
+# "npm:@webos-tools/cli" = "latest"
 "pipx:aws-encryption-sdk-cli" = "latest"
 "pipx:toolong" = "latest"
 
