@@ -16,7 +16,21 @@
       "type": "registry"
     },
     "claude-acp": {
+      "default_config_options": {
+        "mode": "auto"
+      },
       "type": "registry"
+    }
+  },
+  "toolbar": {
+    "code_actions": true
+  },
+  "which_key": {
+    "enabled": true
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
     }
   },
   "project_panel": {
