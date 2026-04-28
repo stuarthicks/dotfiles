@@ -18,8 +18,21 @@
       "type": "registry"
     }
   },
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
   "format_on_save": "off",
   "agent": {
+    "dock": "left",
     "favorite_models": [],
     "model_parameters": [],
     "use_modifier_to_send": true
@@ -29,22 +42,13 @@
   "disable_ai": false,
   "telemetry": {
     "diagnostics": false,
-    "metrics": false,
+    "metrics": false
   },
   "ui_font_size": 16,
   "buffer_font_size": 14.0,
   "buffer_font_family": "Berkeley Mono",
   "buffer_font_features": {
-    "calt": false,
+    "calt": false
   },
-  "theme": "Tokyo Night",
-  "mcpServers": {
-    "crabeye-mcp-bridge": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@crabeye-ai/crabeye-mcp-bridge"
-      ]
-    }
-  },
+  "theme": "Tokyo Night Storm"
 }
