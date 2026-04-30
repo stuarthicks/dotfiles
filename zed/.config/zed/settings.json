@@ -65,5 +65,9 @@
   "buffer_font_features": {
     "calt": false
   },
-  "theme": "Gruvbox Dark"
+  "theme": {
+    "mode": "dark",
+    "light": "Ember Light",
+    "dark": "Ember"
+  }
 }
