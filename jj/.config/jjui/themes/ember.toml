@@ -1,0 +1,70 @@
+# Ember — warm coral-on-coal jjui theme.
+# Ported from https://github.com/ember-theme/nvim (dark "ember" variant).
+#
+# Palette (inlined below since jjui has no palette/inheritance mechanism):
+#   bg     = #1c1b19   base0  = #151412   coral  = #e08060
+#   bg_alt = #242320   base4  = #3e3c38   gold   = #c8b468
+#   fg     = #d8d0c0   base5  = #585550   olive  = #8a9868
+#                      base6  = #706c61   steel  = #7890a0
+#                                         rose   = #b07878
+
+# ─── Globals (cascade to all derived selectors) ──────────────────────────────
+
+text     = "#d8d0c0"
+dimmed   = "#706c61"
+border   = "#3e3c38"
+title    = { fg = "#e08060", bold = true }
+shortcut = "#e08060"
+matched  = { fg = "#c8b468", bold = true }
+# bg-only on purpose: lets jj template colors (hashes/branches/authors) show
+# through under the selection highlight in revision lists.
+selected = { bg = "#3e3c38", bold = true }
+success  = "#8a9868"
+error    = "#b07878"
+
+source_marker = { fg = "#1c1b19", bg = "#7890a0", bold = true }
+target_marker = { fg = "#1c1b19", bg = "#e08060", bold = true }
+
+# ─── Reverse-video pills (dark text on coral) ────────────────────────────────
+
+"status title"          = { fg = "#1c1b19", bg = "#e08060", bold = true }
+"menu title"            = { fg = "#1c1b19", bg = "#e08060", bold = true }
+"confirmation text"     = { fg = "#e08060", bold = true }
+"confirmation selected" = { fg = "#1c1b19", bg = "#e08060", bold = true }
+
+# ─── Status bar (each entry = shortcutStyle(key) + dimmedStyle(desc)) ───────
+# The global `dimmed` (#706c61) is intentionally low-contrast for revision
+# metadata, so we pin status separately. Without this override descriptions
+# would inherit `dimmed` and cascade further to the default theme's
+# `"bright black"`, which the Ghostty ember palette maps to the bg color
+# (= invisible).
+
+"status text"     = "#d8d0c0"
+"status shortcut" = { fg = "#e08060", bold = true }
+"status dimmed"   = "#b8b0a0"
+
+# ─── Revisions / Oplog ───────────────────────────────────────────────────────
+# `reverse = true` flips fg/bg so search matches stay visible regardless of the
+# underlying revision/op color.
+
+"revisions matched" = { reverse = true }
+"oplog matched"     = { reverse = true }
+
+# ─── Revset input bar ────────────────────────────────────────────────────────
+
+"revset title"               = { fg = "#e08060", bold = true }
+"revset text"                = "#d8d0c0"
+"revset completion"          = { bg = "#151412" }
+"revset completion dimmed"   = "#585550"
+"revset completion matched"  = { fg = "#c8b468", bold = true, underline = true }
+"revset completion selected" = { bg = "#3e3c38", bold = true }
+
+# ─── Menu / Picker (no native item colors → coral fg is fine here) ──────────
+
+"menu selected"   = { fg = "#e08060", bg = "#3e3c38", bold = true }
+"menu shortcut"   = "#e08060"
+"menu border"     = "#3e3c38"
+
+"picker matched"  = { underline = true, bold = true }
+"picker selected" = { fg = "#e08060", bg = "#3e3c38", bold = true }
+"picker dimmed"   = "#585550"

@@ -1,0 +1,66 @@
+# Ember Light — parchment background with deeper, more saturated accents.
+# Inverts the ramp roles vs the dark variants: completion popup uses the
+# *lightest* surface (base0 = #f0e8d8) to lift above the page (bg = #e6dac4).
+#
+# Ported from https://github.com/ember-theme/nvim (`ember-light` variant).
+#
+# Palette (light):
+#   bg     = #e6dac4   base0  = #f0e8d8   coral  = #b84c30
+#   bg_alt = #ddd0b8   base4  = #b8ac96   gold   = #7a6820
+#   fg     = #282418   base5  = #989080   olive  = #4a6830
+#   fg_alt = #585040   base6  = #787060   steel  = #3a6080
+#                                         rose   = #905050
+
+# ─── Globals (cascade to all derived selectors) ──────────────────────────────
+
+text     = "#282418"
+dimmed   = "#787060"
+border   = "#b8ac96"
+title    = { fg = "#b84c30", bold = true }
+shortcut = "#b84c30"
+matched  = { fg = "#7a6820", bold = true }
+# bg-only on purpose: lets jj template colors show through under selection.
+selected = { bg = "#b8ac96", bold = true }
+success  = "#4a6830"
+error    = "#905050"
+
+source_marker = { fg = "#e6dac4", bg = "#3a6080", bold = true }
+target_marker = { fg = "#e6dac4", bg = "#b84c30", bold = true }
+
+# ─── Reverse-video pills (light text on deep coral) ──────────────────────────
+
+"status title"          = { fg = "#e6dac4", bg = "#b84c30", bold = true }
+"menu title"            = { fg = "#e6dac4", bg = "#b84c30", bold = true }
+"confirmation text"     = { fg = "#b84c30", bold = true }
+"confirmation selected" = { fg = "#e6dac4", bg = "#b84c30", bold = true }
+
+# ─── Status bar (high-contrast keys + descriptions) ──────────────────────────
+
+"status text"     = "#282418"
+"status shortcut" = { fg = "#b84c30", bold = true }
+"status dimmed"   = "#605848"
+
+# ─── Revisions / Oplog ───────────────────────────────────────────────────────
+
+"revisions matched" = { reverse = true }
+"oplog matched"     = { reverse = true }
+
+# ─── Revset input bar ────────────────────────────────────────────────────────
+
+"revset title"               = { fg = "#b84c30", bold = true }
+"revset text"                = "#282418"
+# Lightest surface — sits ABOVE editor bg in the light variant.
+"revset completion"          = { bg = "#f0e8d8" }
+"revset completion dimmed"   = "#989080"
+"revset completion matched"  = { fg = "#7a6820", bold = true, underline = true }
+"revset completion selected" = { bg = "#b8ac96", bold = true }
+
+# ─── Menu / Picker ───────────────────────────────────────────────────────────
+
+"menu selected"   = { fg = "#b84c30", bg = "#b8ac96", bold = true }
+"menu shortcut"   = "#b84c30"
+"menu border"     = "#b8ac96"
+
+"picker matched"  = { underline = true, bold = true }
+"picker selected" = { fg = "#b84c30", bg = "#b8ac96", bold = true }
+"picker dimmed"   = "#989080"

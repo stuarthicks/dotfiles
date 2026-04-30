@@ -33,3 +33,20 @@ merge-tool-edits-conflict-markers = true
 'bough(x, m)' = 'descendants(ancestors(x) ~ ancestors(m))'
 'bough(x)' = 'bough(x, trunk())'
 'bough' = 'bough(@)'
+
+# Identifier hues are aligned with the ember palette: change_id uses the
+# coral hero accent, commit_id uses steel (preserves the "blue-ish" git-ref
+# feel). `working_copy.bold = true` is jj's default, so the working-copy
+# line emphasizes via bold rather than a separate hue.
+#
+# Note: jj's defaults use ANSI "bright black" for the non-prefix portion of
+# IDs (`rest`), elided markers, and separators. We rely on the Ghostty ember
+# palette mapping `palette = 8 = #908a7e` for those — see
+# `~/.dotfiles/ghostty/.config/ghostty/themes/ember.conf`. If that palette
+# entry ever reverts to bg color, those defaults will need explicit hex
+# overrides re-added here.
+[colors]
+change_id = "#e08060"                      # coral
+commit_id = "#7890a0"                      # steel
+"working_copy change_id" = "#e08060"
+"working_copy commit_id" = "#7890a0"

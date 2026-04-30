@@ -1,0 +1,61 @@
+# Ember Soft — slightly-lifted dark variant.
+# Same accent palette as `ember`, with a softer parchment-on-coal background
+# (bg ≈ #242320 instead of #1c1b19). Useful when ember feels too inky.
+#
+# Ported from https://github.com/ember-theme/nvim (`ember-soft` variant).
+#
+# Palette differences vs ember:
+#   bg     #1c1b19 → #242320      base0  #151412 → #1c1b19
+#   bg_alt #242320 → #2a2927      base4  #3e3c38 → #444240
+
+# ─── Globals (cascade to all derived selectors) ──────────────────────────────
+
+text     = "#d8d0c0"
+dimmed   = "#706c61"
+border   = "#444240"
+title    = { fg = "#e08060", bold = true }
+shortcut = "#e08060"
+matched  = { fg = "#c8b468", bold = true }
+selected = { bg = "#444240", bold = true }
+success  = "#8a9868"
+error    = "#b07878"
+
+source_marker = { fg = "#242320", bg = "#7890a0", bold = true }
+target_marker = { fg = "#242320", bg = "#e08060", bold = true }
+
+# ─── Reverse-video pills ─────────────────────────────────────────────────────
+
+"status title"          = { fg = "#242320", bg = "#e08060", bold = true }
+"menu title"            = { fg = "#242320", bg = "#e08060", bold = true }
+"confirmation text"     = { fg = "#e08060", bold = true }
+"confirmation selected" = { fg = "#242320", bg = "#e08060", bold = true }
+
+# ─── Status bar (high-contrast keys + descriptions) ──────────────────────────
+
+"status text"     = "#d8d0c0"
+"status shortcut" = { fg = "#e08060", bold = true }
+"status dimmed"   = "#b8b0a0"
+
+# ─── Revisions / Oplog ───────────────────────────────────────────────────────
+
+"revisions matched" = { reverse = true }
+"oplog matched"     = { reverse = true }
+
+# ─── Revset input bar ────────────────────────────────────────────────────────
+
+"revset title"               = { fg = "#e08060", bold = true }
+"revset text"                = "#d8d0c0"
+"revset completion"          = { bg = "#1c1b19" }
+"revset completion dimmed"   = "#585550"
+"revset completion matched"  = { fg = "#c8b468", bold = true, underline = true }
+"revset completion selected" = { bg = "#444240", bold = true }
+
+# ─── Menu / Picker ───────────────────────────────────────────────────────────
+
+"menu selected"   = { fg = "#e08060", bg = "#444240", bold = true }
+"menu shortcut"   = "#e08060"
+"menu border"     = "#444240"
+
+"picker matched"  = { underline = true, bold = true }
+"picker selected" = { fg = "#e08060", bg = "#444240", bold = true }
+"picker dimmed"   = "#585550"

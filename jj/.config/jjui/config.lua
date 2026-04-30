@@ -1,4 +1,5 @@
 function setup(config)
+    config.ui.theme = { dark = "ember", light = "ember-light" }
     config.action("copy-to-clipboard", function()
         local checked_files = context.checked_files()
         if checked_files then

@@ -44,5 +44,5 @@ format = 'on [⛵ $context](dimmed green) '
 
 [custom.jj]
 when = "jj-starship detect"
-shell = ["jj-starship"]
+shell = ["jj-starship-ember"]
 format = "$output "
