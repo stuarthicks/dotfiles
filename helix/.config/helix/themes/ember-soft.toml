@@ -1,0 +1,36 @@
+# Ember Soft — a slightly-lifted dark variant.
+# Same accents and mapping structure as `ember`, with a softer parchment-on-coal
+# background ramp (bg ≈ #242320 instead of #1c1b19). Useful when the standard
+# ember variant feels too inky on a bright monitor.
+#
+# Ported from https://github.com/ember-theme/nvim (`ember-soft` variant).
+
+inherits = "ember"
+
+[palette]
+# Core
+bg     = "#242320"   # editor background — lifted from ember's #1c1b19
+bg_alt = "#2a2927"   # cursorline / inactive band
+fg     = "#d8d0c0"
+fg_alt = "#b0a898"
+
+# Greyscale ramp — slightly lifted vs ember
+base0  = "#1c1b19"   # ember's bg, used here as float surface
+base1  = "#222120"
+base2  = "#2c2b28"
+base3  = "#353430"
+base4  = "#444240"
+base5  = "#585550"
+base6  = "#706c61"
+base7  = "#908a7e"
+base8  = "#b8b0a0"
+
+# Accents — identical to ember (dark)
+coral  = "#e08060"
+orange = "#c09058"
+gold   = "#c8b468"
+olive  = "#8a9868"
+sage   = "#80a090"
+steel  = "#7890a0"
+rose   = "#b07878"
+mauve  = "#988090"

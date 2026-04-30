@@ -1,0 +1,247 @@
+# Ember — a warm, dim, parchment-and-coal theme.
+# Ported from https://github.com/ember-theme/nvim (dark "ember" variant).
+# Hero accent: coral. Strings: olive. Functions/types: gold.
+
+# ─── Syntax ──────────────────────────────────────────────────────────────────
+
+"attribute"                       = "steel"
+
+"type"                            = { fg = "gold", modifiers = ["bold"] }
+"type.builtin"                    = { fg = "gold", modifiers = ["italic"] }
+"type.parameter"                  = "gold"
+"type.enum.variant"               = "orange"
+
+"constructor"                     = "gold"
+
+"constant"                        = "orange"
+"constant.builtin"                = { fg = "orange", modifiers = ["bold"] }
+"constant.builtin.boolean"        = { fg = "orange", modifiers = ["bold"] }
+"constant.character"              = "olive"
+"constant.character.escape"       = { fg = "orange", modifiers = ["bold"] }
+"constant.numeric"                = "orange"
+
+"string"                          = "olive"
+"string.regexp"                   = { fg = "orange", modifiers = ["bold"] }
+"string.special"                  = "orange"
+"string.special.path"             = "orange"
+"string.special.url"              = { fg = "steel", modifiers = ["underlined"] }
+"string.special.symbol"           = "orange"
+
+"comment"                         = { fg = "base6", modifiers = ["italic"] }
+"comment.line"                    = { fg = "base6", modifiers = ["italic"] }
+"comment.block"                   = { fg = "base6", modifiers = ["italic"] }
+"comment.block.documentation"     = { fg = "base7", modifiers = ["italic"] }
+
+"variable"                        = "fg_alt"
+"variable.builtin"                = { fg = "coral", modifiers = ["italic"] }
+"variable.parameter"              = { fg = "fg", modifiers = ["italic"] }
+"variable.other.member"           = "fg_alt"
+"variable.other.member.private"   = "fg_alt"
+
+"label"                           = "coral"
+
+"punctuation"                     = "fg_alt"
+"punctuation.delimiter"           = "fg_alt"
+"punctuation.bracket"             = "fg_alt"
+"punctuation.special"             = "base7"
+
+"keyword"                         = { fg = "coral", modifiers = ["bold"] }
+"keyword.control"                 = { fg = "coral", modifiers = ["bold"] }
+"keyword.control.conditional"     = { fg = "coral", modifiers = ["bold"] }
+"keyword.control.repeat"          = { fg = "coral", modifiers = ["bold"] }
+"keyword.control.import"          = { fg = "coral", modifiers = ["bold"] }
+"keyword.control.return"          = { fg = "coral", modifiers = ["bold"] }
+"keyword.control.exception"       = { fg = "coral", modifiers = ["bold"] }
+"keyword.operator"                = "coral"
+"keyword.directive"               = "coral"
+"keyword.function"                = { fg = "coral", modifiers = ["bold"] }
+"keyword.storage"                 = { fg = "coral", modifiers = ["italic"] }
+"keyword.storage.type"            = "coral"
+"keyword.storage.modifier"        = { fg = "coral", modifiers = ["italic"] }
+
+"operator"                        = "base7"
+
+"function"                        = "gold"
+"function.builtin"                = { fg = "gold", modifiers = ["italic"] }
+"function.method"                 = "sage"
+"function.macro"                  = "coral"
+"function.special"                = "coral"
+
+"tag"                             = "coral"
+"tag.builtin"                     = "coral"
+
+"namespace"                       = "fg_alt"
+
+"special"                         = "coral"
+
+# ─── Markup ──────────────────────────────────────────────────────────────────
+
+"markup.heading.1"                = { fg = "coral",  modifiers = ["bold"] }
+"markup.heading.2"                = { fg = "orange", modifiers = ["bold"] }
+"markup.heading.3"                = { fg = "gold",   modifiers = ["bold"] }
+"markup.heading.4"                = { fg = "olive",  modifiers = ["bold"] }
+"markup.heading.5"                = { fg = "steel",  modifiers = ["bold"] }
+"markup.heading.6"                = { fg = "base7",  modifiers = ["bold"] }
+"markup.heading.marker"           = "base5"
+
+"markup.list"                     = "coral"
+"markup.list.unnumbered"          = "coral"
+"markup.list.numbered"            = "coral"
+
+"markup.bold"                     = { modifiers = ["bold"] }
+"markup.italic"                   = { modifiers = ["italic"] }
+"markup.strikethrough"            = { modifiers = ["crossed_out"] }
+
+"markup.link"                     = { fg = "coral", modifiers = ["underlined"] }
+"markup.link.url"                 = { fg = "steel", modifiers = ["underlined"] }
+"markup.link.label"               = "steel"
+"markup.link.text"                = "fg"
+
+"markup.quote"                    = { fg = "fg_alt", modifiers = ["italic"] }
+
+"markup.raw"                      = "orange"
+"markup.raw.inline"               = "orange"
+"markup.raw.block"                = "fg"
+
+# ─── Diff ────────────────────────────────────────────────────────────────────
+
+"diff.plus"                       = "olive"
+"diff.minus"                      = "coral"
+"diff.delta"                      = "gold"
+"diff.delta.moved"                = "steel"
+
+# ─── UI: editor surface ──────────────────────────────────────────────────────
+
+"ui.background"                   = { bg = "bg" }
+"ui.background.separator"         = "base4"
+
+"ui.text"                         = "fg"
+"ui.text.focus"                   = { fg = "fg", modifiers = ["bold"] }
+"ui.text.inactive"                = "base5"
+"ui.text.info"                    = "fg"
+"ui.text.directory"               = { fg = "coral", modifiers = ["bold"] }
+
+"ui.window"                       = { fg = "base4" }
+"ui.help"                         = { fg = "fg", bg = "base0" }
+
+# ─── UI: cursor ──────────────────────────────────────────────────────────────
+# `ui.cursor` is the unfocused/match cursor; `ui.cursor.primary` is the focused
+# one. Per-mode shape colors apply when those modes are active.
+
+"ui.cursor"                       = { fg = "bg", bg = "fg_alt" }
+"ui.cursor.primary"               = { fg = "bg", bg = "coral" }
+"ui.cursor.normal"                = { fg = "bg", bg = "coral" }
+"ui.cursor.insert"                = { fg = "bg", bg = "fg" }
+"ui.cursor.select"                = { fg = "bg", bg = "gold" }
+"ui.cursor.match"                 = { fg = "coral", modifiers = ["bold", "underlined"] }
+
+"ui.cursorline.primary"           = { bg = "bg_alt" }
+"ui.cursorline.secondary"         = { bg = "bg_alt" }
+"ui.cursorcolumn.primary"         = { bg = "bg_alt" }
+"ui.cursorcolumn.secondary"       = { bg = "bg_alt" }
+
+# ─── UI: gutter, line numbers ────────────────────────────────────────────────
+
+"ui.gutter"                       = { bg = "bg" }
+"ui.gutter.selected"              = { bg = "bg_alt" }
+"ui.linenr"                       = "base5"
+"ui.linenr.selected"              = { fg = "coral", modifiers = ["bold"] }
+
+# ─── UI: statusline ──────────────────────────────────────────────────────────
+
+"ui.statusline"                   = { fg = "fg_alt", bg = "base2" }
+"ui.statusline.inactive"          = { fg = "base5",  bg = "base2" }
+"ui.statusline.normal"            = { fg = "bg", bg = "coral",  modifiers = ["bold"] }
+"ui.statusline.insert"            = { fg = "bg", bg = "olive",  modifiers = ["bold"] }
+"ui.statusline.select"            = { fg = "bg", bg = "gold",   modifiers = ["bold"] }
+"ui.statusline.separator"         = "base4"
+
+# ─── UI: bufferline ──────────────────────────────────────────────────────────
+
+"ui.bufferline"                   = { fg = "fg_alt", bg = "base2" }
+"ui.bufferline.active"            = { fg = "coral",  bg = "bg", modifiers = ["bold"] }
+"ui.bufferline.background"        = { bg = "base0" }
+
+# ─── UI: popups, menus, pickers ──────────────────────────────────────────────
+
+"ui.popup"                        = { fg = "fg", bg = "base0" }
+"ui.popup.info"                   = { fg = "fg", bg = "base0" }
+
+"ui.menu"                         = { fg = "fg",    bg = "base2" }
+"ui.menu.selected"                = { fg = "coral", bg = "base4", modifiers = ["bold"] }
+"ui.menu.scroll"                  = { fg = "base5", bg = "base3" }
+
+"ui.picker.header"                = { fg = "fg_alt", modifiers = ["bold"] }
+"ui.picker.header.column"         = { fg = "base6" }
+"ui.picker.header.column.active"  = { fg = "coral", modifiers = ["bold", "underlined"] }
+
+# ─── UI: selection, highlight ────────────────────────────────────────────────
+
+"ui.selection"                    = { bg = "base4" }
+"ui.selection.primary"            = { bg = "base4" }
+"ui.highlight"                    = { bg = "base3" }
+"ui.highlight.frameline"          = { bg = "base3" }
+
+# ─── UI: virtual text ────────────────────────────────────────────────────────
+
+"ui.virtual.ruler"                = { bg = "base2" }
+"ui.virtual.whitespace"           = "base3"
+"ui.virtual.indent-guide"         = "base3"
+"ui.virtual.inlay-hint"           = { fg = "base5", bg = "bg_alt" }
+"ui.virtual.inlay-hint.parameter" = { fg = "base5", bg = "bg_alt", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type"      = { fg = "base5", bg = "bg_alt", modifiers = ["italic"] }
+"ui.virtual.wrap"                 = "base4"
+"ui.virtual.jump-label"           = { fg = "coral", modifiers = ["bold"] }
+
+# ─── UI: debug ───────────────────────────────────────────────────────────────
+
+"ui.debug.breakpoint"             = "rose"
+"ui.debug.active"                 = { fg = "gold", bg = "bg_alt" }
+
+# ─── Diagnostics ─────────────────────────────────────────────────────────────
+
+"warning"                         = "gold"
+"error"                           = "rose"
+"info"                            = "steel"
+"hint"                            = "sage"
+
+"diagnostic"                      = { underline = { color = "rose", style = "curl" } }
+"diagnostic.hint"                 = { underline = { color = "sage",  style = "curl" } }
+"diagnostic.info"                 = { underline = { color = "steel", style = "curl" } }
+"diagnostic.warning"              = { underline = { color = "gold",  style = "curl" } }
+"diagnostic.error"                = { underline = { color = "rose",  style = "curl" } }
+"diagnostic.unnecessary"          = { modifiers = ["dim"] }
+"diagnostic.deprecated"           = { modifiers = ["crossed_out"] }
+
+"tabstop"                         = { bg = "base3" }
+
+# ─── Palette ─────────────────────────────────────────────────────────────────
+# Dark variant ramp + accents from lua/ember/palette.lua.
+
+[palette]
+# Core
+bg     = "#1c1b19"   # editor background
+bg_alt = "#242320"   # cursorline / inactive band
+fg     = "#d8d0c0"   # primary foreground
+fg_alt = "#b0a898"   # secondary / variable use
+
+# Greyscale ramp (darkest → lightest)
+base0  = "#151412"
+base1  = "#1c1b19"
+base2  = "#252422"
+base3  = "#2e2d2a"
+base4  = "#3e3c38"
+base5  = "#585550"
+base6  = "#706c61"
+base7  = "#908a7e"
+base8  = "#b8b0a0"
+
+# Accents
+coral  = "#e08060"   # hero — keywords, headings, search, todo
+orange = "#c09058"   # constants, numerics, escapes
+gold   = "#c8b468"   # functions, types, change diff
+olive  = "#8a9868"   # strings, add diff
+sage   = "#80a090"   # methods, hint diag
+steel  = "#7890a0"   # info diag, attributes, urls
+rose   = "#b07878"   # error diag
+mauve  = "#988090"   # ansi magenta

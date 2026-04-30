@@ -1,0 +1,39 @@
+# Ember Light — parchment background with deeper, more saturated accents.
+# Inverts the ramp (base0 = lightest, base8 = darkest) so the existing
+# "use base0 for float surface, base4 for borders" rules continue to do the
+# right thing. Accent hues are darkened/saturated for contrast on the warm
+# beige background.
+#
+# Ported from https://github.com/ember-theme/nvim (`ember-light` variant).
+
+inherits = "ember"
+
+[palette]
+# Core
+bg     = "#e6dac4"   # warm parchment
+bg_alt = "#ddd0b8"   # cursorline / inactive band — slightly darker
+fg     = "#282418"   # near-black with a warm cast
+fg_alt = "#585040"
+
+# Greyscale ramp — INVERTED relative to dark variants:
+# base0 = lightest (used as float surface, lifted above editor),
+# base8 = darkest.
+base0  = "#f0e8d8"
+base1  = "#e6dac4"
+base2  = "#d8ccb0"
+base3  = "#cec2a8"
+base4  = "#b8ac96"
+base5  = "#989080"
+base6  = "#787060"
+base7  = "#605848"
+base8  = "#484030"
+
+# Accents — deeper / more saturated for legibility on light bg
+coral  = "#b84c30"   # hero
+orange = "#946030"
+gold   = "#7a6820"
+olive  = "#4a6830"
+sage   = "#386858"
+steel  = "#3a6080"
+rose   = "#905050"
+mauve  = "#706070"
