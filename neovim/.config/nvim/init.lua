@@ -58,6 +58,8 @@ vim.pack.add({
   "https://github.com/mtdl9/vim-log-highlighting",
   "https://github.com/rafikdraoui/jj-diffconflicts",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/ember-theme/nvim",
+
 
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/NicholasZolton/neojj",
@@ -230,7 +232,7 @@ map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', conform.format)
 
 vim.cmd [[
-  colorscheme tokyonight-night
+  colorscheme ember
   highlight Normal guibg=none ctermbg=none
   highlight NonText guibg=none ctermbg=none
   highlight statusline ctermbg=NONE guibg=NONE
