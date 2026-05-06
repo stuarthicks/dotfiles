@@ -64,7 +64,11 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/NicholasZolton/neojj",
   "https://github.com/esmuellert/codediff.nvim",
+
+  "https://github.com/tummetott/reticle.nvim"
 })
+
+require('reticle').setup()
 
 vim.keymap.set("n", "<leader>gg", "<cmd>Neojj<cr>", { desc = "Open Neojj UI" })
 
