@@ -1,27 +1,10 @@
-STOW := 'stow --no-folding'
-
 # Run all tasks by default
 default: stow brew mise
 
 # Create configuration symlinks
 stow:
   fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p ../{}
-  {{STOW}} editorconfig
-  {{STOW}} fish
-  {{STOW}} ghostty
-  {{STOW}} git
-  {{STOW}} helix
-  {{STOW}} jj
-  {{STOW}} jq
-  {{STOW}} mise
-  {{STOW}} neovim
-  {{STOW}} scripts
-  {{STOW}} sesh
-  {{STOW}} ssh
-  {{STOW}} tmux
-  {{STOW}} tv
-  {{STOW}} zed
-  {{STOW}} zsh
+  fd --type d --max-depth 1 --no-ignore-vcs -X stow {/}
 
 # Install software using Homebrew
 brew:
