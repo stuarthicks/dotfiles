@@ -3,7 +3,7 @@ default: stow brew mise
 
 # Create configuration symlinks
 stow:
-  fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p ../{}
+  fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p $HOME/{}
   fd --type d --max-depth 1 --no-ignore-vcs -X stow {/}
 
 # Install software using Homebrew
