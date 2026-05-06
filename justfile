@@ -26,11 +26,6 @@ go:
   go install github.com/maruel/panicparse/v2/cmd/pp@latest
   go install github.com/oligot/go-mod-upgrade@latest
 
-awsume:
-  pipx install awsume
-  pipx inject awsume awsume-console-plugin
-  pipx inject awsume awsume-1password-plugin
-
 gh:
   gh extension install andyfeller/gh-ssh-allowed-signers
   gh extension install dlvhdr/gh-dash
@@ -47,5 +42,5 @@ fish:
   fish -c "fisher install IlanCosman/tide@v6"
   fish -c "tide configure --auto --style=Lean --prompt_colors='True color' --show_time='12-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=No"
 
-hk:
-  hk run pre-commit --all
+install-mise:
+  curl https://mise.run | sh
