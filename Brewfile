@@ -151,6 +151,7 @@ end
   usage
   uv
   vscode-langservers-extracted
+  walk
   xan
   xq
   yaml-language-server
