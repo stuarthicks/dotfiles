@@ -1436,3 +1436,4 @@ CLAUDE.local.md
 # Superpowers skill artifacts (brainstorming specs, writing-plans plans)
 # Opt back in per-repo with `!docs/superpowers/` in the repo's .gitignore.
 docs/superpowers/
+plans/
