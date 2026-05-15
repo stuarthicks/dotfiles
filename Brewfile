@@ -28,7 +28,6 @@ tap 'drivasperez/tap'; brew 'drivasperez/tap/dwm'
 tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship'
 
 %w[
-  claude-code
 ].each do |formula|
   cask formula
 end
@@ -177,7 +176,6 @@ if OS.mac?
   %w[
     git-credential-manager
     powershell
-    opencode-desktop
     linearmouse
   ].each do |formula|
     cask formula
