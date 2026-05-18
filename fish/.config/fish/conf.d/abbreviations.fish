@@ -22,11 +22,13 @@ abbr -a -- paths 'printf "%s\\n" $PATH'
 
 # git vcs
 abbr -a -- g git
+abbr -a -- ga 'git add'
 abbr -a -- gb 'git branch'
 abbr -a -- gci 'git commit --verbose'
 abbr -a -- gcl 'git clone --recursive'
 abbr -a -- gco 'git checkout'
 abbr -a -- gd 'git diff'
+abbr -a -- gds 'git diff --staged'
 abbr -a -- gdt 'git difftool'
 abbr -a -- gf 'git fetch --all --tags --prune'
 abbr -a -- gl 'git log'
