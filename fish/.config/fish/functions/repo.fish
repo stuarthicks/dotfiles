@@ -3,6 +3,6 @@ function repo --description 'Clone a repo in the standard location using jujutsu
     set DIR "$HOME/Developer/src/$BASE"
     mkdir -p "$DIR"
     cd "$DIR" || return
-    jj git clone "$(trurl --set scheme=https "$URL")"
+    git clone --recursive "$(trurl --set scheme=https "$URL")"
     cd "$(basename "$URL")" || return
 end
