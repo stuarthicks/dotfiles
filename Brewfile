@@ -152,6 +152,7 @@ end
   uv
   vscode-langservers-extracted
   walk
+  worktrunk
   xan
   xq
   yaml-language-server
