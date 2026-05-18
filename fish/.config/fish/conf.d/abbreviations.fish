@@ -20,6 +20,22 @@ abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
 abbr -a -- manpaths 'printf "%s\\n" $MANPATH'
 abbr -a -- paths 'printf "%s\\n" $PATH'
 
+# git vcs
+abbr -a -- g git
+abbr -a -- gb 'git branch'
+abbr -a -- gci 'git commit --verbose'
+abbr -a -- gcl 'git clone --recursive'
+abbr -a -- gco 'git checkout'
+abbr -a -- gd 'git diff'
+abbr -a -- gdt 'git difftool'
+abbr -a -- gf 'git fetch --all --tags --prune'
+abbr -a -- gl 'git log'
+abbr -a -- gr 'git rebase'
+abbr -a -- gs 'git status'
+abbr -a -- gsh 'git shove'
+abbr -a -- gst 'git stash --all'
+abbr -a -- gsw 'git switch'
+
 # jujutsu vcs
 abbr -a -- j jj
 abbr -a -- ji jjui
