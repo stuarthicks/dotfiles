@@ -1,20 +1,22 @@
-"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
 
 [user]
 name = "Stuart Hicks"
 email = "stuarthicks@users.noreply.github.com"
 
 [git]
-subprocess = true
 colocate = false
+sign-on-push = true
 
 [signing]
-behavior = "own"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2odgEamTZm8fkbCwsAmsCQFTz8P/l06yJpniahH4wW"
 
 [signing.backends.ssh]
 allowed-signers = "~/.ssh/allowed_signers"
+
+[snapshot]
+auto-update-stale = true
 
 [ui]
 default-command = "log"
