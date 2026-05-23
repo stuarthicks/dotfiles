@@ -1,3 +1,3 @@
 function lk
-    set loc (walk --icons --preview $argv); and cd $loc
+    set loc (walk --with-border --icons --preview --fuzzy $argv); and cd $loc
 end
