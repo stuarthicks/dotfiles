@@ -3,7 +3,7 @@ font-family = "Berkeley Mono"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-font-size = 14
+font-size = 16
 
 # theme = "dark:ember.conf,light:ember-light.conf"
 theme = "ember.conf"
