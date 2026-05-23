@@ -1,4 +1,7 @@
 ---@diagnostic disable: missing-fields
+
+require('vim._core.ui2').enable()
+
 vim.g.mapleader = " "
 vim.o.clipboard = "unnamedplus"
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
@@ -68,6 +71,7 @@ vim.pack.add({
   "https://github.com/tummetott/reticle.nvim"
 })
 
+
 require('reticle').setup()
 
 vim.keymap.set("n", "<leader>gg", "<cmd>Neojj<cr>", { desc = "Open Neojj UI" })
@@ -75,9 +79,16 @@ vim.keymap.set("n", "<leader>gg", "<cmd>Neojj<cr>", { desc = "Open Neojj UI" })
 require('csvview').setup()
 map('n', '<leader>c', ':CsvViewToggle display_mode=border header_lnum=1<cr>')
 
-require("jj").setup({})
+local neojj = require("neojj")
+vim.keymap.set("n", "<leader>j", neojj.open, { desc = "Open Neojj UI" })
+vim.keymap.set(
+    "n",
+    "<leader>jj",
+    function() neojj.open({ kind = "split" }) end,
+    { desc = "Open Neojj UI" }
+)
+
 vim.cmd.cnoreabbrev("j", "J")
-map('n', '<leader>j', ":J ")
 
 require("mason").setup()
 vim.cmd.cnoreabbrev("mason", "Mason")
