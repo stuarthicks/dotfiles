@@ -1434,5 +1434,6 @@ CLAUDE.local.md
 **/unit-report.xml
 
 # Superpowers skill artifacts (brainstorming specs, writing-plans plans)
+# Use `jj file track` to commit these files only if asked
 docs/superpowers/
 plans/
