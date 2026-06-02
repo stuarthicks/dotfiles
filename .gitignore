@@ -17,3 +17,5 @@ zsh/.zhistory
 zsh/.zprofile
 zsh/.zsh_sessions/
 zsh/.zcompcache/
+
+zellij/.config/zellij/plugins/

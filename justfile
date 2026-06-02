@@ -44,3 +44,8 @@ fish:
 
 install-mise:
   curl https://mise.run | sh
+
+# Download the latest zellij-session-sidebar plugin wasm (not committed; see .gitignore)
+zellij:
+  mkdir -p ~/.config/zellij/plugins
+  gh release download --repo devlkx/zellij-session-sidebar --pattern 'zellij-session-sidebar.wasm' --dir ~/.config/zellij/plugins --clobber
