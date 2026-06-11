@@ -5,8 +5,7 @@ font-feature = -liga
 font-feature = -dlig
 font-size = 16
 
-# theme = "dark:ember.conf,light:ember-light.conf"
-theme = "ember.conf"
+theme = Gruvbox Dark Hard
 
 background-opacity = 1
 background-blur-radius = 20
