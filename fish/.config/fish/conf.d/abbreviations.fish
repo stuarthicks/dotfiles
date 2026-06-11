@@ -22,6 +22,7 @@ abbr -a -- paths 'printf "%s\\n" $PATH'
 
 # git vcs
 abbr -a -- g git
+abbr -a -- gg lazygit
 abbr -a -- ga 'git add'
 abbr -a -- gb 'git branch'
 abbr -a -- gci 'git commit --verbose'
