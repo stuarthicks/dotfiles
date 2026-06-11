@@ -23,7 +23,6 @@ tap 'wader/tap'      ; brew 'wader/tap/fq'
 tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
 tap 'terror/tap'     ; brew 'terror/tap/just-lsp'
 tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx'
-tap 'anomalyco/tap'  ; brew 'anomalyco/tap/opencode'
 tap 'drivasperez/tap'; brew 'drivasperez/tap/dwm'
 tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship'
 
