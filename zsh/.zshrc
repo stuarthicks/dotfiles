@@ -150,7 +150,7 @@ alias wv_kid_to_uuid="base64 --decode | xxd -p | python -c 'import sys,uuid; pri
 alias cat='bat --pager=builtin --decorations=never'
 alias bathelp='bat --plain --language=help'
 
-alias ls='lsr --group-directories-first --long'
+# alias ls='lsr --group-directories-first --long'
 alias k=ls
 alias K='ls --almost-all'
 
