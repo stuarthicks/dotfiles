@@ -67,7 +67,7 @@
   },
   "theme": {
     "mode": "dark",
-    "light": "Ember Light",
-    "dark": "Ember Soft"
+    "light": "Gruvbox Light Hard",
+    "dark": "Gruvbox Dark Hard"
   }
 }
