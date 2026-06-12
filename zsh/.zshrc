@@ -135,7 +135,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select=2
 
 source <(fzf --zsh)
-source <(carapace _carapace)
 source <(sq completion zsh)
 
 eval "$(zoxide init zsh)"

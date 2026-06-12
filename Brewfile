@@ -18,12 +18,9 @@ tap 'fastly/tap'     ; brew 'fastly/tap/fastly'
 tap 'hashicorp/tap'  ; brew 'hashicorp/tap/terraform'
 tap 'jfryy/tap'      ; brew 'jfryy/tap/qq'
 tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq'
-tap 'rsteube/tap'    ; brew 'rsteube/tap/carapace'
 tap 'wader/tap'      ; brew 'wader/tap/fq'
 tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
-tap 'terror/tap'     ; brew 'terror/tap/just-lsp'
 tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx'
-tap 'drivasperez/tap'; brew 'drivasperez/tap/dwm'
 tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship'
 
 %w[
@@ -43,7 +40,6 @@ end
   bat
   bat-extras
   bento4
-  btop
   cargo-binstall
   cidr
   circleci
@@ -80,14 +76,12 @@ end
   helix
   hk
   imagemagick
-  intelli-shell
   isync
   jaq
   jc
   jira-cli
   jj
   jjui
-  jnv
   jq
   just
   k9s
@@ -110,7 +104,6 @@ end
   opentofu
   pbzip2
   pipx
-  pkgx
   prettier
   pv
   python3
@@ -173,7 +166,6 @@ if OS.mac?
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
 
   %w[
-    git-credential-manager
     powershell
     linearmouse
   ].each do |formula|
@@ -181,13 +173,10 @@ if OS.mac?
   end
 
   %w[
-    apfel
     colima
     docker
     libiconv
-    lima
     macos-trash
-    mas
     mole
   ].each do |formula|
     brew formula
@@ -206,10 +195,3 @@ if File.file?('Brewfile.local.json')
     end
   end
 end
-
-go 'github.com/chronologos/lightjj/cmd/lightjj'
-go 'github.com/maruel/panicparse/v2/cmd/pp'
-go 'github.com/mrjoshuak/godoc-mcp'
-go 'github.com/oligot/go-mod-upgrade'
-go 'golang.org/x/tools/cmd/goimports'
-go 'gotest.tools/gotestsum'
