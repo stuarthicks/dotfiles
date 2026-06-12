@@ -100,6 +100,7 @@ end
   metals
   moreutils
   mp4ff
+  neovim
   nushell
   opentofu
   pbzip2

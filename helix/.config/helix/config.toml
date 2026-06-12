@@ -1,4 +1,4 @@
-theme = "gruvbox_dark_hard"
+theme = "base16_transparent"
 
 [editor]
 true-color = true

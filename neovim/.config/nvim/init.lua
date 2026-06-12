@@ -44,9 +44,7 @@ if is_wsl then
 end
 
 vim.pack.add({
-  "https://github.com/NicolasGB/jj.nvim",
   "https://github.com/echasnovski/mini.nvim",
-  "https://github.com/jamessan/vim-gnupg",
   "https://github.com/kyoh86/vim-jsonl",
   "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/mason-org/mason.nvim",
@@ -56,39 +54,7 @@ vim.pack.add({
   "https://github.com/spindi/vim-vcl",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/stevearc/oil.nvim",
-  "https://github.com/hat0uma/csvview.nvim",
-  "https://github.com/glacambre/firenvim", -- nvim --headless "+call firenvim#install(0) | q"
-  "https://github.com/mtdl9/vim-log-highlighting",
-  "https://github.com/rafikdraoui/jj-diffconflicts",
-  "https://github.com/folke/tokyonight.nvim",
-  "https://github.com/ember-theme/nvim",
-
-
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/NicholasZolton/neojj",
-  "https://github.com/esmuellert/codediff.nvim",
-
-  "https://github.com/tummetott/reticle.nvim"
 })
-
-
-require('reticle').setup()
-
-vim.keymap.set("n", "<leader>gg", "<cmd>Neojj<cr>", { desc = "Open Neojj UI" })
-
-require('csvview').setup()
-map('n', '<leader>c', ':CsvViewToggle display_mode=border header_lnum=1<cr>')
-
-local neojj = require("neojj")
-vim.keymap.set("n", "<leader>j", neojj.open, { desc = "Open Neojj UI" })
-vim.keymap.set(
-    "n",
-    "<leader>jj",
-    function() neojj.open({ kind = "split" }) end,
-    { desc = "Open Neojj UI" }
-)
-
-vim.cmd.cnoreabbrev("j", "J")
 
 require("mason").setup()
 vim.cmd.cnoreabbrev("mason", "Mason")
@@ -197,18 +163,6 @@ vim.lsp.config('cucumber_language_server', {
   },
 })
 
-vim.lsp.config('taplo', {
-  settings = {
-    taplo = {
-      schema = {
-        associations = {
-          [".*sesh\\.toml$"] = "https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json",
-        },
-      }
-    }
-  }
-})
-
 require("mason-lspconfig").setup()
 
 local conform = require("conform")
@@ -247,7 +201,6 @@ map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', conform.format)
 
 vim.cmd [[
-  colorscheme ember
   highlight Normal guibg=none ctermbg=none
   highlight NonText guibg=none ctermbg=none
   highlight statusline ctermbg=NONE guibg=NONE
@@ -255,43 +208,4 @@ vim.cmd [[
 
 if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = "only_left"
-  vim.cmd [[
-    colorscheme ember-auto
-  ]]
-end
-
-if vim.g.started_by_firenvim == true then
-  vim.o.guifont = "Berkeley Mono:h11"
-  vim.o.laststatus = 0
-  vim.o.linebreak = true
-  vim.o.wrap = true
-
-  map('n', '<leader>l', ':lines ')
-
-  vim.g.firenvim_config = {
-    globalSettings = {
-      cmdlineTimeout = 3000
-    },
-    localSettings = {
-      ['.*'] = { selector = 'textarea' },
-    },
-  }
-
-  vim.api.nvim_create_autocmd({'BufEnter'}, {
-    pattern = "github.com_*.txt",
-    command = "set filetype=markdown"
-  })
-
-  vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
-    callback = function(_)
-      if vim.g.timer_started == true then
-        return
-      end
-      vim.g.timer_started = true
-      vim.fn.timer_start(10000, function()
-        vim.g.timer_started = false
-        vim.cmd('silent write')
-      end)
-    end
-  })
 end

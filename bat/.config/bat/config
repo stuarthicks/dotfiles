@@ -4,10 +4,10 @@
 
 # Specify desired highlighting theme (e.g. "TwoDark"). Run `bat --list-themes`
 # for a list of all available themes
---theme="gruvbox-dark"
+# --theme="gruvbox-dark"
 # To auto-switch with the system mode in a terminal that responds to OSC 11
 # (Ghostty does), comment out the line above and uncomment these:
-# --theme=auto
+--theme=auto
 #--theme-dark="gruvbox-dark"
 #--theme-light="gruvbox-light"
 
