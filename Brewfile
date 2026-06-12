@@ -116,14 +116,12 @@ end
   rust
   rv
   sd
-  sesh
   shush
   solargraph
   sops
   sslscan
   starship
   stow
-  television
   terraform
   terraform-ls
   tflint
@@ -151,7 +149,6 @@ end
   yazi
   yq
   yt-dlp
-  zellij
   zig
   zoxide
   zsh-syntax-highlighting

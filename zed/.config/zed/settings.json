@@ -52,7 +52,7 @@
     "model_parameters": [],
     "use_modifier_to_send": true
   },
-  "helix_mode": false,
+  "helix_mode": true,
   "restore_on_startup": "launchpad",
   "disable_ai": false,
   "telemetry": {

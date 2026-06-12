@@ -40,12 +40,7 @@ fish:
   fish -c "fisher install PatrickF1/fzf.fish"
   fish -c "fisher install kidonng/zoxide.fish"
   fish -c "fisher install IlanCosman/tide@v6"
-  fish -c "tide configure --auto --style=Lean --prompt_colors='True color' --show_time='12-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=No"
+  fish -c "tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Many icons' --transient=No"
 
 install-mise:
   curl https://mise.run | sh
-
-# Download the latest zellij-session-sidebar plugin wasm (not committed; see .gitignore)
-zellij:
-  mkdir -p ~/.config/zellij/plugins
-  gh release download --repo devlkx/zellij-session-sidebar --pattern 'zellij-session-sidebar.wasm' --dir ~/.config/zellij/plugins --clobber
