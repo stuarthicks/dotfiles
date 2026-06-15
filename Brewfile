@@ -166,6 +166,7 @@ if OS.mac?
   %w[
     powershell
     linearmouse
+    warp
   ].each do |formula|
     cask formula
   end
