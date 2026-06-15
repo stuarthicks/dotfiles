@@ -19,7 +19,7 @@ mise:
 
 # Clean up Homebrew formulae
 clean:
-  brew bundle cleanup --force
+  brew bundle cleanup --force --no-go
 
 # Install some useful Go tooling that's not in brew
 go:
