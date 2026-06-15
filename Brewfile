@@ -1,7 +1,7 @@
 # vi: set ft=ruby sw=2 ts=2 expandtab :
 # frozen_string_literal: true
 
-tap 'stuarthicks/tap'
+tap 'stuarthicks/tap', trusted: true
 brew 'stuarthicks/tap/access_key_manager'
 brew 'stuarthicks/tap/ddb-please'
 brew 'stuarthicks/tap/mrd'
@@ -12,16 +12,16 @@ brew 'stuarthicks/tap/tid'
 brew 'stuarthicks/tap/tls_cert_info'
 # brew 'stuarthicks/tap/tstools'
 
-tap 'goreleaser/tap' ; cask 'goreleaser/tap/goreleaser'
+tap 'goreleaser/tap' ; cask 'goreleaser/tap/goreleaser', trusted: true
 
-tap 'fastly/tap'     ; brew 'fastly/tap/fastly'
-tap 'hashicorp/tap'  ; brew 'hashicorp/tap/terraform'
-tap 'jfryy/tap'      ; brew 'jfryy/tap/qq'
-tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq'
-tap 'wader/tap'      ; brew 'wader/tap/fq'
-tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run'
-tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx'
-tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship'
+tap 'fastly/tap'     ; brew 'fastly/tap/fastly', trusted: true
+tap 'hashicorp/tap'  ; brew 'hashicorp/tap/terraform', trusted: true
+tap 'jfryy/tap'      ; brew 'jfryy/tap/qq', trusted: true
+tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq', trusted: true
+tap 'wader/tap'      ; brew 'wader/tap/fq', trusted: true
+tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run', trusted: true
+tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx', trusted: true
+tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship', trusted: true
 
 %w[
 ].each do |formula|
@@ -158,10 +158,10 @@ end
 end
 
 if OS.mac?
-  tap '1password/tap'; cask '1password-cli'
-  tap 'xykong/tap'; cask 'xykong/tap/flux-markdown'
+  tap '1password/tap'; cask '1password-cli', trusted: true
+  tap 'xykong/tap'; cask 'xykong/tap/flux-markdown', trusted: true
 
-  tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg'
+  tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg', trusted: true
 
   %w[
     powershell
@@ -190,7 +190,7 @@ if File.file?('Brewfile.local.json')
       cask c
     end
     (v['brews'] ||= []).each do |b|
-      brew b
+      brew b, trusted: true
     end
   end
 end
