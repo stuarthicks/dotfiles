@@ -65,9 +65,5 @@
   "buffer_font_features": {
     "calt": false
   },
-  "theme": {
-    "mode": "system",
-    "light": "Tokyo Night Light",
-    "dark": "Tokyo Night Moon"
-  }
+  "theme": "Tokyo Night Storm"
 }
