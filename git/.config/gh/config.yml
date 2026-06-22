@@ -13,6 +13,8 @@ aliases:
     prs: '!git-prs'
     open: repo view --web
     init: '!gh repo create --private --source=. --remote=origin && git push -u --all && gh browse'
+    app: '!github'
+    inbox: '!open https://github.com/pulls/inbox'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
