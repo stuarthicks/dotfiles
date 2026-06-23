@@ -1,0 +1,13 @@
+#!/bin/bash
+branch=$(git rev-parse --abbrev-ref origin/HEAD)
+branch=${branch#origin/}
+current=$(git rev-parse --abbrev-ref HEAD)
+
+git fetch --all --tags --prune
+
+if [ "$branch" = "$current" ]; then
+  git merge --ff-only origin/"$branch"
+else
+  git fetch origin "$branch:$branch" && echo "Fast-forwarded $branch"
+fi
+
