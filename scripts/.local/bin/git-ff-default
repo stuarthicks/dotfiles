@@ -1,13 +1,59 @@
 #!/bin/bash
-branch=$(git rev-parse --abbrev-ref origin/HEAD)
-branch=${branch#origin/}
-current=$(git rev-parse --abbrev-ref HEAD)
 
 git fetch --all --tags --prune
 
-if [ "$branch" = "$current" ]; then
-  git merge --ff-only origin/"$branch"
-else
-  git fetch origin "$branch:$branch" && echo "Fast-forwarded $branch"
+# Resolve the default branch via origin/HEAD symbolic ref
+branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+
+if [ -z "$branch" ] || [ "$branch" = "HEAD" ]; then
+  git remote set-head origin --auto
+  branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
 fi
 
+current=$(git rev-parse --abbrev-ref HEAD)
+
+# Get all branches currently checked out in any worktree
+# Main worktree: no "branch:" line in porcelain output, so check current HEAD
+# Linked worktrees: have "branch refs/heads/<name>" lines
+worktree_branches=""
+while IFS= read -r line; do
+  case "$line" in
+    worktree\ /*)
+      # New worktree entry starts — check if this is the main one
+      # (it's always listed first and has no branch: line)
+      ;;
+    branch\ refs/heads/*)
+      wt_branch=$(echo "$line" | sed 's/^branch refs\/heads\///')
+      worktree_branches="$worktree_branches $wt_branch"
+      ;;
+  esac
+done < <(git worktree list --porcelain)
+
+# The main worktree's branch doesn't appear as a "branch:" line
+# in porcelain output — add it manually from the main tree's HEAD
+main_branch=$(git -C "$(git rev-parse --show-toplevel)" symbolic-ref --short HEAD 2>/dev/null)
+if [ -n "$main_branch" ]; then
+  worktree_branches="$worktree_branches $main_branch"
+fi
+
+# Check if the default branch is checked out in any worktree
+is_checked_out=false
+for wt_branch in $worktree_branches; do
+  if [ "$wt_branch" = "$branch" ]; then
+    is_checked_out=true
+    break
+  fi
+done
+
+if $is_checked_out; then
+  if [ "$branch" = "$current" ]; then
+    # We're in the worktree that has it checked out
+    git merge --ff-only origin/"$branch"
+  else
+    # It's checked out in a different worktree — can't update from here
+    echo "Skipping $branch: checked out in another worktree"
+  fi
+else
+  # Not checked out anywhere — safe to fetch-into
+  git fetch origin "$branch:$branch" && echo "Fast-forwarded $branch"
+fi
