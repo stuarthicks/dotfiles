@@ -74,6 +74,7 @@ end
   groff
   headson
   helix
+  herdr
   hk
   imagemagick
   isync
