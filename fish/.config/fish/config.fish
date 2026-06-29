@@ -35,6 +35,7 @@ if status is-interactive
         ~/.cargo/bin \
         ~/.krew/bin \
         ~/.config/tmux/plugins/tmux-session-wizard/bin \
+        ~/.config/emacs/bin \
         ~/Developer/opt/bin \
         $HOMEBREW_PREFIX/opt/curl/bin \
         $HOMEBREW_PREFIX/opt/ruby/bin \
