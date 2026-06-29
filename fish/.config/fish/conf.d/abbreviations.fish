@@ -6,7 +6,8 @@ abbr -a -- ka 'lsr --group-directories-first --long --almost-all'
 abbr -a -- ls lsr
 
 # EDITOR/VISUAL
-abbr -a -- e zed
+abbr -a -- e emacs
+abbr -a -- z zed
 abbr -a -- h hx
 abbr -a -- hh "hx --health"
 abbr -a -- n nvim
@@ -49,7 +50,6 @@ abbr -a -- jn "jj new"
 abbr -a -- js "jj status"
 abbr -a -- jp "jj git push"
 abbr -a -- lj "lightjj &"
-abbr -a -- d dwm
 
 # kubernetes
 abbr -a -- ku kubectl
