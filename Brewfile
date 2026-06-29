@@ -166,6 +166,7 @@ if OS.mac?
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg', trusted: true
 
   %w[
+    emacs
     powershell
     linearmouse
     warp
