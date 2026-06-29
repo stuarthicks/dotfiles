@@ -22,6 +22,7 @@ tap 'wader/tap'      ; brew 'wader/tap/fq', trusted: true
 tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run', trusted: true
 tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx', trusted: true
 tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship', trusted: true
+tap 'sharkyger/tap'  ; brew 'sharkyger/tap/safe-upgrade', trusted: true
 
 %w[
 ].each do |formula|
