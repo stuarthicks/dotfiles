@@ -51,3 +51,5 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+(package! majutsu :recipe (:host github :repo "0WD0/majutsu"))
