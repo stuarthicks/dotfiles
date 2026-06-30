@@ -168,6 +168,7 @@ if OS.mac?
   %w[
     emacs
     powershell
+    librewolf
     linearmouse
     warp
   ].each do |formula|
