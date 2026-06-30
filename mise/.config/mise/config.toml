@@ -6,6 +6,9 @@
 
 [settings]
 experimental = true
+disable_tools = [
+  "go", # since go can now switch toolchain versions itself, we don't want mise to do so, which can cause issues with the pkg cache
+]
 
 [settings.python]
 compile = false
