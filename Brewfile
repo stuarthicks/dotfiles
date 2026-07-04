@@ -166,11 +166,9 @@ if OS.mac?
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg', trusted: true
 
   %w[
-    emacs
+    emacs-app
     powershell
-    librewolf
     linearmouse
-    warp
   ].each do |formula|
     cask formula
   end
