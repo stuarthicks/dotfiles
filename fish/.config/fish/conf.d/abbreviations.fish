@@ -6,8 +6,8 @@ abbr -a -- ka 'lsr --group-directories-first --long --almost-all'
 abbr -a -- ls lsr
 
 # EDITOR/VISUAL
-abbr -a -- e emacs
-abbr -a -- z zed
+abbr -a -- e 'emacsclient --create-frame --alternate-editor=""'
+abbr -a -- ze zed
 abbr -a -- h hx
 abbr -a -- hh "hx --health"
 abbr -a -- n nvim
