@@ -26,6 +26,14 @@ name = "tokyo-night"
 # red = "#ff6188"
 # green = "#a6e3a1"
 
+# tokyo-night panel-separation + legibility tweaks (values from the Ghostty
+# TokyoNight palette). Base surface_dim ~= bg, so borders/active-row were
+# invisible; #414868 makes them show. overlay0 (hint text + sidebar headings)
+# is bumped light so it stays readable on the #414868 active-row background.
+[theme.custom]
+surface_dim = "#414868"   # panel borders + sidebar outline + active-row bg
+overlay0    = "#a9b1d6"   # hint text + sidebar section headings
+
 [terminal]
 # Executable used for new interactive panes.
 # Empty means $SHELL, then /bin/sh.
@@ -70,19 +78,19 @@ name = "tokyo-night"
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
-# new_workspace = "prefix+shift+n"
+new_workspace = "prefix+c"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
-# previous_workspace = "" # optional, unset by default
-# next_workspace = ""     # optional, unset by default
-# previous_agent = ""     # optional, unset by default
-# next_agent = ""         # optional, unset by default
+previous_workspace = "alt+[" # optional, unset by default
+next_workspace = "alt+]"     # optional, unset by default
+previous_agent = "alt+shift+["     # optional, unset by default
+next_agent = "alt+shift+]"         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
-# remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
-# new_tab = "prefix+c"
+ remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
+new_tab = "alt+down"
 # rename_tab = "prefix+shift+t"
 # previous_tab = "prefix+p"
 # next_tab = "prefix+n"
@@ -93,6 +101,10 @@ next_tab = "alt+right"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
+focus_pane_up = "alt+shift+up"
+focus_pane_down = "alt+shift+down"
+focus_pane_left = "alt+shift+left"
+focus_pane_right = "alt+shift+right"
 # focus_pane_left = "prefix+h"
 # focus_pane_down = "prefix+j"
 # focus_pane_up = "prefix+k"
@@ -100,8 +112,8 @@ next_tab = "alt+right"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-# split_vertical = "prefix+v"
-# split_horizontal = "prefix+minus"
+split_vertical = "prefix+backslash"
+split_horizontal = "prefix+-"
 # close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
@@ -123,6 +135,25 @@ next_tab = "alt+right"
 # key = "prefix+alt+g"
 # type = "pane"
 # command = "lazygit"
+
+# Override herdr's built-in "new worktree" key (prefix+shift+g) with worktrunk's
+# switch/create picker:
+[[keys.command]]
+key = "prefix+shift+g"
+type = "plugin_action"
+command = "worktrunk.open"
+description = "Worktree: switch / create"
+
+[[keys.command]]
+key = "prefix+shift+d"
+type = "plugin_action"
+command = "worktrunk.remove"
+description = "Worktree: remove"
+
+[[keys.command]]
+key = "cmd+r"
+type = "plugin_action"
+command = "persiyanov.reviewr.toggle"   # <plugin_id>.<action_id> — note the id, not the name
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
