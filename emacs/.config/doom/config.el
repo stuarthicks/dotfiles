@@ -100,3 +100,73 @@
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+
+(use-package! ghostel
+  :bind (("C-x m" . ghostel)
+         :map ghostel-semi-char-mode-map
+         ("C-s" . consult-line)
+         ("M-<backspace>" . ghostel-backward-kill-word)
+         ;; Go up/down shell history with M-n/M-p (as in eshell) by sending C-p/C-n
+         ("M-p" . (lambda () (interactive) (ghostel-send-key "p" "ctrl")))
+         ("M-n" . (lambda () (interactive) (ghostel-send-key "n" "ctrl")))
+         :map project-prefix-map
+         ("m" . ghostel-project)
+         ("M" . ghostel-project-list-buffers))
+  :config
+  (defun ghostel-send-C-k-and-kill ()
+    "Send `C-k' to ghostel.
+Like normal Emacs `C-k': kill to end of line and put content in kill-ring."
+    (interactive)
+    (kill-ring-save (point) (line-end-position))
+    (ghostel-send-key "k" "ctrl"))
+
+  (add-to-list 'project-switch-commands '(ghostel-project "Ghostel") t)
+  (add-to-list 'project-switch-commands '(ghostel-project-list-buffers "Ghostel buffers") t)
+  (add-to-list 'ghostel-eval-cmds '("magit-status-setup-buffer" magit-status-setup-buffer)))
+
+;; Bundled extensions — part of the ghostel package, no extra package! needed
+(use-package! ghostel-eshell
+  :hook (eshell-load . ghostel-eshell-visual-command-mode))
+
+(use-package! ghostel-compile
+  :hook (after-init . ghostel-compile-global-mode))
+
+(use-package! ghostel-comint
+  :hook (after-init . ghostel-comint-global-mode))
+
+(use-package! evil-ghostel
+  :after (ghostel evil)
+  :hook (ghostel-mode . evil-ghostel-mode))
+
+;; C-` toggles a dedicated ghostel terminal docked at the bottom of the frame.
+;; Deliberately NO `set-popup-rule!' — the docking is scoped to this one command
+;; via a let-bound `display-buffer-overriding-action', so `C-x m', `SPC p m' and
+;; the other ghostel commands keep their current same-window behaviour untouched.
+(defvar +ghostel-panel-buffer nil
+  "Dedicated ghostel terminal shown as the bottom panel by `+ghostel/toggle'.")
+
+(defvar +ghostel-panel-display-action
+  '((display-buffer-in-side-window)
+    (side . bottom)
+    (slot . 0)
+    (window-height . 0.3))
+  "`display-buffer' action docking the ghostel panel at the bottom of the frame.")
+
+(defun +ghostel/toggle ()
+  "Toggle a dedicated ghostel terminal panel at the bottom of the frame.
+Hide it if visible; otherwise reveal it, creating the terminal on first use.
+Leaves the other ghostel commands and their windows unaffected."
+  (interactive)
+  (let ((win (and (buffer-live-p +ghostel-panel-buffer)
+                  (get-buffer-window +ghostel-panel-buffer))))
+    (if win
+        (delete-window win)
+      (let ((display-buffer-overriding-action +ghostel-panel-display-action))
+        (if (buffer-live-p +ghostel-panel-buffer)
+            (pop-to-buffer +ghostel-panel-buffer)
+          (let ((ghostel-buffer-name "*ghostel-panel*"))
+            (setq +ghostel-panel-buffer (ghostel))))))))
+
+(map! "C-`" #'+ghostel/toggle)
+;; Also hide from inside the terminal (default semi-char mode forwards most keys)
+(map! :after ghostel :map ghostel-semi-char-mode-map "C-`" #'+ghostel/toggle)
