@@ -85,7 +85,7 @@
 
 ;; Configure fill width
 (setq visual-fill-column-width 110
-      visual-fill-column-center-text t)
+  visual-fill-column-center-text t)
 
 (defun my/org-present-start ()
   ;; Center the presentation and wrap lines
@@ -100,6 +100,8 @@
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+<<<<<<< conflict 1 of 1
++++++++ kwkxzqll 2d5de1e8 "enable :ui tabs" (rebase destination)
 
 (use-package! ghostel
   :bind (("C-x m" . ghostel)
@@ -168,5 +170,10 @@ Leaves the other ghostel commands and their windows unaffected."
             (setq +ghostel-panel-buffer (ghostel))))))))
 
 (map! "C-`" #'+ghostel/toggle)
+
 ;; Also hide from inside the terminal (default semi-char mode forwards most keys)
 (map! :after ghostel :map ghostel-semi-char-mode-map "C-`" #'+ghostel/toggle)
+
+(setq fancy-splash-image "~/.config/doom/doom-emacs-color.png")
+
+(select-frame-set-input-focus (selected-frame))
