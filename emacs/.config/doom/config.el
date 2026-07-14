@@ -174,5 +174,6 @@ Leaves the other ghostel commands and their windows unaffected."
 
 (setq fancy-splash-image (concat doom-private-dir "doom-emacs-color.png"))
 
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (select-frame-set-input-focus (selected-frame))
 (server-start)
