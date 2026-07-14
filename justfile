@@ -44,3 +44,9 @@ fish:
 
 install-mise:
   curl https://mise.run | sh
+
+doom-sync:
+  doom sync --gc --aot
+
+doom-upgrade:
+  doom upgrade --aot
