@@ -100,20 +100,18 @@
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
-<<<<<<< conflict 1 of 1
-+++++++ kwkxzqll 2d5de1e8 "enable :ui tabs" (rebase destination)
 
 (use-package! ghostel
   :bind (("C-x m" . ghostel)
-         :map ghostel-semi-char-mode-map
-         ("C-s" . consult-line)
-         ("M-<backspace>" . ghostel-backward-kill-word)
-         ;; Go up/down shell history with M-n/M-p (as in eshell) by sending C-p/C-n
-         ("M-p" . (lambda () (interactive) (ghostel-send-key "p" "ctrl")))
-         ("M-n" . (lambda () (interactive) (ghostel-send-key "n" "ctrl")))
-         :map project-prefix-map
-         ("m" . ghostel-project)
-         ("M" . ghostel-project-list-buffers))
+          :map ghostel-semi-char-mode-map
+          ("C-s" . consult-line)
+          ("M-<backspace>" . ghostel-backward-kill-word)
+          ;; Go up/down shell history with M-n/M-p (as in eshell) by sending C-p/C-n
+          ("M-p" . (lambda () (interactive) (ghostel-send-key "p" "ctrl")))
+          ("M-n" . (lambda () (interactive) (ghostel-send-key "n" "ctrl")))
+          :map project-prefix-map
+          ("m" . ghostel-project)
+          ("M" . ghostel-project-list-buffers))
   :config
   (defun ghostel-send-C-k-and-kill ()
     "Send `C-k' to ghostel.
@@ -149,9 +147,9 @@ Like normal Emacs `C-k': kill to end of line and put content in kill-ring."
 
 (defvar +ghostel-panel-display-action
   '((display-buffer-in-side-window)
-    (side . bottom)
-    (slot . 0)
-    (window-height . 0.3))
+     (side . bottom)
+     (slot . 0)
+     (window-height . 0.3))
   "`display-buffer' action docking the ghostel panel at the bottom of the frame.")
 
 (defun +ghostel/toggle ()
@@ -160,12 +158,12 @@ Hide it if visible; otherwise reveal it, creating the terminal on first use.
 Leaves the other ghostel commands and their windows unaffected."
   (interactive)
   (let ((win (and (buffer-live-p +ghostel-panel-buffer)
-                  (get-buffer-window +ghostel-panel-buffer))))
+               (get-buffer-window +ghostel-panel-buffer))))
     (if win
-        (delete-window win)
+      (delete-window win)
       (let ((display-buffer-overriding-action +ghostel-panel-display-action))
         (if (buffer-live-p +ghostel-panel-buffer)
-            (pop-to-buffer +ghostel-panel-buffer)
+          (pop-to-buffer +ghostel-panel-buffer)
           (let ((ghostel-buffer-name "*ghostel-panel*"))
             (setq +ghostel-panel-buffer (ghostel))))))))
 
@@ -174,6 +172,7 @@ Leaves the other ghostel commands and their windows unaffected."
 ;; Also hide from inside the terminal (default semi-char mode forwards most keys)
 (map! :after ghostel :map ghostel-semi-char-mode-map "C-`" #'+ghostel/toggle)
 
-(setq fancy-splash-image "~/.config/doom/doom-emacs-color.png")
+(setq fancy-splash-image (concat doom-private-dir "doom-emacs-color.png"))
 
 (select-frame-set-input-focus (selected-frame))
+(server-start)

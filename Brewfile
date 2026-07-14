@@ -160,13 +160,13 @@ end
 end
 
 if OS.mac?
-  tap '1password/tap'; cask '1password-cli', trusted: true
-  tap 'xykong/tap'; cask 'xykong/tap/flux-markdown', trusted: true
+  tap '1password/tap'        ; cask '1password-cli', trusted: true
+  tap 'xykong/tap'           ; cask 'xykong/tap/flux-markdown', trusted: true
+  tap 'd12frosted/emacs-plus'; cask 'emacs-plus-app', trusted: true
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg', trusted: true
 
   %w[
-    emacs-app
     powershell
     linearmouse
   ].each do |formula|
