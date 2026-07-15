@@ -42,6 +42,7 @@ if status is-interactive
         $HOMEBREW_PREFIX/bin \
         $HOMEBREW_PREFIX/sbin \
         $HOME/.nix-profile/bin \
+        /etc/profiles/per-user/$USER/bin \
         /run/current-system/sw/bin
 
     for d in $path_directories[-1..1]
