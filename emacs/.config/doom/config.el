@@ -101,6 +101,11 @@
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'my/org-present-end)
 
+;; Fish is non-POSIX; subprocess helpers (diff-hl, TRAMP, etc.) need a POSIX
+;; shell internally. Interactive terminals below stay on $SHELL (fish).
+(setq shell-file-name (executable-find "bash"))
+(setq-default explicit-shell-file-name (getenv "SHELL"))
+
 (use-package! ghostel
   :bind (("C-x m" . ghostel)
           :map ghostel-semi-char-mode-map
@@ -113,6 +118,9 @@
           ("m" . ghostel-project)
           ("M" . ghostel-project-list-buffers))
   :config
+  ;; Pin to $SHELL (fish) — independent of the POSIX `shell-file-name' above
+  (setq ghostel-shell (getenv "SHELL"))
+
   (defun ghostel-send-C-k-and-kill ()
     "Send `C-k' to ghostel.
 Like normal Emacs `C-k': kill to end of line and put content in kill-ring."
