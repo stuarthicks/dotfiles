@@ -14,8 +14,6 @@ brew 'stuarthicks/tap/tls_cert_info'
 
 tap 'goreleaser/tap' ; cask 'goreleaser/tap/goreleaser', trusted: true
 
-tap 'fastly/tap'     ; brew 'fastly/tap/fastly', trusted: true
-tap 'hashicorp/tap'  ; brew 'hashicorp/tap/terraform', trusted: true
 tap 'jfryy/tap'      ; brew 'jfryy/tap/qq', trusted: true
 tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq', trusted: true
 tap 'wader/tap'      ; brew 'wader/tap/fq', trusted: true
@@ -31,19 +29,13 @@ end
 
 # Homebrew Core
 %w[
-  akamai
-  aliyun-cli
-  ansible-language-server
   asn
   automake
-  awscli
   bash-language-server
   bat
   bat-extras
-  bento4
   cargo-binstall
   cidr
-  circleci
   cmake
   coreutils
   cosign
@@ -53,11 +45,8 @@ end
   d2
   delve
   difftastic
-  docker-credential-helper-ecr
   doggo
   duf
-  eget
-  falco
   fastgron
   fd
   fish
@@ -75,20 +64,16 @@ end
   groff
   headson
   helix
-  herdr
   hk
   imagemagick
   isync
   jaq
   jc
-  jira-cli
   jj
   jjui
   jq
   just
   k9s
-  kube-linter
-  kubectl
   lazygit
   libtool
   libyaml
@@ -101,10 +86,8 @@ end
   mediainfo
   metals
   moreutils
-  mp4ff
   neovim
   nushell
-  opentofu
   pbzip2
   pipx
   prettier
@@ -118,15 +101,9 @@ end
   rust
   rv
   sd
-  shush
-  solargraph
-  sops
   sslscan
   starship
   stow
-  terraform
-  terraform-ls
-  tflint
   tig
   tlrc
   tmux
@@ -134,9 +111,7 @@ end
   tree-sitter
   tree-sitter-cli
   trurl
-  tsduck
   ty
-  typst
   tzdiff
   universal-ctags
   urlview
@@ -174,25 +149,10 @@ if OS.mac?
   end
 
   %w[
-    colima
-    docker
     libiconv
     macos-trash
     mole
   ].each do |formula|
     brew formula
-  end
-end
-
-if File.file?('Brewfile.local.json')
-  extras = JSON.parse(IO.read('Brewfile.local.json'))
-  extras.each do |t, v|
-    tap t
-    (v['casks'] ||= []).each do |c|
-      cask c
-    end
-    (v['brews'] ||= []).each do |b|
-      brew b, trusted: true
-    end
   end
 end
