@@ -129,7 +129,11 @@ if status is-interactive
         end
     end
 
-    starship init fish | source
+    # starship init fish | source
+
+    # set -x WHETUU_NO_MODIFY 1 && curl --proto '=https' --tlsv1.2 -fsSL https://yamafaktory.github.io/whetuu/install.sh | sh
+    fish_add_path "$HOME/.whetuu/bin"
+    whetuu init fish | source
 
     set -U fish_greeting
     functions -c fish_prompt _original_fish_prompt 2>/dev/null
