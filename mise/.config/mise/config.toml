@@ -1,8 +1,8 @@
 [tools]
-"cargo:hexview" = "latest"
+# "cargo:hexview" = "latest"
 # "npm:@webos-tools/cli" = "latest"
-"pipx:aws-encryption-sdk-cli" = "latest"
-"pipx:toolong" = "latest"
+# "pipx:aws-encryption-sdk-cli" = "latest"
+# "pipx:toolong" = "latest"
 
 [settings]
 experimental = true
