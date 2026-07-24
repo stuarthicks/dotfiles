@@ -5,6 +5,11 @@ abbr -a -- la 'lsr --group-directories-first --long --almost-all'
 abbr -a -- ka 'lsr --group-directories-first --long --almost-all'
 abbr -a -- ls lsr
 
+# ZMX Sessions
+abbr -a -- zf 'zmx a (zmx list | rextract -e \'name=([\\w-_]+)\' | fzf)'
+abbr -a -- zm zmx
+abbr -a -- zs zsm
+
 # EDITOR/VISUAL
 abbr -a -- e 'emacsclient --create-frame --alternate-editor="emacs"'
 abbr -a -- ze zed
