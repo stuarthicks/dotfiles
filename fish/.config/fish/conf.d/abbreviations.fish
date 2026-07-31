@@ -44,6 +44,8 @@ abbr -a -- gs 'git status'
 abbr -a -- gsh 'git shove'
 abbr -a -- gst 'git stash --all'
 abbr -a -- gsw 'git switch'
+abbr -a -- ws 'wt switch'
+abbr -a -- wl 'wt list'
 
 # jujutsu vcs
 abbr -a -- j jj
