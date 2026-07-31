@@ -56,6 +56,10 @@
 (package! org-present)
 (package! visual-fill-column)
 
+;; Org outline sidebar — Doom has no module for this (`:ui treemacs'/`neotree'
+;; are project drawers, `:ui minimap' is a code map).
+(package! org-side-tree)
+
 ;; ghostel + its bundled extensions (ghostel-eshell/compile/comint/ime) ship in
 ;; this one MELPA package; evil-ghostel is a separate MELPA package. Configure
 ;; both in config.el, not here.

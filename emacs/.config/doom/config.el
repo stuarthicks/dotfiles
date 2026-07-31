@@ -52,6 +52,50 @@
     '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Tasks")
         "* TODO %?\n  %i\n  %a"))))
 
+;; Org outline sidebar. Docked right, since treemacs owns the left side.
+;; `SPC m O' in any org buffer toggles it. The tree is a live outline: moving
+;; point in it follows in the source buffer, and structure edits (M-arrows, TODO
+;; cycling) are applied to the real buffer.
+(use-package! org-side-tree
+  :defer t
+  :init
+  (map! :after org :map org-mode-map
+    :localleader
+    :desc "Outline sidebar" "O" #'org-side-tree-toggle)
+  :config
+  (setq org-side-tree-display-side 'right
+    org-side-tree-width 35
+    org-side-tree-narrow-on-jump nil
+    ;; Keep the sidebar across `delete-other-windows' (SPC w o)
+    org-side-tree-no-delete-other-windows t)
+
+  ;; The package creates its own side window; keep Doom's popup manager out of it.
+  (set-popup-rule! "^\\(?:<tree>\\|\\*Org-Side-Tree\\*\\)" :ignore t)
+
+  ;; Upstream v0.5 bug: `org-side-tree-overlays-to-text' hands this function ranges
+  ;; that overrun the heading's newline whenever an overlay on that heading does —
+  ;; which hl-line and the `pulse-momentary-highlight-one-line' in
+  ;; `org-side-tree-jump' both do. Result is "Invalid search bound" out of every
+  ;; tree update, or a stray blank line in the tree. Every caller wants one line.
+  (defadvice! +org-side-tree-clamp-to-line-a (fn beg end)
+    :around #'org-side-tree-buffer-substring
+    (let ((end (min end (save-excursion (goto-char beg) (line-end-position)))))
+      (if (> beg end) "" (funcall fn beg end))))
+
+  (map! :map org-side-tree-mode-map
+    :nm "RET"       #'push-button
+    :nm "j"         #'org-side-tree-next-heading
+    :nm "k"         #'org-side-tree-previous-heading
+    :nm "TAB"       #'outline-cycle
+    :nm [backtab]   #'outline-cycle-buffer
+    :nm "t"         #'org-side-tree-next-todo
+    :nm "T"         #'org-side-tree-previous-todo
+    :nm "M-<down>"  #'org-side-tree-move-subtree-down
+    :nm "M-<up>"    #'org-side-tree-move-subtree-up
+    :nm "M-<left>"  #'org-side-tree-promote-subtree
+    :nm "M-<right>" #'org-side-tree-demote-subtree
+    :nm "q"         #'quit-window))
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
 ;; settings. E.g.
