@@ -14,11 +14,7 @@
   },
   "base_keymap": "Emacs",
   "helix_mode": true,
-  "theme": {
-    "mode": "system",
-    "light": "Ayu Light",
-    "dark": "Ayu Dark",
-  },
+  "theme": "Gruvbox Dark Hard",
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
