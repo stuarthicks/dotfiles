@@ -13,7 +13,7 @@
     "metrics": false,
   },
   "base_keymap": "Emacs",
-  "helix_mode": true,
+  "helix_mode": false,
   "theme": "Gruvbox Dark Hard",
   "icon_theme": {
     "mode": "dark",
