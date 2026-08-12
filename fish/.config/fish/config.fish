@@ -28,7 +28,7 @@ if status is-interactive
     set -gx XDG_DATA_DIRS "$HOMEBREW_PREFIX/share:$XDG_DATA_DIRS"
 
     fzf_configure_bindings --directory=\ct
-    set fzf_fd_opts --hidden --max-depth 10
+    set fzf_fd_opts --hidden --no-ignore-vcs --max-depth 10
 
     set path_directories \
         ~/.local/bin \
