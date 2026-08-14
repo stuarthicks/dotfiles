@@ -65,3 +65,4 @@
 ;; both in config.el, not here.
 (package! ghostel)
 (package! evil-ghostel)
+(package! auto-dark)
