@@ -61,6 +61,14 @@
 ;; are project drawers, `:ui minimap' is a code map).
 (package! org-side-tree)
 
+;; Things-3 style GTD for org-mode. Not the MELPA `org-gtd' — a set of plain
+;; elisp files that you load directly, so `:files' must pull all of them in.
+;; No compile step: `map!' is not a macro in straight's build process, so
+;; `bindings-doom.el' compiles into a call to a function that does not exist.
+(package! org-gtd
+  :recipe (:host github :repo "aravindps/org-gtd" :files ("*.el")
+            :build (:not compile native-compile)))
+
 ;; ghostel + its bundled extensions (ghostel-eshell/compile/comint/ime) ship in
 ;; this one MELPA package; evil-ghostel is a separate MELPA package. Configure
 ;; both in config.el, not here.
