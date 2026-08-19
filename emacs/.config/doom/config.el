@@ -151,7 +151,8 @@
 (setq-default explicit-shell-file-name (getenv "SHELL"))
 
 (use-package! pi-coding-agent
-  :commands pi-coding-agent
+  :commands (pi-coding-agent pi-coding-agent-toggle)
+  :bind ("C-§" . pi-coding-agent-toggle)
   :init
   (defalias 'pi 'pi-coding-agent))
 
