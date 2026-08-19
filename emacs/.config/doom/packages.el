@@ -53,6 +53,7 @@
 ;; (unpin! t)
 
 (package! majutsu :recipe (:host github :repo "0WD0/majutsu"))
+(package! pi-coding-agent :recipe (:host github :repo "dnouri/pi-coding-agent"))
 (package! org-present)
 (package! visual-fill-column)
 

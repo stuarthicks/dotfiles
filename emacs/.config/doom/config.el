@@ -150,6 +150,11 @@
 (setq shell-file-name (executable-find "bash"))
 (setq-default explicit-shell-file-name (getenv "SHELL"))
 
+(use-package! pi-coding-agent
+  :commands pi-coding-agent
+  :init
+  (defalias 'pi 'pi-coding-agent))
+
 (use-package! ghostel
   :bind (("C-x m" . ghostel)
           :map ghostel-semi-char-mode-map
