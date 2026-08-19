@@ -46,6 +46,8 @@ abbr -a -- gst 'git stash --all'
 abbr -a -- gsw 'git switch'
 abbr -a -- ws 'wt switch'
 abbr -a -- wl 'wt list'
+abbr -a -- wr 'wt remove'
+abbr -a -- wd 'wt remove --delete-branch'
 
 # jujutsu vcs
 abbr -a -- j jj
