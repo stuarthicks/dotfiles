@@ -10,7 +10,7 @@ onboarding = false
 # Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
 #                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
 #                  vesper
-name = "tokyo-night"
+name = "gruvbox"
 
 # Follow host terminal light/dark appearance and switch Herdr UI themes.
 # Existing manual behavior is unchanged unless this is true.
@@ -26,13 +26,15 @@ name = "tokyo-night"
 # red = "#ff6188"
 # green = "#a6e3a1"
 
+# DISABLED (was for tokyo-night; theme is now gruvbox).
 # tokyo-night panel-separation + legibility tweaks (values from the Ghostty
 # TokyoNight palette). Base surface_dim ~= bg, so borders/active-row were
 # invisible; #414868 makes them show. overlay0 (hint text + sidebar headings)
 # is bumped light so it stays readable on the #414868 active-row background.
-[theme.custom]
-surface_dim = "#414868"   # panel borders + sidebar outline + active-row bg
-overlay0    = "#a9b1d6"   # hint text + sidebar section headings
+auto_switch = false
+# [theme.custom]
+# surface_dim = "#414868"   # panel borders + sidebar outline + active-row bg
+# overlay0    = "#a9b1d6"   # hint text + sidebar section headings
 
 [terminal]
 # Executable used for new interactive panes.
