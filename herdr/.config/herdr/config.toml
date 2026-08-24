@@ -147,15 +147,33 @@ command = "worktrunk.open"
 description = "Worktree: switch / create"
 
 [[keys.command]]
-key = "prefix+shift+d"
+key = "prefix+alt+g"
 type = "plugin_action"
 command = "worktrunk.remove"
 description = "Worktree: remove"
 
 [[keys.command]]
-key = "cmd+t"
+key = "prefix+t"
 type = "plugin_action"
-command = "persiyanov.reviewr.toggle"   # <plugin_id>.<action_id> — note the id, not the name
+command = "herdr-navigator.open"
+description = "jump to anything"
+
+[[keys.command]]
+key = "prefix+shift+p"
+type = "plugin_action"
+command = "ray.plugin-manager.open"
+description = "open plugin manager"
+
+[[keys.command]]
+key = "prefix+p"
+type = "plugin_action"
+command = "jt.command-palette.open"
+description = "Command palette"
+
+# [[keys.command]]
+# key = "cmd+t"
+# type = "plugin_action"
+# command = "persiyanov.reviewr.toggle"   # <plugin_id>.<action_id> — note the id, not the name
 
 [[keys.command]]              # open in a split beside your work
 key = "prefix+f"
@@ -178,6 +196,17 @@ key = "prefix+down"
 type = "plugin_action"
 command = "cloudmanic.herdr-plus.quick-actions"
 description = "herdr-plus: quick actions"
+
+[[keys.command]]
+key = "prefix+y"
+type = "shell"
+command = "herdr plugin action invoke open-keys --plugin herdr-keys"
+
+# Tab version: use a direct chord (not prefix+shift+y — shift often types "Y")
+[[keys.command]]
+key = "ctrl+alt+y"
+type = "shell"
+command = "herdr plugin action invoke open-keys-tab --plugin herdr-keys"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
@@ -225,7 +254,7 @@ description = "herdr-plus: quick actions"
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
-# prompt_new_tab_name = true
+prompt_new_tab_name = false
 
 # Draw borders around split panes.
 # pane_borders = true
@@ -321,3 +350,29 @@ pane_history = false
 # Maximum scrollback buffer size in bytes retained per pane terminal.
 # Matches Ghostty's default scrollback-limit behavior.
 # scrollback_limit_bytes = 10000000
+
+# BEGIN jhochenbaum.hunkdiff — managed by `setup-keys`; edit via the plugin, not by hand
+[[keys.command]]
+key = "prefix+shift+h"
+type = "plugin_action"
+command = "jhochenbaum.hunkdiff.review"
+description = "hunk: review changes"
+
+[[keys.command]]
+key = "prefix+shift+s"
+type = "plugin_action"
+command = "jhochenbaum.hunkdiff.send-review"
+description = "hunk: send review to agent"
+
+[[keys.command]]
+key = "prefix+shift+c"
+type = "plugin_action"
+command = "jhochenbaum.hunkdiff.review:commit"
+description = "hunk: review the last commit"
+
+[[keys.command]]
+key = "prefix+shift+a"
+type = "plugin_action"
+command = "jhochenbaum.hunkdiff.review:staged"
+description = "hunk: review staged changes"
+# END jhochenbaum.hunkdiff
