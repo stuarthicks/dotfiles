@@ -10,7 +10,9 @@ stow:
 brew:
   brew update-if-needed
   brew bundle
-  brew bundle cleanup || true
+
+brew-cleanup:
+  brew bundle cleanup
 
 # Update mise and upgrade all packages
 mise:
