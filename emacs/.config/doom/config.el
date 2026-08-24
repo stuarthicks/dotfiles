@@ -42,37 +42,15 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(defvar my/org-agenda-extra-files
+(setq org-agenda-files
   (list "~/org/agenda.org"
     "~/org/projects.org"
-    "~/org/inbox.org")
-  "Agenda files besides the GTD file. Applied in the org-gtd block below.")
+    "~/org/inbox.org"))
 
 (after! org
   (setq org-capture-templates
     '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Tasks")
         "* TODO %?\n  %i\n  %a"))))
-
-;; Things-3 style GTD in one org file. Plain elisp, loaded directly, and
-;; `my/gtd-file' must be set before the load. The GTD file plus its dashboard
-;; take the start page from the Doom splash, out of `window-setup-hook'.
-(use-package! org-gtd
-  :demand t
-  :init
-  (setq my/gtd-file (expand-file-name "gtd.org" org-directory)
-    my/gtd-open-on-startup t)
-  :config
-  (require 'bindings-cmd)                ; ⌘ keys, GUI
-  (require 'bindings-ccg)                ; C-c g prefix
-  (require 'bindings-doom)               ; SPC leader
-  (require 'doom-overrides)              ; evil/Doom fixes, load last
-
-  ;; org-gtd cuts `org-agenda-files' and `org-todo-keywords' down to the GTD
-  ;; file from its own `with-eval-after-load 'org'. This block registers later,
-  ;; so it runs last and wins.
-  (after! org
-    (setq org-agenda-files (cons my/gtd-file my/org-agenda-extra-files))
-    (add-to-list 'org-todo-keywords '(sequence "TODO" "|" "DONE") t)))
 
 ;; Org outline sidebar. Docked right, since treemacs owns the left side.
 ;; `SPC m O' in any org buffer toggles it. The tree is a live outline: moving
