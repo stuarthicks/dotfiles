@@ -123,7 +123,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client:supports_method('textDocument/completion') then
+    if client.supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
   end,
@@ -196,7 +196,7 @@ conform.setup({
 })
 
 -- https://neovim.io/doc/user/lsp.html
-map('n', 'gd', vim.lsp.buf.definition)
+map('n', 'gd', vim.lsp.buf.hover)
 map('n', 'gD', vim.diagnostic.open_float)
 map('n', '<leader>lf', conform.format)
 
