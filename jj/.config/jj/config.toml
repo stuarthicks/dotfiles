@@ -9,7 +9,7 @@ sign-on-push = true
 
 [signing]
 backend = "ssh"
-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2odgEamTZm8fkbCwsAmsCQFTz8P/l06yJpniahH4wW"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj2nCwgSdu7thSxXWj3wCJsB4YxFNlqCEVwkzjME0Sa"
 
 [signing.backends.ssh]
 allowed-signers = "~/.ssh/allowed_signers"
