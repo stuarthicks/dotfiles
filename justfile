@@ -14,9 +14,8 @@ brew:
 brew-cleanup:
   brew bundle cleanup
 
-# Update mise and upgrade all packages
+# Update all mise packages
 mise:
-  mise self-update
   mise upgrade --bump
 
 # Clean up Homebrew formulae
