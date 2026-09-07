@@ -1,8 +1,6 @@
 # vi: set ft=gitconfig sw=2 ts=2 expandtab #
 [include]
   path = config_common
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [credential "https://github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
