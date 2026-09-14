@@ -30,6 +30,7 @@ name = "tokyo-night"
 # TokyoNight palette). Base surface_dim ~= bg, so borders/active-row were
 # invisible; #414868 makes them show. overlay0 (hint text + sidebar headings)
 # is bumped light so it stays readable on the #414868 active-row background.
+auto_switch = false
 [theme.custom]
 surface_dim = "#414868"   # panel borders + sidebar outline + active-row bg
 overlay0    = "#a9b1d6"   # hint text + sidebar section headings
@@ -84,27 +85,27 @@ new_workspace = "prefix+c"
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
-previous_workspace = "alt+[" # optional, unset by default
-next_workspace = "alt+]"     # optional, unset by default
-previous_agent = "alt+shift+["     # optional, unset by default
-next_agent = "alt+shift+]"         # optional, unset by default
+previous_workspace = "shift+up"
+next_workspace = "shift+down"
+previous_agent = "ctrl+shift+p"
+next_agent = "ctrl+shift+n"
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
  remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
-new_tab = "alt+down"
+new_tab = "ctrl+shift+t"
 # rename_tab = "prefix+shift+t"
 # previous_tab = "prefix+p"
 # next_tab = "prefix+n"
-previous_tab = "alt+left"
-next_tab = "alt+right"
+previous_tab = "shift+left"
+next_tab = "shift+right"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
-focus_pane_up = "alt+shift+up"
-focus_pane_down = "alt+shift+down"
-focus_pane_left = "alt+shift+left"
-focus_pane_right = "alt+shift+right"
+focus_pane_up = "ctrl+shift+up"
+focus_pane_down = "ctrl+shift+down"
+focus_pane_left = "ctrl+shift+left"
+focus_pane_right = "ctrl+shift+right"
 # focus_pane_left = "prefix+h"
 # focus_pane_down = "prefix+j"
 # focus_pane_up = "prefix+k"
@@ -145,7 +146,7 @@ command = "worktrunk.open"
 description = "Worktree: switch / create"
 
 [[keys.command]]
-key = "prefix+alt+g"
+key = "prefix+ctrl+g"
 type = "plugin_action"
 command = "worktrunk.remove"
 description = "Worktree: remove"
@@ -202,7 +203,7 @@ command = "herdr plugin action invoke open-keys --plugin herdr-keys"
 
 # Tab version: use a direct chord (not prefix+shift+y — shift often types "Y")
 [[keys.command]]
-key = "ctrl+alt+y"
+key = "ctrl+shift+y"
 type = "shell"
 command = "herdr plugin action invoke open-keys-tab --plugin herdr-keys"
 
