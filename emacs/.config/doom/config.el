@@ -196,6 +196,10 @@ Like normal Emacs `C-k': kill to end of line and put content in kill-ring."
   :after (ghostel evil)
   :hook (ghostel-mode . evil-ghostel-mode))
 
+;; Terminal latency settings and per-buffer mode trimming, from
+;; https://www.jamescherti.com/emacs-terminal-performance-vterm-eat-ansi-term-ghostel/
+(load! "terminal-performance")
+
 ;; C-` toggles a dedicated ghostel terminal docked at the bottom of the frame.
 ;; Deliberately NO `set-popup-rule!' — the docking is scoped to this one command
 ;; via a let-bound `display-buffer-overriding-action', so `C-x m', `SPC p m' and
@@ -230,161 +234,9 @@ Leaves the other ghostel commands and their windows unaffected."
 ;; Also hide from inside the terminal (default semi-char mode forwards most keys)
 (map! :after ghostel :map ghostel-semi-char-mode-map "C-`" #'+ghostel/toggle)
 
-;; Magnus drives each agent through a vterm buffer. Run those terminals in
-;; ghostel instead: override the one buffer factory, and route the three vterm
-;; send calls to ghostel whenever the current buffer is a ghostel buffer.
-(use-package! magnus
-  :commands (magnus magnus-create-instance magnus-create-codex magnus-doctor)
-  :bind (("C-c m" . magnus)
-         ("C-c M" . magnus-create-instance))
-  :config
-  ;; Magnus binds single letters in its own special-mode maps; evil normal
-  ;; state shadows them. Use Emacs state so the documented keys work.
-  (set-evil-initial-state!
-    '(magnus-status-mode magnus-trace-mode magnus-doctor-mode
-      magnus-review-ui-mode magnus-process-headless-mode)
-    'emacs)
-  ;; Emacs state loses evil's j/k. Restore them; archive moves from k to K.
-  (map! (:map magnus-status-mode-map
-         "j" #'magnus-status-next
-         "k" #'magnus-status-previous
-         "K" #'magnus-status-archive)
-        (:map (magnus-trace-mode-map magnus-doctor-mode-map
-               magnus-review-ui-mode-map magnus-process-headless-mode-map)
-         "j" #'next-line
-         "k" #'previous-line))
-
-  ;; Magnus can archive an agent but never forgets one. Archive it, then drop
-  ;; it from the registry; the registry hook saves state.el. The agent's memory
-  ;; file under .claude/agents/ stays on disk.
-  (defun +magnus/delete-agent ()
-    "Stop the agent at point and remove it from the Magnus registry."
-    (interactive)
-    (let ((instance (magnus-status--get-instance-at-point)))
-      (unless instance
-        (user-error "No agent at point"))
-      (when (yes-or-no-p (format "Delete agent '%s' from Magnus? "
-                                 (magnus-instance-name instance)))
-        (unless (eq (magnus-instance-status instance) 'purged)
-          (magnus-process-archive instance))
-        (magnus-instances-remove instance)
-        (magnus-status-refresh)
-        (message "Deleted '%s'" (magnus-instance-name instance)))))
-  (map! :map magnus-status-mode-map "D" #'+magnus/delete-agent)
-  ;; The dispatcher had D for the doctor. Move the doctor to ! so D matches the
-  ;; status buffer, and list delete next to archive.
-  (after! magnus-transient
-    (transient-replace-suffix 'magnus-dispatch "D"
-      '("!" "Diagnose installation" magnus-doctor))
-    (transient-append-suffix 'magnus-dispatch "k"
-      '("D" "Delete instance" +magnus/delete-agent)))
-
-  (defun +magnus-ghostel--create-buffer (buffer-name &optional environment)
-    "Create a ghostel shell buffer named BUFFER-NAME for a Magnus agent.
-ENVIRONMENT is a list of NAME=VALUE strings added to the shell's environment."
-    (ghostel--load-module t)
-    (let ((buffer (ghostel--create buffer-name)))
-      (condition-case err
-          (with-current-buffer buffer
-            (setq-local ghostel-environment
-                        (append environment ghostel-environment))
-            (setq ghostel-identity '((kind . magnus)))
-            (ghostel--start-process)
-            buffer)
-        (error
-         (when (buffer-live-p buffer) (kill-buffer buffer))
-         (signal (car err) (cdr err))))))
-
-  (defun +magnus-ghostel--send-string (string &optional paste-p)
-    (if paste-p (ghostel-paste-string string) (ghostel-send-string string)))
-
-  (defun +magnus-ghostel--send-return ()
-    (ghostel-send-key "return"))
-
-  (defun +magnus-ghostel--send-key (key &optional shift meta ctrl _accept-proc-output)
-    "Send vterm-style KEY, such as \"<escape>\" or \"C-c\", through ghostel's encoder."
-    (let ((name (string-trim key "<" ">"))
-          (mods (delq nil (list (and shift "shift") (and meta "meta") (and ctrl "ctrl")))))
-      (when (string-match "\\`C-\\(.\\)\\'" name)
-        (setq name (match-string 1 name)
-              mods (cons "ctrl" mods)))
-      (ghostel-send-key name (and mods (string-join mods ",")))))
-
-  ;; vterm.el is installed as a Magnus dependency, but its native module is not
-  ;; built, so a `require' would prompt to compile it. Give the three send
-  ;; functions a definition to hang the advice on; a later real vterm load
-  ;; replaces the stub and keeps the advice.
-  (dolist (vterm-fn '(vterm-send-string vterm-send-return vterm-send-key))
-    (unless (fboundp vterm-fn)
-      (defalias vterm-fn (lambda (&rest _) (user-error "vterm is not loaded")))))
-
-  (defun +magnus-ghostel--dispatch (ghostel-fn orig args)
-    (if (derived-mode-p 'ghostel-mode) (apply ghostel-fn args) (apply orig args)))
-  (define-advice vterm-send-string (:around (orig &rest args) +magnus-ghostel)
-    (+magnus-ghostel--dispatch #'+magnus-ghostel--send-string orig args))
-  (define-advice vterm-send-return (:around (orig &rest args) +magnus-ghostel)
-    (+magnus-ghostel--dispatch #'+magnus-ghostel--send-return orig args))
-  (define-advice vterm-send-key (:around (orig &rest args) +magnus-ghostel)
-    (+magnus-ghostel--dispatch #'+magnus-ghostel--send-key orig args))
-
-  (advice-add #'magnus-terminal-create-buffer :override #'+magnus-ghostel--create-buffer)
-
-  ;; Magnus installs its own process sentinel, which would drop ghostel's:
-  ;; ghostel's sentinel reaps the native child and closes the buffer on exit.
-  (defun +magnus-ghostel--chained-sentinel (process event)
-    (funcall (process-get process '+magnus-ghostel-magnus-sentinel) process event)
-    (when-let* ((ghostel-sentinel (process-get process '+magnus-ghostel-ghostel-sentinel)))
-      (funcall ghostel-sentinel process event)))
-
-  (defun +magnus-ghostel--keep-sentinel (orig instance buffer)
-    (let* ((process (get-buffer-process buffer))
-           (before (and process (process-sentinel process))))
-      (funcall orig instance buffer)
-      (when (and process
-                 (not (memq (process-sentinel process)
-                            (list before #'+magnus-ghostel--chained-sentinel))))
-        (unless (eq before #'+magnus-ghostel--chained-sentinel)
-          (process-put process '+magnus-ghostel-ghostel-sentinel before))
-        (process-put process '+magnus-ghostel-magnus-sentinel (process-sentinel process))
-        (set-process-sentinel process #'+magnus-ghostel--chained-sentinel))))
-  (advice-add #'magnus-process--setup-sentinel :around #'+magnus-ghostel--keep-sentinel)
-  (advice-add #'magnus-codex--setup-tui-sentinel :around #'+magnus-ghostel--keep-sentinel)
-
-  ;; Ghostel draws into the buffer only while a window shows it, and Magnus
-  ;; polls agent buffers that are usually hidden. Read the terminal text from
-  ;; the native grid instead, for prompt detection, health and idle tracking.
-  (defun +magnus-ghostel--text (&optional buffer)
-    "Return the terminal text of ghostel BUFFER from the native grid, else nil."
-    (with-current-buffer (or buffer (current-buffer))
-      (and (derived-mode-p 'ghostel-mode)
-           ghostel--term
-           (ghostel--copy-all-text ghostel--term))))
-
-  (define-advice magnus-attention--tail-text (:around (orig) +magnus-ghostel)
-    (if-let* ((text (+magnus-ghostel--text)))
-        (when-let* ((lines (last (split-string text "\n" t "[ \t]+")
-                                 magnus-attention-scan-lines)))
-          (string-join lines "\n"))
-      (funcall orig)))
-
-  (define-advice magnus-health--compute-hash (:around (orig buffer) +magnus-ghostel)
-    (if-let* ((text (and (buffer-live-p buffer) (+magnus-ghostel--text buffer))))
-        (secure-hash 'md5 (substring text (max 0 (- (length text) magnus-health-hash-chars))))
-      (funcall orig buffer)))
-
-  ;; The idle tracker compares `buffer-modified-tick', which never moves for a
-  ;; hidden ghostel buffer. Stand in a hash of the grid text for the poll.
-  (defalias '+magnus-ghostel--real-buffer-modified-tick (symbol-function 'buffer-modified-tick))
-  (defun +magnus-ghostel--buffer-tick (&optional buffer)
-    (if-let* ((text (+magnus-ghostel--text buffer)))
-        (sxhash-equal text)
-      (+magnus-ghostel--real-buffer-modified-tick buffer)))
-  (define-advice magnus-coord--update-buffer-ticks (:around (orig) +magnus-ghostel)
-    (cl-letf (((symbol-function 'buffer-modified-tick) #'+magnus-ghostel--buffer-tick))
-      (funcall orig))))
-
 (setq fancy-splash-image (concat doom-private-dir "doom-emacs-color.png"))
 
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (select-frame-set-input-focus (selected-frame))
-(server-start)
+;; A bare `server-start' on a config reload asks to drop the connected clients.
+(unless (server-running-p) (server-start))
