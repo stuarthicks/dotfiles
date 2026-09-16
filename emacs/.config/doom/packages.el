@@ -66,7 +66,3 @@
 ;; both in config.el, not here.
 (package! ghostel)
 (package! evil-ghostel)
-
-;; Magit-style control plane for several Claude Code / Codex agents. It declares
-;; vterm as a dependency; config.el routes its terminal calls to ghostel instead.
-(package! magnus)
