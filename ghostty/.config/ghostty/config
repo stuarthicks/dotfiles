@@ -14,7 +14,7 @@ working-directory = home
 window-inherit-working-directory = false
 
 macos-titlebar-style = tabs
-macos-option-as-alt = right
+macos-option-as-alt = left
 
 window-width = 111
 window-height = 27
