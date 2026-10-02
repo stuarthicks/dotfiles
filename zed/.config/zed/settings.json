@@ -7,7 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "disable_ai": true,
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    },
+    "antigravity-acp": {
+      "default_config_options": {
+        "model": "gemini-pro-agent"
+      },
+      "type": "registry"
+    }
+  },
+  "disable_ai": false,
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
