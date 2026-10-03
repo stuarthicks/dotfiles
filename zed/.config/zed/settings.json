@@ -16,7 +16,7 @@
     },
     "antigravity-acp": {
       "default_config_options": {
-        "model": "gemini-pro-agent"
+        "model": "gemini-3.6-flash-low"
       },
       "type": "registry"
     }
