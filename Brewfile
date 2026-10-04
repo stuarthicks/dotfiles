@@ -19,34 +19,57 @@ tap 'neilotoole/sq'  ; brew 'neilotoole/sq/sq', trusted: true
 tap 'wader/tap'      ; brew 'wader/tap/fq', trusted: true
 tap 'vet-run/vet'    ; brew 'vet-run/vet/vet-run', trusted: true
 tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx', trusted: true
-tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship', trusted: true
-tap 'sharkyger/tap'  ; brew 'sharkyger/tap/safe-upgrade', trusted: true
+# tap 'dmmulroy/tap'   ; brew 'dmmulroy/tap/jj-starship', trusted: true
 
 %w[
 ].each do |formula|
   cask formula
 end
 
+# disabled:
+  # asn
+  # automake
+  # bash-language-server
+  # cargo-binstall
+  # cidr
+  # cmake
+  # csvq
+  # d2
+  # delve
+  # glow
+  # groff
+  # hk
+  # imagemagick
+  # isync
+  # k9s
+  # libtool
+  # libyaml
+  # make
+  # markdown-oxide
+  # marksman
+  # metals
+  # python3
+  # ripmime
+  # ruby
+  # ruby-lsp
+  # ruff
+  # rust
+  # ty
+  # vscode-langservers-extracted
+  # walk
+  # yaml-language-server
+  # zig
+
 # Homebrew Core
 %w[
-  asn
-  automake
-  bash-language-server
   bat
   bat-extras
-  cargo-binstall
-  cidr
-  cmake
   coreutils
   cosign
-  csvq
   curl
   curlie
-  d2
-  delve
   difftastic
   doggo
-  duf
   fastgron
   fd
   fish
@@ -57,34 +80,22 @@ end
   git
   git-extras
   git-lfs
-  glow
   go
   golangci-lint-langserver
   gotags
-  groff
   headson
   helix
-  hk
-  imagemagick
-  isync
   jaq
   jc
   jj
   jjui
   jq
   just
-  k9s
   lazygit
-  libtool
-  libyaml
   lsr
   luajit
   magic-wormhole
-  make
-  markdown-oxide
-  marksman
   mediainfo
-  metals
   moreutils
   neovim
   nushell
@@ -92,13 +103,7 @@ end
   pipx
   prettier
   pv
-  python3
   ripgrep
-  ripmime
-  ruby
-  ruby-lsp
-  ruff
-  rust
   rv
   sd
   sslscan
@@ -111,22 +116,17 @@ end
   tree-sitter
   tree-sitter-cli
   trurl
-  ty
   tzdiff
   universal-ctags
   urlview
   usage
   uv
-  vscode-langservers-extracted
-  walk
   worktrunk
   xan
   xq
-  yaml-language-server
   yazi
   yq
   yt-dlp
-  zig
   zoxide
   zsh-syntax-highlighting
   zsh-vi-mode
@@ -136,7 +136,7 @@ end
 
 if OS.mac?
   tap '1password/tap'        ; cask '1password-cli', trusted: true
-  tap 'xykong/tap'           ; cask 'xykong/tap/flux-markdown', trusted: true
+  # tap 'xykong/tap'           ; cask 'xykong/tap/flux-markdown', trusted: true
   tap 'd12frosted/emacs-plus'; cask 'emacs-plus-app', trusted: true
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg', trusted: true
