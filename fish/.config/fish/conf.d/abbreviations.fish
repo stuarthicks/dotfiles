@@ -11,7 +11,7 @@ abbr -a -- zm zmx
 abbr -a -- zs zsm
 
 # EDITOR/VISUAL
-abbr -a -- e 'emacsclient --create-frame --alternate-editor="emacs"'
+abbr -a -- e 'emacsclient -a "" -nw'
 abbr -a -- ze zed
 abbr -a -- h hx
 abbr -a -- hh "hx --health"
