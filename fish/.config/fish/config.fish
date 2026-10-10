@@ -37,6 +37,7 @@ if status is-interactive
         ~/.config/tmux/plugins/tmux-session-wizard/bin \
         ~/.config/emacs/bin \
         ~/Developer/opt/bin \
+        $REX_BIN_DIR \
         $HOMEBREW_PREFIX/opt/curl/bin \
         $HOMEBREW_PREFIX/opt/ruby/bin \
         $HOMEBREW_PREFIX/bin \
