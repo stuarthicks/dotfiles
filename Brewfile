@@ -26,40 +26,6 @@ tap 'neurosnap/tap'  ; brew 'neurosnap/tap/zmx', trusted: true
   cask formula
 end
 
-# disabled:
-  # asn
-  # automake
-  # bash-language-server
-  # cargo-binstall
-  # cidr
-  # cmake
-  # csvq
-  # d2
-  # delve
-  # glow
-  # groff
-  # hk
-  # imagemagick
-  # isync
-  # k9s
-  # libtool
-  # libyaml
-  # make
-  # markdown-oxide
-  # marksman
-  # metals
-  # python3
-  # ripmime
-  # ruby
-  # ruby-lsp
-  # ruff
-  # rust
-  # ty
-  # vscode-langservers-extracted
-  # walk
-  # yaml-language-server
-  # zig
-
 # Homebrew Core
 %w[
   bat
@@ -136,7 +102,6 @@ end
 
 if OS.mac?
   tap '1password/tap'        ; cask '1password-cli', trusted: true
-  # tap 'xykong/tap'           ; cask 'xykong/tap/flux-markdown', trusted: true
   tap 'd12frosted/emacs-plus'; cask 'emacs-plus-app', trusted: true
 
   tap 'homebrew-ffmpeg/ffmpeg'; brew 'homebrew-ffmpeg/ffmpeg/ffmpeg', trusted: true
