@@ -8,10 +8,12 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent_servers": {
-    "codex-acp": {
-      "type": "registry"
-    },
     "claude-acp": {
+      "default_config_options": {
+        "mode": "auto",
+        "fast": false,
+        "model": "default"
+      },
       "type": "registry"
     },
     "antigravity-acp": {
