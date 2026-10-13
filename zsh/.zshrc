@@ -53,7 +53,14 @@ export GPG_TTY=$TTY
 export AWS_CLI_AUTO_PROMPT=on-partial
 export CUCUMBER_PUBLISH_QUIET=true
 export GIT_EXTERNAL_DIFF='difft'
-export GOBIN="$HOME/Developer/bin"
+# fallback dir for user-level installers (go/uv/pipx/cargo/npm); sits after nix on PATH
+export DEV_BIN="$HOME/Developer/bin"
+export GOBIN="$DEV_BIN"
+export UV_TOOL_BIN_DIR="$DEV_BIN"
+export PIPX_BIN_DIR="$DEV_BIN"
+# cargo and npm take a root and append /bin themselves
+export CARGO_INSTALL_ROOT="${DEV_BIN:h}" # cargo install → $CARGO_INSTALL_ROOT/bin
+export NPM_CONFIG_PREFIX="${DEV_BIN:h}" # npm -g → $NPM_CONFIG_PREFIX/bin (+ lib/node_modules)
 export GOPATH="$HOME/Developer"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
@@ -86,7 +93,7 @@ path=(
   "$HOMEBREW_PREFIX/opt/ruby/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  "$GOBIN"
+  "$DEV_BIN"
   '/usr/local/bin'
   '/usr/local/sbin'
   '/usr/bin'
