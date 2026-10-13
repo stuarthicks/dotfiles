@@ -17,10 +17,6 @@ abbr -a -- h hx
 abbr -a -- hh "hx --health"
 abbr -a -- n nvim
 
-# tools
-abbr -a -- m mise
-abbr -a -- r "rv ruby"
-
 # paths
 abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
 abbr -a -- manpaths 'printf "%s\\n" $MANPATH'
@@ -79,6 +75,8 @@ abbr -a -- count_uniq 'sort | uniq -c | sort -nr'
 abbr -a -- gron fastgron
 abbr -a -- fmt_json "prettier --stdin-filepath=o.json"
 abbr -a -- jwtd 'jc --jwt | jq'
+abbr -a -- m mise
+abbr -a -- pp panicparse
 abbr -a -- prune-symlinks 'find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 abbr -a -- tolower 'tr "[:upper:]" "[:lower:]"'
 abbr -a -- toupper 'tr "[:lower:]" "[:upper:]"'

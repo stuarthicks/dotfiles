@@ -1,51 +1,39 @@
 # Run all tasks by default
-default: stow brew mise
+default: stow brew
 
 # Create configuration symlinks
 stow:
-  fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p $HOME/{}
-  fd --type d --max-depth 1 --no-ignore-vcs -X stow {/}
+    fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p $HOME/{}
+    fd --type d --max-depth 1 --no-ignore-vcs -X stow {/}
 
 # Install software using Homebrew
 brew:
-  brew update-if-needed
-  brew bundle
+    brew update-if-needed
+    brew bundle
 
 brew-cleanup:
-  brew bundle cleanup
-
-# Update all mise packages
-mise:
-  mise upgrade --bump
+    brew bundle cleanup
 
 # Clean up Homebrew formulae
 clean:
-  brew bundle cleanup --force --no-go
-
-# Install some useful Go tooling that's not in brew
-go:
-  go install github.com/maruel/panicparse/v2/cmd/pp@latest
-  go install github.com/oligot/go-mod-upgrade@latest
+    brew bundle cleanup --force --no-go
 
 gh:
-  gh extension install andyfeller/gh-ssh-allowed-signers
-  gh extension install dlvhdr/gh-dash
-  gh extension install matt-bartel/gh-clone-org
-  gh extension install redraw/gh-install
-  gh extension install seachicken/gh-poi
-  gh extension upgrade --all
+    gh extension install andyfeller/gh-ssh-allowed-signers
+    gh extension install dlvhdr/gh-dash
+    gh extension install matt-bartel/gh-clone-org
+    gh extension install redraw/gh-install
+    gh extension install seachicken/gh-poi
+    gh extension upgrade --all
 
 fish:
-  fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
-  fish -c "fisher install edc/bass"
-  fish -c "fisher install PatrickF1/fzf.fish"
-  fish -c "fisher install kidonng/zoxide.fish"
-
-install-mise:
-  curl https://mise.run | sh
+    fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+    fish -c "fisher install edc/bass"
+    fish -c "fisher install PatrickF1/fzf.fish"
+    fish -c "fisher install kidonng/zoxide.fish"
 
 doom-sync:
-  doom sync --gc --aot
+    doom sync --gc --aot
 
 doom-upgrade:
-  doom upgrade --aot
+    doom upgrade --aot

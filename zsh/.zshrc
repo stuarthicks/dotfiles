@@ -75,7 +75,9 @@ export XDG_DATA_DIRS="${HOMEBREW_PREFIX}/share:$XDG_DATA_DIRS"
 path=(
   "$HOME/.local/bin"
   "$HOME/Developer/opt/bin"
-  "$HOMEBREW_PREFIX/opt/curl/bin"
+  "$HOME/.nix-profile/bin"
+  "/etc/profiles/per-user/$USER/bin"
+  '/run/current-system/sw/bin'
   "$HOMEBREW_PREFIX/opt/ruby/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"

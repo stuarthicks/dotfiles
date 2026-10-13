@@ -30,7 +30,11 @@
   },
   "base_keymap": "Emacs",
   "helix_mode": true,
-  "theme": "Gruvbox Dark Hard",
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night Moon"
+  },
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",

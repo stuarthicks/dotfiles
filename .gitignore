@@ -19,3 +19,6 @@ zsh/.zsh_sessions/
 zsh/.zcompcache/
 
 zellij/.config/zellij/plugins/
+
+# global ignore has `*.d` (C dependency files), which swallows conf.d directories
+!conf.d/
