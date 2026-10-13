@@ -1,22 +1,10 @@
 # Run all tasks by default
-default: stow brew
+default: stow
 
 # Create configuration symlinks
 stow:
     fd --type d --min-depth 2 --hidden | cut -d / -f2- | sort -u | xargs -I{} mkdir -p $HOME/{}
     fd --type d --max-depth 1 --no-ignore-vcs -X stow {/}
-
-# Install software using Homebrew
-brew:
-    brew update-if-needed
-    brew bundle
-
-brew-cleanup:
-    brew bundle cleanup
-
-# Clean up Homebrew formulae
-clean:
-    brew bundle cleanup --force --no-go
 
 gh:
     gh extension install andyfeller/gh-ssh-allowed-signers
