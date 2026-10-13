@@ -53,7 +53,7 @@ export GPG_TTY=$TTY
 export AWS_CLI_AUTO_PROMPT=on-partial
 export CUCUMBER_PUBLISH_QUIET=true
 export GIT_EXTERNAL_DIFF='difft'
-export GOBIN="$HOME/.local/bin"
+export GOBIN="$HOME/Developer/bin"
 export GOPATH="$HOME/Developer"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
@@ -86,6 +86,7 @@ path=(
   "$HOMEBREW_PREFIX/opt/ruby/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
+  "$GOBIN"
   '/usr/local/bin'
   '/usr/local/sbin'
   '/usr/bin'

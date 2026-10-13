@@ -2,7 +2,7 @@ set -gx EDITOR hx
 set -gx VISUAL $EDITOR
 
 set -gx AWS_CLI_AUTO_PROMPT on-partial
-set -gx GOBIN $HOME/.local/bin
+set -gx GOBIN $HOME/Developer/bin
 set -gx GOPATH $HOME/Developer
 set -gx KUBECTL_EXTERNAL_DIFF kubectl-difft
 set -gx RIPGREP_CONFIG_PATH $HOME/.ripgreprc
@@ -42,7 +42,8 @@ set -l path_directories \
     /etc/profiles/per-user/$USER/bin \
     /run/current-system/sw/bin \
     $HOMEBREW_PREFIX/bin \
-    $HOMEBREW_PREFIX/sbin
+    $HOMEBREW_PREFIX/sbin \
+    $GOBIN
 
 fish_add_path -gmp $path_directories
 
