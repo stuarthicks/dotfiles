@@ -10,12 +10,13 @@ set -gx RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 switch (uname)
     case Darwin
         set -gx HOMEBREW_PREFIX /opt/homebrew
+        set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX
     case Linux
         set -gx HOMEBREW_PREFIX /home/linuxbrew/.linuxbrew
+        set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
 end
 
 set -gx HOMEBREW_CELLAR $HOMEBREW_PREFIX/Cellar
-set -gx HOMEBREW_REPOSITORY $HOMEBREW_PREFIX/Homebrew
 # an empty element (trailing ':') tells man/info to also search their default paths
 set -q MANPATH; or set -gx MANPATH ''
 set -q INFOPATH; or set -gx INFOPATH ''
@@ -40,7 +41,6 @@ set -l path_directories \
     $HOME/.nix-profile/bin \
     /etc/profiles/per-user/$USER/bin \
     /run/current-system/sw/bin \
-    $HOMEBREW_PREFIX/opt/curl/bin \
     $HOMEBREW_PREFIX/bin \
     $HOMEBREW_PREFIX/sbin
 

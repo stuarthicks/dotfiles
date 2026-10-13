@@ -60,12 +60,17 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export KUBECTL_EXTERNAL_DIFF=kubectl-difft
 
 case $(uname) in
-  Darwin) export HOMEBREW_PREFIX="/opt/homebrew" ;;
-   Linux) export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; ;;
+  Darwin)
+    export HOMEBREW_PREFIX="/opt/homebrew"
+    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
+    ;;
+  Linux)
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
+    ;;
 esac
 
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
-export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 
 export MANPATH="$HOME/Developer/opt/share/man${MANPATH+:$MANPATH}:"
 export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:"
