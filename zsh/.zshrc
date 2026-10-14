@@ -126,12 +126,6 @@ for ((i = 1; i <= $#fpath; i++)); do
   test ! -d "$fpath[i]" && fpath[i]=()
 done
 
-source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# Do the initialization when the script is sourced (i.e. Initialize instantly)
-ZVM_INIT_MODE=sourcing
-source "${HOMEBREW_PREFIX}/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-
 autoload -Uz compinit
 
 mkdir -p ~/.zsh/cache
@@ -154,8 +148,6 @@ source <(sq completion zsh)
 
 eval "$(zoxide init zsh)"
 
-alias awsume="source awsume"
-alias as=awsume
 alias prune-symlinks='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 alias vimdiff='difft'
 alias gron='fastgron'
