@@ -31,7 +31,7 @@
   "base_keymap": "Emacs",
   "helix_mode": true,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Tokyo Night Light",
     "dark": "Tokyo Night Moon"
   },
