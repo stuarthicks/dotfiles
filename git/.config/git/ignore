@@ -137,7 +137,10 @@ Makefile
 *.pdb
 
 # Kernel Module Compile Results
-*.mod*
+*.ko
+*.ko.cmd
+*.mod.c
+*.mod.o
 *.cmd
 .tmp_versions/
 modules.order
@@ -1437,3 +1440,5 @@ CLAUDE.local.md
 # Use `jj file track` to commit these files only if asked
 docs/superpowers/
 plans/
+
+result
