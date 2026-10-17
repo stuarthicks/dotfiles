@@ -66,3 +66,5 @@
 ;; both in config.el, not here.
 (package! ghostel)
 (package! evil-ghostel)
+
+(package! tokyonight-themes :recipe (:host github :repo "xuchengpeng/tokyonight-themes"))
