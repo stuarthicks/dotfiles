@@ -257,5 +257,3 @@ Leaves the other ghostel commands and their windows unaffected."
 
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (select-frame-set-input-focus (selected-frame))
-;; A bare `server-start' on a config reload asks to drop the connected clients.
-(unless (server-running-p) (server-start))
