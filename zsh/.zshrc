@@ -53,15 +53,17 @@ export GPG_TTY=$TTY
 export AWS_CLI_AUTO_PROMPT=on-partial
 export CUCUMBER_PUBLISH_QUIET=true
 export GIT_EXTERNAL_DIFF='difft'
-# fallback dir for user-level installers (go/uv/pipx/cargo/npm); sits after nix on PATH
+
 export DEV_BIN="$HOME/Developer/bin"
 export GOBIN="$DEV_BIN"
 export UV_TOOL_BIN_DIR="$DEV_BIN"
 export PIPX_BIN_DIR="$DEV_BIN"
+
 # cargo and npm take a root and append /bin themselves
 export CARGO_INSTALL_ROOT="${DEV_BIN:h}" # cargo install → $CARGO_INSTALL_ROOT/bin
 export NPM_CONFIG_PREFIX="${DEV_BIN:h}" # npm -g → $NPM_CONFIG_PREFIX/bin (+ lib/node_modules)
 export GOPATH="$HOME/Developer"
+
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-difft
@@ -220,11 +222,3 @@ if [ -n "${ZSH_PROFILE:-}" ]; then
 fi
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
-
-# >>> otty shell integration >>>
-# Added by Otty — toggle in Settings > Shell > Shell Integration.
-# Inert unless launched by Otty (it sets $OTTY_SHELL_INTEGRATION).
-if [ -n "$OTTY_SHELL_INTEGRATION" ] && [ -r "$OTTY_SHELL_INTEGRATION/otty-integration.zsh" ]; then
-  . "$OTTY_SHELL_INTEGRATION/otty-integration.zsh"
-fi
-# <<< otty shell integration <<<
