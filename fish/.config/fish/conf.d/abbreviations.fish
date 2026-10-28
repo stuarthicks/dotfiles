@@ -12,10 +12,9 @@ abbr -a -- zs zsm
 
 # EDITOR/VISUAL
 abbr -a -- e 'emacsclient -a "" -nw'
-abbr -a -- ze zed
 abbr -a -- h hx
 abbr -a -- hh "hx --health"
-abbr -a -- n nvim
+abbr -a -- n nova
 
 # paths
 abbr -a -- infopaths 'printf "%s\\n" $INFOPATH'
