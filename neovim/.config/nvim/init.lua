@@ -4,6 +4,8 @@ require('vim._core.ui2').enable()
 
 vim.g.mapleader = " "
 vim.o.clipboard = "unnamedplus"
+vim.o.expandtab = true
+vim.o.foldlevelstart = 99
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 vim.o.ignorecase = true
 vim.o.number = true
@@ -11,7 +13,6 @@ vim.o.shiftwidth = 2
 vim.o.signcolumn = "yes"
 vim.o.smartcase = true
 vim.o.swapfile = false
-vim.o.termguicolors = true
 vim.o.winborder = "rounded"
 vim.o.wrap = false
 
@@ -22,26 +23,11 @@ local map = vim.keymap.set
 map('n', '<leader>w', ':write<cr>')
 map('n', '<leader>q', ':quit<cr>')
 
-map({'n', 'v', 'x'}, ';', ':')
 map("n", "q:", "<nop>")
 map("n", "Q", "@q")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
-map("t", "<ESC>", "<C-\\><C-n>")
-map("n", "<ESC><ESC>", ":set nohlsearch<CR>")
-
-map({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
-map({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
-
-
-local uname = vim.loop.os_uname()
--- local is_macos = uname.sysname == "Darwin"
-local is_linux = uname.sysname == "Linux"
-local is_wsl = is_linux and (os.getenv("WSL_DISTRO_NAME") or os.getenv("WSL_INTEROP"))
-
-if is_wsl then
-  vim.g.netrw_browsex_viewer = "wslview"
-end
+map("n", "<ESC><ESC>", ":nohlsearch<CR>")
 
 vim.pack.add({
   "https://github.com/echasnovski/mini.nvim",
@@ -59,19 +45,9 @@ vim.pack.add({
 require("mason").setup()
 vim.cmd.cnoreabbrev("mason", "Mason")
 
-require('mini.align').setup()
-require('mini.comment').setup()
-require('mini.completion').setup()
-require('mini.extra').setup()
-require('mini.icons').setup()
-require('mini.jump2d').setup()
-require('mini.pairs').setup()
-require('mini.snippets').setup()
-require('mini.splitjoin').setup()
-require('mini.surround').setup()
-
-require('mini.files').setup()
-map('n', '<leader>F', MiniFiles.open)
+for _, mod in ipairs({ 'align', 'comment', 'extra', 'icons', 'jump2d', 'pairs', 'snippets', 'splitjoin', 'surround' }) do
+  require('mini.' .. mod).setup()
+end
 
 require('mini.pick').setup()
 vim.cmd.cnoreabbrev("pick", "Pick")
@@ -82,38 +58,24 @@ map('n', '<leader>g', ":Pick grep_live<CR>")
 map('n', '<leader>h', ":Pick help<CR>")
 
 require('mini.trailspace').setup()
-map('n', '<leader>t', MiniTrailspace.trim)
-map('n', '<leader>tl', MiniTrailspace.trim_last_lines)
+map('n', '<leader>t', function()
+  MiniTrailspace.trim()
+  MiniTrailspace.trim_last_lines()
+end)
 
 require("oil").setup()
 map('n', '<leader>e', ":Oil<CR>")
 
-local ts = require('nvim-treesitter')
-ts.setup({
-  install_dir = vim.fn.stdpath('data') .. '/site'
-})
-
-ts.install({
-  "bash",
-  "c",
-  "go",
-  "gomod",
-  "gosum",
-  "gotmpl",
-  "gowork",
-  "lua",
-  "markdown",
-  "markdown_inline",
-  "query",
-  "ruby",
-  "vim",
-  "vimdoc",
+require('nvim-treesitter').install({
+  "bash", "c", "go", "gomod", "gosum", "gotmpl", "gowork", "lua",
+  "markdown", "markdown_inline", "query", "ruby", "vim", "vimdoc",
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype>' },
   callback = function()
-    vim.treesitter.start()
+    if not pcall(vim.treesitter.start) then
+      return
+    end
     vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.wo[0][0].foldmethod = 'expr'
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- experimental
@@ -123,7 +85,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client.supports_method('textDocument/completion') then
+    if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
   end,
@@ -142,13 +104,10 @@ vim.lsp.config('lua_ls',{
         version = 'LuaJIT',
       },
       diagnostics = {
-        globals = { 'vim', 'require', 'MiniTrailspace', },
+        globals = { 'MiniTrailspace', },
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
       },
     },
   },
@@ -169,35 +128,16 @@ local conform = require("conform")
 
 conform.setup({
   formatters_by_ft = {
-    lua = {
-      "stylua"
-    },
-    python = {
-      "isort",
-      "black"
-    },
-    rust = {
-      "rustfmt",
-      lsp_format = "fallback"
-    },
-    javascript = {
-      "prettierd",
-      "prettier",
-      stop_after_first = true
-    },
-    go = {
-      "goimports",
-      lsp_format = "fallback"
-    },
-    terraform = {
-      "terraform_fmt"
-    },
+    lua = { "stylua" },
+    python = { "isort", "black" },
+    rust = { "rustfmt", lsp_format = "fallback" },
+    javascript = { "prettierd", "prettier", stop_after_first = true },
+    go = { "goimports", lsp_format = "fallback" },
+    terraform = { "terraform_fmt" },
   },
 })
 
--- https://neovim.io/doc/user/lsp.html
-map('n', 'gd', vim.lsp.buf.hover)
-map('n', 'gD', vim.diagnostic.open_float)
+map('n', 'gd', vim.lsp.buf.definition)
 map('n', '<leader>lf', conform.format)
 
 vim.cmd [[
