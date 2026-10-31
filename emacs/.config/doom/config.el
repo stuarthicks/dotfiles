@@ -32,26 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-tokyo-night)
-
-;; Follow macOS light/dark mode (requires an Emacs build with
-;; `ns-system-appearance-change-functions', e.g. emacs-plus).
-(defun +my/apply-system-theme (appearance)
-  "Load a theme matching macOS APPEARANCE (`light' or `dark')."
-  (let ((theme (pcase appearance
-                 ('light 'tokyonight-day)
-                 ('dark 'doom-tokyo-night))))
-    (unless (eq doom-theme theme)
-      (setq doom-theme theme)
-      (mapc #'disable-theme custom-enabled-themes)
-      (load-theme theme t))))
-
-(when (boundp 'ns-system-appearance-change-functions)
-  ;; Pick the right theme at startup, before Doom loads `doom-theme'.
-  (setq doom-theme (if (eq ns-system-appearance 'light)
-                       'tokyonight-day
-                     'doom-tokyo-night))
-  (add-hook 'ns-system-appearance-change-functions #'+my/apply-system-theme))
+(setq doom-theme 'doom-ayu-dark)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
